@@ -1,0 +1,58 @@
+{
+ "version": 1,
+ "_note": "DSE Pass 站：課程編排。每個 topic（＝一份 EPH DSEPass 工作紙 WS）含 lessons；每課＝概念卡 → 長題示範 → MC 每頁 3 題。題目 id 必須存在於 bank.json。",
+ "stages": [
+  {
+   "id": 1,
+   "name": {
+    "zh": "第一階段 · 代數基礎",
+    "en": "Stage 1 · Algebra Basics"
+   },
+   "note": {
+    "zh": "以「及格」為目標：先補最常考、最容易拿分的代數基本功，由因式分解開始。"
+   }
+  }
+ ],
+ "topics": [
+  {
+   "id": "ws01",
+   "stage": 1,
+   "unit": 4,
+   "subtopic": "factorization",
+   "source": "EPH DSE Pass · Worksheet 1",
+   "name": {
+    "zh": "多項式的因式分解",
+    "en": "Factorization of Polynomials"
+   },
+   "intro": {
+    "zh": "這一課學四種方法：抽公因式、併項分組、用恆等式（平方差／完全平方）、十字相乘。DSE 卷一幾乎年年考一題因式分解，而且題目一定設計成「(a) 先分一個簡單的，(b) 再用 (a) 的結果」——所以 (a) 答對，(b) 就等於送分。"
+   },
+   "cmdHints": [
+    { "en": "Factorize completely", "zh": "徹底分解（要分到不能再分為止）" },
+    { "en": "common factor", "zh": "公因式（各項共同擁有的因式，先抽走它）" },
+    { "en": "difference of two squares", "zh": "平方差：$a^{2}-b^{2}=(a+b)(a-b)$" },
+    { "en": "perfect square", "zh": "完全平方：$a^{2}+2ab+b^{2}=(a+b)^{2}$" },
+    { "en": "Hence", "zh": "由此（要用上一部的結果，這是卷一的固定套路）" }
+   ],
+   "lessons": [
+    {
+     "id": "ws01-1",
+     "title": {
+      "zh": "四種方法，由淺入深",
+      "en": "Four methods, easy to hard"
+     },
+     "conceptCards": ["ws01-c1", "ws01-c2", "ws01-c3", "ws01-c4"],
+     "longQuestionIds": ["eph-ws01-ex01", "eph-ws01-ex02"],
+     "mcPages": [
+      ["eph-ws01-w01", "eph-ws01-w02", "eph-ws01-w03"],
+      ["eph-ws01-q01", "eph-ws01-q02", "eph-ws01-q03"],
+      ["eph-ws01-q04", "eph-ws01-q05", "eph-ws01-q06"],
+      ["eph-ws01-q07", "eph-ws01-q08", "eph-ws01-q09"],
+      ["eph-ws01-q10", "eph-ws01-q11", "eph-ws01-q12"]
+     ]
+    }
+   ]
+  }
+ ],
+ "assessments": []
+}

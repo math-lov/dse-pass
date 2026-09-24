@@ -4,9 +4,6 @@
   "private": true,
   "description": "Daily Three — DSE Maths MC practice site + question bank tooling",
   "scripts": {
-    "check": "node tools/site_check.js && node tools/katex_check.js",
-    "test": "node tools/smoke_test.js",
-    "live": "node tools/live_check.js",
     "check:learn": "node tools/learn_katex_check.js",
     "test:learn": "node tools/learn_smoke_test.js"
   },

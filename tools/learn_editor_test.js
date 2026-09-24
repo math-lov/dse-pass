@@ -16,8 +16,8 @@ const { JSDOM } = require("jsdom");
 
 const BASE = process.argv[2] || "http://127.0.0.1:8799";
 const root = path.join(__dirname, "..");
-const KATEX = fs.readFileSync(path.join(root, "learn", "vendor", "katex", "katex.min.js"), "utf8");
-const AUTORENDER = fs.readFileSync(path.join(root, "learn", "vendor", "katex", "auto-render.min.js"), "utf8");
+const KATEX = fs.readFileSync(path.join(root, "vendor", "katex", "katex.min.js"), "utf8");
+const AUTORENDER = fs.readFileSync(path.join(root, "vendor", "katex", "auto-render.min.js"), "utf8");
 
 let fails = 0;
 const ok = (cond, label) => { console.log((cond ? "  PASS  " : "  FAIL  ") + label); if (!cond) fails++; };

@@ -29,7 +29,7 @@ from datetime import datetime, timezone
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(BASE, "data", "learn")
-OUT_ROOT = os.path.join(BASE, "learn")
+OUT_ROOT = BASE          # 網站就在 repo 根目錄（Pages 由 root 提供）→ 直接寫入 data/
 
 # 只在教師端／編輯層出現、不進公開檔的欄位
 TEACHER_ONLY_Q = ("notes", "transcribedBy", "editedBy", "reviewNote")
@@ -138,8 +138,8 @@ def main(argv: list[str] | None = None) -> int:
     except Exception:
         pass
 
-    ap = argparse.ArgumentParser(description="data/learn → learn/data/*.js")
-    ap.add_argument("--out", default=OUT_ROOT, help="輸出根目錄（預設 learn/）")
+    ap = argparse.ArgumentParser(description="data/learn → data/*.js")
+    ap.add_argument("--out", default=OUT_ROOT, help="輸出根目錄（預設 repo 根）")
     ap.add_argument("--include-review", action="store_true",
                     help="連 review 未覆核的題目一併輸出（只限本機預覽，切勿發佈）")
     args = ap.parse_args(argv)

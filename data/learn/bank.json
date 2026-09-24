@@ -1,0 +1,308 @@
+{
+ "questions": [
+  {
+   "id": "eph-ws01-ex01",
+   "type": "long",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-EX1",
+   "source": "WS01 DSE Paper 1 Typed Question · Example 1 · [HKDSE 2021 Paper 1 Q3]",
+   "stem": { "text": "Factorize" },
+   "parts": [
+    { "label": "(a)", "text": "$15x^{2}+xy-2y^{2}$,", "marks": 1 },
+    { "label": "(b)", "text": "$9x-3y-15x^{2}-xy+2y^{2}$.", "marks": 2 }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01-ex02",
+   "type": "long",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1-EX2",
+   "source": "WS01 DSE Paper 1 Typed Question · Example 2 · [HKDSE 2022 Paper 1 Q4]",
+   "stem": { "text": "Factorize" },
+   "parts": [
+    { "label": "(a)", "text": "$16c^{2}-8c+1$,", "marks": 1 },
+    { "label": "(b)", "text": "$(5c+d)^{2}-16c^{2}+8c-1$.", "marks": 3 }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01-w01",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 1,
+   "code": "WS1-W01",
+   "source": "WS01 Basic Skills Q1(a)",
+   "stem": { "text": "Factorize $6m+12n$." },
+   "options": {
+    "A": "$6(m+12n)$",
+    "B": "$6(m+2n)$",
+    "C": "$3(2m+4n)$",
+    "D": "$6m(1+2n)$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-w02",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 1,
+   "code": "WS1-W02",
+   "source": "WS01 Basic Skills Q1(b)",
+   "stem": { "text": "Factorize $-r^{3}-r^{2}s$." },
+   "options": {
+    "A": "$r^{2}(r+s)$",
+    "B": "$-r^{2}(r-s)$",
+    "C": "$-r^{2}(r+s)$",
+    "D": "$-r(r^{2}+rs)$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-w03",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 1,
+   "code": "WS1-W03",
+   "source": "WS01 Basic Skills Q5(a)",
+   "stem": { "text": "Factorize $2m^{2}-32$." },
+   "options": {
+    "A": "$2(m+4)(m-4)$",
+    "B": "$2(m^{2}-16)$",
+    "C": "$2(m-4)^{2}$",
+    "D": "$(2m+8)(m-4)$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-q01",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-Q01",
+   "source": "WS01 Basic Skills Q2(a)",
+   "stem": { "text": "Factorize $b^{2}(a-1)+(a-1)(a+3)$." },
+   "options": {
+    "A": "$(a-1)(b^{2}+a-3)$",
+    "B": "$(a+1)(b^{2}+a+3)$",
+    "C": "$(a-1)(b^{2}-a-3)$",
+    "D": "$(a-1)(b^{2}+a+3)$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-q02",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-Q02",
+   "source": "WS01 Basic Skills Q2(b)",
+   "stem": { "text": "Factorize $(x-2y)^{2}-(2y-x)$." },
+   "options": {
+    "A": "$(x-2y)(x-2y-1)$",
+    "B": "$(x-2y)(x-2y+1)$",
+    "C": "$(x-2y)^{2}(2y-x)$",
+    "D": "$(x+2y)(x-2y+1)$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-q03",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-Q03",
+   "source": "WS01 Basic Skills Q3(a)",
+   "stem": { "text": "Factorize $cd-4d+3c-12$." },
+   "options": {
+    "A": "$(c-4)(d+3)$",
+    "B": "$(c+4)(d-3)$",
+    "C": "$(c-4)(d-3)$",
+    "D": "$(c+3)(d-4)$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-q04",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-Q04",
+   "source": "WS01 Basic Skills Q3(b)",
+   "stem": { "text": "Factorize $2km-kn-14m+7n$." },
+   "options": {
+    "A": "$(2m+n)(k-7)$",
+    "B": "$(2m-n)(k+7)$",
+    "C": "$(2m-n)(k-7)$",
+    "D": "$(m-n)(2k-7)$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-q05",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-Q05",
+   "source": "WS01 Basic Skills Q4(a)",
+   "stem": { "text": "Factorize $h^{2}+ak+ah+hk$." },
+   "options": {
+    "A": "$(a+h)(h-k)$",
+    "B": "$(a+h)(h+k)$",
+    "C": "$(a-h)(h+k)$",
+    "D": "$(a+k)(h+k)$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-q06",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1-Q06",
+   "source": "WS01 Basic Skills Q4(b)",
+   "stem": { "text": "Factorize $2x^{2}-4yz-xz+8xy$." },
+   "options": {
+    "A": "$(2x+z)(x+4y)$",
+    "B": "$(2x-z)(x-4y)$",
+    "C": "$(x-z)(2x+4y)$",
+    "D": "$(2x-z)(x+4y)$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-q07",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1-Q07",
+   "source": "WS01 Basic Skills Q5(b)",
+   "stem": { "text": "Factorize $(5c+d)^{2}-(3c-2)^{2}$." },
+   "options": {
+    "A": "$(8c+d-2)(2c+d+2)$",
+    "B": "$(8c+d+2)(2c+d-2)$",
+    "C": "$(2c+d-2)(8c+d-2)$",
+    "D": "$(8c+d-2)^{2}$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-q08",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-Q08",
+   "source": "WS01 Basic Skills Q6(a)",
+   "stem": { "text": "Factorize $9a^{2}+6a+1$." },
+   "options": {
+    "A": "$(3a-1)^{2}$",
+    "B": "$(9a+1)(a+1)$",
+    "C": "$(3a+1)^{2}$",
+    "D": "$3a(3a+2)+1$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-q09",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-Q09",
+   "source": "WS01 Basic Skills Q6(b)",
+   "stem": { "text": "Factorize $-3a^{2}+12a-12$." },
+   "options": {
+    "A": "$3(a-2)^{2}$",
+    "B": "$-3(a-2)^{2}$",
+    "C": "$-3(a+2)^{2}$",
+    "D": "$-3(a-2)(a+2)$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-q10",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-Q10",
+   "source": "WS01 Basic Skills Q7(a)",
+   "stem": { "text": "Factorize $x^{2}+8xy+16y^{2}$." },
+   "options": {
+    "A": "$(x-4y)^{2}$",
+    "B": "$(x+8y)^{2}$",
+    "C": "$(x+4y)(x-4y)$",
+    "D": "$(x+4y)^{2}$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-q11",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-Q11",
+   "source": "WS01 Basic Skills Q8(a)",
+   "stem": { "text": "Factorize $x^{2}-4x-5$." },
+   "options": {
+    "A": "$(x-5)(x+1)$",
+    "B": "$(x+5)(x-1)$",
+    "C": "$(x-5)(x-1)$",
+    "D": "$(x+5)(x+1)$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-q12",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1-Q12",
+   "source": "WS01 Basic Skills Q8(b)",
+   "stem": { "text": "Factorize $2a^{2}+5a-12$." },
+   "options": {
+    "A": "$(2a+3)(a-4)$",
+    "B": "$(2a-3)(a-4)$",
+    "C": "$(2a-3)(a+4)$",
+    "D": "$(2a+3)(a+4)$"
+   },
+   "review": null
+  }
+ ]
+}

@@ -30,9 +30,8 @@ Thumbs.db
 data/ai/classification_input.json
 data/ai/_test_*
 
-# 自學追上站：EPH docx 抽取出的媒體與轉圖（可由 docx → extract_eph.py → wmf_to_png.py 重建）
-data/learn/raw/media/
-data/learn/raw/digest/
+# EPH docx 抽出的草稿（含媒體與轉圖）：可由 inbox/ 的 docx 重新產生，不必入庫
+data/learn/raw/
 
 # 來源收件匣（唯讀，不進 git；*.docx / *.pdf 已在上方忽略）
 inbox/
