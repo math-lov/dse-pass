@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>弱點升級庫 · 自學追上站</title>
+<meta name="description" content="弱點升級庫：把答錯的題目收集起來，隔天再練一次，答對就移出。">
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="wrong">
+
+<div class="topbar">
+  <div class="inner">
+    <a class="btn btn-sm btn-ghost" href="index.html">← 回到主目錄</a>
+    <div class="spacer"></div>
+    <span class="brand" style="font-size:16px">弱點升級庫<small>把不會的變成會的</small></span>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:14px">
+  <div class="card">
+    <div class="small muted">
+      這裡只放<b>答錯過</b>的選擇題 —— 每一條都是「你差一點就拿到」的分。
+      按「再練一次」會清掉該題的作答記錄，讓你重新做；答對之後它就會自動升級、移出這裡。
+      示範題（長題目）不會進這裡。
+    </div>
+  </div>
+  <div id="wrong-body"></div>
+  <div class="row" style="margin-top:6px">
+    <button id="wrong-clear" class="btn btn-sm btn-ghost">清空升級庫</button>
+  </div>
+</div>
+
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/auto-render.min.js"></script>
+<script>
+  window.__V = new Date().toISOString().slice(0, 13).replace(/[-T:]/g, "");
+  document.write('<script src="data/index.js?v=' + window.__V + '"><\/script>');
+  document.write('<script src="assets/app.js?v=' + window.__V + '"><\/script>');
+</script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>發布管理 · HKDSE Daily Three</title>
+<style>
+  :root{--bg:#0f1220;--card:#181c2f;--card2:#1f2440;--line:#2b3150;--txt:#e8eaf6;--dim:#9aa0c0;
+        --ok:#3ddc97;--bad:#ff6b6b;--warn:#ffc857;--acc:#7c8cff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--txt);
+       font:14.5px/1.6 system-ui,"Segoe UI","Microsoft JhengHei",sans-serif}
+  header{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:16px 22px;
+         border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}
+  h1{font-size:18px;margin:0}
+  h2{font-size:15px;margin:0 0 10px;color:var(--dim)}
+  a{color:var(--acc);text-decoration:none}
+  a:hover{text-decoration:underline}
+  main{padding:18px 22px 70px;max-width:1180px}
+  button{cursor:pointer;font:inherit;padding:6px 12px;border-radius:9px;border:1px solid var(--line);
+         background:var(--card2);color:var(--txt)}
+  button:hover{border-color:var(--acc)}
+  button.primary{background:var(--acc);border-color:var(--acc);color:#0b1020;font-weight:700}
+  button.danger{background:#3a1a1a;border-color:#7a2b2b;color:#ffb3b3}
+  button.danger:hover{border-color:var(--bad)}
+  button.mini{padding:3px 9px;font-size:12.5px}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  select{font:inherit;background:#121629;color:var(--txt);border:1px solid var(--line);
+         border-radius:8px;padding:4px 6px;max-width:280px}
+  .muted{color:var(--dim);font-size:12.5px}
+  .cards{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-bottom:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+  .card .n{font-size:22px;font-weight:700}
+  .card .l{font-size:12px;color:var(--dim)}
+  .toolbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:0 0 16px}
+  .batch{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:10px 0}
+  .batch.withdrawn{border-color:#5c1d1d}
+  .bhead{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .bhead b{font-size:15px}
+  .chip{font-size:12px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card2)}
+  .chip.live{color:var(--ok);border-color:#1d5c46}
+  .chip.away{color:var(--dim)}
+  .chip.revoked{color:var(--bad);border-color:#5c1d1d}
+  .chip.notice{color:var(--warn);border-color:#5c4a1d}
+  .sp{flex:1}
+  .qrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:6px 0 6px 6px;
+        border-top:1px dashed var(--line);margin-top:8px}
+  .qrow:first-of-type{border-top:0}
+  .qrow code{font-family:ui-monospace,Consolas,monospace}
+  .qrow .qcode{min-width:96px}
+  .qrow.revoked{opacity:.65}
+  .hist{margin-top:8px}
+  .hist summary{cursor:pointer;color:var(--dim);font-size:12.5px}
+  .hist ul{margin:6px 0 0;padding-left:18px;color:var(--dim);font-size:12.5px}
+  .logbox{background:#0c1020;border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:16px}
+  pre{white-space:pre-wrap;word-break:break-all;font-size:12.5px;margin:0;max-height:340px;overflow:auto}
+  .alert{display:none;margin:12px 0;padding:10px 13px;border-radius:10px;font-size:13.5px}
+  .alert.show{display:block}
+  .alert.ok{background:#12301f;border:1px solid #1d5c46;color:#a8f0cd}
+  .alert.no{background:#2a1414;border:1px solid #5c1d1d;color:#ffb3b3}
+  .stars{color:var(--warn);font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>發布管理</h1>
+  <a href="/">← 控制面板</a>
+  <a href="/edit">題目／題解工作台</a>
+  <span class="sp"></span>
+  <span class="muted" id="asOf"></span>
+</header>
+
+<main>
+  <div class="alert" id="alert"></div>
+  <div class="cards" id="stats"></div>
+
+  <div class="toolbar">
+    <button id="btnRebuild">只重建（本機預覽）</button>
+    <button class="primary" id="btnPublish">重建並發佈</button>
+    <button class="danger" id="btnEmergency">緊急收回並上線</button>
+    <button id="btnReload">重新整理</button>
+    <span class="muted" id="flash"></span>
+  </div>
+
+  <h2>批次（每一批 = 一天）</h2>
+  <div id="batches"></div>
+
+  <div class="logbox" id="logBox" style="display:none">
+    <h2 style="margin-bottom:8px">執行輸出</h2>
+    <pre id="log"></pre>
+  </div>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) {
+    return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  };
+  var stars = function (n) { return n ? "★".repeat(n) + "☆".repeat(Math.max(0, 3 - n)) : ""; };
+  var view = null, busy = false;
+
+  async function api(path, body) {
+    var opt = body ? { method: "POST", headers: { "Content-Type": "application/json" },
+                       body: JSON.stringify(body) } : {};
+    var r = await fetch(path, opt);
+    var t = await r.text();
+    try { return JSON.parse(t); } catch (e) { return { ok: false, error: "非 JSON 回應：" + t.slice(0, 300) }; }
+  }
+  function flash(msg, kind) {
+    $("flash").textContent = msg || "";
+    var a = $("alert");
+    a.className = "alert show " + (kind || "ok");
+    a.textContent = msg || "";
+  }
+  function clearFlash() { $("alert").className = "alert"; }
+
+  /* ── 讀取 ── */
+  async function load() {
+    var r = await api("/api/releases");
+    if (!r.ok) { flash(r.error || "讀取失敗", "no"); return; }
+    view = r.view;
+    render();
+  }
+
+  /* ── 畫面 ── */
+  function render() {
+    if (!view) return;
+    var st = view.stats;
+    $("asOf").textContent = "基準日 " + view.asOf;
+    $("stats").innerHTML = [
+      ["發放中批次", st.liveBatches],
+      ["已發放題目", st.liveQuestions],
+      ["已收回題目", st.revokedQuestions],
+      ["未發放題目", st.pendingQuestions],
+      ["未提交變更", (view.dirty || []).length]
+    ].map(function (p) {
+      return '<div class="card"><div class="n">' + p[1] + '</div><div class="l">' + p[0] + "</div></div>";
+    }).join("");
+
+    var host = $("batches");
+    host.innerHTML = "";
+    view.batches.forEach(function (b) { host.appendChild(batchNode(b)); });
+    if (!view.batches.length) host.innerHTML = '<div class="muted">還沒有任何批次。</div>';
+  }
+
+  function batchNode(b) {
+    var d = document.createElement("div");
+    d.className = "batch" + (b.status === "withdrawn" ? " withdrawn" : "");
+    var stText = { published: "發放中", withdrawn: "已收回", scheduled: "未發放" }[b.status] || b.status;
+    var stCls = { published: "live", withdrawn: "revoked", scheduled: "away" }[b.status] || "";
+    var liveN = b.questions.filter(function (q) { return q.live; }).length;
+
+    var head = document.createElement("div");
+    head.className = "bhead";
+    head.innerHTML = '<b>批次 ' + b.batch + '</b><span class="chip ' + stCls + '">' + stText + "</span>"
+      + '<span class="muted">' + esc(b.date) + "</span>"
+      + '<span class="chip">' + liveN + " / " + b.questions.length + " 題發放中</span>"
+      + (b.notice ? '<span class="chip notice">公告：' + esc(b.notice.zh || b.notice.en) + "</span>" : "")
+      + '<span class="sp"></span><span class="muted">' + esc(b.title) + "</span>";
+    d.appendChild(head);
+
+    var bar = document.createElement("div");
+    bar.className = "toolbar";
+    bar.style.margin = "8px 0 0";
+    [
+      ["withdraw_batch", "收回整批", function () { return b.status !== "withdrawn"; }],
+      ["restore_batch", "恢復發放", function () { return b.status === "withdrawn"; }],
+      ["reschedule", "改期…", function () { return true; }],
+      ["notice", "更正公告…", function () { return true; }],
+      ["clear_notice", "清除公告", function () { return !!b.notice; }]
+    ].forEach(function (spec) {
+      var btn = document.createElement("button");
+      btn.className = "mini" + (spec[0] === "withdraw_batch" ? " danger" : "");
+      btn.textContent = spec[1];
+      btn.disabled = !spec[2]();
+      btn.onclick = function () { runBatchAction(spec[0], b); };
+      bar.appendChild(btn);
+    });
+    d.appendChild(bar);
+
+    b.questions.forEach(function (q) { d.appendChild(qNode(b, q)); });
+
+    if (b.history && b.history.length) {
+      var det = document.createElement("details");
+      det.className = "hist";
+      det.innerHTML = "<summary>操作記錄（" + b.history.length + "）</summary><ul>"
+        + b.history.map(function (h) {
+            return "<li>" + esc(h.at) + " · " + esc(h.action)
+              + (h.id ? " · " + esc(h.id) : "") + " · " + esc(h.note) + "</li>";
+          }).join("") + "</ul>";
+      d.appendChild(det);
+    }
+    return d;
+  }
+
+  function qNode(b, q) {
+    var row = document.createElement("div");
+    row.className = "qrow" + (q.revoked ? " revoked" : "") + (q.live ? "" : "");
+    var status = q.revoked ? '<span class="chip revoked">已收回</span>'
+      : (q.live ? '<span class="chip live">發放中</span>' : '<span class="chip away">未發放</span>');
+    row.innerHTML = '<code class="qcode">' + esc(q.code) + "</code> " + status
+      + '<span class="stars">' + stars(q.difficulty) + "</span>"
+      + '<span class="muted">' + esc(q.unit) + "</span>"
+      + '<span class="muted">解答 ' + (q.solved ? esc(q.answer || "✓") : "缺") + "</span>";
+
+    var spacer = document.createElement("span");
+    spacer.className = "sp";
+    row.appendChild(spacer);
+
+    if (!q.revoked) {
+      var w = document.createElement("button");
+      w.className = "mini danger";
+      w.textContent = "收回此題";
+      w.onclick = function () {
+        act({ action: "withdraw_question", batch: b.batch, qid: q.id }, "收回 " + q.code);
+      };
+      row.appendChild(w);
+    } else {
+      var r = document.createElement("button");
+      r.className = "mini";
+      r.textContent = "恢復此題";
+      r.onclick = function () {
+        act({ action: "restore_question", batch: b.batch, qid: q.id }, "恢復 " + q.code);
+      };
+      row.appendChild(r);
+    }
+
+    var sel = document.createElement("select");
+    sel.innerHTML = '<option value="">（換題：選庫存題目）</option>'
+      + (view.inventory || []).map(function (x) {
+          return '<option value="' + esc(x.id) + '">' + esc(x.code) + " · " + stars(x.difficulty) + "</option>";
+        }).join("");
+    row.appendChild(sel);
+    var sw = document.createElement("button");
+    sw.className = "mini";
+    sw.textContent = "換題";
+    sw.disabled = !(view.inventory || []).length;
+    sw.onclick = function () {
+      if (!sel.value) { flash("請先從右邊選單挑一個庫存題目", "no"); return; }
+      act({ action: "swap", batch: b.batch, qid: q.id, newQid: sel.value }, "把 " + q.code + " 換成 " + sel.value);
+    };
+    row.appendChild(sw);
+    return row;
+  }
+
+  /* ── 操作 ── */
+  function askNote(label) {
+    var note = prompt("操作：" + label + "\n\n請填寫原因（會寫入操作記錄，日後可回溯）：", "");
+    if (note === null) return null;
+    note = note.trim();
+    if (!note) { flash("原因不能留空 —— 操作已取消", "no"); return null; }
+    return note;
+  }
+
+  async function act(payload, label) {
+    if (busy) { flash("已有動作執行中，請稍候", "no"); return; }
+    var note = askNote(label);
+    if (note === null) return;
+    payload.note = note;
+    busy = true;
+    clearFlash();
+    try {
+      var r = await api("/api/release", payload);
+      if (!r.ok) { flash(r.error || "操作失敗", "no"); return; }
+      if (r.view) { view = r.view; render(); }
+      flash(r.message || "已套用", "ok");
+    } finally { busy = false; }
+  }
+
+  function runBatchAction(name, b) {
+    if (busy) { flash("已有動作執行中，請稍候", "no"); return; }
+    var extra = {};
+    var label = "";
+    if (name === "reschedule") {
+      var date = prompt("批次 " + b.batch + " 改到哪一天？(YYYY-MM-DD)", b.date);
+      if (date === null) return;
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date.trim())) { flash("日期格式應為 YYYY-MM-DD", "no"); return; }
+      extra.date = date.trim();
+      label = "批次 " + b.batch + " 改期 → " + extra.date;
+    } else if (name === "notice") {
+      var zh = prompt("更正公告（中文，會顯示在學生端）：", "");
+      if (zh === null) return;
+      extra.zh = zh.trim();
+      label = "批次 " + b.batch + " 加公告";
+    } else {
+      label = { withdraw_batch: "收回批次 " + b.batch, restore_batch: "恢復批次 " + b.batch,
+                clear_notice: "清除批次 " + b.batch + " 的公告" }[name] || name;
+    }
+    var note = askNote(label);
+    if (note === null) return;
+    busy = true;
+    api("/api/release", Object.assign({ action: name, batch: b.batch, note: note }, extra))
+      .then(function (r) {
+        if (!r.ok) { flash(r.error || "操作失敗", "no"); return; }
+        if (r.view) { view = r.view; render(); }
+        flash(r.message || "已套用", "ok");
+      })
+      .finally(function () { busy = false; });
+  }
+
+  /* ── 套用（重建／發佈／緊急） ── */
+  async function runAction(name, params, confirmMsg) {
+    if (busy) { flash("已有動作執行中，請稍候", "no"); return; }
+    if (confirmMsg && !confirm(confirmMsg)) return;
+    busy = true;
+    clearFlash();
+    $("logBox").style.display = "";
+    $("log").textContent = "執行中…\n";
+    try {
+      var qs = new URLSearchParams(Object.assign({ name: name }, params || {})).toString();
+      var r = await api("/api/action?" + qs, {});
+      var lines = (r.steps || []).map(function (s) {
+        return "$ " + s.cmd + "\n" + (s.out || "").trim();
+      }).join("\n\n");
+      $("log").textContent = lines || "（沒有輸出）";
+      flash(r.ok ? "完成" : "有步驟失敗 —— 請看下方輸出", r.ok ? "ok" : "no");
+      await load();
+    } finally { busy = false; }
+  }
+
+  $("btnRebuild").onclick = function () { runAction("release-rebuild", {}, "只重建本機資料（不會 push）？"); };
+  $("btnPublish").onclick = function () {
+    runAction("release-publish", { msg: "發布管理" },
+      "重建 → 跑檢查（validate／KATEX／smoke）→ commit → push 上線？");
+  };
+  $("btnEmergency").onclick = function () {
+    var n = prompt("緊急收回：會「跳過完整檢查」直接重建並 push（先讓學生看不到，再慢慢修）。\n請填寫原因：", "");
+    if (n === null) return;
+    if (!n.trim()) { flash("原因不能留空", "no"); return; }
+    runAction("release-emergency", { msg: n.trim() }, "確定要緊急上線嗎？");
+  };
+  $("btnReload").onclick = function () { load(); };
+
+  load();
+  setInterval(function () { if (!busy) load(); }, 20000);
+})();
+</script>
+</body>
+</html>

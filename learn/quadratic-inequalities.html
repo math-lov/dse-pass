@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quadratic Inequalities Explorer（二次不等式探索器）</title>
+  <!-- 全部資源自托管：校網／離線都要能用，不可以引入 CDN（見 learn/README.md §8） -->
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
+  <!-- Tailwind CSS（自托管） -->
+  <script src="vendor/tailwind/tailwind.min.js"></script>
+  <!-- FontAwesome Icons（自托管，字體在 vendor/fontawesome/webfonts/） -->
+  <link rel="stylesheet" href="vendor/fontawesome/all.min.css">
+  <!-- 數學渲染：自托管 KaTeX（與自學站其餘頁面同一套） -->
+  <script defer src="vendor/katex/katex.min.js"></script>
+  <script defer src="vendor/katex/auto-render.min.js"></script>
+  
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+    .glass-card {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .tab-btn.active {
+      background-color: #3b82f6;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    input[type=range] {
+      accent-color: #3b82f6;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans flex flex-col selection:bg-blue-500 selection:text-white">
+
+  <!-- Header Navbar -->
+  <header class="border-b border-slate-800 bg-slate-900/80 sticky top-0 z-50 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="index.html" title="回到自學追上站主目錄"
+           class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-800/70 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 transition shrink-0">
+          <i class="fa-solid fa-arrow-left text-[10px]"></i><span class="hidden sm:inline">回到主目錄</span>
+        </a>
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-blue-500/20">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
+            QuadSolve
+          </h1>
+          <p class="text-xs text-slate-400">Quadratic Inequalities Visualizer & Solver</p>
+        </div>
+      </div>
+
+      <!-- Main Navigation Tabs -->
+      <div class="flex items-center bg-slate-950/80 p-1 rounded-xl border border-slate-800">
+        <button id="navExplorerBtn" onclick="switchTab('explorer')" class="tab-btn active px-4 py-1.5 text-sm font-medium rounded-lg transition-all flex items-center gap-2">
+          <i class="fa-solid fa-sliders"></i> Visual Explorer
+        </button>
+        <button id="navPracticeBtn" onclick="switchTab('practice')" class="tab-btn px-4 py-1.5 text-sm font-medium rounded-lg text-slate-400 hover:text-slate-200 transition-all flex items-center gap-2">
+          <i class="fa-solid fa-graduation-cap"></i> Practice & Quiz
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 md:p-6 space-y-6">
+
+    <!-- ======================================================== -->
+    <!-- SECTION 1: VISUAL EXPLORER & SOLVER MODE                 -->
+    <!-- ======================================================== -->
+    <div id="explorerSection" class="space-y-6">
+      
+      <!-- Top Grid Layout: Controls & Interactive Canvas -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Left Panel: Solution Summary & Controls (5 cols) -->
+        <div class="lg:col-span-5 space-y-5">
+          
+          <!-- Prominent Solution Summary Card (RELOCATED TO THE TOP) -->
+          <div class="glass-card rounded-2xl p-5 shadow-2xl border-l-4 border-l-emerald-500 bg-gradient-to-br from-slate-900/90 via-slate-900/70 to-emerald-950/20 space-y-3 relative overflow-hidden">
+            <div class="flex items-center justify-between border-b border-slate-800/80 pb-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+                <i class="fa-solid fa-square-check text-emerald-400"></i> Inequality Solution
+              </span>
+              <span id="solutionTypeBadge" class="px-2.5 py-0.5 rounded-full text-[11px] bg-emerald-500/20 text-emerald-300 font-medium border border-emerald-500/30">
+                2 Intervals
+              </span>
+            </div>
+
+            <!-- Target Inequality & Solution Display -->
+            <div class="space-y-2 pt-1">
+              <div>
+                <span class="text-[11px] text-slate-400 uppercase tracking-wide block">Current Inequality:</span>
+                <div id="mathExpressionDisplay" class="text-lg font-mono text-blue-300 min-h-[32px] flex items-center">
+                  $$x^2 - 5x + 6 > 0$$
+                </div>
+              </div>
+
+              <div class="bg-slate-950/90 rounded-xl p-3.5 border border-emerald-500/30 shadow-inner">
+                <span class="text-xs text-emerald-400/90 font-medium block mb-1">Resulting Solution:</span>
+                <div id="summaryInequality" class="text-xl md:text-2xl text-emerald-300 font-mono font-bold flex items-center min-h-[36px]">
+                  $x < 2 \text{ or } x > 3$
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Controls & Parameters Card -->
+          <div class="glass-card rounded-2xl p-5 shadow-xl space-y-5">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h2 class="font-semibold text-base flex items-center gap-2 text-blue-400">
+                <i class="fa-solid fa-sliders text-sm"></i> Coefficients & Operator
+              </h2>
+              <button onclick="resetParameters()" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-2.5 py-1 rounded-md border border-slate-700 transition flex items-center gap-1">
+                <i class="fa-solid fa-rotate-left text-[10px]"></i> Reset
+              </button>
+            </div>
+
+            <!-- Warning Banner for a = 0 -->
+            <div id="zeroAWarning" class="hidden bg-amber-500/10 border border-amber-500/30 rounded-xl p-3 text-amber-300 text-xs flex items-start gap-2">
+              <i class="fa-solid fa-triangle-exclamation text-amber-400 text-base mt-0.5"></i>
+              <div>
+                <strong>Notice:</strong> Quadratic inequalities require $a \neq 0$. When $a = 0$, the inequality becomes linear.
+              </div>
+            </div>
+
+            <!-- Slider Controls -->
+            <!-- Coefficient a -->
+            <div class="space-y-1.5">
+              <div class="flex justify-between items-center text-sm">
+                <label for="sliderA" class="font-medium text-slate-300">Coefficient $a$</label>
+                <input type="number" id="numA" value="1" step="0.5" class="w-16 bg-slate-900 border border-slate-700 rounded text-center text-sm px-1 text-blue-400 font-mono focus:border-blue-500 outline-none">
+              </div>
+              <input type="range" id="sliderA" min="-10" max="10" step="0.5" value="1" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+              <div class="flex justify-between text-[10px] text-slate-500 font-mono">
+                <span>-10 (Opens Down)</span>
+                <span>0</span>
+                <span>+10 (Opens Up)</span>
+              </div>
+            </div>
+
+            <!-- Coefficient b -->
+            <div class="space-y-1.5">
+              <div class="flex justify-between items-center text-sm">
+                <label for="sliderB" class="font-medium text-slate-300">Coefficient $b$</label>
+                <input type="number" id="numB" value="-5" step="0.5" class="w-16 bg-slate-900 border border-slate-700 rounded text-center text-sm px-1 text-blue-400 font-mono focus:border-blue-500 outline-none">
+              </div>
+              <input type="range" id="sliderB" min="-20" max="20" step="0.5" value="-5" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+            </div>
+
+            <!-- Coefficient c -->
+            <div class="space-y-1.5">
+              <div class="flex justify-between items-center text-sm">
+                <label for="sliderC" class="font-medium text-slate-300">Coefficient $c$</label>
+                <input type="number" id="numC" value="6" step="0.5" class="w-16 bg-slate-900 border border-slate-700 rounded text-center text-sm px-1 text-blue-400 font-mono focus:border-blue-500 outline-none">
+              </div>
+              <input type="range" id="sliderC" min="-20" max="20" step="0.5" value="6" class="w-full h-2 bg-slate-800 rounded-lg cursor-pointer">
+            </div>
+
+            <!-- Inequality Operator Selector -->
+            <div class="space-y-2">
+              <label class="text-sm font-medium text-slate-300">Inequality Operator</label>
+              <div class="grid grid-cols-4 gap-2">
+                <button onclick="setOperator('gt')" id="opBtn_gt" class="op-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 py-2 rounded-xl font-bold text-lg text-slate-200 transition">
+                  &gt;
+                </button>
+                <button onclick="setOperator('gte')" id="opBtn_gte" class="op-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 py-2 rounded-xl font-bold text-lg text-slate-200 transition">
+                  &ge;
+                </button>
+                <button onclick="setOperator('lt')" id="opBtn_lt" class="op-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 py-2 rounded-xl font-bold text-lg text-slate-200 transition">
+                  &lt;
+                </button>
+                <button onclick="setOperator('lte')" id="opBtn_lte" class="op-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 py-2 rounded-xl font-bold text-lg text-slate-200 transition">
+                  &le;
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Right Panel: Dynamic Interactive Canvas Graph (7 cols) -->
+        <div class="lg:col-span-7 flex flex-col space-y-4">
+          <div class="glass-card rounded-2xl p-4 shadow-xl flex-1 flex flex-col min-h-[440px] relative overflow-hidden">
+            
+            <!-- Canvas Header Toolbar -->
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3 pb-2 border-b border-slate-800">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
+                <span class="text-sm font-semibold text-slate-200">Interactive Graph Visualizer</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button onclick="zoomGraph(1.2)" class="px-2.5 py-1 text-xs bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-slate-200" title="Zoom In">
+                  <i class="fa-solid fa-magnifying-glass-plus"></i>
+                </button>
+                <button onclick="zoomGraph(0.8)" class="px-2.5 py-1 text-xs bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-slate-200" title="Zoom Out">
+                  <i class="fa-solid fa-magnifying-glass-minus"></i>
+                </button>
+                <button onclick="autoFitGraph()" class="px-2.5 py-1 text-xs bg-slate-800 hover:bg-slate-700 rounded border border-slate-700 text-slate-200" title="Auto Fit Center">
+                  <i class="fa-solid fa-expand"></i> Auto Fit
+                </button>
+              </div>
+            </div>
+
+            <!-- HTML5 Canvas Container -->
+            <div class="relative flex-1 w-full h-[380px] md:h-[420px] bg-slate-950 rounded-xl border border-slate-800/80 overflow-hidden cursor-crosshair">
+              <canvas id="graphCanvas" class="w-full h-full block"></canvas>
+              
+              <!-- Hover Inspector HUD Overlay -->
+              <div id="hoverHUD" class="absolute top-3 right-3 bg-slate-900/90 border border-slate-700/80 rounded-lg p-2.5 text-xs font-mono space-y-1 shadow-lg pointer-events-none hidden backdrop-blur">
+                <div class="text-slate-400">Point Inspection</div>
+                <div>$x = $ <span id="hudX" class="text-blue-400 font-bold">0.00</span></div>
+                <div>$f(x) = $ <span id="hudY" class="text-purple-400 font-bold">0.00</span></div>
+                <div class="pt-1 border-t border-slate-800 flex items-center gap-1.5">
+                  <span id="hudBadge" class="px-1.5 py-0.5 rounded text-[10px] font-bold"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Legend Bar -->
+            <div class="mt-3 flex flex-wrap items-center justify-around gap-3 text-xs text-slate-300 bg-slate-950/60 p-2 rounded-xl border border-slate-800">
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-1 bg-blue-400 rounded"></span> Parabola $y=f(x)$
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 bg-emerald-500/40 border border-emerald-500 rounded-sm"></span> Shaded Region
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-4 h-1.5 bg-emerald-400 rounded-full"></span> $X$-Axis Solution
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-purple-400 inline-block"></span> Vertex
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full border-2 border-emerald-400 bg-slate-950 inline-block"></span> Root Boundaries
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SECTION: Step-by-Step Educational Explanation -->
+      <div class="glass-card rounded-2xl p-6 shadow-xl space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+          <div>
+            <h2 class="text-xl font-bold text-slate-100 flex items-center gap-2">
+              <i class="fa-solid fa-book-open text-blue-400"></i> Step-by-Step Solution Breakdown
+            </h2>
+            <p class="text-xs text-slate-400">Mathematical derivation using Discriminant and Sign-Table Testing</p>
+          </div>
+          <span class="text-xs font-mono bg-blue-500/10 text-blue-300 border border-blue-500/30 px-3 py-1 rounded-full">
+            Interval Sign Method
+          </span>
+        </div>
+
+        <!-- 5-Step Breakdown Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          
+          <!-- Step 1 Card -->
+          <div class="bg-slate-900/80 rounded-xl p-4 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 text-blue-400 font-bold text-sm border-b border-slate-800 pb-2">
+              <span class="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center text-xs">1</span>
+              Coefficients & Form
+            </div>
+            <div id="step1Content" class="text-xs space-y-1 text-slate-300"></div>
+          </div>
+
+          <!-- Step 2 Card -->
+          <div class="bg-slate-900/80 rounded-xl p-4 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 text-indigo-400 font-bold text-sm border-b border-slate-800 pb-2">
+              <span class="w-6 h-6 rounded-full bg-indigo-500/20 flex items-center justify-center text-xs">2</span>
+              Discriminant ($\Delta$)
+            </div>
+            <div id="step2Content" class="text-xs space-y-1 text-slate-300"></div>
+          </div>
+
+          <!-- Step 3 Card -->
+          <div class="bg-slate-900/80 rounded-xl p-4 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 text-purple-400 font-bold text-sm border-b border-slate-800 pb-2">
+              <span class="w-6 h-6 rounded-full bg-purple-500/20 flex items-center justify-center text-xs">3</span>
+              Critical Roots
+            </div>
+            <div id="step3Content" class="text-xs space-y-1 text-slate-300"></div>
+          </div>
+
+          <!-- Step 4 Card -->
+          <div class="bg-slate-900/80 rounded-xl p-4 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 text-amber-400 font-bold text-sm border-b border-slate-800 pb-2">
+              <span class="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center text-xs">4</span>
+              Interval Testing
+            </div>
+            <div id="step4Content" class="text-xs space-y-1 text-slate-300 overflow-x-auto"></div>
+          </div>
+
+          <!-- Step 5 Card -->
+          <div class="bg-slate-900/80 rounded-xl p-4 border border-slate-800 space-y-2">
+            <div class="flex items-center gap-2 text-emerald-400 font-bold text-sm border-b border-slate-800 pb-2">
+              <span class="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-xs">5</span>
+              Final Solution
+            </div>
+            <div id="step5Content" class="text-xs space-y-1 text-slate-300"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- SECTION 2: PRACTICE & QUIZ MODE                          -->
+    <!-- ======================================================== -->
+    <div id="practiceSection" class="hidden space-y-6">
+      
+      <!-- Quiz Header Card -->
+      <div class="glass-card rounded-2xl p-6 shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent flex items-center gap-2">
+            <i class="fa-solid fa-graduation-cap"></i> Practice & Self-Quiz Mode
+          </h2>
+          <p class="text-slate-400 text-sm mt-1">
+            Test your understanding by solving randomly generated quadratic inequalities!
+          </p>
+        </div>
+
+        <!-- Scoreboard -->
+        <div class="flex items-center gap-4 bg-slate-950 p-3 rounded-xl border border-slate-800">
+          <div class="text-center px-3 border-r border-slate-800">
+            <span class="text-[10px] text-slate-500 block uppercase">Solved</span>
+            <span id="quizTotalCount" class="text-lg font-bold text-slate-200">0</span>
+          </div>
+          <div class="text-center px-3 border-r border-slate-800">
+            <span class="text-[10px] text-slate-500 block uppercase">Streak</span>
+            <span id="quizStreakCount" class="text-lg font-bold text-emerald-400">0 🔥</span>
+          </div>
+          <div class="text-center px-3">
+            <span class="text-[10px] text-slate-500 block uppercase">Accuracy</span>
+            <span id="quizAccuracy" class="text-lg font-bold text-blue-400">100%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Quiz Work Area -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Left: Question & Input Form (7 cols) -->
+        <div class="lg:col-span-7 glass-card rounded-2xl p-6 shadow-xl space-y-6">
+          
+          <div class="flex items-center justify-between">
+            <span id="quizDifficultyBadge" class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30">
+              Medium Level
+            </span>
+            <div class="flex gap-2">
+              <button onclick="generateQuiz('easy')" class="text-xs bg-slate-800 hover:bg-slate-700 px-3 py-1 rounded-lg border border-slate-700">Easy</button>
+              <button onclick="generateQuiz('medium')" class="text-xs bg-slate-800 hover:bg-slate-700 px-3 py-1 rounded-lg border border-slate-700">Medium</button>
+              <button onclick="generateQuiz('hard')" class="text-xs bg-slate-800 hover:bg-slate-700 px-3 py-1 rounded-lg border border-slate-700">Hard Special</button>
+            </div>
+          </div>
+
+          <!-- Problem Display Box -->
+          <div class="bg-slate-950 rounded-xl p-6 border border-slate-800 text-center space-y-2">
+            <span class="text-xs text-slate-400 block uppercase tracking-wider">Solve the inequality for $x$:</span>
+            <div id="quizQuestionMath" class="text-2xl md:text-3xl font-mono text-blue-300">
+              $$x^2 - 3x - 4 \ge 0$$
+            </div>
+          </div>
+
+          <!-- Answer Selection Controls -->
+          <div class="space-y-4">
+            <label class="text-sm font-semibold text-slate-200 block">Select the Solution Structure:</label>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+              <label class="quiz-option border border-slate-800 bg-slate-900/80 p-3 rounded-xl cursor-pointer hover:border-blue-500 transition flex items-center gap-3">
+                <input type="radio" name="quizPattern" value="union_open" checked class="accent-blue-500">
+                <span>$x < x_1 \text{ or } x > x_2$ <br><span class="text-slate-500">Two outer strict intervals</span></span>
+              </label>
+
+              <label class="quiz-option border border-slate-800 bg-slate-900/80 p-3 rounded-xl cursor-pointer hover:border-blue-500 transition flex items-center gap-3">
+                <input type="radio" name="quizPattern" value="union_closed" class="accent-blue-500">
+                <span>$x \le x_1 \text{ or } x \ge x_2$ <br><span class="text-slate-500">Two outer closed intervals</span></span>
+              </label>
+
+              <label class="quiz-option border border-slate-800 bg-slate-900/80 p-3 rounded-xl cursor-pointer hover:border-blue-500 transition flex items-center gap-3">
+                <input type="radio" name="quizPattern" value="single_open" class="accent-blue-500">
+                <span>$x_1 < x < x_2$ <br><span class="text-slate-500">Single bounded strict interval</span></span>
+              </label>
+
+              <label class="quiz-option border border-slate-800 bg-slate-900/80 p-3 rounded-xl cursor-pointer hover:border-blue-500 transition flex items-center gap-3">
+                <input type="radio" name="quizPattern" value="single_closed" class="accent-blue-500">
+                <span>$x_1 \le x \le x_2$ <br><span class="text-slate-500">Single bounded closed interval</span></span>
+              </label>
+
+              <label class="quiz-option border border-slate-800 bg-slate-900/80 p-3 rounded-xl cursor-pointer hover:border-blue-500 transition flex items-center gap-3">
+                <input type="radio" name="quizPattern" value="all_real" class="accent-blue-500">
+                <span>All Real Numbers ($\mathbb{R}$)</span>
+              </label>
+
+              <label class="quiz-option border border-slate-800 bg-slate-900/80 p-3 rounded-xl cursor-pointer hover:border-blue-500 transition flex items-center gap-3">
+                <input type="radio" name="quizPattern" value="empty" class="accent-blue-500">
+                <span>No Solution ($\emptyset$)</span>
+              </label>
+            </div>
+
+            <!-- Root Input Fields -->
+            <div id="quizRootsInputContainer" class="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-3">
+              <span class="text-xs text-slate-400 block">Enter boundary values ($x_1 < x_2$): <span class="text-slate-500 italic">(if necessary, correct your answer to 3 sig. figs.)</span></span>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="text-xs text-slate-400">Root $x_1$ (smaller):</label>
+                  <input type="number" id="quizValX1" step="any" placeholder="e.g. -1" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm text-blue-300 font-mono mt-1 focus:border-blue-500 outline-none">
+                </div>
+                <div>
+                  <label class="text-xs text-slate-400">Root $x_2$ (larger):</label>
+                  <input type="number" id="quizValX2" step="any" placeholder="e.g. 4" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 text-sm text-blue-300 font-mono mt-1 focus:border-blue-500 outline-none">
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="flex gap-3 pt-2">
+              <button onclick="checkQuizAnswer()" class="flex-1 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold py-3 rounded-xl shadow-lg shadow-blue-600/20 transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-check-circle"></i> Check Answer
+              </button>
+              <button onclick="generateQuiz()" class="bg-slate-800 hover:bg-slate-700 border border-slate-700 px-4 py-3 rounded-xl text-slate-300 transition" title="Skip to next question">
+                <i class="fa-solid fa-forward"></i>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Right: Feedback & Solution Explanation Box (5 cols) -->
+        <div class="lg:col-span-5 space-y-5">
+          <div id="quizFeedbackBox" class="glass-card rounded-2xl p-6 shadow-xl space-y-4">
+            <div class="flex items-center gap-3">
+              <div id="feedbackIcon" class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400">
+                <i class="fa-solid fa-lightbulb"></i>
+              </div>
+              <div>
+                <h3 id="feedbackTitle" class="font-bold text-base text-slate-200">Awaiting your answer...</h3>
+                <p id="feedbackSubtitle" class="text-xs text-slate-400">Select an interval pattern and enter root values above.</p>
+              </div>
+            </div>
+
+            <div id="quizSolutionDetails" class="hidden text-xs space-y-3 pt-3 border-t border-slate-800 text-slate-300">
+              <div class="bg-slate-950 p-3.5 rounded-lg border border-slate-800">
+                <span class="text-slate-400 block mb-1">Correct Solution:</span>
+                <div id="quizCorrectInequality" class="text-emerald-400 font-mono font-bold text-sm"></div>
+              </div>
+              <div id="quizExplanationSteps" class="space-y-1 text-slate-300"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- JavaScript Code Section -->
+  <script>
+    /* ====================================================================
+       STATE MANAGEMENT & GLOBALS
+       ==================================================================== */
+    let state = {
+      a: 1,
+      b: -5,
+      c: 6,
+      op: 'gt', // 'gt', 'gte', 'lt', 'lte'
+      activeTab: 'explorer',
+      canvas: {
+        centerX: 0,
+        centerY: 0,
+        scaleX: 35,
+        scaleY: 35,
+        isHovered: false,
+        hoverMathX: 0
+      }
+    };
+
+    let quizState = {
+      a: 1,
+      b: -3,
+      c: -4,
+      op: 'gte',
+      correctSolution: null,
+      solvedCount: 0,
+      streakCount: 0,
+      correctCount: 0
+    };
+
+    let canvas, ctx;
+
+    /* ====================================================================
+       MATH RENDERING（自托管 KaTeX）
+       原本用 MathJax CDN；自學站一律自托管 KaTeX（校網／離線要能用），
+       所以改成 renderMathInElement。每次更新 innerHTML 之後叫一次即可；
+       四種定界符都支援（$$…$$、\[…\]、\(…\)、$…$）。
+       ==================================================================== */
+    const MATH_DELIMS = [
+      { left: '$$', right: '$$', display: true },
+      { left: '\\[', right: '\\]', display: true },
+      { left: '\\(', right: '\\)', display: false },
+      { left: '$', right: '$', display: false }
+    ];
+
+    function renderMath(nodes) {
+      if (!window.renderMathInElement) return;
+      (nodes || []).forEach((n) => {
+        if (!n) return;
+        try {
+          renderMathInElement(n, {
+            delimiters: MATH_DELIMS,
+            throwOnError: false,
+            strict: false
+          });
+        } catch (e) { /* 個別片段出錯不影響全頁 */ }
+      });
+    }
+
+    window.addEventListener('load', () => {
+      canvas = document.getElementById('graphCanvas');
+      ctx = canvas.getContext('2d');
+
+      renderMath([document.body]);        // 靜態數學（品牌列、圖例、HUD、卡片標題）
+      setupEventListeners();
+      resizeCanvas();
+      updateAll();
+
+      window.addEventListener('resize', () => {
+        resizeCanvas();
+        drawGraph();
+      });
+    });
+
+    function setupEventListeners() {
+      // Sliders & Number Inputs Sync
+      const sliderA = document.getElementById('sliderA');
+      const numA = document.getElementById('numA');
+      const sliderB = document.getElementById('sliderB');
+      const numB = document.getElementById('numB');
+      const sliderC = document.getElementById('sliderC');
+      const numC = document.getElementById('numC');
+
+      sliderA.addEventListener('input', (e) => { numA.value = e.target.value; state.a = parseFloat(e.target.value); updateAll(); });
+      numA.addEventListener('input', (e) => { sliderA.value = e.target.value; state.a = parseFloat(e.target.value) || 0; updateAll(); });
+
+      sliderB.addEventListener('input', (e) => { numB.value = e.target.value; state.b = parseFloat(e.target.value); updateAll(); });
+      numB.addEventListener('input', (e) => { sliderB.value = e.target.value; state.b = parseFloat(e.target.value) || 0; updateAll(); });
+
+      sliderC.addEventListener('input', (e) => { numC.value = e.target.value; state.c = parseFloat(e.target.value); updateAll(); });
+      numC.addEventListener('input', (e) => { sliderC.value = e.target.value; state.c = parseFloat(e.target.value) || 0; updateAll(); });
+
+      // Canvas Mouse Hover Interaction
+      canvas.addEventListener('mousemove', handleCanvasMouseMove);
+      canvas.addEventListener('mouseleave', () => {
+        state.canvas.isHovered = false;
+        document.getElementById('hoverHUD').classList.add('hidden');
+        drawGraph();
+      });
+
+      // Canvas Touch Support
+      canvas.addEventListener('touchmove', (e) => {
+        if (e.touches.length > 0) {
+          const rect = canvas.getBoundingClientRect();
+          const touchX = e.touches[0].clientX - rect.left;
+          handleCanvasHoverAtPixel(touchX);
+        }
+      });
+    }
+
+    function switchTab(tab) {
+      state.activeTab = tab;
+      const explorer = document.getElementById('explorerSection');
+      const practice = document.getElementById('practiceSection');
+      const navExp = document.getElementById('navExplorerBtn');
+      const navPrac = document.getElementById('navPracticeBtn');
+
+      if (tab === 'explorer') {
+        explorer.classList.remove('hidden');
+        practice.classList.add('hidden');
+        navExp.classList.add('active', 'text-white');
+        navPrac.classList.remove('active', 'text-white');
+        navPrac.classList.add('text-slate-400');
+        resizeCanvas();
+        drawGraph();
+      } else {
+        explorer.classList.add('hidden');
+        practice.classList.remove('hidden');
+        navPrac.classList.add('active', 'text-white');
+        navExp.classList.remove('active', 'text-white');
+        navExp.classList.add('text-slate-400');
+        if (quizState.solvedCount === 0) {
+          generateQuiz('medium');
+        }
+      }
+    }
+
+    function setOperator(op) {
+      state.op = op;
+      ['gt', 'gte', 'lt', 'lte'].forEach(o => {
+        const btn = document.getElementById(`opBtn_${o}`);
+        if (o === op) {
+          btn.className = 'op-btn bg-blue-600 border-blue-500 py-2 rounded-xl font-bold text-lg text-white shadow-lg shadow-blue-500/30 transition';
+        } else {
+          btn.className = 'op-btn bg-slate-800 hover:bg-slate-700 border border-slate-700 py-2 rounded-xl font-bold text-lg text-slate-200 transition';
+        }
+      });
+      updateAll();
+    }
+
+    function resetParameters() {
+      state.a = 1; state.b = -5; state.c = 6; state.op = 'gt';
+      syncInputsFromState();
+      autoFitGraph();
+      updateAll();
+    }
+
+    function syncInputsFromState() {
+      document.getElementById('sliderA').value = state.a;
+      document.getElementById('numA').value = state.a;
+      document.getElementById('sliderB').value = state.b;
+      document.getElementById('numB').value = state.b;
+      document.getElementById('sliderC').value = state.c;
+      document.getElementById('numC').value = state.c;
+      setOperator(state.op);
+    }
+
+    function solveQuadraticInequality(a, b, c, op) {
+      if (Math.abs(a) < 1e-7) {
+        return { isQuadratic: false };
+      }
+
+      const delta = b * b - 4 * a * c;
+      const vertexX = -b / (2 * a);
+      const vertexY = c - (b * b) / (4 * a);
+
+      let roots = [];
+      if (delta > 1e-7) {
+        const sqrtD = Math.sqrt(delta);
+        let r1 = (-b - sqrtD) / (2 * a);
+        let r2 = (-b + sqrtD) / (2 * a);
+        if (r1 > r2) [r1, r2] = [r2, r1];
+        roots = [r1, r2];
+      } else if (Math.abs(delta) <= 1e-7) {
+        roots = [-b / (2 * a)];
+      }
+
+      function testX(x) {
+        const val = a * x * x + b * x + c;
+        if (op === 'gt') return val > 1e-7;
+        if (op === 'gte') return val >= -1e-7;
+        if (op === 'lt') return val < -1e-7;
+        if (op === 'lte') return val <= 1e-7;
+        return false;
+      }
+
+      const isStrict = (op === 'gt' || op === 'lt');
+      let intervals = [];
+      let inequalityStr = '';
+      let solutionType = '';
+
+      if (delta > 1e-7) {
+        const [r1, r2] = roots;
+        const test1 = testX(r1 - 1);
+        const test2 = testX((r1 + r2) / 2);
+        const test3 = testX(r2 + 1);
+
+        if (test1 && !test2 && test3) {
+          solutionType = 'interval_union';
+          intervals = [
+            { min: -Infinity, max: r1 },
+            { min: r2, max: Infinity }
+          ];
+          const o1 = isStrict ? '<' : '\\le';
+          const o2 = isStrict ? '>' : '\\ge';
+          inequalityStr = `x ${o1} ${formatNum(r1)} \\quad \\text{or} \\quad x ${o2} ${formatNum(r2)}`;
+        } else {
+          solutionType = 'interval_single';
+          intervals = [{ min: r1, max: r2 }];
+          const o = isStrict ? '<' : '\\le';
+          inequalityStr = `${formatNum(r1)} ${o} x ${o} ${formatNum(r2)}`;
+        }
+      } else if (Math.abs(delta) <= 1e-7) {
+        const r0 = roots[0];
+        const testLeft = testX(r0 - 1);
+        const testRoot = testX(r0);
+
+        if (testLeft && testRoot) {
+          solutionType = 'all_real';
+          intervals = [{ min: -Infinity, max: Infinity }];
+          inequalityStr = `\\text{All real numbers } (x \\in \\mathbb{R})`;
+        } else if (testLeft && !testRoot) {
+          solutionType = 'all_except';
+          intervals = [
+            { min: -Infinity, max: r0 },
+            { min: r0, max: Infinity }
+          ];
+          inequalityStr = `x \\neq ${formatNum(r0)}`;
+        } else if (!testLeft && testRoot) {
+          solutionType = 'single_point';
+          intervals = [{ min: r0, max: r0 }];
+          inequalityStr = `x = ${formatNum(r0)}`;
+        } else {
+          solutionType = 'empty';
+          intervals = [];
+          inequalityStr = `\\text{No solution } (\\emptyset)`;
+        }
+      } else {
+        // Delta < 0
+        const testPoint = testX(0);
+        if (testPoint) {
+          solutionType = 'all_real';
+          intervals = [{ min: -Infinity, max: Infinity }];
+          inequalityStr = `\\text{All real numbers } (x \\in \\mathbb{R})`;
+        } else {
+          solutionType = 'empty';
+          intervals = [];
+          inequalityStr = `\\text{No solution } (\\emptyset)`;
+        }
+      }
+
+      return {
+        isQuadratic: true,
+        a, b, c, op, delta, vertexX, vertexY, roots, solutionType, intervals, inequalityStr, testX
+      };
+    }
+
+    function updateAll() {
+      const warning = document.getElementById('zeroAWarning');
+      if (Math.abs(state.a) < 1e-7) {
+        warning.classList.remove('hidden');
+        return;
+      } else {
+        warning.classList.add('hidden');
+      }
+
+      const sol = solveQuadraticInequality(state.a, state.b, state.c, state.op);
+
+      // Render math expression display
+      const opTex = getOpTeX(state.op);
+      const quadTex = formatQuadraticTeX(state.a, state.b, state.c);
+      const mathDisplay = document.getElementById('mathExpressionDisplay');
+      mathDisplay.innerHTML = `$$${quadTex} ${opTex} 0$$`;
+
+      // Update Prominent Summary Display at Top
+      document.getElementById('summaryInequality').innerHTML = `\\(${sol.inequalityStr}\\)`;
+      document.getElementById('solutionTypeBadge').textContent = getBadgeText(sol.solutionType);
+
+      // Update Step-by-Step Breakdown
+      updateStepByStep(sol);
+
+      // 數學渲染（KaTeX）
+      renderMath([
+        mathDisplay,
+        document.getElementById('summaryInequality'),
+        document.getElementById('step1Content'),
+        document.getElementById('step2Content'),
+        document.getElementById('step3Content'),
+        document.getElementById('step4Content'),
+        document.getElementById('step5Content')
+      ]);
+
+      drawGraph();
+    }
+
+    function updateStepByStep(sol) {
+      const { a, b, c, op, delta, vertexX, vertexY, roots, testX } = sol;
+
+      // Step 1: Form & Coefficients
+      const direction = a > 0 ? "Opens UPWARD (\\(\\cup\\))" : "Opens DOWNWARD (\\(\\cap\\))";
+      const vertType = a > 0 ? "Minimum" : "Maximum";
+      document.getElementById('step1Content').innerHTML = `
+        <p><strong>Form:</strong> $ax^2+bx+c$</p>
+        <p>$a = ${a}, \\, b = ${b}, \\, c = ${c}$</p>
+        <p>Parabola: <strong>${direction}</strong></p>
+        <p>Vertex: $(${formatNum(vertexX)}, ${formatNum(vertexY)})$ [${vertType}]</p>
+      `;
+
+      // Step 2: Discriminant
+      const deltaKind = delta > 1e-7 ? "2 Real Roots" : (Math.abs(delta) <= 1e-7 ? "1 Repeated Root" : "No Real Roots (\\(\\Delta < 0\\))");
+      document.getElementById('step2Content').innerHTML = `
+        <p>$$\\Delta = b^2 - 4ac$$</p>
+        <p>$$\\Delta = (${b})^2 - 4(${a})(${c}) = ${formatNum(delta)}$$</p>
+        <p>Nature: <strong>${deltaKind}</strong></p>
+      `;
+
+      // Step 3: Critical Points
+      let step3HTML = '';
+      if (delta > 1e-7) {
+        step3HTML = `
+          <p>Solve $ax^2+bx+c = 0$:</p>
+          <p>$$x = \\frac{-(${b}) \\pm \\sqrt{${formatNum(delta)}}}{2(${a})}$$</p>
+          <p>$x_1 = ${formatNum(roots[0])}, \\quad x_2 = ${formatNum(roots[1])}$</p>
+        `;
+      } else if (Math.abs(delta) <= 1e-7) {
+        step3HTML = `
+          <p>Single repeated root:</p>
+          <p>$$x_0 = \\frac{-(${b})}{2(${a})} = ${formatNum(roots[0])}$$</p>
+        `;
+      } else {
+        step3HTML = `
+          <p>No real roots exist since $\\Delta < 0$.</p>
+          <p>The curve is entirely ${a > 0 ? "above" : "below"} the $x$-axis.</p>
+        `;
+      }
+      document.getElementById('step3Content').innerHTML = step3HTML;
+
+      // Step 4: Interval Testing
+      let step4HTML = '<table class="w-full text-left text-[11px] border-collapse mt-1"><thead><tr class="border-b border-slate-700 text-slate-400"><th>Interval</th><th>Test $x$</th><th>Pass?</th></tr></thead><tbody>';
+      
+      let testIntervals = [];
+      if (delta > 1e-7) {
+        const [r1, r2] = roots;
+        testIntervals = [
+          { name: `$(-\\infty, ${formatNum(r1)})$`, pt: r1 - 1 },
+          { name: `$(${formatNum(r1)}, ${formatNum(r2)})$`, pt: (r1 + r2) / 2 },
+          { name: `$(${formatNum(r2)}, \\infty)$`, pt: r2 + 1 }
+        ];
+      } else if (Math.abs(delta) <= 1e-7) {
+        const r0 = roots[0];
+        testIntervals = [
+          { name: `$(-\\infty, ${formatNum(r0)})$`, pt: r0 - 1 },
+          { name: `$\\{${formatNum(r0)}\\}$`, pt: r0 },
+          { name: `$(${formatNum(r0)}, \\infty)$`, pt: r0 + 1 }
+        ];
+      } else {
+        testIntervals = [
+          { name: `$(-\\infty, \\infty)$`, pt: 0 }
+        ];
+      }
+
+      testIntervals.forEach(ti => {
+        const pass = testX(ti.pt);
+        const status = pass ? '<span class="text-emerald-400 font-bold">YES ✅</span>' : '<span class="text-rose-400">NO ❌</span>';
+        step4HTML += `<tr class="border-b border-slate-800/60">
+          <td class="py-1 font-mono">${ti.name}</td>
+          <td class="font-mono">${formatNum(ti.pt)}</td>
+          <td>${status}</td>
+        </tr>`;
+      });
+      step4HTML += '</tbody></table>';
+      document.getElementById('step4Content').innerHTML = step4HTML;
+
+      // Step 5: Final Solution
+      document.getElementById('step5Content').innerHTML = `
+        <p class="text-slate-400">Combining valid intervals:</p>
+        <p class="font-mono text-emerald-300 font-bold my-2 text-sm">$$${sol.inequalityStr}$$</p>
+      `;
+    }
+
+    function resizeCanvas() {
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      ctx.scale(dpr, dpr);
+      state.canvas.width = rect.width;
+      state.canvas.height = rect.height;
+    }
+
+    function autoFitGraph() {
+      const sol = solveQuadraticInequality(state.a, state.b, state.c, state.op);
+      if (!sol.isQuadratic) return;
+
+      let minX = -5, maxX = 5;
+      if (sol.roots.length > 0) {
+        minX = Math.min(...sol.roots, sol.vertexX) - 3;
+        maxX = Math.max(...sol.roots, sol.vertexX) + 3;
+      } else {
+        minX = sol.vertexX - 5;
+        maxX = sol.vertexX + 5;
+      }
+
+      state.canvas.centerX = (minX + maxX) / 2;
+      state.canvas.centerY = sol.vertexY / 2;
+      const rangeX = Math.max(8, maxX - minX);
+      state.canvas.scaleX = (state.canvas.width || 400) / rangeX;
+      state.canvas.scaleY = state.canvas.scaleX;
+      drawGraph();
+    }
+
+    function zoomGraph(factor) {
+      state.canvas.scaleX *= factor;
+      state.canvas.scaleY *= factor;
+      drawGraph();
+    }
+
+    function toScreenX(x) {
+      const w = state.canvas.width || 400;
+      return w / 2 + (x - state.canvas.centerX) * state.canvas.scaleX;
+    }
+
+    function toScreenY(y) {
+      const h = state.canvas.height || 360;
+      return h / 2 - (y - state.canvas.centerY) * state.canvas.scaleY;
+    }
+
+    function toMathX(screenX) {
+      const w = state.canvas.width || 400;
+      return (screenX - w / 2) / state.canvas.scaleX + state.canvas.centerX;
+    }
+
+    function drawGraph() {
+      if (!ctx || !canvas) return;
+      const w = state.canvas.width || 400;
+      const h = state.canvas.height || 360;
+
+      // Clear Canvas Background
+      ctx.fillStyle = '#090d16';
+      ctx.fillRect(0, 0, w, h);
+
+      const sol = solveQuadraticInequality(state.a, state.b, state.c, state.op);
+      if (!sol.isQuadratic) return;
+
+      drawGrid(w, h);
+      drawSolutionRegionShading(w, h, sol);
+      drawParabolaCurve(w, h);
+      drawXAxisSolutionHighlight(w, h, sol);
+      drawKeyPoints(sol);
+
+      if (state.canvas.isHovered) {
+        drawHoverInspection(w, h, sol);
+      }
+    }
+
+    function drawGrid(w, h) {
+      ctx.lineWidth = 1;
+      const stepX = getGridStep(state.canvas.scaleX);
+      const stepY = getGridStep(state.canvas.scaleY);
+
+      const startMathX = Math.floor(toMathX(0) / stepX) * stepX;
+      const endMathX = Math.ceil(toMathX(w) / stepX) * stepX;
+
+      ctx.strokeStyle = '#1e293b';
+      ctx.beginPath();
+      for (let x = startMathX; x <= endMathX; x += stepX) {
+        const sx = toScreenX(x);
+        ctx.moveTo(sx, 0);
+        ctx.lineTo(sx, h);
+      }
+      ctx.stroke();
+
+      const startMathY = Math.floor((toScreenY(h) - state.canvas.centerY) / stepY) * stepY;
+      const endMathY = Math.ceil((toScreenY(0) - state.canvas.centerY) / stepY) * stepY;
+
+      ctx.beginPath();
+      for (let y = startMathY; y <= endMathY; y += stepY) {
+        const sy = toScreenY(y);
+        ctx.moveTo(0, sy);
+        ctx.lineTo(w, sy);
+      }
+      ctx.stroke();
+
+      // Main Axes
+      const originX = toScreenX(0);
+      const originY = toScreenY(0);
+
+      ctx.strokeStyle = '#64748b';
+      ctx.lineWidth = 2;
+      
+      ctx.beginPath();
+      ctx.moveTo(0, originY);
+      ctx.lineTo(w, originY);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(originX, 0);
+      ctx.lineTo(originX, h);
+      ctx.stroke();
+
+      // Numbers
+      ctx.fillStyle = '#94a3b8';
+      ctx.font = '10px monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+
+      for (let x = startMathX; x <= endMathX; x += stepX) {
+        if (Math.abs(x) > 1e-6) {
+          const sx = toScreenX(x);
+          ctx.fillText(formatNum(x), sx, Math.min(Math.max(originY + 4, 10), h - 20));
+        }
+      }
+
+      ctx.textAlign = 'right';
+      ctx.textBaseline = 'middle';
+      for (let y = startMathY; y <= endMathY; y += stepY) {
+        if (Math.abs(y) > 1e-6) {
+          const sy = toScreenY(y);
+          ctx.fillText(formatNum(y), Math.min(Math.max(originX - 6, 35), w - 10), sy);
+        }
+      }
+    }
+
+    function getGridStep(scale) {
+      if (scale > 80) return 0.5;
+      if (scale > 30) return 1;
+      if (scale > 15) return 2;
+      return 5;
+    }
+
+    function drawParabolaCurve(w, h) {
+      ctx.save();
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 3;
+      ctx.shadowColor = 'rgba(56, 189, 248, 0.4)';
+      ctx.shadowBlur = 10;
+
+      ctx.beginPath();
+      let started = false;
+
+      for (let px = 0; px <= w; px += 2) {
+        const x = toMathX(px);
+        const y = state.a * x * x + state.b * x + state.c;
+        const py = toScreenY(y);
+
+        if (!started) {
+          ctx.moveTo(px, py);
+          started = true;
+        } else {
+          ctx.lineTo(px, py);
+        }
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawSolutionRegionShading(w, h, sol) {
+      ctx.save();
+      const originY = toScreenY(0);
+      ctx.fillStyle = 'rgba(16, 185, 129, 0.18)';
+
+      for (let px = 0; px <= w; px += 2) {
+        const x = toMathX(px);
+        if (sol.testX(x)) {
+          const y = state.a * x * x + state.b * x + state.c;
+          const py = toScreenY(y);
+          ctx.fillRect(px, Math.min(py, originY), 2, Math.abs(py - originY));
+        }
+      }
+      ctx.restore();
+    }
+
+    function drawXAxisSolutionHighlight(w, h, sol) {
+      const originY = toScreenY(0);
+
+      ctx.save();
+      ctx.strokeStyle = '#10b981';
+      ctx.lineWidth = 6;
+      ctx.shadowColor = '#10b981';
+      ctx.shadowBlur = 12;
+
+      sol.intervals.forEach(inv => {
+        const minPx = inv.min === -Infinity ? 0 : toScreenX(inv.min);
+        const maxPx = inv.max === Infinity ? w : toScreenX(inv.max);
+
+        ctx.beginPath();
+        ctx.moveTo(minPx, originY);
+        ctx.lineTo(maxPx, originY);
+        ctx.stroke();
+      });
+
+      if (sol.roots.length > 0) {
+        sol.roots.forEach(rootVal => {
+          const rx = toScreenX(rootVal);
+          const rootIncluded = sol.testX(rootVal);
+
+          ctx.beginPath();
+          ctx.arc(rx, originY, 6, 0, 2 * Math.PI);
+
+          if (rootIncluded) {
+            ctx.fillStyle = '#10b981';
+            ctx.fill();
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+          } else {
+            ctx.fillStyle = '#090d16';
+            ctx.fill();
+            ctx.strokeStyle = '#10b981';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+          }
+        });
+      }
+
+      ctx.restore();
+    }
+
+    function drawKeyPoints(sol) {
+      const vx = toScreenX(sol.vertexX);
+      const vy = toScreenY(sol.vertexY);
+
+      ctx.save();
+      ctx.fillStyle = '#a855f7';
+      ctx.shadowColor = '#a855f7';
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.arc(vx, vy, 5, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.fillStyle = '#c084fc';
+      ctx.font = '10px sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(`V(${formatNum(sol.vertexX)}, ${formatNum(sol.vertexY)})`, vx, vy - 10);
+      ctx.restore();
+    }
+
+    function handleCanvasMouseMove(e) {
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      handleCanvasHoverAtPixel(mouseX);
+    }
+
+    function handleCanvasHoverAtPixel(pixelX) {
+      state.canvas.isHovered = true;
+      state.canvas.hoverMathX = toMathX(pixelX);
+
+      const mathX = state.canvas.hoverMathX;
+      const mathY = state.a * mathX * mathX + state.b * mathX + state.c;
+      const sol = solveQuadraticInequality(state.a, state.b, state.c, state.op);
+      const satisfies = sol.testX(mathX);
+
+      const hud = document.getElementById('hoverHUD');
+      hud.classList.remove('hidden');
+      document.getElementById('hudX').textContent = formatNum(mathX);
+      document.getElementById('hudY').textContent = formatNum(mathY);
+      
+      const badge = document.getElementById('hudBadge');
+      if (satisfies) {
+        badge.textContent = 'SATISFIES ✅';
+        badge.className = 'px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40';
+      } else {
+        badge.textContent = 'FAIL ❌';
+        badge.className = 'px-1.5 py-0.5 rounded text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/40';
+      }
+
+      drawGraph();
+    }
+
+    function drawHoverInspection(w, h, sol) {
+      const mathX = state.canvas.hoverMathX;
+      const mathY = state.a * mathX * mathX + state.b * mathX + state.c;
+
+      const sx = toScreenX(mathX);
+      const sy = toScreenY(mathY);
+      const originY = toScreenY(0);
+
+      ctx.save();
+      ctx.strokeStyle = '#e2e8f0';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(sx, 0);
+      ctx.lineTo(sx, h);
+      ctx.stroke();
+
+      ctx.fillStyle = '#38bdf8';
+      ctx.beginPath();
+      ctx.arc(sx, sy, 5, 0, 2 * Math.PI);
+      ctx.fill();
+
+      const satisfies = sol.testX(mathX);
+      ctx.fillStyle = satisfies ? '#10b981' : '#f43f5e';
+      ctx.beginPath();
+      ctx.arc(sx, originY, 5, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    function generateQuiz(difficulty = 'medium') {
+      let a = 1, b = 0, c = 0, op = 'gt';
+      const ops = ['gt', 'gte', 'lt', 'lte'];
+
+      if (difficulty === 'easy') {
+        const r1 = Math.floor(Math.random() * 6) - 3;
+        let r2 = Math.floor(Math.random() * 6) - 3;
+        if (r1 === r2) r2 += 2;
+        a = Math.random() < 0.5 ? 1 : -1;
+        b = -a * (r1 + r2);
+        c = a * r1 * r2;
+        op = ops[Math.floor(Math.random() * ops.length)];
+      } else if (difficulty === 'medium') {
+        a = (Math.floor(Math.random() * 4) + 1) * (Math.random() < 0.5 ? 1 : -1);
+        b = Math.floor(Math.random() * 10) - 5;
+        c = Math.floor(Math.random() * 10) - 5;
+        op = ops[Math.floor(Math.random() * ops.length)];
+      } else {
+        const caseType = Math.floor(Math.random() * 3);
+        if (caseType === 0) {
+          const r0 = Math.floor(Math.random() * 6) - 3;
+          a = 1; b = -2 * r0; c = r0 * r0;
+        } else if (caseType === 1) {
+          a = 1; b = 2; c = 5;
+        } else {
+          a = -1; b = 4; c = -5;
+        }
+        op = ops[Math.floor(Math.random() * ops.length)];
+      }
+
+      let quizSol = solveQuadraticInequality(a, b, c, op);
+      // Δ = 0 touches the axis, so "x ≠ r" / "x = r" appear for two of the four
+      // operators — neither is one of the six answer structures.  Switch to the
+      // operator that yields a structure the quiz can mark (a > 0: ≥ all real /
+      // < no solution;  a < 0: ≤ all real / > no solution).
+      if (intervalPatternOf(quizSol) === null) {
+        op = (a > 0)
+          ? (op === 'gt' ? 'lt' : 'gte')
+          : (op === 'gte' ? 'lte' : 'gt');
+        quizSol = solveQuadraticInequality(a, b, c, op);
+      }
+
+      quizState.a = a;
+      quizState.b = b;
+      quizState.c = c;
+      quizState.op = op;
+      quizState.correctSolution = quizSol;
+
+      const quadTex = formatQuadraticTeX(a, b, c);
+      const opTex = getOpTeX(op);
+      const qDisplay = document.getElementById('quizQuestionMath');
+      qDisplay.innerHTML = `$$${quadTex} ${opTex} 0$$`;
+
+      document.getElementById('quizDifficultyBadge').textContent = `${difficulty.toUpperCase()} LEVEL`;
+      document.getElementById('quizSolutionDetails').classList.add('hidden');
+      document.getElementById('feedbackTitle').textContent = 'Awaiting your answer...';
+      document.getElementById('feedbackTitle').className = 'font-bold text-base text-slate-200';
+      document.getElementById('feedbackSubtitle').textContent = 'Select an interval pattern and enter root values above.';
+      document.getElementById('feedbackIcon').className = 'w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-slate-400';
+      document.getElementById('feedbackIcon').innerHTML = '<i class="fa-solid fa-lightbulb"></i>';
+
+      document.getElementById('quizValX1').value = '';
+      document.getElementById('quizValX2').value = '';
+
+      renderMath([qDisplay]);
+    }
+
+    /* Canonical answer structure implied by the graph.
+       union vs single comes from which intervals actually satisfy the
+       inequality (independent of the sign of a); open vs closed comes from
+       whether the operator is strict.  Keying this off the operator alone is
+       wrong when a < 0 (downward parabola): e.g. -x^2 - 3x - 2 > 0 → -2 < x < -1. */
+    function intervalPatternOf(sol) {
+      const strictOp = (sol.op === 'gt' || sol.op === 'lt');
+      if (sol.solutionType === 'interval_union') return strictOp ? 'union_open' : 'union_closed';
+      if (sol.solutionType === 'interval_single') return strictOp ? 'single_open' : 'single_closed';
+      if (sol.solutionType === 'all_real') return 'all_real';
+      if (sol.solutionType === 'empty') return 'empty';
+      return null; // Δ = 0 with > / ≤ gives "x ≠ r" / "x = r": no matching option
+    }
+
+    function checkQuizAnswer() {
+      const selectedPattern = document.querySelector('input[name="quizPattern"]:checked').value;
+      const valX1 = parseFloat(document.getElementById('quizValX1').value);
+      const valX2 = parseFloat(document.getElementById('quizValX2').value);
+
+      const sol = quizState.correctSolution;
+      const isPatternCorrect = (selectedPattern === intervalPatternOf(sol));
+      let areRootsCorrect = false;
+
+      if (sol.roots.length === 2) {
+        const [r1, r2] = sol.roots;
+        if (!isNaN(valX1) && !isNaN(valX2)) {
+          if (Math.abs(valX1 - r1) < 0.15 && Math.abs(valX2 - r2) < 0.15) {
+            areRootsCorrect = true;
+          }
+        }
+      } else {
+        areRootsCorrect = true;
+      }
+
+      const isFullyCorrect = isPatternCorrect && areRootsCorrect;
+
+      quizState.solvedCount++;
+      if (isFullyCorrect) {
+        quizState.correctCount++;
+        quizState.streakCount++;
+      } else {
+        quizState.streakCount = 0;
+      }
+
+      document.getElementById('quizTotalCount').textContent = quizState.solvedCount;
+      document.getElementById('quizStreakCount').textContent = `${quizState.streakCount} 🔥`;
+      const accuracy = Math.round((quizState.correctCount / quizState.solvedCount) * 100);
+      document.getElementById('quizAccuracy').textContent = `${accuracy}%`;
+
+      const fbBox = document.getElementById('quizSolutionDetails');
+      fbBox.classList.remove('hidden');
+
+      document.getElementById('quizCorrectInequality').innerHTML = `\\(${sol.inequalityStr}\\)`;
+
+      const title = document.getElementById('feedbackTitle');
+      const icon = document.getElementById('feedbackIcon');
+      const subtitle = document.getElementById('feedbackSubtitle');
+
+      if (isFullyCorrect) {
+        title.textContent = '🎉 Excellent! Correct Solution!';
+        title.className = 'font-bold text-base text-emerald-400';
+        subtitle.textContent = 'You identified the exact inequality structure and root boundaries!';
+        icon.className = 'w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center';
+        icon.innerHTML = '<i class="fa-solid fa-check"></i>';
+      } else {
+        title.textContent = '❌ Not quite right yet.';
+        title.className = 'font-bold text-base text-rose-400';
+        subtitle.textContent = 'Review the detailed solution breakdown below to see where the mismatch was.';
+        icon.className = 'w-10 h-10 rounded-full bg-rose-500/20 text-rose-400 flex items-center justify-center';
+        icon.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+      }
+
+      document.getElementById('quizExplanationSteps').innerHTML = `
+        <p>1. Discriminant $\\Delta = ${formatNum(sol.delta)}$.</p>
+        <p>2. Parabola ${sol.a > 0 ? "opens UPWARD" : "opens DOWNWARD"}.</p>
+        <p>3. Roots: ${sol.roots.length > 0 ? sol.roots.map(r => formatNum(r)).join(', ') : 'None'}.</p>
+      `;
+
+      renderMath([
+        document.getElementById('quizCorrectInequality'),
+        document.getElementById('quizExplanationSteps')
+      ]);
+    }
+
+    /* Helper Formatting Functions */
+    function formatQuadraticTeX(a, b, c) {
+      let str = '';
+      if (a === 1) str += 'x^2';
+      else if (a === -1) str += '-x^2';
+      else str += `${a}x^2`;
+
+      if (b > 0) str += ` + ${b === 1 ? '' : b}x`;
+      else if (b < 0) str += ` - ${Math.abs(b) === 1 ? '' : Math.abs(b)}x`;
+
+      if (c > 0) str += ` + ${c}`;
+      else if (c < 0) str += ` - ${Math.abs(c)}`;
+
+      return str || '0';
+    }
+
+    function getOpTeX(op) {
+      switch (op) {
+        case 'gt': return '>';
+        case 'gte': return '\\ge';
+        case 'lt': return '<';
+        case 'lte': return '\\le';
+        default: return '>';
+      }
+    }
+
+    function getBadgeText(type) {
+      switch (type) {
+        case 'interval_union': return '2 Outer Rays';
+        case 'interval_single': return '1 Bounded Interval';
+        case 'all_real': return 'All Real Numbers (ℝ)';
+        case 'empty': return 'No Real Solution (∅)';
+        case 'single_point': return '1 Point Solution';
+        case 'all_except': return 'All Numbers Except Point';
+        default: return 'Solution Set';
+      }
+    }
+
+    function formatNum(num) {
+      if (Math.abs(num) < 1e-7) return '0';
+      if (Number.isInteger(num)) return num.toString();
+      return (Math.round(num * 100) / 100).toString();
+    }
+  </script>
+</body>
+</html>

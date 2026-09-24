@@ -1,0 +1,42 @@
+# 試卷 PDF 與原始轉寫（體積／版權原因不入庫）
+*.pdf
+*.docx
+paper2025.json
+
+# 依賴與快取
+node_modules/
+__pycache__/
+*.pyc
+
+# 本機面板：上載暫存與隊列（可再生，不入庫）
+inbox/
+data/queue.json
+review/
+
+# 本機預覽建置（--all 會含未發放題目，絕不可上線）
+build/
+
+# 助手／IDE 資料
+.workbuddy/
+.wbapp_*
+.codebuddy/
+
+# 系統
+Thumbs.db
+.DS_Store
+
+# AI 往返的中間檔（輸入檔每次重新生成；測試檔不入庫）
+# 但 data/ai/classification.json 與 classification_review.md 要入庫（審計軌跡）
+data/ai/classification_input.json
+data/ai/_test_*
+
+# 自學追上站：EPH docx 抽取出的媒體與轉圖（可由 docx → extract_eph.py → wmf_to_png.py 重建）
+data/learn/raw/media/
+data/learn/raw/digest/
+
+# 來源收件匣（唯讀，不進 git；*.docx / *.pdf 已在上方忽略）
+inbox/
+
+# 其他 AI 的輸出／暫存：不進 git。特別注意 learn/ 是**部署目錄**，
+# 放在裡面＝公開可下載（曾經被 git add -A 誤加過）。
+learn/From Other AI/

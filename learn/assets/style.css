@@ -1,0 +1,416 @@
+/* ==========================================================================
+   自學追上站 · 樣式
+   設計方向：鼓勵式極簡學習風 —— 乾淨白底、圓角大卡片、柔和藍綠主色、
+   綠色 ✓ 與進度環呈現完成度，手機優先（按鈕 ≥48px），離線可用（無 CDN）。
+   ========================================================================== */
+
+:root {
+  --primary: #2B6CB0;
+  --primary-dark: #23548A;
+  --accent: #319795;
+  --accent-soft: #E6FFFA;
+  --bg: #F7FAFC;
+  --card: #FFFFFF;
+  --text: #1A202C;
+  --muted: #4A5568;
+  --line: #E2E8F0;
+  --ok: #38A169;
+  --ok-soft: #F0FFF4;
+  --warn: #DD6B20;
+  --warn-soft: #FFFAF0;
+  --err: #E53E3E;
+  --err-soft: #FFF5F5;
+  --radius: 18px;
+  --radius-sm: 12px;
+  --shadow: 0 1px 2px rgba(26, 32, 44, .06), 0 8px 24px rgba(26, 32, 44, .06);
+  --shadow-lift: 0 2px 6px rgba(26, 32, 44, .08), 0 16px 40px rgba(43, 108, 176, .12);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 0 0 40px;
+  font-family: system-ui, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 500px at 50% -240px, #E6FFFA 0%, rgba(230, 255, 250, 0) 70%),
+    var(--bg);
+}
+
+/* ── 版面 ────────────────────────────────────────────────────────────── */
+.wrap { max-width: 640px; margin: 0 auto; padding: 0 16px; }
+
+.topbar {
+  position: sticky; top: 0; z-index: 20;
+  backdrop-filter: saturate(140%) blur(10px);
+  background: rgba(247, 250, 252, .88);
+  border-bottom: 1px solid var(--line);
+}
+.topbar .inner {
+  max-width: 640px; margin: 0 auto; padding: 10px 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.brand { font-weight: 700; font-size: 17px; letter-spacing: .02em; color: var(--primary); }
+.brand small { display: block; font-weight: 400; font-size: 12px; color: var(--muted); letter-spacing: 0; }
+.spacer { flex: 1; }
+
+.hero { padding: 22px 0 8px; }
+.hero h1 { margin: 0 0 6px; font-size: 24px; line-height: 1.35; font-weight: 700; }
+.hero p { margin: 0; color: var(--muted); font-size: 15px; }
+
+.section-title {
+  margin: 26px 0 10px; font-size: 15px; font-weight: 700; color: var(--muted);
+  letter-spacing: .04em; display: flex; align-items: center; gap: 8px;
+}
+.section-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+/* ── 按鈕 ────────────────────────────────────────────────────────────── */
+.btn {
+  min-height: 48px; padding: 11px 18px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--card); color: var(--text);
+  font: inherit; font-size: 15px; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  transition: transform .12s ease, box-shadow .18s ease, background .18s ease;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn:active { transform: translateY(0); }
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: #fff; border-color: transparent; font-weight: 600;
+  box-shadow: 0 6px 18px rgba(43, 108, 176, .25);
+}
+.btn-primary:hover { box-shadow: 0 10px 26px rgba(43, 108, 176, .32); }
+.btn-ghost { background: transparent; }
+.btn-sm { min-height: 40px; padding: 8px 14px; font-size: 14px; }
+.btn-block { width: 100%; }
+.btn:disabled { opacity: .5; cursor: default; transform: none; box-shadow: none; }
+
+/* ── 卡片 ────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 18px; box-shadow: var(--shadow); margin-bottom: 14px;
+  animation: rise .32s ease both;
+}
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* ── 課題按鈕牆 ──────────────────────────────────────────────────────── */
+.topic-grid { display: grid; gap: 12px; }
+
+.topic-btn {
+  position: relative; width: 100%; text-align: left; cursor: pointer;
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 16px 18px; box-shadow: var(--shadow);
+  display: flex; align-items: center; gap: 14px;
+  font: inherit; color: inherit;
+  transition: transform .14s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.topic-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); border-color: #CBE3F7; }
+.topic-btn .t-name { font-weight: 600; font-size: 16px; line-height: 1.4; }
+.topic-btn .t-en { display: block; font-size: 13px; font-weight: 400; color: var(--muted); margin-top: 2px; }
+.topic-btn .t-meta { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.topic-btn .t-body { flex: 1; min-width: 0; }
+.topic-btn.done { border-color: #C6F6D5; background: linear-gradient(180deg, #FFFFFF 0%, var(--ok-soft) 100%); }
+
+/* 進度環 */
+.ring {
+  --p: 0; width: 46px; height: 46px; flex: none; border-radius: 50%;
+  background: conic-gradient(var(--accent) calc(var(--p) * 1%), #EDF2F7 0);
+  display: grid; place-items: center;
+}
+.ring::after {
+  content: attr(data-label); width: 34px; height: 34px; border-radius: 50%;
+  background: var(--card); display: grid; place-items: center;
+  font-size: 11px; font-weight: 700; color: var(--muted);
+}
+.ring.full { background: conic-gradient(var(--ok) 100%, var(--ok) 0); }
+.ring.full::after { content: "✓"; color: var(--ok); font-size: 16px; }
+
+/* ── 頁數導覽列 ──────────────────────────────────────────────────────── */
+.pagenav {
+  display: flex; gap: 8px; overflow-x: auto; padding: 10px 2px 12px;
+  scrollbar-width: none;
+}
+.pagenav::-webkit-scrollbar { display: none; }
+.pagenav .pg {
+  flex: none; min-width: 44px; height: 44px; padding: 0 12px;
+  border-radius: 12px; border: 1px solid var(--line); background: var(--card);
+  font: inherit; font-size: 14px; font-weight: 600; color: var(--muted);
+  display: grid; place-items: center; cursor: pointer; position: relative;
+  transition: transform .12s ease, border-color .18s ease, color .18s ease;
+}
+.pagenav .pg:hover { transform: translateY(-1px); border-color: #CBE3F7; }
+.pagenav .pg.current {
+  color: #fff; border-color: transparent;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  box-shadow: 0 6px 16px rgba(43, 108, 176, .28);
+}
+.pagenav .pg.done { color: var(--ok); border-color: #C6F6D5; background: var(--ok-soft); }
+.pagenav .pg.done::after {
+  content: "✓"; position: absolute; top: -6px; right: -4px; font-size: 11px;
+  background: var(--ok); color: #fff; border-radius: 999px; padding: 0 4px; line-height: 15px;
+}
+.pagenav .pg.kind { font-size: 12px; letter-spacing: .02em; }
+/* 多節課題的分節標籤：讓兩個「學習」不會分不清 */
+.pagenav .pg-lesson {
+  flex: none; align-self: center; white-space: nowrap; font-size: 11px; font-weight: 700;
+  color: var(--muted); letter-spacing: .04em; padding: 0 6px;
+  border-left: 2px solid var(--line);
+}
+.pagenav .pg-lesson:first-child { border-left: 0; padding-left: 0; }
+
+/* ── 概念卡 ──────────────────────────────────────────────────────────── */
+.ccard-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; }
+.ccard-head h3 { margin: 0; font-size: 18px; }
+.ccard-head .en { font-size: 13px; color: var(--muted); }
+.ccard-body { white-space: pre-wrap; }
+.ccard-body p { margin: 0 0 10px; }
+.ccard-body .btext { margin: 0 0 8px; }
+.ccard-body .btext:last-child { margin-bottom: 0; }
+/* 概念卡示意圖（SVG）：黑白試卷風、列印友善 */
+.fig {
+  margin: 10px 0 12px; padding: 6px; background: #fff;
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  text-align: center;
+}
+.fig svg { display: inline-block; width: 100%; max-width: 330px; height: auto; }
+.fig-cap { text-align: center; font-size: 13px; color: var(--muted); margin: 2px 0 14px; }
+
+.formula {
+  display: flex; justify-content: center; padding: 10px 0; margin: 8px 0;
+  background: #F7FAFF; border-radius: var(--radius-sm); overflow-x: auto;
+}
+.callout {
+  border-radius: var(--radius-sm); padding: 12px 14px; font-size: 15px; margin-top: 12px;
+  border-left: 4px solid var(--warn); background: var(--warn-soft);
+}
+.callout .tag { font-weight: 700; color: var(--warn); margin-right: 6px; }
+.vocab { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+.vocab span {
+  font-size: 13px; background: var(--accent-soft); color: #234E52;
+  border-radius: 999px; padding: 2px 10px;
+}
+.vocab span b { color: var(--accent); }
+
+/* ── 題目 ────────────────────────────────────────────────────────────── */
+.q-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.q-code {
+  font-size: 12px; font-weight: 700; letter-spacing: .04em; color: var(--primary);
+  background: #EBF8FF; border-radius: 999px; padding: 2px 10px;
+}
+.q-diff { font-size: 12px; color: var(--warn); letter-spacing: 2px; }
+.q-source { font-size: 12px; color: var(--muted); }
+.q-stem { font-size: 17px; margin: 4px 0 12px; }
+.q-stem .itex { display: inline-block; }
+.q-figure { font-size: 14px; color: var(--muted); font-style: italic; }
+
+.opts { display: grid; gap: 10px; margin-top: 6px; }
+.opt {
+  display: flex; align-items: flex-start; gap: 10px; width: 100%; text-align: left;
+  min-height: 48px; padding: 12px 14px; cursor: pointer;
+  background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius-sm);
+  font: inherit; color: inherit;
+  transition: transform .12s ease, border-color .16s ease, background .16s ease;
+}
+.opt:hover { transform: translateY(-1px); border-color: #CBE3F7; }
+.opt .letter {
+  flex: none; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center;
+  background: #EDF2F7; color: var(--muted); font-weight: 700; font-size: 14px;
+}
+.opt .val { flex: 1; min-width: 0; }
+.opt.correct { border-color: #9AE6B4; background: var(--ok-soft); animation: pop .3s ease; }
+.opt.correct .letter { background: var(--ok); color: #fff; }
+.opt.wrong { border-color: #FEB2B2; background: var(--err-soft); animation: shake .3s ease; }
+.opt.wrong .letter { background: var(--err); color: #fff; }
+.opt.reveal { border-color: #9AE6B4; background: var(--ok-soft); }
+.opt[disabled] { cursor: default; }
+@keyframes pop { 0% { transform: scale(.98); } 60% { transform: scale(1.015); } 100% { transform: scale(1); } }
+@keyframes shake { 0%,100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+
+/* ── 揭示與解答 ──────────────────────────────────────────────────────── */
+.hint-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.steps { margin-top: 12px; display: grid; gap: 12px; }
+.step {
+  border-left: 4px solid var(--accent); background: #FAFDFF;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 12px 14px;
+  animation: rise .3s ease both;
+}
+.step h4 { margin: 0 0 6px; font-size: 15px; color: var(--primary); }
+.step .why { font-size: 15px; }
+.step .why b { color: var(--accent); }
+.step .marking {
+  display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 700;
+  color: #22543D; background: #C6F6D5; border-radius: 999px; padding: 2px 10px;
+}
+.step .hl {
+  display: inline-block; margin-top: 8px; font-size: 14px; color: var(--primary-dark);
+  background: #EBF8FF; border-radius: 8px; padding: 4px 10px;
+}
+.answer-line {
+  margin-top: 14px; padding: 12px 14px; border-radius: var(--radius-sm);
+  background: var(--ok-soft); border-left: 4px solid var(--ok); font-weight: 600;
+}
+.traps { margin-top: 12px; display: grid; gap: 8px; }
+.trap {
+  font-size: 14px; background: var(--err-soft); border-radius: var(--radius-sm);
+  padding: 10px 12px; border-left: 4px solid var(--err);
+}
+.trap b { color: var(--err); }
+/* 長題示範的「常見錯誤」：學生未作答，所以用琥珀色，不是「你答錯」的紅色 */
+.traps.long-traps { margin-top: 14px; }
+.traps.long-traps .trap { background: #FFFAF0; border-left-color: #DD6B20; }
+.traps.long-traps .trap b { color: #9C4221; }
+.tip {
+  margin-top: 12px; font-size: 15px; background: var(--accent-soft);
+  border-radius: var(--radius-sm); padding: 12px 14px; border-left: 4px solid var(--accent);
+}
+.tip b { color: var(--accent); }
+.alt-toggle { margin-top: 10px; }
+.alt-body { margin-top: 8px; font-size: 15px; }
+
+/* ── (a)→(b) 的「整塊打包替換」提示（顏色高亮）───────────────────────── */
+.step-link {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  margin-top: 10px; padding: 8px 12px; border-radius: var(--radius-sm);
+  background: #FFFAF0; border-left: 4px solid #DD6B20;
+}
+.step-link .lk-tag {
+  font-size: 12px; font-weight: 700; color: #7B341E;
+  background: #FEEBC8; border-radius: 999px; padding: 2px 10px; white-space: nowrap;
+}
+.step-link .lk-formula { color: #7B341E; }
+
+/* ── 考試指令提示（常駐頁頂，做之前先看）────────────────────────────── */
+.cmd-hints {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  margin: 0 0 12px; padding: 8px 10px; border-radius: var(--radius-sm);
+  background: #F7FAFF; border: 1px dashed #BEE3F8; font-size: 12.5px;
+}
+.cmd-hints .ch-title { font-weight: 700; color: var(--muted); }
+.cmd-hints .ch-chip {
+  display: inline-flex; align-items: baseline; gap: 6px; background: #fff;
+  border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px; color: var(--muted);
+}
+.cmd-hints .ch-chip b { color: var(--primary-dark); font-weight: 700; }
+
+/* ── 完成一頁的微成就（不是分數，是進度）────────────────────────────── */
+.page-done.pd-finish {
+  background: #F0FFF4; border: 1px solid #C6F6D5; border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+.page-done .pd-title { display: block; font-size: 15px; color: var(--ok); }
+.page-done .pd-sub { display: block; margin-top: 2px; color: var(--muted); }
+
+/* ── 答錯重新框架：是「掉進陷阱」，不是「你不行」────────────────────── */
+.trap-head {
+  margin-top: 14px; font-size: 14.5px; color: #7B341E; background: #FFFAF0;
+  border-radius: var(--radius-sm); padding: 10px 12px; border-left: 4px solid #DD6B20;
+}
+.answer-line.miss { background: #FFF5F5; border-left-color: var(--err); color: #742A2A; }
+
+/* ── 心理安全（無評價壓力）────────────────────────────────────────────── */
+.safety-note {
+  background: #F0FFF4; border: 1px solid #C6F6D5; font-size: 14px; color: #22543D;
+}
+.safety-note b { color: var(--ok); }
+.safety-note .pre-actions { margin-top: 10px; }
+
+/* ── 「開始之前」前言頁（顏色框＋編號徽章）────────────────────────────── */
+.pre-hero { margin: 0 0 14px; }
+.pre-hero h1 { margin: 0 0 8px; font-size: 22px; line-height: 1.35; }
+.pre-hero p { margin: 0; font-size: 15px; }
+.pre-block {
+  border-radius: var(--radius-sm); padding: 14px 16px; margin: 0 0 12px;
+  border-left: 5px solid var(--primary); background: #EBF8FF; font-size: 15px;
+}
+.pre-block h2 { margin: 0 0 8px; font-size: 17px; color: var(--primary-dark); }
+.pre-block p { margin: 0 0 8px; }
+.pre-block p:last-child { margin-bottom: 0; }
+.pre-block ul { margin: 8px 0 0; padding-left: 20px; }
+.pre-block li { margin: 5px 0; }
+.pre-block.pre-ok { border-left-color: var(--ok); background: var(--ok-soft); }
+.pre-block.pre-ok h2 { color: #22543D; }
+.pre-block.pre-help { border-left-color: #DD6B20; background: #FFFAF0; }
+.pre-block.pre-help h2 { color: #7B341E; }
+.pre-step { display: flex; gap: 10px; margin: 12px 0 0; }
+.pre-step .num {
+  flex: none; width: 26px; height: 26px; border-radius: 999px; display: grid; place-items: center;
+  background: #DD6B20; color: #fff; font-weight: 700; font-size: 14px;
+}
+.pre-step .num.num-go { background: var(--primary); }
+.pre-step .body { flex: 1; min-width: 0; }
+.pre-step .body > b { display: block; margin-bottom: 2px; }
+.pre-step .muted.small { display: block; margin-top: 3px; }
+.prompt-box {
+  white-space: pre-wrap; word-break: break-word; font: inherit; font-size: 14px;
+  background: #fff; border: 1px dashed #F6AD55; border-radius: var(--radius-sm);
+  padding: 10px 12px; margin: 8px 0 0; color: var(--text);
+}
+.quote-box {
+  background: #fff; border-left: 3px solid #F6AD55; border-radius: var(--radius-sm);
+  padding: 8px 10px; margin: 6px 0; font-size: 14px;
+}
+.pre-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.pre-actions.center { justify-content: center; margin: 6px 0 4px; }
+
+/* 練習頁底部的求助連結（在真正卡住時才出現，不干擾作答） */
+.help-link { margin: 16px 0 4px; font-size: 13px; color: var(--muted); text-align: center; }
+.help-link a { color: var(--primary); font-weight: 600; }
+
+.demo-try {
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  background: #EBF8FF; border-radius: var(--radius-sm); padding: 12px 14px; margin-top: 6px;
+  font-size: 15px;
+}
+
+/* 同一頁放多條示範時，卡片頂部的「上一條 / 下一條」翻頁列 */
+.demo-nav { margin: 2px 0 10px; align-items: center; }
+.demo-nav .demo-count { margin-left: auto; margin-right: auto; }
+
+/* ── 進度提示 ───────────────────────────────────────────────────────── */
+.toast {
+  position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%) translateY(20px);
+  background: var(--text); color: #fff; font-size: 14px; border-radius: 999px;
+  padding: 9px 18px; opacity: 0; pointer-events: none; transition: all .25s ease; z-index: 40;
+}
+.toast.show { opacity: .95; transform: translateX(-50%) translateY(0); }
+
+.done-banner {
+  text-align: center; padding: 18px; border-radius: var(--radius);
+  background: linear-gradient(135deg, #F0FFF4 0%, #E6FFFA 100%);
+  border: 1px solid #C6F6D5; margin-bottom: 14px;
+}
+.done-banner .big { font-size: 22px; font-weight: 700; color: var(--ok); }
+.done-banner p { margin: 6px 0 0; font-size: 14px; color: var(--muted); }
+
+/* 從弱點升級庫回來的那一題：加邊框提示，避免學生混淆「其他題目已作答」的狀態 */
+.focus-card { box-shadow: 0 0 0 3px #BEE3F8, var(--shadow-lift); scroll-margin-top: 120px; }
+.focus-note {
+  font-size: 14px; color: #2C5282; background: #EBF8FF;
+  border-radius: var(--radius-sm); padding: 8px 12px; margin-bottom: 10px;
+  border-left: 4px solid var(--primary);
+}
+
+.wrong-item { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.wrong-item .wq { flex: 1; min-width: 0; font-size: 15px; }
+.empty { text-align: center; color: var(--muted); padding: 28px 10px; }
+
+/* ── 輔助 ────────────────────────────────────────────────────────────── */
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.center { text-align: center; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.hidden { display: none !important; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+@media (min-width: 720px) {
+  .topic-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media print {
+  .topbar, .pagenav { display: none; }
+}

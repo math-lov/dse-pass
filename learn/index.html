@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自學追上站 · 數學逐課補底</title>
+<meta name="description" content="按課題逐課學習的中學數學自學網站：先看概念卡，再看示範題解，然後每頁三題練習。無計時、可重做，適合想追回進度的同學。">
+<link rel="stylesheet" href="vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body data-page="index">
+
+<div class="topbar">
+  <div class="inner">
+    <div class="brand">自學追上站<small>Maths Catch-up · 逐課學習</small></div>
+    <div class="spacer"></div>
+    <a id="wrong" class="btn btn-sm btn-ghost" href="wrong.html"><span id="wrong-count">弱點升級庫</span></a>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="hero">
+    <h1>由你現在的位置，一課一課追上去</h1>
+    <p id="site-stats">載入中…</p>
+  </div>
+
+  <div class="card safety-note">
+    <b>這裡沒有老師打分，也沒有排名。</b>
+    答錯只代表「還未學到」，不代表你不行；進度只屬於你，隨時可以重新開始。
+    <div class="pre-actions">
+      <a class="btn btn-sm btn-primary" href="start.html">第一次來？先看「開始之前」（3 分鐘）→</a>
+    </div>
+  </div>
+
+  <button id="continue" class="btn btn-primary btn-block hidden" style="margin-bottom:6px">
+    <span id="continue-label">繼續學習</span>
+  </button>
+
+  <div id="topics"></div>
+
+  <div class="section-title"><span>工具箱</span></div>
+  <div class="card">
+    <div class="small muted">
+      互動小工具（不用登入、不計分、可隨便玩）：拖 slider 改變係數，即時看拋物線、解集與逐步解法。
+    </div>
+    <div class="row" style="margin-top:12px">
+      <a class="btn btn-sm btn-primary" href="quadratic-inequalities.html">二次不等式探索器 →</a>
+    </div>
+  </div>
+
+  <div class="section-title"><span>設定</span></div>
+  <div class="card">
+    <div class="small muted">
+      進度只存在你手上這部裝置（瀏覽器）裡，換機或清除瀏覽器資料就會重設。
+      這個網站與「每日三題」的進度完全分開，互相不影響。
+    </div>
+    <div class="row" style="margin-top:12px">
+      <button id="reset" class="btn btn-sm btn-ghost">清除本機進度</button>
+      <a class="btn btn-sm btn-ghost" href="start.html">開始之前（使用指南）</a>
+      <a class="btn btn-sm btn-ghost" href="../">返回每日三題</a>
+    </div>
+  </div>
+
+  <p class="small muted center" style="margin:18px 0 0">
+    練習題取自校內訂購教材，僅供本校學生溫習使用。
+  </p>
+</div>
+
+<!-- KaTeX（自托管，defer） -->
+<script defer src="vendor/katex/katex.min.js"></script>
+<script defer src="vendor/katex/auto-render.min.js"></script>
+<script>
+  // 快取戳：每小時變一次，繞過 GitHub Pages 的靜態檔快取
+  window.__V = new Date().toISOString().slice(0, 13).replace(/[-T:]/g, "");
+  document.write('<script src="data/index.js?v=' + window.__V + '"><\/script>');
+  document.write('<script src="assets/app.js?v=' + window.__V + '"><\/script>');
+</script>
+</body>
+</html>
