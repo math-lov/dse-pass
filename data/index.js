@@ -27,10 +27,10 @@ window.LEARN_INDEX = {
    },
    "source": "EPH DSE Pass · Worksheet 1",
    "stats": {
-    "mc": 15,
+    "mc": 18,
     "long": 2,
     "cards": 4,
-    "pages": 5
+    "pages": 6
    },
    "lessonIds": [
     "ws01-1"
@@ -38,11 +38,11 @@ window.LEARN_INDEX = {
   }
  ],
  "assessments": [],
- "generatedAt": "2026-09-25T02:47:39Z",
+ "generatedAt": "2026-09-25T02:54:00Z",
  "counts": {
   "topics": 1,
   "held": 0,
-  "mc": 15,
+  "mc": 18,
   "long": 2,
   "cards": 4,
   "blocked": 0

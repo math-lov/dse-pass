@@ -46,11 +46,11 @@ window.LEARN_TOPIC_WS01 = {
      "id": "ws01-c1",
      "topic": "ws01",
      "title": {
-      "zh": "第一步永遠：抽公因式",
+      "zh": "第一步永遠：抽公因式 (Taking out the Common Factor)",
       "en": "Step 1: Take out the Common Factor"
      },
      "body": {
-      "zh": "因式分解（factorization）就是把一個多項式寫成「幾個因式相乘」。做任何因式分解，第一步永遠是先看有沒有公因式（common factor）可以抽走。\n例：$6r^{2}+4rs$ 的兩項都有 $2r$，抽走之後剩下 $3r+2s$：{{math:0}}\n抽完要檢查——把答案展開，回到原式才算對：{{math:1}}"
+      "zh": "因式分解 (Factorization) 就是把一個多項式寫成「幾個因式相乘」的形態。面對任何因式分解題目，第一步永遠是先觀察各項有沒有公因式 (Common Factor) 可以提取。\n例如：$6r^{2}+4rs$ 的兩項都含有 $2r$，提取之後括號內剩下 $3r+2s$：{{math:0}}\n完成提取後必須養成檢查習慣：把結果展開 (Expansion)，能夠完全回到原式才算正確：{{math:1}}"
      },
      "math": [
       "6r^{2}+4rs=2r(3r+2s)",
@@ -68,10 +68,14 @@ window.LEARN_TOPIC_WS01 = {
       {
        "en": "common factor",
        "zh": "公因式"
+      },
+      {
+       "en": "expansion",
+       "zh": "展開"
       }
      ],
      "warn": {
-      "zh": "見到負號開頭（例如 $-r^{3}-r^{2}s$），把負號一起抽出來最安全：$-r^{2}(r+s)$。抽完還要再看一眼括號內能不能再分。"
+      "zh": "若首項帶有負號（例如 $-r^{3}-r^{2}s$），必須把負號連同公因式一併提出：$-r^{2}(r+s)$。抽完公因式後，切記檢查括號內是否仍能徹底分解 (Factorize Completely)。"
      }
     },
     {
@@ -138,11 +142,11 @@ window.LEARN_TOPIC_WS01 = {
      "id": "ws01-c4",
      "topic": "ws01",
      "title": {
-      "zh": "二次三項式：十字相乘",
+      "zh": "二次三項式：十字相乘法 (Cross-method)",
       "en": "Quadratic Trinomials: Cross-method"
      },
      "body": {
-      "zh": "$ax^{2}+bx+c$ 這種三項式若不符合完全平方，用 cross-method（十字相乘法）：把首項與末項各拆成兩個因式，寫成十字，交叉相乘再相加，要剛好等於中間項。\n例：{{math:0}}，因為 $(-2)+(-3)=-5$。首項係數不是 1 時要試更多組合：{{math:1}}。"
+      "zh": "$ax^{2}+bx+c$ 這種三項式 (Trinomial) 若不符合完全平方恆等式，則需使用十字相乘法 (Cross-method)：把首項係數 (Coefficient) 與常數項 (Constant Term) 各拆成兩個因式並排成十字，交叉相乘後相加，總和必須完全吻合中間項。\n例如：{{math:0}}，因為 $(-2)+(-3)=-5$。當二次項係數 $a \\neq 1$ 時，需要嘗試多種因數組合：{{math:1}}。"
      },
      "math": [
       "x^{2}-5x+6=(x-2)(x-3)",
@@ -156,10 +160,18 @@ window.LEARN_TOPIC_WS01 = {
       {
        "en": "trinomial",
        "zh": "三項式"
+      },
+      {
+       "en": "coefficient",
+       "zh": "係數"
+      },
+      {
+       "en": "constant term",
+       "zh": "常數項"
       }
      ],
      "warn": {
-      "zh": "拆完一定要「交叉相乘再相加」核對中間項，符號錯就全題錯。末項是負數時，兩個因式一正一負。\n保底技巧：若真的試不出組合，可用計算機內置的二次方程程式（不同型號按鍵不同，常見是 EQN 模式）求出兩個根，再反推因式——例如解得 $x=2$ 與 $x=3$，因式就是 $(x-2)(x-3)$。注意：這招適用於只有單一字母的二次式；含兩個字母（如 $3x^{2}+7xy+2y^{2}$）時還是用十字相乘最穩。"
+      "zh": "因式拆解後必須透過「交叉相乘再相加」核對中間項正負號。\n香港考評局計算機保底技巧：若心算難以找出組合，可使用文憑試准用計算機（如 Casio fx-50FH II）內置的二次方程公式 Formula 01（按 FMLA 01），依序輸入 $a, b, c$ 求得兩根 $x_1, x_2$。若方程的根為 $x = 2$ 與 $x = 3$，對應的因式分解即為 $(x-2)(x-3)$。注意此方法僅適用於單一未知數題目；若含有雙變數（如 $3x^{2}+7xy+2y^{2}$），仍須掌握標準十字相乘法。"
      }
     }
    ],
@@ -198,7 +210,7 @@ window.LEARN_TOPIC_WS01 = {
          "en": "Step 1 · Read the question"
         },
         "math": "",
-        "zh": "題目要求 factorize（因式分解）。(a) 是二次三項式，用十字相乘；(b) 是四項，而且設計成「(b) 會用到 (a) 的答案」——DSE 卷一幾乎年年都是這個套路，所以 (a) 一定要先做對。"
+        "zh": "題目要求因式分解 (Factorize)。(a) 部為二次三項式，使用十字相乘法 (Cross-method)；(b) 部由四項組成。香港文憑試卷一的固定命題邏輯為「(b) 部必須套用 (a) 部的結論」（題目常附帶指引詞 Hence / 由此）。切勿把 (b) 部由頭展開重做，而 (a) 部一定要先做對，才能取得後續的方法分 (M mark)。"
        },
        {
         "title": {
@@ -294,7 +306,7 @@ window.LEARN_TOPIC_WS01 = {
          "en": "Step 1 · Read the question"
         },
         "math": "",
-        "zh": "(a) 是三項式，看起來像完全平方；(b) 有 $(5c+d)^{2}$ 再減去三項，明顯是要用 (a) 的結果化成「平方減平方」，然後用平方差恆等式。"
+        "zh": "(a) 部為二次三項式，經檢驗符合完全平方 (Perfect Square) 恆等式；(b) 部包含 $(5c+d)^{2}$ 減去三項多項式。根據文憑試常見題型，必須把後三項抽負號分組，轉化為 (a) 部的結果，再進一步利用平方差 (Difference of Two Squares) 完成徹底分解。"
        },
        {
         "title": {
@@ -543,6 +555,193 @@ window.LEARN_TOPIC_WS01 = {
        ],
        "tip": {
         "zh": "「抽完公因式，再看一眼括號」是 DSE 的必考習慣：很多題目抽完之後，括號內還有平方差或完全平方。"
+       }
+      },
+      "answer": "A",
+      "verify": "checked"
+     }
+    ],
+    [
+     {
+      "id": "eph-ws01-w04",
+      "type": "mc",
+      "topic": "ws01",
+      "unit": 4,
+      "subtopic": "factorization",
+      "difficulty": 1,
+      "code": "WS1-W04",
+      "source": "HKDSE Basic Skills · Difference of Two Squares (Coefficients)",
+      "stem": {
+       "text": "因式分解 (Factorize) $9x^{2}-25y^{2}$。"
+      },
+      "options": {
+       "A": "$(3x-5y)^{2}$",
+       "B": "$(9x+5y)(x-5y)$",
+       "C": "$(3x+5y)(3x-5y)$",
+       "D": "$(3x-25y)(3x+y)$"
+      },
+      "review": null,
+      "solution": {
+       "steps": [
+        {
+         "title": {
+          "zh": "第 1 步 · 改寫成平方減平方 (Recognise Difference of Two Squares)",
+          "en": "Step 1 · Difference of Squares"
+         },
+         "math": "9x^{2}-25y^{2}=(3x)^{2}-(5y)^{2}",
+         "zh": "把兩項分別改寫為完全平方：$9x^{2}=(3x)^{2}$，$25y^{2}=(5y)^{2}$。確認形態符合平方差 (Difference of Two Squares) $a^{2}-b^{2}$。"
+        },
+        {
+         "title": {
+          "zh": "第 2 步 · 套用恆等式 (Apply Identity)",
+          "en": "Step 2 · Factorize"
+         },
+         "math": "=(3x+5y)(3x-5y)",
+         "zh": "套用恆等式 $a^{2}-b^{2}=(a+b)(a-b)$，其中 $a=3x$ 及 $b=5y$。因此正確答案為 C。"
+        }
+       ],
+       "traps": [
+        {
+         "opt": "A",
+         "zh": "$(3x-5y)^{2}$ 為完全平方 (Perfect Square)，展開後會產生中間項 $-30xy$，與題目的兩項不符。"
+        },
+        {
+         "opt": "B",
+         "zh": "$(9x+5y)(x-5y)$ 展開得 $9x^{2}-40xy-25y^{2}$，是因為沒有把首項係數 $9$ 取平方根。"
+        },
+        {
+         "opt": "D",
+         "zh": "$(3x-25y)(3x+y)$ 沒有把末項係數 $25$ 取平方根（$25$ 的平方根是 $5$，不是 $25$）。"
+        }
+       ],
+       "tip": {
+        "zh": "見到兩項而且中間是減號，先檢查兩項的係數是否完全平方數（例如 $1, 4, 9, 16, 25$）。"
+       }
+      },
+      "answer": "C",
+      "verify": "checked"
+     },
+     {
+      "id": "eph-ws01-w05",
+      "type": "mc",
+      "topic": "ws01",
+      "unit": 4,
+      "subtopic": "factorization",
+      "difficulty": 2,
+      "code": "WS1-W05",
+      "source": "HKDSE Basic Skills · Difference of Two Squares (Bracket & Constant)",
+      "stem": {
+       "text": "因式分解 (Factorize) $(x+3)^{2}-16$。"
+      },
+      "options": {
+       "A": "$(x+7)(x-1)$",
+       "B": "$(x-1)^{2}$",
+       "C": "$(x+7)(x-7)$",
+       "D": "$(x-13)(x+19)$"
+      },
+      "review": null,
+      "solution": {
+       "steps": [
+        {
+         "title": {
+          "zh": "第 1 步 · 識別括號平方減數字平方",
+          "en": "Step 1 · Spot the Pattern"
+         },
+         "math": "(x+3)^{2}-16=(x+3)^{2}-4^{2}",
+         "zh": "整題是「一組式子的平方」減去「數字的平方」。這裡 $a=x+3$、$b=4$。不要急著把 $(x+3)^{2}$ 展開，直接套用平方差會快很多。"
+        },
+        {
+         "title": {
+          "zh": "第 2 步 · 套用平方差並合併同類項 (Simplify)",
+          "en": "Step 2 · Apply Identity and Simplify"
+         },
+         "math": "=[(x+3)+4][(x+3)-4]\n=(x+7)(x-1)",
+         "zh": "第一個括號相加得 $x+3+4=x+7$；第二個括號相減得 $x+3-4=x-1$。答案是 A。"
+        }
+       ],
+       "traps": [
+        {
+         "opt": "B",
+         "zh": "$(x-1)^{2}$ 是漏掉了「加」的那一個括號 $(x+3+4)$。"
+        },
+        {
+         "opt": "C",
+         "zh": "$(x+7)(x-7)$ 是把第二個括號誤算成 $x-3-4$（忘記減號後的括號要整組包住再變號）。"
+        },
+        {
+         "opt": "D",
+         "zh": "$(x-13)(x+19)$ 是展開時計錯，或隨意拼湊數字。"
+        }
+       ],
+       "tip": {
+        "zh": "括號外的常數若是平方數（例如 $16=4^{2}$），就可以直接用 $[( )+b][( )-b]$ 迅速化簡。"
+       }
+      },
+      "answer": "A",
+      "verify": "checked"
+     },
+     {
+      "id": "eph-ws01-q07",
+      "type": "mc",
+      "topic": "ws01",
+      "unit": 4,
+      "subtopic": "factorization",
+      "difficulty": 3,
+      "code": "WS1-Q07",
+      "source": "WS01 Basic Skills Q5(b)",
+      "stem": {
+       "text": "Factorize $(5c+d)^{2}-(3c-2)^{2}$."
+      },
+      "options": {
+       "A": "$(8c+d-2)(2c+d+2)$",
+       "B": "$(8c+d+2)(2c+d-2)$",
+       "C": "$(2c+d-2)(8c+d-2)$",
+       "D": "$(8c+d-2)^{2}$"
+      },
+      "review": null,
+      "solution": {
+       "steps": [
+        {
+         "title": {
+          "zh": "第 1 步 · 認出平方差",
+          "en": "Step 1 · Recognise the pattern"
+         },
+         "math": "a^{2}-b^{2}=(a+b)(a-b)",
+         "zh": "整題是「平方減平方」：$(5c+d)^{2}$ 減 $(3c-2)^{2}$。直接用平方差恆等式，不要展開那兩個平方（展開會多走很多步）。"
+        },
+        {
+         "title": {
+          "zh": "第 2 步 · 代入 $a$ 與 $b$",
+          "en": "Step 2 · Substitute"
+         },
+         "math": "=[(5c+d)+(3c-2)]\n\\times[(5c+d)-(3c-2)]",
+         "zh": "這裡 $a=5c+d$、$b=3c-2$。平方差的兩個括號是「一加一減」。減號那個一定要加括號，因為 $-（3c-2)$ 的 $-(-2)$ 會變成 $+2$。"
+        },
+        {
+         "title": {
+          "zh": "第 3 步 · 化簡",
+          "en": "Step 3 · Simplify"
+         },
+         "math": "=(8c+d-2)(2c+d+2)",
+         "zh": "第一個括號：$5c+d+3c-2=8c+d-2$；第二個括號：$5c+d-3c+2=2c+d+2$。答案是 A。"
+        }
+       ],
+       "traps": [
+        {
+         "opt": "B",
+         "zh": "$(8c+d+2)(2c+d-2)$ 源於減號後漏加小括號：計算 $(5c+d)-(3c-2)$ 時誤寫成 $5c+d-3c-2=2c+d-2$。切記減號後的整個因式要用小括號包住，再逐項變號。"
+        },
+        {
+         "opt": "C",
+         "zh": "$(2c+d-2)(8c+d-2)$ 兩個括號的 $c$ 係數與常數配錯，展開後不會等於原式。"
+        },
+        {
+         "opt": "D",
+         "zh": "$(8c+d-2)^{2}$ 是把平方差當成完全平方；平方差一定是兩個不同括號相乘。"
+        }
+       ],
+       "tip": {
+        "zh": "平方差的兩個括號只有「中間那個符號」不同（一加一減），其餘完全相同。用這個特徵可以快速檢查答案。"
        }
       },
       "answer": "A",
@@ -909,73 +1108,6 @@ window.LEARN_TOPIC_WS01 = {
     ],
     [
      {
-      "id": "eph-ws01-q07",
-      "type": "mc",
-      "topic": "ws01",
-      "unit": 4,
-      "subtopic": "factorization",
-      "difficulty": 3,
-      "code": "WS1-Q07",
-      "source": "WS01 Basic Skills Q5(b)",
-      "stem": {
-       "text": "Factorize $(5c+d)^{2}-(3c-2)^{2}$."
-      },
-      "options": {
-       "A": "$(8c+d-2)(2c+d+2)$",
-       "B": "$(8c+d+2)(2c+d-2)$",
-       "C": "$(2c+d-2)(8c+d-2)$",
-       "D": "$(8c+d-2)^{2}$"
-      },
-      "review": null,
-      "solution": {
-       "steps": [
-        {
-         "title": {
-          "zh": "第 1 步 · 認出平方差",
-          "en": "Step 1 · Recognise the pattern"
-         },
-         "math": "a^{2}-b^{2}=(a+b)(a-b)",
-         "zh": "整題是「平方減平方」：$(5c+d)^{2}$ 減 $(3c-2)^{2}$。直接用平方差恆等式，不要展開那兩個平方（展開會多走很多步）。"
-        },
-        {
-         "title": {
-          "zh": "第 2 步 · 代入 $a$ 與 $b$",
-          "en": "Step 2 · Substitute"
-         },
-         "math": "=[(5c+d)+(3c-2)]\n\\times[(5c+d)-(3c-2)]",
-         "zh": "這裡 $a=5c+d$、$b=3c-2$。平方差的兩個括號是「一加一減」。減號那個一定要加括號，因為 $-（3c-2)$ 的 $-(-2)$ 會變成 $+2$。"
-        },
-        {
-         "title": {
-          "zh": "第 3 步 · 化簡",
-          "en": "Step 3 · Simplify"
-         },
-         "math": "=(8c+d-2)(2c+d+2)",
-         "zh": "第一個括號：$5c+d+3c-2=8c+d-2$；第二個括號：$5c+d-3c+2=2c+d+2$。答案是 A。"
-        }
-       ],
-       "traps": [
-        {
-         "opt": "B",
-         "zh": "$(8c+d+2)(2c+d-2)$ 源於減號後漏加小括號：計算 $(5c+d)-(3c-2)$ 時誤寫成 $5c+d-3c-2=2c+d-2$。切記減號後的整個因式要用小括號包住，再逐項變號。"
-        },
-        {
-         "opt": "C",
-         "zh": "$(2c+d-2)(8c+d-2)$ 兩個括號的 $c$ 係數與常數配錯，展開後不會等於原式。"
-        },
-        {
-         "opt": "D",
-         "zh": "$(8c+d-2)^{2}$ 是把平方差當成完全平方；平方差一定是兩個不同括號相乘。"
-        }
-       ],
-       "tip": {
-        "zh": "平方差的兩個括號只有「中間那個符號」不同（一加一減），其餘完全相同。用這個特徵可以快速檢查答案。"
-       }
-      },
-      "answer": "A",
-      "verify": "checked"
-     },
-     {
       "id": "eph-ws01-q08",
       "type": "mc",
       "topic": "ws01",
@@ -1092,9 +1224,7 @@ window.LEARN_TOPIC_WS01 = {
       },
       "answer": "B",
       "verify": "checked"
-     }
-    ],
-    [
+     },
      {
       "id": "eph-ws01-q10",
       "type": "mc",
@@ -1153,7 +1283,9 @@ window.LEARN_TOPIC_WS01 = {
       },
       "answer": "D",
       "verify": "checked"
-     },
+     }
+    ],
+    [
      {
       "id": "eph-ws01-q11",
       "type": "mc",
@@ -1211,6 +1343,65 @@ window.LEARN_TOPIC_WS01 = {
        }
       },
       "answer": "A",
+      "verify": "checked"
+     },
+     {
+      "id": "eph-ws01-w06",
+      "type": "mc",
+      "topic": "ws01",
+      "unit": 4,
+      "subtopic": "factorization",
+      "difficulty": 2,
+      "code": "WS1-W06",
+      "source": "HKDSE Basic Skills · Cross-method (Prime Leading Coefficient)",
+      "stem": {
+       "text": "因式分解 (Factorize) $2x^{2}+7x+3$。"
+      },
+      "options": {
+       "A": "$(2x+3)(x+1)$",
+       "B": "$(2x+1)(x+3)$",
+       "C": "$(x+1)(2x+7)$",
+       "D": "$(2x-1)(x-3)$"
+      },
+      "review": null,
+      "solution": {
+       "steps": [
+        {
+         "title": {
+          "zh": "第 1 步 · 十字拆解首項與末項",
+          "en": "Step 1 · Cross-method Setup"
+         },
+         "math": "2x^{2}+7x+3=(2x+1)(x+3)",
+         "zh": "首項 $2x^{2}$ 只能拆成 $2x$ 與 $x$；末項 $3$ 是質數，只能拆成 $1$ 與 $3$。交叉相乘檢驗：$(2x)(3)+(1)(x)=6x+x=7x$，剛好吻合中間項。"
+        },
+        {
+         "title": {
+          "zh": "第 2 步 · 寫出因式並展開驗算",
+          "en": "Step 2 · Verify"
+         },
+         "math": "(2x+1)(x+3)=2x^{2}+6x+x+3\n=2x^{2}+7x+3",
+         "zh": "展開後完全符合原式，所以答案是 B。"
+        }
+       ],
+       "traps": [
+        {
+         "opt": "A",
+         "zh": "$(2x+3)(x+1)$ 交叉相乘得 $(2x)(1)+(3)(x)=5x$，不符合題目的 $+7x$。"
+        },
+        {
+         "opt": "C",
+         "zh": "$(x+1)(2x+7)$ 展開後末項常數是 $7$，與原式的 $3$ 不符。"
+        },
+        {
+         "opt": "D",
+         "zh": "$(2x-1)(x-3)$ 展開後中間項是 $-7x$，正負號顛倒了。"
+        }
+       ],
+       "tip": {
+        "zh": "首項與末項都是質數時，組合極少；先用較大的數字跟 $2x$ 相乘，很快就能逼近中間項的係數。"
+       }
+      },
+      "answer": "B",
       "verify": "checked"
      },
      {
@@ -1277,9 +1468,9 @@ window.LEARN_TOPIC_WS01 = {
   }
  ],
  "stats": {
-  "mc": 15,
+  "mc": 18,
   "long": 2,
   "cards": 4,
-  "pages": 5
+  "pages": 6
  }
 };

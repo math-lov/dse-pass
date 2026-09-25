@@ -10,7 +10,7 @@
      {
       "title": { "zh": "第 1 步 · 認清題目要什麼", "en": "Step 1 · Read the question" },
       "math": "",
-      "zh": "題目要求 factorize（因式分解）。(a) 是二次三項式，用十字相乘；(b) 是四項，而且設計成「(b) 會用到 (a) 的答案」——DSE 卷一幾乎年年都是這個套路，所以 (a) 一定要先做對。"
+      "zh": "題目要求因式分解 (Factorize)。(a) 部為二次三項式，使用十字相乘法 (Cross-method)；(b) 部由四項組成。香港文憑試卷一的固定命題邏輯為「(b) 部必須套用 (a) 部的結論」（題目常附帶指引詞 Hence / 由此）。切勿把 (b) 部由頭展開重做，而 (a) 部一定要先做對，才能取得後續的方法分 (M mark)。"
      },
      {
       "title": { "zh": "第 2 步 · (a) 十字相乘", "en": "Step 2 · Factorize (a)" },
@@ -57,7 +57,7 @@
      {
       "title": { "zh": "第 1 步 · 認清題目要什麼", "en": "Step 1 · Read the question" },
       "math": "",
-      "zh": "(a) 是三項式，看起來像完全平方；(b) 有 $(5c+d)^{2}$ 再減去三項，明顯是要用 (a) 的結果化成「平方減平方」，然後用平方差恆等式。"
+      "zh": "(a) 部為二次三項式，經檢驗符合完全平方 (Perfect Square) 恆等式；(b) 部包含 $(5c+d)^{2}$ 減去三項多項式。根據文憑試常見題型，必須把後三項抽負號分組，轉化為 (a) 部的結果，再進一步利用平方差 (Difference of Two Squares) 完成徹底分解。"
      },
      {
       "title": { "zh": "第 2 步 · (a) 用完全平方", "en": "Step 2 · Factorize (a)" },
@@ -191,6 +191,90 @@
     ],
     "tip": {
      "zh": "「抽完公因式，再看一眼括號」是 DSE 的必考習慣：很多題目抽完之後，括號內還有平方差或完全平方。"
+    }
+   }
+  },
+  "eph-ws01-w04": {
+   "answer": "C",
+   "verify": "checked",
+   "topic": "ws01",
+   "source": "HKDSE Basic Skills · Difference of Two Squares (Coefficients)",
+   "solution": {
+    "steps": [
+     {
+      "title": { "zh": "第 1 步 · 改寫成平方減平方 (Recognise Difference of Two Squares)", "en": "Step 1 · Difference of Squares" },
+      "math": "9x^{2}-25y^{2}=(3x)^{2}-(5y)^{2}",
+      "zh": "把兩項分別改寫為完全平方：$9x^{2}=(3x)^{2}$，$25y^{2}=(5y)^{2}$。確認形態符合平方差 (Difference of Two Squares) $a^{2}-b^{2}$。"
+     },
+     {
+      "title": { "zh": "第 2 步 · 套用恆等式 (Apply Identity)", "en": "Step 2 · Factorize" },
+      "math": "=(3x+5y)(3x-5y)",
+      "zh": "套用恆等式 $a^{2}-b^{2}=(a+b)(a-b)$，其中 $a=3x$ 及 $b=5y$。因此正確答案為 C。"
+     }
+    ],
+    "traps": [
+     { "opt": "A", "zh": "$(3x-5y)^{2}$ 為完全平方 (Perfect Square)，展開後會產生中間項 $-30xy$，與題目的兩項不符。" },
+     { "opt": "B", "zh": "$(9x+5y)(x-5y)$ 展開得 $9x^{2}-40xy-25y^{2}$，是因為沒有把首項係數 $9$ 取平方根。" },
+     { "opt": "D", "zh": "$(3x-25y)(3x+y)$ 沒有把末項係數 $25$ 取平方根（$25$ 的平方根是 $5$，不是 $25$）。" }
+    ],
+    "tip": {
+     "zh": "見到兩項而且中間是減號，先檢查兩項的係數是否完全平方數（例如 $1, 4, 9, 16, 25$）。"
+    }
+   }
+  },
+  "eph-ws01-w05": {
+   "answer": "A",
+   "verify": "checked",
+   "topic": "ws01",
+   "source": "HKDSE Basic Skills · Difference of Two Squares (Bracket & Constant)",
+   "solution": {
+    "steps": [
+     {
+      "title": { "zh": "第 1 步 · 識別括號平方減數字平方", "en": "Step 1 · Spot the Pattern" },
+      "math": "(x+3)^{2}-16=(x+3)^{2}-4^{2}",
+      "zh": "整題是「一組式子的平方」減去「數字的平方」。這裡 $a=x+3$、$b=4$。不要急著把 $(x+3)^{2}$ 展開，直接套用平方差會快很多。"
+     },
+     {
+      "title": { "zh": "第 2 步 · 套用平方差並合併同類項 (Simplify)", "en": "Step 2 · Apply Identity and Simplify" },
+      "math": "=[(x+3)+4][(x+3)-4]\n=(x+7)(x-1)",
+      "zh": "第一個括號相加得 $x+3+4=x+7$；第二個括號相減得 $x+3-4=x-1$。答案是 A。"
+     }
+    ],
+    "traps": [
+     { "opt": "B", "zh": "$(x-1)^{2}$ 是漏掉了「加」的那一個括號 $(x+3+4)$。" },
+     { "opt": "C", "zh": "$(x+7)(x-7)$ 是把第二個括號誤算成 $x-3-4$（忘記減號後的括號要整組包住再變號）。" },
+     { "opt": "D", "zh": "$(x-13)(x+19)$ 是展開時計錯，或隨意拼湊數字。" }
+    ],
+    "tip": {
+     "zh": "括號外的常數若是平方數（例如 $16=4^{2}$），就可以直接用 $[( )+b][( )-b]$ 迅速化簡。"
+    }
+   }
+  },
+  "eph-ws01-w06": {
+   "answer": "B",
+   "verify": "checked",
+   "topic": "ws01",
+   "source": "HKDSE Basic Skills · Cross-method (Prime Leading Coefficient)",
+   "solution": {
+    "steps": [
+     {
+      "title": { "zh": "第 1 步 · 十字拆解首項與末項", "en": "Step 1 · Cross-method Setup" },
+      "math": "2x^{2}+7x+3=(2x+1)(x+3)",
+      "zh": "首項 $2x^{2}$ 只能拆成 $2x$ 與 $x$；末項 $3$ 是質數，只能拆成 $1$ 與 $3$。交叉相乘檢驗：$(2x)(3)+(1)(x)=6x+x=7x$，剛好吻合中間項。"
+     },
+     {
+      "title": { "zh": "第 2 步 · 寫出因式並展開驗算", "en": "Step 2 · Verify" },
+      "math": "(2x+1)(x+3)=2x^{2}+6x+x+3\n=2x^{2}+7x+3",
+      "zh": "展開後完全符合原式，所以答案是 B。"
+     }
+    ],
+    "traps": [
+     { "opt": "A", "zh": "$(2x+3)(x+1)$ 交叉相乘得 $(2x)(1)+(3)(x)=5x$，不符合題目的 $+7x$。" },
+     { "opt": "C", "zh": "$(x+1)(2x+7)$ 展開後末項常數是 $7$，與原式的 $3$ 不符。" },
+     { "opt": "D", "zh": "$(2x-1)(x-3)$ 展開後中間項是 $-7x$，正負號顛倒了。" }
+    ],
+    "tip": {
+     "zh": "首項與末項都是質數時，組合極少；先用較大的數字跟 $2x$ 相乘，很快就能逼近中間項的係數。"
     }
    }
   },

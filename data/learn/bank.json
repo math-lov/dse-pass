@@ -89,6 +89,60 @@
    "review": null
   },
   {
+   "id": "eph-ws01-w04",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 1,
+   "code": "WS1-W04",
+   "source": "HKDSE Basic Skills · Difference of Two Squares (Coefficients)",
+   "stem": { "text": "因式分解 (Factorize) $9x^{2}-25y^{2}$。" },
+   "options": {
+    "A": "$(3x-5y)^{2}$",
+    "B": "$(9x+5y)(x-5y)$",
+    "C": "$(3x+5y)(3x-5y)$",
+    "D": "$(3x-25y)(3x+y)$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-w05",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-W05",
+   "source": "HKDSE Basic Skills · Difference of Two Squares (Bracket & Constant)",
+   "stem": { "text": "因式分解 (Factorize) $(x+3)^{2}-16$。" },
+   "options": {
+    "A": "$(x+7)(x-1)$",
+    "B": "$(x-1)^{2}$",
+    "C": "$(x+7)(x-7)$",
+    "D": "$(x-13)(x+19)$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-ws01-w06",
+   "type": "mc",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-W06",
+   "source": "HKDSE Basic Skills · Cross-method (Prime Leading Coefficient)",
+   "stem": { "text": "因式分解 (Factorize) $2x^{2}+7x+3$。" },
+   "options": {
+    "A": "$(2x+3)(x+1)$",
+    "B": "$(2x+1)(x+3)$",
+    "C": "$(x+1)(2x+7)$",
+    "D": "$(2x-1)(x-3)$"
+   },
+   "review": null
+  },
+  {
    "id": "eph-ws01-q01",
    "type": "mc",
    "topic": "ws01",

@@ -45,10 +45,11 @@
      "longQuestionIds": ["eph-ws01-ex01", "eph-ws01-ex02"],
      "mcPages": [
       ["eph-ws01-w01", "eph-ws01-w02", "eph-ws01-w03"],
+      ["eph-ws01-w04", "eph-ws01-w05", "eph-ws01-q07"],
       ["eph-ws01-q01", "eph-ws01-q02", "eph-ws01-q03"],
       ["eph-ws01-q04", "eph-ws01-q05", "eph-ws01-q06"],
-      ["eph-ws01-q07", "eph-ws01-q08", "eph-ws01-q09"],
-      ["eph-ws01-q10", "eph-ws01-q11", "eph-ws01-q12"]
+      ["eph-ws01-q08", "eph-ws01-q09", "eph-ws01-q10"],
+      ["eph-ws01-q11", "eph-ws01-w06", "eph-ws01-q12"]
      ]
     }
    ]
