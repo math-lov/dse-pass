@@ -9,10 +9,20 @@
    "difficulty": 2,
    "code": "WS1-EX1",
    "source": "WS01 DSE Paper 1 Typed Question · Example 1 · [HKDSE 2021 Paper 1 Q3]",
-   "stem": { "text": "Factorize" },
+   "stem": {
+    "text": "Factorize"
+   },
    "parts": [
-    { "label": "(a)", "text": "$15x^{2}+xy-2y^{2}$,", "marks": 1 },
-    { "label": "(b)", "text": "$9x-3y-15x^{2}-xy+2y^{2}$.", "marks": 2 }
+    {
+     "label": "(a)",
+     "text": "$15x^{2}+xy-2y^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$9x-3y-15x^{2}-xy+2y^{2}$.",
+     "marks": 2
+    }
    ],
    "marks": 3,
    "review": null
@@ -26,10 +36,20 @@
    "difficulty": 3,
    "code": "WS1-EX2",
    "source": "WS01 DSE Paper 1 Typed Question · Example 2 · [HKDSE 2022 Paper 1 Q4]",
-   "stem": { "text": "Factorize" },
+   "stem": {
+    "text": "Factorize"
+   },
    "parts": [
-    { "label": "(a)", "text": "$16c^{2}-8c+1$,", "marks": 1 },
-    { "label": "(b)", "text": "$(5c+d)^{2}-16c^{2}+8c-1$.", "marks": 3 }
+    {
+     "label": "(a)",
+     "text": "$16c^{2}-8c+1$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$(5c+d)^{2}-16c^{2}+8c-1$.",
+     "marks": 3
+    }
    ],
    "marks": 4,
    "review": null
@@ -43,7 +63,9 @@
    "difficulty": 1,
    "code": "WS1-W01",
    "source": "WS01 Basic Skills Q1(a)",
-   "stem": { "text": "Factorize $6m+12n$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $6m+12n$。"
+   },
    "options": {
     "A": "$6(m+12n)$",
     "B": "$6(m+2n)$",
@@ -61,7 +83,9 @@
    "difficulty": 1,
    "code": "WS1-W02",
    "source": "WS01 Basic Skills Q1(b)",
-   "stem": { "text": "Factorize $-r^{3}-r^{2}s$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $-r^{3}-r^{2}s$。"
+   },
    "options": {
     "A": "$r^{2}(r+s)$",
     "B": "$-r^{2}(r-s)$",
@@ -79,7 +103,9 @@
    "difficulty": 1,
    "code": "WS1-W03",
    "source": "WS01 Basic Skills Q5(a)",
-   "stem": { "text": "Factorize $2m^{2}-32$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $2m^{2}-32$。"
+   },
    "options": {
     "A": "$2(m+4)(m-4)$",
     "B": "$2(m^{2}-16)$",
@@ -96,8 +122,10 @@
    "subtopic": "factorization",
    "difficulty": 1,
    "code": "WS1-W04",
-   "source": "HKDSE Basic Skills · Difference of Two Squares (Coefficients)",
-   "stem": { "text": "因式分解 (Factorize) $9x^{2}-25y^{2}$。" },
+   "source": "自擬 · 平方差（係數為平方數）",
+   "stem": {
+    "text": "因式分解 (Factorize) $9x^{2}-25y^{2}$。"
+   },
    "options": {
     "A": "$(3x-5y)^{2}$",
     "B": "$(9x+5y)(x-5y)$",
@@ -114,8 +142,10 @@
    "subtopic": "factorization",
    "difficulty": 2,
    "code": "WS1-W05",
-   "source": "HKDSE Basic Skills · Difference of Two Squares (Bracket & Constant)",
-   "stem": { "text": "因式分解 (Factorize) $(x+3)^{2}-16$。" },
+   "source": "自擬 · 平方差（括號減常數）",
+   "stem": {
+    "text": "因式分解 (Factorize) $(x+3)^{2}-16$。"
+   },
    "options": {
     "A": "$(x+7)(x-1)$",
     "B": "$(x-1)^{2}$",
@@ -132,8 +162,10 @@
    "subtopic": "factorization",
    "difficulty": 2,
    "code": "WS1-W06",
-   "source": "HKDSE Basic Skills · Cross-method (Prime Leading Coefficient)",
-   "stem": { "text": "因式分解 (Factorize) $2x^{2}+7x+3$。" },
+   "source": "自擬 · 十字相乘（首項係數為質數）",
+   "stem": {
+    "text": "因式分解 (Factorize) $2x^{2}+7x+3$。"
+   },
    "options": {
     "A": "$(2x+3)(x+1)$",
     "B": "$(2x+1)(x+3)$",
@@ -151,7 +183,9 @@
    "difficulty": 2,
    "code": "WS1-Q01",
    "source": "WS01 Basic Skills Q2(a)",
-   "stem": { "text": "Factorize $b^{2}(a-1)+(a-1)(a+3)$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $b^{2}(a-1)+(a-1)(a+3)$。"
+   },
    "options": {
     "A": "$(a-1)(b^{2}+a-3)$",
     "B": "$(a+1)(b^{2}+a+3)$",
@@ -169,7 +203,9 @@
    "difficulty": 2,
    "code": "WS1-Q02",
    "source": "WS01 Basic Skills Q2(b)",
-   "stem": { "text": "Factorize $(x-2y)^{2}-(2y-x)$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $(x-2y)^{2}-(2y-x)$。"
+   },
    "options": {
     "A": "$(x-2y)(x-2y-1)$",
     "B": "$(x-2y)(x-2y+1)$",
@@ -187,7 +223,9 @@
    "difficulty": 2,
    "code": "WS1-Q03",
    "source": "WS01 Basic Skills Q3(a)",
-   "stem": { "text": "Factorize $cd-4d+3c-12$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $cd-4d+3c-12$。"
+   },
    "options": {
     "A": "$(c-4)(d+3)$",
     "B": "$(c+4)(d-3)$",
@@ -205,7 +243,9 @@
    "difficulty": 2,
    "code": "WS1-Q04",
    "source": "WS01 Basic Skills Q3(b)",
-   "stem": { "text": "Factorize $2km-kn-14m+7n$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $2km-kn-14m+7n$。"
+   },
    "options": {
     "A": "$(2m+n)(k-7)$",
     "B": "$(2m-n)(k+7)$",
@@ -223,7 +263,9 @@
    "difficulty": 2,
    "code": "WS1-Q05",
    "source": "WS01 Basic Skills Q4(a)",
-   "stem": { "text": "Factorize $h^{2}+ak+ah+hk$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $h^{2}+ak+ah+hk$。"
+   },
    "options": {
     "A": "$(a+h)(h-k)$",
     "B": "$(a+h)(h+k)$",
@@ -241,7 +283,9 @@
    "difficulty": 3,
    "code": "WS1-Q06",
    "source": "WS01 Basic Skills Q4(b)",
-   "stem": { "text": "Factorize $2x^{2}-4yz-xz+8xy$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $2x^{2}-4yz-xz+8xy$。"
+   },
    "options": {
     "A": "$(2x+z)(x+4y)$",
     "B": "$(2x-z)(x-4y)$",
@@ -259,7 +303,9 @@
    "difficulty": 3,
    "code": "WS1-Q07",
    "source": "WS01 Basic Skills Q5(b)",
-   "stem": { "text": "Factorize $(5c+d)^{2}-(3c-2)^{2}$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $(5c+d)^{2}-(3c-2)^{2}$。"
+   },
    "options": {
     "A": "$(8c+d-2)(2c+d+2)$",
     "B": "$(8c+d+2)(2c+d-2)$",
@@ -277,7 +323,9 @@
    "difficulty": 2,
    "code": "WS1-Q08",
    "source": "WS01 Basic Skills Q6(a)",
-   "stem": { "text": "Factorize $9a^{2}+6a+1$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $9a^{2}+6a+1$。"
+   },
    "options": {
     "A": "$(3a-1)^{2}$",
     "B": "$(9a+1)(a+1)$",
@@ -295,7 +343,9 @@
    "difficulty": 2,
    "code": "WS1-Q09",
    "source": "WS01 Basic Skills Q6(b)",
-   "stem": { "text": "Factorize $-3a^{2}+12a-12$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $-3a^{2}+12a-12$。"
+   },
    "options": {
     "A": "$3(a-2)^{2}$",
     "B": "$-3(a-2)^{2}$",
@@ -313,7 +363,9 @@
    "difficulty": 2,
    "code": "WS1-Q10",
    "source": "WS01 Basic Skills Q7(a)",
-   "stem": { "text": "Factorize $x^{2}+8xy+16y^{2}$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $x^{2}+8xy+16y^{2}$。"
+   },
    "options": {
     "A": "$(x-4y)^{2}$",
     "B": "$(x+8y)^{2}$",
@@ -331,7 +383,9 @@
    "difficulty": 2,
    "code": "WS1-Q11",
    "source": "WS01 Basic Skills Q8(a)",
-   "stem": { "text": "Factorize $x^{2}-4x-5$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $x^{2}-4x-5$。"
+   },
    "options": {
     "A": "$(x-5)(x+1)$",
     "B": "$(x+5)(x-1)$",
@@ -349,7 +403,9 @@
    "difficulty": 3,
    "code": "WS1-Q12",
    "source": "WS01 Basic Skills Q8(b)",
-   "stem": { "text": "Factorize $2a^{2}+5a-12$." },
+   "stem": {
+    "text": "因式分解 (Factorize) $2a^{2}+5a-12$。"
+   },
    "options": {
     "A": "$(2a+3)(a-4)$",
     "B": "$(2a-3)(a-4)$",

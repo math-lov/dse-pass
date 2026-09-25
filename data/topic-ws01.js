@@ -393,7 +393,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-W01",
       "source": "WS01 Basic Skills Q1(a)",
       "stem": {
-       "text": "Factorize $6m+12n$."
+       "text": "因式分解 (Factorize) $6m+12n$。"
       },
       "options": {
        "A": "$6(m+12n)$",
@@ -452,7 +452,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-W02",
       "source": "WS01 Basic Skills Q1(b)",
       "stem": {
-       "text": "Factorize $-r^{3}-r^{2}s$."
+       "text": "因式分解 (Factorize) $-r^{3}-r^{2}s$。"
       },
       "options": {
        "A": "$r^{2}(r+s)$",
@@ -511,7 +511,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-W03",
       "source": "WS01 Basic Skills Q5(a)",
       "stem": {
-       "text": "Factorize $2m^{2}-32$."
+       "text": "因式分解 (Factorize) $2m^{2}-32$。"
       },
       "options": {
        "A": "$2(m+4)(m-4)$",
@@ -570,7 +570,7 @@ window.LEARN_TOPIC_WS01 = {
       "subtopic": "factorization",
       "difficulty": 1,
       "code": "WS1-W04",
-      "source": "HKDSE Basic Skills · Difference of Two Squares (Coefficients)",
+      "source": "自擬 · 平方差（係數為平方數）",
       "stem": {
        "text": "因式分解 (Factorize) $9x^{2}-25y^{2}$。"
       },
@@ -629,7 +629,7 @@ window.LEARN_TOPIC_WS01 = {
       "subtopic": "factorization",
       "difficulty": 2,
       "code": "WS1-W05",
-      "source": "HKDSE Basic Skills · Difference of Two Squares (Bracket & Constant)",
+      "source": "自擬 · 平方差（括號減常數）",
       "stem": {
        "text": "因式分解 (Factorize) $(x+3)^{2}-16$。"
       },
@@ -690,7 +690,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-Q07",
       "source": "WS01 Basic Skills Q5(b)",
       "stem": {
-       "text": "Factorize $(5c+d)^{2}-(3c-2)^{2}$."
+       "text": "因式分解 (Factorize) $(5c+d)^{2}-(3c-2)^{2}$。"
       },
       "options": {
        "A": "$(8c+d-2)(2c+d+2)$",
@@ -759,7 +759,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-Q01",
       "source": "WS01 Basic Skills Q2(a)",
       "stem": {
-       "text": "Factorize $b^{2}(a-1)+(a-1)(a+3)$."
+       "text": "因式分解 (Factorize) $b^{2}(a-1)+(a-1)(a+3)$。"
       },
       "options": {
        "A": "$(a-1)(b^{2}+a-3)$",
@@ -818,7 +818,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-Q02",
       "source": "WS01 Basic Skills Q2(b)",
       "stem": {
-       "text": "Factorize $(x-2y)^{2}-(2y-x)$."
+       "text": "因式分解 (Factorize) $(x-2y)^{2}-(2y-x)$。"
       },
       "options": {
        "A": "$(x-2y)(x-2y-1)$",
@@ -877,7 +877,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-Q03",
       "source": "WS01 Basic Skills Q3(a)",
       "stem": {
-       "text": "Factorize $cd-4d+3c-12$."
+       "text": "因式分解 (Factorize) $cd-4d+3c-12$。"
       },
       "options": {
        "A": "$(c-4)(d+3)$",
@@ -938,7 +938,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-Q04",
       "source": "WS01 Basic Skills Q3(b)",
       "stem": {
-       "text": "Factorize $2km-kn-14m+7n$."
+       "text": "因式分解 (Factorize) $2km-kn-14m+7n$。"
       },
       "options": {
        "A": "$(2m+n)(k-7)$",
@@ -997,7 +997,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-Q05",
       "source": "WS01 Basic Skills Q4(a)",
       "stem": {
-       "text": "Factorize $h^{2}+ak+ah+hk$."
+       "text": "因式分解 (Factorize) $h^{2}+ak+ah+hk$。"
       },
       "options": {
        "A": "$(a+h)(h-k)$",
@@ -1056,7 +1056,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-Q06",
       "source": "WS01 Basic Skills Q4(b)",
       "stem": {
-       "text": "Factorize $2x^{2}-4yz-xz+8xy$."
+       "text": "因式分解 (Factorize) $2x^{2}-4yz-xz+8xy$。"
       },
       "options": {
        "A": "$(2x+z)(x+4y)$",
@@ -1117,7 +1117,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-Q08",
       "source": "WS01 Basic Skills Q6(a)",
       "stem": {
-       "text": "Factorize $9a^{2}+6a+1$."
+       "text": "因式分解 (Factorize) $9a^{2}+6a+1$。"
       },
       "options": {
        "A": "$(3a-1)^{2}$",
@@ -1176,7 +1176,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-Q09",
       "source": "WS01 Basic Skills Q6(b)",
       "stem": {
-       "text": "Factorize $-3a^{2}+12a-12$."
+       "text": "因式分解 (Factorize) $-3a^{2}+12a-12$。"
       },
       "options": {
        "A": "$3(a-2)^{2}$",
@@ -1235,7 +1235,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-Q10",
       "source": "WS01 Basic Skills Q7(a)",
       "stem": {
-       "text": "Factorize $x^{2}+8xy+16y^{2}$."
+       "text": "因式分解 (Factorize) $x^{2}+8xy+16y^{2}$。"
       },
       "options": {
        "A": "$(x-4y)^{2}$",
@@ -1296,7 +1296,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-Q11",
       "source": "WS01 Basic Skills Q8(a)",
       "stem": {
-       "text": "Factorize $x^{2}-4x-5$."
+       "text": "因式分解 (Factorize) $x^{2}-4x-5$。"
       },
       "options": {
        "A": "$(x-5)(x+1)$",
@@ -1353,7 +1353,7 @@ window.LEARN_TOPIC_WS01 = {
       "subtopic": "factorization",
       "difficulty": 2,
       "code": "WS1-W06",
-      "source": "HKDSE Basic Skills · Cross-method (Prime Leading Coefficient)",
+      "source": "自擬 · 十字相乘（首項係數為質數）",
       "stem": {
        "text": "因式分解 (Factorize) $2x^{2}+7x+3$。"
       },
@@ -1414,7 +1414,7 @@ window.LEARN_TOPIC_WS01 = {
       "code": "WS1-Q12",
       "source": "WS01 Basic Skills Q8(b)",
       "stem": {
-       "text": "Factorize $2a^{2}+5a-12$."
+       "text": "因式分解 (Factorize) $2a^{2}+5a-12$。"
       },
       "options": {
        "A": "$(2a+3)(a-4)$",

@@ -5,6 +5,7 @@
   "description": "Daily Three — DSE Maths MC practice site + question bank tooling",
   "scripts": {
     "check:learn": "node tools/learn_katex_check.js",
+    "check:lang": "python tools/learn_lang_check.py --site",
     "test:learn": "node tools/learn_smoke_test.js"
   },
   "engines": {
