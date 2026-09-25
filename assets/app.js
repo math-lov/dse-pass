@@ -91,6 +91,20 @@
     }
     node.textContent = src;
   }
+  /* 長公式放唔落：math 字串內用 \n 斷行 → 每行一個 <div class="formula-line">
+     （各自帶 data-tex，KaTeX 遲載入時 rerenderAll 仍可逐行重繪） */
+  function formulaBlock(host, src, display) {
+    var lines = String(src == null ? "" : src).split(/\r?\n/)
+      .map(function (s) { return s.trim(); })
+      .filter(function (s) { return s.length; });
+    if (lines.length <= 1) { tex(host, src, display); return; }
+    host.classList.add("formula-multi");
+    lines.forEach(function (ln) {
+      var row = el("div", "formula-line");
+      tex(row, ln, display);
+      host.appendChild(row);
+    });
+  }
   function autoRender(node) {
     if (!window.renderMathInElement || !node) return;
     try {
@@ -480,7 +494,7 @@
     function addFormula(i) {
       if (!maths[i]) return;
       var f = el("div", "formula");
-      tex(f, maths[i], true);
+      formulaBlock(f, maths[i], true);
       host.appendChild(f);
     }
 
@@ -754,7 +768,7 @@
       box.appendChild(h);
       if (st.math) {
         var f = el("div", "formula");
-        tex(f, st.math, true);
+        formulaBlock(f, st.math, true);
         box.appendChild(f);
       }
       var why = el("div", "why");
@@ -1041,7 +1055,7 @@
       box.appendChild(labelInto(el("h4"), (st.title && st.title.zh) || ("第 " + (i + 1) + " 步")));
       if (st.math) {
         var f = el("div", "formula");
-        tex(f, st.math, true);
+        formulaBlock(f, st.math, true);
         box.appendChild(f);
       }
       var why = el("div", "why");

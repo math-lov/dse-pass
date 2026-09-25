@@ -181,8 +181,16 @@ body {
 .fig-cap { text-align: center; font-size: 13px; color: var(--muted); margin: 2px 0 14px; }
 
 .formula {
-  display: flex; justify-content: center; padding: 10px 0; margin: 8px 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 10px 6px; margin: 8px 0;
   background: #F7FAFF; border-radius: var(--radius-sm); overflow-x: auto;
+}
+/* 長公式分幾行：math 字串內用 \n 斷行（見 app.js formulaBlock） */
+.formula-line { display: block; max-width: 100%; }
+.formula-multi { padding: 10px 4px; gap: 2px; }
+@media (max-width: 620px) {
+  .formula .katex { font-size: 0.94em; }
+  .formula-multi .katex { font-size: 0.9em; }
 }
 .callout {
   border-radius: var(--radius-sm); padding: 12px 14px; font-size: 15px; margin-top: 12px;

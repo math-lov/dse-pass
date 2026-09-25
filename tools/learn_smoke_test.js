@@ -111,6 +111,29 @@ for (const t of LESSONS.topics) {
   ok(pmc.$$("#topic-body .hint-row").length === 3, t.id + " every question offers hints before answering");
 }
 
+/* ── 3b. 長公式要分幾行顯示（不是橫向滾動）──────────────────────────── */
+console.log("\n— 長公式斷行 —");
+const mlMath = (c) => (c.math || []).filter((m) => m.indexOf("\n") >= 0)[0];
+const mlCard = CARDS.filter(mlMath)[0];
+ok(!!mlCard, "at least one concept card carries a multi-line formula (" +
+   CARDS.filter(mlMath).length + " cards)");
+if (mlCard) {
+  const tc = boot("topic.html", "?t=" + mlCard.topic + "&p=0");
+  let g = 0;
+  while (g < 12 && ((tc.$(".ccard-head h3") || {}).textContent || "").indexOf(mlCard.title.zh) < 0) {
+    const b = tc.$$(".card .row .btn").filter((x) => /下一張/.test(x.textContent))[0];
+    if (!b) break;
+    b.click(); g++;
+  }
+  const want = mlMath(mlCard).split("\n").filter((s) => s.trim()).length;
+  ok(tc.$$(".formula-multi .formula-line").length === want,
+     "the long formula renders on " + want + " lines (got " + tc.$$(".formula-multi .formula-line").length + ")");
+  ok(tc.$$(".formula-multi .katex").length === want,
+     "every line is typeset by KaTeX (got " + tc.$$(".formula-multi .katex").length + ")");
+  ok(tc.$$(".formula-line[data-tex]").length === want,
+     "each line keeps data-tex so a late KaTeX load can still re-render it");
+}
+
 /* ── 4. MC 作答流程（用第一個課題）────────────────────────────────────── */
 console.log("\n— MC 練習 —");
 const t0 = LESSONS.topics[0];
