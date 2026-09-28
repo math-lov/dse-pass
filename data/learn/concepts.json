@@ -46,11 +46,12 @@
     "en": "Four Terms: Grouping"
    },
    "body": {
-    "zh": "四項而又沒有全部共同的公因式時，用 grouping（併項分組）：把四項分成兩組，每組各自抽公因式，然後兩組會出現相同的括號，再把那括號抽走。\n例：$hk+1+h+k$，先把項調位再分組：{{math:0}}\n重點提示一：後兩項抽不出字母時，其實是抽出了 $+1$；把括號抽走後，該位置會留下 $+1$，不是消失。\n重點提示二：分組後兩個括號必須一模一樣。若只差一個負號，抽 $-1$ 出來就一樣了。",
-    "en": "When there are four terms and no factor common to all of them, use grouping: split the four terms into two pairs, take out the common factor of each pair, and the same bracket should then appear in both pairs — take that bracket out.\nExample: $hk+1+h+k$ — rearrange the terms first, then group: {{math:0}}\nNote 1: when the last two terms share no letter, you are in fact taking out $+1$; that $+1$ stays inside the bracket, it does not disappear.\nNote 2: the two brackets must be identical. If they differ only by a minus sign, take out $-1$ and they match."
+    "zh": "四項而又沒有全部共同的公因式時，用 grouping（併項分組）：把四項分成兩組，每組各自抽公因式，然後兩組會出現相同的括號，再把那括號抽走。\n例：$hk+1+h+k$，先把項調位再分組：{{math:0}}\n重點提示一：後兩項抽不出字母時，其實是抽出了 $+1$；把括號抽走後，該位置會留下 $+1$，不是消失。\n重點提示二：分組後兩個括號必須一模一樣。若只差一個負號，抽 $-1$ 出來就一樣了：{{math:1}}",
+    "en": "When there are four terms and no factor common to all of them, use grouping: split the four terms into two pairs, take out the common factor of each pair, and the same bracket should then appear in both pairs — take that bracket out.\nExample: $hk+1+h+k$ — rearrange the terms first, then group: {{math:0}}\nNote 1: when the last two terms share no letter, you are in fact taking out $+1$; that $+1$ stays inside the bracket, it does not disappear.\nNote 2: the two brackets must be identical. If they differ only by a minus sign, take out $-1$ and they match: {{math:1}}"
    },
    "math": [
-    "hk+1+h+k=hk+h+k+1\n=h(k+1)+1(k+1)\n=(k+1)(h+1)"
+    "hk+1+h+k=hk+h+k+1\n=h(k+1)+1(k+1)\n=(k+1)(h+1)",
+    "ab-ac-b+c\n=a(b-c)-(b-c)\n=(b-c)(a-1)"
    ],
    "vocab": [
     {
@@ -148,11 +149,12 @@
     "en": "Paper 2 shortcut: read the signs first"
    },
    "body": {
-    "zh": "卷二（MC）不需要長題的完整步驟 —— 但也不需要由頭展開到尾。很多因式分解 MC，只要看「某一項的符號」就能刪去一半選項：\n例：$4m^{2}-7mn+3n^{2}+m-n$ 中，$+3n^{2}$ 與 $+m$ 都是正號，所以答案的括號內一定要能產生這兩個正號：{{math:0}}\n先刪錯、再驗算，做一題可以省一半時間。",
-    "en": "Paper 2 is multiple choice: you do not need the full written solution — but you do not have to expand everything either. In many factorisation MC questions, the sign of one term eliminates half the options:\nExample: in $4m^{2}-7mn+3n^{2}+m-n$ the terms $+3n^{2}$ and $+m$ are both positive, so the answer's brackets must be able to produce them: {{math:0}}\nDelete first, verify second — this halves the time per question."
+    "zh": "卷二（MC）不需要長題的完整步驟 —— 但也不需要由頭展開到尾。\n很多因式分解 MC，看「尾巴那一兩項」的符號就可以先刪去一半選項：尾巴 $+m-n$ 就是 $+(m-n)$，所以答案的兩個括號之中，一定有一個是 $(m-n)$ —— 其他選項即刻可以刪。\n例：$4m^{2}-7mn+3n^{2}+m-n$：{{math:0}}\n刪完之後仍要驗算一次（把答案展開，看能否完全回到原式）：{{math:1}}",
+    "en": "Paper 2 is multiple choice: you do not need the full written solution — but you do not have to expand everything either. In many factorisation MC questions, the signs of the last two terms eliminate half the options at once: the tail $+m-n$ is just $+(m-n)$, so one of the two brackets must be $(m-n)$ — the other options can be deleted immediately.\nExample: $4m^{2}-7mn+3n^{2}+m-n$: {{math:0}}\nAfter deleting, still verify once by expanding the answer back to the original expression: {{math:1}}"
    },
    "math": [
-    "4m^{2}-7mn+3n^{2}+m-n=(m-n)(4m-3n+1)"
+    "4m^{2}-7mn+3n^{2}+m-n=(m-n)(4m-3n+1)",
+    "(m-n)(4m-3n+1)=4m^{2}-7mn+3n^{2}+m-n"
    ],
    "vocab": [
     {
@@ -177,11 +179,12 @@
     "en": "A fixed routine for four or six terms"
    },
    "body": {
-    "zh": "卷二的四項題幾乎都是同一條路：分組 → 每組抽公因式 → 兩個括號要一樣。\n例：$2xy-xz+4y^{2}-2yz$，分組後兩組都是 $(2y-z)$：{{math:0}}\n如果分組後括號差一個負號，把 $-1$ 抽出來就一樣；如果兩組完全配不上，就調位（把有共同括號的兩項拉在一起）再試。六項題同理：三項一組、抽三次，通常會出現同一個括號。",
-    "en": "Almost every four-term question in Paper 2 follows one route: group → factor each pair → make the brackets identical.\nExample: $2xy-xz+4y^{2}-2yz$ — after grouping, both brackets are $(2y-z)$: {{math:0}}\nIf the brackets differ by a sign, take out $-1$; if they do not match at all, rearrange the terms (pull together the two that share a bracket) and try again. Six terms work the same way: group into threes and the same bracket usually appears."
+    "zh": "卷二的四項題幾乎都是同一條路：分組 → 每組抽公因式 → 兩個括號要一樣。\n例：$2xy-xz+4y^{2}-2yz$，分組後兩組都是 $(2y-z)$：{{math:0}}\n如果分組後括號差一個負號，把 $-1$ 抽出來就一樣（例：{{math:1}}）；如果兩組完全配不上，就調位（把有共同括號的兩項拉在一起）再試。六項題同理：三項一組、抽三次，通常會出現同一個括號。",
+    "en": "Almost every four-term question in Paper 2 follows one route: group → factor each pair → make the brackets identical.\nExample: $2xy-xz+4y^{2}-2yz$ — after grouping, both brackets are $(2y-z)$: {{math:0}}\nIf the brackets differ by a sign, take out $-1$ (example: {{math:1}}); if they do not match at all, rearrange the terms (pull together the two that share a bracket) and try again. Six terms work the same way: group into threes and the same bracket usually appears."
    },
    "math": [
-    "2xy-xz+4y^{2}-2yz=x(2y-z)+2y(2y-z)=(x+2y)(2y-z)"
+    "2xy-xz+4y^{2}-2yz=x(2y-z)+2y(2y-z)=(x+2y)(2y-z)",
+    "xy-xz-y+z\n=x(y-z)-(y-z)\n=(y-z)(x-1)"
    ],
    "vocab": [
     {
@@ -235,8 +238,8 @@
     "en": "The last pair in (b): factor it to create the shared bracket"
    },
    "body": {
-    "zh": "(b) 的尾巴（兩項或三項）一定可以抽成 (a) 那個括號的倍數，常見三種：\n① 直接抽正數：$+9a+18b=+9(a+2b)$；\n② 倒轉次序 → 抽負號：$-m+2n=-(m-2n)$、$-20r+16s=-4(5r-4s)$；\n③ 高次題先抽最低次：$a^{4}+a^{3}-12a^{2}=a^{2}(a^{2}+a-12)$。\n三項題的例子：{{math:0}}\n再代入 (a) 的答案，最後抽走共同括號：{{math:1}}\n只要抽到與 (a) 相同的括號，最後一步就是「抽走它」。",
-    "en": "The tail of (b) can always be written as a multiple of (a)'s bracket. Three common cases:\n(1) factor a positive number: $+9a+18b=+9(a+2b)$;\n(2) reversed order → factor out a minus: $-m+2n=-(m-2n)$, $-20r+16s=-4(5r-4s)$;\n(3) higher degree → factor out the lowest power first: $a^{4}+a^{3}-12a^{2}=a^{2}(a^{2}+a-12)$.\nExample with three parts: {{math:0}}\nNow substitute (a)'s answer and take the shared bracket out: {{math:1}}\nOnce the bracket matches (a), the last step is simply to take it out."
+    "zh": "(b) 的尾巴（兩項或三項）一定可以抽成 (a) 那個括號的倍數，常見三種：\n① 直接抽正數：$+9a+18b=9(a+2b)$；\n② 倒轉次序 → 抽負號：$-m+2n=-(m-2n)$、$-20r+16s=-4(5r-4s)$；\n③ 高次題先抽最低次：$a^{4}+a^{3}-12a^{2}=a^{2}(a^{2}+a-12)$。\n三項題的例子：{{math:0}}\n再代入 (a) 的答案，最後抽走共同括號：{{math:1}}\n只要抽到與 (a) 相同的括號，最後一步就是「抽走它」。",
+    "en": "The tail of (b) can always be written as a multiple of (a)'s bracket. Three common cases:\n(1) factor a positive number: $+9a+18b=9(a+2b)$;\n(2) reversed order → factor out a minus: $-m+2n=-(m-2n)$, $-20r+16s=-4(5r-4s)$;\n(3) higher degree → factor out the lowest power first: $a^{4}+a^{3}-12a^{2}=a^{2}(a^{2}+a-12)$.\nExample with three parts: {{math:0}}\nNow substitute (a)'s answer and take the shared bracket out: {{math:1}}\nOnce the bracket matches (a), the last step is simply to take it out."
    },
    "math": [
     "9m-6n-6m^{2}+13mn-6n^{2}=(9m-6n)-(6m^{2}-13mn+6n^{2})",
@@ -295,12 +298,12 @@
     "en": "Three-part (a)(b)(c) questions and 'square $-$ square'"
    },
    "body": {
-    "zh": "(a)(b)(c) 型：(a) 與 (b) 各自簡單，兩者都藏著「同一條括號」，(c) 把兩塊拼起來再抽走那條括號：\n$m^{2}+mn-20n^{2}-3m+12n=(m+5n)(m-4n)-3(m-4n)$ → $(m-4n)(m+5n-3)$。\n(平方 − 平方) 型：(a) 做完全平方，(b) 把後面三項整組抽負號，就變成 $a^{2}-b^{2}$：{{math:0}}\n最後要檢查每個括號能否再抽公因式（例如 $(10x+5y-5)=5(2x+y-1)$）：{{math:1}}",
-    "en": "(a)(b)(c) type: (a) and (b) are simple and both hide the same bracket; (c) joins the two pieces and factors that bracket out:\n$m^{2}+mn-20n^{2}-3m+12n=(m+5n)(m-4n)-3(m-4n)$ → $(m-4n)(m+5n-3)$.\n(square $-$ square) type: (a) makes a perfect square, (b) takes a minus out of the last three terms, giving $a^{2}-b^{2}$: {{math:0}}\nFinally check every bracket for a remaining common factor (e.g. $(10x+5y-5)=5(2x+y-1)$): {{math:1}}"
+    "zh": "(a)(b)(c) 型：(a) 與 (b) 各自簡單，兩者都藏著「同一條括號」，(c) 把兩塊拼起來再抽走那條括號：{{math:0}}\n(平方 − 平方) 型（HKDSE 2022 Paper 1 Q4）：(a) 先做完全平方 $81c^{2}-18c+1=(9c-1)^{2}$，(b) 把後面三項整組抽負號，就變成 $a^{2}-b^{2}$：{{math:1}}\n最後要檢查每個括號能否再抽公因式，例如 $(10x+5y-5)=5(2x+y-1)$；本例 $(19c-d-1)$ 與 $(c-d+1)$ 都沒有，所以已經分解完全。",
+    "en": "(a)(b)(c) type: (a) and (b) are simple and both hide the same bracket; (c) joins the two pieces and factors that bracket out: {{math:0}}\n(square $-$ square) type (HKDSE 2022 Paper 1 Q4): (a) makes a perfect square $81c^{2}-18c+1=(9c-1)^{2}$, then (b) takes a minus out of the last three terms, giving $a^{2}-b^{2}$: {{math:1}}\nFinally check every bracket for a remaining common factor, e.g. $(10x+5y-5)=5(2x+y-1)$; here neither $(19c-d-1)$ nor $(c-d+1)$ has one, so the factorisation is complete."
    },
    "math": [
-    "81c^{2}-18c+1=(9c-1)^{2}",
-    "=(10x+5y-5)(2x+5y+5)=5(2x+y-1)(2x+5y+5)"
+    "m^{2}+mn-20n^{2}-3m+12n\n=(m+5n)(m-4n)-3(m-4n)\n=(m-4n)(m+5n-3)",
+    "(10c-d)^{2}-81c^{2}+18c-1\n=(10c-d)^{2}-(81c^{2}-18c+1)\n=(10c-d)^{2}-(9c-1)^{2}\n=(19c-d-1)(c-d+1)"
    ],
    "vocab": [
     {

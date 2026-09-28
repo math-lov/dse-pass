@@ -854,8 +854,8 @@ window.LEARN_TOPIC_WS01C = {
       "en": "The last pair in (b): factor it to create the shared bracket"
      },
      "body": {
-      "zh": "(b) 的尾巴（兩項或三項）一定可以抽成 (a) 那個括號的倍數，常見三種：\n① 直接抽正數：$+9a+18b=+9(a+2b)$；\n② 倒轉次序 → 抽負號：$-m+2n=-(m-2n)$、$-20r+16s=-4(5r-4s)$；\n③ 高次題先抽最低次：$a^{4}+a^{3}-12a^{2}=a^{2}(a^{2}+a-12)$。\n三項題的例子：{{math:0}}\n再代入 (a) 的答案，最後抽走共同括號：{{math:1}}\n只要抽到與 (a) 相同的括號，最後一步就是「抽走它」。",
-      "en": "The tail of (b) can always be written as a multiple of (a)'s bracket. Three common cases:\n(1) factor a positive number: $+9a+18b=+9(a+2b)$;\n(2) reversed order → factor out a minus: $-m+2n=-(m-2n)$, $-20r+16s=-4(5r-4s)$;\n(3) higher degree → factor out the lowest power first: $a^{4}+a^{3}-12a^{2}=a^{2}(a^{2}+a-12)$.\nExample with three parts: {{math:0}}\nNow substitute (a)'s answer and take the shared bracket out: {{math:1}}\nOnce the bracket matches (a), the last step is simply to take it out."
+      "zh": "(b) 的尾巴（兩項或三項）一定可以抽成 (a) 那個括號的倍數，常見三種：\n① 直接抽正數：$+9a+18b=9(a+2b)$；\n② 倒轉次序 → 抽負號：$-m+2n=-(m-2n)$、$-20r+16s=-4(5r-4s)$；\n③ 高次題先抽最低次：$a^{4}+a^{3}-12a^{2}=a^{2}(a^{2}+a-12)$。\n三項題的例子：{{math:0}}\n再代入 (a) 的答案，最後抽走共同括號：{{math:1}}\n只要抽到與 (a) 相同的括號，最後一步就是「抽走它」。",
+      "en": "The tail of (b) can always be written as a multiple of (a)'s bracket. Three common cases:\n(1) factor a positive number: $+9a+18b=9(a+2b)$;\n(2) reversed order → factor out a minus: $-m+2n=-(m-2n)$, $-20r+16s=-4(5r-4s)$;\n(3) higher degree → factor out the lowest power first: $a^{4}+a^{3}-12a^{2}=a^{2}(a^{2}+a-12)$.\nExample with three parts: {{math:0}}\nNow substitute (a)'s answer and take the shared bracket out: {{math:1}}\nOnce the bracket matches (a), the last step is simply to take it out."
      },
      "math": [
       "9m-6n-6m^{2}+13mn-6n^{2}=(9m-6n)-(6m^{2}-13mn+6n^{2})",
@@ -2448,12 +2448,12 @@ window.LEARN_TOPIC_WS01C = {
       "en": "Three-part (a)(b)(c) questions and 'square $-$ square'"
      },
      "body": {
-      "zh": "(a)(b)(c) 型：(a) 與 (b) 各自簡單，兩者都藏著「同一條括號」，(c) 把兩塊拼起來再抽走那條括號：\n$m^{2}+mn-20n^{2}-3m+12n=(m+5n)(m-4n)-3(m-4n)$ → $(m-4n)(m+5n-3)$。\n(平方 − 平方) 型：(a) 做完全平方，(b) 把後面三項整組抽負號，就變成 $a^{2}-b^{2}$：{{math:0}}\n最後要檢查每個括號能否再抽公因式（例如 $(10x+5y-5)=5(2x+y-1)$）：{{math:1}}",
-      "en": "(a)(b)(c) type: (a) and (b) are simple and both hide the same bracket; (c) joins the two pieces and factors that bracket out:\n$m^{2}+mn-20n^{2}-3m+12n=(m+5n)(m-4n)-3(m-4n)$ → $(m-4n)(m+5n-3)$.\n(square $-$ square) type: (a) makes a perfect square, (b) takes a minus out of the last three terms, giving $a^{2}-b^{2}$: {{math:0}}\nFinally check every bracket for a remaining common factor (e.g. $(10x+5y-5)=5(2x+y-1)$): {{math:1}}"
+      "zh": "(a)(b)(c) 型：(a) 與 (b) 各自簡單，兩者都藏著「同一條括號」，(c) 把兩塊拼起來再抽走那條括號：{{math:0}}\n(平方 − 平方) 型（HKDSE 2022 Paper 1 Q4）：(a) 先做完全平方 $81c^{2}-18c+1=(9c-1)^{2}$，(b) 把後面三項整組抽負號，就變成 $a^{2}-b^{2}$：{{math:1}}\n最後要檢查每個括號能否再抽公因式，例如 $(10x+5y-5)=5(2x+y-1)$；本例 $(19c-d-1)$ 與 $(c-d+1)$ 都沒有，所以已經分解完全。",
+      "en": "(a)(b)(c) type: (a) and (b) are simple and both hide the same bracket; (c) joins the two pieces and factors that bracket out: {{math:0}}\n(square $-$ square) type (HKDSE 2022 Paper 1 Q4): (a) makes a perfect square $81c^{2}-18c+1=(9c-1)^{2}$, then (b) takes a minus out of the last three terms, giving $a^{2}-b^{2}$: {{math:1}}\nFinally check every bracket for a remaining common factor, e.g. $(10x+5y-5)=5(2x+y-1)$; here neither $(19c-d-1)$ nor $(c-d+1)$ has one, so the factorisation is complete."
      },
      "math": [
-      "81c^{2}-18c+1=(9c-1)^{2}",
-      "=(10x+5y-5)(2x+5y+5)=5(2x+y-1)(2x+5y+5)"
+      "m^{2}+mn-20n^{2}-3m+12n\n=(m+5n)(m-4n)-3(m-4n)\n=(m-4n)(m+5n-3)",
+      "(10c-d)^{2}-81c^{2}+18c-1\n=(10c-d)^{2}-(81c^{2}-18c+1)\n=(10c-d)^{2}-(9c-1)^{2}\n=(19c-d-1)(c-d+1)"
      ],
      "vocab": [
       {

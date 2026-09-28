@@ -89,11 +89,12 @@ window.LEARN_TOPIC_WS01 = {
       "en": "Four Terms: Grouping"
      },
      "body": {
-      "zh": "四項而又沒有全部共同的公因式時，用 grouping（併項分組）：把四項分成兩組，每組各自抽公因式，然後兩組會出現相同的括號，再把那括號抽走。\n例：$hk+1+h+k$，先把項調位再分組：{{math:0}}\n重點提示一：後兩項抽不出字母時，其實是抽出了 $+1$；把括號抽走後，該位置會留下 $+1$，不是消失。\n重點提示二：分組後兩個括號必須一模一樣。若只差一個負號，抽 $-1$ 出來就一樣了。",
-      "en": "When there are four terms and no factor common to all of them, use grouping: split the four terms into two pairs, take out the common factor of each pair, and the same bracket should then appear in both pairs — take that bracket out.\nExample: $hk+1+h+k$ — rearrange the terms first, then group: {{math:0}}\nNote 1: when the last two terms share no letter, you are in fact taking out $+1$; that $+1$ stays inside the bracket, it does not disappear.\nNote 2: the two brackets must be identical. If they differ only by a minus sign, take out $-1$ and they match."
+      "zh": "四項而又沒有全部共同的公因式時，用 grouping（併項分組）：把四項分成兩組，每組各自抽公因式，然後兩組會出現相同的括號，再把那括號抽走。\n例：$hk+1+h+k$，先把項調位再分組：{{math:0}}\n重點提示一：後兩項抽不出字母時，其實是抽出了 $+1$；把括號抽走後，該位置會留下 $+1$，不是消失。\n重點提示二：分組後兩個括號必須一模一樣。若只差一個負號，抽 $-1$ 出來就一樣了：{{math:1}}",
+      "en": "When there are four terms and no factor common to all of them, use grouping: split the four terms into two pairs, take out the common factor of each pair, and the same bracket should then appear in both pairs — take that bracket out.\nExample: $hk+1+h+k$ — rearrange the terms first, then group: {{math:0}}\nNote 1: when the last two terms share no letter, you are in fact taking out $+1$; that $+1$ stays inside the bracket, it does not disappear.\nNote 2: the two brackets must be identical. If they differ only by a minus sign, take out $-1$ and they match: {{math:1}}"
      },
      "math": [
-      "hk+1+h+k=hk+h+k+1\n=h(k+1)+1(k+1)\n=(k+1)(h+1)"
+      "hk+1+h+k=hk+h+k+1\n=h(k+1)+1(k+1)\n=(k+1)(h+1)",
+      "ab-ac-b+c\n=a(b-c)-(b-c)\n=(b-c)(a-1)"
      ],
      "vocab": [
       {

@@ -51,11 +51,12 @@ window.LEARN_TOPIC_WS01B = {
       "en": "Paper 2 shortcut: read the signs first"
      },
      "body": {
-      "zh": "卷二（MC）不需要長題的完整步驟 —— 但也不需要由頭展開到尾。很多因式分解 MC，只要看「某一項的符號」就能刪去一半選項：\n例：$4m^{2}-7mn+3n^{2}+m-n$ 中，$+3n^{2}$ 與 $+m$ 都是正號，所以答案的括號內一定要能產生這兩個正號：{{math:0}}\n先刪錯、再驗算，做一題可以省一半時間。",
-      "en": "Paper 2 is multiple choice: you do not need the full written solution — but you do not have to expand everything either. In many factorisation MC questions, the sign of one term eliminates half the options:\nExample: in $4m^{2}-7mn+3n^{2}+m-n$ the terms $+3n^{2}$ and $+m$ are both positive, so the answer's brackets must be able to produce them: {{math:0}}\nDelete first, verify second — this halves the time per question."
+      "zh": "卷二（MC）不需要長題的完整步驟 —— 但也不需要由頭展開到尾。\n很多因式分解 MC，看「尾巴那一兩項」的符號就可以先刪去一半選項：尾巴 $+m-n$ 就是 $+(m-n)$，所以答案的兩個括號之中，一定有一個是 $(m-n)$ —— 其他選項即刻可以刪。\n例：$4m^{2}-7mn+3n^{2}+m-n$：{{math:0}}\n刪完之後仍要驗算一次（把答案展開，看能否完全回到原式）：{{math:1}}",
+      "en": "Paper 2 is multiple choice: you do not need the full written solution — but you do not have to expand everything either. In many factorisation MC questions, the signs of the last two terms eliminate half the options at once: the tail $+m-n$ is just $+(m-n)$, so one of the two brackets must be $(m-n)$ — the other options can be deleted immediately.\nExample: $4m^{2}-7mn+3n^{2}+m-n$: {{math:0}}\nAfter deleting, still verify once by expanding the answer back to the original expression: {{math:1}}"
      },
      "math": [
-      "4m^{2}-7mn+3n^{2}+m-n=(m-n)(4m-3n+1)"
+      "4m^{2}-7mn+3n^{2}+m-n=(m-n)(4m-3n+1)",
+      "(m-n)(4m-3n+1)=4m^{2}-7mn+3n^{2}+m-n"
      ],
      "vocab": [
       {
@@ -80,11 +81,12 @@ window.LEARN_TOPIC_WS01B = {
       "en": "A fixed routine for four or six terms"
      },
      "body": {
-      "zh": "卷二的四項題幾乎都是同一條路：分組 → 每組抽公因式 → 兩個括號要一樣。\n例：$2xy-xz+4y^{2}-2yz$，分組後兩組都是 $(2y-z)$：{{math:0}}\n如果分組後括號差一個負號，把 $-1$ 抽出來就一樣；如果兩組完全配不上，就調位（把有共同括號的兩項拉在一起）再試。六項題同理：三項一組、抽三次，通常會出現同一個括號。",
-      "en": "Almost every four-term question in Paper 2 follows one route: group → factor each pair → make the brackets identical.\nExample: $2xy-xz+4y^{2}-2yz$ — after grouping, both brackets are $(2y-z)$: {{math:0}}\nIf the brackets differ by a sign, take out $-1$; if they do not match at all, rearrange the terms (pull together the two that share a bracket) and try again. Six terms work the same way: group into threes and the same bracket usually appears."
+      "zh": "卷二的四項題幾乎都是同一條路：分組 → 每組抽公因式 → 兩個括號要一樣。\n例：$2xy-xz+4y^{2}-2yz$，分組後兩組都是 $(2y-z)$：{{math:0}}\n如果分組後括號差一個負號，把 $-1$ 抽出來就一樣（例：{{math:1}}）；如果兩組完全配不上，就調位（把有共同括號的兩項拉在一起）再試。六項題同理：三項一組、抽三次，通常會出現同一個括號。",
+      "en": "Almost every four-term question in Paper 2 follows one route: group → factor each pair → make the brackets identical.\nExample: $2xy-xz+4y^{2}-2yz$ — after grouping, both brackets are $(2y-z)$: {{math:0}}\nIf the brackets differ by a sign, take out $-1$ (example: {{math:1}}); if they do not match at all, rearrange the terms (pull together the two that share a bracket) and try again. Six terms work the same way: group into threes and the same bracket usually appears."
      },
      "math": [
-      "2xy-xz+4y^{2}-2yz=x(2y-z)+2y(2y-z)=(x+2y)(2y-z)"
+      "2xy-xz+4y^{2}-2yz=x(2y-z)+2y(2y-z)=(x+2y)(2y-z)",
+      "xy-xz-y+z\n=x(y-z)-(y-z)\n=(y-z)(x-1)"
      ],
      "vocab": [
       {
