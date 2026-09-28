@@ -1169,7 +1169,7 @@ window.LEARN_TOPIC_WS01 = {
           "en": "Step 2 · Substitute"
          },
          "math": "=[(5c+d)+(3c-2)]\n\\times[(5c+d)-(3c-2)]",
-         "zh": "這裡 $a=5c+d$、$b=3c-2$。平方差的兩個括號是「一加一減」。減號那個一定要加括號，因為 $-（3c-2)$ 的 $-(-2)$ 會變成 $+2$。",
+         "zh": "這裡 $a=5c+d$、$b=3c-2$。平方差的兩個括號是「一加一減」。減號那個一定要加括號，因為 $-(3c-2)$ 的 $-(-2)$ 會變成 $+2$。",
          "en": "Here $a=5c+d$ and $b=3c-2$. One bracket adds and one subtracts. The subtracting bracket must be bracketed, because $-(-2)$ becomes $+2$."
         },
         {

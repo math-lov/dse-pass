@@ -465,7 +465,8 @@ def main(argv: list[str] | None = None) -> int:
     # ③ 數式一律英文（老師 2026-09-28）：`math`／`highlight` 不可以有中文，例如「或」要寫 \text{or}。
     #    中文只可出現在解說文字（zh／body 的散文）。
     import re as _re
-    _cjk = _re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
+    # 漢字 ＋ 中日韓標點（、。「」）＋ 全角符號（；，！）：數式內全部不可出現
+    _cjk = _re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\u3000-\u303f\uff00-\uffef]")
     for fname, blob in (("bank.json", bank), ("solutions.json", sols),
                         ("concepts.json", concepts), ("lessons.json", lessons)):
         for path, text in _scan_strings(blob, fname):

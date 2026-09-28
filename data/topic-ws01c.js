@@ -304,7 +304,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(a)(b) 兩部各自抽公因式／用平方差",
          "en": "Parts (a) and (b): factor each simple expression"
         },
-        "math": "2b-ab=b(2-a)\\quad\\text{；}\\quad 4-a^{2}=(2+a)(2-a)",
+        "math": "2b-ab=b(2-a)\n4-a^{2}=(2+a)(2-a)",
         "zh": "(a) 兩項都有 $b$；(b) 是平方差 $2^{2}-a^{2}$。兩部的答案都是 (c) 的材料。",
         "en": "(a) Both terms contain $b$; (b) is the difference of two squares $2^{2}-a^{2}$. Both answers feed into part (c).",
         "marking": "(1A)(1A)"

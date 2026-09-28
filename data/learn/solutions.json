@@ -801,7 +801,7 @@
        "en": "Step 2 · Substitute"
       },
       "math": "=[(5c+d)+(3c-2)]\n\\times[(5c+d)-(3c-2)]",
-      "zh": "這裡 $a=5c+d$、$b=3c-2$。平方差的兩個括號是「一加一減」。減號那個一定要加括號，因為 $-（3c-2)$ 的 $-(-2)$ 會變成 $+2$。",
+      "zh": "這裡 $a=5c+d$、$b=3c-2$。平方差的兩個括號是「一加一減」。減號那個一定要加括號，因為 $-(3c-2)$ 的 $-(-2)$ 會變成 $+2$。",
       "en": "Here $a=5c+d$ and $b=3c-2$. One bracket adds and one subtracts. The subtracting bracket must be bracketed, because $-(-2)$ becomes $+2$."
      },
      {
@@ -3373,7 +3373,7 @@
        "zh": "(a)(b) 兩部各自抽公因式／用平方差",
        "en": "Parts (a) and (b): factor each simple expression"
       },
-      "math": "2b-ab=b(2-a)\\quad\\text{；}\\quad 4-a^{2}=(2+a)(2-a)",
+      "math": "2b-ab=b(2-a)\n4-a^{2}=(2+a)(2-a)",
       "zh": "(a) 兩項都有 $b$；(b) 是平方差 $2^{2}-a^{2}$。兩部的答案都是 (c) 的材料。",
       "en": "(a) Both terms contain $b$; (b) is the difference of two squares $2^{2}-a^{2}$. Both answers feed into part (c).",
       "marking": "(1A)(1A)"
