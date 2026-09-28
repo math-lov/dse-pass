@@ -527,6 +527,10 @@ body[data-lang="both"] .ccard-head .l-en {
 .pm-opts { display: grid; gap: 6px; margin-bottom: 10px; }
 .pm-opt { display: flex; gap: 8px; align-items: flex-start; font-size: 14.5px; cursor: pointer; }
 .pm-opt input { margin-top: 5px; width: 18px; height: 18px; }
+.pm-label {
+  display: block; font-size: 13.5px; font-weight: 800; color: var(--muted);
+  margin: 2px 0 4px;
+}
 .pm-doubt {
   width: 100%; font: inherit; font-size: 14px; border: 1px solid var(--line);
   border-radius: var(--radius-sm); padding: 8px 10px; margin-bottom: 8px; resize: vertical;

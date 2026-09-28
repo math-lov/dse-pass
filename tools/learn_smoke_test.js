@@ -86,6 +86,12 @@ ok(!!pre.$(".pre-hero h1"), "the preface has a hero heading");
 ok(pre.$$(".pre-block").length >= 4, "the preface is split into blocks (got " + pre.$$(".pre-block").length + ")");
 ok(pre.$$(".pre-go .pre-step").length === 3, "the three study habits are numbered steps");
 ok(/繁體中文/.test(pre.$("#prompt-text").textContent), "the AI prompt template is ready to copy");
+ok(/問 AI/.test(pre.$(".pre-help").textContent) && /Ask AI/.test(pre.$(".pre-help").textContent),
+   "前言第二步已改成「用網站內置問 AI 按鈕」的說明（中英齊）");
+const aiStep = pre.$$(".pre-help .pre-step").filter((s) => /問 AI/.test(s.textContent))[0];
+ok(!!aiStep && aiStep.querySelectorAll("ul li").length === 3,
+   "前言第二步列出三個「問 AI」按鈕位置（"
+   + (aiStep ? aiStep.querySelectorAll("ul li").length : 0) + "）");
 
 /* ── 3. 課題頁：分頁列與概念卡 ────────────────────────────────────────── */
 console.log("\n— 課題頁：分頁列 —");

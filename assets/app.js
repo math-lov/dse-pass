@@ -1474,8 +1474,13 @@
     });
     box.appendChild(optsBox);
 
+    var dl = el("label", "pm-label");
+    dl.appendChild(biSpan({ zh: "我的具體疑問（寫下你想不通的那一行）",
+                            en: "My specific question (the exact line you are stuck on)" }));
+    box.appendChild(dl);
     var doubt = el("textarea", "pm-doubt");
     doubt.rows = 2;
+    doubt.setAttribute("data-pm-doubt", "1");
     doubt.placeholder = t.doubtPlaceholder || "";
     doubt.oninput = function () { refresh(); };
     box.appendChild(doubt);
