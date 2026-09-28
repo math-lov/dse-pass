@@ -21,8 +21,8 @@
    "subtopic": "factorization",
    "source": "EPH DSE Pass · Worksheet 1",
    "name": {
-    "zh": "多項式的因式分解",
-    "en": "Factorization of Polynomials"
+    "zh": "WS01a · 因式分解基本功",
+    "en": "WS01a · Factorization — Basic Skills"
    },
    "intro": {
     "zh": "這一課學四種方法：抽公因式、併項分組、用恆等式（平方差／完全平方）、十字相乘。DSE 卷一幾乎年年考一題因式分解，而且題目一定設計成「(a) 先分一個簡單的，(b) 再用 (a) 的結果」——所以 (a) 答對，(b) 就等於送分。",
@@ -65,7 +65,12 @@
      ],
      "longQuestionIds": [
       "eph-ws01-ex01",
-      "eph-ws01-ex02"
+      "eph-ws01-ex02",
+      "eph-ws01-s01",
+      "eph-ws01-s02",
+      "eph-ws01-s03",
+      "eph-ws01-s04",
+      "eph-ws01-s05"
      ],
      "mcPages": [
       [

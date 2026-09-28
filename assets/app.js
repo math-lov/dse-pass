@@ -26,9 +26,10 @@
       s.mc = s.mc || {};        // { qid: {picked, correct, ts, tries} }
       s.long = s.long || {};    // { qid: true }（已讀完示範）
       s.cards = s.cards || {};  // { lessonId: true }（已看完概念卡）
+      s.weak = s.weak || {};    // { qid: {ts} }（自己按「加入弱點升級庫」的長／短答題）
       return s;
     } catch (e) {
-      return { mc: {}, long: {}, cards: {} };
+      return { mc: {}, long: {}, cards: {}, weak: {} };
     }
   }
   function save() {
@@ -77,7 +78,9 @@
     var box = el(t, cls || "bi");
     var zh = (obj && obj.zh) || "";
     var en = (obj && obj.en) || "";
-    if (!en) { richInto(box, zh); autoRender(box); return box; }
+    /* 只有一份文字時不加語言 class（任何語言模式都顯示）。
+       題目可以只提供英文（只有詳解要中英）—— 若照舊只認 zh，中文模式會空白一片。 */
+    if (!en || !zh) { richInto(box, zh || en); autoRender(box); return box; }
     var z = el(t === "span" ? "span" : "div", "l-zh");
     richInto(z, zh);
     var e = el(t === "span" ? "span" : "div", "l-en");
@@ -332,7 +335,64 @@
     Object.keys(store.mc).forEach(function (qid) {
       if (store.mc[qid].correct === false) out.push(qid);
     });
+    /* 長／短答是紙上作答：學生自己按「加入弱點升級庫」，一樣列出來 */
+    Object.keys(store.weak).forEach(function (qid) {
+      if (out.indexOf(qid) < 0) out.push(qid);
+    });
     return out.sort();
+  }
+
+  /* 「加入弱點升級庫」開關：長／短答在紙上做，學生自己決定要不要留起來再練 */
+  function weakBtn(q) {
+    var b = el("button", "btn btn-sm btn-ghost btn-weak");
+    b.setAttribute("data-weak", q.id);
+    function paint() {
+      var on = !!store.weak[q.id];
+      b.innerHTML = "";
+      b.appendChild(biSpan(on
+        ? { zh: "✓ 已在弱點升級庫", en: "✓ In your weak-spot list" }
+        : { zh: "+ 加入弱點升級庫", en: "+ Add to weak-spot list" }));
+      if (on) b.classList.add("on"); else b.classList.remove("on");
+    }
+    b.onclick = function () {
+      if (store.weak[q.id]) {
+        delete store.weak[q.id];
+        toast("已從弱點升級庫移除");
+      } else {
+        store.weak[q.id] = { ts: Date.now() };
+        toast("已加入弱點升級庫 —— 之後在主目錄按「弱點升級庫」可以再練");
+      }
+      save();
+      paint();
+      updateWrongBadge();
+    };
+    paint();
+    return b;
+  }
+
+  /* 題目在第幾頁：從弱點升級庫按「再練一次」時直接跳去那一題
+     （長題示範可能藏在後幾頁，而 ≥4 條長題會合成「示範集」一頁） */
+  function pageOfQuestion(tid, qid) {
+    var t = null, i, j;
+    (INDEX.topics || []).forEach(function (x) { if (x.id === tid) t = x; });
+    if (!t) return 0;
+    var n = 0;
+    var lessons = t.lessons || [];
+    for (i = 0; i < lessons.length; i++) {
+      var l = lessons[i];
+      n += 1;                                     // 每個 lesson 先有一頁概念卡
+      var longs = l.longQuestionIds || [];
+      if (longs.indexOf(qid) >= 0) {
+        return n + (longs.length >= 4 ? 0 : longs.indexOf(qid));
+      }
+      n += longs.length >= 4 ? 1 : longs.length;   // 示範頁
+      var pages = l.mcPages || [];
+      for (j = 0; j < pages.length; j++) {
+        if (pages[j].indexOf(qid) >= 0) return n + j;
+      }
+      n += pages.length;
+    }
+    return 0;
   }
 
   /* ── 課題頁 ─────────────────────────────────────────────────────────── */
@@ -773,9 +833,16 @@
     var shown = 0;
 
     var card = el("div", "card");
+    card.setAttribute("data-qid", q.id);
     var head = el("div", "q-head");
     head.appendChild(el("span", "q-code", q.code || q.id));
+    if (q.kind === "short") {
+      var kc = el("span", "q-kind");
+      kc.appendChild(biSpan({ zh: "短答", en: "Short answer" }));
+      head.appendChild(kc);
+    }
     head.appendChild(el("span", "q-source", q.source || ""));
+    head.appendChild(weakBtn(q));     // 加入弱點升級庫（長／短答是紙上作答，自己標記）
     if (q.marks) {
       var mk = el("span", "q-source");
       mk.appendChild(biSpan({ zh: "（" + q.marks + " 分）", en: "(" + q.marks + " marks)" }));
@@ -1307,6 +1374,7 @@
         var inner = el("div", "wrong-item");
         var q = el("div", "wq");
         var st = store.mc[qid];
+        var manual = !st && store.weak[qid];   // 自己加入的長／短答（紙上作答，無選項）
         var m = /-q(\d+)$/.exec(qid);
         var rec = el("div");
         rec.appendChild(biSpan({
@@ -1316,19 +1384,22 @@
         }));
         q.appendChild(rec);
         var note = el("div", "small muted");
-        note.appendChild(biSpan({
-          zh: "你選了 " + st.picked + "（答錯 " + (st.tries || 1) + " 次）",
-          en: "You chose " + st.picked + " (wrong " + (st.tries || 1) +
-              ((st.tries || 1) === 1 ? " time)" : " times)")
-        }));
+        note.appendChild(biSpan(manual
+          ? { zh: "你自己加入的（長／短答在紙上作答，對完題解再決定要不要留著）",
+              en: "Added by you (long/short answers are written on paper — check the worked solution, then decide)" }
+          : { zh: "你選了 " + st.picked + "（答錯 " + (st.tries || 1) + " 次）",
+              en: "You chose " + st.picked + " (wrong " + (st.tries || 1) +
+                  ((st.tries || 1) === 1 ? " time)" : " times)") }));
         q.appendChild(note);
         inner.appendChild(q);
 
         var again = btnPair("btn btn-sm btn-primary", { zh: "再練一次", en: "Practise again" });
         again.onclick = function () {
           delete store.mc[qid];
+          delete store.weak[qid];
           save();
-          go("topic.html?t=" + t + "&q=" + encodeURIComponent(qid));
+          go("topic.html?t=" + t + "&p=" + pageOfQuestion(t, qid) +
+             "&q=" + encodeURIComponent(qid));
         };
         inner.appendChild(again);
         row.appendChild(inner);
@@ -1342,6 +1413,7 @@
       Object.keys(store.mc).forEach(function (qid) {
         if (store.mc[qid].correct === false) delete store.mc[qid];
       });
+      store.weak = {};                      // 自己加入的長／短答記錄也一併清空
       save();
       location.reload();
     };

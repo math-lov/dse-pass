@@ -381,6 +381,37 @@ wDup.ctx.window.LEARN_I18N.set("zh");
 ok(wBefore >= 1 && wDup.$$(".wrong-item").length === wBefore,
    "弱點升級庫切語言後項目數目不變（" + wBefore + " → " + wDup.$$(".wrong-item").length + "）");
 
+/* ── 9b. 長／短答（紙上作答）：加入弱點升級庫 + 英文題幹在中文模式要見到 ── */
+console.log("\n— 長／短答：加入弱點升級庫 —");
+const tDemo = LESSONS.topics[0];
+const dSet = boot("topic.html", "?t=" + tDemo.id + "&p=1", null, "zh");
+ok(/1 \/ 7/.test((dSet.$(".demo-count") || {}).textContent || ""),
+   "示範集把 2 條原有示範 + 5 條短答合成一頁（" +
+   (dSet.$(".demo-count") || {}).textContent + "）");
+ok(!!dSet.$(".card[data-qid] [data-weak]"), "示範題（長／短答）有「加入弱點升級庫」按鈕");
+dSet.$("[data-weak]").click();
+ok(/已在弱點升級庫/.test(dSet.$("[data-weak]").textContent), "按一下 → 變成「已在弱點升級庫」");
+ok(/（1）/.test((dSet.$("#wrong-count") || {}).textContent || ""), "弱點升級庫徽章變為 1");
+dSet.$("[data-weak]").click();
+ok(/加入弱點升級庫/.test(dSet.$("[data-weak]").textContent) &&
+   !/已在/.test(dSet.$("[data-weak]").textContent), "再按一下 → 取消加入");
+
+const wWeak = bootLang("wrong.html", "", JSON.stringify({
+  mc: {}, long: {}, cards: {}, weak: { "eph-ws01-s01": { ts: 1 } } }), "zh");
+ok(!!wWeak.$(".wrong-item"), "弱點升級庫列出自己加入的長／短答");
+ok(/自己加入/.test((wWeak.$(".wrong-item") || {}).textContent || ""), "標示為「你自己加入的」");
+ok(!!wWeak.$(".wrong-item .btn"), "有「再練一次」按鈕");
+
+/* 題目可以只提供英文（詳解才要中英）：中文模式下也不可以空白 */
+const scZh = bootLang("topic.html", "?t=" + tDemo.id + "&p=1", null, "zh");
+scZh.$$(".demo-nav .btn")[1].click();      // 示範 2（原有長題）
+scZh.$$(".demo-nav .btn")[1].click();      // 示範 3 = 第一條短答
+const stemZh = scZh.$(".card[data-qid] .q-stem");
+ok(/Factorize/.test((stemZh || {}).textContent || "") && !stemZh.querySelector(".l-zh"),
+   "英文題幹（無中文）在中文模式仍然顯示，且不加 .l-zh");
+ok(!!scZh.$(".card[data-qid] .q-kind"), "短答題有「短答 / Short answer」標記");
+ok(!!scZh.$(".card[data-qid] [data-weak]"), "短答題一樣可以加入弱點升級庫");
+
 /* ── 10. 基調驗證：問 AI 提問生成 ────────────────────────────────────── */
 console.log("\n— 基調：問 AI 提問生成 —");
 const MC0 = BANK.filter((q) => q.type === "mc")[0];

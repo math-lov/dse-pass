@@ -6,8 +6,8 @@ window.LEARN_TOPIC_WS01 = {
  "subtopic": "factorization",
  "source": "EPH DSE Pass · Worksheet 1",
  "name": {
-  "zh": "多項式的因式分解",
-  "en": "Factorization of Polynomials"
+  "zh": "WS01a · 因式分解基本功",
+  "en": "WS01a · Factorization — Basic Skills"
  },
  "intro": {
   "zh": "這一課學四種方法：抽公因式、併項分組、用恆等式（平方差／完全平方）、十字相乘。DSE 卷一幾乎年年考一題因式分解，而且題目一定設計成「(a) 先分一個簡單的，(b) 再用 (a) 的結果」——所以 (a) 答對，(b) 就等於送分。",
@@ -409,6 +409,357 @@ window.LEARN_TOPIC_WS01 = {
       "tip": {
        "zh": "見到「$(5c+d)^{2}$ 減去一堆」，先想「後面那堆能不能變成一個平方」。把 (a) 的答案代進去之後，題目就由「四項分組」變成「平方差」，這是卷一最常見的兩步設計。",
        "en": "When you see $(5c+d)^{2}$ minus a pile of terms, ask whether that pile can be turned into a square. After substituting the answer of (a), “four terms to group” becomes “difference of two squares” — the most common two-step design in Paper 1."
+      }
+     },
+     "answer": null,
+     "verify": "checked"
+    },
+    {
+     "id": "eph-ws01-s01",
+     "type": "long",
+     "kind": "short",
+     "topic": "ws01",
+     "unit": 4,
+     "subtopic": "factorization",
+     "difficulty": 1,
+     "code": "WS1-S1",
+     "source": "WS01 · Basic Skills Q7(b)",
+     "stem": {
+      "en": "Factorize $-4m^{2}+20mn-25n^{2}$ completely."
+     },
+     "marks": 2,
+     "review": null,
+     "solution": {
+      "steps": [
+       {
+        "title": {
+         "zh": "第 1 步 · 三項、首項負數：先抽 $-1$",
+         "en": "Step 1 · Negative leading term: take $-1$ out first"
+        },
+        "math": "-4m^{2}+20mn-25n^{2}=-(4m^{2}-20mn+25n^{2})",
+        "zh": "整條式三項，首項是 $-4m^{2}$。第一步一律把 $-1$ 抽出來（等於每一項都變號），括號內才用恆等式。這一步是方法分，寫了才有後面的分。",
+        "en": "The expression has three terms and the leading term is $-4m^{2}$. Take $-1$ out first (that flips every sign), then use an identity inside the bracket. This is the method mark.",
+        "marking": "(1M)"
+       },
+       {
+        "title": {
+         "zh": "第 2 步 · 認出完全平方",
+         "en": "Step 2 · Recognise the perfect square"
+        },
+        "math": "=-\\left[(2m)^{2}-2(2m)(5n)+(5n)^{2}\\right]",
+        "zh": "括號內：$4m^{2}=(2m)^{2}$、$25n^{2}=(5n)^{2}$，而中間項 $-20mn=-2(2m)(5n)$，完全符合 $a^{2}-2ab+b^{2}=(a-b)^{2}$。",
+        "en": "Inside the bracket $4m^{2}=(2m)^{2}$, $25n^{2}=(5n)^{2}$ and the middle term $-20mn=-2(2m)(5n)$, which is exactly $a^{2}-2ab+b^{2}=(a-b)^{2}$."
+       },
+       {
+        "title": {
+         "zh": "第 3 步 · 寫成平方，記得保留負號",
+         "en": "Step 3 · Write it as a square — keep the minus sign"
+        },
+        "math": "=-(2m-5n)^{2}",
+        "zh": "答案是 $-(2m-5n)^{2}$。答題時外面的負號一定要抄，漏了的話展開就變回正數。",
+        "en": "The answer is $-(2m-5n)^{2}$. Always copy the minus sign in front — drop it and expanding gives the wrong sign.",
+        "marking": "(1A)"
+       }
+      ],
+      "traps": [
+       {
+        "label": "抽了 $-1$ 就停手",
+        "labelEn": "Stopping after taking out $-1$",
+        "zh": "寫成 $-(4m^{2}-20mn+25n^{2})$ 就當完成。題目要求 completely，括號內仍要分解到 $(2m-5n)^{2}$。",
+        "en": "Writing $-(4m^{2}-20mn+25n^{2})$ and stopping: the question says 'completely', so the bracket still has to become $(2m-5n)^{2}$."
+       },
+       {
+        "label": "中間項符號錯",
+        "labelEn": "Wrong sign in the middle term",
+        "zh": "寫成 $(2m+5n)^{2}$：那個展開是 $+20mn$，但題目是 $-20mn$，所以必須是 $(2m-5n)^{2}$。",
+        "en": "Writing $(2m+5n)^{2}$: that expands to $+20mn$, but the question has $-20mn$, so it must be $(2m-5n)^{2}$."
+       }
+      ],
+      "tip": {
+       "zh": "看到三項而首項是負數：先抽 $-1$。剩下的不是 $a^{2}\\pm 2ab+b^{2}$ 就是十字相乘，一刀切開兩類。",
+       "en": "Three terms with a negative leading term: take $-1$ out first. What is left is either $a^{2}\\pm 2ab+b^{2}$ or a cross-method job."
+      }
+     },
+     "answer": null,
+     "verify": "checked"
+    },
+    {
+     "id": "eph-ws01-s02",
+     "type": "long",
+     "kind": "short",
+     "topic": "ws01",
+     "unit": 4,
+     "subtopic": "factorization",
+     "difficulty": 2,
+     "code": "WS1-S2",
+     "source": "WS01 · Basic Skills Q9(a)",
+     "stem": {
+      "en": "Factorize $x^{2}+4xy+3y^{2}$."
+     },
+     "marks": 2,
+     "review": null,
+     "solution": {
+      "steps": [
+       {
+        "title": {
+         "zh": "第 1 步 · 十字相乘：拆首項與末項",
+         "en": "Step 1 · Cross-method: split the first and last terms"
+        },
+        "math": "x^{2}+4xy+3y^{2}\\Rightarrow (x\\quad y)(x\\quad y)",
+        "zh": "首項 $x^{2}$ 只能拆成 $x\\cdot x$；末項 $3y^{2}$ 拆成 $y\\cdot 3y$（因為兩個括號都要有 $y$，展開才會有 $y^{2}$ 項）。",
+        "en": "The first term $x^{2}$ can only split as $x\\cdot x$; the last term $3y^{2}$ splits as $y\\cdot 3y$ — both brackets need a $y$, otherwise expanding never produces $y^{2}$.",
+        "marking": "(1M)"
+       },
+       {
+        "title": {
+         "zh": "第 2 步 · 交叉相乘驗中間項",
+         "en": "Step 2 · Cross-check the middle term"
+        },
+        "math": "x\\cdot 3y+y\\cdot x=3xy+xy=4xy",
+        "zh": "交叉相乘的兩個積相加要等於題目的中間項 $+4xy$。剛剛好，代表拆對了。這一步只花幾秒，卻可以救回一分。",
+        "en": "The two cross products must add up to the given middle term $+4xy$. They do, so the split is right. It takes seconds and saves a mark."
+       },
+       {
+        "title": {
+         "zh": "第 3 步 · 寫出答案",
+         "en": "Step 3 · Write the answer"
+        },
+        "math": "x^{2}+4xy+3y^{2}=(x+y)(x+3y)",
+        "zh": "兩個括號內都是加號：因為末項 $+3y^{2}$ 是正數、中間項 $+4xy$ 也是正數。",
+        "en": "Both brackets take a plus sign: the last term $+3y^{2}$ is positive and the middle term $+4xy$ is positive too.",
+        "marking": "(1A)"
+       }
+      ],
+      "traps": [
+       {
+        "label": "兩個括號都寫減號",
+        "labelEn": "Both brackets negative",
+        "zh": "寫成 $(x-y)(x-3y)$：那樣中間項是 $-4xy$，題目是 $+4xy$，所以兩個括號必須同號（都加）。",
+        "en": "Writing $(x-y)(x-3y)$ gives $-4xy$ in the middle, but the question has $+4xy$ — so both brackets must have the same sign (both plus)."
+       },
+       {
+        "label": "拆完不驗算",
+        "labelEn": "Not checking the split",
+        "zh": "拆完 $3y^{2}=y\\cdot 3y$ 就直接寫答案。中間項對不上就代表拆錯，務必做一次交叉相乘。",
+        "en": "Writing the answer straight after splitting $3y^{2}=y\\cdot 3y$. If the middle term does not match, the split is wrong — always do the cross-check."
+       },
+       {
+        "label": "漏掉一個 $y$",
+        "labelEn": "Losing a $y$",
+        "zh": "寫成 $(x+y)(x+3)$：第二個括號少了 $y$，展開後不會是原式。",
+        "en": "Writing $(x+y)(x+3)$ loses a $y$ in the second bracket; expanding it will not give the original expression."
+       }
+      ],
+      "tip": {
+       "zh": "末項含 $y^{2}$ → 兩個括號都要有 $y$；中間項決定兩個符號同號還是異號（正同負異）。",
+       "en": "If the last term contains $y^{2}$, both brackets need a $y$. The sign of the middle term decides whether the two signs match (same when positive, opposite when negative)."
+      }
+     },
+     "answer": null,
+     "verify": "checked"
+    },
+    {
+     "id": "eph-ws01-s03",
+     "type": "long",
+     "kind": "short",
+     "topic": "ws01",
+     "unit": 4,
+     "subtopic": "factorization",
+     "difficulty": 2,
+     "code": "WS1-S3",
+     "source": "WS01 · Basic Skills Q9(b)",
+     "stem": {
+      "en": "Factorize $6m^{2}-11mn-10n^{2}$."
+     },
+     "marks": 2,
+     "review": null,
+     "solution": {
+      "steps": [
+       {
+        "title": {
+         "zh": "第 1 步 · 拆首項 $6m^{2}$",
+         "en": "Step 1 · Split the leading term $6m^{2}$"
+        },
+        "math": "6m^{2}\\Rightarrow 2m\\cdot 3m",
+        "zh": "首項 $6m^{2}$ 有兩個拆法（$m\\cdot 6m$ 或 $2m\\cdot 3m$）。先試 $2m\\cdot 3m$，因為係數小、組合較少，容易篩。",
+        "en": "The leading term $6m^{2}$ can split two ways ($m\\cdot 6m$ or $2m\\cdot 3m$). Try $2m\\cdot 3m$ first — the coefficients are smaller and there are fewer cases to test.",
+        "marking": "(1M)"
+       },
+       {
+        "title": {
+         "zh": "第 2 步 · 末項負數 → 兩個符號相反，再交叉相乘",
+         "en": "Step 2 · Negative last term means opposite signs, then cross-check"
+        },
+        "math": "2m\\cdot(+2n)+(-5n)\\cdot 3m=4mn-15mn=-11mn",
+        "zh": "$-10n^{2}$ 拆成 $(-5n)\\cdot(+2n)$，因為末項是負數，兩個括號的符號一定相反。交叉相乘：$4mn-15mn=-11mn$，與題目的 $-11mn$ 相符。",
+        "en": "Split $-10n^{2}$ as $(-5n)\\cdot(+2n)$: the last term is negative, so the two brackets must carry opposite signs. Cross-check: $4mn-15mn=-11mn$, matching the given $-11mn$."
+       },
+       {
+        "title": {
+         "zh": "第 3 步 · 寫出答案",
+         "en": "Step 3 · Write the answer"
+        },
+        "math": "6m^{2}-11mn-10n^{2}=(2m-5n)(3m+2n)",
+        "zh": "答案就是 $(2m-5n)(3m+2n)$。次序可以寫 $(3m+2n)(2m-5n)$，但符號要配對好，不要一個括號內同時改兩個符號。",
+        "en": "The answer is $(2m-5n)(3m+2n)$. Writing $(3m+2n)(2m-5n)$ is equally correct, but keep the signs paired — never flip two signs inside one bracket.",
+        "marking": "(1A)"
+       }
+      ],
+      "traps": [
+       {
+        "label": "符號都寫成加",
+        "labelEn": "Both brackets positive",
+        "zh": "寫成 $(2m+5n)(3m+2n)$：末項會變成 $+10n^{2}$，但題目是 $-10n^{2}$，所以其中一個括號必須是減。",
+        "en": "Writing $(2m+5n)(3m+2n)$ gives $+10n^{2}$ at the end, but the question has $-10n^{2}$ — one bracket must be negative."
+       },
+       {
+        "label": "首項拆成 $m\\cdot 6m$ 硬做",
+        "labelEn": "Forcing $m\\cdot 6m$",
+        "zh": "拆成 $m\\cdot 6m$ 之後要試很多組才對得上 $-11mn$，浪費時間。係數先試「接近的拆法」。",
+        "en": "Splitting as $m\\cdot 6m$ needs many trial cases before $-11mn$ works — start with the closer split $2m\\cdot 3m$."
+       }
+      ],
+      "tip": {
+       "zh": "十字相乘三步：拆首項 → 看末項定符號（正同負異）→ 交叉相乘驗中間項。次序固定的話，卷一只花一兩分鐘。",
+       "en": "Cross-method in three moves: split the first term, use the last term to fix the signs (same when positive, opposite when negative), then cross-check the middle term."
+      }
+     },
+     "answer": null,
+     "verify": "checked"
+    },
+    {
+     "id": "eph-ws01-s04",
+     "type": "long",
+     "kind": "short",
+     "topic": "ws01",
+     "unit": 4,
+     "subtopic": "factorization",
+     "difficulty": 2,
+     "code": "WS1-S4",
+     "source": "WS01 · Basic Skills Q10(a)",
+     "stem": {
+      "en": "Factorize $2m^{2}n+3mn-14n$ completely."
+     },
+     "marks": 2,
+     "review": null,
+     "solution": {
+      "steps": [
+       {
+        "title": {
+         "zh": "第 1 步 · 三項都有 $n$：先抽公因式",
+         "en": "Step 1 · Every term has $n$: take out the common factor"
+        },
+        "math": "2m^{2}n+3mn-14n=n(2m^{2}+3m-14)",
+        "zh": "三項都含 $n$，先抽走它。抽走之後括號內只剩 $m$，變回「純數字係數」的十字相乘，處理起來容易得多。",
+        "en": "All three terms contain $n$, so take it out first. Inside the bracket only $m$ is left, which turns the problem back into a cross-method with plain number coefficients.",
+        "marking": "(1M)"
+       },
+       {
+        "title": {
+         "zh": "第 2 步 · 括號內十字相乘",
+         "en": "Step 2 · Cross-method inside the bracket"
+        },
+        "math": "2m^{2}+3m-14=(2m+7)(m-2)",
+        "zh": "$2m^{2}$ 拆 $2m\\cdot m$、$-14$ 拆 $(+7)\\cdot(-2)$；交叉相乘 $(2m)(-2)+(7)(m)=-4m+7m=3m$，與 $+3m$ 相符。",
+        "en": "Split $2m^{2}$ as $2m\\cdot m$ and $-14$ as $(+7)\\cdot(-2)$; cross-checking gives $(2m)(-2)+(7)(m)=-4m+7m=3m$, matching $+3m$."
+       },
+       {
+        "title": {
+         "zh": "第 3 步 · 把 $n$ 乘回去",
+         "en": "Step 3 · Put the $n$ back"
+        },
+        "math": "=n(2m+7)(m-2)",
+        "zh": "答案要保留外面的 $n$：$n(2m+7)(m-2)$。漏了 $n$ 就是漏了一個因式。",
+        "en": "Keep the $n$ in the answer: $n(2m+7)(m-2)$. Dropping it means dropping a factor.",
+        "marking": "(1A)"
+       }
+      ],
+      "traps": [
+       {
+        "label": "忘記抽公因式 $n$",
+        "labelEn": "Forgetting the common factor $n$",
+        "zh": "直接對 $2m^{2}n+3mn-14n$ 做十字相乘：多一個字母，很容易配錯，而且答案一樣要抽 $n$。",
+        "en": "Running the cross-method on $2m^{2}n+3mn-14n$ directly drags an extra letter into every trial case — and the final answer still needs the $n$."
+       },
+       {
+        "label": "抽完就停手",
+        "labelEn": "Stopping after factoring out",
+        "zh": "只寫 $n(2m^{2}+3m-14)$：題目要求 completely，括號內要再分解成 $(2m+7)(m-2)$。",
+        "en": "Writing only $n(2m^{2}+3m-14)$: the question says 'completely', so the bracket still has to become $(2m+7)(m-2)$."
+       }
+      ],
+      "tip": {
+       "zh": "三項都含同一個字母 → 先抽公因式，括號內變回純係數十字相乘。這個「先抽後拆」的次序，幾乎每一年的卷一都合用。",
+       "en": "When every term shares a letter, take the common factor out first: inside the bracket it is a plain cross-method again. 'Factor out, then split' works almost every year."
+      }
+     },
+     "answer": null,
+     "verify": "checked"
+    },
+    {
+     "id": "eph-ws01-s05",
+     "type": "long",
+     "kind": "short",
+     "topic": "ws01",
+     "unit": 4,
+     "subtopic": "factorization",
+     "difficulty": 3,
+     "code": "WS1-S5",
+     "source": "WS01 · Basic Skills Q10(b)",
+     "stem": {
+      "en": "Factorize $-4x^{2}+15xy-9y^{2}$ completely."
+     },
+     "marks": 2,
+     "review": null,
+     "solution": {
+      "steps": [
+       {
+        "title": {
+         "zh": "第 1 步 · 首項負數：整條抽 $-1$",
+         "en": "Step 1 · Negative leading term: take $-1$ out"
+        },
+        "math": "-4x^{2}+15xy-9y^{2}=-(4x^{2}-15xy+9y^{2})",
+        "zh": "抽 $-1$ 是「每一項都變號」：$-4x^{2}\\to 4x^{2}$、$+15xy\\to -15xy$、$-9y^{2}\\to +9y^{2}$。三個符號都要反，只改一項就錯。",
+        "en": "Taking out $-1$ flips every sign: $-4x^{2}\\to 4x^{2}$, $+15xy\\to -15xy$ and $-9y^{2}\\to +9y^{2}$. All three change — changing only one is wrong.",
+        "marking": "(1M)"
+       },
+       {
+        "title": {
+         "zh": "第 2 步 · 括號內十字相乘",
+         "en": "Step 2 · Cross-method inside the bracket"
+        },
+        "math": "4x^{2}-15xy+9y^{2}=(4x-3y)(x-3y)",
+        "zh": "$4x^{2}$ 拆 $4x\\cdot x$、$9y^{2}$ 拆 $(-3y)\\cdot(-3y)$；交叉相乘 $(4x)(-3y)+(-3y)(x)=-12xy-3xy=-15xy$，與 $-15xy$ 相符。",
+        "en": "Split $4x^{2}$ as $4x\\cdot x$ and $9y^{2}$ as $(-3y)\\cdot(-3y)$; the cross products $(4x)(-3y)+(-3y)(x)=-12xy-3xy=-15xy$ match the given $-15xy$."
+       },
+       {
+        "title": {
+         "zh": "第 3 步 · 寫答案，負號要留住",
+         "en": "Step 3 · Write the answer and keep the minus"
+        },
+        "math": "=-(4x-3y)(x-3y)",
+        "zh": "答案 $-(4x-3y)(x-3y)$。如果想把負號收進括號寫成 $(3y-4x)(x-3y)$，也是等值，但兩者只可選其一，不可以兩個都做。",
+        "en": "The answer is $-(4x-3y)(x-3y)$. Absorbing the minus into a bracket, giving $(3y-4x)(x-3y)$, is equally correct — but do only one of the two.",
+        "marking": "(1A)"
+       }
+      ],
+      "traps": [
+       {
+        "label": "只改第一項的符號",
+        "labelEn": "Only the first sign flipped",
+        "zh": "寫成 $-(4x^{2}+15xy-9y^{2})$：抽 $-1$ 是三個符號一齊反，漏改一項展開就會多出／少了項。",
+        "en": "Writing $-(4x^{2}+15xy-9y^{2})$: taking out $-1$ flips all three, and missing one makes the expansion wrong."
+       },
+       {
+        "label": "忘了把負號乘回去",
+        "labelEn": "Losing the minus at the end",
+        "zh": "寫成 $(4x-3y)(x-3y)$：展開是 $+4x^{2}-15xy+9y^{2}$，與原式相差一個負號。",
+        "en": "Writing $(4x-3y)(x-3y)$ expands to $+4x^{2}-15xy+9y^{2}$ — the original expression is that with a minus sign in front."
+       }
+      ],
+      "tip": {
+       "zh": "首項負數的十字相乘：抽 $-1$ → 括號內十字相乘 → 負號留在外面。三步固定，卷一只需半分鐘，是必搶的分。",
+       "en": "Cross-method with a negative leading term: take out $-1$, do the cross-method inside, then leave the minus outside. A fixed three-move routine worth easy Paper 1 marks."
       }
      },
      "answer": null,
@@ -1648,7 +1999,7 @@ window.LEARN_TOPIC_WS01 = {
  ],
  "stats": {
   "mc": 18,
-  "long": 2,
+  "long": 7,
   "cards": 4,
   "pages": 6
  }

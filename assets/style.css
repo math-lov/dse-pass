@@ -202,6 +202,18 @@ body {
 }
 .q-diff { font-size: 12px; color: var(--warn); letter-spacing: 2px; }
 .q-source { font-size: 13px; color: var(--muted); }
+/* 短答標記：題目照原檔全英，只有詳解要中英；長／短答一律紙上作答 */
+.q-kind {
+  font-size: 12px; font-weight: 800; letter-spacing: .02em;
+  color: var(--primary-ink); background: var(--primary-soft);
+  border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px;
+}
+/* 「加入弱點升級庫」：靠右；加入後轉為實心主色 */
+.btn-weak { margin-left: auto; }
+.btn-weak.on {
+  color: var(--primary-ink); border-color: var(--primary);
+  background: var(--primary-soft); font-weight: 700;
+}
 
 .q-stem { font-size: 19px; font-weight: 500; margin: 4px 0 12px; line-height: 1.6; }
 

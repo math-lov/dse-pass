@@ -461,6 +461,86 @@
     "D": "$(2a+3)(a+4)$"
    },
    "review": null
+  },
+  {
+   "id": "eph-ws01-s01",
+   "type": "long",
+   "kind": "short",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 1,
+   "code": "WS1-S1",
+   "source": "WS01 · Basic Skills Q7(b)",
+   "stem": {
+    "en": "Factorize $-4m^{2}+20mn-25n^{2}$ completely."
+   },
+   "marks": 2,
+   "review": null
+  },
+  {
+   "id": "eph-ws01-s02",
+   "type": "long",
+   "kind": "short",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-S2",
+   "source": "WS01 · Basic Skills Q9(a)",
+   "stem": {
+    "en": "Factorize $x^{2}+4xy+3y^{2}$."
+   },
+   "marks": 2,
+   "review": null
+  },
+  {
+   "id": "eph-ws01-s03",
+   "type": "long",
+   "kind": "short",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-S3",
+   "source": "WS01 · Basic Skills Q9(b)",
+   "stem": {
+    "en": "Factorize $6m^{2}-11mn-10n^{2}$."
+   },
+   "marks": 2,
+   "review": null
+  },
+  {
+   "id": "eph-ws01-s04",
+   "type": "long",
+   "kind": "short",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1-S4",
+   "source": "WS01 · Basic Skills Q10(a)",
+   "stem": {
+    "en": "Factorize $2m^{2}n+3mn-14n$ completely."
+   },
+   "marks": 2,
+   "review": null
+  },
+  {
+   "id": "eph-ws01-s05",
+   "type": "long",
+   "kind": "short",
+   "topic": "ws01",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1-S5",
+   "source": "WS01 · Basic Skills Q10(b)",
+   "stem": {
+    "en": "Factorize $-4x^{2}+15xy-9y^{2}$ completely."
+   },
+   "marks": 2,
+   "review": null
   }
  ]
 }

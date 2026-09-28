@@ -265,10 +265,12 @@ def main(argv: list[str] | None = None) -> int:
     HAN = re.compile(r"[\u4e00-\u9fff]")
 
     def need_pair(rule: str, label: str, zh, en, allow_han_in_en: bool = True,
-                  min_en: int = 4) -> None:
+                  min_en: int = 4, zh_optional: bool = False) -> None:
         zh_s = (zh or "").strip()
         en_s = (en or "").strip()
-        if not zh_s:
+        # 題目（stem／parts／選項）：英文必備、中文選填 —— 卷面本來就是英文，
+        # 題目照原檔全英；詳解（I5）與概念卡（I3／I4）仍然要中英齊全。
+        if not zh_s and not zh_optional:
             err(rule, "%s：缺中文（zh）" % label)
         if not en_s:
             err(rule, "%s：缺英文（en）—— 三態語言切換會退回中文" % label)
@@ -281,13 +283,15 @@ def main(argv: list[str] | None = None) -> int:
     for q in questions:
         qid = q.get("id", "?")
         st = q.get("stem") or {}
-        need_pair("I1", "%s stem" % qid, st.get("zh") or st.get("text"), st.get("en"), min_en=6)
+        need_pair("I1", "%s stem" % qid, st.get("zh") or st.get("text"), st.get("en"),
+                  min_en=6, zh_optional=True)
         for i, pt in enumerate(q.get("parts") or [], 1):
             need_pair("I2", "%s parts[%d]" % (qid, i), pt.get("zh") or pt.get("text"),
-                      pt.get("en") or pt.get("text"), min_en=1)
+                      pt.get("en") or pt.get("text"), min_en=1, zh_optional=True)
         for k, opt in (q.get("options") or {}).items():
             if isinstance(opt, dict):
-                need_pair("I2", "%s 選項 %s" % (qid, k), opt.get("zh"), opt.get("en"), min_en=1)
+                need_pair("I2", "%s 選項 %s" % (qid, k), opt.get("zh"), opt.get("en"),
+                          min_en=1, zh_optional=True)
 
     for c in concepts.get("cards", []):
         cid = c.get("id", "?")
