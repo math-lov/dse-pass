@@ -226,6 +226,8 @@
   function renderIndex() {
     var host = qs("#topics");
     if (!host) return;
+    /* 重新繪製（例如切換語言）時一定要先清空，否則會疊出多份課題卡 */
+    host.innerHTML = "";
     var byStage = {};
     (INDEX.topics || []).forEach(function (t) {
       (byStage[t.stage] = byStage[t.stage] || []).push(t);
@@ -1266,6 +1268,7 @@
   function renderWrong() {
     var host = qs("#wrong-body");
     if (!host) return;
+    host.innerHTML = "";          // 同上：重繪前先清空（切語言會重繪）
     var ids = wrongList();
     if (!ids.length) {
       var e = el("div", "card");

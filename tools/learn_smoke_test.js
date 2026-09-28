@@ -354,6 +354,27 @@ const chipEn = tSwitch.$(".cmd-hints .ch-title").textContent;
 ok(chipZh !== chipEn && /Command/.test(chipEn),
    "切到英文後，題目字眼標題變成英文（" + chipZh + " → " + chipEn + "）");
 
+/* 重繪必須 idempotent：切幾次語言都不可以疊出多份內容
+   （曾經的 bug：renderIndex/renderWrong 只 appendChild 沒有清空容器）*/
+const lDup = bootLang("index.html", "", null, "both");
+const cardsBefore = lDup.$$(".topic-btn").length;
+const secsBefore = lDup.$$("#topics .section-title").length;
+ok(cardsBefore === LESSONS.topics.length,
+   "首頁課題卡數目 = 課題數（" + cardsBefore + " vs " + LESSONS.topics.length + "）");
+[0, 1, 2].forEach((i) => lDup.$$(".langbar button")[i].click());
+ok(lDup.$$(".topic-btn").length === cardsBefore,
+   "切三次語言後課題卡數目不變（" + cardsBefore + " → " + lDup.$$(".topic-btn").length + "）");
+ok(lDup.$$("#topics .section-title").length === secsBefore,
+   "階段標題也不會變成多份（" + secsBefore + " → " + lDup.$$("#topics .section-title").length + "）");
+
+const wDup = bootLang("wrong.html", "", JSON.stringify({
+  mc: { "eph-ws01-q1": { picked: "A", correct: false, tries: 1, ts: 1 } }, long: {}, cards: {} }), "both");
+const wBefore = wDup.$$(".wrong-item").length;
+wDup.ctx.window.LEARN_I18N.set("en");
+wDup.ctx.window.LEARN_I18N.set("zh");
+ok(wBefore >= 1 && wDup.$$(".wrong-item").length === wBefore,
+   "弱點升級庫切語言後項目數目不變（" + wBefore + " → " + wDup.$$(".wrong-item").length + "）");
+
 /* ── 10. 基調驗證：問 AI 提問生成 ────────────────────────────────────── */
 console.log("\n— 基調：問 AI 提問生成 —");
 const MC0 = BANK.filter((q) => q.type === "mc")[0];
