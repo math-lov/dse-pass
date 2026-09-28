@@ -59,6 +59,32 @@ window.LEARN_INDEX = {
    "lessonIds": [
     "ws01b-1"
    ]
+  },
+  {
+   "id": "ws01c",
+   "stage": 1,
+   "unit": 4,
+   "name": {
+    "zh": "WS01c · 卷一 32 題（逐步示範）",
+    "en": "WS01c · 32 Paper 1 questions, step by step"
+   },
+   "intro": {
+    "zh": "卷一長題（DSE Paper 1）的因式分解題幾乎年年出現，而且設計成「(a) 先做一個簡單的，(b) 再用 (a) 的結果」。這一課把 WS01 第 2 節的 32 題全部拆成逐步示範：先自己做，卡住了才逐步看，重點是學會「(b) 一定藏著 (a) 的括號」這個套路 —— 看懂一次，之後所有年份的卷一都會做。",
+    "en": "The Paper 1 factorization question appears almost every year and is designed as “(a) do something simple, (b) use the result of (a)”. This lesson breaks all 32 questions of WS01 Section 1B into step-by-step demonstrations: try each one yourself first, reveal the steps only when stuck, and learn the routine that (b) always hides the bracket from (a)."
+   },
+   "source": "EPH DSE Pass · Worksheet 1 · Section 1B (DSE Paper 1 long questions)",
+   "stats": {
+    "mc": 0,
+    "long": 32,
+    "cards": 4,
+    "pages": 0
+   },
+   "lessonIds": [
+    "ws01c-1",
+    "ws01c-2",
+    "ws01c-3",
+    "ws01c-4"
+   ]
   }
  ],
  "assessments": [],
@@ -144,13 +170,13 @@ window.LEARN_INDEX = {
    }
   }
  },
- "generatedAt": "2026-09-28T09:56:50Z",
+ "generatedAt": "2026-09-28T10:04:38Z",
  "counts": {
-  "topics": 2,
+  "topics": 3,
   "held": 0,
   "mc": 45,
-  "long": 7,
-  "cards": 6,
+  "long": 39,
+  "cards": 10,
   "blocked": 0
  }
 };

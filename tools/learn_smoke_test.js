@@ -111,12 +111,25 @@ for (const t of LESSONS.topics) {
   ok(p0.$$(".cmd-hints .ch-chip").length >= 4 && p0.$$(".cmd-hints .ch-chip").length <= 6,
      t.id + " keeps 4–6 command-word chips (got " + p0.$$(".cmd-hints .ch-chip").length + ")");
 
-  const mcIdx = firstMcIndex(t);
-  const pmc = boot("topic.html", "?t=" + t.id + "&p=" + mcIdx);
-  const cards = pmc.$$("#topic-body .card[data-qid]");
-  ok(cards.length === 3, t.id + " first MC page holds 3 questions (got " + cards.length + ")");
-  ok(pmc.$$("#topic-body .opt").length === 12, t.id + " MC page has 3 × 4 options (got " + pmc.$$("#topic-body .opt").length + ")");
-  ok(pmc.$$("#topic-body .hint-row").length === 3, t.id + " every question offers hints before answering");
+  const hasMc = t.lessons.some((l) => (l.mcPages || []).length > 0);
+  if (hasMc) {
+    const mcIdx = firstMcIndex(t);
+    const pmc = boot("topic.html", "?t=" + t.id + "&p=" + mcIdx);
+    const cards = pmc.$$("#topic-body .card[data-qid]");
+    ok(cards.length === 3, t.id + " first MC page holds 3 questions (got " + cards.length + ")");
+    ok(pmc.$$("#topic-body .opt").length === 12, t.id + " MC page has 3 × 4 options (got " + pmc.$$("#topic-body .opt").length + ")");
+    ok(pmc.$$("#topic-body .hint-row").length === 3, t.id + " every question offers hints before answering");
+  } else {
+    /* 純長題課題（ws01c）：第 2 格是「示範集」，要出題目卡、示範數目正確、可加入弱點升級庫 */
+    const per = t.lessons[0].longQuestionIds.length;
+    const pdemo = boot("topic.html", "?t=" + t.id + "&p=1");
+    ok(!!pdemo.$("#topic-body .card[data-qid]"),
+       t.id + "（純長題課題）第 2 格是示範頁，出得到題目卡");
+    ok(!!pdemo.$("#topic-body .card[data-qid] [data-weak]"),
+       t.id + " 示範題可以加入弱點升級庫");
+    ok(new RegExp("1 / " + per).test((pdemo.$(".demo-count") || {}).textContent || ""),
+       t.id + " 示範集顯示 1 / " + per + "（" + (pdemo.$(".demo-count") || {}).textContent + "）");
+  }
 }
 
 /* ── 3b. 長公式要分幾行顯示（不是橫向滾動）──────────────────────────── */

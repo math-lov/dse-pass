@@ -1108,6 +1108,982 @@
    },
    "answer": "B",
    "review": null
+  },
+  {
+   "id": "eph-ws01c-q01",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q1",
+   "source": "WS01 · DSE Paper 1 題型 Q1 [HKCEE 2009 Paper 1 Q3]",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$x^{2}y+3xy^{2}$,",
+     "en": "$x^{2}y+3xy^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$x^{2}y+3xy^{2}+2x+6y$.",
+     "en": "$x^{2}y+3xy^{2}+2x+6y$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q02",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q2",
+   "source": "WS01 · DSE Paper 1 題型 Q2 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$2m^{2}n-4mn^{2}$,",
+     "en": "$2m^{2}n-4mn^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$2m^{2}n-4mn^{2}-m+2n$.",
+     "en": "$2m^{2}n-4mn^{2}-m+2n$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q03",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q3",
+   "source": "WS01 · DSE Paper 1 題型 Q3 [HKCEE 2006 Paper 1 Q3]",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$2b-ab$,",
+     "en": "$2b-ab$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$4-a^{2}$,",
+     "en": "$4-a^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(c)",
+     "text": "$4-a^{2}+2b-ab$.",
+     "en": "$4-a^{2}+2b-ab$.",
+     "marks": 1
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q04",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q4",
+   "source": "WS01 · DSE Paper 1 題型 Q4 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$4mn-3n$,",
+     "en": "$4mn-3n$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$16m^{2}-9$,",
+     "en": "$16m^{2}-9$,",
+     "marks": 1
+    },
+    {
+     "label": "(c)",
+     "text": "$16m^{2}-9-4mn+3n$.",
+     "en": "$16m^{2}-9-4mn+3n$.",
+     "marks": 1
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q05",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q5",
+   "source": "WS01 · DSE Paper 1 題型 Q5 [HKCEE 2007 Paper 1 Q3]",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$r^{2}+12r+36$,",
+     "en": "$r^{2}+12r+36$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$r^{2}+12r+36-s^{2}$.",
+     "en": "$r^{2}+12r+36-s^{2}$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q06",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q6",
+   "source": "WS01 · DSE Paper 1 題型 Q6 [HKCEE 2010 Paper 1 Q3]",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$p^{2}+14pq+49q^{2}$,",
+     "en": "$p^{2}+14pq+49q^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$4r^{2}-p^{2}-14pq-49q^{2}$.",
+     "en": "$4r^{2}-p^{2}-14pq-49q^{2}$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q07",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q7",
+   "source": "WS01 · DSE Paper 1 題型 Q7 [HKDSE 2013 Paper 1 Q3]",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$9x^{2}-4y^{2}$,",
+     "en": "$9x^{2}-4y^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$9x^{2}-4y^{2}+9x+6y$.",
+     "en": "$9x^{2}-4y^{2}+9x+6y$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q08",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q8",
+   "source": "WS01 · DSE Paper 1 題型 Q8 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$25r^{2}-16s^{2}$,",
+     "en": "$25r^{2}-16s^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$25r^{2}-16s^{2}-20r+16s$.",
+     "en": "$25r^{2}-16s^{2}-20r+16s$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q09",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q9",
+   "source": "WS01 · DSE Paper 1 題型 Q9 [HKDSE 2012 Paper 1 Q3]",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$a^{2}-8ab+16b^{2}$,",
+     "en": "$a^{2}-8ab+16b^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$a^{2}-8ab+16b^{2}+5a-20b$.",
+     "en": "$a^{2}-8ab+16b^{2}+5a-20b$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q10",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q10",
+   "source": "WS01 · DSE Paper 1 題型 Q10 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$4x^{2}+12xy+9y^{2}$,",
+     "en": "$4x^{2}+12xy+9y^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$4x^{2}+12xy+9y^{2}-8x-12y$.",
+     "en": "$4x^{2}+12xy+9y^{2}-8x-12y$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q11",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q11",
+   "source": "WS01 · DSE Paper 1 題型 Q11 [HKDSE 2014 Paper 1 Q2]",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$6+5a+a^{2}$,",
+     "en": "$6+5a+a^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$6+5a+a^{2}+3b^{2}+ab^{2}$.",
+     "en": "$6+5a+a^{2}+3b^{2}+ab^{2}$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q12",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q12",
+   "source": "WS01 · DSE Paper 1 題型 Q12 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$2m^{2}-m-3$,",
+     "en": "$2m^{2}-m-3$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$2mn^{2}+2n^{2}+2m^{2}-m-3$.",
+     "en": "$2mn^{2}+2n^{2}+2m^{2}-m-3$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q13",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q13",
+   "source": "WS01 · DSE Paper 1 題型 Q13 [HKDSE 2017 Paper 1 Q3, 2021 Paper 1 Q3]",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$a^{2}+3ab+2b^{2}$,",
+     "en": "$a^{2}+3ab+2b^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$a^{2}+3ab+2b^{2}+9a+18b$.",
+     "en": "$a^{2}+3ab+2b^{2}+9a+18b$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q14",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q14",
+   "source": "WS01 · DSE Paper 1 題型 Q14 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$6m^{2}-13mn+6n^{2}$,",
+     "en": "$6m^{2}-13mn+6n^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$9m-6n-6m^{2}+13mn-6n^{2}$.",
+     "en": "$9m-6n-6m^{2}+13mn-6n^{2}$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q15",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q15",
+   "source": "WS01 · DSE Paper 1 題型 Q15 [HKDSE 2020 Paper 1 Q2]",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$a^{2}+a-12$,",
+     "en": "$a^{2}+a-12$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$a^{4}+a^{3}-12a^{2}$.",
+     "en": "$a^{4}+a^{3}-12a^{2}$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q16",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q16",
+   "source": "WS01 · DSE Paper 1 題型 Q16 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$2a^{2}+a-15$,",
+     "en": "$2a^{2}+a-15$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$2a^{4}+a^{3}-15a^{2}$.",
+     "en": "$2a^{4}+a^{3}-15a^{2}$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q17",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1B-Q17",
+   "source": "WS01 · DSE Paper 1 題型 Q17 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$6b^{2}-5b-6$,",
+     "en": "$6b^{2}-5b-6$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$6b^{2}+5b^{3}-6b^{4}$.",
+     "en": "$6b^{2}+5b^{3}-6b^{4}$.",
+     "marks": 2
+    }
+   ],
+   "marks": 3,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q18",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q18",
+   "source": "WS01 · DSE Paper 1 題型 Q18 [HKDSE 2015 Paper 1 Q4]",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$x^{3}+x^{2}y+5x^{2}$,",
+     "en": "$x^{3}+x^{2}y+5x^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$x^{3}+x^{2}y+5x^{2}-x-y-5$.",
+     "en": "$x^{3}+x^{2}y+5x^{2}-x-y-5$.",
+     "marks": 3
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q19",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q19",
+   "source": "WS01 · DSE Paper 1 題型 Q19 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$a^{3}+3a^{2}b-4a^{2}$,",
+     "en": "$a^{3}+3a^{2}b-4a^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$a^{3}+3a^{2}b-4a^{2}-a-3b+4$.",
+     "en": "$a^{3}+3a^{2}b-4a^{2}-a-3b+4$.",
+     "marks": 3
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q20",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q20",
+   "source": "WS01 · DSE Paper 1 題型 Q20 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$x^{3}-x^{2}y+2x^{2}$,",
+     "en": "$x^{3}-x^{2}y+2x^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$x^{3}-x^{2}y+2x^{2}-9x+9y-18$.",
+     "en": "$x^{3}-x^{2}y+2x^{2}-9x+9y-18$.",
+     "marks": 3
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q21",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q21",
+   "source": "WS01 · DSE Paper 1 題型 Q21 [HKDSE 2018 Paper 1 Q5]",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$m^{3}+3m^{2}n$,",
+     "en": "$m^{3}+3m^{2}n$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$m^{3}+3m^{2}n-mn^{2}-3n^{3}$.",
+     "en": "$m^{3}+3m^{2}n-mn^{2}-3n^{3}$.",
+     "marks": 3
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q22",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q22",
+   "source": "WS01 · DSE Paper 1 題型 Q22 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$4x^{3}-20x^{2}y$,",
+     "en": "$4x^{3}-20x^{2}y$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$4x^{3}-20x^{2}y-xy^{2}+5y^{3}$.",
+     "en": "$4x^{3}-20x^{2}y-xy^{2}+5y^{3}$.",
+     "marks": 3
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q23",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q23",
+   "source": "WS01 · DSE Paper 1 題型 Q23 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$8rs^{2}-4s^{3}$,",
+     "en": "$8rs^{2}-4s^{3}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$18r^{3}-9r^{2}s-8rs^{2}+4s^{3}$.",
+     "en": "$18r^{3}-9r^{2}s-8rs^{2}+4s^{3}$.",
+     "marks": 3
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q24",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q24",
+   "source": "WS01 · DSE Paper 1 題型 Q24 [HKDSE 2016 Paper 1 Q4]",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$3m-12n$,",
+     "en": "$3m-12n$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$m^{2}+mn-20n^{2}$,",
+     "en": "$m^{2}+mn-20n^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(c)",
+     "text": "$m^{2}+mn-20n^{2}-3m+12n$.",
+     "en": "$m^{2}+mn-20n^{2}-3m+12n$.",
+     "marks": 2
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q25",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q25",
+   "source": "WS01 · DSE Paper 1 題型 Q25 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$6x-18y$,",
+     "en": "$6x-18y$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$x^{2}-5xy+6y^{2}$,",
+     "en": "$x^{2}-5xy+6y^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(c)",
+     "text": "$x^{2}-5xy+6y^{2}-6x+18y$.",
+     "en": "$x^{2}-5xy+6y^{2}-6x+18y$.",
+     "marks": 2
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q26",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q26",
+   "source": "WS01 · DSE Paper 1 題型 Q26 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$4a-10b$,",
+     "en": "$4a-10b$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$2a^{2}-3ab-5b^{2}$,",
+     "en": "$2a^{2}-3ab-5b^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(c)",
+     "text": "$4a-10b-2a^{2}+3ab+5b^{2}$.",
+     "en": "$4a-10b-2a^{2}+3ab+5b^{2}$.",
+     "marks": 2
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q27",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q27",
+   "source": "WS01 · DSE Paper 1 題型 Q27 [HKDSE 2019 Paper 1 Q4]",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$4m^{2}-1$,",
+     "en": "$4m^{2}-1$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$2m^{2}n+11mn-6n$,",
+     "en": "$2m^{2}n+11mn-6n$,",
+     "marks": 1
+    },
+    {
+     "label": "(c)",
+     "text": "$4m^{2}-1-2m^{2}n-11mn+6n$.",
+     "en": "$4m^{2}-1-2m^{2}n-11mn+6n$.",
+     "marks": 2
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q28",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q28",
+   "source": "WS01 · DSE Paper 1 題型 Q28 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$9r^{2}-16$,",
+     "en": "$9r^{2}-16$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$3r^{2}s-11rs-20s$,",
+     "en": "$3r^{2}s-11rs-20s$,",
+     "marks": 1
+    },
+    {
+     "label": "(c)",
+     "text": "$9r^{2}-16-3r^{2}s+11rs+20s$.",
+     "en": "$9r^{2}-16-3r^{2}s+11rs+20s$.",
+     "marks": 2
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q29",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q29",
+   "source": "WS01 · DSE Paper 1 題型 Q29 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$36-25y^{2}$,",
+     "en": "$36-25y^{2}$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$10xy^{2}+17xy+6x$,",
+     "en": "$10xy^{2}+17xy+6x$,",
+     "marks": 1
+    },
+    {
+     "label": "(c)",
+     "text": "$36-25y^{2}-10xy^{2}-17xy-6x$.",
+     "en": "$36-25y^{2}-10xy^{2}-17xy-6x$.",
+     "marks": 2
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q30",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q30",
+   "source": "WS01 · DSE Paper 1 題型 Q30 [HKDSE 2022 Paper 1 Q4]",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$81c^{2}-18c+1$,",
+     "en": "$81c^{2}-18c+1$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$(10c-d)^{2}-81c^{2}+18c-1$.",
+     "en": "$(10c-d)^{2}-81c^{2}+18c-1$.",
+     "marks": 3
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q31",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q31",
+   "source": "WS01 · DSE Paper 1 題型 Q31 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$9r^{2}+12r+4$,",
+     "en": "$9r^{2}+12r+4$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$(4r-5s)^{2}-9r^{2}-12r-4$.",
+     "en": "$(4r-5s)^{2}-9r^{2}-12r-4$.",
+     "marks": 3
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-ws01c-q32",
+   "type": "long",
+   "topic": "ws01c",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1B-Q32",
+   "source": "WS01 · DSE Paper 1 題型 Q32 （同型練習）",
+   "stem": {
+    "en": "Factorize"
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "$16x^{2}-40x+25$,",
+     "en": "$16x^{2}-40x+25$,",
+     "marks": 1
+    },
+    {
+     "label": "(b)",
+     "text": "$(6x+5y)^{2}-16x^{2}+40x-25$.",
+     "en": "$(6x+5y)^{2}-16x^{2}+40x-25$.",
+     "marks": 3
+    }
+   ],
+   "marks": 4,
+   "review": null
   }
  ]
 }
