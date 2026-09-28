@@ -139,6 +139,64 @@
     "zh": "因式拆解後必須透過「交叉相乘再相加」核對中間項正負號。\n香港考評局計算機保底技巧：若心算難以找出組合，可使用文憑試准用計算機（如 Casio fx-50FH II）內置的二次方程公式 Formula 01（按 FMLA 01），依序輸入 $a, b, c$ 求得兩根 $x_1, x_2$。若方程的根為 $x = 2$ 與 $x = 3$，對應的因式分解即為 $(x-2)(x-3)$。注意此方法僅適用於單一未知數題目；若含有雙變數（如 $3x^{2}+7xy+2y^{2}$），仍須掌握標準十字相乘法。",
     "en": "Always check the signs of the middle term by cross-multiplying and adding.\nCalculator safety net (HKEAA-approved models such as Casio fx-50FH II): if the combination is hard to spot, use the built-in quadratic formula (press FMLA 01), enter $a$, $b$, $c$ and read the two roots $x_1$, $x_2$. Roots $x=2$ and $x=3$ correspond to the factorization $(x-2)(x-3)$. This works only for a single unknown; with two variables (e.g. $3x^{2}+7xy+2y^{2}$) you still need the standard cross-method."
    }
+  },
+  {
+   "id": "ws01b-c1",
+   "topic": "ws01b",
+   "title": {
+    "zh": "卷二 MC 快速法：先看符號",
+    "en": "Paper 2 shortcut: read the signs first"
+   },
+   "body": {
+    "zh": "卷二（MC）不需要長題的完整步驟 —— 但也不需要由頭展開到尾。很多因式分解 MC，只要看「某一項的符號」就能刪去一半選項：\n例：$4m^{2}-7mn+3n^{2}+m-n$ 中，$+3n^{2}$ 與 $+m$ 都是正號，所以答案的括號內一定要能產生這兩個正號：{{math:0}}\n先刪錯、再驗算，做一題可以省一半時間。",
+    "en": "Paper 2 is multiple choice: you do not need the full written solution — but you do not have to expand everything either. In many factorisation MC questions, the sign of one term eliminates half the options:\nExample: in $4m^{2}-7mn+3n^{2}+m-n$ the terms $+3n^{2}$ and $+m$ are both positive, so the answer's brackets must be able to produce them: {{math:0}}\nDelete first, verify second — this halves the time per question."
+   },
+   "math": [
+    "4m^{2}-7mn+3n^{2}+m-n=(m-n)(4m-3n+1)"
+   ],
+   "vocab": [
+    {
+     "en": "sign",
+     "zh": "符號"
+    },
+    {
+     "en": "eliminate the options",
+     "zh": "刪去選項"
+    }
+   ],
+   "warn": {
+    "zh": "快速法只用來「刪選項」，最後仍要看一眼交叉相乘的結果，確認中間項對得上。",
+    "en": "Use the shortcut only to eliminate options; still check the cross products so that the middle term matches."
+   }
+  },
+  {
+   "id": "ws01b-c2",
+   "topic": "ws01b",
+   "title": {
+    "zh": "四項／六項的固定套路",
+    "en": "A fixed routine for four or six terms"
+   },
+   "body": {
+    "zh": "卷二的四項題幾乎都是同一條路：**分組 → 每組抽公因式 → 兩個括號要一樣**。\n例：$2xy-xz+4y^{2}-2yz$，分組後兩組都是 $(2y-z)$：{{math:0}}\n如果分組後括號差一個負號，把 $-1$ 抽出來就一樣；如果兩組完全配不上，就調位（把有共同括號的兩項拉在一起）再試。六項題同理：三項一組、抽三次，通常會出現同一個括號。",
+    "en": "Almost every four-term question in Paper 2 follows one route: group → factor each pair → make the brackets identical.\nExample: $2xy-xz+4y^{2}-2yz$ — after grouping, both brackets are $(2y-z)$: {{math:0}}\nIf the brackets differ by a sign, take out $-1$; if they do not match at all, rearrange the terms (pull together the two that share a bracket) and try again. Six terms work the same way: group into threes and the same bracket usually appears."
+   },
+   "math": [
+    "2xy-xz+4y^{2}-2yz=x(2y-z)+2y(2y-z)=(x+2y)(2y-z)"
+   ],
+   "vocab": [
+    {
+     "en": "grouping",
+     "zh": "併項分組"
+    },
+    {
+     "en": "common bracket",
+     "zh": "共同括號"
+    }
+   ],
+   "warn": {
+    "zh": "分組後第二組記得「整組抽」：$-3y^{2}-2yz=-y(3y+2z)$，括號內兩項要同時變號。",
+    "en": "Remember to factor the whole second pair: $-3y^{2}-2yz=-y(3y+2z)$ — both signs inside flip."
+   }
   }
  ]
 }

@@ -106,6 +106,104 @@
      ]
     }
    ]
+  },
+  {
+   "id": "ws01b",
+   "stage": 1,
+   "unit": 4,
+   "subtopic": "factorization",
+   "source": "EPH DSE Pass · Worksheet 1 · Section 1C (DSE Paper 2 MC)",
+   "name": {
+    "zh": "WS01b · 卷二 MC 27 題",
+    "en": "WS01b · 27 MC (Paper 2 style)"
+   },
+   "intro": {
+    "zh": "這一課把卷一因式分解的功夫搬去卷二（MC）。卷二題目多、時間少，所以除了「識做」，還要「快」：先看符號刪去一半選項、認出題目其實是平方差、或者先製造出共同的括號。每題都是歷屆 HKCEE／HKDSE 卷二真題，做完你就會發現它們來來去去都是同幾條路。",
+    "en": "This lesson moves the factorization skills of Paper 1 into Paper 2 (multiple choice). Paper 2 has many questions and little time, so you need speed as well as understanding: read the signs to delete half the options, spot a hidden difference of two squares, or create the common bracket first. Every question is a real HKCEE/HKDSE Paper 2 question — you will see the same few routes again and again."
+   },
+   "cmdHints": [
+    {
+     "en": "Group the terms",
+     "zh": "分組：四項／六項先分成兩組或三組"
+    },
+    {
+     "en": "Use the cross-method",
+     "zh": "十字相乘（二次三項式）"
+    },
+    {
+     "en": "By observing the signs",
+     "zh": "看符號：某一項正／負，就知答案必是哪個選項"
+    },
+    {
+     "en": "Take out the common factor",
+     "zh": "抽公因式（先抽後拆）"
+    },
+    {
+     "en": "difference of two squares",
+     "zh": "平方差：$a^{2}-b^{2}=(a+b)(a-b)$"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "ws01b-1",
+     "title": {
+      "zh": "卷二 27 題（應試速度）",
+      "en": "Paper 2 · 27 MC (exam speed)"
+     },
+     "conceptCards": [
+      "ws01b-c1",
+      "ws01b-c2"
+     ],
+     "longQuestionIds": [],
+     "mcPages": [
+      [
+       "eph-ws01b-m01",
+       "eph-ws01b-m02",
+       "eph-ws01b-m03"
+      ],
+      [
+       "eph-ws01b-m04",
+       "eph-ws01b-m05",
+       "eph-ws01b-m06"
+      ],
+      [
+       "eph-ws01b-m07",
+       "eph-ws01b-m08",
+       "eph-ws01b-m09"
+      ],
+      [
+       "eph-ws01b-m10",
+       "eph-ws01b-m11",
+       "eph-ws01b-m12"
+      ],
+      [
+       "eph-ws01b-m13",
+       "eph-ws01b-m14",
+       "eph-ws01b-m15"
+      ],
+      [
+       "eph-ws01b-m16",
+       "eph-ws01b-m17",
+       "eph-ws01b-m18"
+      ],
+      [
+       "eph-ws01b-m19",
+       "eph-ws01b-m20",
+       "eph-ws01b-m21"
+      ],
+      [
+       "eph-ws01b-m22",
+       "eph-ws01b-m23",
+       "eph-ws01b-m24"
+      ],
+      [
+       "eph-ws01b-m25",
+       "eph-ws01b-m26",
+       "eph-ws01b-m27"
+      ]
+     ]
+    }
+   ]
   }
  ],
  "assessments": []

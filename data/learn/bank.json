@@ -541,6 +541,573 @@
    },
    "marks": 2,
    "review": null
+  },
+  {
+   "id": "eph-ws01b-m01",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 1,
+   "code": "WS1C-Q1",
+   "source": "WS01 · DSE Paper 2 MC Q1 · [HKCEE 2006 Paper 2 Q4]",
+   "stem": {
+    "en": "$ac-bc-ad+bd=$"
+   },
+   "options": {
+    "A": "$(a + b)(c - d)$",
+    "B": "$(a + b)(d - c)$",
+    "C": "$(a - b)(c - d)$",
+    "D": "$(a - b)(d - c)$"
+   },
+   "answer": "C",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m02",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 1,
+   "code": "WS1C-Q2",
+   "source": "WS01 · DSE Paper 2 MC Q2 · [HKCEE 2006 Paper 2 Q4]",
+   "stem": {
+    "en": "$pr+ps-qs-qr=$"
+   },
+   "options": {
+    "A": "$(r + s)(p - q)$",
+    "B": "$(r + s)(q - p)$",
+    "C": "$(r - s)(p - q)$",
+    "D": "$(r - s)(q - p)$"
+   },
+   "answer": "A",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m03",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1C-Q3",
+   "source": "WS01 · DSE Paper 2 MC Q3 · [HKCEE 2010 Paper 2 Q4]",
+   "stem": {
+    "en": "$2xy-xz+4y^{2}-2yz=$"
+   },
+   "options": {
+    "A": "$(x - 2y)(2y - z)$",
+    "B": "$(x + 2y)(2y + z)$",
+    "C": "$(x - 2y)(2y + z)$",
+    "D": "$(x + 2y)(2y - z)$"
+   },
+   "answer": "D",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m04",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1C-Q4",
+   "source": "WS01 · DSE Paper 2 MC Q4 · [HKCEE 2010 Paper 2 Q4]",
+   "stem": {
+    "en": "$pq-2pr-p^{2}+2qr=$"
+   },
+   "options": {
+    "A": "$(p - q)(p + 2r)$",
+    "B": "$(q - p)(p + 2r)$",
+    "C": "$(p - q)(q - 2r)$",
+    "D": "$(q - p)(q - 2r)$"
+   },
+   "answer": "B",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m05",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1C-Q5",
+   "source": "WS01 · DSE Paper 2 MC Q5 · [HKCEE 2010 Paper 2 Q4]",
+   "stem": {
+    "en": "$6xy-2yz+4xz-3y^{2}=$"
+   },
+   "options": {
+    "A": "$(2x - y)(3y - 2z)$",
+    "B": "$(2x - y)(3y + 2z)$",
+    "C": "$(2x + y)(3y - 2z)$",
+    "D": "$(2x + y)(3y + 2z)$"
+   },
+   "answer": "B",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m06",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1C-Q6",
+   "source": "WS01 · DSE Paper 2 MC Q6 · [HKDSE 2013 Paper 2 Q3]",
+   "stem": {
+    "en": "$pr-qr-ps+qs+pt-qt=$"
+   },
+   "options": {
+    "A": "$(p - q)(r - s + t)$",
+    "B": "$(p - q)(r + s - t)$",
+    "C": "$(p + q)(r - s + t)$",
+    "D": "$(p + q)(r + s - t)$"
+   },
+   "answer": "A",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m07",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1C-Q7",
+   "source": "WS01 · DSE Paper 2 MC Q7 · [HKDSE 2013 Paper 2 Q3]",
+   "stem": {
+    "en": "$-bx+ax+ay-by-az+bz=$"
+   },
+   "options": {
+    "A": "$(a + b)(x - y + z)$",
+    "B": "$(a + b)(x + y - z)$",
+    "C": "$(a - b)(x - y + z)$",
+    "D": "$(a - b)(x + y - z)$"
+   },
+   "answer": "D",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m08",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1C-Q8",
+   "source": "WS01 · DSE Paper 2 MC Q8 · [HKDSE 2020 Paper 2 Q4]",
+   "stem": {
+    "en": "$(4x-3y)(2x+7y)-x(12x-9y)=$"
+   },
+   "options": {
+    "A": "$(4x - 3y)(-x + 7y)$",
+    "B": "$(4x - 3y)(5x + 7y)$",
+    "C": "$(4x + 3y)(-x - 7y)$",
+    "D": "$(4x + 3y)(5x - 7y)$"
+   },
+   "answer": "A",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m09",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1C-Q9",
+   "source": "WS01 · DSE Paper 2 MC Q9 · [HKDSE 2020 Paper 2 Q4]",
+   "stem": {
+    "en": "$(7u-4v)(5u-6v)-3u(10u-12v)=$"
+   },
+   "options": {
+    "A": "$(5u + 6v)(u + 4v)$",
+    "B": "$(5u + 6v)(13u + 4v)$",
+    "C": "$(5u - 6v)(u - 4v)$",
+    "D": "$(5u - 6v)(13u - 4v)$"
+   },
+   "answer": "C",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m10",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1C-Q10",
+   "source": "WS01 · DSE Paper 2 MC Q10 · [HKDSE 2016 Paper 2 Q3]",
+   "stem": {
+    "en": "$36-(3x-2y)^{2}=$"
+   },
+   "options": {
+    "A": "$(6 - 3x - 2y)(6 + 3x + 2y)$",
+    "B": "$(6 - 3x - 2y)(6 + 3x - 2y)$",
+    "C": "$(6 - 3x + 2y)(6 + 3x + 2y)$",
+    "D": "$(6 - 3x + 2y)(6 + 3x - 2y)$"
+   },
+   "answer": "D",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m11",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1C-Q11",
+   "source": "WS01 · DSE Paper 2 MC Q11 · [HKDSE 2016 Paper 2 Q3]",
+   "stem": {
+    "en": "$49-(4r-3s)^{2}=$"
+   },
+   "options": {
+    "A": "$(7 - 4r - 3s)(7 + 4r - 3s)$",
+    "B": "$(7 - 4r - 3s)(7 + 4r + 3s)$",
+    "C": "$(7 - 4r + 3s)(7 + 4r - 3s)$",
+    "D": "$(7 - 4r + 3s)(7 + 4r + 3s)$"
+   },
+   "answer": "C",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m12",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1C-Q12",
+   "source": "WS01 · DSE Paper 2 MC Q12 · [HKDSE 2012 Paper 2 Q2]",
+   "stem": {
+    "en": "$(3p+q)^{2}-(3p-q)^{2}=$"
+   },
+   "options": {
+    "A": "$0$",
+    "B": "$2q^{2}$",
+    "C": "$6pq$",
+    "D": "$12pq$"
+   },
+   "answer": "D",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m13",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1C-Q13",
+   "source": "WS01 · DSE Paper 2 MC Q13 · [HKDSE 2012 Paper 2 Q2]（選項 A 由 OCR 缺字重建，請覆核）",
+   "stem": {
+    "en": "$(2a-5b)^{2}-(2a+5b)^{2}=$"
+   },
+   "options": {
+    "A": "$-10ab$",
+    "B": "$-20ab$",
+    "C": "$-40ab$",
+    "D": "$-50b^{2}$"
+   },
+   "answer": "C",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m14",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1C-Q14",
+   "source": "WS01 · DSE Paper 2 MC Q14 · [HKDSE 2017 Paper 2 Q1]",
+   "stem": {
+    "en": "$x^{2}+xy-2y^{2}+x-y=$"
+   },
+   "options": {
+    "A": "$(x - y)(x - 2y + 1)$",
+    "B": "$(x - y)(x + 2y + 1)$",
+    "C": "$(x + y)(x - 2y - 1)$",
+    "D": "$(x + y)(x + 2y - 1)$"
+   },
+   "answer": "B",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m15",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1C-Q15",
+   "source": "WS01 · DSE Paper 2 MC Q15 · [HKDSE 2017 Paper 2 Q1]",
+   "stem": {
+    "en": "$x^{2}-3xy-10y^{2}+3x-15y=$"
+   },
+   "options": {
+    "A": "$(x - 5y)(x + 2y + 3)$",
+    "B": "$(x - 5y)(x + 2y - 3)$",
+    "C": "$(x + 5y)(x - 2y + 3)$",
+    "D": "$(x + 5y)(x - 2y - 3)$"
+   },
+   "answer": "A",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m16",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1C-Q16",
+   "source": "WS01 · DSE Paper 2 MC Q16 · [HKDSE 2017 Paper 2 Q1]",
+   "stem": {
+    "en": "$5a^{2}-8ab+3b^{2}+b-a=$"
+   },
+   "options": {
+    "A": "$(a - b)(5a - 3b - 1)$",
+    "B": "$(a - b)(5a + 3b - 1)$",
+    "C": "$(a + b)(5a - 3b + 1)$",
+    "D": "$(a + b)(5a + 3b - 1)$"
+   },
+   "answer": "A",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m17",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1C-Q17",
+   "source": "WS01 · DSE Paper 2 MC Q17 · [HKDSE Sample Paper 2 Q3]",
+   "stem": {
+    "en": "$x^{2}-y^{2}+4y-4=$"
+   },
+   "options": {
+    "A": "$(x - y - 2)(x + y - 2)$",
+    "B": "$(x - y - 2)(x + y + 2)$",
+    "C": "$(x - y + 2)(x + y - 2)$",
+    "D": "$(x - y + 2)(x - y - 2)$"
+   },
+   "answer": "C",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m18",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1C-Q18",
+   "source": "WS01 · DSE Paper 2 MC Q18 · [HKDSE Sample Paper 2 Q3]",
+   "stem": {
+    "en": "$m^{2}-9n^{2}-6n-1=$"
+   },
+   "options": {
+    "A": "$(m + 3n + 1)(m - 3n - 1)$",
+    "B": "$(m - 3n + 1)(m + 3n - 1)$",
+    "C": "$(m + 3n + 1)(m - 3n + 1)$",
+    "D": "$(m - 3n + 1)(m - 3n - 1)$"
+   },
+   "answer": "A",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m19",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1C-Q19",
+   "source": "WS01 · DSE Paper 2 MC Q19 · [HKDSE Sample Paper 2 Q3]",
+   "stem": {
+    "en": "$16-4a^{2}+20ab-25b^{2}=$"
+   },
+   "options": {
+    "A": "$(4 - 2a + 5b)(4 - 2a - 5b)$",
+    "B": "$(4 - 2a + 5b)(4 + 2a - 5b)$",
+    "C": "$(4 - 2a - 5b)(4 + 2a + 5b)$",
+    "D": "$(4 - 2a - 5b)(4 + 2a - 5b)$"
+   },
+   "answer": "B",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m20",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1C-Q20",
+   "source": "WS01 · DSE Paper 2 MC Q20 · [HKDSE Practice Paper 2 Q3]",
+   "stem": {
+    "en": "$x^{2}-y^{2}-x+y=$"
+   },
+   "options": {
+    "A": "$(x - y)(x + y - 1)$",
+    "B": "$(x - y)(x - y - 1)$",
+    "C": "$(x + y)(x + y - 1)$",
+    "D": "$(x + y)(x - y + 1)$"
+   },
+   "answer": "A",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m21",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1C-Q21",
+   "source": "WS01 · DSE Paper 2 MC Q21 · [HKDSE 2014 Paper 2 Q2]",
+   "stem": {
+    "en": "$u^{2}-v^{2}-3u-3v=$"
+   },
+   "options": {
+    "A": "$(u + v)(u - v - 3)$",
+    "B": "$(u + v)(u + v - 3)$",
+    "C": "$(u - v)(u - v + 3)$",
+    "D": "$(u - v)(u + v - 3)$"
+   },
+   "answer": "A",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m22",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1C-Q22",
+   "source": "WS01 · DSE Paper 2 MC Q22 · [HKDSE 2014 Paper 2 Q2]",
+   "stem": {
+    "en": "$4p^{2}-q^{2}+8p-4q=$"
+   },
+   "options": {
+    "A": "$(2p + q)(2p - q - 4)$",
+    "B": "$(2p + q)(2p - q + 4)$",
+    "C": "$(2p - q)(2p + q + 4)$",
+    "D": "$(2p - q)(2p + q - 4)$"
+   },
+   "answer": "C",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m23",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1C-Q23",
+   "source": "WS01 · DSE Paper 2 MC Q23 · [HKDSE 2014 Paper 2 Q2]",
+   "stem": {
+    "en": "$9m^{2}-4n^{2}-6m-4n=$"
+   },
+   "options": {
+    "A": "$(3m - 2n)(3m + 2n - 2)$",
+    "B": "$(3m + 2n)(3m - 2n + 2)$",
+    "C": "$(3m - 2n)(3m + 2n + 2)$",
+    "D": "$(3m + 2n)(3m - 2n - 2)$"
+   },
+   "answer": "D",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m24",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1C-Q24",
+   "source": "WS01 · DSE Paper 2 MC Q24 · [HKDSE 2022 Paper 2 Q1]",
+   "stem": {
+    "en": "$a^{2}+a-b^{2}-b=$"
+   },
+   "options": {
+    "A": "$(a + b)(a - b + 1)$",
+    "B": "$(a + b)(a - b - 1)$",
+    "C": "$(a - b)(a + b + 1)$",
+    "D": "$(a - b)(a + b - 1)$"
+   },
+   "answer": "C",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m25",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 2,
+   "code": "WS1C-Q25",
+   "source": "WS01 · DSE Paper 2 MC Q25 · [HKDSE 2022 Paper 2 Q1]",
+   "stem": {
+    "en": "$m^{2}+n-m-n^{2}=$"
+   },
+   "options": {
+    "A": "$(m - n)(m + n + 1)$",
+    "B": "$(m - n)(m + n - 1)$",
+    "C": "$(m + n)(m - n + 1)$",
+    "D": "$(m + n)(m - n - 1)$"
+   },
+   "answer": "B",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m26",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1C-Q26",
+   "source": "WS01 · DSE Paper 2 MC Q26 · [HKDSE 2018 Paper 2 Q3]",
+   "stem": {
+    "en": "$h^{2}-4h-k^{2}+4k=$"
+   },
+   "options": {
+    "A": "$(h - k)(h + k - 4)$",
+    "B": "$(h - k)(h + k + 4)$",
+    "C": "$(h + k)(h - k - 4)$",
+    "D": "$(h + k)(h - k + 4)$"
+   },
+   "answer": "A",
+   "review": null
+  },
+  {
+   "id": "eph-ws01b-m27",
+   "type": "mc",
+   "topic": "ws01b",
+   "unit": 4,
+   "subtopic": "factorization",
+   "difficulty": 3,
+   "code": "WS1C-Q27",
+   "source": "WS01 · DSE Paper 2 MC Q27 · [HKDSE 2018 Paper 2 Q3]",
+   "stem": {
+    "en": "$m^{2}-2m-9n^{2}-6n=$"
+   },
+   "options": {
+    "A": "$(m - 3n)(m - 3n + 2)$",
+    "B": "$(m + 3n)(m - 3n - 2)$",
+    "C": "$(m + 3n)(m - 3n + 2)$",
+    "D": "$(m + 3n)(m + 3n - 2)$"
+   },
+   "answer": "B",
+   "review": null
   }
  ]
 }

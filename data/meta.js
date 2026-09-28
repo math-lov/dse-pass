@@ -1,6 +1,6 @@
 // 自動生成，請勿手改（來源：data/learn/；重新生成：python tools/make_learn_data.py）
 window.LEARN_META = {
- "generatedAt": "2026-09-28T09:50:44Z",
+ "generatedAt": "2026-09-28T09:56:50Z",
  "blockedQuestions": [],
  "teacherFieldsRemoved": 0
 };

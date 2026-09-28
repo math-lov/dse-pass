@@ -36,6 +36,29 @@ window.LEARN_INDEX = {
    "lessonIds": [
     "ws01-1"
    ]
+  },
+  {
+   "id": "ws01b",
+   "stage": 1,
+   "unit": 4,
+   "name": {
+    "zh": "WS01b · 卷二 MC 27 題",
+    "en": "WS01b · 27 MC (Paper 2 style)"
+   },
+   "intro": {
+    "zh": "這一課把卷一因式分解的功夫搬去卷二（MC）。卷二題目多、時間少，所以除了「識做」，還要「快」：先看符號刪去一半選項、認出題目其實是平方差、或者先製造出共同的括號。每題都是歷屆 HKCEE／HKDSE 卷二真題，做完你就會發現它們來來去去都是同幾條路。",
+    "en": "This lesson moves the factorization skills of Paper 1 into Paper 2 (multiple choice). Paper 2 has many questions and little time, so you need speed as well as understanding: read the signs to delete half the options, spot a hidden difference of two squares, or create the common bracket first. Every question is a real HKCEE/HKDSE Paper 2 question — you will see the same few routes again and again."
+   },
+   "source": "EPH DSE Pass · Worksheet 1 · Section 1C (DSE Paper 2 MC)",
+   "stats": {
+    "mc": 27,
+    "long": 0,
+    "cards": 2,
+    "pages": 9
+   },
+   "lessonIds": [
+    "ws01b-1"
+   ]
   }
  ],
  "assessments": [],
@@ -121,13 +144,13 @@ window.LEARN_INDEX = {
    }
   }
  },
- "generatedAt": "2026-09-28T09:50:44Z",
+ "generatedAt": "2026-09-28T09:56:50Z",
  "counts": {
-  "topics": 1,
+  "topics": 2,
   "held": 0,
-  "mc": 18,
+  "mc": 45,
   "long": 7,
-  "cards": 4,
+  "cards": 6,
   "blocked": 0
  }
 };
