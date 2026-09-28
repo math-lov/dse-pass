@@ -21,8 +21,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
+import re
 import shutil
 import sys
 from datetime import datetime, timezone
@@ -30,6 +32,52 @@ from datetime import datetime, timezone
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(BASE, "data", "learn")
 OUT_ROOT = BASE          # 網站就在 repo 根目錄（Pages 由 root 提供）→ 直接寫入 data/
+
+# ── 版本戳（cache stamp）──────────────────────────────────────────────────────
+# 以前是「按小時」產生 ?v=（window.__V = YYYYMMDDHH）：同一小時內再部署，URL 完全一樣，
+# 瀏覽器與 GitHub Pages 的 CDN 就用回自己的舊檔 —— 學生「老師改了，但我看不到」。
+# 現在改成依內容算 hash：內容一變，?v= 必變，下次載入一定取到新檔。
+STAMP_RE = re.compile(r'window\.__V\s*=\s*[^;]+;')
+STAMP_HTML = ("index.html", "topic.html", "wrong.html")
+STAMP_ASSETS = ("assets/app.js", "assets/i18n.js", "assets/style.css",
+                "data/learn/bank.json", "data/learn/lessons.json",
+                "data/learn/solutions.json", "data/learn/concepts.json",
+                "data/learn/prompt-templates.json")
+
+
+def content_stamp(out: str) -> str:
+    h = hashlib.sha1()
+    files = []
+    for rel in STAMP_ASSETS:
+        p = os.path.join(BASE, rel)
+        if os.path.exists(p):
+            files.append((rel, p))
+    data_dir = os.path.join(out, "data")
+    if os.path.isdir(data_dir):
+        for name in sorted(os.listdir(data_dir)):
+            if name.endswith(".js"):          # index.js／meta.js／topic-<id>.js
+                files.append((os.path.join("data", name), os.path.join(data_dir, name)))
+    for rel, p in files:
+        h.update(rel.encode("utf-8"))
+        with open(p, "rb") as f:
+            h.update(f.read())
+    return h.hexdigest()[:8]
+
+
+def write_stamp(stamp: str) -> list:
+    changed = []
+    for name in STAMP_HTML:
+        path = os.path.join(BASE, name)
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8") as f:
+            src = f.read()
+        new = STAMP_RE.sub('window.__V = "%s";' % stamp, src, count=1)
+        if new != src:
+            with open(path, "w", encoding="utf-8", newline="\n") as f:
+                f.write(new)
+            changed.append(name)
+    return changed
 
 # 只在教師端／編輯層出現、不進公開檔的欄位
 TEACHER_ONLY_Q = ("notes", "transcribedBy", "editedBy", "reviewNote")
@@ -248,6 +296,12 @@ def main(argv: list[str] | None = None) -> int:
     if not os.path.isdir(vendor_dst) and os.path.isdir(vendor_src):
         shutil.copytree(vendor_src, vendor_dst)
         print("已複製 KaTeX 自托管資源 → %s" % os.path.relpath(vendor_dst, BASE))
+
+    if os.path.abspath(out) == os.path.abspath(OUT_ROOT):
+        stamp = content_stamp(out)
+        touched = write_stamp(stamp)
+        print("版本戳（內容 hash）%s → %s"
+              % (stamp, "、".join(touched) if touched else "HTML 無變動"))
 
     print("輸出目錄：%s" % os.path.relpath(out, BASE))
     print("課題 %d 個 · MC %d 題 · 長題示範 %d 題 · 概念卡 %d 張"

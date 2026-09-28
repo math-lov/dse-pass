@@ -458,6 +458,16 @@ ok(["simpler", "examples", "examTips", "visual", "practice"].every(
    (k) => TPL.zh.options[k] && TPL.en.options[k] && TPL.zh.optionLabels[k] && TPL.en.optionLabels[k]),
    "五個可選項中英齊全（含標籤）");
 
+/* ── 11. 版本戳：一定要是「內容 hash」，不可退回小時制 ─────────────────── */
+console.log("\n— 版本戳（cache stamp）—");
+["index.html", "topic.html", "wrong.html"].forEach((p) => {
+  const txt = fs.readFileSync(path.join(root, p), "utf8");
+  ok(/window\.__V = "[0-9a-f]{8}"/.test(txt),
+     p + " 的 ?v= 由 make_learn_data.py 依內容 hash 寫入");
+  ok(!/new Date\(\)\.toISOString\(\)\.slice\(0, 13\)/.test(txt),
+     p + " 不再用小時制快取戳（同一小時內再部署會取到舊檔）");
+});
+
 /* 剪貼簿是 Promise，最後等一個 microtask 才驗狀態提示，然後才總結 */
 setTimeout(() => {
   ok(!!statusEl && /已複製/.test(statusEl.textContent), "複製後顯示狀態提示（剪貼簿完成後）");

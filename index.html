@@ -100,8 +100,8 @@
 <script defer src="vendor/katex/auto-render.min.js"></script>
 <script defer src="assets/i18n.js"></script>
 <script>
-  // 快取戳：每小時變一次，繞過 GitHub Pages 的靜態檔快取
-  window.__V = new Date().toISOString().slice(0, 13).replace(/[-T:]/g, "");
+  // 快取戳：由 tools/make_learn_data.py 依內容 hash 寫入（內容一變，?v= 就變 → 一定取到新檔）
+  window.__V = "9788390f";
   document.write('<script src="data/index.js?v=' + window.__V + '"><\/script>');
   document.write('<script src="assets/app.js?v=' + window.__V + '"><\/script>');
 </script>
