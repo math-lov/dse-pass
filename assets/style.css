@@ -165,8 +165,15 @@ body {
 .ring.full::after { content: "✓"; color: var(--ok-ink); font-size: 16px; }
 
 /* ── 分頁列（學習／示範／練習頁）──────────────────────────────────────── */
-.pagenav { display: flex; gap: 8px; overflow-x: auto; padding: 8px 2px 12px; scrollbar-width: none; }
-.pagenav::-webkit-scrollbar { display: none; }
+/* 分頁列可以橫向捲動；老師要求顯示滾動條（否則學生不知道右邊還有頁） */
+.pagenav {
+  display: flex; gap: 8px; overflow-x: auto; padding: 8px 2px 10px;
+  scrollbar-width: thin; scrollbar-color: #c2cfdd transparent;
+}
+.pagenav::-webkit-scrollbar { height: 9px; }
+.pagenav::-webkit-scrollbar-track { background: #eef3f9; border-radius: 999px; }
+.pagenav::-webkit-scrollbar-thumb { background: #c2cfdd; border-radius: 999px; }
+.pagenav::-webkit-scrollbar-thumb:hover { background: #a9bccf; }
 .pagenav .pg {
   flex: none; min-width: 46px; height: 44px; padding: 0 12px;
   border-radius: var(--btn-radius); border: 1.5px solid var(--line); background: var(--card);

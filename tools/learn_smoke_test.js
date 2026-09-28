@@ -121,6 +121,11 @@ for (const t of LESSONS.topics) {
     ok(cards.length === 3, t.id + " first MC page holds 3 questions (got " + cards.length + ")");
     ok(pmc.$$("#topic-body .opt").length === 12, t.id + " MC page has 3 × 4 options (got " + pmc.$$("#topic-body .opt").length + ")");
     ok(pmc.$$("#topic-body .hint-row").length === 3, t.id + " every question offers hints before answering");
+    /* 同一課題同時有長題與練習頁時，練習頁標籤要加 P，避免與題號（1、2、3）撞 */
+    if (t.lessons.some((l) => l.longQuestionIds.length > 0)) {
+      ok(pmc.$$("#pagenav .pg").some((x) => /^P1$/.test((x.textContent || "").trim())),
+         t.id + " 同時有長題與練習頁 → 練習頁標籤加 P（P1）");
+    }
   } else {
     /* 純長題課題（ws01c）：每條長題各佔一頁，導覽列用題號，可逐題點入去自己試 */
     const firstQ = (t.lessons[0].longQuestionIds || [])[0];
@@ -130,8 +135,8 @@ for (const t of LESSONS.topics) {
        t.id + "（純長題課題）第 2 格＝第一條長題（" + firstQ + "），單獨一頁");
     ok(!!pdemo.$("#topic-body .card[data-qid] [data-weak]"),
        t.id + " 長題可以逐題加入弱點升級庫");
-    ok(/^Q1$/.test((((pdemo.$$("#pagenav .pg")[1] || {}).textContent) || "").trim()),
-       t.id + " 導覽列用短題號做標籤（" + ((pdemo.$$("#pagenav .pg")[1] || {}).textContent || "") + "）");
+    ok(/^1$/.test((((pdemo.$$("#pagenav .pg")[1] || {}).textContent) || "").trim()),
+       t.id + " 導覽列用淨數字做標籤（" + ((pdemo.$$("#pagenav .pg")[1] || {}).textContent || "") + "）");
     ok(!!pdemo.$("#pagenav .pg-more"),
        t.id + " 同一節其餘題目收成「…」（只顯示現時題 ±2）");
     /* 「…」按一下要跳到第一條收起的題目（第 1 節 = Q1…Q8，收起 Q4 起） */
@@ -147,6 +152,13 @@ for (const t of LESSONS.topics) {
     ok(!!pvBtn && !!nxBtn, t.id + " 長題頁底同時有「← 上一題」與「下一頁 →」");
   }
 }
+
+/* ── 3c. 分頁列要顯示橫向滾動條（老師要求；否則學生不知道右邊還有頁）── */
+const cssNav = fs.readFileSync(path.join(root, "assets", "style.css"), "utf8");
+ok(/\.pagenav \{[\s\S]{0,220}?scrollbar-width: thin/.test(cssNav),
+   "分頁列顯示橫向滾動條（scrollbar-width: thin）");
+ok(!/\.pagenav::-webkit-scrollbar \{ display: none/.test(cssNav),
+   "分頁列不再隱藏滾動條");
 
 /* ── 3b. 長公式要分幾行顯示（不是橫向滾動）──────────────────────────── */
 console.log("\n— 長公式斷行 —");
@@ -417,8 +429,8 @@ const dSet = boot("topic.html", "?t=" + tDemo.id + "&p=1", null, "zh");
 ok(!!dSet.$(".card[data-qid]") &&
    dSet.$(".card[data-qid]").getAttribute("data-qid") === tDemo.lessons[0].longQuestionIds[0],
    "長題不再合併成示範集：第 2 格就是第一條長題（單獨一頁）");
-ok(/^EX1$/.test((((dSet.$$("#pagenav .pg")[1] || {}).textContent) || "").trim()),
-   "導覽列用短題號做標籤（" + ((dSet.$$("#pagenav .pg")[1] || {}).textContent || "") + "）");
+ok(/^1$/.test((((dSet.$$("#pagenav .pg")[1] || {}).textContent) || "").trim()),
+   "導覽列用淨數字做標籤（" + ((dSet.$$("#pagenav .pg")[1] || {}).textContent || "") + "）");
 ok(!!dSet.$(".card[data-qid] [data-weak]"), "長／短答有「加入弱點升級庫」按鈕");
 dSet.$("[data-weak]").click();
 ok(/已在弱點升級庫/.test(dSet.$("[data-weak]").textContent), "按一下 → 變成「已在弱點升級庫」");

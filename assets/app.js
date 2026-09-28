@@ -469,6 +469,30 @@
         if (p.lesson !== curLesson) return true;          // 其他節：題目全部收起
         return Math.abs(i - cur) > NAV_WINDOW;            // 本節：只留現時題 ±2
       }
+      /* 長題標籤：淨數字（WS1B-Q1 → 1）。若同一節的數字有重複（例如 WS1-EX1 與 WS1-S1 都是 1），
+         該節就改用「第幾題」1、2、3…；MC 頁在「同一課題也有長題」時才加 P 前綴，避免撞號。*/
+      var hasLong = pages.some(function (x) { return x.kind === "long"; });
+      var longLabel = {}, longSeq = {}, dupLesson = {};
+      pages.forEach(function (p, i) {
+        if (p.kind !== "long") return;
+        var key = String(lessons.indexOf(p.lesson));
+        longSeq[key] = (longSeq[key] || 0) + 1;
+        var mm = /(\d+)\s*$/.exec((p.q && p.q.code) || "");
+        longLabel[i] = { num: mm ? String(parseInt(mm[1], 10)) : String(longSeq[key]),
+                         seq: String(longSeq[key]) };
+      });
+      Object.keys(longSeq).forEach(function (key) {
+        var seen = {};
+        pages.forEach(function (p, i) {
+          if (p.kind !== "long" || String(lessons.indexOf(p.lesson)) !== key) return;
+          if (seen[longLabel[i].num]) dupLesson[key] = true;
+          seen[longLabel[i].num] = true;
+        });
+      });
+      Object.keys(longLabel).forEach(function (i) {
+        if (dupLesson[String(lessons.indexOf(pages[i].lesson))]) longLabel[i].num = longLabel[i].seq;
+      });
+
       nav.innerHTML = "";
       pages.forEach(function (p, i) {
         if (multiLesson && p.lesson && (i === 0 || pages[i - 1].lesson !== p.lesson)) {
@@ -495,9 +519,9 @@
           b.classList.add("kind");
           b.title = (p.lesson && p.lesson.title && p.lesson.title.zh) || "概念卡";
         } else if (p.kind === "long") {
-          /* 逐題一頁：標籤用短題號（WS1B-Q1 → Q1），配合左邊的「第 N 節」就很清楚 */
+          /* 逐題一頁：標籤用淨數字（1、2、3…），配合左邊的「第 N 節」就很清楚 */
           var code = (p.q && p.q.code) ? String(p.q.code) : "";
-          b.textContent = code ? code.split("-").pop() : T({ zh: "題", en: "Q" });
+          b.textContent = (longLabel[i] && longLabel[i].num) || (code ? code.split("-").pop() : "題");
           b.classList.add("kind");
           b.title = T({ zh: "逐步題解（逐題）", en: "Worked solution (one per page)" }) +
             (code ? " " + code : "");
@@ -508,7 +532,7 @@
             (p.lesson && p.lesson.title && p.lesson.title.zh ? "（" + p.lesson.title.zh + "）" : "");
         } else {
           var mcIdx = pages.slice(0, i + 1).filter(function (x) { return x.kind === "mc"; }).length;
-          b.textContent = String(mcIdx);
+          b.textContent = (hasLong ? "P" : "") + mcIdx;   // 同課題有長題時加 P，避免與題號撞
           b.title = T({ zh: "練習 第 " + mcIdx + " 頁", en: "Practice page " + mcIdx });
         }
         b.dataset.page = String(i);
