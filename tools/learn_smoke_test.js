@@ -527,7 +527,7 @@ const txt = prev ? prev.value : "";
 ok(txt.length > 150, "視窗即時生成 prompt（" + txt.length + " 字）");
 ok(txt.indexOf(MC0.code) >= 0, "prompt 帶入題號 " + MC0.code);
 ok(txt.indexOf("第 1 步") >= 0, "prompt 指明聚焦第 1 步");
-ok(/DSE/.test(txt) && /補底老師|考生/.test(txt), "prompt 帶入角色與學生情境");
+ok(/DSE/.test(txt) && /數學導師|導師|考生/.test(txt), "prompt 帶入角色與學生情境");
 ok(txt.indexOf("請你這樣做") >= 0, "prompt 有列明要求");
 
 const cb = pQ.$('.pm-opt input[data-opt="simpler"]');

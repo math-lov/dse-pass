@@ -92,7 +92,7 @@ window.LEARN_INDEX = {
   "version": 1,
   "_note": "問 AI 提問模板（中英各一份）：前端所有 prompt 都由這份模板 + 題目資料即時生成，改一次＝全站更新。硬規則：新增課題不用改這裡；但改動這份檔案要跑 tools/learn_check.py（I6 會驗欄位齊全）。",
   "zh": {
-   "role": "你是一位香港中學文憑試（DSE）數學科的補底老師，專門幫助基礎較弱的學生。請用繁體中文回答，語氣要鼓勵、具體，不要長篇大論。",
+   "role": "你是一位香港中學文憑試（DSE）數學科的數學導師，擅長把題目拆成小步驟，幫學生一步一步建立信心。請用繁體中文回答，語氣要鼓勵、具體，不要長篇大論。",
    "student": "我是香港 DSE 數學科考生，正在用「自學追上站」自學。",
    "headings": {
     "source": "題目出處",
@@ -131,7 +131,7 @@ window.LEARN_INDEX = {
    }
   },
   "en": {
-   "role": "You are a patient HKDSE Mathematics tutor who specialises in helping weaker students. Answer in clear, simple English. Be encouraging and specific, and keep it short.",
+   "role": "You are a patient HKDSE Mathematics tutor who is good at breaking a question into small steps so a student can build confidence step by step. Answer in clear, simple English. Be encouraging and specific, and keep it short.",
    "student": "I am a Hong Kong DSE Mathematics candidate studying on my own with the site \"Catch-up Maths\".",
    "headings": {
     "source": "Question source",
@@ -170,7 +170,7 @@ window.LEARN_INDEX = {
    }
   }
  },
- "generatedAt": "2026-09-28T12:48:43Z",
+ "generatedAt": "2026-09-28T12:53:03Z",
  "counts": {
   "topics": 3,
   "held": 0,
