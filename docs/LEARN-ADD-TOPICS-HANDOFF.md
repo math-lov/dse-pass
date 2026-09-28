@@ -394,6 +394,10 @@ $node = "C:\Users\t073\.workbuddy\binaries\node\versions\22.22.2-3\node.exe"
     `learn_check.py` 的 **I9** 會警告；`learn_smoke_test.js` 另會掃 `**`（Markdown 粗體一律 FAIL）。
 16. **示範要與說明一致**：如果文字講「最常見的失分是約走 $x$」，示範就一定要**先 show 錯的做法（✗）**，
     再加正確做法（✓）作對照；唔可以只 show 正確做法 —— 學生會以為那就是錯的做法（2026-09-28 老師捉到）。
+17. 數式一律英文（2026-09-28 老師指示）：`math`／`highlight` 欄位不可出現中文 —— 例如「或」要寫
+    `\text{or}`（卷面本身是英文，數式要一眼睇得明）。中文只可出現在解說文字（`zh`／`body` 的散文）。
+    防線：`learn_check` 的 **I10**（`math`／`highlight` 含中文＝錯誤；散文行內 `$…$` 含中文＝警告）
+    ＋ `learn_smoke_test.js` 掃描（math／highlight 出現漢字即 FAIL）。
 15. **語言層不可繞過**：新元件一律用 `biNode()/biSpan()/setPair()/btnPair()`（雙語）
     或 `T({zh,en})`（單語；切語言時 `i18n.js` 會觸發 `__LEARN_RELANG()` 重繪）。
     不要自己拼中文字串，否則切到英文會殘留中文。

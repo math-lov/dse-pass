@@ -451,6 +451,24 @@ ok(starHits.length === 0,
    "課題資料不含 Markdown 粗體 **…**（前端不會 render，會原樣顯示）—— 找到 " +
    starHits.length + " 處" + (starHits.length ? "：" + starHits.slice(0, 3).join(" / ") : ""));
 
+/* 數式一律英文（老師 2026-09-28）：中文只可出現在解說文字，math／highlight 一個漢字都不可有 */
+const cjkRe = /[\u4e00-\u9fff]/;
+const cjkHits2 = [];
+function scanMath(o, inMath) {
+  if (typeof o === "string") {
+    if (inMath && cjkRe.test(o)) cjkHits2.push(o.slice(0, 28));
+    return;
+  }
+  if (Array.isArray(o)) { o.forEach((v) => scanMath(v, inMath)); return; }
+  if (o && typeof o === "object") {
+    Object.keys(o).forEach((k) => scanMath(o[k], inMath || k === "math" || k === "highlight"));
+  }
+}
+[BANK, LESSONS, CARDS, SOLS].forEach((b) => scanMath(b, false));
+ok(cjkHits2.length === 0,
+   "數式（math／highlight）不含中文（中文只出現在解說）—— 找到 " + cjkHits2.length + " 處" +
+   (cjkHits2.length ? "：" + cjkHits2.slice(0, 3).join(" / ") : ""));
+
 /* ── 9b. 長／短答（紙上作答）：加入弱點升級庫 + 英文題幹在中文模式要見到 ── */
 console.log("\n— 長／短答：加入弱點升級庫 —");
 const tDemo = LESSONS.topics[0];

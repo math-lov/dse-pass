@@ -44,6 +44,10 @@ STAMP_ASSETS = ("assets/app.js", "assets/i18n.js", "assets/style.css",
                 "data/learn/solutions.json", "data/learn/concepts.json",
                 "data/learn/prompt-templates.json")
 
+# 生成檔內有 "generatedAt" 時間戳：算內容 hash 時要剔走它，否則 ?v= 每次生成都會變
+# （變相退回「時間戳」），只有內容真的改了才應該變。
+TS_RE = re.compile(rb'"generatedAt"\s*:\s*"[^"]*"')
+
 
 def content_stamp(out: str) -> str:
     h = hashlib.sha1()
@@ -60,7 +64,7 @@ def content_stamp(out: str) -> str:
     for rel, p in files:
         h.update(rel.encode("utf-8"))
         with open(p, "rb") as f:
-            h.update(f.read())
+            h.update(TS_RE.sub(b'"generatedAt":""', f.read()))
     return h.hexdigest()[:8]
 
 

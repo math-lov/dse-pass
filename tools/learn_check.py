@@ -462,6 +462,29 @@ def main(argv: list[str] | None = None) -> int:
                 warn("I9", "%s：單行內有 %d 個 ⇒，建議每個 ⇒ 後開新行（否則要橫向捲動）"
                      % (path, n))
 
+    # ③ 數式一律英文（老師 2026-09-28）：`math`／`highlight` 不可以有中文，例如「或」要寫 \text{or}。
+    #    中文只可出現在解說文字（zh／body 的散文）。
+    import re as _re
+    _cjk = _re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]")
+    for fname, blob in (("bank.json", bank), ("solutions.json", sols),
+                        ("concepts.json", concepts), ("lessons.json", lessons)):
+        for path, text in _scan_strings(blob, fname):
+            if "math" not in path and "highlight" not in path:
+                continue
+            if _cjk.search(text):
+                err("I10", "%s：數式內出現中文（數式一律用英文，如 \\text{or}；中文只可出現在解說）"
+                    % path)
+    # 散文中的行內數學 $…$ 也應該全英（只警告，避免誤中括號內的正常中文）
+    for fname, blob in (("bank.json", bank), ("solutions.json", sols),
+                        ("concepts.json", concepts), ("lessons.json", lessons)):
+        for path, text in _scan_strings(blob, fname):
+            if "math" in path or "highlight" in path:
+                continue
+            for m in _re.finditer(r"\$([^$]+)\$", text):
+                if _cjk.search(m.group(1)):
+                    warn("I10", "%s：行內數學 $…$ 內含中文（%s）→ 數式部分要英文"
+                         % (path, m.group(0)[:24]))
+
     # ── 統計 ──────────────────────────────────────────────────────────────
     n_mc = sum(1 for q in questions if q.get("type") == "mc")
     n_long = sum(1 for q in questions if q.get("type") == "long")
