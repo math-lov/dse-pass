@@ -170,7 +170,7 @@ window.LEARN_INDEX = {
    }
   }
  },
- "generatedAt": "2026-09-28T10:59:48Z",
+ "generatedAt": "2026-09-28T11:39:54Z",
  "counts": {
   "topics": 3,
   "held": 0,

@@ -185,7 +185,9 @@ if (mlCard) {
     if (!b) break;
     b.click(); g++;
   }
-  const want = mlMath(mlCard).split("\n").filter((s) => s.trim()).length;
+  /* 一張卡可能有多過一條公式：把所有「有斷行」的 math 行數加起來（不再假設只有一條） */
+  const want = (mlCard.math || []).filter((m) => m.indexOf("\n") >= 0)
+    .reduce((n, m) => n + m.split("\n").filter((s) => s.trim()).length, 0);
   /* 中英各渲染一份 → 計數要指定語言那一份（否則會被當成雙倍）*/
   const zhLines = tc.$$(".ccard-body > .l-zh .formula-multi .formula-line");
   const enLines = tc.$$(".ccard-body > .l-en .formula-multi .formula-line");
@@ -432,6 +434,22 @@ wDup.ctx.window.LEARN_I18N.set("en");
 wDup.ctx.window.LEARN_I18N.set("zh");
 ok(wBefore >= 1 && wDup.$$(".wrong-item").length === wBefore,
    "弱點升級庫切語言後項目數目不變（" + wBefore + " → " + wDup.$$(".wrong-item").length + "）");
+
+/* ── 9c. 表達規範：不可用 Markdown 粗體（前端不 render，會原樣顯示）────── */
+console.log("\n— 表達規範 —");
+function allStrings(o, out) {
+  if (typeof o === "string") out.push(o);
+  else if (Array.isArray(o)) o.forEach((v) => allStrings(v, out));
+  else if (o && typeof o === "object") Object.keys(o).forEach((k) => allStrings(o[k], out));
+  return out;
+}
+const starHits = [];
+[BANK, LESSONS, CARDS, SOLS].forEach((blob) => {
+  allStrings(blob, []).forEach((t) => { if (t.indexOf("**") >= 0) starHits.push(t.slice(0, 30)); });
+});
+ok(starHits.length === 0,
+   "課題資料不含 Markdown 粗體 **…**（前端不會 render，會原樣顯示）—— 找到 " +
+   starHits.length + " 處" + (starHits.length ? "：" + starHits.slice(0, 3).join(" / ") : ""));
 
 /* ── 9b. 長／短答（紙上作答）：加入弱點升級庫 + 英文題幹在中文模式要見到 ── */
 console.log("\n— 長／短答：加入弱點升級庫 —");

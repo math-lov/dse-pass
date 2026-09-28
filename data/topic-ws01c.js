@@ -51,8 +51,8 @@ window.LEARN_TOPIC_WS01C = {
       "en": "The Paper 1 routine: use (a) whenever you see Hence"
      },
      "body": {
-      "zh": "卷一長題（Factorize (a)…(b)…）幾乎永遠是同一個結構：**(a) 用一個簡單方法分解，(b) 必須用 (a) 的結果。**\n標準三步：① 先做 (a) 並把答案圈起來；② 在 (b) 找出「同一條括號」（通常是把餘下兩項抽公因式之後出現）；③ 把共同括號抽走。\n例：$x^{2}y+3xy^{2}+2x+6y$ —— (a) 給 $xy(x+3y)$，而 $+2x+6y=2(x+3y)$：{{math:0}}\n**不要**重新由頭分解 (b)：既浪費時間，又拿不到方法分。",
-      "en": "Paper 1 long questions (Factorize (a)…(b)…) almost always share one structure: **(a) uses a simple method, (b) must use the result of (a).**\nThree standard moves: (1) do (a) and circle the answer; (2) find the same bracket in (b) (usually after factoring the remaining two terms); (3) take that bracket out.\nExample: $x^{2}y+3xy^{2}+2x+6y$ — (a) gives $xy(x+3y)$ and $+2x+6y=2(x+3y)$: {{math:0}}\nNever start (b) from scratch: it wastes time and loses the method mark."
+      "zh": "卷一長題（Factorize (a)…(b)…）幾乎永遠是同一個結構：(a) 用一個簡單方法分解，(b) 必須用 (a) 的結果。\n標準三步：① 先做 (a) 並把答案圈起來；② 在 (b) 找出「同一條括號」（通常是把餘下兩項抽公因式之後出現）；③ 把共同括號抽走。\n例：$x^{2}y+3xy^{2}+2x+6y$ —— (a) 給 $xy(x+3y)$，而 $+2x+6y=2(x+3y)$：{{math:0}}\n不要重新由頭分解 (b)：既浪費時間，又拿不到方法分。",
+      "en": "Paper 1 long questions (Factorize (a)…(b)…) almost always share one structure: (a) uses a simple method, (b) must use the result of (a).\nThree standard moves: (1) do (a) and circle the answer; (2) find the same bracket in (b) (usually after factoring the remaining two terms); (3) take that bracket out.\nExample: $x^{2}y+3xy^{2}+2x+6y$ — (a) gives $xy(x+3y)$ and $+2x+6y=2(x+3y)$: {{math:0}}\nNever start (b) from scratch: it wastes time and loses the method mark."
      },
      "math": [
       "x^{2}y+3xy^{2}+2x+6y=xy(x+3y)+2(x+3y)=(x+3y)(xy+2)"
@@ -1648,8 +1648,8 @@ window.LEARN_TOPIC_WS01C = {
       "en": "(a) is the key: (b) collapses into (a) × another bracket"
      },
      "body": {
-      "zh": "卷一 4 分題的模式固定：**(a) 先抽公因式，(b) 的三項剛好就是 (a) 的負數或倍數。**\n例：$x^{3}+x^{2}y+5x^{2}=x^{2}(x+y+5)$，而 (b) 的尾巴 $-x-y-5=-(x+y+5)$：{{math:0}}\n抽出共同括號之後，餘下的通常是 $x^{2}-1$、$x^{2}-9$、$x^{2}-16$ —— 全部可以再用平方差：{{math:1}}\n所以「completely」的意思是：抽完括號之後，仍要檢查餘下那塊能否再分解。",
-      "en": "The 4-mark pattern never changes: **(a) factors out, and (b)'s remaining terms are exactly a multiple of (a).**\nExample: $x^{3}+x^{2}y+5x^{2}=x^{2}(x+y+5)$ while (b)'s tail $-x-y-5=-(x+y+5)$: {{math:0}}\nAfter the shared bracket is taken out, what remains is usually $x^{2}-1$, $x^{2}-9$ or $x^{2}-16$ — all of which split further: {{math:1}}\nSo 'completely' means: after factoring the bracket, check whether the remainder can still be factorized."
+      "zh": "卷一 4 分題的模式固定：(a) 先抽公因式，(b) 的三項剛好就是 (a) 的負數或倍數。\n例：$x^{3}+x^{2}y+5x^{2}=x^{2}(x+y+5)$，而 (b) 的尾巴 $-x-y-5=-(x+y+5)$：{{math:0}}\n抽出共同括號之後，餘下的通常是 $x^{2}-1$、$x^{2}-9$、$x^{2}-16$ —— 全部可以再用平方差：{{math:1}}\n所以「completely」的意思是：抽完括號之後，仍要檢查餘下那塊能否再分解。",
+      "en": "The 4-mark pattern never changes: (a) factors out, and (b)'s remaining terms are exactly a multiple of (a).\nExample: $x^{3}+x^{2}y+5x^{2}=x^{2}(x+y+5)$ while (b)'s tail $-x-y-5=-(x+y+5)$: {{math:0}}\nAfter the shared bracket is taken out, what remains is usually $x^{2}-1$, $x^{2}-9$ or $x^{2}-16$ — all of which split further: {{math:1}}\nSo 'completely' means: after factoring the bracket, check whether the remainder can still be factorized."
      },
      "math": [
       "x^{3}+x^{2}y+5x^{2}-x-y-5=x^{2}(x+y+5)-(x+y+5)",
@@ -2448,8 +2448,8 @@ window.LEARN_TOPIC_WS01C = {
       "en": "Three-part (a)(b)(c) questions and 'square $-$ square'"
      },
      "body": {
-      "zh": "**(a)(b)(c) 型**：(a) 與 (b) 各自簡單，兩者都藏著「同一條括號」，(c) 把兩塊拼起來再抽走那條括號：\n$m^{2}+mn-20n^{2}-3m+12n=(m+5n)(m-4n)-3(m-4n)$ → $(m-4n)(m+5n-3)$。\n**(平方 − 平方) 型**：(a) 做完全平方，(b) 把後面三項整組抽負號，就變成 $a^{2}-b^{2}$：{{math:0}}\n最後要檢查每個括號能否再抽公因式（例如 $(10x+5y-5)=5(2x+y-1)$）：{{math:1}}",
-      "en": "**(a)(b)(c) type**: (a) and (b) are simple and both hide the same bracket; (c) joins the two pieces and factors that bracket out:\n$m^{2}+mn-20n^{2}-3m+12n=(m+5n)(m-4n)-3(m-4n)$ → $(m-4n)(m+5n-3)$.\n**(square $-$ square) type**: (a) makes a perfect square, (b) takes a minus out of the last three terms, giving $a^{2}-b^{2}$: {{math:0}}\nFinally check every bracket for a remaining common factor (e.g. $(10x+5y-5)=5(2x+y-1)$): {{math:1}}"
+      "zh": "(a)(b)(c) 型：(a) 與 (b) 各自簡單，兩者都藏著「同一條括號」，(c) 把兩塊拼起來再抽走那條括號：\n$m^{2}+mn-20n^{2}-3m+12n=(m+5n)(m-4n)-3(m-4n)$ → $(m-4n)(m+5n-3)$。\n(平方 − 平方) 型：(a) 做完全平方，(b) 把後面三項整組抽負號，就變成 $a^{2}-b^{2}$：{{math:0}}\n最後要檢查每個括號能否再抽公因式（例如 $(10x+5y-5)=5(2x+y-1)$）：{{math:1}}",
+      "en": "(a)(b)(c) type: (a) and (b) are simple and both hide the same bracket; (c) joins the two pieces and factors that bracket out:\n$m^{2}+mn-20n^{2}-3m+12n=(m+5n)(m-4n)-3(m-4n)$ → $(m-4n)(m+5n-3)$.\n(square $-$ square) type: (a) makes a perfect square, (b) takes a minus out of the last three terms, giving $a^{2}-b^{2}$: {{math:0}}\nFinally check every bracket for a remaining common factor (e.g. $(10x+5y-5)=5(2x+y-1)$): {{math:1}}"
      },
      "math": [
       "81c^{2}-18c+1=(9c-1)^{2}",

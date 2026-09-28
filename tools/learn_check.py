@@ -435,6 +435,33 @@ def main(argv: list[str] | None = None) -> int:
                     err("S9", "figures.json：%s 第 %d 幅 step=%r 超出題解步數（1–%d）"
                         % (fid, i, step, n_steps))
 
+    # ── I9：表達規範 ──────────────────────────────────────────────────────
+    # ① 文字欄不可用 Markdown 粗體 **…**：前端不會 render，會「原樣」顯示給學生（已發生過）。
+    # ② 一條 math 內多過 1 個 ⇒ 就應該每個 ⇒ 開新行，否則要橫向捲動（學生看不完一整條）。
+    def _scan_strings(node, path):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                yield from _scan_strings(v, "%s.%s" % (path, k))
+        elif isinstance(node, list):
+            for i, v in enumerate(node):
+                yield from _scan_strings(v, "%s[%d]" % (path, i))
+        elif isinstance(node, str):
+            yield path, node
+
+    for fname, blob in (("bank.json", bank), ("solutions.json", sols),
+                        ("concepts.json", concepts), ("lessons.json", lessons)):
+        for path, text in _scan_strings(blob, fname):
+            if "**" in text:
+                err("I9", "%s：含 Markdown 粗體 **…**（前端不會 render，會原樣顯示給學生）" % path)
+    for fname, blob in (("concepts.json", concepts), ("solutions.json", sols)):
+        for path, text in _scan_strings(blob, fname):
+            if ".math" not in path or "\n" in text:
+                continue
+            n = text.count("\\Rightarrow") + text.count("⇒")
+            if n >= 2:
+                warn("I9", "%s：單行內有 %d 個 ⇒，建議每個 ⇒ 後開新行（否則要橫向捲動）"
+                     % (path, n))
+
     # ── 統計 ──────────────────────────────────────────────────────────────
     n_mc = sum(1 for q in questions if q.get("type") == "mc")
     n_long = sum(1 for q in questions if q.get("type") == "long")
