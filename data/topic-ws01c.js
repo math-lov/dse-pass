@@ -84,7 +84,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q1",
      "source": "WS01 · DSE Paper 1 題型 Q1 [HKCEE 2009 Paper 1 Q3]",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -152,7 +153,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "卷一的 (b) 幾乎一定「藏著」與 (a) 相同的括號；(a) 做對，(b) 就是送分。",
        "en": "In Paper 1, part (b) almost always hides the same bracket as (a): get (a) right and (b) is nearly free."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -236,7 +247,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "後兩項「倒轉次序」（$-m+2n$）就抽 $-1$：$-(m-2n)$，這是卷一最常見的一步。",
        "en": "When the last pair comes in reversed order ($-m+2n$), take out $-1$: $-(m-2n)$ — the most common move in Paper 1."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -325,7 +346,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "三部曲的題目：先做 (a)(b)，把兩個答案寫在旁邊，(c) 就會自己浮出來。",
        "en": "In a three-part question, do (a) and (b) first and jot the answers down — part (c) then falls into place."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -414,7 +445,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "(c) 第一步永遠是「加括號」：把 $_ - (_)$ 寫出來，之後就是抽公因式。",
        "en": "Part (c) always starts by inserting brackets: write it as $-(\\;)$ and then factor."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -498,7 +539,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "見到「完全平方 $-$ 平方」的形狀：先 (a) 再平方差，兩步就完。",
        "en": "When you see 'perfect square $-$ square', do (a) then the difference of two squares — two moves."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -582,7 +633,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "$-X-Y-Z$ 這類尾巴：整組抽 $-1$ 變成 $-(X+Y+Z)$，再用 (a)。",
        "en": "For a tail like $-X-Y-Z$, factor out $-1$ to get $-(X+Y+Z)$ and then use (a)."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -666,7 +727,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "(a) 給兩個括號，(b) 一定選其中一個：把餘下兩項抽到能產生它。",
        "en": "Part (a) gives two brackets; part (b) uses one of them — factor the remaining pair to produce it."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -750,7 +821,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "(b) 的後兩項符號一正一負時，通常要抽「負公因式」；試 $-1$、$-2$、$-4$…看哪個能對上 (a)。",
        "en": "When the last pair has mixed signs, try a negative common factor ($-1$, $-2$, $-4$…) until it matches (a)."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -876,7 +957,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "(a) 是完全平方時，(b) 通常就是「同一條括號」再乘一個數字。",
        "en": "When (a) is a perfect square, (b) is usually that same bracket multiplied by a number."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -960,7 +1051,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "完全平方的三個數：首平方、末平方、中間是「$2\times$ 首 $\times$ 末」。",
        "en": "Perfect square: first squared, last squared, middle is $2\\times$ first $\\times$ last."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -1044,7 +1145,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "(b) 多出一個字母（$b$）時，先抽它的次方，就會看到 (a) 的括號。",
        "en": "When (b) brings in a new letter ($b$), factor out its power and (a)'s bracket appears."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -1128,7 +1239,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "(b) 部「分散」時，先看哪幾項可以併回 (a) 的原式，這是最快的入手點。",
        "en": "When (b) looks scattered, find the terms that recombine into (a)'s expression — that is the entry point."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -1212,7 +1333,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "這一題是 2017 與 2021 兩年的卷一真題：套路完全一樣。",
        "en": "This question appeared in both 2017 and 2021: the routine is identical."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -1270,12 +1401,12 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(3m-2n)$",
-         "en": "Take out $(3m-2n)$"
+         "zh": "第 3 步 · 抽走共同括號，中括號內逐項分配負號",
+         "en": "Step 3 · Factor the common bracket out and distribute the minus inside the square brackets"
         },
-        "math": "=(3m-2n)(3-2m+3n)",
-        "zh": "抽走 $(3m-2n)$，剩下 $3$ 與 $-(2m-3n)$，即 $3-2m+3n$。",
-        "en": "Factor out $(3m-2n)$; the remainder is $3$ and $-(2m-3n)$, i.e. $3-2m+3n$.",
+        "math": "=(3m-2n)[3-(2m-3n)]\n=(3m-2n)(3-2m+3n)",
+        "zh": "抽走 $(3m-2n)$ 之後，餘下部分先用中括號整組包住：$[3-(2m-3n)]$。減號必須逐項分配：$-(+2m)=-2m$、$-(-3n)=+3n$，化簡得 $(3m-2n)(3-2m+3n)$。這一格最忌心算跳步 —— 直接寫就會變成 $3-2m-3n$（第二項漏了變號），一分就飛走。",
+        "en": "After factoring out $(3m-2n)$, keep the remainder inside square brackets: $[3-(2m-3n)]$. Distribute the minus to every term: $-(+2m)=-2m$ and $-(-3n)=+3n$, giving $(3m-2n)(3-2m+3n)$. Never do this step in your head: the classic slip is $3-2m-3n$, which loses the last mark.",
         "marking": "(1A)"
        }
       ],
@@ -1296,7 +1427,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "(b) 的首兩項若「順序倒轉」（$9m-6n$），先抽一個數，再看能否與 (a) 的括號對上。",
        "en": "If (b) starts with a reversed pair ($9m-6n$), factor it and check whether it matches (a)'s bracket."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -1380,7 +1521,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "高次題（$a^{4}$、$a^{3}$）的固定做法：先抽最低次，讓括號內變回 (a)。",
        "en": "Higher-degree questions ($a^{4}$, $a^{3}$): factor out the lowest power so the bracket becomes (a)."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -1464,7 +1615,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "抽公因式 → 括號內用 (a) → 寫成乘積，這三步對所有高次題都合用。",
        "en": "Factor out, use (a) inside the bracket, write the product — this routine covers every higher-degree question."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -1590,7 +1751,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "高次項而首項係數是負的：抽 $-x^{2}$ 連負號一起走，括號內就會變回 (a)。",
        "en": "When the highest-degree coefficient is negative, take out $-x^{2}$ with the minus so the bracket becomes (a)."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -1674,7 +1845,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "六項題（3+3）的標準結局：抽出 (a) 的括號 → 餘下 $x^{2}-1$、$x^{2}-9$、$x^{2}-16$… → 再用平方差。",
        "en": "The standard ending for a six-term question: factor out (a)'s bracket, leaving $x^{2}-1$, $x^{2}-9$, $x^{2}-16$… then use the difference of two squares."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -1758,7 +1939,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "抽 $x^{2}$ 之後餘下的通常是 $x^{2}-1$：一定是 $(x-1)(x+1)$。",
        "en": "After factoring $x^{2}$ the remainder is usually $x^{2}-1$, which is always $(x-1)(x+1)$."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -1842,7 +2033,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "抽公因式時「負數一起抽」：$-9$ 比 $+9$ 更容易令括號對上 (a)。",
        "en": "Take the negative with the factor: $-9$ makes the bracket match (a), $+9$ does not."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -1926,7 +2127,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "六項／四項題的收尾都一樣：抽走共同括號之後，餘下的多半是平方差。",
        "en": "Four- and six-term questions end the same way: after factoring out the shared bracket, what remains is usually a difference of two squares."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -2010,7 +2221,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "係數有 H.C.F.（4）時，先抽數字再抽字母，最後一步才用平方差。",
        "en": "When the coefficients share an H.C.F. (4), factor numbers first, letters second, and save the difference of squares for last."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -2094,7 +2315,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "(b) 的兩組各自抽公因式時，目標只有一個：令兩個括號變成一樣。",
        "en": "When factoring both pairs in (b), aim at one thing only: make the two brackets identical."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -2184,7 +2415,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "三部曲的 (c)：一半用 (a) 或 (b) 的括號，另一半是它們的倍數 —— 找出來就通了。",
        "en": "In part (c) of a three-part question, one half supplies the bracket and the other half is a multiple of it."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -2316,7 +2557,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "(a)(b) 做完先圈起「相同的括號」，那個就是 (c) 要抽走的東西。",
        "en": "After (a) and (b), circle the identical bracket — that is what part (c) factors out."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -2406,7 +2657,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "(c) 的次數倒轉（先兩次、後三次）時，通常要「整組抽負號」再代入。",
        "en": "When (c) lists the lower-degree pair first, take a minus out of the whole group and then substitute."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -2470,12 +2731,12 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(2m-1)$",
-         "en": "Take out $(2m-1)$"
+         "zh": "第 3 步 · 抽走 $(2m-1)$，再把括號內的乘積展開",
+         "en": "Step 3 · Factor out $(2m-1)$, then expand the product inside the bracket"
         },
-        "math": "=(2m-1)(2m+1-n(m+6))=(2m-1)(2m-mn-6n+1)",
-        "zh": "抽走 $(2m-1)$ 之後，第二個括號內要把 $-n(m+6)$ 展開：$-n(m+6)=-mn-6n$。",
-        "en": "After factoring $(2m-1)$ out, expand $-n(m+6)$ inside the second bracket: $-mn-6n$.",
+        "math": "=(2m-1)[(2m+1)-n(m+6)]\n=(2m-1)(2m+1-mn-6n)\n=(2m-1)(2m-mn-6n+1)",
+        "zh": "抽走共同括號 $(2m-1)$ 之後，中括號內留下 $[(2m+1)-n(m+6)]$。把 $-n$ 乘進去：$-n(m)=-mn$、$-n(+6)=-6n$（兩個都要變號），得 $2m+1-mn-6n$；最後按字母整理成 $2m-mn-6n+1$。答案內不可以留著未展開的括號乘積 —— 官方 marking 的最後一分就是這一步。",
+        "en": "After factoring out $(2m-1)$, the square bracket holds $[(2m+1)-n(m+6)]$. Multiply $-n$ in: $-n(m)=-mn$ and $-n(6)=-6n$ (both terms change sign), giving $2m+1-mn-6n$, then tidy it as $2m-mn-6n+1$. Never leave an unexpanded product inside a factor — the final mark depends on it.",
         "marking": "(1A)"
        }
       ],
@@ -2496,7 +2757,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "三部曲抽走共同括號之後，括號內若有「$-n(…)$」這種乘積，要展開化簡才完成。",
        "en": "After factoring the shared bracket out, any product such as $-n(\\ldots)$ left inside must be expanded and simplified."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -2586,7 +2857,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "(b) 抽出的字母（$s$）不可漏；抽走共同括號後，括號內再化簡。",
        "en": "Never drop the letter factored out in (b); after taking the shared bracket out, simplify inside."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -2676,7 +2957,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "遇到 $(a+b)$ 與 $(b+a)$ 時，記住它們相等；這是很多學生看不出的「已經配對」。",
        "en": "Remember $(a+b)=(b+a)$: many students miss that the brackets already match."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -2760,7 +3051,25 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "卷一最後一兩年的「平方 − 平方」題：先 (a) 做完全平方，再整條套平方差。",
        "en": "For the recent 'square $-$ square' questions: do the perfect square in (a), then apply the identity to the whole expression."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "另解：常數項與符號保底檢查法",
+         "en": "Alternative: check the constant term to confirm the signs"
+        },
+        "zh": "不用重做，只看「純 $d$ 與常數」的部分就可以確認符號：原式的 $-81c^{2}+18c-1$ 與 $(10c-d)^{2}$ 中的 $-d$ 部分，對應 $(-d)^{2}-1=d^{2}-1$；而答案 $(19c-d-1)(c-d+1)$ 中，把 $c$ 視為 $0$ 得 $(-d-1)(-d+1)=d^{2}-1$ ✓ 完全相符，證明正負號全部都對。這是卷一最後檢查答案最快的方法。",
+        "en": "No need to redo the question: check only the terms in $d$ and the constant. The question contributes $(-d)^{2}-1=d^{2}-1$; in the answer $(19c-d-1)(c-d+1)$, putting $c=0$ gives $(-d-1)(-d+1)=d^{2}-1$ ✓ — identical, so every sign is right. The quickest final check in Paper 1."
+       },
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -2844,7 +3153,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "平方差題拆括號時，先寫出 $a+b$ 與 $a-b$（連括號），最後才拆。",
        "en": "For a difference of two squares, write $a+b$ and $a-b$ (with brackets) first, then remove them."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -2928,7 +3247,17 @@ window.LEARN_TOPIC_WS01C = {
       "tip": {
        "zh": "做完平方差，記得檢查每個括號能否再抽公因式 —— 「completely」包括這一層。",
        "en": "After the difference of two squares, check every bracket for a remaining common factor — 'completely' includes this."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算法：展開對回原式（做完自己檢查）",
+         "en": "Check: expand and compare with the question"
+        },
+        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
+        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"

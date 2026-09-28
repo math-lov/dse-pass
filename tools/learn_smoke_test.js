@@ -529,6 +529,14 @@ ok((((SOLS["eph-ws01b-m12"] || {}).solution || {}).alt || []).length >= 2,
    "m12 有兩條另解（展開法 ＋ 數值代入法）");
 ok(/\\frac\{1\}\{3\}/.test((((SOLS["eph-ws01-ex01"] || {}).solution || {}).alt || [{}])[0].zh || ""),
    "ex01 的另解含 Formula 01 求根（$x=\\frac{1}{3}$）");
+/* 卷一長題也要有另解／驗算（老師第二輪審查） */
+const longAlt = BANK.filter((q) => q.type === "long" && q.topic === "ws01c");
+ok(longAlt.length === 32 && longAlt.every((q) => (((SOLS[q.id] || {}).solution || {}).alt || []).length >= 1),
+   "ws01c 全部 32 題都有驗算法（alt）");
+ok((((SOLS["eph-ws01c-q30"] || {}).solution || {}).alt || []).length >= 2,
+   "q30 另有「常數項與符號保底檢查法」");
+ok(!!(((BANK.filter((q) => q.id === "eph-ws01c-q01")[0] || {}).stem || {}).zh),
+   "ws01c 題幹有中文（q01 已補回）");
 const altQ = boot("topic.html", "?t=ws01&p=1", null, "zh");
 const allBtnA = altQ.$$(".card .btn").filter((b) => /全部顯示/.test(b.textContent))[0];
 ok(!!allBtnA, "示範頁有「全部顯示」按鈕");
