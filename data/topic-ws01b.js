@@ -85,7 +85,7 @@ window.LEARN_TOPIC_WS01B = {
       "en": "Almost every four-term question in Paper 2 follows one route: group → factor each pair → make the brackets identical.\nExample: $2xy-xz+4y^{2}-2yz$ — after grouping, both brackets are $(2y-z)$: {{math:0}}\nIf the brackets differ by a sign, take out $-1$ (example: {{math:1}}); if they do not match at all, rearrange the terms (pull together the two that share a bracket) and try again. Six terms work the same way: group into threes and the same bracket usually appears."
      },
      "math": [
-      "2xy-xz+4y^{2}-2yz=x(2y-z)+2y(2y-z)=(x+2y)(2y-z)",
+      "2xy-xz+4y^{2}-2yz=x(2y-z)+2y(2y-z)\n=(x+2y)(2y-z)",
       "xy-xz-y+z\n=x(y-z)-(y-z)\n=(y-z)(x-1)"
      ],
      "vocab": [
@@ -562,7 +562,7 @@ window.LEARN_TOPIC_WS01B = {
           "zh": "認題：六項，試抽共同括號",
           "en": "Six terms: look for a shared bracket"
          },
-         "math": "pr-qr-ps+qs+pt-qt=r(p-q)-s(p-q)+t(p-q)",
+         "math": "pr-qr-ps+qs+pt-qt\n=r(p-q)-s(p-q)+t(p-q)",
          "zh": "第一、二項抽 $r$、第三、四項抽 $-s$、第五、六項抽 $t$ —— 三個括號都是 $(p-q)$。",
          "en": "$r$ from the first pair, $-s$ from the second, $t$ from the third — all three brackets are $(p-q)$."
         },
@@ -1624,7 +1624,7 @@ window.LEARN_TOPIC_WS01B = {
           "zh": "平方差",
           "en": "Difference of two squares"
          },
-         "math": "=(m+(3n+1))(m-(3n+1))=(m+3n+1)(m-3n-1)",
+         "math": "=(m+(3n+1))(m-(3n+1))\n=(m+3n+1)(m-3n-1)",
          "zh": "$a=m$、$b=3n+1$；$m-(3n+1)=m-3n-1$（負號要整條分配）。",
          "en": "With $a=m$ and $b=3n+1$: $m-(3n+1)=m-3n-1$ — the minus applies to the whole bracket."
         }
@@ -1693,7 +1693,7 @@ window.LEARN_TOPIC_WS01B = {
           "zh": "認題：先製造平方差",
           "en": "Create a difference of two squares"
          },
-         "math": "16-4a^{2}+20ab-25b^{2}=4^{2}-(4a^{2}-20ab+25b^{2})",
+         "math": "16-4a^{2}+20ab-25b^{2}\n=4^{2}-(4a^{2}-20ab+25b^{2})",
          "zh": "$-4a^{2}+20ab-25b^{2}=-(4a^{2}-20ab+25b^{2})$：三項同時變號。",
          "en": "$-4a^{2}+20ab-25b^{2}=-(4a^{2}-20ab+25b^{2})$ — all three signs flip."
         },
@@ -1711,7 +1711,7 @@ window.LEARN_TOPIC_WS01B = {
           "zh": "平方差",
           "en": "Difference of two squares"
          },
-         "math": "=(4-(2a-5b))(4+(2a-5b))=(4-2a+5b)(4+2a-5b)",
+         "math": "=(4-(2a-5b))(4+(2a-5b))\n=(4-2a+5b)(4+2a-5b)",
          "zh": "$4-(2a-5b)=4-2a+5b$：$-5b$ 變 $+5b$。",
          "en": "$4-(2a-5b)=4-2a+5b$: the $-5b$ becomes $+5b$."
         }
@@ -2035,7 +2035,7 @@ window.LEARN_TOPIC_WS01B = {
           "zh": "平方差",
           "en": "Difference of two squares"
          },
-         "math": "9m^{2}-4n^{2}-6m-4n=(3m+2n)(3m-2n)-2(3m+2n)",
+         "math": "9m^{2}-4n^{2}-6m-4n\n=(3m+2n)(3m-2n)-2(3m+2n)",
          "zh": "$9m^{2}-4n^{2}=(3m+2n)(3m-2n)$；$-(6m+4n)=-2(3m+2n)$。",
          "en": "$9m^{2}-4n^{2}=(3m+2n)(3m-2n)$ and $-(6m+4n)=-2(3m+2n)$."
         },

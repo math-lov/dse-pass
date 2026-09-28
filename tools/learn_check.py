@@ -474,6 +474,24 @@ def main(argv: list[str] | None = None) -> int:
             if _cjk.search(text):
                 err("I10", "%s：數式內出現中文（數式一律用英文，如 \\text{or}；中文只可出現在解說）"
                     % path)
+    # ④ 數式每行不宜過長（老師 2026-09-28：太長了，盡量分行書寫）—— 過長學生要橫向捲才睇得完。
+    def _disp_width(line):
+        t = _re.sub(r"\\text\{([^}]*)\}", r"\1", line)
+        t = t.replace("\\Rightarrow", "⇒")
+        t = _re.sub(r"\\[a-zA-Z]+", "x", t)
+        t = t.replace("\\ ", " ").replace("\\,", " ").replace("\\;", " ")
+        return len(_re.sub(r"[{}]", "", t).strip())
+
+    for fname, blob in (("bank.json", bank), ("solutions.json", sols), ("concepts.json", concepts)):
+        for path, text in _scan_strings(blob, fname):
+            if "math" not in path and "highlight" not in path:
+                continue
+            for ln in text.split("\n"):
+                w = _disp_width(ln)
+                if w > 44:
+                    warn("I11", "%s：數式有一行長 %d 字，建議在 =／⇒ 之前分行（%s）"
+                         % (path, w, ln.strip()[:28]))
+
     # 散文中的行內數學 $…$ 也應該全英（只警告，避免誤中括號內的正常中文）
     for fname, blob in (("bank.json", bank), ("solutions.json", sols),
                         ("concepts.json", concepts), ("lessons.json", lessons)):

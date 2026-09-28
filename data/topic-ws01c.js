@@ -55,7 +55,7 @@ window.LEARN_TOPIC_WS01C = {
       "en": "Paper 1 long questions (Factorize (a)…(b)…) almost always share one structure: (a) uses a simple method, (b) must use the result of (a).\nThree standard moves: (1) do (a) and circle the answer; (2) find the same bracket in (b) (usually after factoring the remaining two terms); (3) take that bracket out.\nExample: $x^{2}y+3xy^{2}+2x+6y$ — (a) gives $xy(x+3y)$ and $+2x+6y=2(x+3y)$: {{math:0}}\nNever start (b) from scratch: it wastes time and loses the method mark."
      },
      "math": [
-      "x^{2}y+3xy^{2}+2x+6y=xy(x+3y)+2(x+3y)=(x+3y)(xy+2)"
+      "x^{2}y+3xy^{2}+2x+6y=xy(x+3y)+2(x+3y)\n=(x+3y)(xy+2)"
      ],
      "vocab": [
       {
@@ -120,7 +120,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 搬 (a) 的答案，再配出同一個括號",
          "en": "Part (b): reuse (a) and create the same bracket"
         },
-        "math": "x^{2}y+3xy^{2}+2x+6y=xy(x+3y)+2x+6y=xy(x+3y)+2(x+3y)",
+        "math": "x^{2}y+3xy^{2}+2x+6y=xy(x+3y)+2x+6y\n=xy(x+3y)+2(x+3y)",
         "zh": "把 (a) 的結果直接搬過來；餘下的 $+2x+6y$ 抽 $2$ 得 $2(x+3y)$，與 (a) 的括號一致。",
         "en": "Copy the result of (a); the remaining $+2x+6y$ becomes $2(x+3y)$, matching the bracket from (a).",
         "marking": "(1M)"
@@ -214,7 +214,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 用 (a) 的結果",
          "en": "Part (b): use the result of (a)"
         },
-        "math": "2m^{2}n-4mn^{2}-m+2n=2mn(m-2n)-m+2n=2mn(m-2n)-(m-2n)",
+        "math": "2m^{2}n-4mn^{2}-m+2n=2mn(m-2n)-m+2n\n=2mn(m-2n)-(m-2n)",
         "zh": "後兩項 $-m+2n=-(m-2n)$：負號要連 $-1$ 一起抽，括號才對得上 (a)。",
         "en": "The last two terms give $-(m-2n)$: take out $-1$ as well so the bracket matches part (a).",
         "marking": "(1M)"
@@ -403,7 +403,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(a)(b) 各自分解",
          "en": "Parts (a) and (b)"
         },
-        "math": "4mn-3n=n(4m-3)\\quad\\text{；}\\quad 16m^{2}-9=(4m+3)(4m-3)",
+        "math": "4mn-3n=n(4m-3)\n16m^{2}-9=(4m+3)(4m-3)",
         "zh": "(a) 抽 $n$；(b) 平方差 $16m^{2}-9=(4m)^{2}-3^{2}$。",
         "en": "(a) Take out $n$; (b) the difference of two squares $16m^{2}-9=(4m)^{2}-3^{2}$.",
         "marking": "(1A)(1A)"
@@ -413,7 +413,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(c) 分組並代入",
          "en": "Part (c): group and substitute"
         },
-        "math": "16m^{2}-9-4mn+3n=(16m^{2}-9)-(4mn-3n)=(4m+3)(4m-3)-n(4m-3)",
+        "math": "16m^{2}-9-4mn+3n=(16m^{2}-9)-(4mn-3n)\n=(4m+3)(4m-3)-n(4m-3)",
         "zh": "把 (c) 分成兩組：前面用 (b)，後面用 (a)（注意後面要整體加負號再抽 $n$，官方 marking 這一步不另給分）。",
         "en": "Split (c) into two groups: (b) for the front, (a) for the back (note the minus in front of the second group)."
        },
@@ -600,7 +600,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 先抽負號，造成平方差",
          "en": "Part (b): take out the minus to create a difference of squares"
         },
-        "math": "4r^{2}-p^{2}-14pq-49q^{2}=4r^{2}-(p^{2}+14pq+49q^{2})=(2r)^{2}-(p+7q)^{2}",
+        "math": "4r^{2}-p^{2}-14pq-49q^{2}\n=4r^{2}-(p^{2}+14pq+49q^{2})\n=(2r)^{2}-(p+7q)^{2}",
         "zh": "後面三項整體加括號並變號，再用 (a) 的結果：$-p^{2}-14pq-49q^{2}=-(p+7q)^{2}$。",
         "en": "Bracket the last three terms with a minus and use (a): $-p^{2}-14pq-49q^{2}=-(p+7q)^{2}$.",
         "marking": "(1M)"
@@ -694,7 +694,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 用 (a)，後兩項抽 $3$",
          "en": "Part (b): use (a) and factor $3$ from the last two terms"
         },
-        "math": "9x^{2}-4y^{2}+9x+6y=(3x+2y)(3x-2y)+3(3x+2y)",
+        "math": "9x^{2}-4y^{2}+9x+6y\n=(3x+2y)(3x-2y)+3(3x+2y)",
         "zh": "$+9x+6y=+3(3x+2y)$：正是 (a) 其中一個括號。",
         "en": "$+9x+6y=+3(3x+2y)$, which is one of (a)'s brackets.",
         "marking": "(1M)"
@@ -788,7 +788,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 後兩項抽 $-4$",
          "en": "Part (b): take out $-4$ from the last two terms"
         },
-        "math": "25r^{2}-16s^{2}-20r+16s=(5r+4s)(5r-4s)-4(5r-4s)",
+        "math": "25r^{2}-16s^{2}-20r+16s\n=(5r+4s)(5r-4s)-4(5r-4s)",
         "zh": "$-20r+16s=-4(5r-4s)$：抽 $-4$ 才對上 (a) 的 $(5r-4s)$。",
         "en": "$-20r+16s=-4(5r-4s)$: taking out $-4$ matches $(5r-4s)$ from (a).",
         "marking": "(1M)"
@@ -858,8 +858,8 @@ window.LEARN_TOPIC_WS01C = {
       "en": "The tail of (b) can always be written as a multiple of (a)'s bracket. Three common cases:\n(1) factor a positive number: $+9a+18b=9(a+2b)$;\n(2) reversed order → factor out a minus: $-m+2n=-(m-2n)$, $-20r+16s=-4(5r-4s)$;\n(3) higher degree → factor out the lowest power first: $a^{4}+a^{3}-12a^{2}=a^{2}(a^{2}+a-12)$.\nExample with three parts: {{math:0}}\nNow substitute (a)'s answer and take the shared bracket out: {{math:1}}\nOnce the bracket matches (a), the last step is simply to take it out."
      },
      "math": [
-      "9m-6n-6m^{2}+13mn-6n^{2}=(9m-6n)-(6m^{2}-13mn+6n^{2})",
-      "=3(3m-2n)-(3m-2n)(2m-3n)=(3m-2n)(3-2m+3n)"
+      "9m-6n-6m^{2}+13mn-6n^{2}\n=(9m-6n)-(6m^{2}-13mn+6n^{2})",
+      "=3(3m-2n)-(3m-2n)(2m-3n)\n=(3m-2n)(3-2m+3n)"
      ],
      "vocab": [
       {
@@ -924,7 +924,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 後兩項抽 $5$",
          "en": "Part (b): take out $5$ from the last two terms"
         },
-        "math": "a^{2}-8ab+16b^{2}+5a-20b=(a-4b)^{2}+5(a-4b)",
+        "math": "a^{2}-8ab+16b^{2}+5a-20b\n=(a-4b)^{2}+5(a-4b)",
         "zh": "$+5a-20b=+5(a-4b)$，正是 (a) 的括號。",
         "en": "$+5a-20b=+5(a-4b)$, exactly (a)'s bracket.",
         "marking": "(1M)"
@@ -1018,7 +1018,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 後兩項抽 $-4$",
          "en": "Part (b): take out $-4$ from the last two terms"
         },
-        "math": "4x^{2}+12xy+9y^{2}-8x-12y=(2x+3y)^{2}-4(2x+3y)",
+        "math": "4x^{2}+12xy+9y^{2}-8x-12y\n=(2x+3y)^{2}-4(2x+3y)",
         "zh": "$-8x-12y=-4(2x+3y)$：抽 $-4$ 就對上 (a)。",
         "en": "$-8x-12y=-4(2x+3y)$: taking out $-4$ matches (a).",
         "marking": "(1M)"
@@ -1112,7 +1112,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 後兩項抽 $b^{2}$",
          "en": "Part (b): take out $b^{2}$ from the last two terms"
         },
-        "math": "6+5a+a^{2}+3b^{2}+ab^{2}=(2+a)(3+a)+b^{2}(3+a)",
+        "math": "6+5a+a^{2}+3b^{2}+ab^{2}\n=(2+a)(3+a)+b^{2}(3+a)",
         "zh": "$+3b^{2}+ab^{2}=+b^{2}(3+a)$：正是 (a) 的其中一個括號。",
         "en": "$+3b^{2}+ab^{2}=+b^{2}(3+a)$, one of (a)'s brackets.",
         "marking": "(1M)"
@@ -1206,7 +1206,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 把 $2m^{2}-m-3$ 換成 (a)，其餘抽 $2n^{2}$",
          "en": "Part (b): replace $2m^{2}-m-3$ by (a) and factor $2n^{2}$"
         },
-        "math": "2mn^{2}+2n^{2}+2m^{2}-m-3=2n^{2}(m+1)+(2m-3)(m+1)",
+        "math": "2mn^{2}+2n^{2}+2m^{2}-m-3\n=2n^{2}(m+1)+(2m-3)(m+1)",
         "zh": "前面兩項 $2mn^{2}+2n^{2}=2n^{2}(m+1)$；後面三項就是 (a)。",
         "en": "The first two terms give $2n^{2}(m+1)$; the last three terms are exactly (a).",
         "marking": "(1M)"
@@ -1300,7 +1300,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 後兩項抽 $9$",
          "en": "Part (b): take out $9$ from the last two terms"
         },
-        "math": "a^{2}+3ab+2b^{2}+9a+18b=(a+b)(a+2b)+9(a+2b)",
+        "math": "a^{2}+3ab+2b^{2}+9a+18b\n=(a+b)(a+2b)+9(a+2b)",
         "zh": "$+9a+18b=+9(a+2b)$，正是 (a) 的括號。",
         "en": "$+9a+18b=+9(a+2b)$, exactly (a)'s bracket.",
         "marking": "(1M)"
@@ -1394,7 +1394,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 整組抽負號，再用 (a)",
          "en": "Part (b): take out the minus, then use (a)"
         },
-        "math": "9m-6n-6m^{2}+13mn-6n^{2}=(9m-6n)-(6m^{2}-13mn+6n^{2})=3(3m-2n)-(3m-2n)(2m-3n)",
+        "math": "9m-6n-6m^{2}+13mn-6n^{2}\n=(9m-6n)-(6m^{2}-13mn+6n^{2})\n=3(3m-2n)-(3m-2n)(2m-3n)",
         "zh": "後三項整組抽負號後就是 (a)；$9m-6n=3(3m-2n)$ 又與 (a) 的 $(3m-2n)$ 相同。",
         "en": "Taking a minus out of the last three terms gives (a); and $9m-6n=3(3m-2n)$ matches (a)'s bracket.",
         "marking": "(1M)"
@@ -1652,7 +1652,7 @@ window.LEARN_TOPIC_WS01C = {
       "en": "The 4-mark pattern never changes: (a) factors out, and (b)'s remaining terms are exactly a multiple of (a).\nExample: $x^{3}+x^{2}y+5x^{2}=x^{2}(x+y+5)$ while (b)'s tail $-x-y-5=-(x+y+5)$: {{math:0}}\nAfter the shared bracket is taken out, what remains is usually $x^{2}-1$, $x^{2}-9$ or $x^{2}-16$ — all of which split further: {{math:1}}\nSo 'completely' means: after factoring the bracket, check whether the remainder can still be factorized."
      },
      "math": [
-      "x^{3}+x^{2}y+5x^{2}-x-y-5=x^{2}(x+y+5)-(x+y+5)",
+      "x^{3}+x^{2}y+5x^{2}-x-y-5\n=x^{2}(x+y+5)-(x+y+5)",
       "=(x^{2}-1)(x+y+5)=(x-1)(x+1)(x+y+5)"
      ],
      "vocab": [
@@ -1812,7 +1812,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 後三項＝(a) 括號的負數",
          "en": "Part (b): the last three terms are minus (a)'s bracket"
         },
-        "math": "x^{3}+x^{2}y+5x^{2}-x-y-5=x^{2}(x+y+5)-(x+y+5)",
+        "math": "x^{3}+x^{2}y+5x^{2}-x-y-5\n=x^{2}(x+y+5)-(x+y+5)",
         "zh": "$-x-y-5=-(x+y+5)$：正是 (a) 括號的負數，可以直接抽走。",
         "en": "$-x-y-5=-(x+y+5)$: exactly minus (a)'s bracket, so it can be factored out straight away.",
         "marking": "(1M)"
@@ -1906,7 +1906,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 後三項＝負數",
          "en": "Part (b): the last three terms are the negative"
         },
-        "math": "a^{3}+3a^{2}b-4a^{2}-a-3b+4=a^{2}(a+3b-4)-(a+3b-4)",
+        "math": "a^{3}+3a^{2}b-4a^{2}-a-3b+4\n=a^{2}(a+3b-4)-(a+3b-4)",
         "zh": "$-a-3b+4=-(a+3b-4)$ ✓",
         "en": "$-a-3b+4=-(a+3b-4)$ ✓",
         "marking": "(1M)"
@@ -2000,7 +2000,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 後三項抽 $-9$",
          "en": "Part (b): take out $-9$ from the last three terms"
         },
-        "math": "x^{3}-x^{2}y+2x^{2}-9x+9y-18=x^{2}(x-y+2)-9(x-y+2)",
+        "math": "x^{3}-x^{2}y+2x^{2}-9x+9y-18\n=x^{2}(x-y+2)-9(x-y+2)",
         "zh": "$-9x+9y-18=-9(x-y+2)$：與 (a) 的括號完全一致。",
         "en": "$-9x+9y-18=-9(x-y+2)$, matching (a)'s bracket exactly.",
         "marking": "(1M)"
@@ -2094,7 +2094,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 後兩項抽 $-n^{2}$",
          "en": "Part (b): take out $-n^{2}$ from the last two terms"
         },
-        "math": "m^{3}+3m^{2}n-mn^{2}-3n^{3}=m^{2}(m+3n)-n^{2}(m+3n)",
+        "math": "m^{3}+3m^{2}n-mn^{2}-3n^{3}\n=m^{2}(m+3n)-n^{2}(m+3n)",
         "zh": "$-mn^{2}-3n^{3}=-n^{2}(m+3n)$：與 (a) 相同。",
         "en": "$-mn^{2}-3n^{3}=-n^{2}(m+3n)$, the same bracket as (a).",
         "marking": "(1M)"
@@ -2188,7 +2188,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 後兩項抽 $-y^{2}$",
          "en": "Part (b): take out $-y^{2}$ from the last two terms"
         },
-        "math": "4x^{3}-20x^{2}y-xy^{2}+5y^{3}=4x^{2}(x-5y)-y^{2}(x-5y)",
+        "math": "4x^{3}-20x^{2}y-xy^{2}+5y^{3}\n=4x^{2}(x-5y)-y^{2}(x-5y)",
         "zh": "$-xy^{2}+5y^{3}=-y^{2}(x-5y)$ ✓",
         "en": "$-xy^{2}+5y^{3}=-y^{2}(x-5y)$ ✓",
         "marking": "(1M)"
@@ -2282,7 +2282,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 前面兩項抽 $9r^{2}$",
          "en": "Part (b): take out $9r^{2}$ from the first two terms"
         },
-        "math": "18r^{3}-9r^{2}s-8rs^{2}+4s^{3}=9r^{2}(2r-s)-4s^{2}(2r-s)",
+        "math": "18r^{3}-9r^{2}s-8rs^{2}+4s^{3}\n=9r^{2}(2r-s)-4s^{2}(2r-s)",
         "zh": "$18r^{3}-9r^{2}s=9r^{2}(2r-s)$，與 (a) 的括號相同。",
         "en": "$18r^{3}-9r^{2}s=9r^{2}(2r-s)$, matching (a)'s bracket.",
         "marking": "(1M)"
@@ -2292,7 +2292,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "抽走，再用平方差",
          "en": "Take out, then difference of squares"
         },
-        "math": "=(2r-s)(9r^{2}-4s^{2})=(2r-s)(3r-2s)(3r+2s)",
+        "math": "=(2r-s)(9r^{2}-4s^{2})\n=(2r-s)(3r-2s)(3r+2s)",
         "zh": "$9r^{2}-4s^{2}=(3r)^{2}-(2s)^{2}$。",
         "en": "$9r^{2}-4s^{2}=(3r)^{2}-(2s)^{2}$.",
         "marking": "(1M)(1A)"
@@ -2372,7 +2372,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(a)(b) 各自分解",
          "en": "Parts (a) and (b)"
         },
-        "math": "3m-12n=3(m-4n)\\quad\\text{；}\\quad m^{2}+mn-20n^{2}=(m+5n)(m-4n)",
+        "math": "3m-12n=3(m-4n)\nm^{2}+mn-20n^{2}=(m+5n)(m-4n)",
         "zh": "(a) 抽 $3$；(b) 十字相乘：$(m)(-4n)+(5n)(m)=-4mn+5mn=mn$ ✓ 兩部都有 $(m-4n)$。",
         "en": "(a) factor $3$; (b) cross-method: $(m)(-4n)+(5n)(m)=mn$ ✓ Both contain $(m-4n)$.",
         "marking": "(1A)(1A)"
@@ -2382,7 +2382,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(c) 分組並代入",
          "en": "Part (c): group and substitute"
         },
-        "math": "m^{2}+mn-20n^{2}-3m+12n=(m+5n)(m-4n)-3(m-4n)",
+        "math": "m^{2}+mn-20n^{2}-3m+12n\n=(m+5n)(m-4n)-3(m-4n)",
         "zh": "後面 $-3m+12n=-3(m-4n)$，與 (b) 的括號一致。",
         "en": "The tail $-3m+12n=-3(m-4n)$ matches (b)'s bracket.",
         "marking": "(1M)"
@@ -2514,7 +2514,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(a)(b) 各自分解",
          "en": "Parts (a) and (b)"
         },
-        "math": "6x-18y=6(x-3y)\\quad\\text{；}\\quad x^{2}-5xy+6y^{2}=(x-2y)(x-3y)",
+        "math": "6x-18y=6(x-3y)\nx^{2}-5xy+6y^{2}=(x-2y)(x-3y)",
         "zh": "(b) 十字相乘：$(x)(-3y)+(-2y)(x)=-3xy-2xy=-5xy$ ✓",
         "en": "(b) cross-method: $(x)(-3y)+(-2y)(x)=-3xy-2xy=-5xy$ ✓",
         "marking": "(1A)(1A)"
@@ -2524,7 +2524,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(c) 代入並抽走",
          "en": "Part (c): substitute and factor"
         },
-        "math": "x^{2}-5xy+6y^{2}-6x+18y=(x-2y)(x-3y)-6(x-3y)",
+        "math": "x^{2}-5xy+6y^{2}-6x+18y\n=(x-2y)(x-3y)-6(x-3y)",
         "zh": "$-6x+18y=-6(x-3y)$，與 (b) 其中一個括號相同。",
         "en": "$-6x+18y=-6(x-3y)$, matching one of (b)'s brackets.",
         "marking": "(1M)"
@@ -2614,7 +2614,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(a)(b) 各自分解",
          "en": "Parts (a) and (b)"
         },
-        "math": "4a-10b=2(2a-5b)\\quad\\text{；}\\quad 2a^{2}-3ab-5b^{2}=(2a-5b)(a+b)",
+        "math": "4a-10b=2(2a-5b)\n2a^{2}-3ab-5b^{2}=(2a-5b)(a+b)",
         "zh": "(b) 十字相乘：$(2a)(b)+(-5b)(a)=2ab-5ab=-3ab$ ✓ 兩部都有 $(2a-5b)$。",
         "en": "(b) cross-method: $(2a)(b)+(-5b)(a)=-3ab$ ✓ Both contain $(2a-5b)$.",
         "marking": "(1A)(1A)"
@@ -2624,7 +2624,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(c) 整組抽負號，再代入",
          "en": "Part (c): take out the minus, then substitute"
         },
-        "math": "4a-10b-2a^{2}+3ab+5b^{2}=2(2a-5b)-(2a-5b)(a+b)",
+        "math": "4a-10b-2a^{2}+3ab+5b^{2}\n=2(2a-5b)-(2a-5b)(a+b)",
         "zh": "$-(2a^{2}-3ab-5b^{2})$：後三項全體變號，(b) 的答案直接可用。",
         "en": "$-(2a^{2}-3ab-5b^{2})$: the last three terms flip sign, so (b)'s answer can be used directly.",
         "marking": "(1M)"
@@ -2714,7 +2714,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(a)(b) 各自分解",
          "en": "Parts (a) and (b)"
         },
-        "math": "4m^{2}-1=(2m+1)(2m-1)\\quad\\text{；}\\quad 2m^{2}n+11mn-6n=n(2m-1)(m+6)",
+        "math": "4m^{2}-1=(2m+1)(2m-1)\n2m^{2}n+11mn-6n=n(2m-1)(m+6)",
         "zh": "(b) 先抽 $n$，括號內 $2m^{2}+11m-6=(2m-1)(m+6)$（交叉相乘 $-m+12m=11m$ ✓）。",
         "en": "(b) factor $n$ first; inside, $2m^{2}+11m-6=(2m-1)(m+6)$ (cross products $-m+12m=11m$ ✓).",
         "marking": "(1A)(1A)"
@@ -2724,7 +2724,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(c) 整組抽負號，再代入",
          "en": "Part (c): take out the minus, then substitute"
         },
-        "math": "4m^{2}-1-2m^{2}n-11mn+6n=(2m+1)(2m-1)-n(2m-1)(m+6)",
+        "math": "4m^{2}-1-2m^{2}n-11mn+6n\n=(2m+1)(2m-1)-n(2m-1)(m+6)",
         "zh": "$-(2m^{2}n+11mn-6n)$ 用 (b) 的答案；(a) 與 (b) 都藏著 $(2m-1)$。",
         "en": "Use (b)'s answer for $-(2m^{2}n+11mn-6n)$; both (a) and (b) contain $(2m-1)$.",
         "marking": "(1M)"
@@ -2814,7 +2814,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(a)(b) 各自分解",
          "en": "Parts (a) and (b)"
         },
-        "math": "9r^{2}-16=(3r+4)(3r-4)\\quad\\text{；}\\quad 3r^{2}s-11rs-20s=s(3r+4)(r-5)",
+        "math": "9r^{2}-16=(3r+4)(3r-4)\n3r^{2}s-11rs-20s=s(3r+4)(r-5)",
         "zh": "(b) 抽 $s$，括號內 $3r^{2}-11r-20=(3r+4)(r-5)$（交叉相乘 $-15r+4r=-11r$ ✓）。",
         "en": "(b) factor $s$; inside, $3r^{2}-11r-20=(3r+4)(r-5)$ (cross products $-15r+4r=-11r$ ✓).",
         "marking": "(1A)(1A)"
@@ -2824,7 +2824,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(c) 整組抽負號，再代入",
          "en": "Part (c): take out the minus, then substitute"
         },
-        "math": "9r^{2}-16-3r^{2}s+11rs+20s=(3r+4)(3r-4)-s(3r+4)(r-5)",
+        "math": "9r^{2}-16-3r^{2}s+11rs+20s\n=(3r+4)(3r-4)-s(3r+4)(r-5)",
         "zh": "兩部都藏著 $(3r+4)$。",
         "en": "Both parts contain the bracket $(3r+4)$.",
         "marking": "(1M)"
@@ -2834,7 +2834,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "抽走 $(3r+4)$",
          "en": "Take out $(3r+4)$"
         },
-        "math": "=(3r+4)(3r-4-s(r-5))=(3r+4)(3r-rs+5s-4)",
+        "math": "=(3r+4)(3r-4-s(r-5))\n=(3r+4)(3r-rs+5s-4)",
         "zh": "展開 $-s(r-5)=-rs+5s$，再合併同類項。",
         "en": "Expand $-s(r-5)=-rs+5s$ and collect like terms.",
         "marking": "(1A)"
@@ -2914,7 +2914,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(a)(b) 各自分解",
          "en": "Parts (a) and (b)"
         },
-        "math": "36-25y^{2}=(6+5y)(6-5y)\\quad\\text{；}\\quad 10xy^{2}+17xy+6x=x(5y+6)(2y+1)",
+        "math": "36-25y^{2}=(6+5y)(6-5y)\n10xy^{2}+17xy+6x=x(5y+6)(2y+1)",
         "zh": "(b) 抽 $x$，括號內 $10y^{2}+17y+6=(5y+6)(2y+1)$（交叉相乘 $5y+12y=17y$ ✓）。",
         "en": "(b) factor $x$; inside, $10y^{2}+17y+6=(5y+6)(2y+1)$ (cross products $5y+12y=17y$ ✓).",
         "marking": "(1A)(1A)"
@@ -2924,7 +2924,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(c) 整組抽負號，再代入",
          "en": "Part (c): take out the minus, then substitute"
         },
-        "math": "36-25y^{2}-10xy^{2}-17xy-6x=(6+5y)(6-5y)-x(5y+6)(2y+1)",
+        "math": "36-25y^{2}-10xy^{2}-17xy-6x\n=(6+5y)(6-5y)-x(5y+6)(2y+1)",
         "zh": "留意 $(6+5y)$ 與 $(5y+6)$ 是同一個括號（加法交換律）。",
         "en": "Note that $(6+5y)$ and $(5y+6)$ are the same bracket (addition is commutative).",
         "marking": "(1M)"
@@ -2934,7 +2934,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "抽走 $(6+5y)$",
          "en": "Take out $(6+5y)$"
         },
-        "math": "=(6+5y)(6-5y-x(2y+1))=(6+5y)(6-5y-2xy-x)",
+        "math": "=(6+5y)(6-5y-x(2y+1))\n=(6+5y)(6-5y-2xy-x)",
         "zh": "展開 $-x(2y+1)=-2xy-x$。",
         "en": "Expand $-x(2y+1)=-2xy-x$.",
         "marking": "(1A)"
@@ -3018,7 +3018,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 後三項抽負號，用 (a)",
          "en": "Part (b): take the minus out of the last three terms and use (a)"
         },
-        "math": "(10c-d)^{2}-81c^{2}+18c-1=(10c-d)^{2}-(81c^{2}-18c+1)=(10c-d)^{2}-(9c-1)^{2}",
+        "math": "(10c-d)^{2}-81c^{2}+18c-1\n=(10c-d)^{2}-(81c^{2}-18c+1)\n=(10c-d)^{2}-(9c-1)^{2}",
         "zh": "整條變成 $a^{2}-b^{2}$（$a=10c-d$、$b=9c-1$）。",
         "en": "The whole expression becomes $a^{2}-b^{2}$ with $a=10c-d$ and $b=9c-1$.",
         "marking": "(1M)"
@@ -3028,7 +3028,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "套平方差並化簡",
          "en": "Apply the difference of two squares and simplify"
         },
-        "math": "=(10c-d+9c-1)(10c-d-(9c-1))=(19c-d-1)(c-d+1)",
+        "math": "=(10c-d+9c-1)(10c-d-(9c-1))\n=(19c-d-1)(c-d+1)",
         "zh": "$10c-d-(9c-1)=10c-d-9c+1=c-d+1$：負號要分配給兩項。",
         "en": "$10c-d-(9c-1)=10c-d-9c+1=c-d+1$: distribute the minus to both terms.",
         "marking": "(1M)(1A)"
@@ -3120,7 +3120,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 造成平方差",
          "en": "Part (b): create a difference of two squares"
         },
-        "math": "(4r-5s)^{2}-9r^{2}-12r-4=(4r-5s)^{2}-(3r+2)^{2}",
+        "math": "(4r-5s)^{2}-9r^{2}-12r-4\n=(4r-5s)^{2}-(3r+2)^{2}",
         "zh": "後面三項整組抽負號之後就是 (a)。",
         "en": "Taking a minus out of the last three terms gives exactly (a).",
         "marking": "(1M)"
@@ -3130,7 +3130,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "套平方差並化簡",
          "en": "Apply the identity and simplify"
         },
-        "math": "=(4r-5s+3r+2)(4r-5s-(3r+2))=(7r-5s+2)(r-5s-2)",
+        "math": "=(4r-5s+3r+2)(4r-5s-(3r+2))\n=(7r-5s+2)(r-5s-2)",
         "zh": "$4r-5s-(3r+2)=r-5s-2$。",
         "en": "$4r-5s-(3r+2)=r-5s-2$.",
         "marking": "(1M)(1A)"
@@ -3214,7 +3214,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "(b) 造成平方差並套用",
          "en": "Part (b): create a difference of two squares and apply it"
         },
-        "math": "(6x+5y)^{2}-16x^{2}+40x-25=(6x+5y)^{2}-(4x-5)^{2}",
+        "math": "(6x+5y)^{2}-16x^{2}+40x-25\n=(6x+5y)^{2}-(4x-5)^{2}",
         "zh": "後面三項抽負號後就是 (a)。",
         "en": "Taking the minus out of the last three terms gives (a).",
         "marking": "(1M)"
@@ -3224,7 +3224,7 @@ window.LEARN_TOPIC_WS01C = {
          "zh": "拆括號、化簡、再抽公因式",
          "en": "Remove brackets, simplify, then factor again"
         },
-        "math": "=(6x+5y+4x-5)(6x+5y-(4x-5))=(10x+5y-5)(2x+5y+5)=5(2x+y-1)(2x+5y+5)",
+        "math": "=(6x+5y+4x-5)(6x+5y-(4x-5))\n=(10x+5y-5)(2x+5y+5)\n=5(2x+y-1)(2x+5y+5)",
         "zh": "最後一步是官方 marking 的關鍵：$(10x+5y-5)$ 三項還有公因式 $5$，抽走才是 completely。",
         "en": "The final move is the key to the official marking: $(10x+5y-5)$ still has a common factor $5$; take it out for 'completely'.",
         "marking": "(1M)(1A)"

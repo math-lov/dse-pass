@@ -398,6 +398,10 @@ $node = "C:\Users\t073\.workbuddy\binaries\node\versions\22.22.2-3\node.exe"
     `\text{or}`（卷面本身是英文，數式要一眼睇得明）。中文只可出現在解說文字（`zh`／`body` 的散文）。
     防線：`learn_check` 的 **I10**（`math`／`highlight` 含中文＝錯誤；散文行內 `$…$` 含中文＝警告）
     ＋ `learn_smoke_test.js` 掃描（math／highlight 出現漢字即 FAIL）。
+18. 數式要分行（2026-09-28 老師指示：「太長了，盡量分行書寫」）：一行過長（> 約 44 顯示字）學生要
+    **橫向捲**才睇得完。做法：先按 `;` 分段（例如 (a) 的答案／(b) 的答案各自一行），再在 `=`／`\Rightarrow`
+    之前斷行，運算符留在**續行開頭**。`learn_check` 的 **I11** 會警告過長行。
+    工具：`tools/_tmp_wrap_math.py`（自動換行；跑完可刪）。
 15. **語言層不可繞過**：新元件一律用 `biNode()/biSpan()/setPair()/btnPair()`（雙語）
     或 `T({zh,en})`（單語；切語言時 `i18n.js` 會觸發 `__LEARN_RELANG()` 重繪）。
     不要自己拼中文字串，否則切到英文會殘留中文。
