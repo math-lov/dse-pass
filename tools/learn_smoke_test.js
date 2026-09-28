@@ -95,10 +95,10 @@ ok(!!aiStep && aiStep.querySelectorAll("ul li").length === 3,
 
 /* ── 3. 課題頁：分頁列與概念卡 ────────────────────────────────────────── */
 console.log("\n— 課題頁：分頁列 —");
-// 每課的頁數：1 張概念卡頁 ＋ 長題示範（≥4 條才收在同一頁）＋ MC 頁
+// 每課的頁數：1 張概念卡頁 ＋ 每條長題各一頁 ＋ 每頁 MC（長題不再合併成「示範集」）
 const expectedPages = (t) => t.lessons.reduce(
-  (n, l) => n + 1 + (l.longQuestionIds.length >= 4 ? 1 : l.longQuestionIds.length) + l.mcPages.length, 0);
-const firstMcIndex = (t) => 1 + (t.lessons[0].longQuestionIds.length >= 4 ? 1 : t.lessons[0].longQuestionIds.length);
+  (n, l) => n + 1 + l.longQuestionIds.length + l.mcPages.length, 0);
+const firstMcIndex = (t) => 1 + t.lessons[0].longQuestionIds.length;
 
 for (const t of LESSONS.topics) {
   const p0 = boot("topic.html", "?t=" + t.id + "&p=0");
@@ -120,15 +120,16 @@ for (const t of LESSONS.topics) {
     ok(pmc.$$("#topic-body .opt").length === 12, t.id + " MC page has 3 × 4 options (got " + pmc.$$("#topic-body .opt").length + ")");
     ok(pmc.$$("#topic-body .hint-row").length === 3, t.id + " every question offers hints before answering");
   } else {
-    /* 純長題課題（ws01c）：第 2 格是「示範集」，要出題目卡、示範數目正確、可加入弱點升級庫 */
-    const per = t.lessons[0].longQuestionIds.length;
+    /* 純長題課題（ws01c）：每條長題各佔一頁，導覽列用題號，可逐題點入去自己試 */
+    const firstQ = (t.lessons[0].longQuestionIds || [])[0];
     const pdemo = boot("topic.html", "?t=" + t.id + "&p=1");
-    ok(!!pdemo.$("#topic-body .card[data-qid]"),
-       t.id + "（純長題課題）第 2 格是示範頁，出得到題目卡");
+    ok(!!pdemo.$("#topic-body .card[data-qid]") &&
+       pdemo.$("#topic-body .card[data-qid]").getAttribute("data-qid") === firstQ,
+       t.id + "（純長題課題）第 2 格＝第一條長題（" + firstQ + "），單獨一頁");
     ok(!!pdemo.$("#topic-body .card[data-qid] [data-weak]"),
-       t.id + " 示範題可以加入弱點升級庫");
-    ok(new RegExp("1 / " + per).test((pdemo.$(".demo-count") || {}).textContent || ""),
-       t.id + " 示範集顯示 1 / " + per + "（" + (pdemo.$(".demo-count") || {}).textContent + "）");
+       t.id + " 長題可以逐題加入弱點升級庫");
+    ok(/^WS1B-Q1$/.test((((pdemo.$$("#pagenav .pg")[1] || {}).textContent) || "").trim()),
+       t.id + " 導覽列用題號做標籤（" + ((pdemo.$$("#pagenav .pg")[1] || {}).textContent || "") + "）");
   }
 }
 
@@ -398,10 +399,12 @@ ok(wBefore >= 1 && wDup.$$(".wrong-item").length === wBefore,
 console.log("\n— 長／短答：加入弱點升級庫 —");
 const tDemo = LESSONS.topics[0];
 const dSet = boot("topic.html", "?t=" + tDemo.id + "&p=1", null, "zh");
-ok(/1 \/ 7/.test((dSet.$(".demo-count") || {}).textContent || ""),
-   "示範集把 2 條原有示範 + 5 條短答合成一頁（" +
-   (dSet.$(".demo-count") || {}).textContent + "）");
-ok(!!dSet.$(".card[data-qid] [data-weak]"), "示範題（長／短答）有「加入弱點升級庫」按鈕");
+ok(!!dSet.$(".card[data-qid]") &&
+   dSet.$(".card[data-qid]").getAttribute("data-qid") === tDemo.lessons[0].longQuestionIds[0],
+   "長題不再合併成示範集：第 2 格就是第一條長題（單獨一頁）");
+ok(/^WS1-EX1$/.test((((dSet.$$("#pagenav .pg")[1] || {}).textContent) || "").trim()),
+   "導覽列用題號做標籤（" + ((dSet.$$("#pagenav .pg")[1] || {}).textContent || "") + "）");
+ok(!!dSet.$(".card[data-qid] [data-weak]"), "長／短答有「加入弱點升級庫」按鈕");
 dSet.$("[data-weak]").click();
 ok(/已在弱點升級庫/.test(dSet.$("[data-weak]").textContent), "按一下 → 變成「已在弱點升級庫」");
 ok(/（1）/.test((dSet.$("#wrong-count") || {}).textContent || ""), "弱點升級庫徽章變為 1");
@@ -416,9 +419,7 @@ ok(/自己加入/.test((wWeak.$(".wrong-item") || {}).textContent || ""), "標�
 ok(!!wWeak.$(".wrong-item .btn"), "有「再練一次」按鈕");
 
 /* 題目現已中英齊全（老師審查要求）：短答題幹要有中英兩份 */
-const scZh = bootLang("topic.html", "?t=" + tDemo.id + "&p=1", null, "zh");
-scZh.$$(".demo-nav .btn")[1].click();      // 示範 2（原有長題）
-scZh.$$(".demo-nav .btn")[1].click();      // 示範 3 = 第一條短答
+const scZh = bootLang("topic.html", "?t=" + tDemo.id + "&p=3", null, "zh");  // 第 3 格＝第一條短答
 const stemZh = scZh.$(".card[data-qid] .q-stem");
 ok(!!stemZh.querySelector(".l-zh") && !!stemZh.querySelector(".l-en"),
    "短答題幹中英齊全（.l-zh ＋ .l-en，biNode 契約）");
@@ -427,6 +428,12 @@ ok(/因式分解/.test(stemZh.querySelector(".l-zh").textContent || "") &&
    "短答題幹：中文「因式分解」／英文「Factorize …」");
 ok(!!scZh.$(".card[data-qid] .q-kind"), "短答題有「短答 / Short answer」標記");
 ok(!!scZh.$(".card[data-qid] [data-weak]"), "短答題一樣可以加入弱點升級庫");
+
+/* 弱點升級庫「再練一次」的基礎：?q=<qid> 要直接跳到那一題（長題也要跳得中） */
+const jumpQ = boot("topic.html", "?t=ws01c&q=eph-ws01c-q05", null, "zh");
+ok(!!jumpQ.$(".card[data-qid]") &&
+   jumpQ.$(".card[data-qid]").getAttribute("data-qid") === "eph-ws01c-q05",
+   "?q=<qid> 直接跳到那一條長題（弱點升級庫「再練一次」用）");
 
 /* ── 10. 基調驗證：問 AI 提問生成 ────────────────────────────────────── */
 console.log("\n— 基調：問 AI 提問生成 —");

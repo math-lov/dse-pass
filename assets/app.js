@@ -370,30 +370,8 @@
     return b;
   }
 
-  /* 題目在第幾頁：從弱點升級庫按「再練一次」時直接跳去那一題
-     （長題示範可能藏在後幾頁，而 ≥4 條長題會合成「示範集」一頁） */
-  function pageOfQuestion(tid, qid) {
-    var t = null, i, j;
-    (INDEX.topics || []).forEach(function (x) { if (x.id === tid) t = x; });
-    if (!t) return 0;
-    var n = 0;
-    var lessons = t.lessons || [];
-    for (i = 0; i < lessons.length; i++) {
-      var l = lessons[i];
-      n += 1;                                     // 每個 lesson 先有一頁概念卡
-      var longs = l.longQuestionIds || [];
-      if (longs.indexOf(qid) >= 0) {
-        return n + (longs.length >= 4 ? 0 : longs.indexOf(qid));
-      }
-      n += longs.length >= 4 ? 1 : longs.length;   // 示範頁
-      var pages = l.mcPages || [];
-      for (j = 0; j < pages.length; j++) {
-        if (pages[j].indexOf(qid) >= 0) return n + j;
-      }
-      n += pages.length;
-    }
-    return 0;
-  }
+  /* 註：從弱點升級庫「再練一次」只要帶 ?q=<qid> 就好 —— 下面的 pageOfQuestion(pages, qid)
+     會找出那一題在第幾頁（只可以有一個同名函式，否則後者會覆蓋前者）。 */
 
   /* ── 課題頁 ─────────────────────────────────────────────────────────── */
   function topicIdFromUrl() {
@@ -426,21 +404,18 @@
     document.head.appendChild(s);
   }
 
-  /* 同一課的示範收成一頁的門檻（見 buildPages） */
+  /* 長題一律「一條一頁」（見 buildPages）。
+     舊做法是把同一課 ≥4 條長題合成一個「示範集」頁（DEMO_GROUP_MIN），
+     老師要求取消：分頁列要能逐題點入去自己試一次。
+     （renderDemoSet／kind:"demos" 的程式碼仍然保留，但目前不會產生這種頁。） */
   var DEMO_GROUP_MIN = 4;
 
   function buildPages(topic) {
     var pages = [];
     (topic.lessons || []).forEach(function (les) {
       if (les.cards && les.cards.length) pages.push({ kind: "cards", lesson: les });
-      // 示範頁：一條示範一頁；同一課有 4 條或以上時收成「一頁多條」（用「下一條」切換，
-      // 像學習頁那樣），否則分頁列會被示範塞爆。示範數量不設上限。
-      var longs = les.long || [];
-      if (longs.length >= DEMO_GROUP_MIN) {
-        pages.push({ kind: "demos", lesson: les, demos: longs });
-      } else {
-        longs.forEach(function (q) { pages.push({ kind: "long", q: q, lesson: les }); });
-      }
+      // 長題／短答：一條一頁，導覽列用題號（q.code）顯示，可以直接跳去某一題
+      (les.long || []).forEach(function (q) { pages.push({ kind: "long", q: q, lesson: les }); });
       (les.pages || []).forEach(function (row) { pages.push({ kind: "mc", row: row, lesson: les }); });
     });
     return pages;
@@ -497,9 +472,11 @@
           b.classList.add("kind");
           b.title = (p.lesson && p.lesson.title && p.lesson.title.zh) || "概念卡";
         } else if (p.kind === "long") {
-          b.appendChild(biSpan({ zh: "示範", en: "Demo" }));
+          /* 逐題一頁：用題號（WS1B-Q1）做標籤，一眼看得出是第幾題 */
+          b.textContent = (p.q && p.q.code) ? p.q.code : T({ zh: "題", en: "Q" });
           b.classList.add("kind");
-          b.title = (p.q && p.q.code) ? ("長題示範 " + p.q.code + " / demo") : "長題示範 / demo";
+          b.title = T({ zh: "逐步題解（逐題）", en: "Worked solution (one per page)" }) +
+            ((p.q && p.q.code) ? " " + p.q.code : "");
         } else if (p.kind === "demos") {
           b.appendChild(biSpan({ zh: "示範", en: "Demo" }));
           b.classList.add("kind");
@@ -1404,8 +1381,7 @@
           delete store.mc[qid];
           delete store.weak[qid];
           save();
-          go("topic.html?t=" + t + "&p=" + pageOfQuestion(t, qid) +
-             "&q=" + encodeURIComponent(qid));
+          go("topic.html?t=" + t + "&q=" + encodeURIComponent(qid));
         };
         inner.appendChild(again);
         row.appendChild(inner);
