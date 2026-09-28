@@ -258,6 +258,135 @@ def main(argv: list[str] | None = None) -> int:
                 err("S8", "%s：vocab 的中文欄以英文字開頭（en=%r, zh=%r）—— "
                           "疑似「english 中文」被空格拆散，請用「english = 中文」" % (cid, en, zh))
 
+    # ── I1–I7：中英雙語契約（本站基調）────────────────────────────────────
+    # 每個學生會看到的文字都要有 zh 與 en：前端三態切換（中文／英文／中英）靠兩份
+    # 文字；英文缺席時前端會退回中文，但那樣「英文模式」就等於壞掉。
+    # 新增課題一律要中英齊全（見 docs/LEARN-ADD-TOPICS-HANDOFF.md 的雙語一節）。
+    HAN = re.compile(r"[\u4e00-\u9fff]")
+
+    def need_pair(rule: str, label: str, zh, en, allow_han_in_en: bool = True,
+                  min_en: int = 4) -> None:
+        zh_s = (zh or "").strip()
+        en_s = (en or "").strip()
+        if not zh_s:
+            err(rule, "%s：缺中文（zh）" % label)
+        if not en_s:
+            err(rule, "%s：缺英文（en）—— 三態語言切換會退回中文" % label)
+            return
+        if len(en_s) < min_en:
+            err(rule, "%s：英文太短（%r）" % (label, en_s))
+        elif not allow_han_in_en and HAN.search(en_s):
+            err(rule, "%s：英文欄含中文字（%r…）—— 請改寫成英文" % (label, en_s[:30]))
+
+    for q in questions:
+        qid = q.get("id", "?")
+        st = q.get("stem") or {}
+        need_pair("I1", "%s stem" % qid, st.get("zh") or st.get("text"), st.get("en"), min_en=6)
+        for i, pt in enumerate(q.get("parts") or [], 1):
+            need_pair("I2", "%s parts[%d]" % (qid, i), pt.get("zh") or pt.get("text"),
+                      pt.get("en") or pt.get("text"), min_en=1)
+        for k, opt in (q.get("options") or {}).items():
+            if isinstance(opt, dict):
+                need_pair("I2", "%s 選項 %s" % (qid, k), opt.get("zh"), opt.get("en"), min_en=1)
+
+    for c in concepts.get("cards", []):
+        cid = c.get("id", "?")
+        ttl = c.get("title") or {}
+        need_pair("I4", "%s 標題" % cid, ttl.get("zh"), ttl.get("en"))
+        body = c.get("body") or {}
+        need_pair("I3", "%s 正文" % cid, body.get("zh"), body.get("en"),
+                  allow_han_in_en=False, min_en=15)
+        wn = c.get("warn") or {}
+        if wn.get("zh") or wn.get("en"):
+            need_pair("I3", "%s 常見錯誤" % cid, wn.get("zh"), wn.get("en"),
+                      allow_han_in_en=False, min_en=10)
+
+    for t in lessons.get("topics", []):
+        tid = t.get("id", "?")
+        nm = t.get("name") or {}
+        need_pair("I4", "%s 課題名" % tid, nm.get("zh"), nm.get("en"))
+        intro = t.get("intro") or {}
+        if intro:
+            need_pair("I4", "%s intro" % tid, intro.get("zh"), intro.get("en"),
+                      allow_han_in_en=False, min_en=15)
+        for i, h in enumerate(t.get("cmdHints") or [], 1):
+            if isinstance(h, dict):
+                need_pair("I4", "%s cmdHints[%d]" % (tid, i), h.get("zh"), h.get("en"), min_en=2)
+        for les in t.get("lessons", []):
+            lt = les.get("title") or {}
+            need_pair("I4", "%s/%s 節名" % (tid, les.get("id")), lt.get("zh"), lt.get("en"))
+    for stg in lessons.get("stages", []):
+        nm = stg.get("name") or {}
+        need_pair("I4", "stage %s 名稱" % stg.get("id"), nm.get("zh"), nm.get("en"))
+
+    for qid, s in sols.items():
+        sol = s.get("solution") or {}
+        for i, st in enumerate(sol.get("steps") or [], 1):
+            ttl = st.get("title") or {}
+            need_pair("I5", "%s 第 %d 步標題" % (qid, i), ttl.get("zh"), ttl.get("en"))
+            need_pair("I5", "%s 第 %d 步解說" % (qid, i), st.get("zh"), st.get("en"),
+                      allow_han_in_en=False, min_en=15)
+        for i, tr in enumerate(sol.get("traps") or [], 1):
+            need_pair("I5", "%s 陷阱 %d" % (qid, i), tr.get("zh"), tr.get("en"),
+                      allow_han_in_en=False, min_en=10)
+            if tr.get("label") and not tr.get("labelEn"):
+                err("I5", "%s 陷阱 %d 有 label 但缺 labelEn（長題陷阱要中英標籤）" % (qid, i))
+        tip = sol.get("tip") or {}
+        if tip:
+            need_pair("I5", "%s tip" % qid, tip.get("zh"), tip.get("en"),
+                      allow_han_in_en=False, min_en=10)
+        for i, a in enumerate(sol.get("alt") or [], 1):
+            nm = a.get("name") or {}
+            need_pair("I5", "%s alt[%d] 名稱" % (qid, i), nm.get("zh"), nm.get("en"), min_en=2)
+            need_pair("I5", "%s alt[%d] 內文" % (qid, i), a.get("zh"), a.get("en"),
+                      allow_han_in_en=False, min_en=10)
+
+    # ── I6：問 AI 提問模板（中英對稱；改模板一次＝全站更新）────────────────
+    tpl_doc = _load("prompt-templates.json", {}) or {}
+    TPL_KEYS = ("role", "student", "headings", "focusAll", "focusStep", "requirements",
+                "format", "optionLabels", "options")
+    TPL_HEADS = ("source", "question", "items", "parts", "focus", "existing", "doubt",
+                 "requirements", "format")
+    TPL_OPTS = ("simpler", "examples", "examTips", "visual", "practice")
+    if not tpl_doc.get("zh") or not tpl_doc.get("en"):
+        err("I6", "prompt-templates.json：必須同時有 zh 與 en 兩份模板")
+    else:
+        for lg in ("zh", "en"):
+            node = tpl_doc.get(lg) or {}
+            for k in TPL_KEYS:
+                if not node.get(k):
+                    err("I6", "prompt-templates.json %s 缺欄位 %s" % (lg, k))
+            for k in TPL_HEADS:
+                if not (node.get("headings") or {}).get(k):
+                    err("I6", "prompt-templates.json %s 的 headings 缺 %s" % (lg, k))
+            if not isinstance(node.get("requirements"), list) or not node.get("requirements"):
+                err("I6", "prompt-templates.json %s 的 requirements 必須是非空陣列" % lg)
+            for k in TPL_OPTS:
+                if not (node.get("options") or {}).get(k):
+                    err("I6", "prompt-templates.json %s 缺 options.%s" % (lg, k))
+                if not (node.get("optionLabels") or {}).get(k):
+                    err("I6", "prompt-templates.json %s 缺 optionLabels.%s" % (lg, k))
+            if "{n}" not in (node.get("focusStep") or ""):
+                err("I6", "prompt-templates.json %s 的 focusStep 必須包含 {n}（步驟編號）" % lg)
+        if HAN.search(_text_of(tpl_doc.get("en"))):
+            err("I6", "prompt-templates.json 的英文模板含中文字 —— 英文模板要真的是英文")
+
+    # ── I7：語言層掛載（每一頁都要有切換器與 i18n.js）──────────────────────
+    repo = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    if not os.path.exists(os.path.join(repo, "assets", "i18n.js")):
+        err("I7", "缺少 assets/i18n.js（語言層）")
+    for page in ("index.html", "topic.html", "wrong.html", "start.html"):
+        path = os.path.join(repo, page)
+        if not os.path.exists(path):
+            err("I7", "缺少頁面 %s" % page)
+            continue
+        with open(path, encoding="utf-8") as f:
+            txt = f.read()
+        if "data-lang-slot" not in txt:
+            err("I7", "%s 沒有語言切換掛載點（data-lang-slot）" % page)
+        if "assets/i18n.js" not in txt:
+            err("I7", "%s 沒有載入 assets/i18n.js" % page)
+
     # ── S10：術語一致性（代數語境一律「公因式」）──────────────────────────
     # 只有純數字才叫「公因數」（H.C.F.）；含字母或整條括號的一律「公因式」。
     # 例外：「最大公因數」、概念卡釋義引號內的「公因數」、以及談係數 H.C.F. 的「係數的公因數」。

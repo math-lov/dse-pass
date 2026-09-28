@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>課題 · 自學追上站</title>
-<meta name="description" content="課題頁：概念卡、示範題解、每頁三題練習，附頁數導覽列。">
+<meta name="description" content="課題頁：概念卡、示範題解、每頁三題練習，附頁數導覽列。（中英雙語可切換）">
 <link rel="stylesheet" href="vendor/katex/katex.min.css">
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -12,9 +12,12 @@
 
 <div class="topbar">
   <div class="inner">
-    <a class="btn btn-sm btn-ghost" href="index.html">← 回到主目錄</a>
+    <a class="btn btn-sm btn-ghost" href="index.html">
+      <span class="l-zh">← 回到主目錄</span><span class="l-en">← Home</span>
+    </a>
     <div class="spacer"></div>
-    <a class="btn btn-sm btn-ghost" href="wrong.html"><span id="wrong-count">弱點升級庫</span></a>
+    <span data-lang-slot></span>
+    <a class="btn btn-sm btn-ghost" href="wrong.html"><span id="wrong-count"><span class="l-zh">弱點升級庫</span><span class="l-en">Weak-spot list</span></span></a>
   </div>
   <div class="subbar">
     <div>
@@ -35,6 +38,7 @@
 
 <script defer src="vendor/katex/katex.min.js"></script>
 <script defer src="vendor/katex/auto-render.min.js"></script>
+<script defer src="assets/i18n.js"></script>
 <script>
   window.__V = new Date().toISOString().slice(0, 13).replace(/[-T:]/g, "");
   document.write('<script src="data/index.js?v=' + window.__V + '"><\/script>');

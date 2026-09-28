@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>自學追上站 · 數學逐課擊破</title>
-<meta name="description" content="按課題逐課學習的中學數學自學網站：先看概念卡，再看示範題解，然後每頁三題練習。無計時、可重做，適合想追回進度的同學。">
+<meta name="description" content="按課題逐課學習的中學數學自學網站：先看概念卡，再看示範題解，然後每頁三題練習。無計時、可重做，適合想追回進度的同學。中英雙語可切換（中文／英文／中英）。">
 <link rel="stylesheet" href="vendor/katex/katex.min.css">
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -12,63 +12,93 @@
 
 <div class="topbar">
   <div class="inner">
-    <div class="brand">自學追上站<small>Maths Catch-up · 逐課學習</small></div>
+    <div class="brand">
+      <span class="l-zh">自學追上站<small>Maths Catch-up · 逐課學習</small></span>
+      <span class="l-en">Catch-up Maths<small>DSE Maths · one worksheet at a time</small></span>
+    </div>
     <div class="spacer"></div>
-    <a id="wrong" class="btn btn-sm btn-ghost" href="wrong.html"><span id="wrong-count">弱點升級庫</span></a>
+    <span data-lang-slot></span>
+    <a id="wrong" class="btn btn-sm btn-ghost" href="wrong.html"><span id="wrong-count"><span class="l-zh">弱點升級庫</span><span class="l-en">Weak-spot list</span></span></a>
   </div>
 </div>
 
 <div class="wrap">
   <div class="hero">
-    <h1>由你現在的位置，一課一課追上去</h1>
-    <p id="site-stats">載入中…</p>
+    <h1>
+      <span class="l-zh">由你現在的位置，一課一課追上去</span>
+      <span class="l-en">Start where you are, and work up one worksheet at a time</span>
+    </h1>
+    <p id="site-stats"><span class="l-zh">載入中…</span><span class="l-en">Loading…</span></p>
   </div>
 
   <div class="card safety-note">
-    <b>這裡沒有老師打分，也沒有排名。</b>
-    答錯只代表「還未學到」，不代表你不行；進度只屬於你，隨時可以重新開始。
+    <span class="l-zh"><b>這裡沒有老師打分，也沒有排名。</b>
+    答錯只代表「還未學到」，不代表你不行；進度只屬於你，隨時可以重新開始。</span>
+    <span class="l-en"><b>Nobody marks you here, and there is no ranking.</b>
+    A wrong answer only means "not yet", not that you can't do it. Your progress belongs to you
+    alone, and you can always start over.</span>
     <div class="pre-actions">
-      <a class="btn btn-sm btn-primary" href="start.html">第一次來？先看「開始之前」（3 分鐘）→</a>
+      <a class="btn btn-sm btn-primary" href="start.html">
+        <span class="l-zh">第一次來？先看「開始之前」（3 分鐘）→</span>
+        <span class="l-en">First time here? Read "Before you start" (3 minutes) →</span>
+      </a>
     </div>
   </div>
 
   <button id="continue" class="btn btn-primary btn-block hidden" style="margin-bottom:6px">
-    <span id="continue-label">繼續學習</span>
+    <span id="continue-label"></span>
   </button>
 
   <div id="topics"></div>
 
-  <div class="section-title"><span>工具箱</span></div>
+  <div class="section-title"><span class="l-zh">工具箱</span><span class="l-en">Toolbox</span></div>
   <div class="card">
     <div class="small muted">
-      互動小工具（不用登入、不計分、可隨便玩）：拖 slider 改變係數，即時看拋物線、解集與逐步解法。
+      <span class="l-zh">互動小工具（不用登入、不計分、可隨便玩）：拖 slider 改變係數，即時看拋物線、解集與逐步解法。</span>
+      <span class="l-en">A small interactive toy (no login, no marks, play freely): drag the sliders to
+      change the coefficients and watch the parabola, the solution set and the steps update live.</span>
     </div>
     <div class="row" style="margin-top:12px">
-      <a class="btn btn-sm btn-primary" href="quadratic-inequalities.html">二次不等式探索器 →</a>
+      <a class="btn btn-sm btn-primary" href="quadratic-inequalities.html">
+        <span class="l-zh">二次不等式探索器 →</span>
+        <span class="l-en">Quadratic inequality explorer →</span>
+      </a>
     </div>
   </div>
 
-  <div class="section-title"><span>設定</span></div>
+  <div class="section-title"><span class="l-zh">設定</span><span class="l-en">Settings</span></div>
   <div class="card">
     <div class="small muted">
-      進度只存在你手上這部裝置（瀏覽器）裡，換機或清除瀏覽器資料就會重設。
-      這個網站與「每日三題」的進度完全分開，互相不影響。
+      <span class="l-zh">進度只存在你手上這部裝置（瀏覽器）裡，換機或清除瀏覽器資料就會重設。
+      這個網站與「每日三題」的進度完全分開，互相不影響。</span>
+      <span class="l-en">Your progress is stored only in this browser on this device, and is reset if
+      you change device or clear browsing data. This site is completely separate from the
+      "Daily Three" site and the two do not affect each other.</span>
     </div>
     <div class="row" style="margin-top:12px">
-      <button id="reset" class="btn btn-sm btn-ghost">清除本機進度</button>
-      <a class="btn btn-sm btn-ghost" href="start.html">開始之前（使用指南）</a>
-      <a class="btn btn-sm btn-ghost" href="../">返回每日三題</a>
+      <button id="reset" class="btn btn-sm btn-ghost">
+        <span class="l-zh">清除本機進度</span><span class="l-en">Clear progress on this device</span>
+      </button>
+      <a class="btn btn-sm btn-ghost" href="start.html">
+        <span class="l-zh">開始之前（使用指南）</span><span class="l-en">Before you start (guide)</span>
+      </a>
+      <a class="btn btn-sm btn-ghost" href="../">
+        <span class="l-zh">返回每日三題</span><span class="l-en">Back to Daily Three</span>
+      </a>
     </div>
   </div>
 
   <p class="small muted center" style="margin:18px 0 0">
-    練習題取自校內訂購教材，僅供本校學生溫習使用。
+    <span class="l-zh">練習題取自校內訂購教材，僅供本校學生溫習使用。</span>
+    <span class="l-en">The practice questions come from textbooks ordered by the school; for our own
+    students' revision only.</span>
   </p>
 </div>
 
-<!-- KaTeX（自托管，defer） -->
+<!-- KaTeX（自托管，defer）＋ 語言層 -->
 <script defer src="vendor/katex/katex.min.js"></script>
 <script defer src="vendor/katex/auto-render.min.js"></script>
+<script defer src="assets/i18n.js"></script>
 <script>
   // 快取戳：每小時變一次，繞過 GitHub Pages 的靜態檔快取
   window.__V = new Date().toISOString().slice(0, 13).replace(/[-T:]/g, "");

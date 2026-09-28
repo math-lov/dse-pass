@@ -8,20 +8,34 @@
     "en": "Step 1: Take out the Common Factor"
    },
    "body": {
-    "zh": "因式分解 (Factorization) 就是把一個多項式寫成「幾個因式相乘」的形態。面對任何因式分解題目，第一步永遠是先觀察各項有沒有公因式 (Common Factor) 可以提取。\n例如：$6r^{2}+4rs$ 的兩項都含有 $2r$，提取之後括號內剩下 $3r+2s$：{{math:0}}\n完成提取後必須養成檢查習慣：把結果展開 (Expansion)，能夠完全回到原式才算正確：{{math:1}}"
+    "zh": "因式分解 (Factorization) 就是把一個多項式寫成「幾個因式相乘」的形態。面對任何因式分解題目，第一步永遠是先觀察各項有沒有公因式 (Common Factor) 可以提取。\n例如：$6r^{2}+4rs$ 的兩項都含有 $2r$，提取之後括號內剩下 $3r+2s$：{{math:0}}\n完成提取後必須養成檢查習慣：把結果展開 (Expansion)，能夠完全回到原式才算正確：{{math:1}}",
+    "en": "Factorization means writing a polynomial as a product of factors. For any factorisation question, the first step is always to look for a common factor in every term.\nFor example, both terms of $6r^{2}+4rs$ contain $2r$, so taking it out leaves $3r+2s$ inside the bracket: {{math:0}}\nAfter taking out the common factor, make a habit of checking by expanding the result — it must give back the original expression: {{math:1}}"
    },
    "math": [
     "6r^{2}+4rs=2r(3r+2s)",
     "2r(3r+2s)=6r^{2}+4rs"
    ],
    "vocab": [
-    { "en": "factorization", "zh": "因式分解" },
-    { "en": "factor", "zh": "因式" },
-    { "en": "common factor", "zh": "公因式" },
-    { "en": "expansion", "zh": "展開" }
+    {
+     "en": "factorization",
+     "zh": "因式分解"
+    },
+    {
+     "en": "factor",
+     "zh": "因式"
+    },
+    {
+     "en": "common factor",
+     "zh": "公因式"
+    },
+    {
+     "en": "expansion",
+     "zh": "展開"
+    }
    ],
    "warn": {
-    "zh": "若首項帶有負號（例如 $-r^{3}-r^{2}s$），必須把負號連同公因式一併提出：$-r^{2}(r+s)$。抽完公因式後，切記檢查括號內是否仍能徹底分解 (Factorize Completely)。"
+    "zh": "若首項帶有負號（例如 $-r^{3}-r^{2}s$），必須把負號連同公因式一併提出：$-r^{2}(r+s)$。抽完公因式後，切記檢查括號內是否仍能徹底分解 (Factorize Completely)。",
+    "en": "If the first term is negative (e.g. $-r^{3}-r^{2}s$), take the minus sign out together with the common factor: $-r^{2}(r+s)$. And always check whether the bracket can be factorized further (factorize completely)."
    }
   },
   {
@@ -32,17 +46,25 @@
     "en": "Four Terms: Grouping"
    },
    "body": {
-    "zh": "四項而又沒有全部共同的公因式時，用 grouping（併項分組）：把四項分成兩組，每組各自抽公因式，然後兩組會出現相同的括號，再把那括號抽走。\n例：$hk+1+h+k$，先把項調位再分組：{{math:0}}\n重點提示一：後兩項抽不出字母時，其實是抽出了 $+1$；把括號抽走後，該位置會留下 $+1$，不是消失。\n重點提示二：分組後兩個括號必須一模一樣。若只差一個負號，抽 $-1$ 出來就一樣了。"
+    "zh": "四項而又沒有全部共同的公因式時，用 grouping（併項分組）：把四項分成兩組，每組各自抽公因式，然後兩組會出現相同的括號，再把那括號抽走。\n例：$hk+1+h+k$，先把項調位再分組：{{math:0}}\n重點提示一：後兩項抽不出字母時，其實是抽出了 $+1$；把括號抽走後，該位置會留下 $+1$，不是消失。\n重點提示二：分組後兩個括號必須一模一樣。若只差一個負號，抽 $-1$ 出來就一樣了。",
+    "en": "When there are four terms and no factor common to all of them, use grouping: split the four terms into two pairs, take out the common factor of each pair, and the same bracket should then appear in both pairs — take that bracket out.\nExample: $hk+1+h+k$ — rearrange the terms first, then group: {{math:0}}\nNote 1: when the last two terms share no letter, you are in fact taking out $+1$; that $+1$ stays inside the bracket, it does not disappear.\nNote 2: the two brackets must be identical. If they differ only by a minus sign, take out $-1$ and they match."
    },
    "math": [
     "hk+1+h+k=hk+h+k+1\n=h(k+1)+1(k+1)\n=(k+1)(h+1)"
    ],
    "vocab": [
-    { "en": "grouping", "zh": "併項分組" },
-    { "en": "term", "zh": "項" }
+    {
+     "en": "grouping",
+     "zh": "併項分組"
+    },
+    {
+     "en": "term",
+     "zh": "項"
+    }
    ],
    "warn": {
-    "zh": "$h+a$ 與 $a+h$ 是同一個數（加法交換律），不要因為次序倒轉就以為分組失敗。"
+    "zh": "$h+a$ 與 $a+h$ 是同一個數（加法交換律），不要因為次序倒轉就以為分組失敗。",
+    "en": "$h+a$ and $a+h$ are the same number (addition is commutative), so do not think grouping has failed just because the order is reversed."
    }
   },
   {
@@ -53,7 +75,8 @@
     "en": "Three Identities to Memorise"
    },
    "body": {
-    "zh": "三條恆等式要背熟，看見就直接用。平方差：{{math:0}}；完全平方（和）：{{math:1}}；完全平方（差）：{{math:2}}。\n判斷方法：兩項而且「平方減平方」→ 平方差；三項時看首尾是否平方、中間是否等於 $2ab$ → 完全平方。"
+    "zh": "三條恆等式要背熟，看見就直接用。平方差：{{math:0}}；完全平方（和）：{{math:1}}；完全平方（差）：{{math:2}}。\n判斷方法：兩項而且「平方減平方」→ 平方差；三項時看首尾是否平方、中間是否等於 $2ab$ → 完全平方。",
+    "en": "Learn the three identities by heart and use them on sight. Difference of two squares: {{math:0}}; perfect square (sum): {{math:1}}; perfect square (difference): {{math:2}}.\nHow to decide: two terms with “square minus square” → difference of two squares; three terms → check whether the first and last are squares and the middle equals $2ab$ → perfect square."
    },
    "math": [
     "a^{2}-b^{2}=(a+b)(a-b)",
@@ -61,12 +84,22 @@
     "a^{2}-2ab+b^{2}=(a-b)^{2}"
    ],
    "vocab": [
-    { "en": "identity", "zh": "恆等式" },
-    { "en": "difference of two squares", "zh": "平方差" },
-    { "en": "perfect square", "zh": "完全平方" }
+    {
+     "en": "identity",
+     "zh": "恆等式"
+    },
+    {
+     "en": "difference of two squares",
+     "zh": "平方差"
+    },
+    {
+     "en": "perfect square",
+     "zh": "完全平方"
+    }
    ],
    "warn": {
-    "zh": "$a^{2}+b^{2}$ 是不能分解的（常見錯）。負號開頭如 $-3a^{2}+12a-12$，先把 $-3$ 抽出來，題目會立刻變簡單。"
+    "zh": "$a^{2}+b^{2}$ 是不能分解的（常見錯）。負號開頭如 $-3a^{2}+12a-12$，先把 $-3$ 抽出來，題目會立刻變簡單。",
+    "en": "$a^{2}+b^{2}$ cannot be factorized — a very common mistake. When an expression starts with a minus sign, e.g. $-3a^{2}+12a-12$, take out $-3$ first and it becomes much easier."
    }
   },
   {
@@ -77,20 +110,34 @@
     "en": "Quadratic Trinomials: Cross-method"
    },
    "body": {
-    "zh": "$ax^{2}+bx+c$ 這種三項式 (Trinomial) 若不符合完全平方恆等式，則需使用十字相乘法 (Cross-method)：把首項係數 (Coefficient) 與常數項 (Constant Term) 各拆成兩個因式並排成十字，交叉相乘後相加，總和必須完全吻合中間項。\n例如：{{math:0}}，因為 $(-2)+(-3)=-5$。當二次項係數 $a \\neq 1$ 時，需要嘗試多種因數組合：{{math:1}}。"
+    "zh": "$ax^{2}+bx+c$ 這種三項式 (Trinomial) 若不符合完全平方恆等式，則需使用十字相乘法 (Cross-method)：把首項係數 (Coefficient) 與常數項 (Constant Term) 各拆成兩個因式並排成十字，交叉相乘後相加，總和必須完全吻合中間項。\n例如：{{math:0}}，因為 $(-2)+(-3)=-5$。當二次項係數 $a \\neq 1$ 時，需要嘗試多種因數組合：{{math:1}}。",
+    "en": "If the trinomial $ax^{2}+bx+c$ does not fit a perfect-square identity, use the cross-method: split the coefficient of $x^{2}$ and the constant term into factors, arrange them in a cross, multiply across and add — the sum must match the middle term exactly.\nFor example {{math:0}}, because $(-2)+(-3)=-5$. When the coefficient of $x^{2}$ is not 1 you may have to try several factor combinations: {{math:1}}."
    },
    "math": [
     "x^{2}-5x+6=(x-2)(x-3)",
     "6x^{2}-7x-5=(2x+1)(3x-5)"
    ],
    "vocab": [
-    { "en": "cross-method", "zh": "十字相乘法" },
-    { "en": "trinomial", "zh": "三項式" },
-    { "en": "coefficient", "zh": "係數" },
-    { "en": "constant term", "zh": "常數項" }
+    {
+     "en": "cross-method",
+     "zh": "十字相乘法"
+    },
+    {
+     "en": "trinomial",
+     "zh": "三項式"
+    },
+    {
+     "en": "coefficient",
+     "zh": "係數"
+    },
+    {
+     "en": "constant term",
+     "zh": "常數項"
+    }
    ],
    "warn": {
-    "zh": "因式拆解後必須透過「交叉相乘再相加」核對中間項正負號。\n香港考評局計算機保底技巧：若心算難以找出組合，可使用文憑試准用計算機（如 Casio fx-50FH II）內置的二次方程公式 Formula 01（按 FMLA 01），依序輸入 $a, b, c$ 求得兩根 $x_1, x_2$。若方程的根為 $x = 2$ 與 $x = 3$，對應的因式分解即為 $(x-2)(x-3)$。注意此方法僅適用於單一未知數題目；若含有雙變數（如 $3x^{2}+7xy+2y^{2}$），仍須掌握標準十字相乘法。"
+    "zh": "因式拆解後必須透過「交叉相乘再相加」核對中間項正負號。\n香港考評局計算機保底技巧：若心算難以找出組合，可使用文憑試准用計算機（如 Casio fx-50FH II）內置的二次方程公式 Formula 01（按 FMLA 01），依序輸入 $a, b, c$ 求得兩根 $x_1, x_2$。若方程的根為 $x = 2$ 與 $x = 3$，對應的因式分解即為 $(x-2)(x-3)$。注意此方法僅適用於單一未知數題目；若含有雙變數（如 $3x^{2}+7xy+2y^{2}$），仍須掌握標準十字相乘法。",
+    "en": "Always check the signs of the middle term by cross-multiplying and adding.\nCalculator safety net (HKEAA-approved models such as Casio fx-50FH II): if the combination is hard to spot, use the built-in quadratic formula (press FMLA 01), enter $a$, $b$, $c$ and read the two roots $x_1$, $x_2$. Roots $x=2$ and $x=3$ correspond to the factorization $(x-2)(x-3)$. This works only for a single unknown; with two variables (e.g. $3x^{2}+7xy+2y^{2}$) you still need the standard cross-method."
    }
   }
  ]

@@ -148,6 +148,8 @@ def main(argv: list[str] | None = None) -> int:
     lessons = _load("lessons.json")
     concepts = _load("concepts.json", {"cards": []})
     sols_doc = _load("solutions.json", {"solutions": {}})
+    # 問 AI 提問模板（中英各一份）：前端生成 prompt 用，改一次＝全站更新
+    tpl_doc = _load("prompt-templates.json", {})
     sols = sols_doc.get("solutions") or {}
     # 概念卡示意圖（SVG）：由 tools/make_learn_figures.py 產生
     figures = (_load("figures.json", {"figures": {}}).get("figures") or {})
@@ -207,6 +209,7 @@ def main(argv: list[str] | None = None) -> int:
         "stages": lessons.get("stages", []),
         "topics": topics_index,
         "assessments": lessons.get("assessments", []),
+        "promptTemplates": tpl_doc,
         "generatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "counts": {
             "topics": len(topics_index),
@@ -259,6 +262,10 @@ def main(argv: list[str] | None = None) -> int:
         print("示意圖（SVG）：概念卡 %d 張 · 題目 %d 題 · 共 %d 幅"
               % (n_card, len(figures) - n_card, sum(len(v) for v in figures.values())))
     print("已剔除教師欄位 %d 個；題解已併入題目 %d 題" % (removed, merged))
+    if tpl_doc.get("zh") and tpl_doc.get("en"):
+        print("問 AI 提問模板：中英各 1 份已內嵌")
+    else:
+        print("⚠ 問 AI 提問模板缺少 zh 或 en（前端會隱藏「問 AI」按鈕）")
     return 0
 
 

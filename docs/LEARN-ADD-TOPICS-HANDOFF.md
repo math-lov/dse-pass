@@ -247,7 +247,48 @@ $py = "C:\Users\t073\.workbuddy\binaries\python\envs\default\Scripts\python.exe"
   純代數概念卡（ws06-c1 函數記號、c5 配方法）**不需要**圖；ws06 的 4 條長題亦沒有圖（示範題解答只出文字）。
 * **MC 題的圖在「作答後」才出**（防劇透），所以圖放 `figures.json`，不要寫進題幹。
 
-### 3.6 跑檢查
+### 3.6 中英雙語（★ 新增課題必做，本站基調）
+
+全站有 **三態語言切換：中文／英文／中英**（`assets/i18n.js` ＋ `body[data-lang]`，
+選擇記在 `localStorage` 的 `dse-learn:lang`，預設 `both`）。**每個學生會看到的文字都必須中英齊全**，
+否則英文模式會退回中文（`learn_check.py` 的 **I1–I7 會直接擋，0 錯誤才可發佈**）。
+
+| 欄位 | 中文放哪 | 英文放哪 |
+|---|---|---|
+| 題幹 | `stem.zh`（可保留「因式分解 (Factorize)」這種行內對照） | `stem.en`＝**考試英文原句**（例：`Factorize $6m+12n$.`） |
+| 長題分題 | `parts[].zh`（＝`parts[].text`，純數學可相同） | `parts[].en` |
+| 概念卡標題／節名／課題名／階段名 | `.zh` | `.en` |
+| 概念卡正文／常見錯誤 | `body.zh` / `warn.zh`（`{{math:N}}` 標記兩邊要一致） | `body.en` / `warn.en` |
+| 課題導言 | `intro.zh` | `intro.en` |
+| 題解步驟 | `steps[].title.zh`＋`steps[].zh` | `steps[].title.en`＋`steps[].en` |
+| 陷阱／技巧／進階解法 | `traps[].zh`／`tip.zh`／`alt[].zh` | `traps[].en`／`tip.en`／`alt[].en`（長題陷阱另要 `labelEn`） |
+| 題目字眼 | `cmdHints[].zh`（中文解釋） | `cmdHints[].en`（考試字眼） |
+
+寫英文的四條規則（都是 `learn_check` 的 I 閘門）：
+
+1. **`en` 欄不可以是中文**（I3／I5 會掃中文字）——「解釋」要真的用英文重寫，不是複製中文。
+2. **長度下限**：題解／正文 ≥15 字、陷阱／技巧 ≥10 字、標題 ≥4 字（I1–I5）。
+3. **英文題幹用考試原句**（`Factorize …`、`Find …`、`Hence …`）；中文版可以保留英文關鍵詞做對照。
+4. **`{{math:N}}` 標記**在 body 的中英兩版都要出現，而且數量要等於 `math` 陣列長度（否則公式插入位置會不對）。
+
+`assets/app.js` 的 `biNode()/biSpan()/setPair()/btnPair()` 會把 `{zh,en}` 寫成 `.l-zh` / `.l-en` 兩份，
+由 CSS 決定顯示哪一份；`T({zh,en})` 則按目前語言取字串（用於 tooltip、標題等單語文字）。
+**切換語言時 `i18n.js` 會呼叫 `window.__LEARN_RELANG()` 重新繪製目前這一頁** —— 所以 `T()` 出來的
+單語文字都會跟著轉。新元件請優先用 `biNode/biSpan`，不要自己拼字串。
+
+### 3.7 問 AI 提問生成（★ 不用改；改模板才算改）
+
+提問模板在 **`data/learn/prompt-templates.json`**（中英各一份），
+`make_learn_data.py` 會把整份內嵌進 `index.js` 的 `promptTemplates`，前端即時生成：
+題目資料（題號／題幹／選項或分題）＋ 網站現有解說＋學生勾選的額外要求（5 個可選項）。
+
+* 前端入口：練習頁提示列「問 AI」、題解每一步標題旁的「問 AI」（聚焦該步）、題解底部。
+* **新增課題不用改模板**（模板是通用的）；只有想改「問 AI 的語氣／要求」才改這份檔，
+  改完要跑 `learn_check.py`（**I6** 驗中英對稱、欄位齊全、`focusStep` 要有 `{n}`、
+  英文模板不可含中文）。
+* 改模板後一定要跑 `learn_smoke_test.js`（第 10 節會驗 prompt 內容、勾選項、複製功能）。
+
+### 3.8 跑檢查
 
 ```powershell
 cd "C:\Code Buddy\HKDSE"
@@ -265,7 +306,7 @@ $node = "C:\Users\t073\.workbuddy\binaries\node\versions\22.22.2-3\node.exe"
 改了面板／編輯器才需要：`& $py tools\learn_panel_test.py`
 （它會自己起測試面板、改資料、**最後還原並比對檔案**；編輯器前端 42 項 jsdom 斷言都在裡面）。
 
-### 3.7 發佈
+### 3.9 發佈
 
 雙擊 `start-learn-panel.bat` → **發佈** 分頁 → 「重新生成 + 檢查」→「一鍵發佈」（＝上面幾步 + commit + push）。
 或手動：`git add -A; git commit -m "Learn: add WS06"; git push`（GitHub Pages 約 1 分鐘部署；
@@ -336,6 +377,15 @@ $node = "C:\Users\t073\.workbuddy\binaries\node\versions\22.22.2-3\node.exe"
 12. **代數語境一律「公因式」**（S10 警告）；只有純數字的 H.C.F. 才叫「公因數」。
 13. **每課的 `cmdHints`（題目字眼）要為該課而設**：4–6 組、至少 3 組獨有、
     任兩課最多重覆 2 組、不可整組照抄別課（§3.4；smoke 與面板都會擋）。
+14. **中英雙語（本站基調）**：每個學生會看到的文字都要有 `zh` 與 `en`（§3.6）。
+    英文欄**不可以寫中文**、長度有下限（題解 ≥15 字、陷阱／技巧 ≥10 字、標題 ≥4 字）。
+    缺英文 → `learn_check` **I1–I7 錯誤**，**不可以發佈**。
+15. **語言層不可繞過**：新元件一律用 `biNode()/biSpan()/setPair()/btnPair()`（雙語）
+    或 `T({zh,en})`（單語；切語言時 `i18n.js` 會觸發 `__LEARN_RELANG()` 重繪）。
+    不要自己拼中文字串，否則切到英文會殘留中文。
+16. **問 AI 提問模板**：`data/learn/prompt-templates.json` 是通用的，**新增課題不用改**；
+    但改動它就要跑 `learn_check.py`（I6 驗中英對稱、欄位齊全）與 `learn_smoke_test.js`
+    （第 10 節驗 prompt 內容、勾選項、複製）。
 
 ### 5.2 ★ 三輪審閱最常挑出的 10 類問題（開工前先掃一次，可省一輪來回）
 
@@ -447,6 +497,8 @@ ok(t07.$$("#pagenav .pg").length === 12, "ws06 = two lessons (1+2+3 and 1+2+3 pa
 | 長題示範「常見錯誤」 | `.traps.long-traps`（app.js `appendLongTraps`） | 看完所有步驟後列出 `solution.traps`；長題用 `label`（不是 MC 的 `opt`）；琥珀色＝「做完後檢查自己有沒有踩中」，不是「你答錯」 |
 | (a)→(b) 打包替換高亮 | `solution.steps[].link` | 橙色「用 (a) 的答案」區塊 |
 | 面板改「題目字眼」 | `learn_panel.py` 課題編輯器 | 欄位 **`f_hints`**，每行一組、格式 **`English | 中文解釋`**；驗證：組數 2–8、每組要有中英、字眼不可重複、不可整組照抄別課 |
+| **中英雙語切換** | `assets/i18n.js`＋`assets/app.js`（`biNode/biSpan/setPair/btnPair/T`） | 三態：中文／EN／中英（預設中英），存 `localStorage` 的 `dse-learn:lang`；所有頁面（含不載入 app.js 的 `start.html`）都有 `[data-lang-slot]` 掛載點；切語言會 `__LEARN_RELANG()` 重繪 |
+| **問 AI 提問生成** | `assets/app.js`（`openPrompt/buildPrompt/aiStepBtn`）＋`data/learn/prompt-templates.json` | 題目資料＋現有解說＋學生勾選（5 個可選項）即時生成；入口：提示列、每一步標題旁、題解底部；可改文字再複製 |
 
 ### 檢查器／面板「已改好」的行為（不要改回去）
 
@@ -539,6 +591,10 @@ ok(t07.$$("#pagenav .pg").length === 12, "ws06 = two lessons (1+2+3 and 1+2+3 pa
   上一輪 WS05＋題目字眼是 `9e31015`。GitHub Pages 部署約 1 分鐘，**更新已存在的檔案**受 CDN 快取影響最多 10 分鐘（用無痕／Ctrl+F5）。
 * `learn_check.py` 的 S7 概念卡檢查寫在 `for q in questions:` 迴圈內（會重複執行同一批卡片檢查）。
   **無害、未修**；如要整理請連測試一齊改。
+* **面板還沒有英文輸入欄（技術債）**：`learn_panel.py` 的題目／題解編輯器目前只寫中文欄，
+  用面板改過的題目有可能漏掉 `en`。防線是 `learn_check` 的 **I1–I5**（缺英文＝錯誤，
+  發佈流程會擋住），所以不會靜靜上線；發覺被擋就在 `data/learn/*.json` 直接補英文。
+  之後如要方便老師輸入，下一步是在面板加英文欄（每格中文欄旁一個英文輸入框）。
 * `learn/data/*.js` 是生成檔但**屬 git 追蹤**（部署時整份 `learn/` 上 Pages），
   所以**每次改完資料都要跑 `make_learn_data.py` 再 commit**。
 * GitHub Pages 對**已存在的檔案**有 `max-age=600` 快取：剛 push 完用無痕／Ctrl+F5 才即時看到新版。
@@ -582,6 +638,9 @@ ok(t07.$$("#pagenav .pg").length === 12, "ws06 = two lessons (1+2+3 and 1+2+3 pa
 - [ ] 每題都親手驗算過：**至少一個選項是正確答案**、解說算式沒有自相矛盾
 - [ ] 自編題在 `source` 標明「（自編）」
 - [ ] `cmdHints` 是為這一課而設（4–6 組、≥3 組獨有、與其他課最多重覆 2 組）
+- [ ] **每個文字欄位都有 `zh` 與 `en`**（`learn_check` I1–I7 = 0 錯誤；英文欄沒有中文字）
+- [ ] 長題陷阱有 `label` ＋ `labelEn`；概念卡正文的 `{{math:N}}` 中英兩版都齊
+- [ ] 在瀏覽器切一次「中文／EN／中英」＋按一次「問 AI」，確認兩者都正常
 - [ ] `make_learn_data.py` 跑過，`learn/data/topic-wsxx.js` 已更新
 - [ ] `learn_check.py` **0 錯誤 0 警告**
 - [ ] `learn_katex_check.js` **all LaTeX renders cleanly**（無 stderr 警告）

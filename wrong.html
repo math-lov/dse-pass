@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>弱點升級庫 · 自學追上站</title>
-<meta name="description" content="弱點升級庫：把答錯的題目收集起來，隔天再練一次，答對就移出。">
+<meta name="description" content="弱點升級庫：把答錯的題目收集起來，隔天再練一次，答對就移出。（中英雙語可切換）">
 <link rel="stylesheet" href="vendor/katex/katex.min.css">
 <link rel="stylesheet" href="assets/style.css">
 </head>
@@ -12,28 +12,41 @@
 
 <div class="topbar">
   <div class="inner">
-    <a class="btn btn-sm btn-ghost" href="index.html">← 回到主目錄</a>
+    <a class="btn btn-sm btn-ghost" href="index.html">
+      <span class="l-zh">← 回到主目錄</span><span class="l-en">← Home</span>
+    </a>
     <div class="spacer"></div>
-    <span class="brand" style="font-size:16px">弱點升級庫<small>把不會的變成會的</small></span>
+    <span data-lang-slot></span>
+    <span class="brand" style="font-size:16px">
+      <span class="l-zh">弱點升級庫<small>把不會的變成會的</small></span>
+      <span class="l-en">Weak-spot list<small>Turn "can't" into "can"</small></span>
+    </span>
   </div>
 </div>
 
 <div class="wrap" style="padding-top:14px">
   <div class="card">
     <div class="small muted">
-      這裡只放<b>答錯過</b>的選擇題 —— 每一條都是「你差一點就拿到」的分。
+      <span class="l-zh">這裡只放<b>答錯過</b>的選擇題 —— 每一條都是「你差一點就拿到」的分。
       按「再練一次」會清掉該題的作答記錄，讓你重新做；答對之後它就會自動升級、移出這裡。
-      示範題（長題目）不會進這裡。
+      示範題（長題目）不會進這裡。</span>
+      <span class="l-en">Only multiple-choice questions you have <b>answered wrongly</b> appear here —
+      each one is a mark you almost had. Press "Practise again" to clear that question's record and
+      try it afresh; once you get it right it is upgraded and leaves this list automatically.
+      Demonstration questions (long questions) never come here.</span>
     </div>
   </div>
   <div id="wrong-body"></div>
   <div class="row" style="margin-top:6px">
-    <button id="wrong-clear" class="btn btn-sm btn-ghost">清空升級庫</button>
+    <button id="wrong-clear" class="btn btn-sm btn-ghost">
+      <span class="l-zh">清空升級庫</span><span class="l-en">Empty this list</span>
+    </button>
   </div>
 </div>
 
 <script defer src="vendor/katex/katex.min.js"></script>
 <script defer src="vendor/katex/auto-render.min.js"></script>
+<script defer src="assets/i18n.js"></script>
 <script>
   window.__V = new Date().toISOString().slice(0, 13).replace(/[-T:]/g, "");
   document.write('<script src="data/index.js?v=' + window.__V + '"><\/script>');

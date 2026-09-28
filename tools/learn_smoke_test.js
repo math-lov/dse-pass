@@ -26,6 +26,7 @@ const LS_KEY = "dse-learn:v1";
 const katexJs = fs.readFileSync(path.join(learn, "vendor", "katex", "katex.min.js"), "utf8");
 const autoRenderJs = fs.readFileSync(path.join(learn, "vendor", "katex", "auto-render.min.js"), "utf8");
 const appJs = fs.readFileSync(path.join(learn, "assets", "app.js"), "utf8");
+const i18nJs = fs.readFileSync(path.join(learn, "assets", "i18n.js"), "utf8");
 const indexJs = fs.readFileSync(path.join(learn, "data", "index.js"), "utf8");
 
 const LESSONS = JSON.parse(fs.readFileSync(path.join(root, "data", "learn", "lessons.json"), "utf8"));
@@ -52,6 +53,7 @@ function boot(page, search, storage) {
   vm.runInContext(indexJs, ctx, { filename: "index.js" });
   const topicFiles = fs.readdirSync(path.join(learn, "data")).filter((f) => /^topic-.*\.js$/.test(f));
   topicFiles.forEach((f) => vm.runInContext(fs.readFileSync(path.join(learn, "data", f), "utf8"), ctx, { filename: f }));
+  vm.runInContext(i18nJs, ctx, { filename: "i18n.js" });   // 語言層（頁面用 <script defer>）
   vm.runInContext(appJs, ctx, { filename: "app.js" });
   if (typeof ctx.window.__LEARN_START === "function") ctx.window.__LEARN_START();
   const doc = dom.window.document;
@@ -126,11 +128,16 @@ if (mlCard) {
     b.click(); g++;
   }
   const want = mlMath(mlCard).split("\n").filter((s) => s.trim()).length;
-  ok(tc.$$(".formula-multi .formula-line").length === want,
-     "the long formula renders on " + want + " lines (got " + tc.$$(".formula-multi .formula-line").length + ")");
-  ok(tc.$$(".formula-multi .katex").length === want,
-     "every line is typeset by KaTeX (got " + tc.$$(".formula-multi .katex").length + ")");
-  ok(tc.$$(".formula-line[data-tex]").length === want,
+  /* 中英各渲染一份 → 計數要指定語言那一份（否則會被當成雙倍）*/
+  const zhLines = tc.$$(".ccard-body > .l-zh .formula-multi .formula-line");
+  const enLines = tc.$$(".ccard-body > .l-en .formula-multi .formula-line");
+  ok(zhLines.length === want,
+     "the long formula renders on " + want + " lines (got " + zhLines.length + ")");
+  ok(enLines.length === want,
+     "the English copy of the concept card renders the same " + want + " lines (got " + enLines.length + ")");
+  ok(tc.$$(".ccard-body > .l-zh .formula-multi .katex").length === want,
+     "every line is typeset by KaTeX (got " + tc.$$(".ccard-body > .l-zh .formula-multi .katex").length + ")");
+  ok(tc.$$(".ccard-body > .l-zh .formula-line[data-tex]").length === want,
      "each line keeps data-tex so a late KaTeX load can still re-render it");
 }
 
@@ -279,5 +286,123 @@ ok(poor.length === 0,
    "every generated question has a structure the six answer options can express" +
    (poor.length ? " (" + poor.join(", ") + ")" : ""));
 
-console.log("\n" + (fails ? fails + " test(s) FAILED" : "all DSE Pass smoke tests passed"));
-process.exit(fails ? 1 : 0);
+/* ── 9. 基調驗證：中英雙語（中文／英文／中英）────────────────────────── */
+console.log("\n— 基調：中英雙語 —");
+const LANG_KEY = "dse-learn:lang";
+
+function bootLang(page, search, storage, lang) {
+  const d = boot(page, search, storage);
+  let clip = "";
+  try {
+    Object.defineProperty(d.ctx.window.navigator, "clipboard", {
+      configurable: true,
+      value: { writeText: (t) => { clip = t; return Promise.resolve(); } },
+    });
+  } catch (e) { /* ignore */ }
+  d.clip = () => clip;
+  if (lang) d.ctx.window.LEARN_I18N.set(lang);
+  return d;
+}
+
+const lHome = bootLang("index.html", "", null, null);
+const langOf = (d) => d.doc.body.getAttribute("data-lang");
+ok(lHome.$$(".langbar button").length === 3, "語言切換器有 3 個選項（中文／EN／中英）");
+ok(langOf(lHome) === "both", "預設語言是「中英」（" + langOf(lHome) + "）");
+lHome.$$(".langbar button")[1].click();
+ok(langOf(lHome) === "en", "按 EN → body[data-lang]=en");
+ok(lHome.ctx.window.localStorage.getItem(LANG_KEY) === "en", "語言選擇寫入 localStorage");
+ok(!!lHome.$("#site-stats .l-zh") && /共 \d+ 個課題/.test(lHome.$("#site-stats .l-zh").textContent),
+   "首頁統計有中文版");
+ok(!!lHome.$("#site-stats .l-en") && /\d+ topics/.test(lHome.$("#site-stats .l-en").textContent),
+   "首頁統計有英文版");
+ok(!!lHome.$(".brand .l-en") && /Catch-up Maths/.test(lHome.$(".brand .l-en").textContent),
+   "品牌名有英文版");
+
+const siteCss = fs.readFileSync(path.join(learn, "assets", "style.css"), "utf8");
+ok(/body\[data-lang="en"\] \.l-zh \{ display: none; \}/.test(siteCss),
+   "style.css：英文模式隱藏 .l-zh");
+ok(/body\[data-lang="zh"\] \.l-en \{ display: none; \}/.test(siteCss),
+   "style.css：中文模式隱藏 .l-en");
+
+const t0id = LESSONS.topics[0].id;
+const tI18n = bootLang("topic.html", "?t=" + t0id + "&p=" + firstMcIndex(LESSONS.topics[0]), null, "both");
+const cI18n = tI18n.$$("#topic-body .card[data-qid]")[0];
+ok(!!cI18n.querySelector(".q-stem .l-zh") && !!cI18n.querySelector(".q-stem .l-en"),
+   "MC 題幹有中英兩份");
+cI18n.querySelector(".hint-row button").click();            // 顯示第一步
+const stI18n = cI18n.querySelector(".step");
+ok(!!stI18n.querySelector("h4 .l-zh") && !!stI18n.querySelector("h4 .l-en"),
+   "題解步驟標題有中英兩份");
+ok(!!stI18n.querySelector(".why .l-zh") && !!stI18n.querySelector(".why .l-en"),
+   "題解步驟解說有中英兩份");
+cI18n.querySelectorAll(".opt")[0].click();                  // 作答 → 出答案行／陷阱／技巧
+ok(!!tI18n.$(".answer-line .l-zh") && !!tI18n.$(".answer-line .l-en"), "答案行有中英兩份");
+ok(tI18n.$$(".trap .l-zh").length >= 1 && tI18n.$$(".trap .l-en").length >= 1,
+   "陷阱解說有中英兩份");
+ok(!!tI18n.$(".tip .l-zh") && !!tI18n.$(".tip .l-en"), "「帶得走的技巧」有中英兩份");
+
+const tCards = bootLang("topic.html", "?t=" + t0id + "&p=0", null, "both");
+ok(!!tCards.$(".ccard-body > .l-zh") && !!tCards.$(".ccard-body > .l-en"),
+   "概念卡正文有中英兩份");
+ok(tCards.$$(".ccard-body > .l-en .katex").length >= 1, "英文正文的公式一樣經 KaTeX 渲染");
+
+/* 切語言要重繪：單語文字（T() 出來那些）也要跟著轉 */
+const tSwitch = bootLang("topic.html", "?t=" + t0id + "&p=" + firstMcIndex(LESSONS.topics[0]), null, "zh");
+const chipZh = tSwitch.$(".cmd-hints .ch-title").textContent;
+tSwitch.ctx.window.LEARN_I18N.set("en");
+const chipEn = tSwitch.$(".cmd-hints .ch-title").textContent;
+ok(chipZh !== chipEn && /Command/.test(chipEn),
+   "切到英文後，題目字眼標題變成英文（" + chipZh + " → " + chipEn + "）");
+
+/* ── 10. 基調驗證：問 AI 提問生成 ────────────────────────────────────── */
+console.log("\n— 基調：問 AI 提問生成 —");
+const MC0 = BANK.filter((q) => q.type === "mc")[0];
+const pQ = bootLang("topic.html", "?t=" + MC0.topic + "&p=" + firstMcIndex(LESSONS.topics[0]), null, "zh");
+const aiBtn = pQ.$("#topic-body .card[data-qid] .hint-row .btn-ai");
+ok(!!aiBtn, "練習題有「問 AI」按鈕");
+pQ.$("#topic-body .card[data-qid] .hint-row button").click();     // 先顯示第一步 → 應該出「問 AI」小按鈕
+ok(pQ.$$("#topic-body .card[data-qid] .ai-step").length === 1, "每個題解步驟旁有「問 AI」小按鈕");
+
+pQ.$$("#topic-body .card[data-qid] .ai-step")[0].click();         // 聚焦第 1 步的提問
+const modal = pQ.$(".prompt-modal");
+ok(!!modal, "按「問 AI」會開提問視窗");
+const prev = pQ.$(".pm-preview");
+const statusEl = pQ.$(".pm-status");        // 關窗後節點仍在，Promise 完成後才驗
+const txt = prev ? prev.value : "";
+ok(txt.length > 150, "視窗即時生成 prompt（" + txt.length + " 字）");
+ok(txt.indexOf(MC0.code) >= 0, "prompt 帶入題號 " + MC0.code);
+ok(txt.indexOf("第 1 步") >= 0, "prompt 指明聚焦第 1 步");
+ok(/DSE/.test(txt) && /補底老師|考生/.test(txt), "prompt 帶入角色與學生情境");
+ok(txt.indexOf("請你這樣做") >= 0, "prompt 有列明要求");
+
+const cb = pQ.$('.pm-opt input[data-opt="simpler"]');
+cb.checked = true;
+cb.onchange();
+ok(pQ.$(".pm-preview").value.indexOf("更淺白") >= 0, "勾選「用更淺白的方式解釋」會加入相應要求");
+
+pQ.$("[data-pm-copy]").click();
+ok(pQ.clip() === pQ.$(".pm-preview").value, "按「複製」會把整份 prompt 寫入剪貼簿");
+pQ.$(".pm-x").click();
+ok(!pQ.$(".prompt-modal"), "按 ✕ 會關閉視窗");
+
+/* 英文模式：同一題要生成英文 prompt */
+const pEN = bootLang("topic.html", "?t=" + MC0.topic + "&p=" + firstMcIndex(LESSONS.topics[0]), null, "en");
+pEN.$("#topic-body .card[data-qid] .hint-row .btn-ai").click();
+const txtEn = pEN.$(".pm-preview").value;
+ok(/tutor|HKDSE/.test(txtEn) && /DSE Mathematics candidate/.test(txtEn), "英文模式生成英文 prompt");
+ok(!/請你這樣做/.test(txtEn), "英文 prompt 內不含中文字眼");
+
+/* 提示模板本身：中英對稱（新增課題不用改，但改模板要齊）*/
+const TPL = JSON.parse(indexJs.slice(indexJs.indexOf("{"), indexJs.lastIndexOf("}") + 1)).promptTemplates;
+ok(!!TPL && !!TPL.zh && !!TPL.en, "index.js 已內嵌中英各一份提問模板");
+ok(TPL.zh.requirements.length === TPL.en.requirements.length, "中英模板的要求數目一致");
+ok(["simpler", "examples", "examTips", "visual", "practice"].every(
+   (k) => TPL.zh.options[k] && TPL.en.options[k] && TPL.zh.optionLabels[k] && TPL.en.optionLabels[k]),
+   "五個可選項中英齊全（含標籤）");
+
+/* 剪貼簿是 Promise，最後等一個 microtask 才驗狀態提示，然後才總結 */
+setTimeout(() => {
+  ok(!!statusEl && /已複製/.test(statusEl.textContent), "複製後顯示狀態提示（剪貼簿完成後）");
+  console.log("\n" + (fails ? fails + " test(s) FAILED" : "all DSE Pass smoke tests passed"));
+  process.exit(fails ? 1 : 0);
+}, 0);
