@@ -143,6 +143,17 @@ for (const t of LESSONS.topics) {
     const dots = pdemo.$("#pagenav .pg-more");
     ok(!!dots && dots.dataset.page === "4" && /收起/.test(dots.title || ""),
        "「…」指向第一條收起的題目（第 4 格＝Q4），並說明收起了幾題");
+    /* 摺疊後「現時頁」與「✓ 完成」都要認 dataset.page（不再靠 .pg 清單位置）：
+       ws01c 第 32 格 = 第 4 節第 5 題（Q29）—— 摺疊後它排在第 7 個位置 */
+    const dNav = boot("topic.html", "?t=" + t.id + "&p=32",
+      JSON.stringify({ mc: {}, long: { "eph-ws01c-q29": true }, cards: {}, weak: {} }), "zh");
+    const curCell = dNav.$("#pagenav .pg.current");
+    ok(!!curCell && curCell.dataset.page === "32",
+       "摺疊後「現時頁」仍指對格（dataset.page=" + (curCell && curCell.dataset.page) + "）");
+    const doneCells = dNav.$$("#pagenav .pg.done");
+    ok(doneCells.length === 1 && doneCells[0].dataset.page === "32",
+       "摺疊後「✓ 完成」標在正確的格（" +
+       doneCells.map((x) => x.dataset.page).join(",") + "）");
     /* 頁底要有「← 上一題」（按「全部顯示」看完示範後才會出現；跳頁本身是 go()，jsdom 不模擬） */
     const pPrev = boot("topic.html", "?t=" + t.id + "&p=5");     // 第 5 格 = 第 1 節的第 5 題
     const allB = pPrev.$$(".card .btn").filter((b) => /全部顯示/.test(b.textContent || ""))[0];

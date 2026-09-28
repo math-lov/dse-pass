@@ -571,8 +571,19 @@
       // 分頁列係橫向捲動（捲軸隱藏），要自動捲到「目前這一頁」——
       // 否則學生只看得到左邊幾頁，右邊（第 2 節／後面的練習頁）永遠「顯示不了」。
       var curBtn = navPageBtn(cur);
-      if (curBtn && typeof curBtn.scrollIntoView === "function") {
-        try { curBtn.scrollIntoView({ block: "nearest", inline: "center" }); } catch (e) {}
+      if (curBtn) {
+        if (typeof curBtn.scrollIntoView === "function") {
+          try { curBtn.scrollIntoView({ block: "nearest", inline: "center" }); } catch (e) {}
+        }
+        // 保險（部分瀏覽器對橫向容器的 scrollIntoView 支援不一）：直接計 scrollLeft，
+        // 令「現時頁」永遠置中，不會出現按完題號分頁列彈回最左的情況。
+        try {
+          var rb = curBtn.getBoundingClientRect();
+          var nb = nav.getBoundingClientRect();
+          if (rb && nb && nav.clientWidth) {
+            nav.scrollLeft += (rb.left - nb.left) - (nav.clientWidth - rb.width) / 2;
+          }
+        } catch (e) {}
       }
 
       updateWrongBadge();
@@ -580,10 +591,16 @@
   }
 
   /* 分頁列的「第 i 頁」按鈕。
-     注意：分頁列中間可能夾雜「第 N 節」分隔元素，所以**不可以**用 nav.children[i]，
-     一定要用 .pg 清單取第 i 個，否則會標錯完成的頁。 */
+     注意：中間會夾雜「第 N 節」分隔元素，而且現在會把不需要的題目收成「…」
+     （渲染出來的格數 ≠ 頁數），所以**不可以**用 nav.children[i]，也不可以用
+     .pg 清單的第 i 個 —— 一定要認 dataset.page，否則「✓ 完成」會標錯格，
+     而且「自動捲到現時頁」會失效（學生按完題號後分頁列彈回最左）。 */
   function navPageBtn(i) {
-    return qsa("#pagenav .pg")[i] || null;
+    var cells = qsa("#pagenav .pg");
+    for (var k = 0; k < cells.length; k++) {
+      if (cells[k].dataset.page === String(i)) return cells[k];
+    }
+    return null;
   }
 
   function gotoPage(tid, n) {

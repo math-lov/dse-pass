@@ -500,7 +500,7 @@ ok(t07.$$("#pagenav .pg").length === 12, "ws06 = two lessons (1+2+3 and 1+2+3 pa
 | 練習頁求助連結 | `.help-link`（app.js） | 每個練習頁底部連去 `start.html` |
 | 弱點升級庫 | `wrong.html` | **前稱「錯題本」**，全站已改名 |
 | 多節課題分節標籤 | `.pagenav .pg-lesson` | 自動插入「第 N 節」；題目列顯示「第 N 節 · 第 X / Y 頁」 |
-| ⚠️「完成」標記 | app.js `navPageBtn()` | **一定要用 `.pg` 清單索引**，不可用 `nav.children[i]`（分節標籤會令索引錯位） |
+| ⚠️「完成」標記／自動捲到現時頁 | app.js `navPageBtn()` | **一定要用 `dataset.page` 找回那一格**，不可用 `nav.children[i]`（分節標籤會令索引錯位）**也不可用 `.pg` 清單的第 i 個** —— 分頁列摺疊（「…」）之後格數 ≠ 頁數，用位置取會取錯或取不到（曾令「✓ 完成」標錯格、按完題號分頁列彈回最左）。另加 `getBoundingClientRect` 計 `scrollLeft` 作保險，令現時頁永遠置中 |
 | 長題示範逐步出圖 | `figures.json` 的 `step` | 圖跟題解第 N 步出場（`renderLong` 內 `drawStep`） |
 | 長題示範「常見錯誤」 | `.traps.long-traps`（app.js `appendLongTraps`） | 看完所有步驟後列出 `solution.traps`；長題用 `label`（不是 MC 的 `opt`）；琥珀色＝「做完後檢查自己有沒有踩中」，不是「你答錯」 |
 | (a)→(b) 打包替換高亮 | `solution.steps[].link` | 橙色「用 (a) 的答案」區塊 |
