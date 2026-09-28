@@ -977,6 +977,7 @@
       endRow.appendChild(boxt);
       endRow.classList.remove("hidden");
       appendLongTraps(endRow, sol);       // 常見錯誤（只有標了 traps 的示範才有）
+      appendAlt(endRow, sol);             // 進階解法／驗算（例如計算機 Formula 01、數值代入）
       var row = el("div", "row");
       if (opt && opt.prev) {
         var pb = btnPair("btn", { zh: "← 上一條", en: "← Previous" });
@@ -1111,6 +1112,26 @@
     row.appendChild(nx); row.appendChild(hm);
     nextRow.appendChild(row);
     body.appendChild(nextRow);
+  }
+
+  /* 進階解法／驗算（solution.alt）：MC 與長題共用。
+     alt[] = [{ name: {zh,en}, zh: "…$…$…", en: "…" }] —— 數學直接寫在文字裡（$…$ 會自動渲染）。 */
+  function appendAlt(host, sol) {
+    if (!sol || !sol.alt || !sol.alt.length) return;
+    var tgl = btnPair("btn btn-sm btn-ghost alt-toggle",
+                      { zh: "進階解法／驗算（參考）", en: "Alternative method / check (reference)" });
+    var ab = el("div", "alt-body hidden");
+    sol.alt.forEach(function (a, i) {
+      var nm = el("div", "small muted");
+      nm.appendChild(biSpan((a.name && (a.name.zh || a.name.en))
+        ? a.name
+        : { zh: "進階解法 " + (i + 1), en: "Alternative method " + (i + 1) }));
+      ab.appendChild(nm);
+      ab.appendChild(biNode({ zh: a.zh || "", en: a.en || a.zh || "" }));
+    });
+    tgl.onclick = function () { ab.classList.toggle("hidden"); };
+    host.appendChild(tgl);
+    host.appendChild(ab);
   }
 
   function mcCard(q, page, pages, cur, tid, num, total) {
@@ -1303,22 +1324,7 @@
         tip.appendChild(biNode(sol.tip, "span"));
         tail.appendChild(tip);
       }
-      if (sol.alt && sol.alt.length) {
-        var tgl = btnPair("btn btn-sm btn-ghost alt-toggle",
-                          { zh: "進階解法（參考）", en: "Advanced method (reference)" });
-        var ab = el("div", "alt-body hidden");
-        sol.alt.forEach(function (a, i) {
-          var nm = el("div", "small muted");
-          nm.appendChild(biSpan((a.name && (a.name.zh || a.name.en))
-            ? a.name
-            : { zh: "進階解法 " + (i + 1), en: "Advanced method " + (i + 1) }));
-          ab.appendChild(nm);
-          ab.appendChild(biNode({ zh: a.zh || "", en: a.en || a.zh || "" }));
-        });
-        tgl.onclick = function () { ab.classList.toggle("hidden"); };
-        tail.appendChild(tgl);
-        tail.appendChild(ab);
-      }
+      appendAlt(tail, sol);          // 進階解法／驗算（MC 與長題共用同一個元件）
       if (aiOn()) {
         var ai = btnPair("btn btn-sm btn-ai",
                          { zh: "問 AI：我唔明白這題的某一步", en: "Ask AI about a step of this question" });

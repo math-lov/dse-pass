@@ -136,8 +136,8 @@
     }
    ],
    "warn": {
-    "zh": "因式拆解後必須透過「交叉相乘再相加」核對中間項正負號。\n香港考評局計算機保底技巧：若心算難以找出組合，可使用文憑試准用計算機（如 Casio fx-50FH II）內置的二次方程公式 Formula 01（按 FMLA 01），依序輸入 $a, b, c$ 求得兩根 $x_1, x_2$。若方程的根為 $x = 2$ 與 $x = 3$，對應的因式分解即為 $(x-2)(x-3)$。注意此方法僅適用於單一未知數題目；若含有雙變數（如 $3x^{2}+7xy+2y^{2}$），仍須掌握標準十字相乘法。",
-    "en": "Always check the signs of the middle term by cross-multiplying and adding.\nCalculator safety net (HKEAA-approved models such as Casio fx-50FH II): if the combination is hard to spot, use the built-in quadratic formula (press FMLA 01), enter $a$, $b$, $c$ and read the two roots $x_1$, $x_2$. Roots $x=2$ and $x=3$ correspond to the factorization $(x-2)(x-3)$. This works only for a single unknown; with two variables (e.g. $3x^{2}+7xy+2y^{2}$) you still need the standard cross-method."
+    "zh": "因式拆解後必須透過「交叉相乘再相加」核對中間項的正負號。\n計算機保底技巧（DSE 准用型號，如 Casio fx-50FH II）：按 FMLA 01，輸入 $a$、$b$、$c$ 求出兩根。\n黃金法則：若根是分數 $x=\\frac{p}{q}$，對應因式一定是 $(qx-p)$ —— 分母移給 $x$、分子變號。\n例：$2x^{2}+5x-12=0$ 得 $x=\\frac{3}{2}$ 與 $x=-4$，因式即 $(2x-3)(x+4)$（$x=-4\\Rightarrow(x+4)$，整數根就寫 $(x+4)$）。\n注意：此法只用於單一未知數。雙變數（如 $3x^{2}+7xy+2y^{2}$）可先把 $y$ 當作 $1$ 求根，再補回 $y$；否則仍要用標準十字相乘法。",
+    "en": "After splitting the terms, always check the sign of the middle term by cross-multiplying and adding.\nCalculator safety net (HKEAA-approved models such as Casio fx-50FH II): press FMLA 01, enter $a$, $b$, $c$ and read the two roots.\nGolden rule: if a root is a fraction $x=\\frac{p}{q}$, the factor is $(qx-p)$ — the denominator moves to $x$ and the numerator changes sign.\nExample: $2x^{2}+5x-12=0$ gives $x=\\frac{3}{2}$ and $x=-4$, so the factorization is $(2x-3)(x+4)$.\nNote: this only works for a single unknown. With two variables (e.g. $3x^{2}+7xy+2y^{2}$), treat $y$ as $1$ first and put it back afterwards, or use the standard cross-method."
    }
   },
   {

@@ -115,7 +115,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q1",
       "source": "WS01 · DSE Paper 2 MC Q1 · [HKCEE 2006 Paper 2 Q4]",
       "stem": {
-       "en": "$ac-bc-ad+bd=$"
+       "en": "Factorize $ac-bc-ad+bd$.",
+       "zh": "因式分解 $ac-bc-ad+bd$。"
       },
       "options": {
        "A": "$(a + b)(c - d)$",
@@ -175,7 +176,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "分組三件事：分對組 → 各自抽公因式 → 兩個括號要一模一樣。",
         "en": "Grouping in three moves: split into pairs, factor each pair, and the two brackets must match exactly."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $a=2$, $b=3$, $c=5$, $d=7$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $a=2$, $b=3$, $c=5$, $d=7$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -189,7 +200,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q2",
       "source": "WS01 · DSE Paper 2 MC Q2 · [HKCEE 2006 Paper 2 Q4]",
       "stem": {
-       "en": "$pr+ps-qs-qr=$"
+       "en": "Factorize $pr+ps-qs-qr$.",
+       "zh": "因式分解 $pr+ps-qs-qr$。"
       },
       "options": {
        "A": "$(r + s)(p - q)$",
@@ -249,7 +261,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "後兩項抽出來的括號次序倒轉不要緊（$s+r=r+s$），但符號要對。",
         "en": "It is fine if the second bracket comes out in a different order ($s+r=r+s$), but the signs must be right."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $p=2$, $q=3$, $r=5$, $s=7$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $p=2$, $q=3$, $r=5$, $s=7$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -263,7 +285,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q3",
       "source": "WS01 · DSE Paper 2 MC Q3 · [HKCEE 2010 Paper 2 Q4]",
       "stem": {
-       "en": "$2xy-xz+4y^{2}-2yz=$"
+       "en": "Factorize $2xy-xz+4y^{2}-2yz$.",
+       "zh": "因式分解 $2xy-xz+4y^{2}-2yz$。"
       },
       "options": {
        "A": "$(x - 2y)(2y - z)$",
@@ -323,7 +346,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "四項題先問自己「哪兩項有同一個括號」，答案通常就在那個括號裡。",
         "en": "With four terms, ask which two terms share a bracket — the answer usually sits in that bracket."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $x=2$, $y=3$, $z=5$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $x=2$, $y=3$, $z=5$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      }
@@ -339,7 +372,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q4",
       "source": "WS01 · DSE Paper 2 MC Q4 · [HKCEE 2010 Paper 2 Q4]",
       "stem": {
-       "en": "$pq-2pr-p^{2}+2qr=$"
+       "en": "Factorize $pq-2pr-p^{2}+2qr$.",
+       "zh": "因式分解 $pq-2pr-p^{2}+2qr$。"
       },
       "options": {
        "A": "$(p - q)(p + 2r)$",
@@ -399,7 +433,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "分組失敗就調位：把「有共同括號」的兩項拉在一起，這是四項題的常規動作。",
         "en": "If the grouping fails, rearrange: pull together the two terms that share a bracket."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $p=2$, $q=3$, $r=5$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $p=2$, $q=3$, $r=5$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -413,7 +457,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q5",
       "source": "WS01 · DSE Paper 2 MC Q5 · [HKCEE 2010 Paper 2 Q4]",
       "stem": {
-       "en": "$6xy-2yz+4xz-3y^{2}=$"
+       "en": "Factorize $6xy-2yz+4xz-3y^{2}$.",
+       "zh": "因式分解 $6xy-2yz+4xz-3y^{2}$。"
       },
       "options": {
        "A": "$(2x - y)(3y - 2z)$",
@@ -473,7 +518,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "一組抽負公因式（$-y$）可以令兩個括號一致；不要怕負號。",
         "en": "Taking out a negative common factor ($-y$) can make the two brackets match — do not fear the minus."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $x=2$, $y=3$, $z=5$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $x=2$, $y=3$, $z=5$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -487,7 +542,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q6",
       "source": "WS01 · DSE Paper 2 MC Q6 · [HKDSE 2013 Paper 2 Q3]",
       "stem": {
-       "en": "$pr-qr-ps+qs+pt-qt=$"
+       "en": "Factorize $pr-qr-ps+qs+pt-qt$.",
+       "zh": "因式分解 $pr-qr-ps+qs+pt-qt$。"
       },
       "options": {
        "A": "$(p - q)(r - s + t)$",
@@ -547,7 +603,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "項數多過四項照樣分組：三組、四組都可以，只要最後出現同一個括號。",
         "en": "More than four terms still works: group into threes or fours as long as one bracket appears everywhere."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $p=2$, $q=3$, $r=5$, $s=7$, $t=11$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $p=2$, $q=3$, $r=5$, $s=7$, $t=11$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      }
@@ -563,7 +629,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q7",
       "source": "WS01 · DSE Paper 2 MC Q7 · [HKDSE 2013 Paper 2 Q3]",
       "stem": {
-       "en": "$-bx+ax+ay-by-az+bz=$"
+       "en": "Factorize $-bx+ax+ay-by-az+bz$.",
+       "zh": "因式分解 $-bx+ax+ay-by-az+bz$。"
       },
       "options": {
        "A": "$(a + b)(x - y + z)$",
@@ -623,7 +690,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "首項是負號（$-bx$）時，把它連同 $b$ 一起抽成 $-b(\\;)$，很多時兩個括號就會一模一樣。",
         "en": "When the first term is negative ($-bx$), take it out as $-b(\\;)$ together with $b$ — the two brackets often then match."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $a=2$, $b=3$, $x=5$, $y=7$, $z=11$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $a=2$, $b=3$, $x=5$, $y=7$, $z=11$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -637,7 +714,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q8",
       "source": "WS01 · DSE Paper 2 MC Q8 · [HKDSE 2020 Paper 2 Q4]",
       "stem": {
-       "en": "$(4x-3y)(2x+7y)-x(12x-9y)=$"
+       "en": "Factorize $(4x-3y)(2x+7y)-x(12x-9y)$.",
+       "zh": "因式分解 $(4x-3y)(2x+7y)-x(12x-9y)$。"
       },
       "options": {
        "A": "$(4x - 3y)(-x + 7y)$",
@@ -697,7 +775,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "看到 $(12x-9y)$ 就問一句：它是不是某個括號的倍數？$12x-9y=3(4x-3y)$ —— 這是卷二的常見陷阱。",
         "en": "When you see $(12x-9y)$, ask whether it is a multiple of another bracket: $12x-9y=3(4x-3y)$. A classic Paper 2 trap."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $x=2$, $y=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $x=2$, $y=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -711,7 +799,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q9",
       "source": "WS01 · DSE Paper 2 MC Q9 · [HKDSE 2020 Paper 2 Q4]",
       "stem": {
-       "en": "$(7u-4v)(5u-6v)-3u(10u-12v)=$"
+       "en": "Factorize $(7u-4v)(5u-6v)-3u(10u-12v)$.",
+       "zh": "因式分解 $(7u-4v)(5u-6v)-3u(10u-12v)$。"
       },
       "options": {
        "A": "$(5u + 6v)(u + 4v)$",
@@ -771,7 +860,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "減號在括號前面，抽公因式後「整條括號」都要減 —— 卷二最常考這個位。",
         "en": "With a minus in front, the whole bracket is subtracted — one of the most common Paper 2 traps."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $u=2$, $v=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $u=2$, $v=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      }
@@ -787,7 +886,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q10",
       "source": "WS01 · DSE Paper 2 MC Q10 · [HKDSE 2016 Paper 2 Q3]",
       "stem": {
-       "en": "$36-(3x-2y)^{2}=$"
+       "en": "Factorize $36-(3x-2y)^{2}$.",
+       "zh": "因式分解 $36-(3x-2y)^{2}$。"
       },
       "options": {
        "A": "$(6 - 3x - 2y)(6 + 3x + 2y)$",
@@ -847,7 +947,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "平方差題：先把兩邊都寫成「某個整體」的平方（$36=6^{2}$），再套公式；括號千萬不要拆散。",
         "en": "Difference of two squares: first write both parts as squares of a single object ($36=6^{2}$), then apply the identity — never split the bracket."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "另解二：卷二 MC 專用數值代入法（Substitution）",
+          "en": "Method 3: substitution strategy for MC"
+         },
+         "zh": "代 $x=1$、$y=1$：原式 $=36-(3-2)^{2}=35$；A 得 $11$、B 得 $7$、C 得 $55$、D 得 $35$ → 只有 D 相符。",
+         "en": "Put $x=1$, $y=1$: the expression is $36-(3-2)^{2}=35$; A gives $11$, B gives $7$, C gives $55$ and D gives $35$ — only D matches."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -861,7 +971,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q11",
       "source": "WS01 · DSE Paper 2 MC Q11 · [HKDSE 2016 Paper 2 Q3]",
       "stem": {
-       "en": "$49-(4r-3s)^{2}=$"
+       "en": "Factorize $49-(4r-3s)^{2}$.",
+       "zh": "因式分解 $49-(4r-3s)^{2}$。"
       },
       "options": {
        "A": "$(7 - 4r - 3s)(7 + 4r - 3s)$",
@@ -921,7 +1032,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "「$\\square-(\\;)^{2}$」永遠是平方差；拆括號時只變「減法那一個」的符號。",
         "en": "Anything of the form $\\square-(\\;)^{2}$ is a difference of two squares; only the subtracted bracket flips sign."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "另解二：卷二 MC 專用數值代入法（Substitution）",
+          "en": "Method 3: substitution strategy for MC"
+         },
+         "zh": "代 $r=1$、$s=1$：原式 $=49-(4-3)^{2}=48$；A 得 $0$、B 得 $0$、C 得 $48$、D 得 $84$ → 只有 C 相符。",
+         "en": "Put $r=1$, $s=1$: the expression is $49-(4-3)^{2}=48$; A gives $0$, B gives $0$, C gives $48$ and D gives $84$ — only C matches."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -935,7 +1056,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q12",
       "source": "WS01 · DSE Paper 2 MC Q12 · [HKDSE 2012 Paper 2 Q2]",
       "stem": {
-       "en": "$(3p+q)^{2}-(3p-q)^{2}=$"
+       "en": "Factorize $(3p+q)^{2}-(3p-q)^{2}$.",
+       "zh": "因式分解 $(3p+q)^{2}-(3p-q)^{2}$。"
       },
       "options": {
        "A": "$0$",
@@ -995,7 +1117,25 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "兩個平方相減，用平方差比展開快很多，而且不易錯符號。",
         "en": "For a difference of two squares the identity beats expanding — faster and fewer sign slips."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "另解一：直接完全展開相消（後進生最穩做法）",
+          "en": "Method 2: direct expansion"
+         },
+         "zh": "直接展開兩組完全平方：$(9p^{2}+6pq+q^{2})-(9p^{2}-6pq+q^{2})$。減號後面要整組變號：$9p^{2}+6pq+q^{2}-9p^{2}+6pq-q^{2}$；$9p^{2}$ 與 $q^{2}$ 互相抵消，剩下 $6pq+6pq=12pq$。搞不清公式中括號的正負號時，這條路最穩。",
+         "en": "Expand both squares directly: $(9p^{2}+6pq+q^{2})-(9p^{2}-6pq+q^{2})$. Everything after the minus changes sign: $9p^{2}+6pq+q^{2}-9p^{2}+6pq-q^{2}$. $9p^{2}$ and $q^{2}$ cancel, leaving $6pq+6pq=12pq$ — the safest route if the signs confuse you."
+        },
+        {
+         "name": {
+          "zh": "另解二：卷二 MC 專用數值代入法（Substitution）",
+          "en": "Method 3: substitution strategy for MC"
+         },
+         "zh": "代 $p=1$、$q=2$：原式 $=(3+2)^{2}-(3-2)^{2}=25-1=24$；A 得 $0$、B 得 $8$、C 得 $12$、D 得 $12pq=24$ → 只有 D 相符。",
+         "en": "Put $p=1$, $q=2$: the expression is $(3+2)^{2}-(3-2)^{2}=25-1=24$; A gives $0$, B gives $8$, C gives $12$ and D gives $12(1)(2)=24$ — only D matches."
+        }
+       ]
       },
       "verify": "checked"
      }
@@ -1011,7 +1151,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q13",
       "source": "WS01 · DSE Paper 2 MC Q13 · [HKDSE 2012 Paper 2 Q2]（選項 A 由 OCR 缺字重建，請覆核）",
       "stem": {
-       "en": "$(2a-5b)^{2}-(2a+5b)^{2}=$"
+       "en": "Factorize $(2a-5b)^{2}-(2a+5b)^{2}$.",
+       "zh": "因式分解 $(2a-5b)^{2}-(2a+5b)^{2}$。"
       },
       "options": {
        "A": "$-10ab$",
@@ -1071,7 +1212,25 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "先用公式化簡括號，最後才乘係數 —— 這樣就不會漏乘。",
         "en": "Simplify the brackets with the identity first, multiply the coefficients last — nothing gets missed."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "另解一：直接完全展開相消（後進生最穩做法）",
+          "en": "Method 2: direct expansion"
+         },
+         "zh": "直接展開：$(4a^{2}-20ab+25b^{2})-(4a^{2}+20ab+25b^{2})$$=4a^{2}-20ab+25b^{2}-4a^{2}-20ab-25b^{2}=-40ab$。$a^{2}$ 與 $b^{2}$ 項全部抵消，只剩中間項。",
+         "en": "Expand directly: $(4a^{2}-20ab+25b^{2})-(4a^{2}+20ab+25b^{2})$$=4a^{2}-20ab+25b^{2}-4a^{2}-20ab-25b^{2}=-40ab$. The $a^{2}$ and $b^{2}$ terms cancel and only the middle term survives."
+        },
+        {
+         "name": {
+          "zh": "另解二：卷二 MC 專用數值代入法（Substitution）",
+          "en": "Method 3: substitution strategy for MC"
+         },
+         "zh": "代 $a=1$、$b=1$：原式 $=(2-5)^{2}-(2+5)^{2}=9-49=-40$；A 得 $-10$、B 得 $-20$、C 得 $-40ab=-40$、D 得 $-50$ → 只有 C 相符。",
+         "en": "Put $a=1$, $b=1$: the expression is $(2-5)^{2}-(2+5)^{2}=9-49=-40$; A gives $-10$, B gives $-20$, C gives $-40ab=-40$ and D gives $-50$ — only C matches."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -1085,7 +1244,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q14",
       "source": "WS01 · DSE Paper 2 MC Q14 · [HKDSE 2017 Paper 2 Q1]",
       "stem": {
-       "en": "$x^{2}+xy-2y^{2}+x-y=$"
+       "en": "Factorize $x^{2}+xy-2y^{2}+x-y$.",
+       "zh": "因式分解 $x^{2}+xy-2y^{2}+x-y$。"
       },
       "options": {
        "A": "$(x - y)(x - 2y + 1)$",
@@ -1145,7 +1305,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "四項題：前三項做十字相乘，剩下的那兩項通常正好是「同一個括號」或它的倍數。",
         "en": "For four terms: factorize the first three by the cross-method and the remaining two usually form that same bracket."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $x=2$, $y=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $x=2$, $y=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -1159,7 +1329,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q15",
       "source": "WS01 · DSE Paper 2 MC Q15 · [HKDSE 2017 Paper 2 Q1]",
       "stem": {
-       "en": "$x^{2}-3xy-10y^{2}+3x-15y=$"
+       "en": "Factorize $x^{2}-3xy-10y^{2}+3x-15y$.",
+       "zh": "因式分解 $x^{2}-3xy-10y^{2}+3x-15y$。"
       },
       "options": {
        "A": "$(x - 5y)(x + 2y + 3)$",
@@ -1219,7 +1390,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "四項題：前三項做十字相乘，後兩項通常就是那個括號的倍數。",
         "en": "Four terms: factorize the first three by the cross-method; the last two are usually a multiple of that bracket."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $x=2$, $y=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $x=2$, $y=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      }
@@ -1235,7 +1416,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q16",
       "source": "WS01 · DSE Paper 2 MC Q16 · [HKDSE 2017 Paper 2 Q1]",
       "stem": {
-       "en": "$5a^{2}-8ab+3b^{2}+b-a=$"
+       "en": "Factorize $5a^{2}-8ab+3b^{2}+b-a$.",
+       "zh": "因式分解 $5a^{2}-8ab+3b^{2}+b-a$。"
       },
       "options": {
        "A": "$(a - b)(5a - 3b - 1)$",
@@ -1295,7 +1477,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "「$-a+b$」這類倒轉的兩項，一律寫成 $-(a-b)$，之後就對得上。",
         "en": "When two terms such as $-a+b$ appear reversed, write them as $-(a-b)$ and the brackets will match."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $a=2$, $b=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $a=2$, $b=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -1309,7 +1501,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q17",
       "source": "WS01 · DSE Paper 2 MC Q17 · [HKDSE Sample Paper 2 Q3]",
       "stem": {
-       "en": "$x^{2}-y^{2}+4y-4=$"
+       "en": "Factorize $x^{2}-y^{2}+4y-4$.",
+       "zh": "因式分解 $x^{2}-y^{2}+4y-4$。"
       },
       "options": {
        "A": "$(x - y - 2)(x + y - 2)$",
@@ -1369,7 +1562,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "$x^{2}-(\\;)^{2}$ 的關鍵是「先製造平方」：後三項抽成 $-(y-2)^{2}$。",
         "en": "For $x^{2}-(\\;)^{2}$, first create the square: the last three terms become $-(y-2)^{2}$."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $x=2$, $y=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $x=2$, $y=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -1383,7 +1586,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q18",
       "source": "WS01 · DSE Paper 2 MC Q18 · [HKDSE Sample Paper 2 Q3]",
       "stem": {
-       "en": "$m^{2}-9n^{2}-6n-1=$"
+       "en": "Factorize $m^{2}-9n^{2}-6n-1$.",
+       "zh": "因式分解 $m^{2}-9n^{2}-6n-1$。"
       },
       "options": {
        "A": "$(m + 3n + 1)(m - 3n - 1)$",
@@ -1443,7 +1647,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "「$\\square-\\triangle$」型的四項題：三項抽成一個平方，再用平方差；括號內的符號只變一次。",
         "en": "For four-term questions of the shape $\\square-\\triangle$: make three terms into a square, then use the difference of two squares — the signs flip only once."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $m=2$, $n=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $m=2$, $n=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      }
@@ -1459,7 +1673,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q19",
       "source": "WS01 · DSE Paper 2 MC Q19 · [HKDSE Sample Paper 2 Q3]",
       "stem": {
-       "en": "$16-4a^{2}+20ab-25b^{2}=$"
+       "en": "Factorize $16-4a^{2}+20ab-25b^{2}$.",
+       "zh": "因式分解 $16-4a^{2}+20ab-25b^{2}$。"
       },
       "options": {
        "A": "$(4 - 2a + 5b)(4 - 2a - 5b)$",
@@ -1519,7 +1734,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "平方差前必先確認「括號內是完全平方」：交叉項 $20ab=2(2a)(5b)$。",
         "en": "Before using the difference of two squares, confirm the bracket is a perfect square: $20ab=2(2a)(5b)$."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $a=2$, $b=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $a=2$, $b=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -1533,7 +1758,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q20",
       "source": "WS01 · DSE Paper 2 MC Q20 · [HKDSE Practice Paper 2 Q3]",
       "stem": {
-       "en": "$x^{2}-y^{2}-x+y=$"
+       "en": "Factorize $x^{2}-y^{2}-x+y$.",
+       "zh": "因式分解 $x^{2}-y^{2}-x+y$。"
       },
       "options": {
        "A": "$(x - y)(x + y - 1)$",
@@ -1593,7 +1819,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "見到 $x^{2}-y^{2}$ 先平方差，剩下的項再抽同一個括號 —— 卷二很多題都是這兩步。",
         "en": "When you see $x^{2}-y^{2}$, do the difference of two squares first and then factor the same bracket out of what is left."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $x=2$, $y=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $x=2$, $y=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -1607,7 +1843,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q21",
       "source": "WS01 · DSE Paper 2 MC Q21 · [HKDSE 2014 Paper 2 Q2]",
       "stem": {
-       "en": "$u^{2}-v^{2}-3u-3v=$"
+       "en": "Factorize $u^{2}-v^{2}-3u-3v$.",
+       "zh": "因式分解 $u^{2}-v^{2}-3u-3v$。"
       },
       "options": {
        "A": "$(u + v)(u - v - 3)$",
@@ -1667,7 +1904,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "負號在整組前面（$-3u-3v$）就抽一個負公因式：$-3(u+v)$，這樣兩項才對得上。",
         "en": "When a minus covers a whole pair ($-3u-3v$), factor out a negative: $-3(u+v)$ — then both terms match."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $u=2$, $v=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $u=2$, $v=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      }
@@ -1683,7 +1930,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q22",
       "source": "WS01 · DSE Paper 2 MC Q22 · [HKDSE 2014 Paper 2 Q2]",
       "stem": {
-       "en": "$4p^{2}-q^{2}+8p-4q=$"
+       "en": "Factorize $4p^{2}-q^{2}+8p-4q$.",
+       "zh": "因式分解 $4p^{2}-q^{2}+8p-4q$。"
       },
       "options": {
        "A": "$(2p + q)(2p - q - 4)$",
@@ -1743,7 +1991,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "$+8p-4q$ 這種兩項，先抽 $4$ 看看能不能變成前面那個括號。",
         "en": "For a pair such as $+8p-4q$, take out $4$ and check whether it becomes the earlier bracket."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $p=2$, $q=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $p=2$, $q=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -1757,7 +2015,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q23",
       "source": "WS01 · DSE Paper 2 MC Q23 · [HKDSE 2014 Paper 2 Q2]",
       "stem": {
-       "en": "$9m^{2}-4n^{2}-6m-4n=$"
+       "en": "Factorize $9m^{2}-4n^{2}-6m-4n$.",
+       "zh": "因式分解 $9m^{2}-4n^{2}-6m-4n$。"
       },
       "options": {
        "A": "$(3m - 2n)(3m + 2n - 2)$",
@@ -1817,7 +2076,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "先平方差、後抽公因式：$-(6m+4n)$ 抽 $-2$ 就可以對上 $(3m+2n)$。",
         "en": "Difference of two squares first, then factor: taking $-2$ out of $-(6m+4n)$ matches $(3m+2n)$."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $m=2$, $n=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $m=2$, $n=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -1831,7 +2100,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q24",
       "source": "WS01 · DSE Paper 2 MC Q24 · [HKDSE 2022 Paper 2 Q1]",
       "stem": {
-       "en": "$a^{2}+a-b^{2}-b=$"
+       "en": "Factorize $a^{2}+a-b^{2}-b$.",
+       "zh": "因式分解 $a^{2}+a-b^{2}-b$。"
       },
       "options": {
        "A": "$(a + b)(a - b + 1)$",
@@ -1891,7 +2161,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "四項題先「調位」：把能配成平方差的兩項放在一起，通常就通了。",
         "en": "For four terms, rearrange first: put the two terms that form a difference of two squares together."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $a=2$, $b=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $a=2$, $b=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      }
@@ -1907,7 +2187,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q25",
       "source": "WS01 · DSE Paper 2 MC Q25 · [HKDSE 2022 Paper 2 Q1]",
       "stem": {
-       "en": "$m^{2}+n-m-n^{2}=$"
+       "en": "Factorize $m^{2}+n-m-n^{2}$.",
+       "zh": "因式分解 $m^{2}+n-m-n^{2}$。"
       },
       "options": {
        "A": "$(m - n)(m + n + 1)$",
@@ -1967,7 +2248,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "「$-m+n$」寫成 $-(m-n)$：一個負號，就令兩項對得上。",
         "en": "Write $-m+n$ as $-(m-n)$ — one minus sign makes the two terms match."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $m=2$, $n=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $m=2$, $n=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -1981,7 +2272,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q26",
       "source": "WS01 · DSE Paper 2 MC Q26 · [HKDSE 2018 Paper 2 Q3]",
       "stem": {
-       "en": "$h^{2}-4h-k^{2}+4k=$"
+       "en": "Factorize $h^{2}-4h-k^{2}+4k$.",
+       "zh": "因式分解 $h^{2}-4h-k^{2}+4k$。"
       },
       "options": {
        "A": "$(h - k)(h + k - 4)$",
@@ -2041,7 +2333,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "負號包住兩項（$-4h+4k$）→ 抽 $-4$，令它變成前面那個括號。",
         "en": "When a minus covers a pair ($-4h+4k$), take out $-4$ so that it becomes the earlier bracket."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $h=2$, $k=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $h=2$, $k=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      },
@@ -2055,7 +2357,8 @@ window.LEARN_TOPIC_WS01B = {
       "code": "WS1C-Q27",
       "source": "WS01 · DSE Paper 2 MC Q27 · [HKDSE 2018 Paper 2 Q3]",
       "stem": {
-       "en": "$m^{2}-2m-9n^{2}-6n=$"
+       "en": "Factorize $m^{2}-2m-9n^{2}-6n$.",
+       "zh": "因式分解 $m^{2}-2m-9n^{2}-6n$。"
       },
       "options": {
        "A": "$(m - 3n)(m - 3n + 2)$",
@@ -2115,7 +2418,17 @@ window.LEARN_TOPIC_WS01B = {
        "tip": {
         "zh": "先調位成 $(m^{2}-9n^{2})-(2m+6n)$，再抽 $-2$，最後抽 $(m+3n)$。",
         "en": "Rearrange to $(m^{2}-9n^{2})-(2m+6n)$, take out $-2$, then factor $(m+3n)$."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "卷二保底：數值代入法（Substitution）",
+          "en": "Paper 2 safety net: substitution"
+         },
+         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $m=2$, $n=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
+         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $m=2$, $n=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+        }
+       ]
       },
       "verify": "checked"
      }

@@ -167,7 +167,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q2",
      "source": "WS01 · DSE Paper 1 題型 Q2 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -250,7 +251,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q3",
      "source": "WS01 · DSE Paper 1 題型 Q3 [HKCEE 2006 Paper 1 Q3]",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -338,7 +340,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q4",
      "source": "WS01 · DSE Paper 1 題型 Q4 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -426,7 +429,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q5",
      "source": "WS01 · DSE Paper 1 題型 Q5 [HKCEE 2007 Paper 1 Q3]",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -509,7 +513,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q6",
      "source": "WS01 · DSE Paper 1 題型 Q6 [HKCEE 2010 Paper 1 Q3]",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -592,7 +597,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q7",
      "source": "WS01 · DSE Paper 1 題型 Q7 [HKDSE 2013 Paper 1 Q3]",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -675,7 +681,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q8",
      "source": "WS01 · DSE Paper 1 題型 Q8 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -800,7 +807,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q9",
      "source": "WS01 · DSE Paper 1 題型 Q9 [HKDSE 2012 Paper 1 Q3]",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -883,7 +891,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q10",
      "source": "WS01 · DSE Paper 1 題型 Q10 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -966,7 +975,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q11",
      "source": "WS01 · DSE Paper 1 題型 Q11 [HKDSE 2014 Paper 1 Q2]",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -1049,7 +1059,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q12",
      "source": "WS01 · DSE Paper 1 題型 Q12 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -1132,7 +1143,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q13",
      "source": "WS01 · DSE Paper 1 題型 Q13 [HKDSE 2017 Paper 1 Q3, 2021 Paper 1 Q3]",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -1215,7 +1227,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q14",
      "source": "WS01 · DSE Paper 1 題型 Q14 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -1298,7 +1311,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q15",
      "source": "WS01 · DSE Paper 1 題型 Q15 [HKDSE 2020 Paper 1 Q2]",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -1381,7 +1395,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q16",
      "source": "WS01 · DSE Paper 1 題型 Q16 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -1506,7 +1521,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q17",
      "source": "WS01 · DSE Paper 1 題型 Q17 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -1589,7 +1605,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q18",
      "source": "WS01 · DSE Paper 1 題型 Q18 [HKDSE 2015 Paper 1 Q4]",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -1672,7 +1689,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q19",
      "source": "WS01 · DSE Paper 1 題型 Q19 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -1755,7 +1773,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q20",
      "source": "WS01 · DSE Paper 1 題型 Q20 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -1838,7 +1857,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q21",
      "source": "WS01 · DSE Paper 1 題型 Q21 [HKDSE 2018 Paper 1 Q5]",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -1921,7 +1941,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q22",
      "source": "WS01 · DSE Paper 1 題型 Q22 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -2004,7 +2025,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q23",
      "source": "WS01 · DSE Paper 1 題型 Q23 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -2087,7 +2109,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q24",
      "source": "WS01 · DSE Paper 1 題型 Q24 [HKDSE 2016 Paper 1 Q4]",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -2218,7 +2241,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q25",
      "source": "WS01 · DSE Paper 1 題型 Q25 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -2307,7 +2331,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q26",
      "source": "WS01 · DSE Paper 1 題型 Q26 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -2396,7 +2421,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q27",
      "source": "WS01 · DSE Paper 1 題型 Q27 [HKDSE 2019 Paper 1 Q4]",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -2485,7 +2511,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q28",
      "source": "WS01 · DSE Paper 1 題型 Q28 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -2574,7 +2601,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q29",
      "source": "WS01 · DSE Paper 1 題型 Q29 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -2663,7 +2691,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q30",
      "source": "WS01 · DSE Paper 1 題型 Q30 [HKDSE 2022 Paper 1 Q4]",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -2746,7 +2775,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q31",
      "source": "WS01 · DSE Paper 1 題型 Q31 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {
@@ -2829,7 +2859,8 @@ window.LEARN_TOPIC_WS01C = {
      "code": "WS1B-Q32",
      "source": "WS01 · DSE Paper 1 題型 Q32 （同型練習）",
      "stem": {
-      "en": "Factorize"
+      "en": "Factorize",
+      "zh": "因式分解"
      },
      "parts": [
       {

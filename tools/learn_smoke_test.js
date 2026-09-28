@@ -415,13 +415,16 @@ ok(!!wWeak.$(".wrong-item"), "弱點升級庫列出自己加入的長／短答")
 ok(/自己加入/.test((wWeak.$(".wrong-item") || {}).textContent || ""), "標示為「你自己加入的」");
 ok(!!wWeak.$(".wrong-item .btn"), "有「再練一次」按鈕");
 
-/* 題目可以只提供英文（詳解才要中英）：中文模式下也不可以空白 */
+/* 題目現已中英齊全（老師審查要求）：短答題幹要有中英兩份 */
 const scZh = bootLang("topic.html", "?t=" + tDemo.id + "&p=1", null, "zh");
 scZh.$$(".demo-nav .btn")[1].click();      // 示範 2（原有長題）
 scZh.$$(".demo-nav .btn")[1].click();      // 示範 3 = 第一條短答
 const stemZh = scZh.$(".card[data-qid] .q-stem");
-ok(/Factorize/.test((stemZh || {}).textContent || "") && !stemZh.querySelector(".l-zh"),
-   "英文題幹（無中文）在中文模式仍然顯示，且不加 .l-zh");
+ok(!!stemZh.querySelector(".l-zh") && !!stemZh.querySelector(".l-en"),
+   "短答題幹中英齊全（.l-zh ＋ .l-en，biNode 契約）");
+ok(/因式分解/.test(stemZh.querySelector(".l-zh").textContent || "") &&
+   /Factorize/.test(stemZh.querySelector(".l-en").textContent || ""),
+   "短答題幹：中文「因式分解」／英文「Factorize …」");
 ok(!!scZh.$(".card[data-qid] .q-kind"), "短答題有「短答 / Short answer」標記");
 ok(!!scZh.$(".card[data-qid] [data-weak]"), "短答題一樣可以加入弱點升級庫");
 
@@ -470,6 +473,27 @@ ok(TPL.zh.requirements.length === TPL.en.requirements.length, "中英模板的�
 ok(["simpler", "examples", "examTips", "visual", "practice"].every(
    (k) => TPL.zh.options[k] && TPL.en.options[k] && TPL.zh.optionLabels[k] && TPL.en.optionLabels[k]),
    "五個可選項中英齊全（含標籤）");
+
+/* ── 10b. 進階解法／驗算（solution.alt）：MC 與長題共用 ─────────────── */
+console.log("\n— 進階解法／驗算（alt）—");
+const mcAlt = BANK.filter((q) => q.type === "mc" && q.topic === "ws01b");
+ok(mcAlt.length === 27, "ws01b 有 27 題 MC（" + mcAlt.length + "）");
+ok(mcAlt.every((q) => (((SOLS[q.id] || {}).solution || {}).alt || []).length >= 1),
+   "ws01b 每題 MC 都有至少一條另解／驗算（代入法或展開法）");
+ok((((SOLS["eph-ws01b-m12"] || {}).solution || {}).alt || []).length >= 2,
+   "m12 有兩條另解（展開法 ＋ 數值代入法）");
+ok(/\\frac\{1\}\{3\}/.test((((SOLS["eph-ws01-ex01"] || {}).solution || {}).alt || [{}])[0].zh || ""),
+   "ex01 的另解含 Formula 01 求根（$x=\\frac{1}{3}$）");
+const altQ = boot("topic.html", "?t=ws01&p=1", null, "zh");
+const allBtnA = altQ.$$(".card .btn").filter((b) => /全部顯示/.test(b.textContent))[0];
+ok(!!allBtnA, "示範頁有「全部顯示」按鈕");
+if (allBtnA) allBtnA.click();
+ok(!!altQ.$(".alt-toggle"), "看完示範後出現「進階解法／驗算」按鈕（長題也支援 alt）");
+ok(!!altQ.$(".alt-body.hidden"), "另解預設收起");
+if (altQ.$(".alt-toggle")) {
+  altQ.$(".alt-toggle").click();
+  ok(!altQ.$(".alt-body").classList.contains("hidden"), "按一下 → 另解展開");
+}
 
 /* ── 11. 版本戳：一定要是「內容 hash」，不可退回小時制 ─────────────────── */
 console.log("\n— 版本戳（cache stamp）—");

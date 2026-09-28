@@ -179,8 +179,8 @@ window.LEARN_TOPIC_WS01 = {
       }
      ],
      "warn": {
-      "zh": "因式拆解後必須透過「交叉相乘再相加」核對中間項正負號。\n香港考評局計算機保底技巧：若心算難以找出組合，可使用文憑試准用計算機（如 Casio fx-50FH II）內置的二次方程公式 Formula 01（按 FMLA 01），依序輸入 $a, b, c$ 求得兩根 $x_1, x_2$。若方程的根為 $x = 2$ 與 $x = 3$，對應的因式分解即為 $(x-2)(x-3)$。注意此方法僅適用於單一未知數題目；若含有雙變數（如 $3x^{2}+7xy+2y^{2}$），仍須掌握標準十字相乘法。",
-      "en": "Always check the signs of the middle term by cross-multiplying and adding.\nCalculator safety net (HKEAA-approved models such as Casio fx-50FH II): if the combination is hard to spot, use the built-in quadratic formula (press FMLA 01), enter $a$, $b$, $c$ and read the two roots $x_1$, $x_2$. Roots $x=2$ and $x=3$ correspond to the factorization $(x-2)(x-3)$. This works only for a single unknown; with two variables (e.g. $3x^{2}+7xy+2y^{2}$) you still need the standard cross-method."
+      "zh": "因式拆解後必須透過「交叉相乘再相加」核對中間項的正負號。\n計算機保底技巧（DSE 准用型號，如 Casio fx-50FH II）：按 FMLA 01，輸入 $a$、$b$、$c$ 求出兩根。\n黃金法則：若根是分數 $x=\\frac{p}{q}$，對應因式一定是 $(qx-p)$ —— 分母移給 $x$、分子變號。\n例：$2x^{2}+5x-12=0$ 得 $x=\\frac{3}{2}$ 與 $x=-4$，因式即 $(2x-3)(x+4)$（$x=-4\\Rightarrow(x+4)$，整數根就寫 $(x+4)$）。\n注意：此法只用於單一未知數。雙變數（如 $3x^{2}+7xy+2y^{2}$）可先把 $y$ 當作 $1$ 求根，再補回 $y$；否則仍要用標準十字相乘法。",
+      "en": "After splitting the terms, always check the sign of the middle term by cross-multiplying and adding.\nCalculator safety net (HKEAA-approved models such as Casio fx-50FH II): press FMLA 01, enter $a$, $b$, $c$ and read the two roots.\nGolden rule: if a root is a fraction $x=\\frac{p}{q}$, the factor is $(qx-p)$ — the denominator moves to $x$ and the numerator changes sign.\nExample: $2x^{2}+5x-12=0$ gives $x=\\frac{3}{2}$ and $x=-4$, so the factorization is $(2x-3)(x+4)$.\nNote: this only works for a single unknown. With two variables (e.g. $3x^{2}+7xy+2y^{2}$), treat $y$ as $1$ first and put it back afterwards, or use the standard cross-method."
      }
     }
    ],
@@ -272,23 +272,33 @@ window.LEARN_TOPIC_WS01 = {
        },
        {
         "title": {
-         "zh": "第 5 步 · 抽出共同括號完成",
-         "en": "Step 5 · Take out the common bracket"
+         "zh": "第 5 步 · 抽出共同括號，再拆中括號",
+         "en": "Step 5 · Factor out the common bracket, then remove the square brackets"
         },
-        "math": "=(3x-y)(3-5x-2y)",
-        "zh": "此時 $(3x-y)$ 是兩項的共同因式，抽出來得 $(3x-y)[3-(5x+2y)]=(3x-y)(3-5x-2y)$。展開檢查：$(3x-y)(3-5x-2y)=9x-15x^{2}-6xy-3y+5xy+2y^{2}=9x-3y-15x^{2}-xy+2y^{2}$，與題目相符。",
+        "math": "=(3x-y)[3-(5x+2y)]\n=(3x-y)(3-5x-2y)",
+        "zh": "抽出共同括號 $(3x-y)$ 之後，餘下的部分先用中括號整組包住：$[3-(5x+2y)]$。中括號前的減號必須逐項分配：$-(+5x)=-5x$、$-(+2y)=-2y$。寫的時候一定要把中括號這一步寫出來，靠心算跳步是最常見的失分位（很多同學會寫成 $3-5x+2y$）。",
         "marking": "(1A)",
         "highlight": [
          "(3x-y)(3-5x-2y)"
         ],
-        "en": "$(3x-y)$ is now common to both terms, so take it out: $(3x-y)[3-(5x+2y)]=(3x-y)(3-5x-2y)$. Check by expanding: $(3x-y)(3-5x-2y)=9x-15x^{2}-6xy-3y+5xy+2y^{2}=9x-3y-15x^{2}-xy+2y^{2}$, which matches the question."
+        "en": "After factorizing out $(3x-y)$, keep the remainder inside square brackets: $[3-(5x+2y)]$. The minus in front must be distributed to every term: $-(+5x)=-5x$ and $-(+2y)=-2y$. Always write the square-bracket step down — doing it in your head is the classic way to write $3-5x+2y$."
        }
       ],
       "traps": [],
       "tip": {
        "zh": "卷一的因式分解題幾乎都是「(a) 先分一個，(b) 再用 (a)」。(b) 見到四項，先想「哪幾項是 (a) 的式子」，把它們用括號包起來，題目就通了。",
        "en": "Paper 1 factorisation questions are almost always “(a) factorize one expression, (b) use (a)”. In (b), when you see four terms, ask which of them are the expression from (a), bracket them, and the question opens up."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "計算機保底：Formula 01 求根反推因式",
+         "en": "Calculator safety net: roots by Formula 01, then read off the factors"
+        },
+        "zh": "把 $y$ 當作 $1$，$15x^{2}+xy-2y^{2}$ 就變成 $15x^{2}+x-2$。用 DSE 准用計算機（Casio fx-50FH II：按 FMLA 01）輸入 $a=15$、$b=1$、$c=-2$，得兩根 $x=\\frac{1}{3}$ 與 $x=-\\frac{2}{5}$。由根反推因式：$x=\\frac{1}{3}\\Rightarrow(3x-1)$、$x=-\\frac{2}{5}\\Rightarrow(5x+2)$，即 $(3x-1)(5x+2)$；最後把 $y$ 補回每個 $x$ 後面：$(3x-y)(5x+2y)$。（口訣：分母移給 $x$、分子變號 —— 根 $x=\\frac{p}{q}$ 對應因式 $(qx-p)$。）",
+        "en": "Treat $y$ as $1$, so $15x^{2}+xy-2y^{2}$ becomes $15x^{2}+x-2$. On a DSE-approved calculator (Casio fx-50FH II: press FMLA 01) enter $a=15$, $b=1$, $c=-2$ to get $x=\\frac{1}{3}$ and $x=-\\frac{2}{5}$. Turn each root into a factor: $x=\\frac{1}{3}\\Rightarrow(3x-1)$ and $x=-\\frac{2}{5}\\Rightarrow(5x+2)$, i.e. $(3x-1)(5x+2)$. Finally put $y$ back after each $x$: $(3x-y)(5x+2y)$. Rule of thumb: the denominator moves to $x$, the numerator changes sign."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -393,23 +403,33 @@ window.LEARN_TOPIC_WS01 = {
        },
        {
         "title": {
-         "zh": "第 6 步 · 化簡得答案",
-         "en": "Step 6 · Simplify"
+         "zh": "第 6 步 · 逐項分配負號後化簡",
+         "en": "Step 6 · Distribute the minus to each term, then simplify"
         },
-        "math": "=(9c+d-1)(c+d+1)",
-        "zh": "第一個括號：$5c+d+4c-1=9c+d-1$；第二個括號：$5c+d-4c+1=c+d+1$。答案是 $(9c+d-1)(c+d+1)$，這一步是 A 分。",
+        "math": "=(5c+d+4c-1)(5c+d-4c+1)\n=(9c+d-1)(c+d+1)",
+        "zh": "把兩個中括號拆開：第一個 $(5c+d)+(4c-1)$ 直接去括號；第二個 $(5c+d)-(4c-1)$ 前面的減號要逐項分配 —— $-(+4c)=-4c$、$-(-1)=+1$，所以是 $5c+d-4c+1$（不是 $5c+d-4c-1$）。合併同類項後得 $(9c+d-1)(c+d+1)$。",
         "marking": "(1A)",
         "highlight": [
          "(9c+d-1)(c+d+1)"
         ],
-        "en": "First bracket: $5c+d+4c-1=9c+d-1$; second bracket: $5c+d-4c+1=c+d+1$. The answer is $(9c+d-1)(c+d+1)$ — the A mark."
+        "en": "Open both brackets: the first, $(5c+d)+(4c-1)$, can be written straight away; in the second, $(5c+d)-(4c-1)$, the minus must be distributed to each term — $-(+4c)=-4c$ and $-(-1)=+1$, giving $5c+d-4c+1$ (not $5c+d-4c-1$). Collecting terms gives $(9c+d-1)(c+d+1)$."
        }
       ],
       "traps": [],
       "tip": {
        "zh": "見到「$(5c+d)^{2}$ 減去一堆」，先想「後面那堆能不能變成一個平方」。把 (a) 的答案代進去之後，題目就由「四項分組」變成「平方差」，這是卷一最常見的兩步設計。",
        "en": "When you see $(5c+d)^{2}$ minus a pile of terms, ask whether that pile can be turned into a square. After substituting the answer of (a), “four terms to group” becomes “difference of two squares” — the most common two-step design in Paper 1."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "另解：完全展開後重新分組",
+         "en": "Alternative: expand everything, then regroup"
+        },
+        "zh": "若看不出後三項是完全平方，可把 $(5c+d)^{2}$ 展開：$25c^{2}+10cd+d^{2}-16c^{2}+8c-1=9c^{2}+10cd+d^{2}+8c-1$，再做十字相乘得 $(9c+d-1)(c+d+1)$。這條路一定行得通，但要處理 $9c^{2}$、$10cd$、$d^{2}$ 三項，運算量多一倍；考試時建議優先用平方差。",
+        "en": "If the perfect square is hard to spot, expand $(5c+d)^{2}$: $25c^{2}+10cd+d^{2}-16c^{2}+8c-1=9c^{2}+10cd+d^{2}+8c-1$, then factor by the cross-method to get $(9c+d-1)(c+d+1)$. It always works, but you then handle three terms ($9c^{2}$, $10cd$, $d^{2}$), so the difference of two squares is the faster exam route."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -425,7 +445,8 @@ window.LEARN_TOPIC_WS01 = {
      "code": "WS1-S1",
      "source": "WS01 · Basic Skills Q7(b)",
      "stem": {
-      "en": "Factorize $-4m^{2}+20mn-25n^{2}$ completely."
+      "en": "Factorize $-4m^{2}+20mn-25n^{2}$ completely.",
+      "zh": "因式分解 $-4m^{2}+20mn-25n^{2}$（要分得徹底）。"
      },
      "marks": 2,
      "review": null,
@@ -494,7 +515,8 @@ window.LEARN_TOPIC_WS01 = {
      "code": "WS1-S2",
      "source": "WS01 · Basic Skills Q9(a)",
      "stem": {
-      "en": "Factorize $x^{2}+4xy+3y^{2}$."
+      "en": "Factorize $x^{2}+4xy+3y^{2}$.",
+      "zh": "因式分解 $x^{2}+4xy+3y^{2}$."
      },
      "marks": 2,
      "review": null,
@@ -569,7 +591,8 @@ window.LEARN_TOPIC_WS01 = {
      "code": "WS1-S3",
      "source": "WS01 · Basic Skills Q9(b)",
      "stem": {
-      "en": "Factorize $6m^{2}-11mn-10n^{2}$."
+      "en": "Factorize $6m^{2}-11mn-10n^{2}$.",
+      "zh": "因式分解 $6m^{2}-11mn-10n^{2}$."
      },
      "marks": 2,
      "review": null,
@@ -638,7 +661,8 @@ window.LEARN_TOPIC_WS01 = {
      "code": "WS1-S4",
      "source": "WS01 · Basic Skills Q10(a)",
      "stem": {
-      "en": "Factorize $2m^{2}n+3mn-14n$ completely."
+      "en": "Factorize $2m^{2}n+3mn-14n$ completely.",
+      "zh": "因式分解 $2m^{2}n+3mn-14n$（要分得徹底）。"
      },
      "marks": 2,
      "review": null,
@@ -707,7 +731,8 @@ window.LEARN_TOPIC_WS01 = {
      "code": "WS1-S5",
      "source": "WS01 · Basic Skills Q10(b)",
      "stem": {
-      "en": "Factorize $-4x^{2}+15xy-9y^{2}$ completely."
+      "en": "Factorize $-4x^{2}+15xy-9y^{2}$ completely.",
+      "zh": "因式分解 $-4x^{2}+15xy-9y^{2}$（要分得徹底）。"
      },
      "marks": 2,
      "review": null,
@@ -865,7 +890,7 @@ window.LEARN_TOPIC_WS01 = {
          },
          "math": "-r^{3}-r^{2}s=-r^{2}(r)-r^{2}(s)",
          "zh": "兩項都有 $r^{2}$（$-r^{3}=-r^{2}\\cdot r$、$-r^{2}s=-r^{2}\\cdot s$），而且兩項都是負號，所以把 $-r^{2}$ 一次抽走最安全。",
-         "en": "Both terms contain $r^{2}$ ($-r^{3}=-r^{2}\\cdot r$ and $-r^{2}s=-r^{2}\\cdot s$), and both are negative, so taking out $-r^{2}$ in one go is the safest move."
+         "en": "Both terms contain $r^{2}$ ($-r^{3}=-r^{2}\\cdot r$ and $-r^{2}s=-r^{2}\\cdot s$), and both are negative, so factorizing out $-r^{2}$ in a single step is the safest move."
         },
         {
          "title": {
@@ -1686,7 +1711,7 @@ window.LEARN_TOPIC_WS01 = {
          },
          "math": "-3a^{2}+12a-12=-3(a^{2}-4a+4)",
          "zh": "三項係數的最大公因數是 $3$，而首項是負號，所以把 $-3$ 一次抽走。抽負號時括號內每一項都要變號：$-3a^{2}$ 變 $a^{2}$、$+12a$ 變 $-4a$、$-12$ 變 $+4$。",
-         "en": "The HCF of the three coefficients is 3 and the leading term is negative, so take out $-3$ in one go. Every term inside changes sign: $-3a^{2}\\to a^{2}$, $+12a\\to-4a$, $-12\\to+4$."
+         "en": "The HCF of the three coefficients is 3 and the leading term is negative, so factorize out $-3$ in a single step. Every term inside changes sign: $-3a^{2}\\to a^{2}$, $+12a\\to-4a$, $-12\\to+4$."
         },
         {
          "title": {
@@ -1822,7 +1847,7 @@ window.LEARN_TOPIC_WS01 = {
          },
          "math": "x^{2}-4x-5=(x-5)(x+1)",
          "zh": "首項 $x^{2}=x × x$；末項 $-5$ 拆成 $(-5)(+1)$（一正一負）。交叉相加：$(-5)+(+1)=-4$，正好等於中間項係數 $-4$，所以這組正確。",
-         "en": "Leading term $x^{2}=x\\times x$; the last term $-5$ splits into $(-5)(+1)$ — one negative, one positive. Cross-add: $(-5)+(+1)=-4$, exactly the middle coefficient, so this combination is correct."
+         "en": "Leading term $x^{2}=x\\times x$; the last term $-5$ splits into $(-5)(+1)$ — one negative, one positive. Now check by cross-multiplying and adding: $(-5)+(+1)=-4$, exactly the middle coefficient, so this combination is correct."
         },
         {
          "title": {

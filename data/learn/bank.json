@@ -473,7 +473,8 @@
    "code": "WS1-S1",
    "source": "WS01 · Basic Skills Q7(b)",
    "stem": {
-    "en": "Factorize $-4m^{2}+20mn-25n^{2}$ completely."
+    "en": "Factorize $-4m^{2}+20mn-25n^{2}$ completely.",
+    "zh": "因式分解 $-4m^{2}+20mn-25n^{2}$（要分得徹底）。"
    },
    "marks": 2,
    "review": null
@@ -489,7 +490,8 @@
    "code": "WS1-S2",
    "source": "WS01 · Basic Skills Q9(a)",
    "stem": {
-    "en": "Factorize $x^{2}+4xy+3y^{2}$."
+    "en": "Factorize $x^{2}+4xy+3y^{2}$.",
+    "zh": "因式分解 $x^{2}+4xy+3y^{2}$."
    },
    "marks": 2,
    "review": null
@@ -505,7 +507,8 @@
    "code": "WS1-S3",
    "source": "WS01 · Basic Skills Q9(b)",
    "stem": {
-    "en": "Factorize $6m^{2}-11mn-10n^{2}$."
+    "en": "Factorize $6m^{2}-11mn-10n^{2}$.",
+    "zh": "因式分解 $6m^{2}-11mn-10n^{2}$."
    },
    "marks": 2,
    "review": null
@@ -521,7 +524,8 @@
    "code": "WS1-S4",
    "source": "WS01 · Basic Skills Q10(a)",
    "stem": {
-    "en": "Factorize $2m^{2}n+3mn-14n$ completely."
+    "en": "Factorize $2m^{2}n+3mn-14n$ completely.",
+    "zh": "因式分解 $2m^{2}n+3mn-14n$（要分得徹底）。"
    },
    "marks": 2,
    "review": null
@@ -537,7 +541,8 @@
    "code": "WS1-S5",
    "source": "WS01 · Basic Skills Q10(b)",
    "stem": {
-    "en": "Factorize $-4x^{2}+15xy-9y^{2}$ completely."
+    "en": "Factorize $-4x^{2}+15xy-9y^{2}$ completely.",
+    "zh": "因式分解 $-4x^{2}+15xy-9y^{2}$（要分得徹底）。"
    },
    "marks": 2,
    "review": null
@@ -552,7 +557,8 @@
    "code": "WS1C-Q1",
    "source": "WS01 · DSE Paper 2 MC Q1 · [HKCEE 2006 Paper 2 Q4]",
    "stem": {
-    "en": "$ac-bc-ad+bd=$"
+    "en": "Factorize $ac-bc-ad+bd$.",
+    "zh": "因式分解 $ac-bc-ad+bd$。"
    },
    "options": {
     "A": "$(a + b)(c - d)$",
@@ -573,7 +579,8 @@
    "code": "WS1C-Q2",
    "source": "WS01 · DSE Paper 2 MC Q2 · [HKCEE 2006 Paper 2 Q4]",
    "stem": {
-    "en": "$pr+ps-qs-qr=$"
+    "en": "Factorize $pr+ps-qs-qr$.",
+    "zh": "因式分解 $pr+ps-qs-qr$。"
    },
    "options": {
     "A": "$(r + s)(p - q)$",
@@ -594,7 +601,8 @@
    "code": "WS1C-Q3",
    "source": "WS01 · DSE Paper 2 MC Q3 · [HKCEE 2010 Paper 2 Q4]",
    "stem": {
-    "en": "$2xy-xz+4y^{2}-2yz=$"
+    "en": "Factorize $2xy-xz+4y^{2}-2yz$.",
+    "zh": "因式分解 $2xy-xz+4y^{2}-2yz$。"
    },
    "options": {
     "A": "$(x - 2y)(2y - z)$",
@@ -615,7 +623,8 @@
    "code": "WS1C-Q4",
    "source": "WS01 · DSE Paper 2 MC Q4 · [HKCEE 2010 Paper 2 Q4]",
    "stem": {
-    "en": "$pq-2pr-p^{2}+2qr=$"
+    "en": "Factorize $pq-2pr-p^{2}+2qr$.",
+    "zh": "因式分解 $pq-2pr-p^{2}+2qr$。"
    },
    "options": {
     "A": "$(p - q)(p + 2r)$",
@@ -636,7 +645,8 @@
    "code": "WS1C-Q5",
    "source": "WS01 · DSE Paper 2 MC Q5 · [HKCEE 2010 Paper 2 Q4]",
    "stem": {
-    "en": "$6xy-2yz+4xz-3y^{2}=$"
+    "en": "Factorize $6xy-2yz+4xz-3y^{2}$.",
+    "zh": "因式分解 $6xy-2yz+4xz-3y^{2}$。"
    },
    "options": {
     "A": "$(2x - y)(3y - 2z)$",
@@ -657,7 +667,8 @@
    "code": "WS1C-Q6",
    "source": "WS01 · DSE Paper 2 MC Q6 · [HKDSE 2013 Paper 2 Q3]",
    "stem": {
-    "en": "$pr-qr-ps+qs+pt-qt=$"
+    "en": "Factorize $pr-qr-ps+qs+pt-qt$.",
+    "zh": "因式分解 $pr-qr-ps+qs+pt-qt$。"
    },
    "options": {
     "A": "$(p - q)(r - s + t)$",
@@ -678,7 +689,8 @@
    "code": "WS1C-Q7",
    "source": "WS01 · DSE Paper 2 MC Q7 · [HKDSE 2013 Paper 2 Q3]",
    "stem": {
-    "en": "$-bx+ax+ay-by-az+bz=$"
+    "en": "Factorize $-bx+ax+ay-by-az+bz$.",
+    "zh": "因式分解 $-bx+ax+ay-by-az+bz$。"
    },
    "options": {
     "A": "$(a + b)(x - y + z)$",
@@ -699,7 +711,8 @@
    "code": "WS1C-Q8",
    "source": "WS01 · DSE Paper 2 MC Q8 · [HKDSE 2020 Paper 2 Q4]",
    "stem": {
-    "en": "$(4x-3y)(2x+7y)-x(12x-9y)=$"
+    "en": "Factorize $(4x-3y)(2x+7y)-x(12x-9y)$.",
+    "zh": "因式分解 $(4x-3y)(2x+7y)-x(12x-9y)$。"
    },
    "options": {
     "A": "$(4x - 3y)(-x + 7y)$",
@@ -720,7 +733,8 @@
    "code": "WS1C-Q9",
    "source": "WS01 · DSE Paper 2 MC Q9 · [HKDSE 2020 Paper 2 Q4]",
    "stem": {
-    "en": "$(7u-4v)(5u-6v)-3u(10u-12v)=$"
+    "en": "Factorize $(7u-4v)(5u-6v)-3u(10u-12v)$.",
+    "zh": "因式分解 $(7u-4v)(5u-6v)-3u(10u-12v)$。"
    },
    "options": {
     "A": "$(5u + 6v)(u + 4v)$",
@@ -741,7 +755,8 @@
    "code": "WS1C-Q10",
    "source": "WS01 · DSE Paper 2 MC Q10 · [HKDSE 2016 Paper 2 Q3]",
    "stem": {
-    "en": "$36-(3x-2y)^{2}=$"
+    "en": "Factorize $36-(3x-2y)^{2}$.",
+    "zh": "因式分解 $36-(3x-2y)^{2}$。"
    },
    "options": {
     "A": "$(6 - 3x - 2y)(6 + 3x + 2y)$",
@@ -762,7 +777,8 @@
    "code": "WS1C-Q11",
    "source": "WS01 · DSE Paper 2 MC Q11 · [HKDSE 2016 Paper 2 Q3]",
    "stem": {
-    "en": "$49-(4r-3s)^{2}=$"
+    "en": "Factorize $49-(4r-3s)^{2}$.",
+    "zh": "因式分解 $49-(4r-3s)^{2}$。"
    },
    "options": {
     "A": "$(7 - 4r - 3s)(7 + 4r - 3s)$",
@@ -783,7 +799,8 @@
    "code": "WS1C-Q12",
    "source": "WS01 · DSE Paper 2 MC Q12 · [HKDSE 2012 Paper 2 Q2]",
    "stem": {
-    "en": "$(3p+q)^{2}-(3p-q)^{2}=$"
+    "en": "Factorize $(3p+q)^{2}-(3p-q)^{2}$.",
+    "zh": "因式分解 $(3p+q)^{2}-(3p-q)^{2}$。"
    },
    "options": {
     "A": "$0$",
@@ -804,7 +821,8 @@
    "code": "WS1C-Q13",
    "source": "WS01 · DSE Paper 2 MC Q13 · [HKDSE 2012 Paper 2 Q2]（選項 A 由 OCR 缺字重建，請覆核）",
    "stem": {
-    "en": "$(2a-5b)^{2}-(2a+5b)^{2}=$"
+    "en": "Factorize $(2a-5b)^{2}-(2a+5b)^{2}$.",
+    "zh": "因式分解 $(2a-5b)^{2}-(2a+5b)^{2}$。"
    },
    "options": {
     "A": "$-10ab$",
@@ -825,7 +843,8 @@
    "code": "WS1C-Q14",
    "source": "WS01 · DSE Paper 2 MC Q14 · [HKDSE 2017 Paper 2 Q1]",
    "stem": {
-    "en": "$x^{2}+xy-2y^{2}+x-y=$"
+    "en": "Factorize $x^{2}+xy-2y^{2}+x-y$.",
+    "zh": "因式分解 $x^{2}+xy-2y^{2}+x-y$。"
    },
    "options": {
     "A": "$(x - y)(x - 2y + 1)$",
@@ -846,7 +865,8 @@
    "code": "WS1C-Q15",
    "source": "WS01 · DSE Paper 2 MC Q15 · [HKDSE 2017 Paper 2 Q1]",
    "stem": {
-    "en": "$x^{2}-3xy-10y^{2}+3x-15y=$"
+    "en": "Factorize $x^{2}-3xy-10y^{2}+3x-15y$.",
+    "zh": "因式分解 $x^{2}-3xy-10y^{2}+3x-15y$。"
    },
    "options": {
     "A": "$(x - 5y)(x + 2y + 3)$",
@@ -867,7 +887,8 @@
    "code": "WS1C-Q16",
    "source": "WS01 · DSE Paper 2 MC Q16 · [HKDSE 2017 Paper 2 Q1]",
    "stem": {
-    "en": "$5a^{2}-8ab+3b^{2}+b-a=$"
+    "en": "Factorize $5a^{2}-8ab+3b^{2}+b-a$.",
+    "zh": "因式分解 $5a^{2}-8ab+3b^{2}+b-a$。"
    },
    "options": {
     "A": "$(a - b)(5a - 3b - 1)$",
@@ -888,7 +909,8 @@
    "code": "WS1C-Q17",
    "source": "WS01 · DSE Paper 2 MC Q17 · [HKDSE Sample Paper 2 Q3]",
    "stem": {
-    "en": "$x^{2}-y^{2}+4y-4=$"
+    "en": "Factorize $x^{2}-y^{2}+4y-4$.",
+    "zh": "因式分解 $x^{2}-y^{2}+4y-4$。"
    },
    "options": {
     "A": "$(x - y - 2)(x + y - 2)$",
@@ -909,7 +931,8 @@
    "code": "WS1C-Q18",
    "source": "WS01 · DSE Paper 2 MC Q18 · [HKDSE Sample Paper 2 Q3]",
    "stem": {
-    "en": "$m^{2}-9n^{2}-6n-1=$"
+    "en": "Factorize $m^{2}-9n^{2}-6n-1$.",
+    "zh": "因式分解 $m^{2}-9n^{2}-6n-1$。"
    },
    "options": {
     "A": "$(m + 3n + 1)(m - 3n - 1)$",
@@ -930,7 +953,8 @@
    "code": "WS1C-Q19",
    "source": "WS01 · DSE Paper 2 MC Q19 · [HKDSE Sample Paper 2 Q3]",
    "stem": {
-    "en": "$16-4a^{2}+20ab-25b^{2}=$"
+    "en": "Factorize $16-4a^{2}+20ab-25b^{2}$.",
+    "zh": "因式分解 $16-4a^{2}+20ab-25b^{2}$。"
    },
    "options": {
     "A": "$(4 - 2a + 5b)(4 - 2a - 5b)$",
@@ -951,7 +975,8 @@
    "code": "WS1C-Q20",
    "source": "WS01 · DSE Paper 2 MC Q20 · [HKDSE Practice Paper 2 Q3]",
    "stem": {
-    "en": "$x^{2}-y^{2}-x+y=$"
+    "en": "Factorize $x^{2}-y^{2}-x+y$.",
+    "zh": "因式分解 $x^{2}-y^{2}-x+y$。"
    },
    "options": {
     "A": "$(x - y)(x + y - 1)$",
@@ -972,7 +997,8 @@
    "code": "WS1C-Q21",
    "source": "WS01 · DSE Paper 2 MC Q21 · [HKDSE 2014 Paper 2 Q2]",
    "stem": {
-    "en": "$u^{2}-v^{2}-3u-3v=$"
+    "en": "Factorize $u^{2}-v^{2}-3u-3v$.",
+    "zh": "因式分解 $u^{2}-v^{2}-3u-3v$。"
    },
    "options": {
     "A": "$(u + v)(u - v - 3)$",
@@ -993,7 +1019,8 @@
    "code": "WS1C-Q22",
    "source": "WS01 · DSE Paper 2 MC Q22 · [HKDSE 2014 Paper 2 Q2]",
    "stem": {
-    "en": "$4p^{2}-q^{2}+8p-4q=$"
+    "en": "Factorize $4p^{2}-q^{2}+8p-4q$.",
+    "zh": "因式分解 $4p^{2}-q^{2}+8p-4q$。"
    },
    "options": {
     "A": "$(2p + q)(2p - q - 4)$",
@@ -1014,7 +1041,8 @@
    "code": "WS1C-Q23",
    "source": "WS01 · DSE Paper 2 MC Q23 · [HKDSE 2014 Paper 2 Q2]",
    "stem": {
-    "en": "$9m^{2}-4n^{2}-6m-4n=$"
+    "en": "Factorize $9m^{2}-4n^{2}-6m-4n$.",
+    "zh": "因式分解 $9m^{2}-4n^{2}-6m-4n$。"
    },
    "options": {
     "A": "$(3m - 2n)(3m + 2n - 2)$",
@@ -1035,7 +1063,8 @@
    "code": "WS1C-Q24",
    "source": "WS01 · DSE Paper 2 MC Q24 · [HKDSE 2022 Paper 2 Q1]",
    "stem": {
-    "en": "$a^{2}+a-b^{2}-b=$"
+    "en": "Factorize $a^{2}+a-b^{2}-b$.",
+    "zh": "因式分解 $a^{2}+a-b^{2}-b$。"
    },
    "options": {
     "A": "$(a + b)(a - b + 1)$",
@@ -1056,7 +1085,8 @@
    "code": "WS1C-Q25",
    "source": "WS01 · DSE Paper 2 MC Q25 · [HKDSE 2022 Paper 2 Q1]",
    "stem": {
-    "en": "$m^{2}+n-m-n^{2}=$"
+    "en": "Factorize $m^{2}+n-m-n^{2}$.",
+    "zh": "因式分解 $m^{2}+n-m-n^{2}$。"
    },
    "options": {
     "A": "$(m - n)(m + n + 1)$",
@@ -1077,7 +1107,8 @@
    "code": "WS1C-Q26",
    "source": "WS01 · DSE Paper 2 MC Q26 · [HKDSE 2018 Paper 2 Q3]",
    "stem": {
-    "en": "$h^{2}-4h-k^{2}+4k=$"
+    "en": "Factorize $h^{2}-4h-k^{2}+4k$.",
+    "zh": "因式分解 $h^{2}-4h-k^{2}+4k$。"
    },
    "options": {
     "A": "$(h - k)(h + k - 4)$",
@@ -1098,7 +1129,8 @@
    "code": "WS1C-Q27",
    "source": "WS01 · DSE Paper 2 MC Q27 · [HKDSE 2018 Paper 2 Q3]",
    "stem": {
-    "en": "$m^{2}-2m-9n^{2}-6n=$"
+    "en": "Factorize $m^{2}-2m-9n^{2}-6n$.",
+    "zh": "因式分解 $m^{2}-2m-9n^{2}-6n$。"
    },
    "options": {
     "A": "$(m - 3n)(m - 3n + 2)$",
@@ -1148,7 +1180,8 @@
    "code": "WS1B-Q2",
    "source": "WS01 · DSE Paper 1 題型 Q2 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1177,7 +1210,8 @@
    "code": "WS1B-Q3",
    "source": "WS01 · DSE Paper 1 題型 Q3 [HKCEE 2006 Paper 1 Q3]",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1212,7 +1246,8 @@
    "code": "WS1B-Q4",
    "source": "WS01 · DSE Paper 1 題型 Q4 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1247,7 +1282,8 @@
    "code": "WS1B-Q5",
    "source": "WS01 · DSE Paper 1 題型 Q5 [HKCEE 2007 Paper 1 Q3]",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1276,7 +1312,8 @@
    "code": "WS1B-Q6",
    "source": "WS01 · DSE Paper 1 題型 Q6 [HKCEE 2010 Paper 1 Q3]",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1305,7 +1342,8 @@
    "code": "WS1B-Q7",
    "source": "WS01 · DSE Paper 1 題型 Q7 [HKDSE 2013 Paper 1 Q3]",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1334,7 +1372,8 @@
    "code": "WS1B-Q8",
    "source": "WS01 · DSE Paper 1 題型 Q8 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1363,7 +1402,8 @@
    "code": "WS1B-Q9",
    "source": "WS01 · DSE Paper 1 題型 Q9 [HKDSE 2012 Paper 1 Q3]",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1392,7 +1432,8 @@
    "code": "WS1B-Q10",
    "source": "WS01 · DSE Paper 1 題型 Q10 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1421,7 +1462,8 @@
    "code": "WS1B-Q11",
    "source": "WS01 · DSE Paper 1 題型 Q11 [HKDSE 2014 Paper 1 Q2]",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1450,7 +1492,8 @@
    "code": "WS1B-Q12",
    "source": "WS01 · DSE Paper 1 題型 Q12 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1479,7 +1522,8 @@
    "code": "WS1B-Q13",
    "source": "WS01 · DSE Paper 1 題型 Q13 [HKDSE 2017 Paper 1 Q3, 2021 Paper 1 Q3]",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1508,7 +1552,8 @@
    "code": "WS1B-Q14",
    "source": "WS01 · DSE Paper 1 題型 Q14 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1537,7 +1582,8 @@
    "code": "WS1B-Q15",
    "source": "WS01 · DSE Paper 1 題型 Q15 [HKDSE 2020 Paper 1 Q2]",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1566,7 +1612,8 @@
    "code": "WS1B-Q16",
    "source": "WS01 · DSE Paper 1 題型 Q16 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1595,7 +1642,8 @@
    "code": "WS1B-Q17",
    "source": "WS01 · DSE Paper 1 題型 Q17 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1624,7 +1672,8 @@
    "code": "WS1B-Q18",
    "source": "WS01 · DSE Paper 1 題型 Q18 [HKDSE 2015 Paper 1 Q4]",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1653,7 +1702,8 @@
    "code": "WS1B-Q19",
    "source": "WS01 · DSE Paper 1 題型 Q19 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1682,7 +1732,8 @@
    "code": "WS1B-Q20",
    "source": "WS01 · DSE Paper 1 題型 Q20 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1711,7 +1762,8 @@
    "code": "WS1B-Q21",
    "source": "WS01 · DSE Paper 1 題型 Q21 [HKDSE 2018 Paper 1 Q5]",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1740,7 +1792,8 @@
    "code": "WS1B-Q22",
    "source": "WS01 · DSE Paper 1 題型 Q22 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1769,7 +1822,8 @@
    "code": "WS1B-Q23",
    "source": "WS01 · DSE Paper 1 題型 Q23 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1798,7 +1852,8 @@
    "code": "WS1B-Q24",
    "source": "WS01 · DSE Paper 1 題型 Q24 [HKDSE 2016 Paper 1 Q4]",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1833,7 +1888,8 @@
    "code": "WS1B-Q25",
    "source": "WS01 · DSE Paper 1 題型 Q25 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1868,7 +1924,8 @@
    "code": "WS1B-Q26",
    "source": "WS01 · DSE Paper 1 題型 Q26 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1903,7 +1960,8 @@
    "code": "WS1B-Q27",
    "source": "WS01 · DSE Paper 1 題型 Q27 [HKDSE 2019 Paper 1 Q4]",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1938,7 +1996,8 @@
    "code": "WS1B-Q28",
    "source": "WS01 · DSE Paper 1 題型 Q28 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -1973,7 +2032,8 @@
    "code": "WS1B-Q29",
    "source": "WS01 · DSE Paper 1 題型 Q29 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -2008,7 +2068,8 @@
    "code": "WS1B-Q30",
    "source": "WS01 · DSE Paper 1 題型 Q30 [HKDSE 2022 Paper 1 Q4]",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -2037,7 +2098,8 @@
    "code": "WS1B-Q31",
    "source": "WS01 · DSE Paper 1 題型 Q31 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
@@ -2066,7 +2128,8 @@
    "code": "WS1B-Q32",
    "source": "WS01 · DSE Paper 1 題型 Q32 （同型練習）",
    "stem": {
-    "en": "Factorize"
+    "en": "Factorize",
+    "zh": "因式分解"
    },
    "parts": [
     {
