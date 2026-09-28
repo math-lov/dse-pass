@@ -459,6 +459,16 @@
       var nav = qs("#pagenav");
       var lessons = topic.lessons || [];
       var multiLesson = lessons.length > 1;
+      /* 分頁列摺疊（老師要求）：同一節只顯示「現時題 ±2 格」，其餘收成一個「…」。
+         否則 30+ 題的課題會出現一條長到看不完的分頁列。按「…」可以直接跳去第一條收起的題目。 */
+      var NAV_WINDOW = 2;
+      var curLesson = pages[cur] ? pages[cur].lesson : null;
+      var hiddenGroups = {};       // lesson 序號 → { first, n, codes, btn }
+      function navHidden(p, i) {
+        if (p.kind !== "long") return false;              // 學習頁與練習頁照樣顯示
+        if (p.lesson !== curLesson) return true;          // 其他節：題目全部收起
+        return Math.abs(i - cur) > NAV_WINDOW;            // 本節：只留現時題 ±2
+      }
       nav.innerHTML = "";
       pages.forEach(function (p, i) {
         if (multiLesson && p.lesson && (i === 0 || pages[i - 1].lesson !== p.lesson)) {
@@ -466,17 +476,31 @@
           sep.title = (p.lesson.title && p.lesson.title.zh) || "";
           nav.appendChild(sep);
         }
+        if (navHidden(p, i)) {
+          var key = String(lessons.indexOf(p.lesson));
+          var g = hiddenGroups[key] || (hiddenGroups[key] = { first: i, n: 0, codes: [], btn: null });
+          g.n++;
+          g.codes.push((p.q && p.q.code) ? p.q.code : "");
+          if (g.btn) return;                              // 同一節連續收起 → 只出一個「…」
+          var dots = el("button", "pg pg-more", "…");
+          dots.dataset.page = String(i);
+          dots.onclick = function () { gotoPage(id, i); };
+          g.btn = dots;
+          nav.appendChild(dots);
+          return;
+        }
         var b = el("button", "pg" + (i === cur ? " current" : "") + (pageDone(p) ? " done" : ""));
         if (p.kind === "cards") {
           b.appendChild(biSpan({ zh: "學習", en: "Learn" }));
           b.classList.add("kind");
           b.title = (p.lesson && p.lesson.title && p.lesson.title.zh) || "概念卡";
         } else if (p.kind === "long") {
-          /* 逐題一頁：用題號（WS1B-Q1）做標籤，一眼看得出是第幾題 */
-          b.textContent = (p.q && p.q.code) ? p.q.code : T({ zh: "題", en: "Q" });
+          /* 逐題一頁：標籤用短題號（WS1B-Q1 → Q1），配合左邊的「第 N 節」就很清楚 */
+          var code = (p.q && p.q.code) ? String(p.q.code) : "";
+          b.textContent = code ? code.split("-").pop() : T({ zh: "題", en: "Q" });
           b.classList.add("kind");
           b.title = T({ zh: "逐步題解（逐題）", en: "Worked solution (one per page)" }) +
-            ((p.q && p.q.code) ? " " + p.q.code : "");
+            (code ? " " + code : "");
         } else if (p.kind === "demos") {
           b.appendChild(biSpan({ zh: "示範", en: "Demo" }));
           b.classList.add("kind");
@@ -490,6 +514,16 @@
         b.dataset.page = String(i);
         b.onclick = function () { gotoPage(id, i); };
         nav.appendChild(b);
+      });
+      // 「…」的提示：講清楚收起了幾多題、由哪一條開始（按一下就可以跳去）
+      Object.keys(hiddenGroups).forEach(function (k) {
+        var g = hiddenGroups[k];
+        if (!g.btn) return;
+        var codes = g.codes.filter(Boolean).join("、");
+        g.btn.title = T({
+          zh: "已收起 " + g.n + " 題" + (codes ? "（" + codes + "）" : "") + "—— 按一下跳去第一題",
+          en: g.n + " questions hidden" + (codes ? " (" + codes + ")" : "") + " — press to jump to the first one"
+        });
       });
 
       renderPage(pages, cur, id, focusQid);
@@ -960,6 +994,17 @@
         var pb = btnPair("btn", { zh: "← 上一條", en: "← Previous" });
         pb.onclick = opt.prev;
         row.appendChild(pb);
+      } else if (!opt) {
+        // 逐題一頁：頁底加「← 上一題」，做完一題可以直接回頭對比
+        var prevLong = -1;
+        for (var pi = cur - 1; pi >= 0; pi--) {
+          if (pages[pi] && pages[pi].kind === "long") { prevLong = pi; break; }
+        }
+        if (prevLong >= 0) {
+          var pb2 = btnPair("btn", { zh: "← 上一題", en: "← Previous question" });
+          pb2.onclick = function () { gotoPage(tid, prevLong); };
+          row.appendChild(pb2);
+        }
       }
       var goNext = btnPair("btn btn-block btn-primary",
                            (opt && opt.nextLabel) || { zh: "下一頁 →", en: "Next page →" });

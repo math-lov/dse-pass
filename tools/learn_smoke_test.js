@@ -104,8 +104,10 @@ for (const t of LESSONS.topics) {
   const p0 = boot("topic.html", "?t=" + t.id + "&p=0");
   ok((p0.$("#topic-name").textContent || "").trim().length > 0,
      t.id + " renders its topic name (" + p0.$("#topic-name").textContent + ")");
-  ok(p0.$$("#pagenav .pg").length === expectedPages(t),
-     t.id + " nav lists every page (got " + p0.$$("#pagenav .pg").length + ", expected " + expectedPages(t) + ")");
+  const navCells = p0.$$("#pagenav .pg").length;
+  ok(navCells >= 1 && navCells <= expectedPages(t),
+     t.id + " 分頁列只渲染需要顯示的格（" + navCells + " / 邏輯上最多 " + expectedPages(t) + "）");
+  ok(!!p0.$("#pagenav .pg.current"), t.id + " 分頁列標出「現時頁」");
   ok(p0.$$(".ccard-head h3").length === 1, t.id + " shows one concept card at a time");
   ok(p0.$$(".concept-body").length === 1, t.id + " renders the card body");
   ok(p0.$$(".cmd-hints .ch-chip").length >= 4 && p0.$$(".cmd-hints .ch-chip").length <= 6,
@@ -128,8 +130,21 @@ for (const t of LESSONS.topics) {
        t.id + "（純長題課題）第 2 格＝第一條長題（" + firstQ + "），單獨一頁");
     ok(!!pdemo.$("#topic-body .card[data-qid] [data-weak]"),
        t.id + " 長題可以逐題加入弱點升級庫");
-    ok(/^WS1B-Q1$/.test((((pdemo.$$("#pagenav .pg")[1] || {}).textContent) || "").trim()),
-       t.id + " 導覽列用題號做標籤（" + ((pdemo.$$("#pagenav .pg")[1] || {}).textContent || "") + "）");
+    ok(/^Q1$/.test((((pdemo.$$("#pagenav .pg")[1] || {}).textContent) || "").trim()),
+       t.id + " 導覽列用短題號做標籤（" + ((pdemo.$$("#pagenav .pg")[1] || {}).textContent || "") + "）");
+    ok(!!pdemo.$("#pagenav .pg-more"),
+       t.id + " 同一節其餘題目收成「…」（只顯示現時題 ±2）");
+    /* 「…」按一下要跳到第一條收起的題目（第 1 節 = Q1…Q8，收起 Q4 起） */
+    const dots = pdemo.$("#pagenav .pg-more");
+    ok(!!dots && dots.dataset.page === "4" && /收起/.test(dots.title || ""),
+       "「…」指向第一條收起的題目（第 4 格＝Q4），並說明收起了幾題");
+    /* 頁底要有「← 上一題」（按「全部顯示」看完示範後才會出現；跳頁本身是 go()，jsdom 不模擬） */
+    const pPrev = boot("topic.html", "?t=" + t.id + "&p=5");     // 第 5 格 = 第 1 節的第 5 題
+    const allB = pPrev.$$(".card .btn").filter((b) => /全部顯示/.test(b.textContent || ""))[0];
+    if (allB) allB.click();
+    const pvBtn = pPrev.$$(".card .btn").filter((b) => /上一題/.test(b.textContent || ""))[0];
+    const nxBtn = pPrev.$$(".card .btn").filter((b) => /下一頁/.test(b.textContent || ""))[0];
+    ok(!!pvBtn && !!nxBtn, t.id + " 長題頁底同時有「← 上一題」與「下一頁 →」");
   }
 }
 
@@ -402,8 +417,8 @@ const dSet = boot("topic.html", "?t=" + tDemo.id + "&p=1", null, "zh");
 ok(!!dSet.$(".card[data-qid]") &&
    dSet.$(".card[data-qid]").getAttribute("data-qid") === tDemo.lessons[0].longQuestionIds[0],
    "長題不再合併成示範集：第 2 格就是第一條長題（單獨一頁）");
-ok(/^WS1-EX1$/.test((((dSet.$$("#pagenav .pg")[1] || {}).textContent) || "").trim()),
-   "導覽列用題號做標籤（" + ((dSet.$$("#pagenav .pg")[1] || {}).textContent || "") + "）");
+ok(/^EX1$/.test((((dSet.$$("#pagenav .pg")[1] || {}).textContent) || "").trim()),
+   "導覽列用短題號做標籤（" + ((dSet.$$("#pagenav .pg")[1] || {}).textContent || "") + "）");
 ok(!!dSet.$(".card[data-qid] [data-weak]"), "長／短答有「加入弱點升級庫」按鈕");
 dSet.$("[data-weak]").click();
 ok(/已在弱點升級庫/.test(dSet.$("[data-weak]").textContent), "按一下 → 變成「已在弱點升級庫」");
