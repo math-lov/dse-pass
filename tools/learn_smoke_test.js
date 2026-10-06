@@ -188,16 +188,20 @@ ok(ownHints.every((n) => n >= 3),
    洩漏掃描（發佈前跑，不入庫）把關。 */
 ok(warmup.every((t) => /統測|Uniform Test/.test(JSON.stringify(t))),
    "新課題的名稱／導言都提到「統測」，學生知道這一區的用途");
-/* as02 讀圖題：作答之前不出圖（防劇透），作答之後才出圖並附說明 */
+/* as02 讀圖題（資料層 figBefore: true）：圖是題目的一部分 ——
+   題幹寫「The figure shows…」，所以作答前就要看到圖；
+   但讀圖解說（caption，會講出斜率正負）要作答後才出，否則等於給答案。 */
 const gMc = boot("topic.html", "?t=as02&p=2");
 const gCards = gMc.$$("#topic-body .card[data-qid]");
 ok(gCards.length === 3, "as02 第二個練習頁有 3 題（讀圖題）");
-ok(gCards.every((c) => c.querySelectorAll("svg").length === 0),
-   "作答之前不出圖");
+ok(gCards.every((c) => c.querySelectorAll(".fig svg").length === 1),
+   "讀圖題：作答之前就看到圖（沒有圖就答不到）");
+ok(gCards.every((c) => c.querySelectorAll(".fig-cap").length === 0),
+   "讀圖題：作答之前未出讀圖解說（caption 會洩漏答案）");
 gCards[0].querySelectorAll(".opt")[0].click();
-ok(gCards[0].querySelectorAll("svg").length >= 1, "作答之後圖才出現");
-ok(gCards[1].querySelectorAll("svg").length === 0, "未作答的下一題仍然沒有圖");
-ok(!!gCards[0].querySelector(".fig-cap"), "圖下面有說明文字（caption）");
+ok(!!gCards[0].querySelector(".fig-cap"), "作答之後補上讀圖解說（caption）");
+ok(gCards[0].querySelectorAll(".fig svg").length === 1, "作答之後圖仍然只有一幅（不會重複出圖）");
+ok(gCards[1].querySelectorAll(".fig-cap").length === 0, "未作答的下一題仍未出讀圖解說");
 /* 概念卡「重點框」（box 欄位，由姊妹站 Endeavour 移植）：
    標籤、標題、正文與公式都要出現，而且公式要用真 KaTeX 渲染（不是露出原字元）。 */
 const bxPage = boot("topic.html", "?t=as01&p=7");      // as01 第 2 節＝複數概念卡

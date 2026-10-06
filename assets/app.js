@@ -682,16 +682,24 @@
   }
 
   /* ── 概念卡 ─────────────────────────────────────────────────────────── */
-  /* 示意圖（SVG）：概念卡／題目都係「一組圖」，逐幅插入（來源可控） */
-  function appendFigure(host, fg) {
+  /* 示意圖（SVG）：概念卡／題目都係「一組圖」，逐幅插入（來源可控）
+     opt（選填）：
+       · { skipCaption: true } —— 只出圖、不出說明。讀圖題作答前用：
+         caption 寫的是「怎樣讀這個圖」（例如「線往右上斜 → 斜率 >0」），等於答案。
+       · { captionOnly: true } —— 只出說明、不出圖。讀圖題作答後用：
+         圖已經在題幹下面，這裡補回讀圖解說就夠，不必重複出圖。 */
+  function appendFigure(host, fg, opt) {
     if (!fg || !fg.svg) return;
-    var fig = el("div", "fig");
-    fig.innerHTML = fg.svg;
-    host.appendChild(fig);
-    if (fg.caption) host.appendChild(el("div", "fig-cap", fg.caption));
+    var o = opt || {};
+    if (!o.captionOnly) {
+      var fig = el("div", "fig");
+      fig.innerHTML = fg.svg;
+      host.appendChild(fig);
+    }
+    if (fg.caption && !o.skipCaption) host.appendChild(el("div", "fig-cap", fg.caption));
   }
-  function appendFigures(host, node) {
-    (node.figures || []).forEach(function (fg) { appendFigure(host, fg); });
+  function appendFigures(host, node, opt) {
+    (node.figures || []).forEach(function (fg) { appendFigure(host, fg, opt); });
   }
 
   /* 步驟附加內容：(a)→(b) 的「整塊打包替換」提示 + 高亮答案。
@@ -1232,7 +1240,12 @@
     stem.appendChild(biNode(q.stem || { zh: "", en: "" }));
     card.appendChild(stem);
 
-    // 注意：題目示意圖唔好放喺題幹下面 —— 圖入面有影像點，會洩漏答案。
+    /* 讀圖題（資料層 figBefore: true）：圖本身就是題目的一部分 —— 題幹寫「The figure shows…」，
+       沒有圖就答不到。所以這一類題目要「作答前」就看到圖；但只出圖，不出 caption
+       （caption 是讀圖解說，會直接講出答案）。 */
+    if (q.figBefore) appendFigures(card, q, { skipCaption: true });
+
+    // 其餘題目的示意圖唔好放喺題幹下面 —— 圖入面可能有影像點，會洩漏答案。
     // 改為作答後（或按「看完整解答」）先同解說一齊出現，見 showTail()。
 
     var opts = el("div", "opts");
@@ -1379,7 +1392,8 @@
         tail.appendChild(bad);
       }
       // 示意圖放喺答案欄：先睇答案，再睇圖配上解說（兩次變換嘅題目有兩幅）
-      appendFigures(tail, q);
+      // 讀圖題（figBefore）的圖已經在題幹下面 → 這裡只補回「怎樣讀」的說明，不再重複出圖
+      appendFigures(tail, q, q.figBefore ? { captionOnly: true } : null);
       // 干擾選項解說（只顯示學生選的那個 + 其他錯的選項為何錯）
       var traps = sol.traps || [];
       if (traps.length) {

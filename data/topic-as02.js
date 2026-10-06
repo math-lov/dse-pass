@@ -385,6 +385,7 @@ window.LEARN_TOPIC_AS02 = {
       "difficulty": 2,
       "code": "AS2-M04",
       "source": "統測前哨戰 · 直線方程：由圖判斷 a、b 的正負（自編）",
+      "figBefore": true,
       "stem": {
        "text": "The figure shows the graph of $ax+y+b=0$. Which of the following are true?\nI. $a>0$\nII. $b>0$\nIII. The $x$-intercept of the line is positive.",
        "zh": "圖示為 $ax+y+b=0$ 的圖像。以下哪項正確？\nI. $a>0$\nII. $b>0$\nIII. 該直線的 $x$ 截距是正數。",
@@ -476,6 +477,7 @@ window.LEARN_TOPIC_AS02 = {
       "difficulty": 2,
       "code": "AS2-M05",
       "source": "統測前哨戰 · 直線方程：由圖判斷 a、b 的正負（自編）",
+      "figBefore": true,
       "stem": {
        "text": "The figure shows the graph of $ax+y+b=0$. Which of the following are true?\nI. $a>0$\nII. $b>0$\nIII. The $y$-intercept of the line is positive.",
        "zh": "圖示為 $ax+y+b=0$ 的圖像。以下哪項正確？\nI. $a>0$\nII. $b>0$\nIII. 該直線的 $y$ 截距是正數。",
@@ -567,6 +569,7 @@ window.LEARN_TOPIC_AS02 = {
       "difficulty": 3,
       "code": "AS2-M06",
       "source": "統測前哨戰 · 直線方程：由圖判斷 a、b 的正負（自編）",
+      "figBefore": true,
       "stem": {
        "text": "The figure shows the graph of $ax+y+b=0$. Which of the following are true?\nI. $a>0$\nII. $b>0$\nIII. The $x$-intercept of the line is negative.",
        "zh": "圖示為 $ax+y+b=0$ 的圖像。以下哪項正確？\nI. $a>0$\nII. $b>0$\nIII. 該直線的 $x$ 截距是負數。",
