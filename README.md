@@ -77,6 +77,9 @@ npm install                    # jsdom 30 ＋ katex 0.16（冒煙測試與 KaTeX
 **抽新試卷的工具**（`cut_questions.py`／`recut_figures.py`／`panel_server.py` 等）另外需要
 `pip install pymupdf rapidocr-onnxruntime`；日常編輯不需要。
 
+**接上 AI 協作**：把 **`docs/CONTINUE-EDITING-PROMPT.md`** 內那段 prompt 貼給 AI
+（已包含環境、閘門、架構與硬規則），在最後一節寫上這次要做的事就可以繼續。
+
 ## 內容規則（2026-09-28 老師指示，四個站共用）
 
 1. **題目照原檔**（通常全英）；**解說中英齊全**（缺英文 = I1–I7 錯誤，不可發佈）。
