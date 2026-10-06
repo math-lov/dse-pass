@@ -170,6 +170,14 @@ def main(argv: list[str] | None = None) -> int:
             warn("S7", "%s：正文有 %d 個定位標記，但 math 有 %d 條（數量不符）"
                  % (cid, marks, len(maths)))
 
+    # ── S3／S4／R1／R2：題解契約與課程合規（逐題檢查）──────────────────────
+    # 註：這一段原本誤縮排在上一段的「概念卡」迴圈內，只會用「最後一題」的 qid
+    #     檢查一次 —— 於是「traps 指向正確答案」「answer 與步驟結論不符」都攔不到
+    #     （2026-10-06 老師回報 AS2 之後發現）。已改成獨立的逐題迴圈。
+    for q in questions:
+        qid = q.get("id", "?")
+        qtype = q.get("type")
+        stem = _text_of(q.get("stem"))
         s = sols.get(qid)
         if not s:
             err("S3", "%s：缺少題解" % qid)
@@ -204,6 +212,17 @@ def main(argv: list[str] | None = None) -> int:
                     err("S4", "%s：traps 指向不存在的選項 %r" % (qid, opt))
                 elif opt == ans:
                     err("S4", "%s：traps 指向正確答案 %r" % (qid, opt))
+            # 步驟自己寫的結論必須與答案鍵一致：
+            # 例：步驟寫「答案是 B」但 answer 鍵仍是 A（改了題目、忘了改 key）。
+            said = set()
+            for st in steps:
+                txt = (st.get("zh") or "") + " " + (st.get("en") or "")
+                for m in re.finditer(r"答案[是為]\s*([A-D])|answer is\s*([A-D])", txt):
+                    said.add(m.group(1) or m.group(2))
+            wrong = sorted(x for x in said if x != ans)
+            if wrong:
+                err("S4", "%s：步驟寫「答案是 %s」，但 answer 鍵是 %r —— 兩者必須一致"
+                    % (qid, "/".join(wrong), ans))
         else:
             # parts 是選填：文字應用題（單一問題）本來就沒有 (a)(b) 分部；
             # 有的話每一部都要有內容。

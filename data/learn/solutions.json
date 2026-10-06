@@ -7739,7 +7739,7 @@
    }
   },
   "eph-as04-m04": {
-   "answer": "A",
+   "answer": "B",
    "verify": "checked",
    "topic": "as04",
    "source": "統測前哨戰 · 排列組合：有職位的選人（自編）",
@@ -7827,8 +7827,8 @@
        "en": "Step 3 · Multiply"
       },
       "math": "9\\times 56=504",
-      "zh": "答案是 B。",
-      "en": "The answer is B."
+      "zh": "兩步都要做，所以相乘：$9\\times56=504$。答案是 B。",
+      "en": "Both stages apply, so multiply: $9\\times56=504$. The answer is B."
      }
     ],
     "traps": [

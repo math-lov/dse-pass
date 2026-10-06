@@ -773,7 +773,7 @@ window.LEARN_TOPIC_AS04 = {
         "en": "For questions with a post: fill the post first (with $C^{n}_{1}$ or a permutation), then choose the interchangeable people with a combination. A post implies order; no post implies a combination."
        }
       },
-      "answer": "A",
+      "answer": "B",
       "verify": "checked"
      },
      {
@@ -823,8 +823,8 @@ window.LEARN_TOPIC_AS04 = {
           "en": "Step 3 · Multiply"
          },
          "math": "9\\times 56=504",
-         "zh": "答案是 B。",
-         "en": "The answer is B."
+         "zh": "兩步都要做，所以相乘：$9\\times56=504$。答案是 B。",
+         "en": "Both stages apply, so multiply: $9\\times56=504$. The answer is B."
         }
        ],
        "traps": [
