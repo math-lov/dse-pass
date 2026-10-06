@@ -119,8 +119,8 @@ window.LEARN_TOPIC_WS01 = {
       "en": "Three Identities to Memorise"
      },
      "body": {
-      "zh": "三條恆等式要背熟，看見就直接用。平方差：{{math:0}}；完全平方（和）：{{math:1}}；完全平方（差）：{{math:2}}。\n判斷方法：兩項而且「平方減平方」→ 平方差；三項時看首尾是否平方、中間是否等於 $2ab$ → 完全平方。",
-      "en": "Learn the three identities by heart and use them on sight. Difference of two squares: {{math:0}}; perfect square (sum): {{math:1}}; perfect square (difference): {{math:2}}.\nHow to decide: two terms with “square minus square” → difference of two squares; three terms → check whether the first and last are squares and the middle equals $2ab$ → perfect square."
+      "zh": "三條恆等式要背熟，看見就直接用：\n平方差{{math:0}}\n完全平方（和）{{math:1}}\n完全平方（差）{{math:2}}\n判斷方法：兩項而且「平方減平方」→ 平方差；三項時看首尾是否平方、中間是否等於 $2ab$ → 完全平方。",
+      "en": "Learn the three identities by heart and use them on sight:\nDifference of two squares{{math:0}}\nPerfect square (sum){{math:1}}\nPerfect square (difference){{math:2}}\nHow to decide: two terms with “square minus square” → difference of two squares; three terms → check whether the first and last are squares and the middle equals $2ab$ → perfect square."
      },
      "math": [
       "a^{2}-b^{2}=(a+b)(a-b)",
@@ -154,8 +154,8 @@ window.LEARN_TOPIC_WS01 = {
       "en": "Quadratic Trinomials: Cross-method"
      },
      "body": {
-      "zh": "$ax^{2}+bx+c$ 這種三項式 (Trinomial) 若不符合完全平方恆等式，則需使用十字相乘法 (Cross-method)：把首項係數 (Coefficient) 與常數項 (Constant Term) 各拆成兩個因式並排成十字，交叉相乘後相加，總和必須完全吻合中間項。\n例如：{{math:0}}，因為 $(-2)+(-3)=-5$。當二次項係數 $a \\neq 1$ 時，需要嘗試多種因數組合：{{math:1}}。",
-      "en": "If the trinomial $ax^{2}+bx+c$ does not fit a perfect-square identity, use the cross-method: split the coefficient of $x^{2}$ and the constant term into factors, arrange them in a cross, multiply across and add — the sum must match the middle term exactly.\nFor example {{math:0}}, because $(-2)+(-3)=-5$. When the coefficient of $x^{2}$ is not 1 you may have to try several factor combinations: {{math:1}}."
+      "zh": "$ax^{2}+bx+c$ 這種三項式 (Trinomial) 若不符合完全平方恆等式，則需使用十字相乘法 (Cross-method)：把首項係數 (Coefficient) 與常數項 (Constant Term) 各拆成兩個因式並排成十字，交叉相乘後相加，總和必須完全吻合中間項。\n例如 $x^{2}-5x+6$：$(-2)+(-3)=-5$ 正好吻合中間項，所以{{math:0}}\n當二次項係數 $a \\neq 1$ 時，需要嘗試多種因數組合：{{math:1}}",
+      "en": "If the trinomial $ax^{2}+bx+c$ does not fit a perfect-square identity, use the cross-method: split the coefficient of $x^{2}$ and the constant term into factors, arrange them in a cross, multiply across and add — the sum must match the middle term exactly.\nFor example $x^{2}-5x+6$: the middle term matches because $(-2)+(-3)=-5$, so{{math:0}}\nWhen the coefficient of $x^{2}$ is not 1 you may have to try several factor combinations: {{math:1}}"
      },
      "math": [
       "x^{2}-5x+6=(x-2)(x-3)",

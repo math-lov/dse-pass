@@ -264,6 +264,14 @@ def main(argv: list[str] | None = None) -> int:
     # 新增課題一律要中英齊全（見 docs/LEARN-ADD-TOPICS-HANDOFF.md 的雙語一節）。
     HAN = re.compile(r"[\u4e00-\u9fff]")
 
+    # 概念卡排版（I12）：{{math:N}} 會渲染成「置中公式方塊」（div），所以標記必須放在行尾 ——
+    # 標記之後若仍有同一句的文字，那段文字會由新一行開始，最刺眼的是孤零零一個「。」或「；」，
+    # 其次是「→ 只剩 …」「lunch sets.」這類句子尾巴被切開。
+    RE_MATH_THEN_TEXT = re.compile(r"\{\{math:\d+\}\}(?=[^\n])")
+    RE_LINE_START_PUNCT = re.compile(r"\n[。，、；：）」』】？！,.;:)]")
+    # 整行只有標點（例如一個「。」獨佔一行）也是同一類毛病
+    RE_PUNCT_ONLY_LINE = re.compile(r"(?:^|\n)[ \t]*[。，、；：）」』】？！,.;:)][ \t]*(?=\n|$)")
+
     def need_pair(rule: str, label: str, zh, en, allow_han_in_en: bool = True,
                   min_en: int = 4, zh_optional: bool = False) -> None:
         zh_s = (zh or "").strip()
@@ -304,6 +312,43 @@ def main(argv: list[str] | None = None) -> int:
         if wn.get("zh") or wn.get("en"):
             need_pair("I3", "%s 常見錯誤" % cid, wn.get("zh"), wn.get("en"),
                       allow_han_in_en=False, min_en=10)
+        # 重點框（選填 box 欄位；由 Endeavour 移植）：標籤＋標題＋正文＋公式，中英都要齊。
+        bx = c.get("box") or {}
+        if bx:
+            bt = bx.get("tag") or {}
+            if bt:
+                need_pair("I3", "%s 重點框標籤" % cid, bt.get("zh"), bt.get("en"), min_en=2)
+            bti = bx.get("title") or {}
+            need_pair("I4", "%s 重點框標題" % cid, bti.get("zh"), bti.get("en"))
+            need_pair("I3", "%s 重點框正文" % cid, bx.get("zh"), bx.get("en"),
+                      allow_han_in_en=False, min_en=15)
+            bmaths = bx.get("math") or []
+            if bmaths:
+                bmarks = (_text_of(bx.get("zh")) or "").count("{{math") + \
+                         (_text_of(bx.get("en")) or "").count("{{math")
+                if bmarks != 2 * len(bmaths):
+                    warn("S7", "%s：重點框的 {{math:N}} 標記（中英合計 %d 個）與 math %d 條不符"
+                         % (cid, bmarks, len(bmaths)))
+        # I12：公式方塊之後不要把句子尾巴留到下一行（排版問題，見上方的說明）
+        for label, text in (("正文 zh", (c.get("body") or {}).get("zh")),
+                            ("正文 en", (c.get("body") or {}).get("en")),
+                            ("重點框 zh", (bx or {}).get("zh")),
+                            ("重點框 en", (bx or {}).get("en"))):
+            if not text:
+                continue
+            m = RE_MATH_THEN_TEXT.search(text)
+            if m:
+                warn("I12", "%s %s：{{math:N}} 後面仍有文字（%r…）—— 那段文字會由新一行開始，"
+                            "請把標記移到行尾"
+                     % (cid, label, text[m.end():m.end() + 12].strip()[:12]))
+            m = RE_LINE_START_PUNCT.search(text)
+            if m:
+                warn("I12", "%s %s：有一行以標點開頭（%r）—— 標點應留在上一行"
+                     % (cid, label, text[m.start():m.start() + 14].replace("\n", "⏎")))
+            m = RE_PUNCT_ONLY_LINE.search(text)
+            if m:
+                warn("I12", "%s %s：有一整行只有標點（%r）—— 應與上一句合併"
+                     % (cid, label, m.group(0).strip()[:6]))
 
     for t in lessons.get("topics", []):
         tid = t.get("id", "?")

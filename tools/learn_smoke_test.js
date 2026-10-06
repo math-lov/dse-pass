@@ -164,6 +164,49 @@ for (const t of LESSONS.topics) {
   }
 }
 
+/* ── 3d. 統測前哨戰（第二階段）：4 個新課題、題目字眼、讀圖題 ─────────── */
+console.log("\n— 統測前哨戰（第二階段）—");
+const warmup = LESSONS.topics.filter((t) => /^as\d+$/.test(t.id));
+ok(warmup.length === 4,
+   "第二階段有 4 個課題（as01–as04）：" + warmup.map((t) => t.id).join("、"));
+ok(warmup.every((t) => t.stage === 2), "4 個新課題都歸入階段 2");
+ok(LESSONS.stages.some((s) => s.id === 2 && s.name && s.name.zh && s.name.en),
+   "階段 2 有名稱（中英齊）");
+/* 每個新課題至少 3 組「只有它有」的題目字眼（不可照抄別課） */
+const hintKey = (x) => (x.en || "") + "|" + (x.zh || "");
+const ownHints = warmup.map((t) => {
+  const others = new Set();
+  LESSONS.topics.filter((x) => x.id !== t.id).forEach((x) =>
+    (x.cmdHints || []).forEach((h) => others.add(hintKey(h))));
+  return (t.cmdHints || []).map(hintKey).filter((k) => !others.has(k)).length;
+});
+ok(ownHints.every((n) => n >= 3),
+   "每個新課題至少 3 組獨有題目字眼（" + ownHints.join(",") + "）");
+/* 學生看到的說法：只講「幫你備戰統測」，不講分數目標。
+   註：這裡刻意寫成正向斷言（要有「統測」字眼），而不是把禁止的字眼列出 ——
+   測試檔本身也在網站目錄內，寫出那些字眼等於自己洩漏。禁止字眼由本機的
+   洩漏掃描（發佈前跑，不入庫）把關。 */
+ok(warmup.every((t) => /統測|Uniform Test/.test(JSON.stringify(t))),
+   "新課題的名稱／導言都提到「統測」，學生知道這一區的用途");
+/* as02 讀圖題：作答之前不出圖（防劇透），作答之後才出圖並附說明 */
+const gMc = boot("topic.html", "?t=as02&p=2");
+const gCards = gMc.$$("#topic-body .card[data-qid]");
+ok(gCards.length === 3, "as02 第二個練習頁有 3 題（讀圖題）");
+ok(gCards.every((c) => c.querySelectorAll("svg").length === 0),
+   "作答之前不出圖");
+gCards[0].querySelectorAll(".opt")[0].click();
+ok(gCards[0].querySelectorAll("svg").length >= 1, "作答之後圖才出現");
+ok(gCards[1].querySelectorAll("svg").length === 0, "未作答的下一題仍然沒有圖");
+ok(!!gCards[0].querySelector(".fig-cap"), "圖下面有說明文字（caption）");
+/* 概念卡「重點框」（box 欄位，由姊妹站 Endeavour 移植）：
+   標籤、標題、正文與公式都要出現，而且公式要用真 KaTeX 渲染（不是露出原字元）。 */
+const bxPage = boot("topic.html", "?t=as01&p=7");      // as01 第 2 節＝複數概念卡
+const kb = bxPage.$$("#topic-body .key-box")[0];
+ok(!!kb, "概念卡重點框有渲染出來");
+ok(!!kb.querySelector(".tag") && !!kb.querySelector(".key-head"),
+   "重點框有標籤（餘數法）與標題");
+ok(kb.querySelectorAll(".katex").length >= 1, "重點框的公式用真 KaTeX 渲染");
+
 /* ── 3c. 分頁列要顯示橫向滾動條（老師要求；否則學生不知道右邊還有頁）── */
 const cssNav = fs.readFileSync(path.join(root, "assets", "style.css"), "utf8");
 ok(/\.pagenav \{[\s\S]{0,220}?scrollbar-width: thin/.test(cssNav),

@@ -81,8 +81,8 @@ window.LEARN_TOPIC_WS01B = {
       "en": "A fixed routine for four or six terms"
      },
      "body": {
-      "zh": "卷二的四項題幾乎都是同一條路：分組 → 每組抽公因式 → 兩個括號要一樣。\n例：$2xy-xz+4y^{2}-2yz$，分組後兩組都是 $(2y-z)$：{{math:0}}\n如果分組後括號差一個負號，把 $-1$ 抽出來就一樣（例：{{math:1}}）；如果兩組完全配不上，就調位（把有共同括號的兩項拉在一起）再試。六項題同理：三項一組、抽三次，通常會出現同一個括號。",
-      "en": "Almost every four-term question in Paper 2 follows one route: group → factor each pair → make the brackets identical.\nExample: $2xy-xz+4y^{2}-2yz$ — after grouping, both brackets are $(2y-z)$: {{math:0}}\nIf the brackets differ by a sign, take out $-1$ (example: {{math:1}}); if they do not match at all, rearrange the terms (pull together the two that share a bracket) and try again. Six terms work the same way: group into threes and the same bracket usually appears."
+      "zh": "卷二的四項題幾乎都是同一條路：分組 → 每組抽公因式 → 兩個括號要一樣。\n例：$2xy-xz+4y^{2}-2yz$，分組後兩組都是 $(2y-z)$：{{math:0}}\n如果分組後括號差一個負號，把 $-1$ 抽出來就一樣：{{math:1}}\n如果兩組完全配不上，就調位（把有共同括號的兩項拉在一起）再試。六項題同理：三項一組、抽三次，通常會出現同一個括號。",
+      "en": "Almost every four-term question in Paper 2 follows one route: group → factor each pair → make the brackets identical.\nExample: $2xy-xz+4y^{2}-2yz$ — after grouping, both brackets are $(2y-z)$: {{math:0}}\nIf the brackets differ by a sign, take out $-1$: {{math:1}}\nIf they do not match at all, rearrange the terms (pull together the two that share a bracket) and try again. Six terms work the same way: group into threes and the same bracket usually appears."
      },
      "math": [
       "2xy-xz+4y^{2}-2yz=x(2y-z)+2y(2y-z)\n=(x+2y)(2y-z)",

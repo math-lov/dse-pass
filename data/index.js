@@ -11,6 +11,16 @@ window.LEARN_INDEX = {
    "note": {
     "zh": "以「及格」為目標：先補最常考、最容易拿分的代數基本功，由因式分解開始。"
    }
+  },
+  {
+   "id": 2,
+   "name": {
+    "zh": "第二階段 · 統測前哨戰",
+    "en": "Stage 2 · Uniform Test Warm-up"
+   },
+   "note": {
+    "zh": "為統測（uniform test）而設：把最常考、最基本的題型拆成小步練熟，做完一課就穩住一部分分數。"
+   }
   }
  ],
  "topics": [
@@ -84,6 +94,99 @@ window.LEARN_INDEX = {
     "ws01c-2",
     "ws01c-3",
     "ws01c-4"
+   ]
+  },
+  {
+   "id": "as01",
+   "stage": 2,
+   "unit": 1,
+   "name": {
+    "zh": "統測前哨戰 1 · 二次方程與複數",
+    "en": "Uniform Test Warm-up 1 · Quadratic Equations and Complex Numbers"
+   },
+   "intro": {
+    "zh": "這一課把統測範圍內「二次方程與複數」最基本的題型逐種練熟：先看概念卡，再看逐步示範，最後每頁三題自己做。題目都是為這一課重新設計的（數字與情境都不同），所以練到的是方法，不是背答案。二次方程與複數屬於同一個課程單元，這裡分兩節編排：第 1 節二次方程、第 2 節複數。",
+    "en": "This topic drills the basic question types of quadratic equations and complex numbers, one type at a time: read the concept cards, follow the step-by-step demonstrations, then work through three questions per page. Every question was written for this topic with different numbers and contexts, so you practise the method rather than memorising answers. Quadratic equations and complex numbers belong to the same curriculum unit, and are arranged here as two sets: Set 1 on quadratic equations and Set 2 on complex numbers."
+   },
+   "source": "統測前哨戰 · 二次方程與複數（自編題組）",
+   "stats": {
+    "mc": 15,
+    "long": 4,
+    "cards": 7,
+    "pages": 5
+   },
+   "lessonIds": [
+    "as01-1",
+    "as01-2"
+   ]
+  },
+  {
+   "id": "as02",
+   "stage": 2,
+   "unit": 10,
+   "name": {
+    "zh": "統測前哨戰 2 · 直線方程",
+    "en": "Uniform Test Warm-up 2 · Equations of Straight Lines"
+   },
+   "intro": {
+    "zh": "這一課練兩種最常見的直線題：① 垂直 ＋ 截距（或過一點）求方程；② 由 $ax+y+b=0$ 的圖判斷 $a$、$b$ 的正負。第二種的圖會在作答之後才出現，所以先自己讀圖判斷，再對答案。所有題目都是為這一課重新設計的（數字與情境都不同），練的是方法。",
+    "en": "This topic practises the two most common straight-line questions: ① finding the equation of a line that is perpendicular to a given line and passes through a given point or intercept; ② reading the signs of $a$ and $b$ from the graph of $ax+y+b=0$. The graphs for the second type appear only after you answer, so judge from the description first and then check. Every question was written for this topic with different numbers and contexts, so you practise the method."
+   },
+   "source": "統測前哨戰 · 直線方程（自編題組）",
+   "stats": {
+    "mc": 6,
+    "long": 0,
+    "cards": 2,
+    "pages": 2
+   },
+   "lessonIds": [
+    "as02-1"
+   ]
+  },
+  {
+   "id": "as03",
+   "stage": 2,
+   "unit": 8,
+   "name": {
+    "zh": "統測前哨戰 3 · 不等式",
+    "en": "Uniform Test Warm-up 3 · Inequalities"
+   },
+   "intro": {
+    "zh": "這一課練四種必考的不等式：①「對所有實數 $x$ 都成立」與「無實數解」＝看開口方向（$x^2$ 的係數）＋ 判別式，求未知數的範圍；② 兩條不等式用「或」連起來（只要一段成立就可以）；③ 三節式複合不等式（$a<x<b$）求出範圍與最大值；④ $\\Delta=0$（完全平方）時四種不等號分別對應甚麼答案。所有題目都是為這一課重新設計的，練的是方法。",
+    "en": "This topic practises four must-know inequality types: (1) “true for all real $x$” and “no real solution”, where you read both the opening direction (the coefficient of $x^{2}$) and the discriminant to find the range of an unknown; (2) two inequalities joined by “or”, where one true piece is enough; (3) three-part compound inequalities such as $a<x<b$, where you find the range and the maximum value; (4) what the four inequality signs give when $\\Delta=0$ (a perfect square). Every question was written for this topic, so you practise the method."
+   },
+   "source": "統測前哨戰 · 不等式（自編題組）",
+   "stats": {
+    "mc": 9,
+    "long": 2,
+    "cards": 4,
+    "pages": 3
+   },
+   "lessonIds": [
+    "as03-1"
+   ]
+  },
+  {
+   "id": "as04",
+   "stage": 2,
+   "unit": 15,
+   "name": {
+    "zh": "統測前哨戰 4 · 排列與組合",
+    "en": "Uniform Test Warm-up 4 · Permutations and Combinations"
+   },
+   "intro": {
+    "zh": "這一課練三種必考的計數題：①「不可相鄰」用插空法；② 有職位的選人（1 名隊長 ＋ 幾名隊員）；③ 由表格給出各班人數的選人題。全部題目都是為這一課重新設計的，練的是「先判斷次序要緊嗎」這個判斷力。",
+    "en": "This topic practises three must-know counting questions: ① “not next to each other”, solved by the insertion method; ② selecting people when one holds a post (a captain plus several members); ③ selection questions where a table gives the numbers in each class. Every question was written for this topic, so you train the key judgement of whether order matters."
+   },
+   "source": "統測前哨戰 · 排列與組合（自編題組）",
+   "stats": {
+    "mc": 6,
+    "long": 2,
+    "cards": 6,
+    "pages": 2
+   },
+   "lessonIds": [
+    "as04-1"
    ]
   }
  ],
@@ -170,13 +273,13 @@ window.LEARN_INDEX = {
    }
   }
  },
- "generatedAt": "2026-09-28T12:53:03Z",
+ "generatedAt": "2026-10-06T10:20:28Z",
  "counts": {
-  "topics": 3,
+  "topics": 7,
   "held": 0,
-  "mc": 45,
-  "long": 39,
-  "cards": 10,
+  "mc": 81,
+  "long": 47,
+  "cards": 29,
   "blocked": 0
  }
 };

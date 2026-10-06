@@ -11,6 +11,16 @@
    "note": {
     "zh": "以「及格」為目標：先補最常考、最容易拿分的代數基本功，由因式分解開始。"
    }
+  },
+  {
+   "id": 2,
+   "name": {
+    "zh": "第二階段 · 統測前哨戰",
+    "en": "Stage 2 · Uniform Test Warm-up"
+   },
+   "note": {
+    "zh": "為統測（uniform test）而設：把最常考、最基本的題型拆成小步練熟，做完一課就穩住一部分分數。"
+   }
   }
  ],
  "topics": [
@@ -325,6 +335,325 @@
       "eph-ws01c-q32"
      ],
      "mcPages": []
+    }
+   ]
+  },
+  {
+   "id": "as01",
+   "stage": 2,
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "source": "統測前哨戰 · 二次方程與複數（自編題組）",
+   "name": {
+    "zh": "統測前哨戰 1 · 二次方程與複數",
+    "en": "Uniform Test Warm-up 1 · Quadratic Equations and Complex Numbers"
+   },
+   "intro": {
+    "zh": "這一課把統測範圍內「二次方程與複數」最基本的題型逐種練熟：先看概念卡，再看逐步示範，最後每頁三題自己做。題目都是為這一課重新設計的（數字與情境都不同），所以練到的是方法，不是背答案。二次方程與複數屬於同一個課程單元，這裡分兩節編排：第 1 節二次方程、第 2 節複數。",
+    "en": "This topic drills the basic question types of quadratic equations and complex numbers, one type at a time: read the concept cards, follow the step-by-step demonstrations, then work through three questions per page. Every question was written for this topic with different numbers and contexts, so you practise the method rather than memorising answers. Quadratic equations and complex numbers belong to the same curriculum unit, and are arranged here as two sets: Set 1 on quadratic equations and Set 2 on complex numbers."
+   },
+   "cmdHints": [
+    {
+     "en": "Let $k$ be a constant",
+     "zh": "「設 $k$ 為常數」：答案可以含有 $k$，不要當它是要求的值"
+    },
+    {
+     "en": "has equal real roots",
+     "zh": "「有等實根」：判別式 $\\Delta=0$，未知數只有一個值"
+    },
+    {
+     "en": "is a root of the equation",
+     "zh": "「是方程的根」：代入就成立，用來化簡或求另一塊（不用解方程）"
+    },
+    {
+     "en": "in the form $a+bi$",
+     "zh": "「以 $a+bi$ 的形式表示」：實部、虛部分開寫，不要留下 $i^{2}$"
+    },
+    {
+     "en": "Hence",
+     "zh": "「由此」：必須用 (a) 的結果，(a)→(b) 的固定套路"
+    },
+    {
+     "en": "Solve the equation",
+     "zh": "「解方程」：先移項成標準式，再分解；分不到才用公式"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "as01-1",
+     "title": {
+      "zh": "第 1 節 · 二次方程",
+      "en": "Set 1 · Quadratic equations"
+     },
+     "conceptCards": [
+      "as01-c1",
+      "as01-c2",
+      "as01-c3",
+      "as01-c4"
+     ],
+     "longQuestionIds": [
+      "eph-as01-ex01",
+      "eph-as01-ex02"
+     ],
+     "mcPages": [
+      [
+       "eph-as01-m01",
+       "eph-as01-m02",
+       "eph-as01-m03"
+      ],
+      [
+       "eph-as01-m04",
+       "eph-as01-m05",
+       "eph-as01-m06"
+      ],
+      [
+       "eph-as01-m07",
+       "eph-as01-m08",
+       "eph-as01-m09"
+      ],
+      [
+       "eph-as01-m10",
+       "eph-as01-m11",
+       "eph-as01-m12"
+      ]
+     ]
+    },
+    {
+     "id": "as01-2",
+     "title": {
+      "zh": "第 2 節 · 複數",
+      "en": "Set 2 · Complex numbers"
+     },
+     "conceptCards": [
+      "as01-c5",
+      "as01-c6",
+      "as01-c7"
+     ],
+     "longQuestionIds": [
+      "eph-as01-ex03",
+      "eph-as01-ex04"
+     ],
+     "mcPages": [
+      [
+       "eph-as01-m13",
+       "eph-as01-m14",
+       "eph-as01-m15"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "as02",
+   "stage": 2,
+   "unit": 10,
+   "subtopic": "straight-lines",
+   "source": "統測前哨戰 · 直線方程（自編題組）",
+   "name": {
+    "zh": "統測前哨戰 2 · 直線方程",
+    "en": "Uniform Test Warm-up 2 · Equations of Straight Lines"
+   },
+   "intro": {
+    "zh": "這一課練兩種最常見的直線題：① 垂直 ＋ 截距（或過一點）求方程；② 由 $ax+y+b=0$ 的圖判斷 $a$、$b$ 的正負。第二種的圖會在作答之後才出現，所以先自己讀圖判斷，再對答案。所有題目都是為這一課重新設計的（數字與情境都不同），練的是方法。",
+    "en": "This topic practises the two most common straight-line questions: ① finding the equation of a line that is perpendicular to a given line and passes through a given point or intercept; ② reading the signs of $a$ and $b$ from the graph of $ax+y+b=0$. The graphs for the second type appear only after you answer, so judge from the description first and then check. Every question was written for this topic with different numbers and contexts, so you practise the method."
+   },
+   "cmdHints": [
+    {
+     "en": "perpendicular to",
+     "zh": "「垂直於」：兩條線的斜率乘積 $=-1$，所以要取「負倒數」"
+    },
+    {
+     "en": "$x$-intercept / $y$-intercept",
+     "zh": "「$x$ 截距／$y$ 截距」：$x$ 截距是 $y=0$ 時的 $x$；$y$ 截距是 $x=0$ 時的 $y$"
+    },
+    {
+     "en": "find the equation of $L$",
+     "zh": "「求 $L$ 的方程」：先找斜率，再用點斜式，最後整理成一般式"
+    },
+    {
+     "en": "the graph of $ax+y+b=0$",
+     "zh": "「$ax+y+b=0$ 的圖像」：先改寫成 $y=-ax-b$，斜率是 $-a$、$y$ 截距是 $-b$"
+    },
+    {
+     "en": "Which of the following are true?",
+     "zh": "「以下哪項正確？」：逐句獨立核對，錯一句就刪走含有它的選項"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "as02-1",
+     "title": {
+      "zh": "第 1 節 · 斜率、截距與讀圖",
+      "en": "Set 1 · Slope, intercepts and reading graphs"
+     },
+     "conceptCards": [
+      "as02-c1",
+      "as02-c2"
+     ],
+     "longQuestionIds": [],
+     "mcPages": [
+      [
+       "eph-as02-m01",
+       "eph-as02-m02",
+       "eph-as02-m03"
+      ],
+      [
+       "eph-as02-m04",
+       "eph-as02-m05",
+       "eph-as02-m06"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "as03",
+   "stage": 2,
+   "unit": 8,
+   "subtopic": "inequalities",
+   "source": "統測前哨戰 · 不等式（自編題組）",
+   "name": {
+    "zh": "統測前哨戰 3 · 不等式",
+    "en": "Uniform Test Warm-up 3 · Inequalities"
+   },
+   "intro": {
+    "zh": "這一課練四種必考的不等式：①「對所有實數 $x$ 都成立」與「無實數解」＝看開口方向（$x^2$ 的係數）＋ 判別式，求未知數的範圍；② 兩條不等式用「或」連起來（只要一段成立就可以）；③ 三節式複合不等式（$a<x<b$）求出範圍與最大值；④ $\\Delta=0$（完全平方）時四種不等號分別對應甚麼答案。所有題目都是為這一課重新設計的，練的是方法。",
+    "en": "This topic practises four must-know inequality types: (1) “true for all real $x$” and “no real solution”, where you read both the opening direction (the coefficient of $x^{2}$) and the discriminant to find the range of an unknown; (2) two inequalities joined by “or”, where one true piece is enough; (3) three-part compound inequalities such as $a<x<b$, where you find the range and the maximum value; (4) what the four inequality signs give when $\\Delta=0$ (a perfect square). Every question was written for this topic, so you practise the method."
+   },
+   "cmdHints": [
+    {
+     "en": "for any real number $x$ / has no real solution",
+     "zh": "「對任何實數 $x$ 都成立」／「無實數解」：先看 $x^2$ 的係數（要 $>0$，開口向上）＋ 判別式（嚴格 $<0$、有等號 $\\le0$）"
+    },
+    {
+     "en": "find the range of values of $k$",
+     "zh": "「求 $k$ 的取值範圍」：答案要寫成區間（$-a\\le k\\le b$）或兩段（$k\\le a$ 或 $k\\ge b$）"
+    },
+    {
+     "en": "or",
+     "zh": "「或」：只要一段成立就可以（兩段都寫；一段包含另一段時只寫較寬鬆的那段）"
+    },
+    {
+     "en": "and",
+     "zh": "「及」：兩段要同時成立（取重疊，通常是較嚴格的那段）"
+    },
+    {
+     "en": "compound inequality $a<x<b$",
+     "zh": "「三節式」：三節一起做同一個運算，最後檢查端點是開還是閉"
+    },
+    {
+     "en": "maximum value of $x$",
+     "zh": "「$x$ 的最大值」：先看端點是 $\\le$ 還是 $<$；閉端點才拿得到那個值"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "as03-1",
+     "title": {
+      "zh": "第 1 節 · 恆成立、複合不等式與三節式",
+      "en": "Set 1 · Always true, compound inequalities and three-part inequalities"
+     },
+     "conceptCards": [
+      "as03-c1",
+      "as03-c2",
+      "as03-c3",
+      "as03-c4"
+     ],
+     "longQuestionIds": [
+      "eph-as03-ex01",
+      "eph-as03-ex02"
+     ],
+     "mcPages": [
+      [
+       "eph-as03-m01",
+       "eph-as03-m02",
+       "eph-as03-m03"
+      ],
+      [
+       "eph-as03-m04",
+       "eph-as03-m05",
+       "eph-as03-m06"
+      ],
+      [
+       "eph-as03-m07",
+       "eph-as03-m08",
+       "eph-as03-m09"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "as04",
+   "stage": 2,
+   "unit": 15,
+   "subtopic": "permutations-combinations",
+   "source": "統測前哨戰 · 排列與組合（自編題組）",
+   "name": {
+    "zh": "統測前哨戰 4 · 排列與組合",
+    "en": "Uniform Test Warm-up 4 · Permutations and Combinations"
+   },
+   "intro": {
+    "zh": "這一課練三種必考的計數題：①「不可相鄰」用插空法；② 有職位的選人（1 名隊長 ＋ 幾名隊員）；③ 由表格給出各班人數的選人題。全部題目都是為這一課重新設計的，練的是「先判斷次序要緊嗎」這個判斷力。",
+    "en": "This topic practises three must-know counting questions: ① “not next to each other”, solved by the insertion method; ② selecting people when one holds a post (a captain plus several members); ③ selection questions where a table gives the numbers in each class. Every question was written for this topic, so you train the key judgement of whether order matters."
+   },
+   "cmdHints": [
+    {
+     "en": "no two boys are next to each other",
+     "zh": "「沒有兩個男生相鄰」：先排沒有條件的一方，再插入空隙（空隙數＝人數＋1）"
+    },
+    {
+     "en": "how many different queues can be formed?",
+     "zh": "「可排成多少個不同的隊列？」：人與人有分別 → 用排列 $P$，不是組合 $C$"
+    },
+    {
+     "en": "1 captain and 4 members",
+     "zh": "「1 名隊長及 4 名隊員」：只有一個職位 → 先選職位（$C^{n}_{1}$），其餘用組合"
+    },
+    {
+     "en": "selected from the club",
+     "zh": "「從 n 人中選出」：只選不排 → 用組合 $C$"
+    },
+    {
+     "en": "1 boy and 1 girl are selected from each class",
+     "zh": "「每個班別各選 1 男 1 女」：每班「男 × 女」，班別之間再相乘"
+    },
+    {
+     "en": "4 boys and 4 girls are selected",
+     "zh": "「選出 4 男 4 女」：不分班別 → 先把人數合併再選"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "as04-1",
+     "title": {
+      "zh": "第 1 節 · 插空法、有職位的選人與表格題",
+      "en": "Set 1 · Insertion, posts and table questions"
+     },
+     "conceptCards": [
+      "as04-c1",
+      "as04-c2",
+      "as04-c3",
+      "as04-c4",
+      "as04-c5",
+      "as04-c6"
+     ],
+     "longQuestionIds": [
+      "eph-as04-ex01",
+      "eph-as04-ex02"
+     ],
+     "mcPages": [
+      [
+       "eph-as04-m01",
+       "eph-as04-m02",
+       "eph-as04-m03"
+      ],
+      [
+       "eph-as04-m04",
+       "eph-as04-m05",
+       "eph-as04-m06"
+      ]
+     ]
     }
    ]
   }

@@ -2148,6 +2148,1062 @@
    ],
    "marks": 4,
    "review": null
+  },
+  {
+   "id": "eph-as01-m01",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "difficulty": 2,
+   "code": "AS1-M01",
+   "source": "統測前哨戰 · 二次方程：抽公因式解方程（自編）",
+   "stem": {
+    "text": "Let $k$ be a constant. Solve $(x-k)(x+3k-2)=(x-k)$.",
+    "zh": "設 $k$ 為常數。解 $(x-k)(x+3k-2)=(x-k)$。",
+    "en": "Let $k$ be a constant. Solve $(x-k)(x+3k-2)=(x-k)$."
+   },
+   "options": {
+    "A": "$x=3k-2$",
+    "B": "$x=k$",
+    "C": "$x=k$ or $x=3-3k$",
+    "D": "$x=k$ or $x=2-3k$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-m02",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "difficulty": 1,
+   "code": "AS1-M02",
+   "source": "統測前哨戰 · 二次方程：兩邊都有同一個括號（自編）",
+   "stem": {
+    "text": "Let $m$ be a constant. Solve $2x(x-m)=5(x-m)$.",
+    "zh": "設 $m$ 為常數。解 $2x(x-m)=5(x-m)$。",
+    "en": "Let $m$ be a constant. Solve $2x(x-m)=5(x-m)$."
+   },
+   "options": {
+    "A": "$x=\\frac{5}{2}$",
+    "B": "$x=m$",
+    "C": "$x=-m$",
+    "D": "$x=m$ or $x=\\frac{5}{2}$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-m03",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "difficulty": 2,
+   "code": "AS1-M03",
+   "source": "統測前哨戰 · 二次方程：先移項再抽公因式（自編）",
+   "stem": {
+    "text": "Let $t$ be a constant. Solve $(x+2t)(x-t)=3(x+2t)$.",
+    "zh": "設 $t$ 為常數。解 $(x+2t)(x-t)=3(x+2t)$。",
+    "en": "Let $t$ be a constant. Solve $(x+2t)(x-t)=3(x+2t)$."
+   },
+   "options": {
+    "A": "$x=-2t$ or $x=t+3$",
+    "B": "$x=t-3$",
+    "C": "$x=-2t$ or $x=t-3$",
+    "D": "$x=2t$ or $x=t+3$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-m04",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "difficulty": 2,
+   "code": "AS1-M04",
+   "source": "統測前哨戰 · 二次方程：用根化簡（自編）",
+   "stem": {
+    "text": "If $\\alpha$ is a root of the equation $4x^{2}+6x-3=0$, then $2\\alpha^{2}+3\\alpha+1=$",
+    "zh": "若 $\\alpha$ 是方程 $4x^{2}+6x-3=0$ 的一個根，則 $2\\alpha^{2}+3\\alpha+1=$",
+    "en": "If $\\alpha$ is a root of the equation $4x^{2}+6x-3=0$, then $2\\alpha^{2}+3\\alpha+1=$"
+   },
+   "options": {
+    "A": "$-\\frac{1}{2}$",
+    "B": "$\\frac{1}{2}$",
+    "C": "$\\frac{5}{2}$",
+    "D": "$4$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-m05",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "difficulty": 2,
+   "code": "AS1-M05",
+   "source": "統測前哨戰 · 二次方程：用根化簡（自編）",
+   "stem": {
+    "text": "If $\\beta$ is a root of the equation $2x^{2}-5x+1=0$, then $4\\beta^{2}-10\\beta+3=$",
+    "zh": "若 $\\beta$ 是方程 $2x^{2}-5x+1=0$ 的一個根，則 $4\\beta^{2}-10\\beta+3=$",
+    "en": "If $\\beta$ is a root of the equation $2x^{2}-5x+1=0$, then $4\\beta^{2}-10\\beta+3=$"
+   },
+   "options": {
+    "A": "$-2$",
+    "B": "$-1$",
+    "C": "$1$",
+    "D": "$2$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-m06",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "difficulty": 3,
+   "code": "AS1-M06",
+   "source": "統測前哨戰 · 二次方程：配成完全平方再看（自編）",
+   "stem": {
+    "text": "If $\\alpha$ is a root of the equation $x^{2}-8x+3=0$, then $(\\alpha-4)^{2}=$",
+    "zh": "若 $\\alpha$ 是方程 $x^{2}-8x+3=0$ 的一個根，則 $(\\alpha-4)^{2}=$",
+    "en": "If $\\alpha$ is a root of the equation $x^{2}-8x+3=0$, then $(\\alpha-4)^{2}=$"
+   },
+   "options": {
+    "A": "$3$",
+    "B": "$13$",
+    "C": "$16$",
+    "D": "$19$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-m07",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "difficulty": 2,
+   "code": "AS1-M07",
+   "source": "統測前哨戰 · 二次方程：等根求常數（自編）",
+   "stem": {
+    "text": "Let $h$ be a constant. If the quadratic equation $x^{2}+hx=9-3h$ has equal real roots, then $h=$",
+    "zh": "設 $h$ 為常數。若二次方程 $x^{2}+hx=9-3h$ 有等實根，則 $h=$",
+    "en": "Let $h$ be a constant. If the quadratic equation $x^{2}+hx=9-3h$ has equal real roots, then $h=$"
+   },
+   "options": {
+    "A": "$3$",
+    "B": "$6$",
+    "C": "$9$",
+    "D": "$-6$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-m08",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "difficulty": 2,
+   "code": "AS1-M08",
+   "source": "統測前哨戰 · 二次方程：等根求常數（自編）",
+   "stem": {
+    "text": "Let $k$ be a constant. If the quadratic equation $x^{2}+kx=25-5k$ has equal real roots, then $k=$",
+    "zh": "設 $k$ 為常數。若二次方程 $x^{2}+kx=25-5k$ 有等實根，則 $k=$",
+    "en": "Let $k$ be a constant. If the quadratic equation $x^{2}+kx=25-5k$ has equal real roots, then $k=$"
+   },
+   "options": {
+    "A": "$-10$",
+    "B": "$5$",
+    "C": "$10$",
+    "D": "$25$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-m09",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "difficulty": 3,
+   "code": "AS1-M09",
+   "source": "統測前哨戰 · 二次方程：等根求常數（自編）",
+   "stem": {
+    "text": "Let $t$ be a constant. If the quadratic equation $x^{2}+tx=4+2t$ has equal real roots, then $t=$",
+    "zh": "設 $t$ 為常數。若二次方程 $x^{2}+tx=4+2t$ 有等實根，則 $t=$",
+    "en": "Let $t$ be a constant. If the quadratic equation $x^{2}+tx=4+2t$ has equal real roots, then $t=$"
+   },
+   "options": {
+    "A": "$-4$",
+    "B": "$-2$",
+    "C": "$2$",
+    "D": "$4$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-m10",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "difficulty": 1,
+   "code": "AS1-M10",
+   "source": "統測前哨戰 · 二次方程：兩根之和與積（自編）",
+   "stem": {
+    "text": "If $\\alpha$ and $\\beta$ are the roots of the equation $x^{2}-5x+2=0$, then $\\alpha^{2}+\\beta^{2}=$",
+    "zh": "若 $\\alpha$ 與 $\\beta$ 是方程 $x^{2}-5x+2=0$ 的兩根，則 $\\alpha^{2}+\\beta^{2}=$",
+    "en": "If $\\alpha$ and $\\beta$ are the roots of the equation $x^{2}-5x+2=0$, then $\\alpha^{2}+\\beta^{2}=$"
+   },
+   "options": {
+    "A": "$21$",
+    "B": "$23$",
+    "C": "$27$",
+    "D": "$29$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-m11",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "difficulty": 2,
+   "code": "AS1-M11",
+   "source": "統測前哨戰 · 二次方程：對稱式化簡（自編）",
+   "stem": {
+    "text": "If $\\alpha$ and $\\beta$ are the roots of the equation $x^{2}-4x+1=0$, then $\\frac{\\alpha}{\\beta}+\\frac{\\beta}{\\alpha}=$",
+    "zh": "若 $\\alpha$ 與 $\\beta$ 是方程 $x^{2}-4x+1=0$ 的兩根，則 $\\frac{\\alpha}{\\beta}+\\frac{\\beta}{\\alpha}=$",
+    "en": "If $\\alpha$ and $\\beta$ are the roots of the equation $x^{2}-4x+1=0$, then $\\frac{\\alpha}{\\beta}+\\frac{\\beta}{\\alpha}=$"
+   },
+   "options": {
+    "A": "$15$",
+    "B": "$16$",
+    "C": "$18$",
+    "D": "$14$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-m12",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "difficulty": 2,
+   "code": "AS1-M12",
+   "source": "統測前哨戰 · 二次方程：先抽公因式再看兩根（自編）",
+   "stem": {
+    "text": "If $\\alpha$ and $\\beta$ are the roots of the equation $x^{2}+6x+4=0$, then $\\alpha^{2}\\beta+\\alpha\\beta^{2}=$",
+    "zh": "若 $\\alpha$ 與 $\\beta$ 是方程 $x^{2}+6x+4=0$ 的兩根，則 $\\alpha^{2}\\beta+\\alpha\\beta^{2}=$",
+    "en": "If $\\alpha$ and $\\beta$ are the roots of the equation $x^{2}+6x+4=0$, then $\\alpha^{2}\\beta+\\alpha\\beta^{2}=$"
+   },
+   "options": {
+    "A": "$-10$",
+    "B": "$-24$",
+    "C": "$10$",
+    "D": "$24$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-m13",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "complex-numbers",
+   "difficulty": 1,
+   "code": "AS1-M13",
+   "source": "統測前哨戰 · 複數：乘法（自編）",
+   "stem": {
+    "text": "Simplify $(4+3i)(2-5i)$.",
+    "zh": "化簡 $(4+3i)(2-5i)$。",
+    "en": "Simplify $(4+3i)(2-5i)$."
+   },
+   "options": {
+    "A": "$-7-14i$",
+    "B": "$23-26i$",
+    "C": "$23-14i$",
+    "D": "$23+14i$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-m14",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "complex-numbers",
+   "difficulty": 1,
+   "code": "AS1-M14",
+   "source": "統測前哨戰 · 複數：平方（自編）",
+   "stem": {
+    "text": "Simplify $(3-2i)^{2}$ and express the answer in the form $a+bi$.",
+    "zh": "化簡 $(3-2i)^{2}$，並以 $a+bi$ 的形式表示答案。",
+    "en": "Simplify $(3-2i)^{2}$ and express the answer in the form $a+bi$."
+   },
+   "options": {
+    "A": "$13-12i$",
+    "B": "$5+12i$",
+    "C": "$9-12i$",
+    "D": "$5-12i$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-m15",
+   "type": "mc",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "complex-numbers",
+   "difficulty": 2,
+   "code": "AS1-M15",
+   "source": "統測前哨戰 · 複數：除法（乘共軛）（自編）",
+   "stem": {
+    "text": "Express $\\frac{4+2i}{1-i}$ in the form $a+bi$.",
+    "zh": "把 $\\frac{4+2i}{1-i}$ 寫成 $a+bi$ 的形式。",
+    "en": "Express $\\frac{4+2i}{1-i}$ in the form $a+bi$."
+   },
+   "options": {
+    "A": "$3+i$",
+    "B": "$1+3i$",
+    "C": "$3-i$",
+    "D": "$1-3i$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as01-ex01",
+   "type": "long",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "difficulty": 2,
+   "code": "AS1-EX1",
+   "source": "統測前哨戰 · 二次方程：已知一根求係數（自編）",
+   "stem": {
+    "text": "$-3$ is a root of the equation $2x^{2}+7x+c=0$, where $c$ is a constant.",
+    "zh": "$-3$ 是方程 $2x^{2}+7x+c=0$ 的一個根，其中 $c$ 為常數。",
+    "en": "$-3$ is a root of the equation $2x^{2}+7x+c=0$, where $c$ is a constant."
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "Find $c$.",
+     "marks": 2,
+     "zh": "求 $c$。",
+     "en": "Find $c$."
+    },
+    {
+     "label": "(b)",
+     "text": "Solve the equation.",
+     "marks": 2,
+     "zh": "解該方程。",
+     "en": "Solve the equation."
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-as01-ex02",
+   "type": "long",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "quadratic-equations",
+   "difficulty": 2,
+   "code": "AS1-EX2",
+   "source": "統測前哨戰 · 二次方程：已知一根求係數（自編）",
+   "stem": {
+    "text": "$5$ is a root of the equation $3x^{2}-14x+k=0$, where $k$ is a constant.",
+    "zh": "$5$ 是方程 $3x^{2}-14x+k=0$ 的一個根，其中 $k$ 為常數。",
+    "en": "$5$ is a root of the equation $3x^{2}-14x+k=0$, where $k$ is a constant."
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "Find $k$.",
+     "marks": 2,
+     "zh": "求 $k$。",
+     "en": "Find $k$."
+    },
+    {
+     "label": "(b)",
+     "text": "Solve the equation.",
+     "marks": 2,
+     "zh": "解該方程。",
+     "en": "Solve the equation."
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-as01-ex03",
+   "type": "long",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "complex-numbers",
+   "difficulty": 2,
+   "code": "AS1-EX3",
+   "source": "統測前哨戰 · 複數：平方與化簡分式（自編）",
+   "stem": {
+    "text": "It is given that $z=3+i$.",
+    "zh": "已知 $z=3+i$。",
+    "en": "It is given that $z=3+i$."
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "Simplify $z^{2}$ and express the answer in the form $a+bi$.",
+     "marks": 2,
+     "zh": "化簡 $z^{2}$，並以 $a+bi$ 的形式表示答案。",
+     "en": "Simplify $z^{2}$ and express the answer in the form $a+bi$."
+    },
+    {
+     "label": "(b)",
+     "text": "Hence, simplify $\\left(\\frac{20}{z}\\right)^{2}$ and express the answer in the form $a+bi$.",
+     "marks": 3,
+     "zh": "由此化簡 $\\left(\\frac{20}{z}\\right)^{2}$，並以 $a+bi$ 的形式表示答案。",
+     "en": "Hence, simplify $\\left(\\frac{20}{z}\\right)^{2}$ and express the answer in the form $a+bi$."
+    }
+   ],
+   "marks": 5,
+   "review": null
+  },
+  {
+   "id": "eph-as01-ex04",
+   "type": "long",
+   "topic": "as01",
+   "unit": 1,
+   "subtopic": "complex-numbers",
+   "difficulty": 3,
+   "code": "AS1-EX4",
+   "source": "統測前哨戰 · 複數：平方與化簡分式（自編）",
+   "stem": {
+    "text": "It is given that $w=4-i$.",
+    "zh": "已知 $w=4-i$。",
+    "en": "It is given that $w=4-i$."
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "Simplify $w^{2}$ and express the answer in the form $a+bi$.",
+     "marks": 2,
+     "zh": "化簡 $w^{2}$，並以 $a+bi$ 的形式表示答案。",
+     "en": "Simplify $w^{2}$ and express the answer in the form $a+bi$."
+    },
+    {
+     "label": "(b)",
+     "text": "Hence, simplify $\\left(\\frac{17}{w}\\right)^{2}$ and express the answer in the form $a+bi$.",
+     "marks": 3,
+     "zh": "由此化簡 $\\left(\\frac{17}{w}\\right)^{2}$，並以 $a+bi$ 的形式表示答案。",
+     "en": "Hence, simplify $\\left(\\frac{17}{w}\\right)^{2}$ and express the answer in the form $a+bi$."
+    }
+   ],
+   "marks": 5,
+   "review": null
+  },
+  {
+   "id": "eph-as02-m01",
+   "type": "mc",
+   "topic": "as02",
+   "unit": 10,
+   "subtopic": "straight-lines",
+   "difficulty": 2,
+   "code": "AS2-M01",
+   "source": "統測前哨戰 · 直線方程：垂直與 x 截距（自編）",
+   "stem": {
+    "text": "The straight line $L$ is perpendicular to the straight line $2x+3y-6=0$. If the $x$-intercept of $L$ is 4, find the equation of $L$.",
+    "zh": "直線 $L$ 垂直於直線 $2x+3y-6=0$。若 $L$ 的 $x$ 截距是 4，求 $L$ 的方程。",
+    "en": "The straight line $L$ is perpendicular to the straight line $2x+3y-6=0$. If the $x$-intercept of $L$ is 4, find the equation of $L$."
+   },
+   "options": {
+    "A": "$2x+3y-8=0$",
+    "B": "$3x-2y+12=0$",
+    "C": "$3x-2y-12=0$",
+    "D": "$2x+3y+8=0$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as02-m02",
+   "type": "mc",
+   "topic": "as02",
+   "unit": 10,
+   "subtopic": "straight-lines",
+   "difficulty": 2,
+   "code": "AS2-M02",
+   "source": "統測前哨戰 · 直線方程：垂直與 y 截距（自編）",
+   "stem": {
+    "text": "The straight line $L$ is perpendicular to the straight line $3x-4y+8=0$. If the $y$-intercept of $L$ is $-3$, find the equation of $L$.",
+    "zh": "直線 $L$ 垂直於直線 $3x-4y+8=0$。若 $L$ 的 $y$ 截距是 $-3$，求 $L$ 的方程。",
+    "en": "The straight line $L$ is perpendicular to the straight line $3x-4y+8=0$. If the $y$-intercept of $L$ is $-3$, find the equation of $L$."
+   },
+   "options": {
+    "A": "$4x+3y-9=0$",
+    "B": "$4x+3y+9=0$",
+    "C": "$3x-4y+12=0$",
+    "D": "$4x-3y-9=0$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as02-m03",
+   "type": "mc",
+   "topic": "as02",
+   "unit": 10,
+   "subtopic": "straight-lines",
+   "difficulty": 3,
+   "code": "AS2-M03",
+   "source": "統測前哨戰 · 直線方程：垂直且過一點（自編）",
+   "stem": {
+    "text": "The straight line $L$ is perpendicular to the straight line $5x-2y-10=0$. If $L$ passes through $(2,\\ -1)$, find the equation of $L$.",
+    "zh": "直線 $L$ 垂直於直線 $5x-2y-10=0$。若 $L$ 通過 $(2,\\ -1)$，求 $L$ 的方程。",
+    "en": "The straight line $L$ is perpendicular to the straight line $5x-2y-10=0$. If $L$ passes through $(2,\\ -1)$, find the equation of $L$."
+   },
+   "options": {
+    "A": "$2x+5y+1=0$",
+    "B": "$2x+5y-1=0$",
+    "C": "$5x-2y-12=0$",
+    "D": "$5x+2y-8=0$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as02-m04",
+   "type": "mc",
+   "topic": "as02",
+   "unit": 10,
+   "subtopic": "straight-lines",
+   "difficulty": 2,
+   "code": "AS2-M04",
+   "source": "統測前哨戰 · 直線方程：由圖判斷 a、b 的正負（自編）",
+   "stem": {
+    "text": "The figure shows the graph of $ax+y+b=0$. Which of the following are true?\nI. $a>0$\nII. $b>0$\nIII. The $x$-intercept of the line is positive.",
+    "zh": "圖示為 $ax+y+b=0$ 的圖像。以下哪項正確？\nI. $a>0$\nII. $b>0$\nIII. 該直線的 $x$ 截距是正數。",
+    "en": "The figure shows the graph of $ax+y+b=0$. Which of the following are true?\nI. $a>0$\nII. $b>0$\nIII. The $x$-intercept of the line is positive."
+   },
+   "options": {
+    "A": "I and II only",
+    "B": "I and III only",
+    "C": "II and III only",
+    "D": "I, II and III"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as02-m05",
+   "type": "mc",
+   "topic": "as02",
+   "unit": 10,
+   "subtopic": "straight-lines",
+   "difficulty": 2,
+   "code": "AS2-M05",
+   "source": "統測前哨戰 · 直線方程：由圖判斷 a、b 的正負（自編）",
+   "stem": {
+    "text": "The figure shows the graph of $ax+y+b=0$. Which of the following are true?\nI. $a>0$\nII. $b>0$\nIII. The $y$-intercept of the line is positive.",
+    "zh": "圖示為 $ax+y+b=0$ 的圖像。以下哪項正確？\nI. $a>0$\nII. $b>0$\nIII. 該直線的 $y$ 截距是正數。",
+    "en": "The figure shows the graph of $ax+y+b=0$. Which of the following are true?\nI. $a>0$\nII. $b>0$\nIII. The $y$-intercept of the line is positive."
+   },
+   "options": {
+    "A": "I and II only",
+    "B": "I and III only",
+    "C": "II and III only",
+    "D": "I, II and III"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as02-m06",
+   "type": "mc",
+   "topic": "as02",
+   "unit": 10,
+   "subtopic": "straight-lines",
+   "difficulty": 3,
+   "code": "AS2-M06",
+   "source": "統測前哨戰 · 直線方程：由圖判斷 a、b 的正負（自編）",
+   "stem": {
+    "text": "The figure shows the graph of $ax+y+b=0$. Which of the following are true?\nI. $a>0$\nII. $b>0$\nIII. The $x$-intercept of the line is negative.",
+    "zh": "圖示為 $ax+y+b=0$ 的圖像。以下哪項正確？\nI. $a>0$\nII. $b>0$\nIII. 該直線的 $x$ 截距是負數。",
+    "en": "The figure shows the graph of $ax+y+b=0$. Which of the following are true?\nI. $a>0$\nII. $b>0$\nIII. The $x$-intercept of the line is negative."
+   },
+   "options": {
+    "A": "I and II only",
+    "B": "I and III only",
+    "C": "II and III only",
+    "D": "I, II and III"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as03-m01",
+   "type": "mc",
+   "topic": "as03",
+   "unit": 8,
+   "subtopic": "inequalities",
+   "difficulty": 2,
+   "code": "AS3-M01",
+   "source": "統測前哨戰 · 不等式：恆成立求 k 的範圍（自編）",
+   "stem": {
+    "text": "Let $k$ be a constant. Find the range of values of $k$ such that $x^{2}+2kx+4k+5\\ge 0$ for any real number $x$.",
+    "zh": "設 $k$ 為常數。求 $k$ 的取值範圍，使得 $x^{2}+2kx+4k+5\\ge 0$ 對任何實數 $x$ 都成立。",
+    "en": "Let $k$ be a constant. Find the range of values of $k$ such that $x^{2}+2kx+4k+5\\ge 0$ for any real number $x$."
+   },
+   "options": {
+    "A": "$-5\\le k\\le 1$",
+    "B": "$k\\le -5$ or $k\\ge 1$",
+    "C": "$-1\\le k\\le 5$",
+    "D": "$k\\le -1$ or $k\\ge 5$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as03-m02",
+   "type": "mc",
+   "topic": "as03",
+   "unit": 8,
+   "subtopic": "inequalities",
+   "difficulty": 1,
+   "code": "AS3-M02",
+   "source": "統測前哨戰 · 不等式：嚴格大於的恆成立（自編）",
+   "stem": {
+    "text": "Let $k$ be a constant. Find the range of values of $k$ such that $x^{2}-4x+k>0$ for any real number $x$.",
+    "zh": "設 $k$ 為常數。求 $k$ 的取值範圍，使得 $x^{2}-4x+k>0$ 對任何實數 $x$ 都成立。",
+    "en": "Let $k$ be a constant. Find the range of values of $k$ such that $x^{2}-4x+k>0$ for any real number $x$."
+   },
+   "options": {
+    "A": "$k<-4$",
+    "B": "$k>-4$",
+    "C": "$k<4$",
+    "D": "$k>4$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as03-m03",
+   "type": "mc",
+   "topic": "as03",
+   "unit": 8,
+   "subtopic": "inequalities",
+   "difficulty": 2,
+   "code": "AS3-M03",
+   "source": "統測前哨戰 · 不等式：恆成立求 t 的範圍（自編）",
+   "stem": {
+    "text": "Let $t$ be a constant. Find the range of values of $t$ such that $x^{2}+tx+9\\ge 0$ for any real number $x$.",
+    "zh": "設 $t$ 為常數。求 $t$ 的取值範圍，使得 $x^{2}+tx+9\\ge 0$ 對任何實數 $x$ 都成立。",
+    "en": "Let $t$ be a constant. Find the range of values of $t$ such that $x^{2}+tx+9\\ge 0$ for any real number $x$."
+   },
+   "options": {
+    "A": "$-3\\le t\\le 3$",
+    "B": "$t\\le -6$ or $t\\ge 6$",
+    "C": "$-6\\le t\\le 6$",
+    "D": "$t\\le -3$ or $t\\ge 3$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as03-m04",
+   "type": "mc",
+   "topic": "as03",
+   "unit": 8,
+   "subtopic": "inequalities",
+   "difficulty": 1,
+   "code": "AS3-M04",
+   "source": "統測前哨戰 · 不等式：兩條不等式取「或」（自編）",
+   "stem": {
+    "text": "Solve $3x+5<x-1$ or $2x-7>9$.",
+    "zh": "解 $3x+5<x-1$ 或 $2x-7>9$。",
+    "en": "Solve $3x+5<x-1$ or $2x-7>9$."
+   },
+   "options": {
+    "A": "$x<-3$ or $x>8$",
+    "B": "$-3<x<8$",
+    "C": "$x>8$",
+    "D": "all real numbers"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as03-m05",
+   "type": "mc",
+   "topic": "as03",
+   "unit": 8,
+   "subtopic": "inequalities",
+   "difficulty": 2,
+   "code": "AS3-M05",
+   "source": "統測前哨戰 · 不等式：有分數的「或」（自編）",
+   "stem": {
+    "text": "Solve $\\frac{2x+1}{3}<x-2$ or $5x-3>12$.",
+    "zh": "解 $\\frac{2x+1}{3}<x-2$ 或 $5x-3>12$。",
+    "en": "Solve $\\frac{2x+1}{3}<x-2$ or $5x-3>12$."
+   },
+   "options": {
+    "A": "$x>3$",
+    "B": "$x>7$",
+    "C": "$3<x<7$",
+    "D": "$x<3$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as03-m06",
+   "type": "mc",
+   "topic": "as03",
+   "unit": 8,
+   "subtopic": "inequalities",
+   "difficulty": 2,
+   "code": "AS3-M06",
+   "source": "統測前哨戰 · 不等式：兩邊分開走的「或」（自編）",
+   "stem": {
+    "text": "Solve $4(x-1)\\ge 2x+6$ or $3x+7<4$.",
+    "zh": "解 $4(x-1)\\ge 2x+6$ 或 $3x+7<4$。",
+    "en": "Solve $4(x-1)\\ge 2x+6$ or $3x+7<4$."
+   },
+   "options": {
+    "A": "$x<-1$ or $x\\ge 5$",
+    "B": "$-1<x\\le 5$",
+    "C": "$x\\ge 5$",
+    "D": "all real numbers"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as03-ex01",
+   "type": "long",
+   "topic": "as03",
+   "unit": 8,
+   "subtopic": "inequalities",
+   "difficulty": 2,
+   "code": "AS3-EX1",
+   "source": "統測前哨戰 · 不等式：三節式複合不等式（自編）",
+   "stem": {
+    "text": "Consider the compound inequality $\\frac{4x-3}{9}\\le \\frac{x}{3}+1\\le 3$.",
+    "zh": "考慮複合不等式 $\\frac{4x-3}{9}\\le \\frac{x}{3}+1\\le 3$。",
+    "en": "Consider the compound inequality $\\frac{4x-3}{9}\\le \\frac{x}{3}+1\\le 3$."
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "Solve the compound inequality.",
+     "marks": 4,
+     "zh": "解該複合不等式。",
+     "en": "Solve the compound inequality."
+    },
+    {
+     "label": "(b)",
+     "text": "Find the maximum value of $x$ which satisfies the compound inequality in (a).",
+     "marks": 2,
+     "zh": "求滿足 (a) 的複合不等式的 $x$ 的最大值。",
+     "en": "Find the maximum value of $x$ which satisfies the compound inequality in (a)."
+    }
+   ],
+   "marks": 6,
+   "review": null
+  },
+  {
+   "id": "eph-as03-ex02",
+   "type": "long",
+   "topic": "as03",
+   "unit": 8,
+   "subtopic": "inequalities",
+   "difficulty": 3,
+   "code": "AS3-EX2",
+   "source": "統測前哨戰 · 不等式：三節式複合不等式（自編）",
+   "stem": {
+    "text": "Consider the compound inequality $-3<\\frac{2x-5}{3}\\le 5$.",
+    "zh": "考慮複合不等式 $-3<\\frac{2x-5}{3}\\le 5$。",
+    "en": "Consider the compound inequality $-3<\\frac{2x-5}{3}\\le 5$."
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "Solve the compound inequality.",
+     "marks": 4,
+     "zh": "解該複合不等式。",
+     "en": "Solve the compound inequality."
+    },
+    {
+     "label": "(b)",
+     "text": "Find the maximum value of $x$ which satisfies the compound inequality in (a).",
+     "marks": 2,
+     "zh": "求滿足 (a) 的複合不等式的 $x$ 的最大值。",
+     "en": "Find the maximum value of $x$ which satisfies the compound inequality in (a)."
+    }
+   ],
+   "marks": 6,
+   "review": null
+  },
+  {
+   "id": "eph-as04-m01",
+   "type": "mc",
+   "topic": "as04",
+   "unit": 15,
+   "subtopic": "permutations-combinations",
+   "difficulty": 2,
+   "code": "AS4-M01",
+   "source": "統測前哨戰 · 排列組合：不可相鄰（插空法）（自編）",
+   "stem": {
+    "text": "A queue is formed by 3 boys and 3 girls. If no two girls are next to each other, how many different queues can be formed?",
+    "zh": "3 名男生與 3 名女生排成一列。若沒有兩個女生相鄰，問可排成多少個不同的隊列？",
+    "en": "A queue is formed by 3 boys and 3 girls. If no two girls are next to each other, how many different queues can be formed?"
+   },
+   "options": {
+    "A": "24",
+    "B": "36",
+    "C": "144",
+    "D": "720"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as04-m02",
+   "type": "mc",
+   "topic": "as04",
+   "unit": 15,
+   "subtopic": "permutations-combinations",
+   "difficulty": 2,
+   "code": "AS4-M02",
+   "source": "統測前哨戰 · 排列組合：不可相鄰（插空法）（自編）",
+   "stem": {
+    "text": "5 boys and 2 girls are arranged in a row. If no two girls are next to each other, how many different arrangements are there?",
+    "zh": "5 名男生與 2 名女生排成一列。若沒有兩個女生相鄰，問有多少種不同的排列？",
+    "en": "5 boys and 2 girls are arranged in a row. If no two girls are next to each other, how many different arrangements are there?"
+   },
+   "options": {
+    "A": "240",
+    "B": "1800",
+    "C": "3600",
+    "D": "5040"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as04-m03",
+   "type": "mc",
+   "topic": "as04",
+   "unit": 15,
+   "subtopic": "permutations-combinations",
+   "difficulty": 2,
+   "code": "AS4-M03",
+   "source": "統測前哨戰 · 排列組合：不可相鄰（插空法）（自編）",
+   "stem": {
+    "text": "4 boys and 2 girls are arranged in a row. If no two girls are next to each other, how many different arrangements are there?",
+    "zh": "4 名男生與 2 名女生排成一列。若沒有兩個女生相鄰，問有多少種不同的排列？",
+    "en": "4 boys and 2 girls are arranged in a row. If no two girls are next to each other, how many different arrangements are there?"
+   },
+   "options": {
+    "A": "24",
+    "B": "48",
+    "C": "144",
+    "D": "480"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as04-m04",
+   "type": "mc",
+   "topic": "as04",
+   "unit": 15,
+   "subtopic": "permutations-combinations",
+   "difficulty": 2,
+   "code": "AS4-M04",
+   "source": "統測前哨戰 · 排列組合：有職位的選人（自編）",
+   "stem": {
+    "text": "There are 11 members in a club. If 5 members are selected from the club to form a committee of 1 chairman and 4 members, how many different committees can be formed?",
+    "zh": "某學會共有 11 名會員。若從中選出 5 人組成一個由 1 名主席及 4 名委員組成的委員會，問可組成多少個不同的委員會？",
+    "en": "There are 11 members in a club. If 5 members are selected from the club to form a committee of 1 chairman and 4 members, how many different committees can be formed?"
+   },
+   "options": {
+    "A": "462",
+    "B": "2310",
+    "C": "3630",
+    "D": "11088"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as04-m05",
+   "type": "mc",
+   "topic": "as04",
+   "unit": 15,
+   "subtopic": "permutations-combinations",
+   "difficulty": 2,
+   "code": "AS4-M05",
+   "source": "統測前哨戰 · 排列組合：有職位的選人（自編）",
+   "stem": {
+    "text": "A committee of 4 members is chosen from 9 students, and one of the 4 members is the chairperson. How many different committees can be formed?",
+    "zh": "從 9 名學生中選出 4 人組成委員會，其中 1 人出任主席。問可組成多少個不同的委員會？",
+    "en": "A committee of 4 members is chosen from 9 students, and one of the 4 members is the chairperson. How many different committees can be formed?"
+   },
+   "options": {
+    "A": "126",
+    "B": "504",
+    "C": "756",
+    "D": "3024"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as04-m06",
+   "type": "mc",
+   "topic": "as04",
+   "unit": 15,
+   "subtopic": "permutations-combinations",
+   "difficulty": 3,
+   "code": "AS4-M06",
+   "source": "統測前哨戰 · 排列組合：有職位的選人（自編）",
+   "stem": {
+    "text": "From 8 students, a team of 3 students is formed, consisting of 1 captain and 2 members. How many different teams can be formed?",
+    "zh": "從 8 名學生中組成一個 3 人小隊，其中 1 人為隊長、2 人為隊員。問可組成多少個不同的小隊？",
+    "en": "From 8 students, a team of 3 students is formed, consisting of 1 captain and 2 members. How many different teams can be formed?"
+   },
+   "options": {
+    "A": "56",
+    "B": "112",
+    "C": "168",
+    "D": "336"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as04-ex01",
+   "type": "long",
+   "topic": "as04",
+   "unit": 15,
+   "subtopic": "permutations-combinations",
+   "difficulty": 2,
+   "code": "AS4-EX1",
+   "source": "統測前哨戰 · 排列組合：由表格選人（自編）",
+   "stem": {
+    "text": "The following table shows the distribution of the members of a Science club in three classes.\nClass: 5P / 5Q / 5R\nNumber of boys: 7 / 5 / 4\nNumber of girls: 3 / 6 / 5\n8 members are selected from these three classes. In each of the following, find the number of ways of selection.",
+    "zh": "下表顯示某科學學會三個班別的會員分佈。\n班別：5P / 5Q / 5R\n男生人數：7 / 5 / 4\n女生人數：3 / 6 / 5\n現從這三個班別選出 8 名會員。就以下各項，求選法的數目。",
+    "en": "The following table shows the distribution of the members of a Science club in three classes.\nClass: 5P / 5Q / 5R\nNumber of boys: 7 / 5 / 4\nNumber of girls: 3 / 6 / 5\n8 members are selected from these three classes. In each of the following, find the number of ways of selection."
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "1 boy and 1 girl are selected from each class.",
+     "marks": 2,
+     "zh": "每個班別各選 1 名男生及 1 名女生。",
+     "en": "1 boy and 1 girl are selected from each class."
+    },
+    {
+     "label": "(b)",
+     "text": "4 boys and 4 girls are selected.",
+     "marks": 2,
+     "zh": "選出 4 名男生及 4 名女生。",
+     "en": "4 boys and 4 girls are selected."
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-as04-ex02",
+   "type": "long",
+   "topic": "as04",
+   "unit": 15,
+   "subtopic": "permutations-combinations",
+   "difficulty": 3,
+   "code": "AS4-EX2",
+   "source": "統測前哨戰 · 排列組合：由表格選人（自編）",
+   "stem": {
+    "text": "The following table shows the distribution of the members of a Music club in four classes.\nClass: 5W / 5X / 5Y / 5Z\nNumber of boys: 5 / 3 / 6 / 4\nNumber of girls: 4 / 5 / 2 / 5\n8 members are selected from these four classes. In each of the following, find the number of ways of selection.",
+    "zh": "下表顯示某音樂學會四個班別的會員分佈。\n班別：5W / 5X / 5Y / 5Z\n男生人數：5 / 3 / 6 / 4\n女生人數：4 / 5 / 2 / 5\n現從這四個班別選出 8 名會員。就以下各項，求選法的數目。",
+    "en": "The following table shows the distribution of the members of a Music club in four classes.\nClass: 5W / 5X / 5Y / 5Z\nNumber of boys: 5 / 3 / 6 / 4\nNumber of girls: 4 / 5 / 2 / 5\n8 members are selected from these four classes. In each of the following, find the number of ways of selection."
+   },
+   "parts": [
+    {
+     "label": "(a)",
+     "text": "1 boy and 1 girl are selected from each class.",
+     "marks": 2,
+     "zh": "每個班別各選 1 名男生及 1 名女生。",
+     "en": "1 boy and 1 girl are selected from each class."
+    },
+    {
+     "label": "(b)",
+     "text": "4 boys and 4 girls are selected.",
+     "marks": 2,
+     "zh": "選出 4 名男生及 4 名女生。",
+     "en": "4 boys and 4 girls are selected."
+    }
+   ],
+   "marks": 4,
+   "review": null
+  },
+  {
+   "id": "eph-as03-m07",
+   "type": "mc",
+   "topic": "as03",
+   "unit": 8,
+   "subtopic": "inequalities",
+   "difficulty": 1,
+   "code": "AS3-M07",
+   "source": "統測前哨戰 · 不等式：完全平方（Δ=0）的解集（自編）",
+   "stem": {
+    "text": "Solve $x^{2}+10x+25\\le 0$.",
+    "zh": "解 $x^{2}+10x+25\\le 0$。",
+    "en": "Solve $x^{2}+10x+25\\le 0$."
+   },
+   "options": {
+    "A": "$x=-5$",
+    "B": "$x\\ne -5$",
+    "C": "all real numbers",
+    "D": "no real solution"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as03-m08",
+   "type": "mc",
+   "topic": "as03",
+   "unit": 8,
+   "subtopic": "inequalities",
+   "difficulty": 2,
+   "code": "AS3-M08",
+   "source": "統測前哨戰 · 不等式：一般式（a≠1）的恆成立（自編）",
+   "stem": {
+    "text": "Let $k$ be a constant. Find the range of values of $k$ such that $2x^{2}-3x+k>0$ for any real number $x$.",
+    "zh": "設 $k$ 為常數。求 $k$ 的取值範圍，使得 $2x^{2}-3x+k>0$ 對任何實數 $x$ 都成立。",
+    "en": "Let $k$ be a constant. Find the range of values of $k$ such that $2x^{2}-3x+k>0$ for any real number $x$."
+   },
+   "options": {
+    "A": "$k>\\frac{9}{8}$",
+    "B": "$k<\\frac{9}{8}$",
+    "C": "$k>\\frac{3}{4}$",
+    "D": "$k\\ge\\frac{9}{8}$"
+   },
+   "review": null
+  },
+  {
+   "id": "eph-as03-m09",
+   "type": "mc",
+   "topic": "as03",
+   "unit": 8,
+   "subtopic": "inequalities",
+   "difficulty": 2,
+   "code": "AS3-M09",
+   "source": "統測前哨戰 · 不等式：無實數解的判別式條件（自編）",
+   "stem": {
+    "text": "Let $k$ be a constant. If the inequality $x^{2}+4x+k<0$ has no real solution, find the range of values of $k$.",
+    "zh": "設 $k$ 為常數。若不等式 $x^{2}+4x+k<0$ 沒有實數解，求 $k$ 的取值範圍。",
+    "en": "Let $k$ be a constant. If the inequality $x^{2}+4x+k<0$ has no real solution, find the range of values of $k$."
+   },
+   "options": {
+    "A": "$k>4$",
+    "B": "$k\\ge 4$",
+    "C": "$k\\le 4$",
+    "D": "$k<4$"
+   },
+   "review": null
   }
  ]
 }

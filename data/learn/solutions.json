@@ -5406,6 +5406,2871 @@
      }
     ]
    }
+  },
+  "eph-as01-m01": {
+   "answer": "C",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 二次方程：抽公因式解方程（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 先移項，不要約走括號",
+       "en": "Step 1 · Move everything to one side"
+      },
+      "math": "(x-k)(x+3k-2)-(x-k)=0",
+      "zh": "兩邊都有 $(x-k)$，但不可以直接約走它 —— 一約走就會失去 $x=k$ 這個根。先把右邊整塊搬到左邊。",
+      "en": "Both sides contain $(x-k)$, but cancelling it would lose the root $x=k$. Bring everything to the left-hand side first."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 把 (x-k) 當公因式抽出來",
+       "en": "Step 2 · Take out (x-k) as a common factor"
+      },
+      "math": "(x-k)[(x+3k-2)-1]=0",
+      "zh": "$(x-k)$ 是兩項的公因式，抽出來之後，另一個括號是 $(x+3k-2)-1$，即 $x+3k-3$。",
+      "en": "$(x-k)$ is the common factor of both terms; what is left in the second bracket is $(x+3k-2)-1$, that is $x+3k-3$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 零積性質，兩個根",
+       "en": "Step 3 · Zero product gives two roots"
+      },
+      "math": "(x-k)(x+3k-3)=0\n\\Rightarrow x=k \\text{ or } x=3-3k",
+      "zh": "兩塊相乘等於 0，任何一塊等於 0 都可以：$x-k=0$ 或 $x+3k-3=0$。答案是 C。",
+      "en": "A product is zero when either factor is zero: $x-k=0$ or $x+3k-3=0$. The answer is C."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "$x=3k-2$ 是未移項前那個括號的值，而且只有一個根 —— 這正是「兩邊同時約走 $(x-k)$」的後果。",
+      "en": "$x=3k-2$ comes from the bracket before moving terms, and it is only one root — exactly what happens when $(x-k)$ is cancelled on both sides."
+     },
+     {
+      "opt": "B",
+      "zh": "只寫了 $x=k$。方程最高次數是 2，一般有兩個根，漏一個就是漏了一半。",
+      "en": "Only $x=k$ is given. A degree-2 equation normally has two roots, so one of them is missing."
+     },
+     {
+      "opt": "D",
+      "zh": "$3-3k$ 抄成 $2-3k$：$(x+3k-2)-1$ 之中 $2-1=1$，所以常數是 3。",
+      "en": "$3-3k$ is miscopied as $2-3k$: inside $(x+3k-2)-1$ we have $2-1=1$, so the constant is 3."
+     }
+    ],
+    "tip": {
+     "zh": "方程兩邊出現同一個括號，先全部移到一邊再抽公因式；凡是「兩邊同時約走含 $x$ 的東西」都會丟根。",
+     "en": "When the same bracket appears on both sides, move everything to one side and take out the common factor. Cancelling anything containing $x$ loses a root."
+    }
+   }
+  },
+  "eph-as01-m02": {
+   "answer": "D",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 二次方程：兩邊都有同一個括號（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 全部移到一邊",
+       "en": "Step 1 · Bring all terms to one side"
+      },
+      "math": "2x(x-m)-5(x-m)=0",
+      "zh": "右邊搬過來之後，兩項都含著同一個括號 $(x-m)$。",
+      "en": "After moving the right-hand side over, both terms contain the same bracket $(x-m)$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 抽公因式",
+       "en": "Step 2 · Take out the common factor"
+      },
+      "math": "(x-m)(2x-5)=0",
+      "zh": "把 $(x-m)$ 抽出來，剩下 $2x$ 與 $-5$，即 $2x-5$。",
+      "en": "Take $(x-m)$ out as the common factor; what is left is $2x$ and $-5$, that is $2x-5$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 兩個根",
+       "en": "Step 3 · Read off the two roots"
+      },
+      "math": "x=m \\text{ or } x=\\frac{5}{2}",
+      "zh": "兩塊分別等於 0：$x-m=0$ 得 $x=m$；$2x-5=0$ 得 $x=\\frac{5}{2}$。答案是 D。",
+      "en": "Each factor can be zero: $x-m=0$ gives $x=m$, and $2x-5=0$ gives $x=\\frac{5}{2}$. The answer is D."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "$x=\\frac{5}{2}$ 只是其中一個根，是把 $(x-m)$ 約走之後的結果，失去了 $x=m$。",
+      "en": "$x=\\frac{5}{2}$ is only one root; it appears after cancelling $(x-m)$, so $x=m$ is lost."
+     },
+     {
+      "opt": "B",
+      "zh": "$x=m$ 也只是其中一個根：這次是把 $(2x-5)$ 約走。",
+      "en": "$x=m$ is also just one root: this time $(2x-5)$ has been cancelled."
+     },
+     {
+      "opt": "C",
+      "zh": "$x=-m$ 抄錯符號：括號是 $(x-m)$，令它等於 0 得 $x=m$。",
+      "en": "$x=-m$ copies the sign wrongly: the bracket is $(x-m)$, so it gives $x=m$."
+     }
+    ],
+    "tip": {
+     "zh": "二次方程寫完答案要數一數：一般應該有兩個根。只寫得出一個，多數是中途約走了含 $x$ 的因式。",
+     "en": "After solving a quadratic, count your roots: there should normally be two. If only one appears, something containing $x$ was cancelled."
+    }
+   }
+  },
+  "eph-as01-m03": {
+   "answer": "A",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 二次方程：先移項再抽公因式（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 移到一邊",
+       "en": "Step 1 · Move to one side"
+      },
+      "math": "(x+2t)(x-t)-3(x+2t)=0",
+      "zh": "右邊的 $3(x+2t)$ 搬過來，公因式 $(x+2t)$ 就現形了。",
+      "en": "Move $3(x+2t)$ to the left-hand side and the common factor $(x+2t)$ becomes visible."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 抽出整個括號",
+       "en": "Step 2 · Take out the whole bracket"
+      },
+      "math": "(x+2t)[(x-t)-3]=0\n\\Rightarrow (x+2t)(x-t-3)=0",
+      "zh": "抽走 $(x+2t)$ 之後，另一個括號裡面全部減 3：$(x-t)-3=x-t-3$。",
+      "en": "After taking out $(x+2t)$, subtract 3 from the whole second bracket: $(x-t)-3=x-t-3$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 兩個根",
+       "en": "Step 3 · Two roots"
+      },
+      "math": "x=-2t \\text{ or } x=t+3",
+      "zh": "$x+2t=0$ 得 $x=-2t$；$x-t-3=0$ 得 $x=t+3$。答案是 A。",
+      "en": "$x+2t=0$ gives $x=-2t$, and $x-t-3=0$ gives $x=t+3$. The answer is A."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "B",
+      "zh": "只寫 $x=t-3$：既漏了 $x=-2t$，符號也錯了（移項應該得 $+3$）。",
+      "en": "Only $x=t-3$ is written: it misses $x=-2t$ and the sign is wrong (moving the 3 gives $+3$)."
+     },
+     {
+      "opt": "C",
+      "zh": "$x=t-3$ 是符號陷阱：$x-t-3=0$ 移項後是 $x=t+3$。",
+      "en": "$x=t-3$ is the sign trap: $x-t-3=0$ rearranges to $x=t+3$."
+     },
+     {
+      "opt": "D",
+      "zh": "$x=2t$ 把 $x+2t=0$ 解錯，應該是 $x=-2t$。",
+      "en": "$x=2t$ solves $x+2t=0$ wrongly; it should be $x=-2t$."
+     }
+    ],
+    "tip": {
+     "zh": "公因式可以是一個「有 $t$ 的括號」，抽走之後，另一個括號要整塊減去後面的數。",
+     "en": "A common factor can be a bracket containing $t$; after taking it out, subtract the trailing number from the whole remaining bracket."
+    }
+   }
+  },
+  "eph-as01-m04": {
+   "answer": "C",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 二次方程：用根化簡（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 用「它是根」求出一塊",
+       "en": "Step 1 · Use the root condition"
+      },
+      "math": "4\\alpha^{2}+6\\alpha-3=0\n\\Rightarrow 4\\alpha^{2}+6\\alpha=3",
+      "zh": "因為 $\\alpha$ 是根，代入方程一定成立。我們不需要解出 $\\alpha$，只要把 $4\\alpha^2+6\\alpha$ 這一整塊看成一個數。",
+      "en": "Because $\\alpha$ is a root, substituting it satisfies the equation. There is no need to solve for $\\alpha$; treat the block $4\\alpha^{2}+6\\alpha$ as a single number."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 剛好是題目要的一半",
+       "en": "Step 2 · Halve it"
+      },
+      "math": "2\\alpha^{2}+3\\alpha=\\frac{3}{2}",
+      "zh": "題目要的是 $2\\alpha^2+3\\alpha$，係數剛好是 $4\\alpha^2+6\\alpha$ 的一半，所以兩邊一齊除以 2。",
+      "en": "The question asks for $2\\alpha^{2}+3\\alpha$, whose coefficients are exactly half of $4\\alpha^{2}+6\\alpha$, so divide both sides by 2."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 加上常數",
+       "en": "Step 3 · Add the constant"
+      },
+      "math": "2\\alpha^{2}+3\\alpha+1=\\frac{3}{2}+1=\\frac{5}{2}",
+      "zh": "最後加上 1：$\\frac{3}{2}+1=\\frac{5}{2}$。答案是 C。",
+      "en": "Finally add 1: $\\frac{3}{2}+1=\\frac{5}{2}$. The answer is C."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "D",
+      "zh": "$4$ 是忘記把 $3$ 除以 2（即直接用了 $4\\alpha^2+6\\alpha=3$ 再加 1）。",
+      "en": "$4$ forgets to halve the 3 — it uses $4\\alpha^{2}+6\\alpha=3$ and then adds 1."
+     },
+     {
+      "opt": "B",
+      "zh": "$\\frac{1}{2}$ 是把最後那個 $+1$ 當成 $-1$：$\\frac{3}{2}-1=\\frac{1}{2}$。",
+      "en": "$\\frac{1}{2}$ treats the final $+1$ as $-1$: $\\frac{3}{2}-1=\\frac{1}{2}$."
+     },
+     {
+      "opt": "A",
+      "zh": "$-\\frac{1}{2}$ 同時犯了兩個錯：符號反向，而且減了 1。",
+      "en": "$-\\frac{1}{2}$ makes two mistakes at once: the sign is reversed and 1 is subtracted."
+     }
+    ],
+    "tip": {
+     "zh": "「$\\alpha$ 是方程的根」這類題不用解方程：把方程移項，湊出題目要的那一塊，再整體乘除。",
+     "en": "For “$\\alpha$ is a root” questions you never solve the equation: rearrange it to match the block the question asks for, then multiply or divide the whole block."
+    }
+   }
+  },
+  "eph-as01-m05": {
+   "answer": "C",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 二次方程：用根化簡（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 移項求出小塊",
+       "en": "Step 1 · Rearrange for the small block"
+      },
+      "math": "2\\beta^{2}-5\\beta+1=0\n\\Rightarrow 2\\beta^{2}-5\\beta=-1",
+      "zh": "因為 $\\beta$ 是根，所以 $2\\beta^2-5\\beta$ 這一塊等於 $-1$。",
+      "en": "Because $\\beta$ is a root, the block $2\\beta^{2}-5\\beta$ equals $-1$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 整體乘 2",
+       "en": "Step 2 · Double the whole block"
+      },
+      "math": "4\\beta^{2}-10\\beta=2(-1)=-2",
+      "zh": "題目要 $4\\beta^2-10\\beta$，係數全部是剛才那塊的 2 倍，所以整塊乘 2。",
+      "en": "The question asks for $4\\beta^{2}-10\\beta$, whose coefficients are all double, so double the whole block."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 加上 3",
+       "en": "Step 3 · Add 3"
+      },
+      "math": "4\\beta^{2}-10\\beta+3=-2+3=1",
+      "zh": "$-2+3=1$。答案是 C。",
+      "en": "$-2+3=1$. The answer is C."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "$-2$ 是只做到第 2 步，忘記最後要加上 3。",
+      "en": "$-2$ stops after step 2 and forgets to add the 3."
+     },
+     {
+      "opt": "B",
+      "zh": "$-1$ 是直接用了 $2\\beta^2-5\\beta$ 的值，忘記整塊乘 2。",
+      "en": "$-1$ uses the value of $2\\beta^{2}-5\\beta$ directly and forgets to double the block."
+     },
+     {
+      "opt": "D",
+      "zh": "$2$ 是把 $-1$ 與 $3$ 相加時用錯小塊的值（應該先乘 2 得 $-2$）。",
+      "en": "$2$ adds the wrong block value to 3; the block must be doubled to $-2$ first."
+     }
+    ],
+    "tip": {
+     "zh": "先比較係數：目標式是已知式的幾倍？乘好之後才加常數，兩個步驟不要混在一起做。",
+     "en": "Compare coefficients first: how many times is the target block of the known one? Multiply first, then add the constant — keep the two steps separate."
+    }
+   }
+  },
+  "eph-as01-m06": {
+   "answer": "B",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 二次方程：配成完全平方再看（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 求 α²−8α",
+       "en": "Step 1 · Find the value of α²−8α"
+      },
+      "math": "\\alpha^{2}-8\\alpha+3=0\n\\Rightarrow \\alpha^{2}-8\\alpha=-3",
+      "zh": "因為 $\\alpha$ 是根，把方程移項就得 $\\alpha^2-8\\alpha=-3$。",
+      "en": "Because $\\alpha$ is a root, rearranging the equation gives $\\alpha^{2}-8\\alpha=-3$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 展開完全平方",
+       "en": "Step 2 · Expand the square"
+      },
+      "math": "(\\alpha-4)^{2}=\\alpha^{2}-8\\alpha+16",
+      "zh": "$(\\alpha-4)^2$ 展開之後，前面的 $\\alpha^2-8\\alpha$ 正是第 1 步求到的那一塊。",
+      "en": "Expanding $(\\alpha-4)^{2}$ produces the block $\\alpha^{2}-8\\alpha$ found in step 1."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 代入求值",
+       "en": "Step 3 · Substitute"
+      },
+      "math": "(\\alpha-4)^{2}=-3+16=13",
+      "zh": "$-3+16=13$。答案是 B。",
+      "en": "$-3+16=13$. The answer is B."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "$3$ 是抄了方程裡的常數項，但它是 $+3$，移項後要變 $-3$。",
+      "en": "$3$ copies the constant term of the equation, but it is $+3$ and becomes $-3$ after rearranging."
+     },
+     {
+      "opt": "C",
+      "zh": "$16$ 只算了展開的中間部分（$4^2$），沒有把 $\\alpha^2-8\\alpha$ 的值代入。",
+      "en": "$16$ only evaluates the squared constant and never substitutes the value of $\\alpha^{2}-8\\alpha$."
+     },
+     {
+      "opt": "D",
+      "zh": "$19$ 用了 $+3$ 而不是 $-3$：$3+16=19$。",
+      "en": "$19$ uses $+3$ instead of $-3$: $3+16=19$."
+     }
+    ],
+    "tip": {
+     "zh": "看到 $(\\alpha-k)^2$ 就展開，通常會湊回方程已經給你的那一塊；移項時正負號最易出錯。",
+     "en": "Expand any $(\\alpha-k)^{2}$: it usually rebuilds the exact block the equation already gives you. Sign errors happen most often when rearranging."
+    }
+   }
+  },
+  "eph-as01-m07": {
+   "answer": "B",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 二次方程：等根求常數（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 寫成標準式",
+       "en": "Step 1 · Write the standard form"
+      },
+      "math": "x^{2}+hx-9+3h=0",
+      "zh": "先把 $9-3h$ 搬到左邊（全部變號），再認清 $a=1$、$b=h$、$c=3h-9$。",
+      "en": "Move $9-3h$ to the left (every term changes sign), then read off $a=1$, $b=h$ and $c=3h-9$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 寫出判別式",
+       "en": "Step 2 · Write the discriminant"
+      },
+      "math": "\\Delta=h^{2}-4(3h-9)=h^{2}-12h+36",
+      "zh": "等實根的意思是判別式等於 0（重根）。$c$ 裡面有 $h$，所以整個 $\\Delta$ 也是 $h$ 的式子。",
+      "en": "Equal real roots means the discriminant is zero. Here $c$ contains $h$, so the whole discriminant is an expression in $h$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 解出 h",
+       "en": "Step 3 · Solve for h"
+      },
+      "math": "h^{2}-12h+36=0\n\\Rightarrow (h-6)^{2}=0\n\\Rightarrow h=6",
+      "zh": "$h^2-12h+36$ 是完全平方 $(h-6)^2$，所以只有一個解 $h=6$。答案是 B。",
+      "en": "$h^{2}-12h+36$ is the perfect square $(h-6)^{2}$, so there is a single solution $h=6$. The answer is B."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "$3$ 是把常數項 $9$ 除以 $3$ 得來，但 $3$ 出現在 $c=3h-9$ 之中，不是答案。",
+      "en": "$3$ comes from dividing the constant 9 by 3, but 3 appears inside $c=3h-9$ and is not the answer."
+     },
+     {
+      "opt": "C",
+      "zh": "$9$ 是直接抄了方程裡的 $9$，沒有做判別式。",
+      "en": "$9$ simply copies the 9 in the equation without forming the discriminant."
+     },
+     {
+      "opt": "D",
+      "zh": "$-6$ 是符號陷阱：$(h-6)^2=0$ 的解是 $h=6$，不是 $h=-6$。",
+      "en": "$-6$ is the sign trap: $(h-6)^{2}=0$ gives $h=6$, not $h=-6$."
+     }
+    ],
+    "tip": {
+     "zh": "「等實根」＝判別式 $=0$。判別式通常會是一個完全平方，所以答案只有一個值（不是兩個）。",
+     "en": "“Equal real roots” means discriminant $=0$. The discriminant usually turns out to be a perfect square, so there is only one value of the unknown."
+    }
+   }
+  },
+  "eph-as01-m08": {
+   "answer": "C",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 二次方程：等根求常數（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 標準式",
+       "en": "Step 1 · Standard form"
+      },
+      "math": "x^{2}+kx-25+5k=0",
+      "zh": "把 $25-5k$ 移到左邊變號，所以 $c=5k-25$。",
+      "en": "Move $25-5k$ to the left with a sign change, so $c=5k-25$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 判別式",
+       "en": "Step 2 · Discriminant"
+      },
+      "math": "\\Delta=k^{2}-4(5k-25)=k^{2}-20k+100",
+      "zh": "$\\Delta = k^2-20k+100$，留意 $-4\\times(-25)=+100$。",
+      "en": "$\\Delta=k^{2}-20k+100$; note that $-4\\times(-25)=+100$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 完全平方求 k",
+       "en": "Step 3 · Perfect square"
+      },
+      "math": "k^{2}-20k+100=0\n\\Rightarrow (k-10)^{2}=0\n\\Rightarrow k=10",
+      "zh": "答案是 C。驗算：$k=10$ 時方程是 $x^2+10x+25=0$，即 $(x+5)^2=0$，確實有等根。",
+      "en": "The answer is C. Check: with $k=10$ the equation is $x^{2}+10x+25=0$, that is $(x+5)^{2}=0$, which indeed has equal roots."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "D",
+      "zh": "$25$ 是抄了方程裡的常數，沒有做判別式。",
+      "en": "$25$ copies the constant in the equation without using the discriminant."
+     },
+     {
+      "opt": "B",
+      "zh": "$5$ 是把 $25$ 開方得來（或 $\\frac{25}{5}$），但方程不是完全平方形式。",
+      "en": "$5$ comes from square-rooting 25 (or from $\\frac{25}{5}$), but the equation is not yet a perfect square."
+     },
+     {
+      "opt": "A",
+      "zh": "$-10$ 是符號陷阱：$(k-10)^2=0$ 的解是 $10$。",
+      "en": "$-10$ is the sign trap: $(k-10)^{2}=0$ gives $10$."
+     }
+    ],
+    "tip": {
+     "zh": "求出 $k$ 之後，順手把 $k$ 代回方程看看是否真的重根 —— 兩秒就完成的驗算。",
+     "en": "After finding the constant, put it back into the equation to confirm the repeated root — a two-second check."
+    }
+   }
+  },
+  "eph-as01-m09": {
+   "answer": "A",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 二次方程：等根求常數（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 標準式",
+       "en": "Step 1 · Standard form"
+      },
+      "math": "x^{2}+tx-4-2t=0",
+      "zh": "把 $4+2t$ 整塊移到左邊變號，所以 $c=-4-2t$（兩項都要變號）。",
+      "en": "Move the whole $4+2t$ to the left with a sign change, so $c=-4-2t$ (both terms change sign)."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 判別式",
+       "en": "Step 2 · Discriminant"
+      },
+      "math": "\\Delta=t^{2}-4(-4-2t)=t^{2}+8t+16",
+      "zh": "負負得正：$-4\\times(-4-2t)=16+8t$，所以判別式是 $t^2+8t+16$。",
+      "en": "Two negatives give a positive: $-4\\times(-4-2t)=16+8t$, so the discriminant is $t^{2}+8t+16$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 解出 t",
+       "en": "Step 3 · Solve for t"
+      },
+      "math": "t^{2}+8t+16=0\n\\Rightarrow (t+4)^{2}=0\n\\Rightarrow t=-4",
+      "zh": "完全平方是 $(t+4)^2$，所以 $t=-4$（要變號）。答案是 A。",
+      "en": "The perfect square is $(t+4)^{2}$, so $t=-4$ (the sign flips). The answer is A."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "D",
+      "zh": "$4$ 是符號陷阱：$(t+4)^2=0$ 的解是 $t=-4$。",
+      "en": "$4$ is the sign trap: $(t+4)^{2}=0$ gives $t=-4$."
+     },
+     {
+      "opt": "C",
+      "zh": "$2$ 是只看見 $2t$ 這一項，沒有處理常數項 $4$。",
+      "en": "$2$ only looks at the $2t$ term and ignores the constant term 4."
+     },
+     {
+      "opt": "B",
+      "zh": "$-2$ 是把 $c$ 誤寫成 $4+2t$（忘記移項要變號），判別式就會變成負數。",
+      "en": "$-2$ misreads $c$ as $4+2t$ (forgetting the sign change when moving terms), which makes the discriminant negative."
+     }
+    ],
+    "tip": {
+     "zh": "移項時「整塊」變號；得到 $(t+m)^2=0$ 之後答案一定是 $-m$，直覺的 $+m$ 就是陷阱。",
+     "en": "When moving a block across, change the sign of every term. From $(t+m)^{2}=0$ the answer is $-m$; the intuitive $+m$ is the trap."
+    }
+   }
+  },
+  "eph-as01-m10": {
+   "answer": "A",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 二次方程：兩根之和與積（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 寫出兩根之和與積",
+       "en": "Step 1 · Sum and product of roots"
+      },
+      "math": "\\alpha+\\beta=5,\\ \\alpha\\beta=2",
+      "zh": "對 $x^2+bx+c=0$，兩根之和是 $-b$、積是 $c$，這裡 $b=-5$、$c=2$。",
+      "en": "For $x^{2}+bx+c=0$ the sum of roots is $-b$ and the product is $c$; here $b=-5$ and $c=2$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 用恆等式",
+       "en": "Step 2 · Use the identity"
+      },
+      "math": "\\alpha^{2}+\\beta^{2}=(\\alpha+\\beta)^{2}-2\\alpha\\beta",
+      "zh": "$\\alpha^2+\\beta^2$ 不可以直接寫成 $(\\alpha+\\beta)^2$，中間多出來的 $2\\alpha\\beta$ 一定要減走。",
+      "en": "$\\alpha^{2}+\\beta^{2}$ is not simply $(\\alpha+\\beta)^{2}$: the extra cross term $2\\alpha\\beta$ must be subtracted."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 代入計數",
+       "en": "Step 3 · Substitute"
+      },
+      "math": "=5^{2}-2(2)=25-4=21",
+      "zh": "$25-4=21$。答案是 A。",
+      "en": "$25-4=21$. The answer is A."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "B",
+      "zh": "$23$ 只減了一次 $\\alpha\\beta$（$25-2$），忘記公式是減 $2\\alpha\\beta$。",
+      "en": "$23$ subtracts $\\alpha\\beta$ once ($25-2$) and forgets the factor 2 in $2\\alpha\\beta$."
+     },
+     {
+      "opt": "C",
+      "zh": "$27$ 把 $2\\alpha\\beta$ 加了進去（$25+2$），符號錯。",
+      "en": "$27$ adds $2\\alpha\\beta$ ($25+2$), which is the wrong sign."
+     },
+     {
+      "opt": "D",
+      "zh": "$29$ 加了 $2\\alpha\\beta=4$，應該減。",
+      "en": "$29$ adds $2\\alpha\\beta=4$, but it should be subtracted."
+     }
+    ],
+    "tip": {
+     "zh": "$\\alpha^2+\\beta^2$、$(\\alpha-\\beta)^2$、$\\frac{1}{\\alpha}+\\frac{1}{\\beta}$ 都是「先用兩根之和與積」的對稱式，記住它們與 $(\\alpha+\\beta)$、$\\alpha\\beta$ 的關係。",
+     "en": "$\\alpha^{2}+\\beta^{2}$, $(\\alpha-\\beta)^{2}$ and $\\frac{1}{\\alpha}+\\frac{1}{\\beta}$ are symmetric expressions: always rewrite them using the sum and the product of the roots."
+    }
+   }
+  },
+  "eph-as01-m11": {
+   "answer": "D",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 二次方程：對稱式化簡（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 通分",
+       "en": "Step 1 · Put over a common denominator"
+      },
+      "math": "\\frac{\\alpha}{\\beta}+\\frac{\\beta}{\\alpha}=\\frac{\\alpha^{2}+\\beta^{2}}{\\alpha\\beta}",
+      "zh": "兩個分式通分之後，分子變成 $\\alpha^2+\\beta^2$、分母是 $\\alpha\\beta$，兩者都可以由兩根之和與積求出。",
+      "en": "After putting the two fractions over a common denominator, the numerator is $\\alpha^{2}+\\beta^{2}$ and the denominator is $\\alpha\\beta$; both come from the sum and product of roots."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 兩根之和與積",
+       "en": "Step 2 · Sum and product"
+      },
+      "math": "\\alpha+\\beta=4,\\ \\alpha\\beta=1",
+      "zh": "方程是 $x^2-4x+1=0$，所以和是 4、積是 1。",
+      "en": "The equation is $x^{2}-4x+1=0$, so the sum of roots is 4 and the product is 1."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 代入",
+       "en": "Step 3 · Substitute"
+      },
+      "math": "\\frac{(4)^{2}-2(1)}{1}=\\frac{16-2}{1}=14",
+      "zh": "$\\alpha^2+\\beta^2=16-2=14$，再除以 $\\alpha\\beta=1$，答案 14。答案是 D。",
+      "en": "$\\alpha^{2}+\\beta^{2}=16-2=14$; dividing by $\\alpha\\beta=1$ gives 14. The answer is D."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "C",
+      "zh": "$16$ 是 $(\\alpha+\\beta)^2$ 本身，忘記減 $2\\alpha\\beta$。",
+      "en": "$16$ is just $(\\alpha+\\beta)^{2}$; $2\\alpha\\beta$ was not subtracted."
+     },
+     {
+      "opt": "A",
+      "zh": "$15$ 是 $16-1$，把分母的 $\\alpha\\beta$ 當成要減的數。",
+      "en": "$15$ is $16-1$, treating the product in the denominator as something to subtract."
+     },
+     {
+      "opt": "B",
+      "zh": "$18$ 是 $16+2$，符號反向。",
+      "en": "$18$ is $16+2$, with the sign reversed."
+     }
+    ],
+    "tip": {
+     "zh": "分式的對稱式先通分；通分後分子幾乎一定是 $\\alpha^2+\\beta^2$，分母是 $\\alpha\\beta$。",
+     "en": "For symmetric fractions, put them over a common denominator first: the numerator is almost always $\\alpha^{2}+\\beta^{2}$ and the denominator $\\alpha\\beta$."
+    }
+   }
+  },
+  "eph-as01-m12": {
+   "answer": "B",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 二次方程：先抽公因式再看兩根（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 先抽公因式",
+       "en": "Step 1 · Factorise first"
+      },
+      "math": "\\alpha^{2}\\beta+\\alpha\\beta^{2}=\\alpha\\beta(\\alpha+\\beta)",
+      "zh": "兩項都有 $\\alpha\\beta$，抽出來就只剩 $(\\alpha+\\beta)$，這樣才用得上兩根之和與積。",
+      "en": "Both terms contain $\\alpha\\beta$; taking it out leaves $(\\alpha+\\beta)$, which is exactly what the sum and product of roots give."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 兩根之和與積",
+       "en": "Step 2 · Sum and product"
+      },
+      "math": "\\alpha+\\beta=-6,\\ \\alpha\\beta=4",
+      "zh": "$x^2+6x+4=0$：和是 $-6$（要變號）、積是 $4$。",
+      "en": "For $x^{2}+6x+4=0$ the sum of roots is $-6$ (the sign flips) and the product is 4."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 相乘",
+       "en": "Step 3 · Multiply"
+      },
+      "math": "=4\\times(-6)=-24",
+      "zh": "正數乘負數是負數：$-24$。答案是 B。",
+      "en": "A positive times a negative is negative: $-24$. The answer is B."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "D",
+      "zh": "$24$ 是符號錯：$\\alpha+\\beta=-6$，乘出來一定是負數。",
+      "en": "$24$ has the wrong sign: $\\alpha+\\beta=-6$, so the product must be negative."
+     },
+     {
+      "opt": "A",
+      "zh": "$-10$ 是 $-6+4$，把兩個數相加而不是相乘。",
+      "en": "$-10$ is $-6+4$: the two values were added instead of multiplied."
+     },
+     {
+      "opt": "C",
+      "zh": "$10$ 同時犯了相加與符號兩個錯。",
+      "en": "$10$ makes both mistakes: adding instead of multiplying and the wrong sign."
+     }
+    ],
+    "tip": {
+     "zh": "見到 $\\alpha^2\\beta+\\alpha\\beta^2$ 這類式子，先抽公因式；抽完就只剩下 $(\\alpha+\\beta)$ 與 $\\alpha\\beta$。",
+     "en": "For expressions such as $\\alpha^{2}\\beta+\\alpha\\beta^{2}$, factorise first — what remains involves only $(\\alpha+\\beta)$ and $\\alpha\\beta$."
+    }
+   }
+  },
+  "eph-as01-m13": {
+   "answer": "C",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 複數：乘法（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 像多項式一樣展開",
+       "en": "Step 1 · Expand as if it were algebraic"
+      },
+      "math": "(4+3i)(2-5i)=8-20i+6i-15i^{2}",
+      "zh": "逐項相乘：$4\\times2=8$、$4\\times(-5i)=-20i$、$3i\\times2=6i$、$3i\\times(-5i)=-15i^2$。",
+      "en": "Multiply term by term: $4\\times2=8$, $4\\times(-5i)=-20i$, $3i\\times2=6i$ and $3i\\times(-5i)=-15i^{2}$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 處理 i²",
+       "en": "Step 2 · Replace i²"
+      },
+      "math": "-15i^{2}=-15(-1)=15",
+      "zh": "複數運算只有一條規則是新的：$i^2=-1$，所以 $-15i^2$ 其實是 $+15$。",
+      "en": "Only one rule is new in complex arithmetic: $i^{2}=-1$, so $-15i^{2}$ is actually $+15$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 合併同類項",
+       "en": "Step 3 · Collect like terms"
+      },
+      "math": "=8-20i+6i+15=23-14i",
+      "zh": "實部 $8+15=23$、虛部 $-20i+6i=-14i$，得 $23-14i$。答案是 C。",
+      "en": "Real part $8+15=23$ and imaginary part $-20i+6i=-14i$, giving $23-14i$. The answer is C."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "$-7-14i$ 是把 $i^2$ 當成 $+1$：$8-20i+6i-15=-7-14i$。",
+      "en": "$-7-14i$ treats $i^{2}$ as $+1$: $8-20i+6i-15=-7-14i$."
+     },
+     {
+      "opt": "B",
+      "zh": "$23-26i$ 把兩個交叉項都當正：$-20i+6i$ 應該是 $-14i$。",
+      "en": "$23-26i$ takes both cross terms as positive: $-20i+6i$ should be $-14i$."
+     },
+     {
+      "opt": "D",
+      "zh": "$23+14i$ 的虛部符號錯：$-20i+6i=-14i$。",
+      "en": "$23+14i$ has the wrong imaginary sign: $-20i+6i=-14i$."
+     }
+    ],
+    "tip": {
+     "zh": "複數乘法＝多項式乘法 ＋ 最後一步把 $i^2$ 換成 $-1$；次序不要調亂。",
+     "en": "Complex multiplication is polynomial multiplication plus a final step: replace $i^{2}$ by $-1$. Keep that order."
+    }
+   }
+  },
+  "eph-as01-m14": {
+   "answer": "D",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 複數：平方（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 展開平方",
+       "en": "Step 1 · Expand the square"
+      },
+      "math": "(3-2i)^{2}=9-12i+4i^{2}",
+      "zh": "用 $(a-b)^2=a^2-2ab+b^2$：$a=3$、$b=2i$，中間項是 $2\\times3\\times2i=12i$（負號）。",
+      "en": "Use $(a-b)^{2}=a^{2}-2ab+b^{2}$ with $a=3$ and $b=2i$: the middle term is $2\\times3\\times2i=12i$ with a minus sign."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · i² = −1",
+       "en": "Step 2 · i² = −1"
+      },
+      "math": "4i^{2}=4(-1)=-4",
+      "zh": "$(2i)^2=4i^2=-4$，所以最後一項變成 $-4$。",
+      "en": "$(2i)^{2}=4i^{2}=-4$, so the last term becomes $-4$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 合併",
+       "en": "Step 3 · Combine"
+      },
+      "math": "=9-12i-4=5-12i",
+      "zh": "實部 $9-4=5$，虛部 $-12i$，答案 $5-12i$（$a=5$、$b=-12$）。答案是 D。",
+      "en": "Real part $9-4=5$ and imaginary part $-12i$, so the answer is $5-12i$ (with $a=5$, $b=-12$). The answer is D."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "$13-12i$ 把 $i^2$ 當成 $+1$：$9+4=13$。",
+      "en": "$13-12i$ treats $i^{2}$ as $+1$: $9+4=13$."
+     },
+     {
+      "opt": "B",
+      "zh": "$5+12i$ 的中間項符號錯：$(a-b)^2$ 的中間項一定是負。",
+      "en": "$5+12i$ has the wrong middle sign: in $(a-b)^{2}$ the middle term is always negative."
+     },
+     {
+      "opt": "C",
+      "zh": "$9-12i$ 忘記處理 $i^2$，把 $(2i)^2$ 當成 $0$。",
+      "en": "$9-12i$ never replaces $i^{2}$, effectively treating $(2i)^{2}$ as zero."
+     }
+    ],
+    "tip": {
+     "zh": "$(a\\pm bi)^2$ 的實部是 $a^2-b^2$、虛部是 $\\pm 2ab$；背了這兩塊就不會漏 $i^2=-1$。",
+     "en": "For $(a\\pm bi)^{2}$ the real part is $a^{2}-b^{2}$ and the imaginary part is $\\pm2ab$; remembering these two pieces prevents forgetting $i^{2}=-1$."
+    }
+   }
+  },
+  "eph-as01-m15": {
+   "answer": "B",
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 複數：除法（乘共軛）（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 上下乘分母的共軛",
+       "en": "Step 1 · Multiply by the conjugate"
+      },
+      "math": "\\frac{4+2i}{1-i}\\times\\frac{1+i}{1+i}",
+      "zh": "分母是 $1-i$，共軛是 $1+i$。上下同時乘同一個數，值不變，但分母會變成實數。",
+      "en": "The denominator is $1-i$, whose conjugate is $1+i$. Multiplying top and bottom by the same number keeps the value and makes the denominator real."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 計分子與分母",
+       "en": "Step 2 · Work out numerator and denominator"
+      },
+      "math": "\\frac{(4+2i)(1+i)}{(1-i)(1+i)}=\\frac{2+6i}{2}",
+      "zh": "分子：$4+4i+2i+2i^2=4+6i-2=2+6i$；分母：$(1-i)(1+i)=1-i^2=2$。",
+      "en": "Numerator: $4+4i+2i+2i^{2}=4+6i-2=2+6i$. Denominator: $(1-i)(1+i)=1-i^{2}=2$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 約簡",
+       "en": "Step 3 · Simplify"
+      },
+      "math": "=\\frac{2}{2}+\\frac{6i}{2}=1+3i",
+      "zh": "實部與虛部分別除以 2，得 $1+3i$（$a=1$、$b=3$）。答案是 B。",
+      "en": "Divide the real and imaginary parts by 2 to get $1+3i$ (with $a=1$, $b=3$). The answer is B."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "C",
+      "zh": "$3-i$ 是上下乘了 $1-i$（錯的共軛）：共軛要變中間那個符號，即 $1+i$。",
+      "en": "$3-i$ multiplies by $1-i$, the wrong conjugate; the conjugate flips the middle sign, giving $1+i$."
+     },
+     {
+      "opt": "D",
+      "zh": "$1-3i$ 的虛部符號錯：分子是 $2+6i$，除以 2 得 $+3i$。",
+      "en": "$1-3i$ has the wrong imaginary sign: the numerator is $2+6i$, so dividing by 2 gives $+3i$."
+     },
+     {
+      "opt": "A",
+      "zh": "$1+6i$ 是只把實部除以 2，虛部忘記除。",
+      "en": "$1+6i$ divides only the real part by 2 and forgets the imaginary part."
+     }
+    ],
+    "tip": {
+     "zh": "複數除法固定三步：乘共軛 → 分母變成 $a^2+b^2$ → 實部虛部分別約簡。",
+     "en": "Division of complex numbers is always three steps: multiply by the conjugate, turn the denominator into $a^{2}+b^{2}$, then simplify the real and imaginary parts separately."
+    }
+   }
+  },
+  "eph-as01-ex01": {
+   "answer": null,
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 二次方程：已知一根求係數（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 把已知根代進去",
+       "en": "Step 1 · Substitute the known root"
+      },
+      "math": "2(-3)^{2}+7(-3)+c=0",
+      "zh": "「$-3$ 是根」的意思是代入 $x=-3$ 之後方程成立。負數代入一定要加括號：$(-3)^2=9$ 才對。",
+      "en": "“$-3$ is a root” means the equation holds when $x=-3$ is substituted. Always bracket a negative number: $(-3)^{2}=9$.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 解出 c",
+       "en": "Step 2 · Solve for c"
+      },
+      "math": "18-21+c=0\n\\Rightarrow c=3",
+      "zh": "$2\\times9=18$、$7\\times(-3)=-21$，所以 $18-21+c=0$，得 $c=3$。",
+      "en": "$2\\times9=18$ and $7\\times(-3)=-21$, so $18-21+c=0$ and hence $c=3$.",
+      "marking": "(1A)"
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 分解新方程",
+       "en": "Step 3 · Factorise the equation"
+      },
+      "math": "2x^{2}+7x+3=(2x+1)(x+3)",
+      "zh": "有了 $c$ 就可以分解：$2x\\cdot x=2x^2$、$1\\cdot3=3$，交叉項 $2x\\cdot3+1\\cdot x=7x$ 對得上。",
+      "en": "With $c$ known, factorise: $2x\\cdot x=2x^{2}$, $1\\cdot3=3$, and the cross terms $2x\\cdot3+1\\cdot x=7x$ match.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · 寫出兩根並驗算",
+       "en": "Step 4 · State both roots and check"
+      },
+      "math": "x=-\\frac{1}{2} \\text{ or } x=-3",
+      "zh": "兩塊分別等於 0。$x=-3$ 正好是題目給的已知根 —— 這就證明前面的計算沒有錯，另一根是 $-\\frac{1}{2}$。",
+      "en": "Each factor gives a root. The value $x=-3$ is the root given in the question, which confirms the earlier work; the other root is $-\\frac{1}{2}$.",
+      "marking": "(1A)"
+     }
+    ],
+    "traps": [
+     {
+      "label": "代負數漏括號",
+      "labelEn": "missing brackets with a negative number",
+      "zh": "寫成 $2\\cdot-3^2$ 會計成 $-18$，$c$ 就會求錯。負數代入一定要寫 $2(-3)^2$。",
+      "en": "Writing $2\\cdot-3^{2}$ gives $-18$ and a wrong value of $c$. Always write $2(-3)^{2}$ when substituting a negative number."
+     },
+     {
+      "label": "只寫一個根",
+      "labelEn": "giving only one root",
+      "zh": "已知的 $x=-3$ 只是其中一個根，另一根要自己解出來；只寫一個會失分。",
+      "en": "The given value $x=-3$ is only one root; the other must be found by solving. Giving one root loses marks."
+     }
+    ],
+    "tip": {
+     "zh": "已知一根求係數：代進去 → 解一元一次 → 回到原方程分解 → 用已知根驗算。四步固定，題目一定會有一根是「靚數」。",
+     "en": "For a question giving one root: substitute, solve the linear equation, factorise the original equation, then check with the given root."
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "用兩根之和驗算",
+       "en": "Check with the sum of roots"
+      },
+      "zh": "求出 $c=3$ 之後，$2x^2+7x+3=0$ 的兩根之和應該是 $-\\frac{7}{2}$。把 $-\\frac{1}{2}$ 與 $-3$ 相加：$-\\frac{1}{2}-3=-\\frac{7}{2}$，對得上，就證明分解無誤。",
+      "en": "After finding $c=3$, the sum of the roots of $2x^{2}+7x+3=0$ must be $-\\frac{7}{2}$. Adding $-\\frac{1}{2}$ and $-3$ gives $-\\frac{7}{2}$, which confirms the factorisation."
+     }
+    ]
+   }
+  },
+  "eph-as01-ex02": {
+   "answer": null,
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 二次方程：已知一根求係數（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 把 5 代進去",
+       "en": "Step 1 · Substitute 5"
+      },
+      "math": "3(5)^{2}-14(5)+k=0",
+      "zh": "因為 $5$ 是根，代入 $x=5$ 方程成立。$3(25)=75$、$-14(5)=-70$。",
+      "en": "Because 5 is a root, substituting $x=5$ satisfies the equation. $3(25)=75$ and $-14(5)=-70$.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 求 k",
+       "en": "Step 2 · Find k"
+      },
+      "math": "75-70+k=0\n\\Rightarrow k=-5",
+      "zh": "$75-70=5$，所以 $5+k=0$，得 $k=-5$（是負數，不要漏負號）。",
+      "en": "$75-70=5$, so $5+k=0$ and $k=-5$ — keep the negative sign.",
+      "marking": "(1A)"
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 分解",
+       "en": "Step 3 · Factorise"
+      },
+      "math": "3x^{2}-14x-5=(3x+1)(x-5)",
+      "zh": "試組合：$3x\\cdot x=3x^2$、$1\\cdot(-5)=-5$，交叉項 $3x\\cdot(-5)+1\\cdot x=-14x$ 對得上。",
+      "en": "Try the combination: $3x\\cdot x=3x^{2}$ and $1\\cdot(-5)=-5$, while the cross terms $3x\\cdot(-5)+1\\cdot x=-14x$ match.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · 兩根",
+       "en": "Step 4 · Both roots"
+      },
+      "math": "x=-\\frac{1}{3} \\text{ or } x=5",
+      "zh": "$3x+1=0$ 得 $x=-\\frac{1}{3}$；$x-5=0$ 得 $x=5$（已知根，正好驗算）。",
+      "en": "$3x+1=0$ gives $x=-\\frac{1}{3}$ and $x-5=0$ gives $x=5$, the given root, which serves as a check.",
+      "marking": "(1A)"
+     }
+    ],
+    "traps": [
+     {
+      "label": "k 的符號",
+      "labelEn": "sign of k",
+      "zh": "$75-70=5$，所以是 $5+k=0$、$k=-5$。寫成 $k=5$ 就是把搬項的負號吃掉了。",
+      "en": "$75-70=5$, so $5+k=0$ and $k=-5$. Writing $k=5$ drops the sign change."
+     },
+     {
+      "label": "分解組合試錯",
+      "labelEn": "trying the wrong factor pair",
+      "zh": "常數項要湊成 $-5$（$1\\times(-5)$），同時交叉項要是 $-14x$；試錯時兩邊都要對。",
+      "en": "The constant product must be $-5$ (from $1\\times(-5)$) while the cross terms give $-14x$; both conditions must hold."
+     }
+    ],
+    "tip": {
+     "zh": "求出常數後，把已知根代回新方程驗算（$3(25)-14(5)-5=0$），一秒就知道對不對。",
+     "en": "After finding the constant, substitute the given root back into the new equation ($3(25)-14(5)-5=0$) to check it instantly."
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "用兩根之積驗算",
+       "en": "Check with the product of roots"
+      },
+      "zh": "$3x^2-14x-5=0$ 的兩根之積是 $\\frac{-5}{3}$。把 $-\\frac{1}{3}$ 與 $5$ 相乘：$-\\frac{5}{3}$，對得上。",
+      "en": "The product of the roots of $3x^{2}-14x-5=0$ is $\\frac{-5}{3}$. Multiplying $-\\frac{1}{3}$ and 5 gives $-\\frac{5}{3}$, which agrees."
+     }
+    ]
+   }
+  },
+  "eph-as01-ex03": {
+   "answer": null,
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 複數：平方與化簡分式（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 展開 z²",
+       "en": "Step 1 · Expand z²"
+      },
+      "math": "z^{2}=(3+i)^{2}=9+6i+i^{2}",
+      "zh": "用 $(a+b)^2$：中間項 $2\\times3\\times i=6i$ 最容易漏，一定要寫出來。",
+      "en": "Use $(a+b)^{2}$: the middle term $2\\times3\\times i=6i$ is the one most often missed, so write it down.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 化簡成 a+bi",
+       "en": "Step 2 · Simplify to a+bi"
+      },
+      "math": "=9+6i-1=8+6i",
+      "zh": "$i^2=-1$，所以答案是 $8+6i$（$a=8$、$b=6$）。",
+      "en": "$i^{2}=-1$, so the answer is $8+6i$ (with $a=8$, $b=6$).",
+      "marking": "(1A)"
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 用 (a) 的結果",
+       "en": "Step 3 · Use the result of (a)"
+      },
+      "math": "\\left(\\frac{20}{z}\\right)^{2}=\\frac{400}{z^{2}}=\\frac{400}{8+6i}",
+      "zh": "「Hence」就是一定要用 (a)：$\\left(\\frac{20}{z}\\right)^2=\\frac{20^2}{z^2}$，而 $z^2$ 剛才已經算好是 $8+6i$。",
+      "en": "“Hence” means part (a) must be used: $\\left(\\frac{20}{z}\\right)^{2}=\\frac{20^{2}}{z^{2}}$, and $z^{2}=8+6i$ is already known.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · 上下乘共軛",
+       "en": "Step 4 · Multiply by the conjugate"
+      },
+      "math": "=\\frac{400(8-6i)}{(8+6i)(8-6i)}=\\frac{400(8-6i)}{64+36}",
+      "zh": "分母 $8+6i$ 的共軛是 $8-6i$；分母變成 $(8^2+6^2)=100$，是一個實數。",
+      "en": "The conjugate of $8+6i$ is $8-6i$; the denominator becomes $8^{2}+6^{2}=100$, a real number.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 5 步 · 約簡",
+       "en": "Step 5 · Simplify"
+      },
+      "math": "=\\frac{400(8-6i)}{100}=4(8-6i)=32-24i",
+      "zh": "$\\frac{400}{100}=4$，所以答案 $4(8-6i)=32-24i$（$a=32$、$b=-24$）。",
+      "en": "$\\frac{400}{100}=4$, so the answer is $4(8-6i)=32-24i$ (with $a=32$, $b=-24$).",
+      "marking": "(1A)"
+     }
+    ],
+    "traps": [
+     {
+      "label": "平方漏中間項",
+      "labelEn": "missing the middle term",
+      "zh": "$(3+i)^2$ 的中間項是 $6i$；只寫 $9+i^2$ 會漏掉整個虛部。",
+      "en": "The middle term of $(3+i)^{2}$ is $6i$; writing only $9+i^{2}$ loses the whole imaginary part."
+     },
+     {
+      "label": "共軛只乘分子",
+      "labelEn": "multiplying only the numerator",
+      "zh": "上下一定要同時乘 $(8-6i)$，值才不變；只乘分子就會算錯。",
+      "en": "Both numerator and denominator must be multiplied by $8-6i$ so the value is unchanged."
+     }
+    ],
+    "tip": {
+     "zh": "「Hence」題幾乎都是「(a) 先算好一塊，(b) 把那塊整塊代入」；分數的平方可以寫成 $\\frac{20^2}{z^2}$，不必逐項展開。",
+     "en": "A “Hence” question almost always means “(a) computes a block, (b) substitutes that block”. A squared fraction can be written as $\\frac{20^{2}}{z^{2}}$ instead of being expanded."
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "用 |z|² 快速檢查",
+       "en": "Quick check with |z|²"
+      },
+      "zh": "驗算分母：$(8+6i)$ 的模平方是 $8^2+6^2=100$，而 $400$ 剛好是 $100$ 的 4 倍，所以答案一定是 $4\\times$ 共軛，數字理應很整齊。",
+      "en": "Check the denominator: the squared modulus of $8+6i$ is $8^{2}+6^{2}=100$, and 400 is exactly four times that, so the answer must be four times the conjugate — a strong sign the arithmetic is clean."
+     }
+    ]
+   }
+  },
+  "eph-as01-ex04": {
+   "answer": null,
+   "verify": "checked",
+   "topic": "as01",
+   "source": "統測前哨戰 · 複數：平方與化簡分式（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 展開 w²",
+       "en": "Step 1 · Expand w²"
+      },
+      "math": "w^{2}=(4-i)^{2}=16-8i+i^{2}",
+      "zh": "中間項是 $2\\times4\\times i=8i$，因為是減號所以寫 $-8i$。",
+      "en": "The middle term is $2\\times4\\times i=8i$; because of the minus sign it is written $-8i$.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 化簡",
+       "en": "Step 2 · Simplify"
+      },
+      "math": "=16-8i-1=15-8i",
+      "zh": "$i^2=-1$，所以 $16-1=15$，答案是 $15-8i$。",
+      "en": "$i^{2}=-1$, so $16-1=15$ and the answer is $15-8i$.",
+      "marking": "(1A)"
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 用 (a) 的結果",
+       "en": "Step 3 · Use the result of (a)"
+      },
+      "math": "\\left(\\frac{17}{w}\\right)^{2}=\\frac{289}{w^{2}}=\\frac{289}{15-8i}",
+      "zh": "$17^2=289$，再把 $w^2=15-8i$ 整塊代入（這就是 Hence 的意思）。",
+      "en": "$17^{2}=289$, then substitute $w^{2}=15-8i$ as a block — this is what “Hence” requires.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · 上下乘共軛",
+       "en": "Step 4 · Multiply by the conjugate"
+      },
+      "math": "=\\frac{289(15+8i)}{(15-8i)(15+8i)}=\\frac{289(15+8i)}{225+64}",
+      "zh": "分母的共軛是 $15+8i$；$15^2+8^2=225+64=289$。",
+      "en": "The conjugate of the denominator is $15+8i$; note $15^{2}+8^{2}=225+64=289$.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 5 步 · 約簡",
+       "en": "Step 5 · Simplify"
+      },
+      "math": "=\\frac{289(15+8i)}{289}=15+8i",
+      "zh": "分母與分子的 $289$ 約去，答案 $15+8i$。留意 (b) 的答案就是 (a) 的共軛。",
+      "en": "The 289 cancels, leaving $15+8i$. Notice that the answer to (b) is the conjugate of the answer to (a).",
+      "marking": "(1A)"
+     }
+    ],
+    "traps": [
+     {
+      "label": "中間項符號",
+      "labelEn": "sign of the middle term",
+      "zh": "$(4-i)^2$ 的中間項是 $-8i$；寫成 $+8i$ 會令答案錯。",
+      "en": "The middle term of $(4-i)^{2}$ is $-8i$; writing $+8i$ makes the answer wrong."
+     },
+     {
+      "label": "分母漏平方",
+      "labelEn": "forgetting to square the terms",
+      "zh": "共軛相乘的結果是 $a^2+b^2$（$225+64=289$），不是 $15+8$。",
+      "en": "The product with the conjugate is $a^{2}+b^{2}$ ($225+64=289$), not $15+8$."
+     }
+    ],
+    "tip": {
+     "zh": "如果 $\\frac{n^2}{w^2}$ 的 $n^2$ 剛好等於 $|w|^4$… 更簡單的檢查：分母乘共軛後的實數若等於分子，答案就是那個共軛，數字會非常整齊。",
+     "en": "A useful check: if the real number obtained from the denominator equals the numerator, the answer is simply that conjugate, so the numbers should come out very clean."
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "完整性驗算",
+       "en": "Completeness check"
+      },
+      "zh": "把答案乘回 $w^2$：$(15-8i)(15+8i)=225+64=289$，正好等於 $\\left(\\frac{17}{w}\\right)^2 w^2=17^2$，所以答案正確。",
+      "en": "Multiply the answer back by $w^{2}$: $(15-8i)(15+8i)=225+64=289$, which is exactly $17^{2}$, so the answer is correct."
+     }
+    ]
+   }
+  },
+  "eph-as02-m01": {
+   "answer": "C",
+   "verify": "checked",
+   "topic": "as02",
+   "source": "統測前哨戰 · 直線方程：垂直與 x 截距（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 讀出已知直線的斜率",
+       "en": "Step 1 · Read the slope of the given line"
+      },
+      "math": "2x+3y-6=0\n\\Rightarrow y=-\\frac{2}{3}x+2",
+      "zh": "把已知直線寫成 $y=mx+c$ 才讀得出斜率：$3y=-2x+6$，兩邊除以 3 得 $y=-\\frac{2}{3}x+2$，斜率是 $-\\frac{2}{3}$。",
+      "en": "Write the given line as $y=mx+c$: from $3y=-2x+6$, dividing by 3 gives $y=-\\frac{2}{3}x+2$, so the slope is $-\\frac{2}{3}$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 垂直＝取負倒數",
+       "en": "Step 2 · Perpendicular means negative reciprocal"
+      },
+      "math": "m\\times\\left(-\\frac{2}{3}\\right)=-1\n\\Rightarrow m=\\frac{3}{2}",
+      "zh": "垂直的兩條線斜率乘積等於 $-1$，所以 $L$ 的斜率是 $-\\frac{2}{3}$ 的負倒數：先顛倒（$\\frac{3}{2}$）、再變號（$-\\frac{3}{2}$ 再變回 $+\\frac{3}{2}$）。",
+      "en": "Slopes of perpendicular lines multiply to $-1$, so the slope of $L$ is the negative reciprocal of $-\\frac{2}{3}$, which is $\\frac{3}{2}$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 把 x 截距變成一個點",
+       "en": "Step 3 · Turn the intercept into a point"
+      },
+      "math": "y=\\frac{3}{2}(x-4)",
+      "zh": "$x$ 截距是 4 的意思是「線與 $x$ 軸交於 $x=4$」，即通過 $(4,\\ 0)$。用點斜式 $y-y_1=m(x-x_1)$，$x_1=4$、$y_1=0$。",
+      "en": "An $x$-intercept of 4 means the line meets the $x$-axis at $x=4$, so it passes through $(4,\\ 0)$. Use $y-y_1=m(x-x_1)$ with $x_1=4$ and $y_1=0$."
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · 整理成一般式",
+       "en": "Step 4 · Rearrange into general form"
+      },
+      "math": "2y=3x-12\n\\Rightarrow 3x-2y-12=0",
+      "zh": "兩邊乘 2 消去分數，再把所有項搬到同一邊，得 $3x-2y-12=0$。答案是 C。",
+      "en": "Multiply both sides by 2 and collect all terms on one side to get $3x-2y-12=0$. The answer is C."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "$2x+3y-8=0$ 用了已知直線的斜率 $-\\frac{2}{3}$，這條線其實與已知直線平行，不是垂直。",
+      "en": "$2x+3y-8=0$ uses the slope of the given line, so it is parallel to it rather than perpendicular."
+     },
+     {
+      "opt": "B",
+      "zh": "$3x-2y+12=0$ 斜率正確（$\\frac{3}{2}$），但常數項符號錯：把 $(4,\\ 0)$ 代入得 $12-0+12=24\\ne0$。",
+      "en": "$3x-2y+12=0$ has the right slope but the wrong constant: $(4,\\ 0)$ gives $12-0+12=24\\ne0$."
+     },
+     {
+      "opt": "D",
+      "zh": "$2x+3y+8=0$ 斜率與常數項都錯，而且代入 $(4,\\ 0)$ 也不成立。",
+      "en": "$2x+3y+8=0$ gets both the slope and the constant wrong, and $(4,\\ 0)$ does not satisfy it either."
+     }
+    ],
+    "tip": {
+     "zh": "垂直 ＝ 斜率「負倒數」（先顛倒、再變號）。寫完方程後，把題目給的那一點代回去看是否等於 0，是最快的驗算。",
+     "en": "Perpendicular means the negative reciprocal of the slope. After writing the equation, substitute the given point back to check that it gives 0."
+    }
+   }
+  },
+  "eph-as02-m02": {
+   "answer": "B",
+   "verify": "checked",
+   "topic": "as02",
+   "source": "統測前哨戰 · 直線方程：垂直與 y 截距（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 已知直線的斜率",
+       "en": "Step 1 · Slope of the given line"
+      },
+      "math": "3x-4y+8=0\n\\Rightarrow y=\\frac{3}{4}x+2",
+      "zh": "$4y=3x+8$，兩邊除以 4 得 $y=\\frac{3}{4}x+2$，斜率 $\\frac{3}{4}$。",
+      "en": "From $4y=3x+8$, dividing by 4 gives $y=\\frac{3}{4}x+2$, so the slope is $\\frac{3}{4}$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 負倒數",
+       "en": "Step 2 · Negative reciprocal"
+      },
+      "math": "m\\times\\frac{3}{4}=-1\n\\Rightarrow m=-\\frac{4}{3}",
+      "zh": "$\\frac{3}{4}$ 的倒數是 $\\frac{4}{3}$，再加負號，所以 $L$ 的斜率是 $-\\frac{4}{3}$。",
+      "en": "The reciprocal of $\\frac{3}{4}$ is $\\frac{4}{3}$; adding the minus sign gives the slope of $L$ as $-\\frac{4}{3}$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · y 截距就是一點",
+       "en": "Step 3 · The y-intercept is a point"
+      },
+      "math": "y=-\\frac{4}{3}x-3",
+      "zh": "$y$ 截距是 $-3$ 表示線通過 $(0,\\ -3)$；用點斜式時 $y-(-3)=y+3$，負號很容易漏。",
+      "en": "A $y$-intercept of $-3$ means the line passes through $(0,\\ -3)$; in point-slope form this gives $y-(-3)=y+3$, where the sign is easily dropped."
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · 整理",
+       "en": "Step 4 · Rearrange"
+      },
+      "math": "3y=-4x-9\n\\Rightarrow 4x+3y+9=0",
+      "zh": "兩邊乘 3 消去分數，再搬到同一邊得 $4x+3y+9=0$。答案是 B。",
+      "en": "Multiply by 3 and move everything to one side: $4x+3y+9=0$. The answer is B."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "C",
+      "zh": "$3x-4y+12=0$ 用了同一個斜率 $\\frac{3}{4}$，這條線與已知直線平行，不是垂直。",
+      "en": "$3x-4y+12=0$ keeps the same slope $\\frac{3}{4}$, so it is parallel to the given line."
+     },
+     {
+      "opt": "D",
+      "zh": "$4x-3y-9=0$ 的斜率是 $\\frac{4}{3}$：只把 $\\frac{3}{4}$ 顛倒，忘記變號，相乘得 $+1$ 不是 $-1$。",
+      "en": "$4x-3y-9=0$ has slope $\\frac{4}{3}$: the fraction was inverted but not negated, so the product is $+1$, not $-1$."
+     },
+     {
+      "opt": "A",
+      "zh": "$4x+3y-9=0$ 斜率正確，但 $y$ 截距變成 $+3$（它通過 $(0,\\ 3)$ 而不是 $(0,\\ -3)$）。",
+      "en": "$4x+3y-9=0$ has the right slope but its $y$-intercept is $+3$; it passes through $(0,\\ 3)$ instead of $(0,\\ -3)$."
+     }
+    ],
+    "tip": {
+     "zh": "負數截距要特別小心：$y$ 截距 $-3$ 就是線過 $(0,\\ -3)$，代入點斜式時一定要寫 $y+3$。",
+     "en": "Be careful with negative intercepts: a $y$-intercept of $-3$ means the line passes through $(0,\\ -3)$, so point-slope form must read $y+3$."
+    }
+   }
+  },
+  "eph-as02-m03": {
+   "answer": "A",
+   "verify": "checked",
+   "topic": "as02",
+   "source": "統測前哨戰 · 直線方程：垂直且過一點（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 已知直線的斜率",
+       "en": "Step 1 · Slope of the given line"
+      },
+      "math": "5x-2y-10=0\n\\Rightarrow y=\\frac{5}{2}x-5",
+      "zh": "$2y=5x-10$，兩邊除以 2 得 $y=\\frac{5}{2}x-5$，斜率 $\\frac{5}{2}$。",
+      "en": "From $2y=5x-10$, dividing by 2 gives $y=\\frac{5}{2}x-5$, so the slope is $\\frac{5}{2}$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 負倒數",
+       "en": "Step 2 · Negative reciprocal"
+      },
+      "math": "m\\times\\frac{5}{2}=-1\n\\Rightarrow m=-\\frac{2}{5}",
+      "zh": "$\\frac{5}{2}$ 顛倒成 $\\frac{2}{5}$，再變號得 $-\\frac{2}{5}$。",
+      "en": "Inverting $\\frac{5}{2}$ gives $\\frac{2}{5}$; changing the sign gives $-\\frac{2}{5}$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 點斜式",
+       "en": "Step 3 · Point-slope form"
+      },
+      "math": "y+1=-\\frac{2}{5}(x-2)",
+      "zh": "通過 $(2,\\ -1)$：$y-(-1)$ 要寫成 $y+1$；右邊是 $x-2$。",
+      "en": "Through $(2,\\ -1)$: the left side becomes $y+1$ and the right side is $x-2$."
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · 整理",
+       "en": "Step 4 · Rearrange"
+      },
+      "math": "5y+5=-2x+4\n\\Rightarrow 2x+5y+1=0",
+      "zh": "兩邊乘 5，再把所有項搬到一邊得 $2x+5y+1=0$。答案是 A。",
+      "en": "Multiply by 5 and collect terms on one side: $2x+5y+1=0$. The answer is A."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "C",
+      "zh": "$5x-2y-12=0$ 用了同一斜率 $\\frac{5}{2}$（與已知直線平行）；它雖然也經過 $(2,\\ -1)$，但平行不是垂直。",
+      "en": "$5x-2y-12=0$ keeps the slope $\\frac{5}{2}$ and is parallel to the given line; it does pass through $(2,\\ -1)$, but parallel is not perpendicular."
+     },
+     {
+      "opt": "D",
+      "zh": "$5x+2y-8=0$ 的斜率是 $-\\frac{5}{2}$：與 $\\frac{5}{2}$ 相乘得 $-\\frac{25}{4}\\ne-1$，所以不是垂直。",
+      "en": "$5x+2y-8=0$ has slope $-\\frac{5}{2}$; multiplying by $\\frac{5}{2}$ gives $-\\frac{25}{4}\\ne-1$, so it is not perpendicular."
+     },
+     {
+      "opt": "B",
+      "zh": "$2x+5y-1=0$ 斜率正確，但代入 $(2,\\ -1)$ 得 $4-5-1=-2\\ne0$，即不通過那一點。",
+      "en": "$2x+5y-1=0$ has the right slope, but $(2,\\ -1)$ gives $4-5-1=-2\\ne0$, so the line misses the point."
+     }
+    ],
+    "tip": {
+     "zh": "這類題目有三個常見陷阱：斜率忘記取負倒數、負號漏掉、代入點時符號錯。寫完把那一點代回自己的方程，一步就檢查完。",
+     "en": "Three common traps: forgetting the negative reciprocal, dropping a minus sign, and substituting the point with the wrong sign. Substituting the point back checks all of them at once."
+    }
+   }
+  },
+  "eph-as02-m04": {
+   "answer": "C",
+   "verify": "checked",
+   "topic": "as02",
+   "source": "統測前哨戰 · 直線方程：由圖判斷 a、b 的正負（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 把方程改成看得見斜率的形式",
+       "en": "Step 1 · Rewrite so that the slope is visible"
+      },
+      "math": "ax+y+b=0\n\\Rightarrow y=-ax-b",
+      "zh": "圖上見到的是「斜率」與「$y$ 截距」，但題目問的是 $a$、$b$；寫成 $y=-ax-b$ 就可以把它們連起來：斜率是 $-a$、$y$ 截距是 $-b$。",
+      "en": "The graph shows the slope and the $y$-intercept, while the question asks about $a$ and $b$. Writing $y=-ax-b$ links them: the slope is $-a$ and the $y$-intercept is $-b$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 由斜率判斷 a",
+       "en": "Step 2 · Decide a from the slope"
+      },
+      "math": "\\text{slope}=-a>0\n\\Rightarrow a<0",
+      "zh": "圖中直線往右上斜，斜率是正數；斜率等於 $-a$，所以 $-a>0$，即 $a<0$ → 陳述 I 是錯的。",
+      "en": "The line rises to the right, so its slope is positive. Since the slope equals $-a$, we get $-a>0$ and hence $a<0$ — statement I is false."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 由 y 截距判斷 b",
+       "en": "Step 3 · Decide b from the y-intercept"
+      },
+      "math": "y\\text{-intercept}=-b<0\n\\Rightarrow b>0",
+      "zh": "線與 $y$ 軸交於原點之下，$y$ 截距是負數；$-b<0$ 即 $b>0$ → 陳述 II 是對的。",
+      "en": "The line meets the $y$-axis below the origin, so the $y$-intercept is negative; $-b<0$ gives $b>0$ — statement II is true."
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · 檢查 x 截距",
+       "en": "Step 4 · Check the x-intercept"
+      },
+      "math": "x\\text{-intercept}=-\\frac{b}{a}>0",
+      "zh": "線與 $x$ 軸交於原點之右，$x$ 截距是正數；由 $b>0$、$a<0$ 得 $-\\frac{b}{a}>0$，與圖一致 → 陳述 III 也是對的。只有 II、III 對，答案是 C。",
+      "en": "The line meets the $x$-axis to the right of the origin, so the $x$-intercept is positive; with $b>0$ and $a<0$, $-\\frac{b}{a}>0$ agrees — statement III is true as well. Only II and III hold, so the answer is C."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "I and II only：以為 III 錯。但 $x$ 截距是 $-\\frac{b}{a}$，$b>0$、$a<0$ 令它必然是正數。",
+      "en": "I and II only assumes III is false, but the $x$-intercept is $-\\frac{b}{a}$, which must be positive when $b>0$ and $a<0$."
+     },
+     {
+      "opt": "B",
+      "zh": "I and III only：以為 II 錯。線與 $y$ 軸交於原點之下，$-b<0$ 即 $b>0$，II 是對的。",
+      "en": "I and III only assumes II is false, but the line meets the $y$-axis below the origin, so $-b<0$ and hence $b>0$."
+     },
+     {
+      "opt": "D",
+      "zh": "I, II and III：以為 I 對。線往右上斜表示斜率 $-a>0$，所以 $a<0$，I 其實是錯的。",
+      "en": "I, II and III assumes I is true, but rising to the right means the slope $-a>0$, so $a<0$ and I is false."
+     }
+    ],
+    "tip": {
+     "zh": "見到 $ax+y+b=0$ 先改寫成 $y=-ax-b$：圖上讀到的斜率與截距，寫成 $a$、$b$ 時每個都要變一次號。",
+     "en": "Rewrite $ax+y+b=0$ as $y=-ax-b$ first: every quantity read from the graph changes sign when it is turned into $a$ or $b$."
+    }
+   }
+  },
+  "eph-as02-m05": {
+   "answer": "B",
+   "verify": "checked",
+   "topic": "as02",
+   "source": "統測前哨戰 · 直線方程：由圖判斷 a、b 的正負（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 改寫方程",
+       "en": "Step 1 · Rewrite the equation"
+      },
+      "math": "ax+y+b=0\n\\Rightarrow y=-ax-b",
+      "zh": "先看清：斜率是 $-a$、$y$ 截距是 $-b$，兩個都帶著負號。",
+      "en": "Note first that the slope is $-a$ and the $y$-intercept is $-b$: both carry a minus sign."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 斜率（往右下斜）",
+       "en": "Step 2 · Slope (falling to the right)"
+      },
+      "math": "\\text{slope}=-a<0\n\\Rightarrow a>0",
+      "zh": "線往右下斜，斜率是負數；$-a<0$ 即 $a>0$ → 陳述 I 是對的。",
+      "en": "The line falls to the right, so its slope is negative; $-a<0$ gives $a>0$ — statement I is true."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · y 截距",
+       "en": "Step 3 · The y-intercept"
+      },
+      "math": "y\\text{-intercept}=-b>0\n\\Rightarrow b<0",
+      "zh": "線與 $y$ 軸交於原點之上，$y$ 截距是正數；$-b>0$ 即 $b<0$ → 陳述 II 是錯的，而 III（$y$ 截距是正數）是對的。",
+      "en": "The line meets the $y$-axis above the origin, so the $y$-intercept is positive; $-b>0$ gives $b<0$ — statement II is false while III is true."
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · 只有兩項對",
+       "en": "Step 4 · Only two statements hold"
+      },
+      "math": "a>0,\\ b<0",
+      "zh": "I 對、II 錯、III 對 → 答案是「I and III only」，即 B。",
+      "en": "I is true, II is false and III is true, giving “I and III only”, that is B."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "I and II only：看到「線往右下斜」就以為 $b$ 也是正。但 $b$ 由 $y$ 截距決定：截距是正數代表 $-b>0$，所以 $b<0$。",
+      "en": "I and II only assumes $b>0$ as well, but $b$ comes from the $y$-intercept: a positive intercept means $-b>0$, so $b<0$."
+     },
+     {
+      "opt": "C",
+      "zh": "II and III only：漏了 I。斜率 $-a$ 是負數，所以 $a>0$；把「斜率本身的負號」與「$a$ 的符號」攪亂了。",
+      "en": "II and III only drops statement I: the slope $-a$ is negative, so $a>0$. The minus sign inside the slope is confused with the sign of $a$."
+     },
+     {
+      "opt": "D",
+      "zh": "I, II and III：II 明顯不成立（$b<0$），不可能三項都對。",
+      "en": "I, II and III cannot hold because II clearly fails: $b<0$."
+     }
+    ],
+    "tip": {
+     "zh": "「線往右下斜」只決定 $a$ 的符號；$b$ 的符號要另外看 $y$ 截距。兩件事分開處理就不會混。",
+     "en": "A line falling to the right decides only the sign of $a$; the sign of $b$ comes from the $y$-intercept. Keep the two separate."
+    }
+   }
+  },
+  "eph-as02-m06": {
+   "answer": "D",
+   "verify": "checked",
+   "topic": "as02",
+   "source": "統測前哨戰 · 直線方程：由圖判斷 a、b 的正負（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 改寫方程",
+       "en": "Step 1 · Rewrite the equation"
+      },
+      "math": "ax+y+b=0\n\\Rightarrow y=-ax-b",
+      "zh": "斜率 $-a$、$y$ 截距 $-b$；圖上兩個數都在原點之下，表示兩個都是負數。",
+      "en": "The slope is $-a$ and the $y$-intercept is $-b$; both quantities read from the graph are negative."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 斜率（往右下斜）",
+       "en": "Step 2 · Slope (falling to the right)"
+      },
+      "math": "\\text{slope}=-a<0\n\\Rightarrow a>0",
+      "zh": "線往右下斜 → 斜率負 → $-a<0$ → $a>0$：陳述 I 對。",
+      "en": "The line falls to the right, so the slope is negative, $-a<0$ and hence $a>0$: statement I holds."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · y 截距",
+       "en": "Step 3 · The y-intercept"
+      },
+      "math": "y\\text{-intercept}=-b<0\n\\Rightarrow b>0",
+      "zh": "線與 $y$ 軸交於原點之下 → $y$ 截距負 → $-b<0$ → $b>0$：陳述 II 也對。",
+      "en": "The line meets the $y$-axis below the origin, so the $y$-intercept is negative, $-b<0$ and $b>0$: statement II also holds."
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · x 截距",
+       "en": "Step 4 · The x-intercept"
+      },
+      "math": "x\\text{-intercept}=-\\frac{b}{a}<0",
+      "zh": "線與 $x$ 軸交於原點之左 → $x$ 截距是負數。驗算：$b>0$、$a>0$，$-\\frac{b}{a}$ 果然是負數 → 陳述 III 也對。三項都對，答案是 D。",
+      "en": "The line meets the $x$-axis to the left of the origin, so the $x$-intercept is negative. Check: with $b>0$ and $a>0$, $-\\frac{b}{a}$ is indeed negative, so III holds too. All three hold, and the answer is D."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "I and II only：以為 III 錯。$x$ 截距是 $-\\frac{b}{a}$，$b>0$、$a>0$ 令它必然是負數，III 是對的。",
+      "en": "I and II only assumes III is false, but the $x$-intercept $-\\frac{b}{a}$ must be negative when $b>0$ and $a>0$."
+     },
+     {
+      "opt": "B",
+      "zh": "I and III only：以為 II 錯。線與 $y$ 軸交於原點之下，$-b<0$ 即 $b>0$，II 是對的。",
+      "en": "I and III only assumes II is false, but meeting the $y$-axis below the origin means $-b<0$ and hence $b>0$."
+     },
+     {
+      "opt": "C",
+      "zh": "II and III only：以為 I 錯。線往右下斜，斜率 $-a<0$，所以 $a>0$，I 是對的。",
+      "en": "II and III only assumes I is false, but a line falling to the right has slope $-a<0$, so $a>0$ and I is true."
+     }
+    ],
+    "tip": {
+     "zh": "三句陳述都可能同時成立；不要因為「通常是兩項對」而不敢選「I, II and III」。每句都用圖獨立核對一次。",
+     "en": "All three statements can hold at once. Do not avoid “I, II and III” just because two are usually true — check each statement against the graph separately."
+    }
+   }
+  },
+  "eph-as03-m01": {
+   "answer": "C",
+   "verify": "checked",
+   "topic": "as03",
+   "source": "統測前哨戰 · 不等式：恆成立求 k 的範圍（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 恆成立＝判別式條件",
+       "en": "Step 1 · “Always true” becomes a discriminant condition"
+      },
+      "math": "x^{2}+2kx+4k+5\\ge 0\\ \\text{for all }x",
+      "zh": "$x^2$ 的係數是 $1>0$，拋物線開口向上；要它永遠不小於 0，就只可以「不碰到 $x$ 軸」或「只碰一次」，即判別式 $\\Delta\\le0$。",
+      "en": "The coefficient of $x^{2}$ is $1>0$, so the parabola opens upwards. For it never to go below 0 it must not cross the $x$-axis, or touch it only once: the discriminant must satisfy $\\Delta\\le0$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 計算判別式",
+       "en": "Step 2 · Compute the discriminant"
+      },
+      "math": "\\Delta=(2k)^{2}-4(1)(4k+5)=4k^{2}-16k-20",
+      "zh": "留意 $b=2k$，平方時是 $(2k)^2=4k^2$（連係數一齊平方）；常數項是 $4k+5$，整塊乘 4。",
+      "en": "Note that $b=2k$, so squaring gives $(2k)^{2}=4k^{2}$ (the coefficient is squared too), and the constant term $4k+5$ is multiplied by 4 as a block."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 整理不等式",
+       "en": "Step 3 · Simplify the inequality"
+      },
+      "math": "4k^{2}-16k-20\\le 0\n\\Rightarrow k^{2}-4k-5\\le 0",
+      "zh": "兩邊除以 4（正數，方向不變），數字細一點比較容易分解。",
+      "en": "Divide both sides by 4 (a positive number, so the inequality does not turn) to make the numbers easier to factorise."
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · 分解再讀出範圍",
+       "en": "Step 4 · Factorise and read off the range"
+      },
+      "math": "(k-5)(k+1)\\le 0\n\\Rightarrow -1\\le k\\le 5",
+      "zh": "$k^2-4k-5=(k-5)(k+1)$。兩塊相乘 $\\le0$ 表示一正一負，所以 $k$ 在兩根 $-1$ 與 $5$ 之間。答案是 C。",
+      "en": "$k^{2}-4k-5=(k-5)(k+1)$. A product that is $\\le0$ means one factor is positive and the other negative, so $k$ lies between the two roots $-1$ and $5$. The answer is C."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "D",
+      "zh": "$k\\le -1$ or $k\\ge 5$ 的兩根正確，但方向錯：$(k-5)(k+1)\\le0$ 的解是「兩根之間」，不是兩邊。",
+      "en": "$k\\le -1$ or $k\\ge 5$ has the right roots but the wrong direction: $(k-5)(k+1)\\le0$ gives the interval between the roots, not the outside."
+     },
+     {
+      "opt": "B",
+      "zh": "$k\\le -5$ or $k\\ge 1$ 用了 $\\Delta\\ge0$（有實根）的條件；題目要「所有實數都成立」，方向剛好相反。",
+      "en": "$k\\le -5$ or $k\\ge 1$ uses $\\Delta\\ge0$ (having real roots), but “true for all real $x$” requires the opposite condition."
+     },
+     {
+      "opt": "A",
+      "zh": "$-5\\le k\\le 1$ 把兩根當成 $-5$ 與 $1$；$(k-5)(k+1)=0$ 的根是 $5$ 與 $-1$（括號等於 0 才是根），寫區間時次序不要倒轉。",
+      "en": "$-5\\le k\\le 1$ misreads the roots as $-5$ and $1$; $(k-5)(k+1)=0$ gives $5$ and $-1$, since a root is where the bracket itself is zero."
+     }
+    ],
+    "tip": {
+     "zh": "「對所有實數 $x$ 都 $\\ge0$」＝開口向上 ＋ $\\Delta\\le0$；最後一步記住 $\\le0$ 取「兩根之間」、$\\ge0$ 取「兩根之外」。",
+     "en": "“$\\ge0$ for all real $x$” means opening upwards together with $\\Delta\\le0$. Remember that $\\le0$ gives the interval between the roots while $\\ge0$ gives the two outer regions."
+    }
+   }
+  },
+  "eph-as03-m02": {
+   "answer": "D",
+   "verify": "checked",
+   "topic": "as03",
+   "source": "統測前哨戰 · 不等式：嚴格大於的恆成立（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 寫出判別式",
+       "en": "Step 1 · Write the discriminant"
+      },
+      "math": "\\Delta=(-4)^{2}-4(1)(k)=16-4k",
+      "zh": "$a=1$、$b=-4$、$c=k$，所以 $\\Delta=16-4k$。",
+      "en": "With $a=1$, $b=-4$ and $c=k$, the discriminant is $\\Delta=16-4k$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 嚴格大於 → Δ < 0",
+       "en": "Step 2 · Strict inequality → Δ < 0"
+      },
+      "math": "16-4k<0\n\\Rightarrow k>4",
+      "zh": "題目是「$>0$」（嚴格），所以拋物線要完全在 $x$ 軸之上，$\\Delta<0$。$16<4k$ 即 $k>4$。",
+      "en": "The question says $>0$ (strict), so the parabola must lie entirely above the $x$-axis and $\\Delta<0$. From $16<4k$ we get $k>4$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 檢查邊界值",
+       "en": "Step 3 · Check the boundary"
+      },
+      "math": "k=4:\\ x^{2}-4x+4=(x-2)^{2}",
+      "zh": "邊界 $k=4$ 時方程是 $(x-2)^2$，在 $x=2$ 等於 0，不滿足「$>0$」，所以 $k$ 不可以等於 4。答案是 D。",
+      "en": "At the boundary $k=4$ the expression is $(x-2)^{2}$, which equals 0 at $x=2$ and therefore fails “$>0$”. So $k=4$ is not allowed. The answer is D."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "C",
+      "zh": "$k<4$ 把不等式方向倒轉：$16-4k<0$ 移項後是 $4k>16$，即 $k>4$。",
+      "en": "$k<4$ reverses the inequality: from $16-4k<0$ we get $4k>16$, that is $k>4$."
+     },
+     {
+      "opt": "B",
+      "zh": "$k>-4$ 的符號錯：移項後是一次方程 $4k>16$，解是 $k>4$（不是 $-4$）。",
+      "en": "$k>-4$ has the wrong sign: the linear inequality $4k>16$ gives $k>4$, not $-4$."
+     },
+     {
+      "opt": "A",
+      "zh": "$k<-4$ 同時犯兩個錯：方向倒轉，而且把界寫成 $-4$。",
+      "en": "$k<-4$ makes two errors: the direction is reversed and the boundary is written as $-4$."
+     }
+    ],
+    "tip": {
+     "zh": "「$>0$」用 $\\Delta<0$、「$\\ge0$」用 $\\Delta\\le0$；每次求出邊界值都要代回去檢查一次（這題 $k=4$ 就是反面教材）。",
+     "en": "Use $\\Delta<0$ for “$>0$” and $\\Delta\\le0$ for “$\\ge0$”; always substitute the boundary value back, as $k=4$ shows here."
+    }
+   }
+  },
+  "eph-as03-m03": {
+   "answer": "C",
+   "verify": "checked",
+   "topic": "as03",
+   "source": "統測前哨戰 · 不等式：恆成立求 t 的範圍（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 判別式",
+       "en": "Step 1 · Discriminant"
+      },
+      "math": "\\Delta=t^{2}-4(1)(9)=t^{2}-36",
+      "zh": "$a=1$、$b=t$、$c=9$，所以 $\\Delta=t^2-36$。",
+      "en": "With $a=1$, $b=t$ and $c=9$, the discriminant is $t^{2}-36$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 分解",
+       "en": "Step 2 · Factorise"
+      },
+      "math": "t^{2}-36\\le 0\n\\Rightarrow (t-6)(t+6)\\le 0",
+      "zh": "平方差分解：$t^2-36=(t-6)(t+6)$；「$\\le0$」表示兩塊一正一負。",
+      "en": "Difference of two squares: $t^{2}-36=(t-6)(t+6)$, and “$\\le0$” means one factor is positive and the other negative."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 讀出範圍",
+       "en": "Step 3 · Read off the range"
+      },
+      "math": "-6\\le t\\le 6",
+      "zh": "$t$ 要在兩根 $-6$ 與 $6$ 之間。答案是 C。",
+      "en": "$t$ lies between the two roots $-6$ and $6$. The answer is C."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "B",
+      "zh": "$t\\le -6$ or $t\\ge 6$ 的兩根正確，但方向錯：$\\le0$ 取兩根之間。",
+      "en": "$t\\le -6$ or $t\\ge 6$ has the right roots but the wrong direction: $\\le0$ gives the interval between them."
+     },
+     {
+      "opt": "A",
+      "zh": "$-3\\le t\\le 3$ 是解了 $t^2\\le9$：$36$ 開方是 $6$，不是 $3$（$3^2=9$）。",
+      "en": "$-3\\le t\\le 3$ solves $t^{2}\\le9$ by mistake: the square root of 36 is 6, not 3."
+     },
+     {
+      "opt": "D",
+      "zh": "$t\\le -3$ or $t\\ge 3$ 同時犯了「開方錯」與「方向錯」兩個問題。",
+      "en": "$t\\le -3$ or $t\\ge 3$ makes both mistakes: the wrong square root and the wrong direction."
+     }
+    ],
+    "tip": {
+     "zh": "$t^2\\le c^2$ 的解是 $-c\\le t\\le c$ —— 中間那一段，不是兩邊。先開方、再判斷方向，兩步分開做。",
+     "en": "The solution of $t^{2}\\le c^{2}$ is $-c\\le t\\le c$, the middle interval rather than the two outer regions. Take the square root first, then decide the direction."
+    }
+   }
+  },
+  "eph-as03-m04": {
+   "answer": "A",
+   "verify": "checked",
+   "topic": "as03",
+   "source": "統測前哨戰 · 不等式：兩條不等式取「或」（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 第一條不等式",
+       "en": "Step 1 · The first inequality"
+      },
+      "math": "3x+5<x-1\n\\Rightarrow 2x<-6\n\\Rightarrow x<-3",
+      "zh": "把 $x$ 集中在一邊：$3x-x<-1-5$，得 $2x<-6$，即 $x<-3$。",
+      "en": "Collect the $x$ terms: $3x-x<-1-5$ gives $2x<-6$, that is $x<-3$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 第二條不等式",
+       "en": "Step 2 · The second inequality"
+      },
+      "math": "2x-7>9\n\\Rightarrow 2x>16\n\\Rightarrow x>8",
+      "zh": "$2x>16$，即 $x>8$。",
+      "en": "$2x>16$, that is $x>8$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 「或」＝取聯集",
+       "en": "Step 3 · “or” means union"
+      },
+      "math": "x<-3 \\text{ or } x>8",
+      "zh": "題目是「或」，兩個解集都要（取聯集）：$x<-3$ 或 $x>8$。答案是 A。",
+      "en": "The word is “or”, so both solution sets count (take the union): $x<-3$ or $x>8$. The answer is A."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "B",
+      "zh": "$-3<x<8$ 把「或」當成「及」（取交集）：$-3$ 與 $8$ 之間（例如 $x=0$）兩條不等式都不成立。",
+      "en": "$-3<x<8$ treats “or” as “and” (an intersection): between $-3$ and $8$, for example $x=0$, neither inequality holds."
+     },
+     {
+      "opt": "C",
+      "zh": "$x>8$ 只取了第二條，漏掉第一條。",
+      "en": "$x>8$ keeps only the second inequality and drops the first."
+     },
+     {
+      "opt": "D",
+      "zh": "all real numbers 是錯的：$x=0$ 兩條都不成立，所以不是所有實數都符合。",
+      "en": "“All real numbers” is wrong: $x=0$ satisfies neither inequality."
+     }
+    ],
+    "tip": {
+     "zh": "「或」＝聯集（把兩段都寫出來）、「及」＝交集（取重疊那段）；用一個中間值（例如 $x=0$）代回檢查，就可以排除「all real numbers」。",
+     "en": "“Or” is a union (write both pieces) and “and” is an intersection (take the overlap). Substituting a middle value such as $x=0$ quickly rules out “all real numbers”."
+    }
+   }
+  },
+  "eph-as03-m05": {
+   "answer": "A",
+   "verify": "checked",
+   "topic": "as03",
+   "source": "統測前哨戰 · 不等式：有分數的「或」（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 第一條（先去分母）",
+       "en": "Step 1 · First inequality (clear the fraction)"
+      },
+      "math": "\\frac{2x+1}{3}<x-2\n\\Rightarrow 2x+1<3x-6\n\\Rightarrow x>7",
+      "zh": "兩邊乘 3（正數，方向不變）：$2x+1<3x-6$。移項得 $1+6<x$，即 $x>7$。",
+      "en": "Multiply by 3 (positive, so the inequality keeps its direction): $2x+1<3x-6$. Rearranging gives $1+6<x$, that is $x>7$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 第二條",
+       "en": "Step 2 · Second inequality"
+      },
+      "math": "5x-3>12\n\\Rightarrow 5x>15\n\\Rightarrow x>3",
+      "zh": "$5x>15$，即 $x>3$。",
+      "en": "$5x>15$, that is $x>3$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 誰包含誰？",
+       "en": "Step 3 · Which set contains the other?"
+      },
+      "math": "x>7 \\text{ or } x>3\n\\Rightarrow x>3",
+      "zh": "「或」取聯集：$x>7$ 的所有值本來就符合 $x>3$，所以合起來就是 $x>3$。答案是 A。",
+      "en": "“Or” takes the union: every value with $x>7$ already satisfies $x>3$, so the union is simply $x>3$. The answer is A."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "B",
+      "zh": "$x>7$ 只取了第一條，忘記「或」要把兩條合起來（$x=5$ 符合第二條，所以答案要包含它）。",
+      "en": "$x>7$ keeps only the first inequality; $x=5$ satisfies the second one, so the answer must include it."
+     },
+     {
+      "opt": "C",
+      "zh": "$3<x<7$ 把「或」當成「及」：$x=10$ 其實符合第一條，應該在答案之內。",
+      "en": "$3<x<7$ treats “or” as “and”, but $x=10$ satisfies the first inequality and must be included."
+     },
+     {
+      "opt": "D",
+      "zh": "$x<3$ 把不等號方向倒轉；兩條不等式解出來都是「大於」。",
+      "en": "$x<3$ reverses both inequalities; each of them gives a “greater than” region."
+     }
+    ],
+    "tip": {
+     "zh": "「A 或 B」而一個範圍完全包含另一個時，答案是較寬鬆的那個 —— 先在數線上畫出來就一目了然。",
+     "en": "When “A or B” and one region completely contains the other, the answer is the wider one; sketching both on a number line makes this obvious."
+    }
+   }
+  },
+  "eph-as03-m06": {
+   "answer": "A",
+   "verify": "checked",
+   "topic": "as03",
+   "source": "統測前哨戰 · 不等式：兩邊分開走的「或」（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 第一條（先展開）",
+       "en": "Step 1 · First inequality (expand first)"
+      },
+      "math": "4x-4\\ge 2x+6\n\\Rightarrow 2x\\ge 10\n\\Rightarrow x\\ge 5",
+      "zh": "先把 $4(x-1)$ 展開成 $4x-4$，再移項：$2x\\ge10$，即 $x\\ge5$。",
+      "en": "Expand $4(x-1)$ to $4x-4$ and rearrange: $2x\\ge10$, that is $x\\ge5$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 第二條",
+       "en": "Step 2 · Second inequality"
+      },
+      "math": "3x+7<4\n\\Rightarrow 3x<-3\n\\Rightarrow x<-1",
+      "zh": "$3x<-3$，即 $x<-1$。",
+      "en": "$3x<-3$, that is $x<-1$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 兩段分開的答案",
+       "en": "Step 3 · Two separate pieces"
+      },
+      "math": "x<-1 \\text{ or } x\\ge 5",
+      "zh": "「或」取聯集，得兩段：$x<-1$ 或 $x\\ge5$。答案是 A。",
+      "en": "Taking the union of “or” gives two pieces: $x<-1$ or $x\\ge5$. The answer is A."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "B",
+      "zh": "$-1<x\\le5$ 取的是交集（「及」）；中間這段兩條不等式都不成立。",
+      "en": "$-1<x\\le5$ is the intersection (“and”); in that middle region neither inequality holds."
+     },
+     {
+      "opt": "C",
+      "zh": "$x\\ge5$ 只取第一條，漏了 $x<-1$ 那一段。",
+      "en": "$x\\ge5$ keeps only the first piece and drops $x<-1$."
+     },
+     {
+      "opt": "D",
+      "zh": "all real numbers 是錯的：$x=0$ 落在 $-1$ 與 $5$ 之間，兩條都不成立。",
+      "en": "“All real numbers” is wrong: $x=0$ lies between $-1$ and $5$ and satisfies neither inequality."
+     }
+    ],
+    "tip": {
+     "zh": "答案出現「兩段分開」時（$x<a$ 或 $x>b$），就可以用中間值（例如 $x=0$）證明「all real numbers」是錯的。",
+     "en": "When the answer splits into two pieces ($x<a$ or $x>b$), a middle value such as $x=0$ proves that “all real numbers” is wrong."
+    }
+   }
+  },
+  "eph-as03-ex01": {
+   "answer": null,
+   "verify": "checked",
+   "topic": "as03",
+   "source": "統測前哨戰 · 不等式：三節式複合不等式（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 三節式＝「及」，拆成兩條",
+       "en": "Step 1 · A three-part inequality means “and”: split it"
+      },
+      "math": "\\frac{4x-3}{9}\\le \\frac{x}{3}+1\\quad \\text{and}\\quad \\frac{x}{3}+1\\le 3",
+      "zh": "中間的 $\\frac{x}{3}+1$ 同時受左右兩邊限制，所以是「及」：兩條不等式都要解，最後取交集。",
+      "en": "The middle expression is bounded on both sides, so this is an “and”: solve both inequalities and then intersect the answers.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 解左邊",
+       "en": "Step 2 · Solve the left inequality"
+      },
+      "math": "4x-3\\le 3x+9\n\\Rightarrow x\\le 12",
+      "zh": "左邊兩邊乘 9 去分母：$4x-3\\le3x+9$，移項得 $x\\le12$。",
+      "en": "Multiply the left inequality by 9: $4x-3\\le3x+9$, which rearranges to $x\\le12$.",
+      "marking": "(1A)"
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 解右邊",
+       "en": "Step 3 · Solve the right inequality"
+      },
+      "math": "\\frac{x}{3}\\le 2\n\\Rightarrow x\\le 6",
+      "zh": "右邊：$\\frac{x}{3}+1\\le3$，兩邊減 1 再乘 3，得 $x\\le6$。",
+      "en": "Right inequality: subtract 1 from $\\frac{x}{3}+1\\le3$ and multiply by 3 to get $x\\le6$.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · 兩條都要成立",
+       "en": "Step 4 · Both must hold"
+      },
+      "math": "x\\le 12 \\text{ and } x\\le 6\n\\Rightarrow x\\le 6",
+      "zh": "兩條同時成立，較嚴格的是 $x\\le6$，所以 (a) 的答案是 $x\\le6$。",
+      "en": "Both conditions hold together, and the stricter one is $x\\le6$, so the answer to (a) is $x\\le6$.",
+      "marking": "(1A)"
+     },
+     {
+      "title": {
+       "zh": "第 5 步 · 檢查端點",
+       "en": "Step 5 · Check the endpoint"
+      },
+      "math": "x=6:\\ \\frac{4(6)-3}{9}=\\frac{21}{9},\\ \\frac{6}{3}+1=3",
+      "zh": "把 $x=6$ 代回原式驗算：左邊 $\\frac{21}{9}\\approx2.33\\le3$、右邊 $\\frac{6}{3}+1=3\\le3$，成立；再試 $x=6.5$ 便會超過 3。",
+      "en": "Substitute $x=6$ back: the left side is $\\frac{21}{9}\\approx2.33\\le3$ and the right side is $\\frac{6}{3}+1=3\\le3$, so it holds; at $x=6.5$ the value already exceeds 3.",
+      "marking": "(1A)"
+     },
+     {
+      "title": {
+       "zh": "第 6 步 · (b) 最大值",
+       "en": "Step 6 · (b) the maximum value"
+      },
+      "math": "x=6",
+      "zh": "(b) 不等號是「$\\le$」（有等號），所以 $x=6$ 本身也符合；最大的 $x$ 就是 6。",
+      "en": "In (b) the inequality is “$\\le$”, so $x=6$ itself is allowed; the maximum value of $x$ is 6.",
+      "marking": "(1A)"
+     }
+    ],
+    "traps": [
+     {
+      "label": "只乘一邊",
+      "labelEn": "multiplying only one side",
+      "zh": "去分母時要整個三節一起乘（每一節都乘），只乘其中一節就會漏掉另一條條件。",
+      "en": "When clearing a fraction in a three-part inequality, multiply every part; touching only one part loses the other condition."
+     },
+     {
+      "label": "忘記取交集",
+      "labelEn": "forgetting to intersect",
+      "zh": "三節式是「及」，兩條都要成立；只寫其中一條會漏掉較嚴格的條件（這裡是 $x\\le6$，不是 $x\\le12$）。",
+      "en": "A three-part inequality is an “and”: both conditions must hold. Writing only one misses the stricter bound, which here is $x\\le6$ rather than $x\\le12$."
+     }
+    ],
+    "tip": {
+     "zh": "三節式的固定三步：拆成兩條 → 分別解 → 取交集（在數線上畫一畫最清楚）。",
+     "en": "Three fixed steps for a three-part inequality: split into two, solve each, then intersect — sketching a number line makes the intersection obvious."
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "驗算：代入端點",
+       "en": "Check by substituting the endpoints"
+      },
+      "zh": "把 $x=6$ 代回：$\\frac{4(6)-3}{9}=\\frac{21}{9}$、$\\frac{6}{3}+1=3$，左邊 $\\le3$、右邊 $=3$，成立。再試 $x=6.5$：$\\frac{6.5}{3}+1\\approx3.17>3$，已不成立，所以最大值確實是 6。",
+      "en": "Substitute $x=6$: $\\frac{4(6)-3}{9}=\\frac{21}{9}$ and $\\frac{6}{3}+1=3$, so the left side is below 3 and the right side equals 3. Try $x=6.5$: $\\frac{6.5}{3}+1\\approx3.17>3$ fails, confirming that 6 is the maximum."
+     }
+    ]
+   }
+  },
+  "eph-as03-ex02": {
+   "answer": null,
+   "verify": "checked",
+   "topic": "as03",
+   "source": "統測前哨戰 · 不等式：三節式複合不等式（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 三節一起乘 3",
+       "en": "Step 1 · Multiply all three parts by 3"
+      },
+      "math": "-9<2x-5\\le 15",
+      "zh": "三節式可以「同時」做同一個運算，不必拆開。乘 3 是正數，兩個不等號方向都不變。",
+      "en": "A three-part inequality allows the same operation on every part at once. Multiplying by 3 is safe: both inequality signs keep their direction.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 三節一起加 5",
+       "en": "Step 2 · Add 5 to every part"
+      },
+      "math": "-4<2x\\le 20",
+      "zh": "三節一起加 5：$-9+5=-4$、$15+5=20$，目標是令中間只剩下 $2x$。",
+      "en": "Add 5 to all three parts: $-9+5=-4$ and $15+5=20$, leaving just $2x$ in the middle.",
+      "marking": "(1A)"
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 三節一起除以 2",
+       "en": "Step 3 · Divide every part by 2"
+      },
+      "math": "-2<x\\le 10",
+      "zh": "除以 2（正數，方向不變），得 $-2<x\\le10$。",
+      "en": "Divide by 2 (positive, so directions are unchanged) to get $-2<x\\le10$.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · 檢查左端點",
+       "en": "Step 4 · Check the left endpoint"
+      },
+      "math": "x=-2:\\ \\frac{-9}{3}=-3",
+      "zh": "左邊是「$<$」（嚴格），$x=-2$ 時中間等於 $-3$，不合「大於 $-3$」，所以要排除 $-2$。",
+      "en": "The left sign is “$<$” (strict). At $x=-2$ the middle equals $-3$, which is not greater than $-3$, so $-2$ is excluded.",
+      "marking": "(1A)"
+     },
+     {
+      "title": {
+       "zh": "第 5 步 · 檢查右端點",
+       "en": "Step 5 · Check the right endpoint"
+      },
+      "math": "x=10:\\ \\frac{15}{3}=5\\le 5",
+      "zh": "右邊是「$\\le$」（有等號），$x=10$ 時中間等於 5，符合，所以要保留 10。",
+      "en": "The right sign is “$\\le$”, so at $x=10$ the middle equals 5 and satisfies the condition; keep 10.",
+      "marking": "(1A)"
+     },
+     {
+      "title": {
+       "zh": "第 6 步 · (b) 最大值",
+       "en": "Step 6 · (b) the maximum value"
+      },
+      "math": "x=10",
+      "zh": "右端是閉的（$\\le$），所以最大的 $x$ 就是 10。",
+      "en": "The right end is closed, so the maximum value of $x$ is 10.",
+      "marking": "(1A)"
+     }
+    ],
+    "traps": [
+     {
+      "label": "端點開閉搞錯",
+      "labelEn": "getting the open/closed endpoints wrong",
+      "zh": "左邊是「$<$」（開）、右邊是「$\\le$」（閉）：$-2$ 要排除、$10$ 要保留。這正是 (b) 的答案來源。",
+      "en": "The left sign is “$<$” (open) and the right is “$\\le$” (closed): exclude $-2$ but keep 10. This is exactly where the answer to (b) comes from."
+     },
+     {
+      "label": "三節只做一半",
+      "labelEn": "operating on only part of the inequality",
+      "zh": "三節式做運算時三個部分都要做；只改中間一節，最後的範圍就會偏。",
+      "en": "Every operation in a three-part inequality must be applied to all three parts; changing only the middle one shifts the final range."
+     }
+    ],
+    "tip": {
+     "zh": "三節式可以三節一起做同一個運算，比拆成兩條快；但最後一定要逐個檢查兩個端點是開還是閉。",
+     "en": "A three-part inequality lets you apply one operation to all parts at once, which is quicker than splitting it up — but always check whether each endpoint is open or closed."
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "驗算：代入端點與端點外",
+       "en": "Check the endpoints and just beyond"
+      },
+      "zh": "把 $x=10$ 代回：$\\frac{2(10)-5}{3}=5$，符合 $\\le5$。再試 $x=11$：$\\frac{17}{3}\\approx5.67>5$ 不成立，所以最大值是 10。",
+      "en": "Substitute $x=10$: $\\frac{2(10)-5}{3}=5$, which satisfies $\\le5$. Try $x=11$: $\\frac{17}{3}\\approx5.67>5$ fails, so the maximum value is 10."
+     }
+    ]
+   }
+  },
+  "eph-as04-m01": {
+   "answer": "C",
+   "verify": "checked",
+   "topic": "as04",
+   "source": "統測前哨戰 · 排列組合：不可相鄰（插空法）（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 先排沒有條件的一方",
+       "en": "Step 1 · Arrange the unrestricted group first"
+      },
+      "math": "3!=6,\\quad \\text{gaps}=4",
+      "zh": "「女生不可相鄰」是限制條件，所以先排沒有條件的一方：3 名男生排列有 $3!=6$ 種。男生排好之後，他們之間（連前後）一共有 $3+1=4$ 個空隙。",
+      "en": "“No two girls next to each other” is the restriction, so first arrange the unrestricted group: the 3 boys give $3!=6$ arrangements. Once they stand in a row there are $3+1=4$ gaps (including the two ends)."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 空隙要「排列」不是「組合」",
+       "en": "Step 2 · Fill the gaps by permutation, not combination"
+      },
+      "math": "P^{4}_{3}=4\\times 3\\times 2=24",
+      "zh": "3 名女生是不同的人，所以由 4 個空隙選 3 個放入時有次序之分，要用排列 $P^{4}_{3}=24$（不是 $C^{4}_{3}=4$）。每個空隙最多放一人，就自動保證了不相鄰。",
+      "en": "The 3 girls are distinct, so placing them into 3 of the 4 gaps is ordered: use $P^{4}_{3}=24$, not $C^{4}_{3}=4$. Putting at most one girl per gap guarantees that no two girls are adjacent."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 兩步相乘",
+       "en": "Step 3 · Multiply the two stages"
+      },
+      "math": "6\\times 24=144",
+      "zh": "先排男生、再插女生，兩步都要做，所以相乘：$6\\times24=144$。答案是 C。",
+      "en": "The boys are arranged and then the girls are inserted, so both stages apply: $6\\times24=144$. The answer is C."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "24 是 $3!\\times C^{4}_{3}=6\\times4$：由 4 個空隙「選」3 個時用了組合，把 3 名女生當成一樣的。女生是不同的學生，放入不同空隙是不同的排法。",
+      "en": "24 is $3!\\times C^{4}_{3}=6\\times4$, using a combination to “choose” 3 gaps and treating the girls as identical. Different girls in different gaps are different arrangements."
+     },
+     {
+      "opt": "B",
+      "zh": "36 是 $3!\\times3!=6\\times6$：只把男生與女生各自排列，完全沒有「選空隙」這一步。",
+      "en": "36 is $3!\\times3!=6\\times6$: the boys and girls are each arranged on their own, with no choice of gaps at all."
+     },
+     {
+      "opt": "D",
+      "zh": "720 是 $6!$：把 6 個人隨便排，完全沒有處理「女生不相鄰」這個條件。",
+      "en": "720 is $6!$: arranging all six people freely and ignoring the “no two girls adjacent” condition."
+     }
+    ],
+    "tip": {
+     "zh": "「不可相鄰」固定用插空法：先排沒有條件的一方，數出空隙（人數 $+1$），再把有條件的人放入空隙。人與人之間有分別，所以空隙用排列 $P$ 不是組合 $C$。",
+     "en": "For “not next to each other”, always use the insertion method: arrange the unrestricted group, count the gaps (number of people plus one), then place the restricted people into the gaps. People are distinct, so the gaps use a permutation, not a combination."
+    }
+   }
+  },
+  "eph-as04-m02": {
+   "answer": "C",
+   "verify": "checked",
+   "topic": "as04",
+   "source": "統測前哨戰 · 排列組合：不可相鄰（插空法）（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 先排男生",
+       "en": "Step 1 · Arrange the boys first"
+      },
+      "math": "5!=120,\\quad \\text{gaps}=6",
+      "zh": "限制是「女生不可相鄰」，所以先排 5 個男生（$5!=120$），他們之間連前後有 $5+1=6$ 個空隙。",
+      "en": "The restriction is on the girls, so first arrange the 5 boys ($5!=120$); together with the two ends there are $5+1=6$ gaps."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 女生放入空隙",
+       "en": "Step 2 · Place the girls into the gaps"
+      },
+      "math": "P^{6}_{2}=6\\times 5=30",
+      "zh": "2 名女生放入 6 個空隙（有次序）：$P^{6}_{2}=30$。",
+      "en": "Place the 2 girls into the 6 gaps in order: $P^{6}_{2}=30$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 相乘",
+       "en": "Step 3 · Multiply"
+      },
+      "math": "120\\times 30=3600",
+      "zh": "$120\\times30=3600$。答案是 C。",
+      "en": "$120\\times30=3600$. The answer is C."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "B",
+      "zh": "1800 是 $5!\\times C^{6}_{2}=120\\times15$：用組合選空隙，把兩個女生當成一樣的。她們是不同的學生，站左邊或右邊是兩種排法。",
+      "en": "1800 is $5!\\times C^{6}_{2}=120\\times15$, choosing gaps with a combination and treating the two girls as identical, although swapping them gives a different arrangement."
+     },
+     {
+      "opt": "A",
+      "zh": "240 是 $5!\\times2!=240$：只把兩個女生當成一組插入，沒有「選空隙」這一步，會得出很多重複／不合法的排法。",
+      "en": "240 is $5!\\times2!=240$: the two girls are treated as one block with no choice of gaps."
+     },
+     {
+      "opt": "D",
+      "zh": "5040 是 $7!$：7 個人自由排列，完全沒有處理「女生不相鄰」。",
+      "en": "5040 is $7!$: all seven people arranged freely, ignoring that the girls must not be adjacent."
+     }
+    ],
+    "tip": {
+     "zh": "空隙數 ＝ 已排好的人數 $+1$（不要把兩端的空隙漏掉）；有條件的人數多過空隙數就一定做不到，可以先用這個檢查題目是否合理。",
+     "en": "The number of gaps is the number of people already arranged plus one (do not forget the two ends). If the restricted group is larger than the number of gaps, the arrangement is impossible — a quick sanity check."
+    }
+   }
+  },
+  "eph-as04-m03": {
+   "answer": "D",
+   "verify": "checked",
+   "topic": "as04",
+   "source": "統測前哨戰 · 排列組合：不可相鄰（插空法）（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 先排男生",
+       "en": "Step 1 · Arrange the boys first"
+      },
+      "math": "4!=24,\\quad \\text{gaps}=5",
+      "zh": "限制在女生，所以先排 4 個男生：$4!=24$；他們之間連前後共有 5 個空隙。",
+      "en": "The restriction is on the girls, so arrange the 4 boys first: $4!=24$, giving $4+1=5$ gaps."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 兩個女生放入空隙",
+       "en": "Step 2 · Place the two girls"
+      },
+      "math": "P^{5}_{2}=5\\times 4=20",
+      "zh": "2 名女生放入 5 個空隙（有次序）：$P^{5}_{2}=20$。",
+      "en": "The 2 girls go into 5 gaps in order: $P^{5}_{2}=20$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 相乘",
+       "en": "Step 3 · Multiply"
+      },
+      "math": "24\\times 20=480",
+      "zh": "$24\\times20=480$。答案是 D。",
+      "en": "$24\\times20=480$. The answer is D."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "C",
+      "zh": "144 是 $4!\\times C^{4}_{2}=24\\times6$：只數了男生「之間」的 4 個空隙，漏了最前與最後兩個位置。",
+      "en": "144 is $4!\\times C^{4}_{2}=24\\times6$: it counts only the 4 gaps between the boys and forgets the two end positions."
+     },
+     {
+      "opt": "B",
+      "zh": "48 是 $4!\\times2!=48$：把兩個女生當成一組，完全沒有選空隙。",
+      "en": "48 is $4!\\times2!=48$: the two girls are treated as one block and no gap is chosen."
+     },
+     {
+      "opt": "A",
+      "zh": "24 只是男生的排列 $4!$，女生完全沒有排進去。",
+      "en": "24 is only $4!$ for the boys; the girls are never placed."
+     }
+    ],
+    "tip": {
+     "zh": "由幾多人排隊，空隙就是「人數 $+1$」：4 個男生 → 5 個空隙。漏掉兩端的空隙是最常見的失分位。",
+     "en": "With $n$ people already arranged there are $n+1$ gaps: four boys give five gaps. Forgetting the two ends is the most common mistake."
+    }
+   }
+  },
+  "eph-as04-m04": {
+   "answer": "A",
+   "verify": "checked",
+   "topic": "as04",
+   "source": "統測前哨戰 · 排列組合：有職位的選人（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 先處理有職位的那個人",
+       "en": "Step 1 · Fill the post first"
+      },
+      "math": "C^{11}_{1}=11",
+      "zh": "主席是「有職位」的：先由 11 人中選主席，有 11 種。",
+      "en": "The chairman holds a post: choose the chairman from the 11 members in 11 ways."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 其餘的人只是選出來",
+       "en": "Step 2 · The rest are simply chosen"
+      },
+      "math": "C^{10}_{4}=\\frac{10\\times9\\times8\\times7}{4!}=210",
+      "zh": "主席已經用了 1 人，餘下 10 人選 4 位委員。委員之間沒有分別，所以用組合 $C^{10}_{4}=210$。",
+      "en": "One member is already the chairman, so 4 committee members are chosen from the remaining 10. They have no distinct roles, so use the combination $C^{10}_{4}=210$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 相乘",
+       "en": "Step 3 · Multiply"
+      },
+      "math": "11\\times 210=2310",
+      "zh": "兩步都要做，所以相乘：$11\\times210=2310$。答案是 B。",
+      "en": "Both stages apply, so multiply: $11\\times210=2310$. The answer is B."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "462 是 $C^{11}_{5}$：只選了 5 個人，忘記分出「主席」這個職位。",
+      "en": "462 is $C^{11}_{5}$: five people are chosen but nobody is made the chairman."
+     },
+     {
+      "opt": "C",
+      "zh": "3630 是 $11\\times C^{11}_{4}=11\\times330$：第二步應該由「餘下 10 人」選 4 人，不是由 11 人（主席有可能被重複選中）。",
+      "en": "3630 is $11\\times C^{11}_{4}=11\\times330$: the second stage must choose 4 people from the remaining 10, not from all 11, otherwise the chairman may be counted again."
+     },
+     {
+      "opt": "D",
+      "zh": "11088 是 $4!\\times C^{11}_{5}=24\\times462$：先選 5 人再為其餘 4 人「排職位」，做法上多乘了 $4!$。",
+      "en": "11088 is $4!\\times C^{11}_{5}=24\\times462$: five people are chosen and then the other four are treated as ordered, adding an extra factor of $4!$."
+     }
+    ],
+    "tip": {
+     "zh": "「有職位」的題目：先處理職位（$C^{n}_{1}$ 或 $P$），再處理沒有分別的其他人（$C$）。有職位＝有次序、沒有職位＝組合。",
+     "en": "For questions with a post: fill the post first (with $C^{n}_{1}$ or a permutation), then choose the interchangeable people with a combination. A post implies order; no post implies a combination."
+    }
+   }
+  },
+  "eph-as04-m05": {
+   "answer": "B",
+   "verify": "checked",
+   "topic": "as04",
+   "source": "統測前哨戰 · 排列組合：有職位的選人（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 選主席",
+       "en": "Step 1 · Choose the chairperson"
+      },
+      "math": "C^{9}_{1}=9",
+      "zh": "主席由 9 名學生中選出：9 種。",
+      "en": "The chairperson is chosen from the 9 students in 9 ways."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 其餘 3 位委員",
+       "en": "Step 2 · The other three members"
+      },
+      "math": "C^{8}_{3}=\\frac{8\\times7\\times6}{3!}=56",
+      "zh": "餘下 8 人選 3 位委員（沒有分別）→ $C^{8}_{3}=56$。",
+      "en": "Choose the 3 remaining members from the other 8 (no distinct roles): $C^{8}_{3}=56$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 相乘",
+       "en": "Step 3 · Multiply"
+      },
+      "math": "9\\times 56=504",
+      "zh": "答案是 B。",
+      "en": "The answer is B."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "126 是 $C^{9}_{4}$：只選了 4 個人，沒有為其中一位安排「主席」這個職位。",
+      "en": "126 is $C^{9}_{4}$: four people are chosen but nobody is made the chairperson."
+     },
+     {
+      "opt": "D",
+      "zh": "3024 是 $P^{9}_{4}$：4 個位置全部當成有分別，但其實只有主席一個職位。",
+      "en": "3024 is $P^{9}_{4}$, treating all four places as distinct although only one is a post."
+     },
+     {
+      "opt": "C",
+      "zh": "756 是 $3!\\times C^{9}_{4}=6\\times126$：先選 4 人再為其中 3 人「排職位」，多乘了 $3!$。",
+      "en": "756 is $3!\\times C^{9}_{4}=6\\times126$: four people are chosen and three of them are treated as ordered, adding an extra $3!$."
+     }
+    ],
+    "tip": {
+     "zh": "另一條同樣快的路：先從 9 人選 4 人（$C^{9}_{4}=126$），再在 4 人之中選主席（$\\times4$），得 $126\\times4=504$ —— 兩個方法答案一定相同，可以用來驗算。",
+     "en": "An equally quick route: choose 4 people from 9 ($C^{9}_{4}=126$) and then pick the chairperson among them ($\\times4$), giving $126\\times4=504$. The two methods must agree, which is a useful check."
+    }
+   }
+  },
+  "eph-as04-m06": {
+   "answer": "C",
+   "verify": "checked",
+   "topic": "as04",
+   "source": "統測前哨戰 · 排列組合：有職位的選人（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 先選隊長",
+       "en": "Step 1 · Choose the captain first"
+      },
+      "math": "C^{8}_{1}=8",
+      "zh": "隊長有職位之分，先由 8 人中選出：8 種。",
+      "en": "The captain holds a post, so choose the captain from the 8 students first: 8 ways."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 再選 2 名隊員",
+       "en": "Step 2 · Choose the two members"
+      },
+      "math": "C^{7}_{2}=\\frac{7\\times6}{2!}=21",
+      "zh": "餘下 7 人選 2 名隊員（沒有分別）→ $C^{7}_{2}=21$。",
+      "en": "The two remaining members are chosen from the other 7 (no distinct roles): $C^{7}_{2}=21$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 相乘",
+       "en": "Step 3 · Multiply"
+      },
+      "math": "8\\times 21=168",
+      "zh": "$8\\times21=168$。答案是 C。",
+      "en": "$8\\times21=168$. The answer is C."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "56 是 $C^{8}_{3}$：只選了 3 個人，沒有分出誰是隊長。",
+      "en": "56 is $C^{8}_{3}$: three people are chosen without deciding who is the captain."
+     },
+     {
+      "opt": "B",
+      "zh": "112 是 $2!\\times C^{8}_{3}=2\\times56$：先選 3 人再為 2 名隊員排列，多乘了 $2!$（隊員之間沒有分別）。",
+      "en": "112 is $2!\\times C^{8}_{3}=2\\times56$: three people are chosen and the two members are then ordered, adding an unnecessary $2!$."
+     },
+     {
+      "opt": "D",
+      "zh": "336 是 $P^{8}_{3}$：把 3 個位置全部當成有分別，但只有隊長是職位。",
+      "en": "336 is $P^{8}_{3}$, treating all three places as distinct although only the captaincy is a post."
+     }
+    ],
+    "tip": {
+     "zh": "驗算：先選 3 人再選隊長 ＝ $C^{8}_{3}\\times3=56\\times3=168$，與 $8\\times C^{7}_{2}$ 相同 —— 兩條路都對就放心。",
+     "en": "Check: choosing 3 people and then the captain gives $C^{8}_{3}\\times3=56\\times3=168$, matching $8\\times C^{7}_{2}$; agreement between two routes confirms the answer."
+    }
+   }
+  },
+  "eph-as04-ex01": {
+   "answer": null,
+   "verify": "checked",
+   "topic": "as04",
+   "source": "統測前哨戰 · 排列組合：由表格選人（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · (a) 每班各自選 1 男 1 女",
+       "en": "Step 1 · (a) One boy and one girl from each class"
+      },
+      "math": "(7\\times 3)(5\\times 6)(4\\times 5)=21\\times 30\\times 20",
+      "zh": "每一班「1 男 1 女」都是乘法原理（男生數 × 女生數）：5P 班 $7\\times3=21$、5Q 班 $5\\times6=30$、5R 班 $4\\times5=20$。",
+      "en": "For each class, “1 boy and 1 girl” is a product (number of boys times number of girls): 5P gives $7\\times3=21$, 5Q gives $5\\times6=30$ and 5R gives $4\\times5=20$.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 三班之間再相乘",
+       "en": "Step 2 · Multiply across the three classes"
+      },
+      "math": "21\\times 30\\times 20=12600",
+      "zh": "三個班別的選法都要做，所以相乘：$21\\times30\\times20=12600$。",
+      "en": "All three class selections happen together, so multiply: $21\\times30\\times20=12600$.",
+      "marking": "(1A)"
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · (b) 先合併兩性別的總人數",
+       "en": "Step 3 · (b) Combine the totals first"
+      },
+      "math": "\\text{boys}=7+5+4=16,\\quad \\text{girls}=3+6+5=14",
+      "zh": "(b) 只要求「4 男 4 女」，不分班別，所以先把人數加起來：男共 16 人、女共 14 人。",
+      "en": "Part (b) only requires 4 boys and 4 girls with no class restriction, so add the totals first: 16 boys and 14 girls.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · 兩性別各自用組合",
+       "en": "Step 4 · Use combinations for each gender"
+      },
+      "math": "C^{16}_{4}\\times C^{14}_{4}=1820\\times 1001=1821820",
+      "zh": "由 16 名男生選 4 人、由 14 名女生選 4 人，各自沒有次序，用組合：$1820\\times1001=1\\ 821\\ 820$。",
+      "en": "Choose 4 of the 16 boys and 4 of the 14 girls; order does not matter, so use combinations: $1820\\times1001=1\\ 821\\ 820$.",
+      "marking": "(1A)"
+     }
+    ],
+    "traps": [
+     {
+      "label": "(a) 用加法代替乘法",
+      "labelEn": "adding instead of multiplying in (a)",
+      "zh": "每一班「1 男 1 女」是乘法（$7\\times3$），不是加法（$7+3$）；班別之間也是乘法。",
+      "en": "Within a class, “1 boy and 1 girl” is a product ($7\\times3$), not a sum; across classes it is again a product."
+     },
+     {
+      "label": "(b) 逐班選而不是合併",
+      "labelEn": "working class by class in (b)",
+      "zh": "(b) 沒有要求每班各選幾人，所以要把三個班的人數合併（男女分別相加）再選；逐班處理會漏掉很多組合。",
+      "en": "Part (b) sets no per-class quota, so the classes must be merged (boys and girls added separately) before choosing; working class by class misses most combinations."
+     }
+    ],
+    "tip": {
+     "zh": "表格題先問一句：「題目有沒有要求每班各選幾個？」有 → 逐班做再相乘；沒有 → 先把人數合併再選。",
+     "en": "For table questions ask one thing first: does the question fix how many come from each class? If yes, work class by class and multiply; if not, merge the totals first."
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "驗算：(a) 的另一種寫法",
+       "en": "Check: another way to write (a)"
+      },
+      "zh": "(a) 也可以寫成 $7\\times5\\times4\\times3\\times6\\times5$（三個班的男生相乘、女生相乘）：$140\\times90=12600$，與上面的結果相同。",
+      "en": "Part (a) can also be written as $7\\times5\\times4\\times3\\times6\\times5$ (boys across classes times girls across classes), giving $140\\times90=12600$, the same result."
+     }
+    ]
+   }
+  },
+  "eph-as04-ex02": {
+   "answer": null,
+   "verify": "checked",
+   "topic": "as04",
+   "source": "統測前哨戰 · 排列組合：由表格選人（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · (a) 每班 1 男 1 女",
+       "en": "Step 1 · (a) One boy and one girl from each class"
+      },
+      "math": "(5\\times 4)(3\\times 5)(6\\times 2)(4\\times 5)=20\\times 15\\times 12\\times 20",
+      "zh": "四個班各自「男 × 女」：20、15、12、20。",
+      "en": "Each class contributes “boys times girls”: 20, 15, 12 and 20.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 四班相乘",
+       "en": "Step 2 · Multiply the four classes"
+      },
+      "math": "20\\times 15\\times 12\\times 20=72000",
+      "zh": "$20\\times15\\times12\\times20=72\\ 000$。",
+      "en": "$20\\times15\\times12\\times20=72\\ 000$.",
+      "marking": "(1A)"
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · (b) 合併人數",
+       "en": "Step 3 · (b) Merge the totals"
+      },
+      "math": "\\text{boys}=5+3+6+4=18,\\quad \\text{girls}=4+5+2+5=16",
+      "zh": "(b) 不分班別，先把人數合併：男共 18 人、女共 16 人。",
+      "en": "Part (b) has no class restriction, so merge first: 18 boys and 16 girls.",
+      "marking": "(1M)"
+     },
+     {
+      "title": {
+       "zh": "第 4 步 · 兩邊各自用組合",
+       "en": "Step 4 · Combinations for each gender"
+      },
+      "math": "C^{18}_{4}\\times C^{16}_{4}=3060\\times 1820=5569200",
+      "zh": "$C^{18}_{4}=3060$、$C^{16}_{4}=1820$，相乘得 $5\\ 569\\ 200$。",
+      "en": "$C^{18}_{4}=3060$ and $C^{16}_{4}=1820$, giving $5\\ 569\\ 200$.",
+      "marking": "(1A)"
+     }
+    ],
+    "traps": [
+     {
+      "label": "(b) 忘了合併人數",
+      "labelEn": "forgetting to merge the totals in (b)",
+      "zh": "(b) 要「4 男 4 女」，是從全部 18 名男生、全部 16 名女生之中選，不是每班各選幾人。",
+      "en": "Part (b) asks for 4 boys and 4 girls chosen from all 18 boys and all 16 girls, not a quota per class."
+     },
+     {
+      "label": "(a) 漏掉其中一班",
+      "labelEn": "missing one class in (a)",
+      "zh": "(a) 是「每個班別」都要選 1 男 1 女，四個班缺一不可（乘少一項答案就完全不同）。",
+      "en": "Part (a) requires one boy and one girl from every class, so all four classes must appear; dropping one changes the answer completely."
+     }
+    ],
+    "tip": {
+     "zh": "組合數字大不等於方法錯 —— 表格題的關鍵永遠是「先判斷要不要分班」，之後才計數。",
+     "en": "A large number does not mean the method is wrong: for table questions the key step is deciding whether the selection is per class, and only then doing the arithmetic."
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "驗算：(b) 用另一條路粗略核對",
+       "en": "Check: a rough independent check for (b)"
+      },
+      "zh": "$C^{18}_{4}=\\frac{18\\times17\\times16\\times15}{24}=3060$，$C^{16}_{4}=\\frac{16\\times15\\times14\\times13}{24}=1820$；兩者相乘約 $3\\times10^{3}\\times1.8\\times10^{3}\\approx5.6\\times10^{6}$，與 5 569 200 相符。",
+      "en": "$C^{18}_{4}=\\frac{18\\times17\\times16\\times15}{24}=3060$ and $C^{16}_{4}=\\frac{16\\times15\\times14\\times13}{24}=1820$; their product is about $3\\times10^{3}\\times1.8\\times10^{3}\\approx5.6\\times10^{6}$, matching 5 569 200."
+     }
+    ]
+   }
+  },
+  "eph-as03-m07": {
+   "answer": "A",
+   "verify": "checked",
+   "topic": "as03",
+   "source": "統測前哨戰 · 不等式：完全平方（Δ=0）的解集（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 認出完全平方",
+       "en": "Step 1 · Recognise the perfect square"
+      },
+      "math": "x^{2}+10x+25=(x+5)^{2}",
+      "zh": "$10=2\\times5$、$25=5^2$，所以 $x^2+10x+25=(x+5)^2$：判別式 $\\Delta=10^2-4(1)(25)=0$，只有一個重根 $x=-5$。",
+      "en": "Since $10=2\\times5$ and $25=5^{2}$, we have $x^{2}+10x+25=(x+5)^{2}$: the discriminant is $\\Delta=10^{2}-4(1)(25)=0$, so there is one repeated root $x=-5$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 平方不可能小於 0",
+       "en": "Step 2 · A square is never negative"
+      },
+      "math": "(x+5)^{2}\\ge 0\\ \\text{for all }x",
+      "zh": "任何實數的平方都 $\\ge0$，所以 $(x+5)^2<0$ 無解；要它 $\\le0$，就只剩「等於 0」一種可能。",
+      "en": "The square of a real number is always $\\ge0$, so $(x+5)^{2}<0$ has no solution; for it to be $\\le0$ the only possibility is equality."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 只有一個解",
+       "en": "Step 3 · One solution only"
+      },
+      "math": "(x+5)^{2}=0\n\\Rightarrow x=-5",
+      "zh": "只有 $x=-5$ 令 $(x+5)^2=0$，所以解集是單一個數 $x=-5$。答案是 A。",
+      "en": "Only $x=-5$ makes $(x+5)^{2}=0$, so the solution set is the single number $x=-5$. The answer is A."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "B",
+      "zh": "$x\\ne -5$ 是「$>0$」的答案（排除了 $-5$ 那一點）；題目是 $\\le 0$，$-5$ 反而要收。",
+      "en": "$x\\ne -5$ is the answer for “$>0$”, where the point $-5$ is excluded; for $\\le 0$ the point $-5$ is exactly what we keep."
+     },
+     {
+      "opt": "C",
+      "zh": "all real numbers 是「$\\ge 0$」的答案；$\\le 0$ 只收等於 0 的那一點。",
+      "en": "“all real numbers” is the answer for “$\\ge 0$”; for $\\le 0$ only the single point where the square is zero counts."
+     },
+     {
+      "opt": "D",
+      "zh": "no real solution 是「$<0$」的答案；$-5$ 真的滿足 $\\le 0$，所以不是無解。",
+      "en": "“no real solution” belongs to “$<0$”; since $x=-5$ really does satisfy $\\le 0$, the inequality is not unsolvable."
+     }
+    ],
+    "tip": {
+     "zh": "$\\Delta=0$（完全平方）時，四個答案要認清：$>0$ → $x\\ne r$；$\\ge0$ → 所有實數；$<0$ → 無解；$\\le0$ → 只有 $x=r$。",
+     "en": "When $\\Delta=0$ (a perfect square) the four answers are fixed: $>0$ gives $x\\ne r$; $\\ge0$ gives all real numbers; $<0$ gives no solution; $\\le0$ gives $x=r$ only."
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "驗算：代值檢查",
+       "en": "Check: substitute values"
+      },
+      "zh": "代 $x=-5$：$0\\le0$ 成立；代 $x=0$：$25\\le0$ 不成立 —— 所以解集既不是所有實數，也不是無解。",
+      "en": "Substitute $x=-5$: $0\\le0$ is true. Substitute $x=0$: $25\\le0$ is false — so the solution set is neither all real numbers nor empty."
+     }
+    ]
+   }
+  },
+  "eph-as03-m08": {
+   "answer": "A",
+   "verify": "checked",
+   "topic": "as03",
+   "source": "統測前哨戰 · 不等式：一般式（a≠1）的恆成立（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 先看 x² 的係數",
+       "en": "Step 1 · Look at the coefficient of x² first"
+      },
+      "math": "a=2>0",
+      "zh": "$x^2$ 的係數是 $2>0$，拋物線開口向上，所以「永遠大於 0」是可能的 —— 只要它不碰到 $x$ 軸。",
+      "en": "The coefficient of $x^{2}$ is $2>0$, so the parabola opens upwards and “always positive” is possible — as long as it never touches the $x$-axis."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 計算判別式",
+       "en": "Step 2 · Compute the discriminant"
+      },
+      "math": "\\Delta=(-3)^{2}-4(2)(k)=9-8k",
+      "zh": "$b=-3$、$c=k$，所以 $\\Delta=9-4\\times2\\times k=9-8k$（$4ac$ 的 $a=2$ 要一齊乘）。",
+      "en": "Here $b=-3$ and $c=k$, so $\\Delta=9-4\\times2\\times k=9-8k$ (the value $a=2$ must be included in $4ac$)."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 嚴格大於 → Δ < 0",
+       "en": "Step 3 · Strict inequality → Δ < 0"
+      },
+      "math": "9-8k<0\n\\Rightarrow k>\\frac{9}{8}",
+      "zh": "題目是嚴格「$>0$」，所以用 $\\Delta<0$：$9-8k<0$，即 $k>\\frac{9}{8}$。答案是 A。",
+      "en": "The inequality is strict (“$>0$”), so use $\\Delta<0$: $9-8k<0$, giving $k>\\frac{9}{8}$. The answer is A."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "B",
+      "zh": "$k<\\frac{9}{8}$ 的方向相反：$\\Delta$ 要「小於 0」才恆正，解出 $k$ 是「大於」。",
+      "en": "$k<\\frac{9}{8}$ has the direction reversed: $\\Delta$ must be negative for the expression to stay positive, which makes $k$ greater than the boundary."
+     },
+     {
+      "opt": "C",
+      "zh": "$k>\\frac{3}{4}$ 把 $4ac$ 算成 $4\\times3\\times k=12k$：$a=2$，所以是 $4\\times2\\times k=8k$。",
+      "en": "$k>\\frac{3}{4}$ uses $4ac=4\\times3\\times k=12k$, but $a=2$, so it should be $4\\times2\\times k=8k$."
+     },
+     {
+      "opt": "D",
+      "zh": "$k\\ge\\frac{9}{8}$ 是「有等號」的條件。取 $k=\\frac{9}{8}$：$2x^{2}-3x+\\frac{9}{8}=2(x-\\frac{3}{4})^{2}$，在 $x=\\frac{3}{4}$ 時等於 0，不滿足嚴格「$>0$」。",
+      "en": "$k\\ge\\frac{9}{8}$ belongs to the version with equality. At $k=\\frac{9}{8}$ the expression is $2x^{2}-3x+\\frac{9}{8}=2(x-\\frac{3}{4})^{2}$, which equals 0 when $x=\\frac{3}{4}$ and so fails the strict “$>0$”."
+     }
+    ],
+    "tip": {
+     "zh": "「對所有實數都成立」永遠兩步：① $x^2$ 的係數要 $>0$；② 判別式（嚴格用 $\\Delta<0$、有等號用 $\\Delta\\le0$）。$a\\ne1$ 時 $4ac$ 的 $a$ 一定要一齊乘。",
+     "en": "“True for all real $x$” is always two steps: (1) the coefficient of $x^{2}$ must be positive; (2) use the discriminant (strict needs $\\Delta<0$, equality allows $\\Delta\\le0$). When $a\\ne1$, remember to include $a$ in $4ac$."
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "驗算：代兩個 k 值",
+       "en": "Check: substitute two values of k"
+      },
+      "zh": "取 $k=2$（$\\frac{9}{8}<2$）：$\\Delta=9-16=-7<0$，$2x^{2}-3x+2$ 恆正 ✓。取 $k=1$：$2x^{2}-3x+1=(2x-1)(x-1)$，在 $x=\\frac{3}{4}$ 時是負數，不成立 ✓（所以答案不是 $k>\\frac{3}{4}$）。",
+      "en": "Take $k=2$ (which is greater than $\\frac{9}{8}$): $\\Delta=9-16=-7<0$, so $2x^{2}-3x+2$ is always positive. Take $k=1$: $2x^{2}-3x+1=(2x-1)(x-1)$ is negative at $x=\\frac{3}{4}$, so it fails — confirming that $k>\\frac{3}{4}$ is not the answer."
+     }
+    ]
+   }
+  },
+  "eph-as03-m09": {
+   "answer": "B",
+   "verify": "checked",
+   "topic": "as03",
+   "source": "統測前哨戰 · 不等式：無實數解的判別式條件（自編）",
+   "solution": {
+    "steps": [
+     {
+      "title": {
+       "zh": "第 1 步 · 「無解」先反過來讀",
+       "en": "Step 1 · Read “no solution” the other way"
+      },
+      "math": "x^{2}+4x+k<0\\ \\text{has no solution}\n\\Leftrightarrow x^{2}+4x+k\\ge 0\\ \\text{for all }x",
+      "zh": "「沒有實數解」＝沒有一個 $x$ 會令它成立，即是反過來對所有實數 $x$ 都成立：$x^2+4x+k\\ge0$。",
+      "en": "“No real solution” means no value of $x$ satisfies it, which is the same as the opposite being true for every real $x$: $x^{2}+4x+k\\ge0$."
+     },
+     {
+      "title": {
+       "zh": "第 2 步 · 兩個條件一齊寫",
+       "en": "Step 2 · Write both conditions"
+      },
+      "math": "a=1>0\\ \\text{and}\\ \\Delta=4^{2}-4(1)(k)=16-4k\\le 0",
+      "zh": "$x^2$ 的係數 $1>0$ ✓；因為要「$\\ge0$」對所有實數成立（有等號），所以用 $\\Delta\\le0$。",
+      "en": "The coefficient of $x^{2}$ is $1>0$; since the statement is “$\\ge0$” for all real $x$ (equality allowed), we need $\\Delta\\le0$."
+     },
+     {
+      "title": {
+       "zh": "第 3 步 · 解 k 的範圍",
+       "en": "Step 3 · Solve for k"
+      },
+      "math": "16-4k\\le 0\n\\Rightarrow k\\ge 4",
+      "zh": "$16\\le4k$，即 $k\\ge4$。答案是 B。",
+      "en": "$16\\le4k$, so $k\\ge4$. The answer is B."
+     }
+    ],
+    "traps": [
+     {
+      "opt": "A",
+      "zh": "$k>4$ 用了嚴格的 $\\Delta<0$。取 $k=4$：$x^{2}+4x+4=(x+2)^{2}\\ge0$，依然沒有實數令它 $<0$，所以 $k=4$ 要收。",
+      "en": "$k>4$ uses the strict condition $\\Delta<0$. At $k=4$ the expression is $x^{2}+4x+4=(x+2)^{2}\\ge0$, so still no real number makes it negative — the boundary value $k=4$ must be included."
+     },
+     {
+      "opt": "C",
+      "zh": "$k\\le4$ 的方向相反：要「無解」是要求 $\\Delta\\le0$，解出 $k$ 是「大於」。",
+      "en": "$k\\le4$ has the direction reversed: “no solution” requires $\\Delta\\le0$, which makes $k$ greater than the boundary."
+     },
+     {
+      "opt": "D",
+      "zh": "$k<4$ 方向相反，而且用了嚴格的 $\\Delta<0$（$k=4$ 其實合格）。",
+      "en": "$k<4$ has the direction reversed and also uses the strict $\\Delta<0$, although $k=4$ in fact works."
+     }
+    ],
+    "tip": {
+     "zh": "見到「無解」，先改寫成「對所有實數都成立」（不等號反過來），然後兩步走：$a>0$ ＋ $\\Delta\\le0$（嚴格才用 $\\Delta<0$）。邊界值（$\\Delta=0$）代回去試一次最穩。",
+     "en": "When a question says “no solution”, rewrite it as “true for all real $x$” with the inequality reversed, then use the two steps: $a>0$ and $\\Delta\\le0$ (strict needs $\\Delta<0$). Substituting the boundary value ($\\Delta=0$) is the safest check."
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "驗算：代兩個 k 值",
+       "en": "Check: substitute two values of k"
+      },
+      "zh": "取 $k=4$：$x^{2}+4x+4=(x+2)^{2}$，永遠 $\\ge0$，所以 $<0$ 無解 ✓（$k=4$ 合格）。取 $k=3$：$x^{2}+4x+3=(x+1)(x+3)$，取 $x=-2$ 得 $-1<0$，有解 ✗。",
+      "en": "At $k=4$: $x^{2}+4x+4=(x+2)^{2}$ is always $\\ge0$, so $<0$ has no solution, confirming that $k=4$ is allowed. At $k=3$: $x^{2}+4x+3=(x+1)(x+3)$ is negative at $x=-2$, so a solution exists."
+     }
+    ]
+   }
   }
  }
 }

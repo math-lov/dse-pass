@@ -87,6 +87,12 @@ bank.questions.forEach((q) => {
   if (c.title) checkField(c.title.zh || c.title.en, `${c.id} · title`);
   if (c.body) checkField(c.body.zh, `${c.id} · body.zh`);
   if (c.warn) checkField(c.warn.zh, `${c.id} · warn.zh`);
+  /* 重點框（選填 box 欄位）：有自己的 math 陣列，一樣要逐條解析 */
+  if (c.box) {
+    (c.box.math || []).forEach((t, i) => check(t, `${c.id} · box.math[${i + 1}]`));
+    checkField(c.box.zh, `${c.id} · box.zh`);
+    if (c.box.title) checkField(c.box.title.zh || c.box.title.en, `${c.id} · box.title`);
+  }
 });
 
 // ── 題解 ──
