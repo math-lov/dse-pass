@@ -7228,8 +7228,8 @@
        "en": "Step 2 · Factorise"
       },
       "math": "t^{2}-36\\le 0\n\\Rightarrow (t-6)(t+6)\\le 0",
-      "zh": "平方差分解：$t^2-36=(t-6)(t+6)$；「$\\le0$」表示兩塊一正一負。",
-      "en": "Difference of two squares: $t^{2}-36=(t-6)(t+6)$, and “$\\le0$” means one factor is positive and the other negative."
+      "zh": "平方差分解：$t^{2}-36=(t-6)(t+6)$。$t^{2}$ 的係數 $1>0$，圖像向上開，所以「$\\le 0$」代表圖像在橫軸下方的那一段 —— 答案被兩個根夾住：$-6\\le t\\le 6$，兩個條件之間是「及」（and）。至於「兩塊一正一負」，那是分解成乘積之後的讀法：$t^{2}-36$ 屬「平方減常數」的型態，$(t-6)$、$(t+6)$ 一正一負，正好就是「$t$ 在 $-6$ 與 $6$ 之間」。",
+      "en": "Difference of two squares: $t^{2}-36=(t-6)(t+6)$. The coefficient of $t^{2}$ is $1>0$, so the curve opens upwards and “$\\le 0$” is the part below the horizontal axis — the answer is squeezed between the two roots, $-6\\le t\\le 6$, with the two conditions joined by “and”. The “one factor positive, the other negative” reading comes only after factorising: $t^{2}-36$ is of the form square minus constant, so $(t-6)$ and $(t+6)$ have opposite signs, which is exactly “$t$ lies between $-6$ and $6$”."
      },
      {
       "title": {
