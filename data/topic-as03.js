@@ -241,9 +241,9 @@ window.LEARN_TOPIC_AS03 = {
          "zh": "第 2 步 · 解左邊",
          "en": "Step 2 · Solve the left inequality"
         },
-        "math": "4x-3\\le 3x+9\n\\Rightarrow x\\le 12",
-        "zh": "左邊兩邊乘 9 去分母：$4x-3\\le3x+9$，移項得 $x\\le12$。",
-        "en": "Multiply the left inequality by 9: $4x-3\\le3x+9$, which rearranges to $x\\le12$.",
+        "math": "9 \\times \\left[\\frac{4x-3}{9}\\right] \\le 9 \\times \\left[\\frac{x}{3}+1\\right]\n\\Rightarrow 4x-3 \\le 3x+9\n\\Rightarrow x \\le 12",
+        "zh": "左邊兩邊同乘 9 去分母。右側整塊必須加中括號展開：$9 \\left[ \\frac{x}{3} + 1 \\right] = 3x + 9$。切忌心算跳步，常數項 1 容易忘記乘 9。",
+        "en": "Multiply both sides by 9. The right side must be placed in brackets: $9 \\left[ \\frac{x}{3} + 1 \\right] = 3x + 9$. Do not skip steps, as multiplying the constant 1 by 9 is frequently missed.",
         "marking": "(1A)"
        },
        {
@@ -605,7 +605,17 @@ window.LEARN_TOPIC_AS03 = {
        "tip": {
         "zh": "「$>0$」用 $\\Delta<0$、「$\\ge0$」用 $\\Delta\\le0$；每次求出邊界值都要代回去檢查一次（這題 $k=4$ 就是反面教材）。",
         "en": "Use $\\Delta<0$ for “$>0$” and $\\Delta\\le0$ for “$\\ge0$”; always substitute the boundary value back, as $k=4$ shows here."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "邊界值與特值驗算法",
+          "en": "Boundary and test value method"
+         },
+         "zh": "臨界值試 $k=4$：式子成為 $x^{2}-4x+4=(x-2)^{2}$，在 $x=2$ 時等於 0，不符合題目嚴格「$>0$」的要求 —— 所以 $k$ 不能等於 4，凡包含 4 的選項（B：$k>-4$）先排除。再各試一個值：$k=-5$ 得 $x^{2}-4x-5=(x-5)(x+1)$，取 $x=2$ 得 $-9<0$，排除 A（$k<-4$）；$k=0$ 得 $x^{2}-4x$，取 $x=2$ 得 $-4<0$，排除 C（$k<4$）。三個測試值分別排除 A、B、C，餘下只有 D（$k>4$）。",
+         "en": "Try the boundary $k=4$: the expression becomes $x^{2}-4x+4=(x-2)^{2}$, which equals 0 at $x=2$ and so fails the strict “$>0$” test — hence $k=4$ is not allowed, and option B ($k>-4$, which contains 4) is out. Test one value from each remaining option: $k=-5$ gives $x^{2}-4x-5=(x-5)(x+1)$, which is $-9$ at $x=2$, ruling out A ($k<-4$); $k=0$ gives $x^{2}-4x$, which is $-4$ at $x=2$, ruling out C ($k<4$). Only D ($k>4$) survives."
+        }
+       ]
       },
       "answer": "D",
       "verify": "checked"
