@@ -207,7 +207,7 @@ window.LEARN_TOPIC_AS02 = {
           "en": "Coordinate substitution check"
          },
          "zh": "$x$ 截距為 4 代表直線必過點 $(4, 0)$。直接將 $(4, 0)$ 代入四個選項：A 得 $8-8=0$；B 得 $12+12=24 \\ne 0$；C 得 $12-12=0$；D 得 $8+8=16 \\ne 0$。瞬間排除 B 和 D。再檢視垂直斜率需為正數（$\\frac{3}{2}$），$3x-2y-12=0$ 的斜率為 $-\\frac{3}{-2}=\\frac{3}{2}$，鎖定 C。",
-         "en": "An $x$-intercept of 4 means the line passes through $(4, 0)$. Substitute $(4, 0)$ into the options: only A and C satisfy the equation. Checking the perpendicular slope ($\\frac{3}{2}$) immediately isolates C."
+         "en": "An $x$-intercept of 4 means the line must pass through $(4, 0)$. Substitute $(4, 0)$ into the four options: A gives $8-8=0$; B gives $12+12=24 \\ne 0$; C gives $12-12=0$; D gives $8+8=16 \\ne 0$. That eliminates B and D at once. The perpendicular slope must be positive ($\\frac{3}{2}$), and $3x-2y-12=0$ has slope $-\\frac{3}{-2}=\\frac{3}{2}$, so C is the answer."
         }
        ]
       },
