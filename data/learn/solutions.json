@@ -6703,7 +6703,17 @@
     "tip": {
      "zh": "垂直 ＝ 斜率「負倒數」（先顛倒、再變號）。寫完方程後，把題目給的那一點代回去看是否等於 0，是最快的驗算。",
      "en": "Perpendicular means the negative reciprocal of the slope. After writing the equation, substitute the given point back to check that it gives 0."
-    }
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "坐標代入排除法（卷二快攻）",
+       "en": "Coordinate substitution check"
+      },
+      "zh": "$x$ 截距為 4 代表直線必過點 $(4, 0)$。直接將 $(4, 0)$ 代入四個選項：A 得 $8-8=0$；B 得 $12+12=24 \\ne 0$；C 得 $12-12=0$；D 得 $8+8=16 \\ne 0$。瞬間排除 B 和 D。再檢視垂直斜率需為正數（$\\frac{3}{2}$），$3x-2y-12=0$ 的斜率為 $-\\frac{3}{-2}=\\frac{3}{2}$，鎖定 C。",
+      "en": "An $x$-intercept of 4 means the line passes through $(4, 0)$. Substitute $(4, 0)$ into the options: only A and C satisfy the equation. Checking the perpendicular slope ($\\frac{3}{2}$) immediately isolates C."
+     }
+    ]
    }
   },
   "eph-as02-m02": {
@@ -6770,7 +6780,17 @@
     "tip": {
      "zh": "負數截距要特別小心：$y$ 截距 $-3$ 就是線過 $(0,\\ -3)$，代入點斜式時一定要寫 $y+3$。",
      "en": "Be careful with negative intercepts: a $y$-intercept of $-3$ means the line passes through $(0,\\ -3)$, so point-slope form must read $y+3$."
-    }
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "坐標代入排除法",
+       "en": "Coordinate substitution check"
+      },
+      "zh": "$y$ 截距為 $-3$ 代表直線必過點 $(0, -3)$。代入 $(0, -3)$ 檢查：A 得 $-9-9 \\ne 0$；B 得 $-9+9=0$；C 得 $12+12 \\ne 0$；D 得 $9-9=0$。只剩 B 與 D。已知垂直斜率必為負數（$-\\frac{4}{3}$），而 B 的斜率為 $-\\frac{4}{3}$，快速選 B。",
+      "en": "A $y$-intercept of $-3$ means passing through $(0, -3)$. Testing $(0, -3)$ leaves only B and D. Since the perpendicular slope must be negative ($-\\frac{4}{3}$), Option B is the correct answer."
+     }
+    ]
    }
   },
   "eph-as02-m03": {
@@ -6837,7 +6857,17 @@
     "tip": {
      "zh": "這類題目有三個常見陷阱：斜率忘記取負倒數、負號漏掉、代入點時符號錯。寫完把那一點代回自己的方程，一步就檢查完。",
      "en": "Three common traps: forgetting the negative reciprocal, dropping a minus sign, and substituting the point with the wrong sign. Substituting the point back checks all of them at once."
-    }
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "已知點代入驗算法",
+       "en": "Given point substitution check"
+      },
+      "zh": "把通過的點 $(2, -1)$ 直接代入選項驗算：A 得 $2(2)+5(-1)+1=4-5+1=0$ 成立；B 代入得 $-2 \\ne 0$；C 代入得 $0$ 但斜率為平行；D 代入得 $0$ 但斜率錯誤。唯有 A 同時滿足過點與垂直條件。",
+      "en": "Substitute the point $(2, -1)$ into the options: A gives $2(2)+5(-1)+1=0$, which holds. While C and D may pass the point, their slopes do not satisfy the perpendicularity condition, confirming A."
+     }
+    ]
    }
   },
   "eph-as02-m04": {
