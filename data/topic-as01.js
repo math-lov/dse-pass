@@ -913,9 +913,9 @@ window.LEARN_TOPIC_AS01 = {
           "zh": "第 1 步 · 寫成標準式",
           "en": "Step 1 · Write the standard form"
          },
-         "math": "x^{2}+hx-9+3h=0",
-         "zh": "先把 $9-3h$ 搬到左邊（全部變號），再認清 $a=1$、$b=h$、$c=3h-9$。",
-         "en": "Move $9-3h$ to the left (every term changes sign), then read off $a=1$, $b=h$ and $c=3h-9$."
+         "math": "x^{2}+hx+3h-9=0",
+         "zh": "先把 $9-3h$ 搬到左邊（全部變號），再把常數項整理到最後，然後認清 $a=1$、$b=h$、$c=3h-9$。",
+         "en": "Move $9-3h$ to the left (every term changes sign), tidy the constant term to the end, then read off $a=1$, $b=h$ and $c=3h-9$."
         },
         {
          "title": {
