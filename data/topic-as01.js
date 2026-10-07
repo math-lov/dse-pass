@@ -278,7 +278,7 @@ window.LEARN_TOPIC_AS01 = {
        }
       ],
       "tip": {
-       "zh": "已知一根求係數：代進去 → 解一元一次 → 回到原方程分解 → 用已知根驗算。四步固定，題目一定會有一根是「靚數」。",
+       "zh": "已知一根求係數：代進去 → 解一元一次 → 回到原方程分解 → 用已知根驗算。",
        "en": "For a question giving one root: substitute, solve the linear equation, factorise the original equation, then check with the given root."
       },
       "alt": [
