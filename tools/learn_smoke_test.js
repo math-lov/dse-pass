@@ -202,6 +202,33 @@ gCards[0].querySelectorAll(".opt")[0].click();
 ok(!!gCards[0].querySelector(".fig-cap"), "作答之後補上讀圖解說（caption）");
 ok(gCards[0].querySelectorAll(".fig svg").length === 1, "作答之後圖仍然只有一幅（不會重複出圖）");
 ok(gCards[1].querySelectorAll(".fig-cap").length === 0, "未作答的下一題仍未出讀圖解說");
+/* MC 的「進階解法／驗算」（solution.alt）：作答後會出現收合按鈕，展開後用真 KaTeX 渲染。
+   三題都在 as01：m01（特值代入 k=2）、m04（計算機 FMLA 01）、m07（選項回代）。 */
+[["eph-as01-m01", 3], ["eph-as01-m04", 4], ["eph-as01-m07", 5]].forEach(([qid, p]) => {
+  const pg = boot("topic.html", "?t=as01&p=" + p);
+  const card = pg.$$("#topic-body .card[data-qid=" + qid + "]")[0];
+  ok(!!card, qid + " 在第 " + p + " 頁");
+  if (!card) return;
+  card.querySelectorAll(".opt")[0].click();          // 作答後才會出現（在答案區）
+  const tgl = card.querySelector(".alt-toggle");
+  ok(!!tgl, qid + "：作答後出現「進階解法／驗算」按鈕");
+  if (!tgl) return;
+  tgl.click();
+  const body = card.querySelector(".alt-body");
+  ok(body && !body.classList.contains("hidden"), qid + "：展開後內容可見");
+  ok(body.querySelectorAll(".katex").length >= 2, qid + "：進階解法的數式用真 KaTeX 渲染");
+});
+/* 陷阱說明必須對應它指著的那個選項
+   （2026-10-07 老師發現：as01-m15 的選項 A 是 $3+i$，說明卻寫成 $1+6i$ —— 已改） */
+const trapPage = boot("topic.html", "?t=as01&p=10");
+const trapCard = trapPage.$$("#topic-body .card[data-qid=eph-as01-m15]")[0];
+if (trapCard) {
+  trapCard.querySelectorAll(".opt")[0].click();      // 點 A（3+i）
+  const tA = (trapCard.querySelector(".trap") || {}).textContent || "";
+  ok(tA.indexOf("3+i") >= 0, "m15 選 A 的陷阱說明提到 $3+i$");
+  ok(tA.indexOf("1+6i") < 0, "m15 選 A 的陷阱說明不再誤寫 $1+6i$");
+}
+
 /* 概念卡「重點框」（box 欄位，由姊妹站 Endeavour 移植）：
    標籤、標題、正文與公式都要出現，而且公式要用真 KaTeX 渲染（不是露出原字元）。 */
 const bxPage = boot("topic.html", "?t=as01&p=7");      // as01 第 2 節＝複數概念卡

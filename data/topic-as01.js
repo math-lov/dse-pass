@@ -476,7 +476,17 @@ window.LEARN_TOPIC_AS01 = {
        "tip": {
         "zh": "方程兩邊出現同一個括號，先全部移到一邊再抽公因式；凡是「兩邊同時約走含 $x$ 的東西」都會丟根。",
         "en": "When the same bracket appears on both sides, move everything to one side and take out the common factor. Cancelling anything containing $x$ loses a root."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "保底法：特值代入法（Substitution）",
+          "en": "Safety net: Substitution method"
+         },
+         "zh": "卷二 MC 遇到常數 $k$ 可設簡單質數，避開 0 與 1。設 $k=2$，原方程變為 $(x-2)(x+4)=(x-2)$。展開或移項解得 $x=2$ 或 $x=-3$。將 $k=2$ 代入選項，只有選項 C 的 $x=3-3(2)=-3$ 與 $x=2$ 完全相符，立即鎖定 C。",
+         "en": "In Paper 2 MC, substitute a prime number such as $k=2$ (avoid 0 and 1). The equation becomes $(x-2)(x+4)=(x-2)$, which gives $x=2$ or $x=-3$. Substituting $k=2$ into Option C gives $x=3-3(2)=-3$ and $x=2$, which matches."
+        }
+       ]
       },
       "answer": "C",
       "verify": "checked"
@@ -706,7 +716,17 @@ window.LEARN_TOPIC_AS01 = {
        "tip": {
         "zh": "「$\\alpha$ 是方程的根」這類題不用解方程：把方程移項，湊出題目要的那一塊，再整體乘除。",
         "en": "For “$\\alpha$ is a root” questions you never solve the equation: rearrange it to match the block the question asks for, then multiply or divide the whole block."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "計算機保底：Casio Formula 01 求值",
+          "en": "Calculator safety net: Casio Formula 01"
+         },
+         "zh": "用 Casio 計算機按【FMLA 01】（fx-3650P II 執行 Prog 1），輸入 $a=4$、$b=6$、$c=-3$，得 $\\alpha \\approx 0.39564$。按【Shift】【STO】【A】儲存，再在計算機輸入 $2A^{2}+3A+1$，計算機直接顯示 $2.5$（即 $\\frac{5}{2}$），零運算直取答案 C。",
+         "en": "On a Casio calculator press [FMLA 01] (or run Prog 1 on fx-3650P II), input $a=4$, $b=6$, $c=-3$ to get $\\alpha \\approx 0.39564$. Store it in memory A, then calculate $2A^{2}+3A+1$ to get $2.5$ (which is $\\frac{5}{2}$), directly confirming Option C."
+        }
+       ]
       },
       "answer": "C",
       "verify": "checked"
@@ -936,7 +956,17 @@ window.LEARN_TOPIC_AS01 = {
        "tip": {
         "zh": "「等實根」＝判別式 $=0$。判別式通常會是一個完全平方，所以答案只有一個值（不是兩個）。",
         "en": "“Equal real roots” means discriminant $=0$. The discriminant usually turns out to be a perfect square, so there is only one value of the unknown."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "計算機倒推法：選項回代驗算",
+          "en": "Back-substitution with calculator"
+         },
+         "zh": "不肯定判別式時，直接將選項數值代入原方程。代 $h=6$ 入原式得 $x^{2}+6x=9-18$，移項得 $x^{2}+6x+9=0$。按計算機【FMLA 01】輸入 $1$、$6$、$9$，計算機只顯示一個根 $x=-3$（重根），立刻確定 B 正確。",
+         "en": "If unsure about the discriminant, substitute the options into the equation. For $h=6$, $x^{2}+6x+9=0$. Running [FMLA 01] with coefficients 1, 6, 9 returns a single repeated root $x=-3$, confirming B directly."
+        }
+       ]
       },
       "answer": "B",
       "verify": "checked"
@@ -1904,8 +1934,8 @@ window.LEARN_TOPIC_AS01 = {
         },
         {
          "opt": "A",
-         "zh": "$1+6i$ 是只把實部除以 2，虛部忘記除。",
-         "en": "$1+6i$ divides only the real part by 2 and forgets the imaginary part."
+         "zh": "$3+i$ 是展開分子時正負號出錯（誤將實部算成 $4+2=6$、虛部算成 $4i-2i=2i$，再除以分母 2 得 $3+i$）。",
+         "en": "$3+i$ comes from expanding the numerator with wrong signs, getting $6+2i$ instead of $2+6i$, and then dividing by 2."
         }
        ],
        "tip": {
