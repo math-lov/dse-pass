@@ -55,8 +55,8 @@ window.LEARN_TOPIC_AS03 = {
       "en": "Compound inequalities: solve each part, then read off the answer"
      },
      "body": {
-      "zh": "一條題目有兩個不等式時（中間用「或」或「及」連接），做法固定三步：\n① 逐條解，各自寫成「$x$ 大於某數」或「$x$ 小於某數」；\n② 比較兩段，看看哪一段包含哪一段；\n③ 寫出最後答案 —— 不要只把兩條並列就當完成。\n\n「或」（or）：只要其中一段成立就可以，所以兩段都是答案 —— 兩段分開時照寫{{math:0}}\n如果一段完全包含另一段，只寫較寬鬆的那一段就夠{{math:1}}\n\n「及」（and）：兩段要同時成立，所以取兩段重疊的部分 —— 通常就是較嚴格的那一段{{math:2}}\n如果兩段重疊成一段區間，就把兩個端點一齊寫出來{{math:3}}\n\n三節式（例如 $2<x<7$）就是三節之間的「及」：可以三節一起加、減、乘、除同一個數（乘或除負數時要把不等號倒轉），最後檢查兩個端點是開（$<$、$>$）還是閉（$\\le$、$\\ge$）。",
-      "en": "When a question contains two inequalities joined by “or” or “and”, the routine always has three steps:\n(1) solve each one, writing it as “$x$ is greater than …” or “$x$ is less than …”;\n(2) compare the two pieces and see which one contains the other;\n(3) write the final answer — do not just put the two pieces side by side and stop.\n\n“Or”: it is enough that one piece holds, so both pieces belong to the answer — when the pieces are separate, keep them as they are{{math:0}}\nWhen one piece contains the other, write only the wider one{{math:1}}\n\n“And”: the two must hold together, so take the overlap — usually the stricter piece{{math:2}}\nWhen the overlap forms one interval, write the two endpoints together{{math:3}}\n\nA three-part inequality such as $2<x<7$ is simply an “and” between its three parts: add, subtract, multiply or divide all three parts by the same number (reverse the inequality signs when multiplying or dividing by a negative number), then check whether each endpoint is open ($<$, $>$) or closed ($\\le$, $\\ge$)."
+      "zh": "一條題目有兩個不等式時（中間用「或」或「及」連接），做法固定三步：\n① 逐條解，各自寫成「$x$ 大於某數」或「$x$ 小於某數」；\n② 比較兩段，看看哪一段包含哪一段；\n③ 寫出最後答案 —— 不要只把兩條並列就當完成。\n\n「或」（or）：只要其中一段成立就可以，所以兩段都是答案 —— 兩段分開時照寫{{math:0}}\n如果一段完全包含另一段，只寫較寬鬆的那一段就夠{{math:1}}\n\n「及」（and）：兩段要同時成立，所以取兩段重疊的部分 —— 通常就是較嚴格的那一段{{math:2}}\n如果兩段重疊成一段區間，就把兩個端點一齊寫出來{{math:3}}\n\n三節式（例如 $2<x<7$）就是三節之間的「及」：首尾兩節都是純數字時，才可以三節一起加、減、乘、除同一個數（乘或除負數時要把不等號倒轉）；首節或尾節只要含有 $x$，就不能三節一起做，要拆成兩條「及」的不等式，分別解再取交集。最後檢查兩個端點是開（$<$、$>$）還是閉（$\\le$、$\\ge$）。",
+      "en": "When a question contains two inequalities joined by “or” or “and”, the routine always has three steps:\n(1) solve each one, writing it as “$x$ is greater than …” or “$x$ is less than …”;\n(2) compare the two pieces and see which one contains the other;\n(3) write the final answer — do not just put the two pieces side by side and stop.\n\n“Or”: it is enough that one piece holds, so both pieces belong to the answer — when the pieces are separate, keep them as they are{{math:0}}\nWhen one piece contains the other, write only the wider one{{math:1}}\n\n“And”: the two must hold together, so take the overlap — usually the stricter piece{{math:2}}\nWhen the overlap forms one interval, write the two endpoints together{{math:3}}\n\nA three-part inequality such as $2<x<7$ is simply an “and” between its three parts: only when the first and last parts are pure numbers may you add, subtract, multiply or divide all three parts by the same number at once (reverse the inequality signs when multiplying or dividing by a negative number); if the first or last part contains $x$, do not work on all three parts — split it into two “and” inequalities, solve each and intersect. Then check whether each endpoint is open ($<$, $>$) or closed ($\\le$, $\\ge$)."
      },
      "math": [
       "x<-3\\text{ or }x>8\n\\text{keep both pieces}",
@@ -232,8 +232,8 @@ window.LEARN_TOPIC_AS03 = {
          "en": "Step 1 · A three-part inequality means “and”: split it"
         },
         "math": "\\frac{4x-3}{9}\\le \\frac{x}{3}+1\\quad \\text{and}\\quad \\frac{x}{3}+1\\le 3",
-        "zh": "中間的 $\\frac{x}{3}+1$ 同時受左右兩邊限制，所以是「及」：兩條不等式都要解，最後取交集。",
-        "en": "The middle expression is bounded on both sides, so this is an “and”: solve both inequalities and then intersect the answers.",
+        "zh": "中間的 $\\frac{x}{3}+1$ 同時受左右兩邊限制，所以是「及」：兩條不等式都要解，最後取交集。首節 $\\frac{4x-3}{9}$ 含有 $x$（不是純數字），這類三節式不能三節一起做，一定要像這樣拆開。",
+        "en": "The middle expression is bounded on both sides, so this is an “and”: solve both inequalities and then intersect the answers. The first part $\\frac{4x-3}{9}$ contains $x$ rather than being a pure number, so a three-part inequality like this must be split up instead of worked on all at once.",
         "marking": "(1M)"
        },
        {
@@ -359,8 +359,8 @@ window.LEARN_TOPIC_AS03 = {
          "en": "Step 1 · Multiply all three parts by 3"
         },
         "math": "-9<2x-5\\le 15",
-        "zh": "三節式可以「同時」做同一個運算，不必拆開。乘 3 是正數，兩個不等號方向都不變。",
-        "en": "A three-part inequality allows the same operation on every part at once. Multiplying by 3 is safe: both inequality signs keep their direction.",
+        "zh": "三節式可以「同時」做同一個運算，不必拆開 —— 前提是首尾兩節都是純數字（本題是 $-3$ 與 $5$）。乘 3 是正數，兩個不等號方向都不變。",
+        "en": "A three-part inequality lets you apply the same operation to all three parts at once instead of splitting it up — provided that the first and last parts are pure numbers (here $-3$ and $5$). Multiplying by 3 is safe: both inequality signs keep their direction.",
         "marking": "(1M)"
        },
        {
@@ -429,8 +429,8 @@ window.LEARN_TOPIC_AS03 = {
        }
       ],
       "tip": {
-       "zh": "三節式可以三節一起做同一個運算，比拆成兩條快；但最後一定要逐個檢查兩個端點是開還是閉。",
-       "en": "A three-part inequality lets you apply one operation to all parts at once, which is quicker than splitting it up — but always check whether each endpoint is open or closed."
+       "zh": "三節式可以三節一起做同一個運算，比拆成兩條快 —— 但只限首尾兩節都是純數字（如本題 $-3$、$5$）；首節或尾節只要含有 $x$（如第 1 題的 $\\frac{4x-3}{9}$），就要拆成兩條「及」：分別解，再取交集。最後一定要逐個檢查兩個端點是開還是閉。",
+       "en": "Applying one operation to all three parts at once is quicker than splitting it up — but it only works when the first and last parts are pure numbers (here $-3$ and $5$). If the first or last part contains $x$ (as in Q.1, $\\frac{4x-3}{9}$), split it into two “and” inequalities: solve each, then intersect. Always check whether each endpoint is open or closed."
       },
       "alt": [
        {
