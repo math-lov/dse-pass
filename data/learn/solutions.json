@@ -7689,7 +7689,17 @@
     "tip": {
      "zh": "「不可相鄰」固定用插空法：先排沒有條件的一方，數出空隙（人數 $+1$），再把有條件的人放入空隙。人與人之間有分別，所以空隙用排列 $P$ 不是組合 $C$。",
      "en": "For “not next to each other”, always use the insertion method: arrange the unrestricted group, count the gaps (number of people plus one), then place the restricted people into the gaps. People are distinct, so the gaps use a permutation, not a combination."
-    }
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "計算機按鍵提示（Casio fx-50FH II）",
+       "en": "Calculator keystroke guide"
+      },
+      "zh": "第 1 步排男生：按【3】【SHIFT】【$x!$】得 6。第 2 步插空排女生：4 個空位排 3 名女生，按【4】【SHIFT】【nPr】【3】得 24。最後按【6】【$\\times$】【24】得 144。",
+      "en": "Step 1 for boys: press [3] [SHIFT] [x!] to get 6. Step 2 for girls: 3 girls into 4 gaps, press [4] [SHIFT] [nPr] [3] to get 24. Multiply both to obtain 144."
+     }
+    ]
    }
   },
   "eph-as04-m02": {
@@ -7863,7 +7873,17 @@
     "tip": {
      "zh": "「有職位」的題目：先處理職位（$C^{n}_{1}$ 或 $P$），再處理沒有分別的其他人（$C$）。有職位＝有次序、沒有職位＝組合。",
      "en": "For questions with a post: fill the post first (with $C^{n}_{1}$ or a permutation), then choose the interchangeable people with a combination. A post implies order; no post implies a combination."
-    }
+    },
+    "alt": [
+     {
+      "name": {
+       "zh": "分步逆向驗算（先組隊後委任）",
+       "en": "Alternative formulation: group first then assign"
+      },
+      "zh": "另一種清晰思考路徑：先從 11 人中選出 5 人組成委員會（不論職位），有 $C^{11}_{5}=462$ 種選法；隨後在此 5 人中指定 1 人為主席，有 5 種可能。總選法為 $462 \\times 5 = 2310$ 種。兩種邏輯結果一致，可作雙重核實。",
+      "en": "Another reliable approach: select 5 members from 11 without roles ($C^{11}_{5}=462$), then choose 1 of the 5 to be the chairman ($5$ ways). Total ways: $462 \\times 5 = 2310$. Both methods agree."
+     }
+    ]
    }
   },
   "eph-as04-m05": {

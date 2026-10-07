@@ -205,10 +205,12 @@ ok(gCards[1].querySelectorAll(".fig-cap").length === 0, "未作答的下一題�
 /* MC 的「進階解法／驗算」（solution.alt）：作答後會出現收合按鈕，展開後用真 KaTeX 渲染。
    as01：m01（特值代入 k=2）、m04（計算機 FMLA 01）、m07（選項回代）
    as02：m01／m02／m03（坐標代入排除法，全部在第一個練習頁）
-   as03：m02（邊界值與特值驗算法） */
+   as03：m02（邊界值與特值驗算法）
+   as04：m01（計算機按鍵提示）、m04（先組隊後委任，互相印證答案） */
 [["as01", "eph-as01-m01", 3], ["as01", "eph-as01-m04", 4], ["as01", "eph-as01-m07", 5],
  ["as02", "eph-as02-m01", 1], ["as02", "eph-as02-m02", 1], ["as02", "eph-as02-m03", 1],
- ["as03", "eph-as03-m02", 3]]
+ ["as03", "eph-as03-m02", 3],
+ ["as04", "eph-as04-m01", 3], ["as04", "eph-as04-m04", 4]]
   .forEach(([t, qid, p]) => {
   const pg = boot("topic.html", "?t=" + t + "&p=" + p);
   const card = pg.$$("#topic-body .card[data-qid=" + qid + "]")[0];
