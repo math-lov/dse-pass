@@ -8303,12 +8303,12 @@
     "steps": [
      {
       "title": {
-       "zh": "第 1 步 · 「無解」先反過來讀",
-       "en": "Step 1 · Read “no solution” the other way"
+       "zh": "第 1 步 · 用圖像讀「無解」",
+       "en": "Step 1 · Read “no solution” from the graph"
       },
-      "math": "x^{2}+4x+k<0\\ \\text{has no solution}\n\\Leftrightarrow x^{2}+4x+k\\ge 0\\ \\text{for all }x",
-      "zh": "「沒有實數解」＝沒有一個 $x$ 會令它成立，即是反過來對所有實數 $x$ 都成立：$x^2+4x+k\\ge0$。",
-      "en": "“No real solution” means no value of $x$ satisfies it, which is the same as the opposite being true for every real $x$: $x^{2}+4x+k\\ge0$."
+      "math": "x^{2}+4x+k<0\\ \\text{has no solution}\n\\Rightarrow \\text{opens upwards, never below the }x\\text{-axis}\n\\Rightarrow a>0\\ \\text{and}\\ \\Delta\\le 0",
+      "zh": "「沒有實數解」＝$y=x^{2}+4x+k$ 的圖像永遠不會跌到 $x$ 軸下方。要做到這件事，圖像必須開口向上（$a>0$），並且不與 $x$ 軸相交（$\\Delta<0$）或只是相切（$\\Delta=0$）—— 兩個條件合起來就是 $a>0$ 且 $\\Delta\\le0$。",
+      "en": "“No real solution” means the graph of $y=x^{2}+4x+k$ never drops below the $x$-axis. For that the curve must open upwards ($a>0$) and either miss the $x$-axis ($\\Delta<0$) or only touch it ($\\Delta=0$) — together, $a>0$ and $\\Delta\\le0$."
      },
      {
       "title": {
@@ -8316,8 +8316,8 @@
        "en": "Step 2 · Write both conditions"
       },
       "math": "a=1>0\\ \\text{and}\\ \\Delta=4^{2}-4(1)(k)=16-4k\\le 0",
-      "zh": "$x^2$ 的係數 $1>0$ ✓；因為要「$\\ge0$」對所有實數成立（有等號），所以用 $\\Delta\\le0$。",
-      "en": "The coefficient of $x^{2}$ is $1>0$; since the statement is “$\\ge0$” for all real $x$ (equality allowed), we need $\\Delta\\le0$."
+      "zh": "本題 $a=1>0$ ✓（開口向上）；再看圖像與 $x$ 軸的關係：$\\Delta=4^{2}-4(1)(k)=16-4k$，不可以相交（最多只可相切），所以取 $\\Delta\\le0$。",
+      "en": "Here $a=1>0$ (opening upwards). Next look at how the curve meets the $x$-axis: $\\Delta=4^{2}-4(1)(k)=16-4k$. It must not cross the axis (touching at most), so $\\Delta\\le0$."
      },
      {
       "title": {
@@ -8347,8 +8347,8 @@
      }
     ],
     "tip": {
-     "zh": "見到「無解」，先改寫成「對所有實數都成立」（不等號反過來），然後兩步走：$a>0$ ＋ $\\Delta\\le0$（嚴格才用 $\\Delta<0$）。邊界值（$\\Delta=0$）代回去試一次最穩。",
-     "en": "When a question says “no solution”, rewrite it as “true for all real $x$” with the inequality reversed, then use the two steps: $a>0$ and $\\Delta\\le0$ (strict needs $\\Delta<0$). Substituting the boundary value ($\\Delta=0$) is the safest check."
+     "zh": "見到「無解」，直接看圖：整條拋物線要留在 $x$ 軸的一邊 —— 開口向上、不穿過（最多相切），即 $a>0$ 且 $\\Delta\\le0$（嚴格才用 $\\Delta<0$）。邊界值（$\\Delta=0$）代回去試一次最穩。",
+     "en": "When a question says “no solution”, read it straight off the graph: keep the whole parabola on one side of the $x$-axis — opening upwards and never crossing it (touching at most), i.e. $a>0$ and $\\Delta\\le0$ (strict needs $\\Delta<0$). Substituting the boundary value ($\\Delta=0$) is the safest check."
     },
     "alt": [
      {

@@ -162,14 +162,14 @@ window.LEARN_TOPIC_AS03 = {
       "en": "“True for all real x” and “no solution”: the discriminant conditions in general"
      },
      "body": {
-      "zh": "見到「for any real number $x$」或「對任何實數 $x$ 都成立」，代表整條拋物線要留在 $x$ 軸的同一邊，所以條件一定同時看兩件事：\n① 開口方向（$x^2$ 的係數 $a$）；\n② 有沒有穿過 $x$ 軸（判別式 $\\Delta$）。\n\n寫成一般式 $ax^{2}+bx+c$（$a\\ne 0$），「對所有實數 $x$ 都成立」有四種情況：\n{{math:0}}\n\n「無解」（沒有任何實數 $x$ 滿足）就是把同一件事反過來讀 —— 例如 $ax^{2}+bx+c<0$ 無解，等同於 $ax^{2}+bx+c\\ge 0$ 對所有實數 $x$ 都成立。四種情況：\n{{math:1}}\n\n三個要點：\n① $a>0$（開口向上）才可以「大於 0」撐得住；$a<0$（開口向下）才可以「小於 0」撐得住 —— 只看 $\\Delta$ 而漏看 $a$，答案一定錯。\n② 有等號（$\\ge$、$\\le$）用 $\\Delta\\le 0$；嚴格（$>$、$<$）用 $\\Delta<0$。$\\Delta=0$ 時只有一個 $x$ 值會令式子等於 0，嚴格不等式不接受那一個值（見上一張卡）。\n③ 如果 $x^2$ 的係數含未知數（例如 $kx^{2}+\\cdots$），要另外檢查 $k=0$：那時它不是二次式。\n\n例（$a\\ne 1$）：$3x^{2}+4x+k>0$ 對所有實數 $x$ 都成立{{math:2}}\n例（無解）：$kx^{2}+2x+1<0$ 沒有實數解{{math:3}}",
-      "en": "“For any real number $x$” means the whole parabola must stay on one side of the $x$-axis, so two things always matter at once:\n(1) which way it opens (the coefficient $a$ of $x^{2}$);\n(2) whether it crosses the $x$-axis (the discriminant $\\Delta$).\n\nWrite the quadratic as $ax^{2}+bx+c$ with $a\\ne 0$. “True for all real $x$” gives four cases:\n{{math:0}}\n\n“No solution” (no real $x$ satisfies it) is the same statement read the other way round — for example, $ax^{2}+bx+c<0$ having no solution is the same as $ax^{2}+bx+c\\ge 0$ being true for all real $x$. The four cases:\n{{math:1}}\n\nThree key points:\n(1) $a>0$ (opening upwards) is what lets a quadratic stay positive, and $a<0$ (opening downwards) is what lets it stay negative — using $\\Delta$ alone and forgetting $a$ always gives a wrong answer.\n(2) With equality ($\\ge$, $\\le$) use $\\Delta\\le 0$; for a strict inequality ($>$, $<$) use $\\Delta<0$. When $\\Delta=0$ there is one value of $x$ that makes the expression zero, and a strict inequality rejects it (see the previous card).\n(3) If the coefficient of $x^{2}$ contains the unknown (for example $kx^{2}+\\cdots$), check $k=0$ separately: then it is not a quadratic at all.\n\nExample ($a\\ne 1$): $3x^{2}+4x+k>0$ for all real $x$ {{math:2}}\nExample (no solution): $kx^{2}+2x+1<0$ has no real solution {{math:3}}"
+      "zh": "見到「for any real number $x$」或「對任何實數 $x$ 都成立」，代表整條拋物線要留在 $x$ 軸的同一邊，所以條件一定同時看兩件事：\n① 開口方向（$x^2$ 的係數 $a$）；\n② 有沒有穿過 $x$ 軸（判別式 $\\Delta$）。\n\n寫成一般式 $ax^{2}+bx+c$（$a\\ne 0$），「對所有實數 $x$ 都成立」有四種情況：\n{{math:0}}\n\n「無解」（沒有任何實數 $x$ 滿足）同樣是看圖：整條拋物線要留在 $x$ 軸的一邊 —— 例如 $ax^{2}+bx+c<0$ 無解，即圖像永遠不會跌到 $x$ 軸下方，所以 $a>0$ 且 $\\Delta\\le0$（不相交的 $\\Delta<0$ 與只相切的 $\\Delta=0$ 都符合）。四種情況：\n{{math:1}}\n\n三個要點：\n① $a>0$（開口向上）才可以「大於 0」撐得住；$a<0$（開口向下）才可以「小於 0」撐得住 —— 只看 $\\Delta$ 而漏看 $a$，答案一定錯。\n② 有等號（$\\ge$、$\\le$）用 $\\Delta\\le 0$；嚴格（$>$、$<$）用 $\\Delta<0$。$\\Delta=0$ 時只有一個 $x$ 值會令式子等於 0，嚴格不等式不接受那一個值（見上一張卡）。\n③ 如果 $x^2$ 的係數含未知數（例如 $kx^{2}+\\cdots$），要另外檢查 $k=0$：那時它不是二次式。\n\n例（$a\\ne 1$）：$3x^{2}+4x+k>0$ 對所有實數 $x$ 都成立{{math:2}}\n例（無解）：$kx^{2}+2x+1<0$ 沒有實數解{{math:3}}",
+      "en": "“For any real number $x$” means the whole parabola must stay on one side of the $x$-axis, so two things always matter at once:\n(1) which way it opens (the coefficient $a$ of $x^{2}$);\n(2) whether it crosses the $x$-axis (the discriminant $\\Delta$).\n\nWrite the quadratic as $ax^{2}+bx+c$ with $a\\ne 0$. “True for all real $x$” gives four cases:\n{{math:0}}\n\n“No solution” (no real $x$ satisfies it) is read from the graph in the same way: the whole parabola must stay on one side of the $x$-axis — for example, $ax^{2}+bx+c<0$ having no solution means the curve never drops below the $x$-axis, so $a>0$ and $\\Delta\\le0$ (both missing the axis, $\\Delta<0$, and only touching it, $\\Delta=0$, qualify). The four cases:\n{{math:1}}\n\nThree key points:\n(1) $a>0$ (opening upwards) is what lets a quadratic stay positive, and $a<0$ (opening downwards) is what lets it stay negative — using $\\Delta$ alone and forgetting $a$ always gives a wrong answer.\n(2) With equality ($\\ge$, $\\le$) use $\\Delta\\le 0$; for a strict inequality ($>$, $<$) use $\\Delta<0$. When $\\Delta=0$ there is one value of $x$ that makes the expression zero, and a strict inequality rejects it (see the previous card).\n(3) If the coefficient of $x^{2}$ contains the unknown (for example $kx^{2}+\\cdots$), check $k=0$ separately: then it is not a quadratic at all.\n\nExample ($a\\ne 1$): $3x^{2}+4x+k>0$ for all real $x$ {{math:2}}\nExample (no solution): $kx^{2}+2x+1<0$ has no real solution {{math:3}}"
      },
      "math": [
       "ax^{2}+bx+c>0\\ \\text{for all }x\\ \\Leftrightarrow\\ a>0\\ \\text{and}\\ \\Delta<0\nax^{2}+bx+c\\ge 0\\ \\text{for all }x\\ \\Leftrightarrow\\ a>0\\ \\text{and}\\ \\Delta\\le 0\nax^{2}+bx+c<0\\ \\text{for all }x\\ \\Leftrightarrow\\ a<0\\ \\text{and}\\ \\Delta<0\nax^{2}+bx+c\\le 0\\ \\text{for all }x\\ \\Leftrightarrow\\ a<0\\ \\text{and}\\ \\Delta\\le 0",
       "ax^{2}+bx+c>0\\ \\text{has no solution}\\ \\Leftrightarrow\\ a<0\\ \\text{and}\\ \\Delta\\le 0\nax^{2}+bx+c\\ge 0\\ \\text{has no solution}\\ \\Leftrightarrow\\ a<0\\ \\text{and}\\ \\Delta<0\nax^{2}+bx+c<0\\ \\text{has no solution}\\ \\Leftrightarrow\\ a>0\\ \\text{and}\\ \\Delta\\le 0\nax^{2}+bx+c\\le 0\\ \\text{has no solution}\\ \\Leftrightarrow\\ a>0\\ \\text{and}\\ \\Delta<0",
       "3x^{2}+4x+k>0\\ \\text{for all real }x\n\\Rightarrow a=3>0\\ \\text{and}\\ \\Delta=4^{2}-4(3)(k)=16-12k<0\n\\Rightarrow k>\\frac{4}{3}",
-      "kx^{2}+2x+1<0\\ \\text{has no solution}\n\\Rightarrow kx^{2}+2x+1\\ge 0\\ \\text{for all real }x\n\\Rightarrow k>0\\ \\text{and}\\ \\Delta=2^{2}-4(k)(1)=4-4k\\le 0\n\\Rightarrow k\\ge 1"
+      "kx^{2}+2x+1<0\\ \\text{has no solution}\n\\Rightarrow \\text{opens upwards, never below the }x\\text{-axis}\n\\Rightarrow k>0\\ \\text{and}\\ \\Delta=2^{2}-4(k)(1)=4-4k\\le 0\n\\Rightarrow k\\ge 1"
      ],
      "vocab": [
       {
@@ -1125,12 +1125,12 @@ window.LEARN_TOPIC_AS03 = {
        "steps": [
         {
          "title": {
-          "zh": "第 1 步 · 「無解」先反過來讀",
-          "en": "Step 1 · Read “no solution” the other way"
+          "zh": "第 1 步 · 用圖像讀「無解」",
+          "en": "Step 1 · Read “no solution” from the graph"
          },
-         "math": "x^{2}+4x+k<0\\ \\text{has no solution}\n\\Leftrightarrow x^{2}+4x+k\\ge 0\\ \\text{for all }x",
-         "zh": "「沒有實數解」＝沒有一個 $x$ 會令它成立，即是反過來對所有實數 $x$ 都成立：$x^2+4x+k\\ge0$。",
-         "en": "“No real solution” means no value of $x$ satisfies it, which is the same as the opposite being true for every real $x$: $x^{2}+4x+k\\ge0$."
+         "math": "x^{2}+4x+k<0\\ \\text{has no solution}\n\\Rightarrow \\text{opens upwards, never below the }x\\text{-axis}\n\\Rightarrow a>0\\ \\text{and}\\ \\Delta\\le 0",
+         "zh": "「沒有實數解」＝$y=x^{2}+4x+k$ 的圖像永遠不會跌到 $x$ 軸下方。要做到這件事，圖像必須開口向上（$a>0$），並且不與 $x$ 軸相交（$\\Delta<0$）或只是相切（$\\Delta=0$）—— 兩個條件合起來就是 $a>0$ 且 $\\Delta\\le0$。",
+         "en": "“No real solution” means the graph of $y=x^{2}+4x+k$ never drops below the $x$-axis. For that the curve must open upwards ($a>0$) and either miss the $x$-axis ($\\Delta<0$) or only touch it ($\\Delta=0$) — together, $a>0$ and $\\Delta\\le0$."
         },
         {
          "title": {
@@ -1138,8 +1138,8 @@ window.LEARN_TOPIC_AS03 = {
           "en": "Step 2 · Write both conditions"
          },
          "math": "a=1>0\\ \\text{and}\\ \\Delta=4^{2}-4(1)(k)=16-4k\\le 0",
-         "zh": "$x^2$ 的係數 $1>0$ ✓；因為要「$\\ge0$」對所有實數成立（有等號），所以用 $\\Delta\\le0$。",
-         "en": "The coefficient of $x^{2}$ is $1>0$; since the statement is “$\\ge0$” for all real $x$ (equality allowed), we need $\\Delta\\le0$."
+         "zh": "本題 $a=1>0$ ✓（開口向上）；再看圖像與 $x$ 軸的關係：$\\Delta=4^{2}-4(1)(k)=16-4k$，不可以相交（最多只可相切），所以取 $\\Delta\\le0$。",
+         "en": "Here $a=1>0$ (opening upwards). Next look at how the curve meets the $x$-axis: $\\Delta=4^{2}-4(1)(k)=16-4k$. It must not cross the axis (touching at most), so $\\Delta\\le0$."
         },
         {
          "title": {
@@ -1169,8 +1169,8 @@ window.LEARN_TOPIC_AS03 = {
         }
        ],
        "tip": {
-        "zh": "見到「無解」，先改寫成「對所有實數都成立」（不等號反過來），然後兩步走：$a>0$ ＋ $\\Delta\\le0$（嚴格才用 $\\Delta<0$）。邊界值（$\\Delta=0$）代回去試一次最穩。",
-        "en": "When a question says “no solution”, rewrite it as “true for all real $x$” with the inequality reversed, then use the two steps: $a>0$ and $\\Delta\\le0$ (strict needs $\\Delta<0$). Substituting the boundary value ($\\Delta=0$) is the safest check."
+        "zh": "見到「無解」，直接看圖：整條拋物線要留在 $x$ 軸的一邊 —— 開口向上、不穿過（最多相切），即 $a>0$ 且 $\\Delta\\le0$（嚴格才用 $\\Delta<0$）。邊界值（$\\Delta=0$）代回去試一次最穩。",
+        "en": "When a question says “no solution”, read it straight off the graph: keep the whole parabola on one side of the $x$-axis — opening upwards and never crossing it (touching at most), i.e. $a>0$ and $\\Delta\\le0$ (strict needs $\\Delta<0$). Substituting the boundary value ($\\Delta=0$) is the safest check."
        },
        "alt": [
         {
