@@ -285,7 +285,26 @@ window.LEARN_TOPIC_WS01 = {
         "en": "After factorizing out $(3x-y)$, keep the remainder inside square brackets: $[3-(5x+2y)]$. The minus in front must be distributed to every term: $-(+5x)=-5x$ and $-(+2y)=-2y$. Always write the square-bracket step down — doing it in your head is the classic way to write $3-5x+2y$."
        }
       ],
-      "traps": [],
+      "traps": [
+       {
+        "label": "(b) 抽負號只改一項",
+        "labelEn": "flipping only one sign when taking out the minus",
+        "zh": "$-15x^{2}-xy+2y^{2}$ 抽負號是「每一項都變號」：要寫成 $-(15x^{2}+xy-2y^{2})$，括號內與 (a) 完全一樣，之後才套得上 (a) 的答案。只改第一項（例如寫成 $-(15x^{2}-xy+2y^{2})$）就套不上。",
+        "en": "Taking the minus out of $-15x^{2}-xy+2y^{2}$ flips every term: it must become $-(15x^{2}+xy-2y^{2})$, exactly the expression from (a), so that (a)'s answer can be used. Flipping only the first term (say $-(15x^{2}-xy+2y^{2})$) breaks that match."
+       },
+       {
+        "label": "中括號前的減號沒有逐項分配",
+        "labelEn": "not distributing the minus in the square bracket",
+        "zh": "$(3x-y)[3-(5x+2y)]$ 拆中括號時，減號要逐項分配：$-(+5x)=-5x$、$-(+2y)=-2y$，所以是 $3-5x-2y$。寫成 $3-5x+2y$ 展開後就不等於原式。",
+        "en": "Removing the square bracket in $(3x-y)[3-(5x+2y)]$ needs the minus distributed term by term: $-(+5x)=-5x$ and $-(+2y)=-2y$, giving $3-5x-2y$. Writing $3-5x+2y$ no longer expands back to the original."
+       },
+       {
+        "label": "(a) 交叉相乘符號配錯",
+        "labelEn": "wrong sign pairing in the cross-method",
+        "zh": "(a) 若寫成 $(3x+y)(5x-2y)$，展開的中間項是 $-xy$，與題目的 $+xy$ 不符 —— 十字相乘一定要做一次交叉相乘，驗中間項。",
+        "en": "If (a) is written as $(3x+y)(5x-2y)$, the expansion has middle term $-xy$, not the $+xy$ in the question — always cross-multiply once to check the middle term."
+       }
+      ],
       "tip": {
        "zh": "卷一的因式分解題幾乎都是「(a) 先分一個，(b) 再用 (a)」。(b) 見到四項，先想「哪幾項是 (a) 的式子」，把它們用括號包起來，題目就通了。",
        "en": "Paper 1 factorisation questions are almost always “(a) factorize one expression, (b) use (a)”. In (b), when you see four terms, ask which of them are the expression from (a), bracket them, and the question opens up."
@@ -416,7 +435,26 @@ window.LEARN_TOPIC_WS01 = {
         "en": "Open both brackets: the first, $(5c+d)+(4c-1)$, can be written straight away; in the second, $(5c+d)-(4c-1)$, the minus must be distributed to each term — $-(+4c)=-4c$ and $-(-1)=+1$, giving $5c+d-4c+1$ (not $5c+d-4c-1$). Collecting terms gives $(9c+d-1)(c+d+1)$."
        }
       ],
-      "traps": [],
+      "traps": [
+       {
+        "label": "(b) 抽負號漏變號",
+        "labelEn": "missing signs when taking out the minus",
+        "zh": "$-16c^{2}+8c-1$ 抽負號是「三項一齊變號」：$-(16c^{2}-8c+1)$，這樣括號內正是 (a) 的式子。漏改任何一項（例如 $-(16c^{2}+8c-1)$）就套不上完全平方。",
+        "en": "Taking the minus out of $-16c^{2}+8c-1$ flips all three terms: $-(16c^{2}-8c+1)$, which is exactly the expression from (a). Missing a sign (say $-(16c^{2}+8c-1)$) destroys the perfect square."
+       },
+       {
+        "label": "減號後沒有整組包住",
+        "labelEn": "the group after the minus is not kept whole",
+        "zh": "$(5c+d)-(4c-1)$ 中，減號後是「整組 $4c-1$」。寫成 $(5c+d)-4c-1$ 其實只減了 $4c+1$，答案會變成 $(9c+d-1)(c+d-1)$，不是正解。",
+        "en": "In $(5c+d)-(4c-1)$ the minus applies to the whole group $4c-1$. Writing $(5c+d)-4c-1$ subtracts $4c+1$ instead, giving $(9c+d-1)(c+d-1)$, which is not the answer."
+       },
+       {
+        "label": "(a) 完全平方符號錯",
+        "labelEn": "wrong sign in the perfect square",
+        "zh": "(a) 寫成 $(4c+1)^{2}$：展開是 $16c^{2}+8c+1$，中間項 $+8c$，但題目是 $-8c$，所以必須是 $(4c-1)^{2}$。",
+        "en": "(a) written as $(4c+1)^{2}$ expands to $16c^{2}+8c+1$ with middle term $+8c$, but the question has $-8c$ — it must be $(4c-1)^{2}$."
+       }
+      ],
       "tip": {
        "zh": "見到「$(5c+d)^{2}$ 減去一堆」，先想「後面那堆能不能變成一個平方」。把 (a) 的答案代進去之後，題目就由「四項分組」變成「平方差」，這是卷一最常見的兩步設計。",
        "en": "When you see $(5c+d)^{2}$ minus a pile of terms, ask whether that pile can be turned into a square. After substituting the answer of (a), “four terms to group” becomes “difference of two squares” — the most common two-step design in Paper 1."
@@ -500,7 +538,17 @@ window.LEARN_TOPIC_WS01 = {
       "tip": {
        "zh": "看到三項而首項是負數：先抽 $-1$。剩下的不是 $a^{2}\\pm 2ab+b^{2}$ 就是十字相乘，一刀切開兩類。",
        "en": "Three terms with a negative leading term: take $-1$ out first. What is left is either $a^{2}\\pm 2ab+b^{2}$ or a cross-method job."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算：展開對回原式",
+         "en": "Check: expand back to the original"
+        },
+        "zh": "展開檢查：$-(2m-5n)^{2}=-(4m^{2}-20mn+25n^{2})=-4m^{2}+20mn-25n^{2}$，與原式相同。負號在括號外，展開時先平方、再整組變號，是最快的自我檢查。",
+        "en": "Expand to check: $-(2m-5n)^{2}=-(4m^{2}-20mn+25n^{2})=-4m^{2}+20mn-25n^{2}$, the original expression. With the minus outside, square first and then flip every sign — the quickest self-check for this type."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -576,7 +624,17 @@ window.LEARN_TOPIC_WS01 = {
       "tip": {
        "zh": "末項含 $y^{2}$ → 兩個括號都要有 $y$；中間項決定兩個符號同號還是異號（正同負異）。",
        "en": "If the last term contains $y^{2}$, both brackets need a $y$. The sign of the middle term decides whether the two signs match (same when positive, opposite when negative)."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算：代 $x=1$、$y=2$",
+         "en": "Check: substitute $x=1$, $y=2$"
+        },
+        "zh": "代值驗算：取 $x=1$、$y=2$。原式 $=1+4(1)(2)+3(2)^{2}=1+8+12=21$；答案 $(x+y)(x+3y)=(1+2)(1+6)=21$，兩邊相同。拆到不肯定時，代一組小數字就可以立刻確認。",
+        "en": "Substitute values: take $x=1$, $y=2$. The original is $1+4(1)(2)+3(2)^{2}=1+8+12=21$; the answer gives $(x+y)(x+3y)=(1+2)(1+6)=21$ — the same. One small substitution confirms a doubtful split at once."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -646,7 +704,17 @@ window.LEARN_TOPIC_WS01 = {
       "tip": {
        "zh": "十字相乘三步：拆首項 → 看末項定符號（正同負異）→ 交叉相乘驗中間項。次序固定的話，卷一只花一兩分鐘。",
        "en": "Cross-method in three moves: split the first term, use the last term to fix the signs (same when positive, opposite when negative), then cross-check the middle term."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算：代 $m=1$、$n=1$",
+         "en": "Check: substitute $m=1$, $n=1$"
+        },
+        "zh": "代值驗算：取 $m=1$、$n=1$。原式 $=6-11-10=-15$；答案 $(2m-5n)(3m+2n)=(2-5)(3+2)=(-3)(5)=-15$。係數較大的十字相乘最容易配錯符號，代一組小數字是最便宜的保險。",
+        "en": "Substitute values: $m=1$, $n=1$. The original is $6-11-10=-15$; the answer gives $(2m-5n)(3m+2n)=(2-5)(3+2)=(-3)(5)=-15$. Cross-method with larger coefficients is where sign pairs go wrong, so one substitution is the cheapest insurance."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -716,7 +784,17 @@ window.LEARN_TOPIC_WS01 = {
       "tip": {
        "zh": "三項都含同一個字母 → 先抽公因式，括號內變回純係數十字相乘。這個「先抽後拆」的次序，幾乎每一年的卷一都合用。",
        "en": "When every term shares a letter, take the common factor out first: inside the bracket it is a plain cross-method again. 'Factor out, then split' works almost every year."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算：代 $m=1$、$n=1$（留意 $n\\ne0$）",
+         "en": "Check: substitute $m=1$, $n=1$ (keep $n\\ne0$)"
+        },
+        "zh": "代值驗算：取 $m=1$、$n=1$。原式 $=2+3-14=-9$；答案 $n(2m+7)(m-2)=1\\times9\\times(-1)=-9$。另外要檢查外面的 $n$ 有沒有漏 —— 代 $n=0$ 時兩邊都是 $0$，看不出分別，所以驗算一定要取 $n\\ne0$ 的值。",
+        "en": "Substitute values: $m=1$, $n=1$. The original is $2+3-14=-9$; the answer gives $n(2m+7)(m-2)=1\\times9\\times(-1)=-9$. Also check that the outside $n$ is still there — with $n=0$ both sides are $0$ and the omission hides, so a checking value must have $n\\ne0$."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -786,7 +864,17 @@ window.LEARN_TOPIC_WS01 = {
       "tip": {
        "zh": "首項負數的十字相乘：抽 $-1$ → 括號內十字相乘 → 負號留在外面。三步固定，卷一只需半分鐘，是必搶的分。",
        "en": "Cross-method with a negative leading term: take out $-1$, do the cross-method inside, then leave the minus outside. A fixed three-move routine worth easy Paper 1 marks."
-      }
+      },
+      "alt": [
+       {
+        "name": {
+         "zh": "驗算：展開對回原式",
+         "en": "Check: expand back to the original"
+        },
+        "zh": "展開驗算：$(4x-3y)(x-3y)=4x^{2}-12xy-3xy+9y^{2}=4x^{2}-15xy+9y^{2}$，加上外面的負號就是 $-4x^{2}+15xy-9y^{2}$，與原式相同。負號留到最後才整組變號，最不易出錯。",
+        "en": "Expand to check: $(4x-3y)(x-3y)=4x^{2}-12xy-3xy+9y^{2}=4x^{2}-15xy+9y^{2}$; with the leading minus this is $-4x^{2}+15xy-9y^{2}$, the original expression. Keep the minus until the very end and flip the whole bracket once."
+       }
+      ]
      },
      "answer": null,
      "verify": "checked"
@@ -990,7 +1078,17 @@ window.LEARN_TOPIC_WS01 = {
        "tip": {
         "zh": "「抽完公因式，再看一眼括號」是 DSE 的必考習慣：很多題目抽完之後，括號內還有平方差或完全平方。",
         "en": "“Take out the common factor, then look at the bracket again” is a DSE habit worth keeping: many questions hide a difference of squares or a perfect square inside."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "驗算：展開對回，順便刪選項",
+          "en": "Check: expand back, and delete by inspection"
+         },
+         "zh": "展開驗算：$2(m+4)(m-4)=2(m^{2}-16)=2m^{2}-32$，對回原式。想快一點可以先看選項：B 的括號未分完、D 的第一個括號仍有公因式 $2$，凡未「分得徹底」的都可以先刪。",
+         "en": "Expand to check: $2(m+4)(m-4)=2(m^{2}-16)=2m^{2}-32$, back to the original. For speed, scan the options first: B leaves the bracket unfactorised and D still has a common factor $2$ in the first bracket — anything not factorised completely can be deleted at once."
+        }
+       ]
       },
       "answer": "A",
       "verify": "checked"
@@ -1059,7 +1157,17 @@ window.LEARN_TOPIC_WS01 = {
        "tip": {
         "zh": "見到兩項而且中間是減號，先檢查兩項的係數是否完全平方數（例如 $1, 4, 9, 16, 25$）。",
         "en": "When there are two terms with a minus between them, first check whether the coefficients are perfect squares (1, 4, 9, 16, 25, ...)."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "驗算：平方差的「一加一減」形狀",
+          "en": "Check: the one-plus-one-minus shape"
+         },
+         "zh": "快速檢查：平方差的兩個括號一定「一加一減」，其餘完全相同，所以答案必須長成 $(3x+5y)(3x-5y)$。A 是完全平方；B、D 展開後會多出 $xy$ 項（原式沒有中間項），三個都可以即時刪去。",
+         "en": "Quick check: the two brackets of a difference of two squares are always “one plus, one minus” with everything else identical, so the answer must look like $(3x+5y)(3x-5y)$. A is a perfect square, and B and D gain an $xy$ term the original does not have — all three can be deleted on sight."
+        }
+       ]
       },
       "answer": "C",
       "verify": "checked"
@@ -1338,7 +1446,17 @@ window.LEARN_TOPIC_WS01 = {
        "tip": {
         "zh": "見到 $2y-x$ 與 $x-2y$ 這對「次序倒轉」的括號，記住 $2y-x=-(x-2y)$，變號後就能分組。",
         "en": "When you see $2y-x$ next to $x-2y$, remember $2y-x=-(x-2y)$; after flipping the sign you can group."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "驗算：代 $x=1$、$y=2$",
+          "en": "Check: substitute $x=1$, $y=2$"
+         },
+         "zh": "代值驗算：取 $x=1$、$y=2$。原式 $=(1-4)^{2}-(4-1)=9-3=6$；答案 $(x-2y)(x-2y+1)=(-3)(-2)=6$。其餘選項分別得 $12$、$27$、$-10$，全部不符 —— 次序倒轉的題目做完，代一組值是最後保險。",
+         "en": "Substitute values: $x=1$, $y=2$. The original is $(1-4)^{2}-(4-1)=9-3=6$; the answer gives $(x-2y)(x-2y+1)=(-3)(-2)=6$. The other options give $12$, $27$ and $-10$. After a reversed-order question, one substitution is the final safety net."
+        }
+       ]
       },
       "answer": "B",
       "verify": "checked"
@@ -1541,7 +1659,17 @@ window.LEARN_TOPIC_WS01 = {
        "tip": {
         "zh": "$h+a$ 與 $a+h$ 是同一個數。分組後括號「次序倒轉」不算失敗，直接當成相同公因式抽走。",
         "en": "$h+a$ and $a+h$ are the same expression. A “reversed order” bracket after grouping is not a failure — treat it as the common factor."
-       }
+       },
+       "alt": [
+        {
+         "name": {
+          "zh": "驗算：代 $h=2$、$a=3$、$k=5$",
+          "en": "Check: substitute $h=2$, $a=3$, $k=5$"
+         },
+         "zh": "代值驗算：取 $h=2$、$a=3$、$k=5$。原式 $=4+15+6+10=35$；答案 $(a+h)(h+k)=5\\times7=35$。其餘選項分別得 $-15$、$7$、$56$，全部不符。四個字母的題目最易抄錯，代一組小數字一次過驗完。",
+         "en": "Substitute values: $h=2$, $a=3$, $k=5$. The original is $4+15+6+10=35$; the answer gives $(a+h)(h+k)=5\\times7=35$. The other options give $-15$, $7$ and $56$. Four-letter questions are the easiest place to mis-copy, so one substitution checks everything."
+        }
+       ]
       },
       "answer": "B",
       "verify": "checked"

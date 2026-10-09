@@ -132,8 +132,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：四項，先分組",
-          "en": "Four terms: group them"
+          "zh": "第 1 步 · 認題：四項，先分組",
+          "en": "Step 1 · Four terms: group them"
          },
          "math": "ac-bc-ad+bd=(ac-bc)-(ad-bd)",
          "zh": "四項又沒有全部共同的公因式 → 用分組。把 $ac$、$bc$ 放一組（有公因式 $c$），$ad$、$bd$ 放一組（有公因式 $d$）。",
@@ -141,8 +141,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "兩組各自抽公因式",
-          "en": "Factor each pair"
+          "zh": "第 2 步 · 兩組各自抽公因式",
+          "en": "Step 2 · Factor each pair"
          },
          "math": "=c(a-b)-d(a-b)",
          "zh": "第一組抽 $c$ 得 $c(a-b)$；第二組抽 $d$ 得 $d(a-b)$。兩組的括號都是 $(a-b)$ —— 這就是分組成功的訊號。",
@@ -150,8 +150,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走相同括號",
-          "en": "Take out the common bracket"
+          "zh": "第 3 步 · 抽走相同括號",
+          "en": "Step 3 · Take out the common bracket"
          },
          "math": "=(a-b)(c-d)",
          "zh": "把 $(a-b)$ 當作一個整體抽走，剩下 $c-d$ 放進另一個括號。",
@@ -217,8 +217,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：四項，先分組",
-          "en": "Four terms: group them"
+          "zh": "第 1 步 · 認題：四項，先分組",
+          "en": "Step 1 · Four terms: group them"
          },
          "math": "pr+ps-qs-qr=(pr+ps)-(qs+qr)",
          "zh": "四項沒有全部共同的公因式 → 分組。$pr$、$ps$ 一組抽 $p$；$qs$、$qr$ 一組抽 $q$。",
@@ -226,8 +226,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "兩組各自抽公因式",
-          "en": "Factor each pair"
+          "zh": "第 2 步 · 兩組各自抽公因式",
+          "en": "Step 2 · Factor each pair"
          },
          "math": "=p(r+s)-q(s+r)",
          "zh": "$s+r$ 與 $r+s$ 是同一個數（加法交換律），所以兩個括號其實一樣。",
@@ -235,8 +235,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走相同括號",
-          "en": "Take out the common bracket"
+          "zh": "第 3 步 · 抽走相同括號",
+          "en": "Step 3 · Take out the common bracket"
          },
          "math": "=(r+s)(p-q)",
          "zh": "抽走 $(r+s)$，剩下 $p-q$。",
@@ -302,8 +302,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：四項，留意共同括號",
-          "en": "Four terms: look for a common bracket"
+          "zh": "第 1 步 · 認題：四項，留意共同括號",
+          "en": "Step 1 · Four terms: look for a common bracket"
          },
          "math": "2xy-xz+4y^{2}-2yz",
          "zh": "先把第一、三項（都有 $2y$）與第二、四項（都有 $z$）分開想：$2y(x+2y)$ 與 $z(x+2y)$。",
@@ -311,8 +311,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "分組後各自抽公因式",
-          "en": "Factor each pair"
+          "zh": "第 2 步 · 分組後各自抽公因式",
+          "en": "Step 2 · Factor each pair"
          },
          "math": "=x(2y-z)+2y(2y-z)",
          "zh": "照位置分組：$2xy-xz=x(2y-z)$，$4y^{2}-2yz=2y(2y-z)$。兩組都是 $(2y-z)$ ✓",
@@ -320,8 +320,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走相同括號",
-          "en": "Take out the common bracket"
+          "zh": "第 3 步 · 抽走相同括號",
+          "en": "Step 3 · Take out the common bracket"
          },
          "math": "=(x+2y)(2y-z)",
          "zh": "抽走 $(2y-z)$，剩下 $x+2y$。",
@@ -389,8 +389,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：四項，先調位再分組",
-          "en": "Four terms: rearrange, then group"
+          "zh": "第 1 步 · 認題：四項，先調位再分組",
+          "en": "Step 1 · Four terms: rearrange, then group"
          },
          "math": "pq-2pr-p^{2}+2qr=pq+2qr-p^{2}-2pr",
          "zh": "直接把首兩項一組會抽不出共同括號；把 $+2qr$ 調上前，令 $pq+2qr=q(p+2r)$ 與 $p^{2}+2pr=p(p+2r)$ 配成一對。",
@@ -398,8 +398,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "兩組各自抽公因式",
-          "en": "Factor each pair"
+          "zh": "第 2 步 · 兩組各自抽公因式",
+          "en": "Step 2 · Factor each pair"
          },
          "math": "=q(p+2r)-p(p+2r)",
          "zh": "第一組抽 $q$、第二組抽 $p$，兩組都出現 $(p+2r)$。",
@@ -407,8 +407,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走相同括號",
-          "en": "Take out the common bracket"
+          "zh": "第 3 步 · 抽走相同括號",
+          "en": "Step 3 · Take out the common bracket"
          },
          "math": "=(q-p)(p+2r)",
          "zh": "抽走 $(p+2r)$，剩下 $q-p$（次序是 $q$ 減 $p$，因為第二組前面是負號）。",
@@ -474,8 +474,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：四項，先調位",
-          "en": "Four terms: rearrange first"
+          "zh": "第 1 步 · 認題：四項，先調位",
+          "en": "Step 1 · Four terms: rearrange first"
          },
          "math": "6xy-2yz+4xz-3y^{2}=6xy+4xz-3y^{2}-2yz",
          "zh": "把 $+4xz$ 調上第二個位置：$6xy+4xz=2x(3y+2z)$。",
@@ -483,8 +483,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "兩組各自抽公因式",
-          "en": "Factor each pair"
+          "zh": "第 2 步 · 兩組各自抽公因式",
+          "en": "Step 2 · Factor each pair"
          },
          "math": "=2x(3y+2z)-y(3y+2z)",
          "zh": "$-3y^{2}-2yz=-y(3y+2z)$：抽 $-y$ 會令括號內兩項同時變號，剛好與第一組相同。",
@@ -492,8 +492,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走相同括號",
-          "en": "Take out the common bracket"
+          "zh": "第 3 步 · 抽走相同括號",
+          "en": "Step 3 · Take out the common bracket"
          },
          "math": "=(2x-y)(3y+2z)",
          "zh": "抽走 $(3y+2z)$，剩下 $2x-y$。",
@@ -559,8 +559,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：六項，試抽共同括號",
-          "en": "Six terms: look for a shared bracket"
+          "zh": "第 1 步 · 認題：六項，試抽共同括號",
+          "en": "Step 1 · Six terms: look for a shared bracket"
          },
          "math": "pr-qr-ps+qs+pt-qt\n=r(p-q)-s(p-q)+t(p-q)",
          "zh": "第一、二項抽 $r$、第三、四項抽 $-s$、第五、六項抽 $t$ —— 三個括號都是 $(p-q)$。",
@@ -568,8 +568,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "檢查抽出的符號",
-          "en": "Check the signs you took out"
+          "zh": "第 2 步 · 檢查抽出的符號",
+          "en": "Step 2 · Check the signs you took out"
          },
          "math": "=r(p-q)-s(p-q)+t(p-q)",
          "zh": "$-ps+qs=-s(p-q)$（抽 $-s$，括號內兩項都變號）；這一步是這題唯一易錯位。",
@@ -577,8 +577,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走 $(p-q)$",
-          "en": "Take out $(p-q)$"
+          "zh": "第 3 步 · 抽走 $(p-q)$",
+          "en": "Step 3 · Take out $(p-q)$"
          },
          "math": "=(p-q)(r-s+t)",
          "zh": "把 $(p-q)$ 抽走，剩下的 $r$、$-s$、$+t$ 全部放進同一個括號。",
@@ -646,8 +646,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：六項，先排好次序",
-          "en": "Six terms: order them first"
+          "zh": "第 1 步 · 認題：六項，先排好次序",
+          "en": "Step 1 · Six terms: order them first"
          },
          "math": "-bx+ax+ay-by-az+bz=ax+ay-az-bx-by+bz",
          "zh": "含 $a$ 的三項放前面、含 $b$ 的三項放後面：$a(x+y-z)-b(x+y-z)$。",
@@ -655,8 +655,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "兩邊各自抽公因式",
-          "en": "Factor both halves"
+          "zh": "第 2 步 · 兩邊各自抽公因式",
+          "en": "Step 2 · Factor both halves"
          },
          "math": "=a(x+y-z)-b(x+y-z)",
          "zh": "抽 $a$ 時 $+ax+ay-az=a(x+y-z)$；抽 $-b$ 時 $-bx-by+bz=-b(x+y-z)$（三項同時變號）。",
@@ -664,8 +664,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走相同括號",
-          "en": "Take out the common bracket"
+          "zh": "第 3 步 · 抽走相同括號",
+          "en": "Step 3 · Take out the common bracket"
          },
          "math": "=(a-b)(x+y-z)",
          "zh": "抽走 $(x+y-z)$，剩下 $a-b$。",
@@ -731,8 +731,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：先製造共同括號",
-          "en": "Make a common bracket appear"
+          "zh": "第 1 步 · 認題：先製造共同括號",
+          "en": "Step 1 · Make a common bracket appear"
          },
          "math": "x(12x-9y)=3x(4x-3y)",
          "zh": "看似要展開重做，其實不用：$12x-9y=3(4x-3y)$，所以 $-x(12x-9y)=-3x(4x-3y)$，與前面那項共用 $(4x-3y)$。",
@@ -740,8 +740,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走共同括號",
-          "en": "Take out the common bracket"
+          "zh": "第 2 步 · 抽走共同括號",
+          "en": "Step 2 · Take out the common bracket"
          },
          "math": "=(4x-3y)(2x+7y)-3x(4x-3y)",
          "zh": "兩項合併後是同一個括號乘以 $(2x+7y-3x)$。",
@@ -749,8 +749,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "化簡括號內",
-          "en": "Simplify inside the bracket"
+          "zh": "第 3 步 · 化簡括號內",
+          "en": "Step 3 · Simplify inside the bracket"
          },
          "math": "=(4x-3y)(-x+7y)",
          "zh": "$2x-3x=-x$，所以係數是 $-x+7y$。",
@@ -816,8 +816,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：先製造共同括號",
-          "en": "Make a common bracket appear"
+          "zh": "第 1 步 · 認題：先製造共同括號",
+          "en": "Step 1 · Make a common bracket appear"
          },
          "math": "3u(10u-12v)=6u(5u-6v)",
          "zh": "$10u-12v=2(5u-6v)$，所以 $3u(10u-12v)=6u(5u-6v)$，與前面共用 $(5u-6v)$。",
@@ -825,8 +825,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走共同括號",
-          "en": "Take out the common bracket"
+          "zh": "第 2 步 · 抽走共同括號",
+          "en": "Step 2 · Take out the common bracket"
          },
          "math": "=(5u-6v)(7u-4v-6u)",
          "zh": "第一個括號 $(7u-4v)$ 減去 $6u$。",
@@ -834,8 +834,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "化簡括號內",
-          "en": "Simplify inside"
+          "zh": "第 3 步 · 化簡括號內",
+          "en": "Step 3 · Simplify inside"
          },
          "math": "=(5u-6v)(u-4v)",
          "zh": "$7u-6u=u$，所以係數是 $u-4v$。",
@@ -903,8 +903,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：平方差",
-          "en": "Recognise the difference of two squares"
+          "zh": "第 1 步 · 認題：平方差",
+          "en": "Step 1 · Recognise the difference of two squares"
          },
          "math": "36-(3x-2y)^{2}=6^{2}-(3x-2y)^{2}",
          "zh": "$36=6^{2}$，整條就是 $a^{2}-b^{2}$ 的形態（$a=6$，$b=3x-2y$）。",
@@ -912,8 +912,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "套公式：$a^{2}-b^{2}=(a+b)(a-b)$",
-          "en": "Apply $a^{2}-b^{2}=(a+b)(a-b)$"
+          "zh": "第 2 步 · 套公式：$a^{2}-b^{2}=(a+b)(a-b)$",
+          "en": "Step 2 · Apply $a^{2}-b^{2}=(a+b)(a-b)$"
          },
          "math": "=(6-(3x-2y))(6+(3x-2y))",
          "zh": "$b$ 是整條 $(3x-2y)$，所以要加括號：$6-b$ 與 $6+b$。",
@@ -921,8 +921,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "拆括號（小心負號）",
-          "en": "Remove the brackets (watch the minus)"
+          "zh": "第 3 步 · 拆括號（小心負號）",
+          "en": "Step 3 · Remove the brackets (watch the minus)"
          },
          "math": "=(6-3x+2y)(6+3x-2y)",
          "zh": "$6-(3x-2y)=6-3x+2y$：括號前面是減號，$2y$ 要變號。",
@@ -988,8 +988,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：平方差",
-          "en": "Recognise the difference of two squares"
+          "zh": "第 1 步 · 認題：平方差",
+          "en": "Step 1 · Recognise the difference of two squares"
          },
          "math": "49-(4r-3s)^{2}=7^{2}-(4r-3s)^{2}",
          "zh": "$49=7^{2}$，$a=7$、$b=4r-3s$。",
@@ -997,8 +997,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "套公式",
-          "en": "Apply the identity"
+          "zh": "第 2 步 · 套公式",
+          "en": "Step 2 · Apply the identity"
          },
          "math": "=(7-(4r-3s))(7+(4r-3s))",
          "zh": "$(a+b)(a-b)$，$b$ 保留括號。",
@@ -1006,8 +1006,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "拆括號",
-          "en": "Remove the brackets"
+          "zh": "第 3 步 · 拆括號",
+          "en": "Step 3 · Remove the brackets"
          },
          "math": "=(7-4r+3s)(7+4r-3s)",
          "zh": "$7-(4r-3s)=7-4r+3s$（$-3s$ 變 $+3s$）；第二個括號直接去掉：$7+4r-3s$。",
@@ -1073,8 +1073,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：平方差（也可展開）",
-          "en": "Spot the difference of two squares"
+          "zh": "第 1 步 · 認題：平方差（也可展開）",
+          "en": "Step 1 · Spot the difference of two squares"
          },
          "math": "(3p+q)^{2}-(3p-q)^{2}",
          "zh": "$a=3p+q$、$b=3p-q$：這是 $a^{2}-b^{2}$，用公式最快。",
@@ -1082,8 +1082,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "用 $a^{2}-b^{2}=(a+b)(a-b)$",
-          "en": "Use $a^{2}-b^{2}=(a+b)(a-b)$"
+          "zh": "第 2 步 · 用 $a^{2}-b^{2}=(a+b)(a-b)$",
+          "en": "Step 2 · Use $a^{2}-b^{2}=(a+b)(a-b)$"
          },
          "math": "=((3p+q)+(3p-q))((3p+q)-(3p-q))",
          "zh": "先寫成兩個括號相乘，才化簡。",
@@ -1091,8 +1091,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "化簡",
-          "en": "Simplify"
+          "zh": "第 3 步 · 化簡",
+          "en": "Step 3 · Simplify"
          },
          "math": "=(6p)(2q)=12pq",
          "zh": "$3p+q+3p-q=6p$；$3p+q-3p+q=2q$。乘起來是 $12pq$。",
@@ -1168,8 +1168,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：平方差",
-          "en": "Spot the difference of two squares"
+          "zh": "第 1 步 · 認題：平方差",
+          "en": "Step 1 · Spot the difference of two squares"
          },
          "math": "(2a-5b)^{2}-(2a+5b)^{2}",
          "zh": "$a=2a-5b$、$b=2a+5b$，用 $a^{2}-b^{2}=(a+b)(a-b)$。",
@@ -1177,8 +1177,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "先化簡兩個括號",
-          "en": "Simplify the two brackets first"
+          "zh": "第 2 步 · 先化簡兩個括號",
+          "en": "Step 2 · Simplify the two brackets first"
          },
          "math": "=((2a-5b)+(2a+5b))((2a-5b)-(2a+5b))",
          "zh": "第一個括號相加、第二個相減。",
@@ -1186,8 +1186,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "化簡",
-          "en": "Simplify"
+          "zh": "第 3 步 · 化簡",
+          "en": "Step 3 · Simplify"
          },
          "math": "=(4a)(-10b)=-40ab",
          "zh": "$2a-5b+2a+5b=4a$；$2a-5b-2a-5b=-10b$。$4a\\times(-10b)=-40ab$。",
@@ -1261,8 +1261,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：前三項是二次三項式，先十字相乘",
-          "en": "The first three terms are a quadratic: use the cross-method"
+          "zh": "第 1 步 · 認題：前三項是二次三項式，先十字相乘",
+          "en": "Step 1 · The first three terms are a quadratic: use the cross-method"
          },
          "math": "x^{2}+xy-2y^{2}=(x-y)(x+2y)",
          "zh": "把 $x^{2}+xy-2y^{2}$ 分解：交叉相乘 $(x)(2y)+(-y)(x)=2xy-xy=xy$ ✓",
@@ -1270,8 +1270,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "留意最後兩項 $+x-y$",
-          "en": "Look at the last two terms $+x-y$"
+          "zh": "第 2 步 · 留意最後兩項 $+x-y$",
+          "en": "Step 2 · Look at the last two terms $+x-y$"
          },
          "math": "=(x-y)(x+2y)+(x-y)",
          "zh": "$+x-y=+(x-y)$：就是 $(x-y)$ 這個括號本身。",
@@ -1279,8 +1279,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走 $(x-y)$",
-          "en": "Take out $(x-y)$"
+          "zh": "第 3 步 · 抽走 $(x-y)$",
+          "en": "Step 3 · Take out $(x-y)$"
          },
          "math": "=(x-y)(x+2y+1)",
          "zh": "抽走 $(x-y)$，剩下 $(x+2y)$ 與 $+1$。",
@@ -1346,8 +1346,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "前三項：十字相乘",
-          "en": "First three terms: cross-method"
+          "zh": "第 1 步 · 前三項：十字相乘",
+          "en": "Step 1 · First three terms: cross-method"
          },
          "math": "x^{2}-3xy-10y^{2}=(x-5y)(x+2y)",
          "zh": "交叉相乘 $(x)(2y)+(-5y)(x)=2xy-5xy=-3xy$ ✓ 與題目的 $-3xy$ 相符。",
@@ -1355,8 +1355,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "後兩項：抽出同一個括號",
-          "en": "Last two terms: factor out the same bracket"
+          "zh": "第 2 步 · 後兩項：抽出同一個括號",
+          "en": "Step 2 · Last two terms: factor out the same bracket"
          },
          "math": "=(x-5y)(x+2y)+3(x-5y)",
          "zh": "$+3x-15y=+3(x-5y)$：正是前面那個括號的 $3$ 倍。",
@@ -1364,8 +1364,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走 $(x-5y)$",
-          "en": "Take out $(x-5y)$"
+          "zh": "第 3 步 · 抽走 $(x-5y)$",
+          "en": "Step 3 · Take out $(x-5y)$"
          },
          "math": "=(x-5y)(x+2y+3)",
          "zh": "抽走 $(x-5y)$，剩下 $(x+2y)$ 與 $+3$。",
@@ -1433,8 +1433,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "前三項：十字相乘",
-          "en": "First three terms: cross-method"
+          "zh": "第 1 步 · 前三項：十字相乘",
+          "en": "Step 1 · First three terms: cross-method"
          },
          "math": "5a^{2}-8ab+3b^{2}=(a-b)(5a-3b)",
          "zh": "交叉相乘 $(a)(-3b)+(-b)(5a)=-3ab-5ab=-8ab$ ✓",
@@ -1442,8 +1442,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "後兩項：$b-a=-(a-b)$",
-          "en": "Last two terms: $b-a=-(a-b)$"
+          "zh": "第 2 步 · 後兩項：$b-a=-(a-b)$",
+          "en": "Step 2 · Last two terms: $b-a=-(a-b)$"
          },
          "math": "=(a-b)(5a-3b)-(a-b)",
          "zh": "$+b-a=-(a-b)$：抽 $-1$ 出來，括號就與前面相同。",
@@ -1451,8 +1451,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走 $(a-b)$",
-          "en": "Take out $(a-b)$"
+          "zh": "第 3 步 · 抽走 $(a-b)$",
+          "en": "Step 3 · Take out $(a-b)$"
          },
          "math": "=(a-b)(5a-3b-1)",
          "zh": "抽走 $(a-b)$，剩下 $(5a-3b)$ 與 $-1$。",
@@ -1518,8 +1518,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：先製造平方差",
-          "en": "Create a difference of two squares"
+          "zh": "第 1 步 · 認題：先製造平方差",
+          "en": "Step 1 · Create a difference of two squares"
          },
          "math": "x^{2}-y^{2}+4y-4=x^{2}-(y^{2}-4y+4)",
          "zh": "把後三項一齊加括號並在前面加負號：$-y^{2}+4y-4=-(y^{2}-4y+4)$。",
@@ -1527,8 +1527,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "括號內是完全平方",
-          "en": "The bracket is a perfect square"
+          "zh": "第 2 步 · 括號內是完全平方",
+          "en": "Step 2 · The bracket is a perfect square"
          },
          "math": "=x^{2}-(y-2)^{2}",
          "zh": "$y^{2}-4y+4=(y)^{2}-2(y)(2)+2^{2}=(y-2)^{2}$。",
@@ -1536,8 +1536,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "平方差",
-          "en": "Difference of two squares"
+          "zh": "第 3 步 · 平方差",
+          "en": "Step 3 · Difference of two squares"
          },
          "math": "=(x-(y-2))(x+(y-2))=(x-y+2)(x+y-2)",
          "zh": "$a=x$、$b=y-2$；拆括號時只有「減那個」變號：$x-y+2$。",
@@ -1603,8 +1603,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：先製造平方差",
-          "en": "Create a difference of two squares"
+          "zh": "第 1 步 · 認題：先製造平方差",
+          "en": "Step 1 · Create a difference of two squares"
          },
          "math": "m^{2}-9n^{2}-6n-1=m^{2}-(9n^{2}+6n+1)",
          "zh": "把最後三項一齊加括號並在前面加負號。",
@@ -1612,8 +1612,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "括號內是完全平方",
-          "en": "The bracket is a perfect square"
+          "zh": "第 2 步 · 括號內是完全平方",
+          "en": "Step 2 · The bracket is a perfect square"
          },
          "math": "=m^{2}-(3n+1)^{2}",
          "zh": "$9n^{2}+6n+1=(3n)^{2}+2(3n)(1)+1^{2}=(3n+1)^{2}$。",
@@ -1621,8 +1621,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "平方差",
-          "en": "Difference of two squares"
+          "zh": "第 3 步 · 平方差",
+          "en": "Step 3 · Difference of two squares"
          },
          "math": "=(m+(3n+1))(m-(3n+1))\n=(m+3n+1)(m-3n-1)",
          "zh": "$a=m$、$b=3n+1$；$m-(3n+1)=m-3n-1$（負號要整條分配）。",
@@ -1690,8 +1690,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "認題：先製造平方差",
-          "en": "Create a difference of two squares"
+          "zh": "第 1 步 · 認題：先製造平方差",
+          "en": "Step 1 · Create a difference of two squares"
          },
          "math": "16-4a^{2}+20ab-25b^{2}\n=4^{2}-(4a^{2}-20ab+25b^{2})",
          "zh": "$-4a^{2}+20ab-25b^{2}=-(4a^{2}-20ab+25b^{2})$：三項同時變號。",
@@ -1699,8 +1699,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "括號內是完全平方",
-          "en": "The bracket is a perfect square"
+          "zh": "第 2 步 · 括號內是完全平方",
+          "en": "Step 2 · The bracket is a perfect square"
          },
          "math": "=4^{2}-(2a-5b)^{2}",
          "zh": "$4a^{2}-20ab+25b^{2}=(2a)^{2}-2(2a)(5b)+(5b)^{2}=(2a-5b)^{2}$。",
@@ -1708,8 +1708,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "平方差",
-          "en": "Difference of two squares"
+          "zh": "第 3 步 · 平方差",
+          "en": "Step 3 · Difference of two squares"
          },
          "math": "=(4-(2a-5b))(4+(2a-5b))\n=(4-2a+5b)(4+2a-5b)",
          "zh": "$4-(2a-5b)=4-2a+5b$：$-5b$ 變 $+5b$。",
@@ -1775,8 +1775,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "平方差",
-          "en": "Difference of two squares"
+          "zh": "第 1 步 · 平方差",
+          "en": "Step 1 · Difference of two squares"
          },
          "math": "x^{2}-y^{2}-x+y=(x-y)(x+y)-(x-y)",
          "zh": "$x^{2}-y^{2}=(x-y)(x+y)$；而 $-x+y=-(x-y)$。",
@@ -1784,8 +1784,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "兩項出現同一個括號",
-          "en": "The same bracket appears twice"
+          "zh": "第 2 步 · 兩項出現同一個括號",
+          "en": "Step 2 · The same bracket appears twice"
          },
          "math": "=(x-y)(x+y)-(x-y)",
          "zh": "兩項都有 $(x-y)$ —— 第二項其實是 $(x-y)$ 的 $1$ 倍。",
@@ -1793,8 +1793,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走 $(x-y)$",
-          "en": "Take out $(x-y)$"
+          "zh": "第 3 步 · 抽走 $(x-y)$",
+          "en": "Step 3 · Take out $(x-y)$"
          },
          "math": "=(x-y)(x+y-1)",
          "zh": "抽走之後剩下 $(x+y)$ 與 $-1$。",
@@ -1860,8 +1860,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "平方差",
-          "en": "Difference of two squares"
+          "zh": "第 1 步 · 平方差",
+          "en": "Step 1 · Difference of two squares"
          },
          "math": "u^{2}-v^{2}-3u-3v=(u+v)(u-v)-3(u+v)",
          "zh": "$-(3u+3v)=-3(u+v)$：負號連 $-3$ 一起抽出。",
@@ -1869,8 +1869,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "兩項出現同一個括號",
-          "en": "The same bracket appears twice"
+          "zh": "第 2 步 · 兩項出現同一個括號",
+          "en": "Step 2 · The same bracket appears twice"
          },
          "math": "=(u+v)(u-v)-3(u+v)",
          "zh": "兩項都是 $(u+v)$ 的倍數。",
@@ -1878,8 +1878,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走 $(u+v)$",
-          "en": "Take out $(u+v)$"
+          "zh": "第 3 步 · 抽走 $(u+v)$",
+          "en": "Step 3 · Take out $(u+v)$"
          },
          "math": "=(u+v)(u-v-3)",
          "zh": "抽走 $(u+v)$，剩下 $(u-v)$ 與 $-3$。",
@@ -1947,8 +1947,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "平方差",
-          "en": "Difference of two squares"
+          "zh": "第 1 步 · 平方差",
+          "en": "Step 1 · Difference of two squares"
          },
          "math": "4p^{2}-q^{2}+8p-4q=(2p-q)(2p+q)+4(2p-q)",
          "zh": "$4p^{2}-q^{2}=(2p-q)(2p+q)$；而 $+8p-4q=+4(2p-q)$。",
@@ -1956,8 +1956,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "兩項出現同一個括號",
-          "en": "The same bracket appears twice"
+          "zh": "第 2 步 · 兩項出現同一個括號",
+          "en": "Step 2 · The same bracket appears twice"
          },
          "math": "=(2p-q)(2p+q)+4(2p-q)",
          "zh": "兩項都有 $(2p-q)$。",
@@ -1965,8 +1965,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走 $(2p-q)$",
-          "en": "Take out $(2p-q)$"
+          "zh": "第 3 步 · 抽走 $(2p-q)$",
+          "en": "Step 3 · Take out $(2p-q)$"
          },
          "math": "=(2p-q)(2p+q+4)",
          "zh": "抽走 $(2p-q)$，剩下 $(2p+q)$ 與 $+4$。",
@@ -2032,8 +2032,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "平方差",
-          "en": "Difference of two squares"
+          "zh": "第 1 步 · 平方差",
+          "en": "Step 1 · Difference of two squares"
          },
          "math": "9m^{2}-4n^{2}-6m-4n\n=(3m+2n)(3m-2n)-2(3m+2n)",
          "zh": "$9m^{2}-4n^{2}=(3m+2n)(3m-2n)$；$-(6m+4n)=-2(3m+2n)$。",
@@ -2041,8 +2041,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "兩項出現同一個括號",
-          "en": "The same bracket appears twice"
+          "zh": "第 2 步 · 兩項出現同一個括號",
+          "en": "Step 2 · The same bracket appears twice"
          },
          "math": "=(3m+2n)(3m-2n)-2(3m+2n)",
          "zh": "兩項都有 $(3m+2n)$。",
@@ -2050,8 +2050,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走 $(3m+2n)$",
-          "en": "Take out $(3m+2n)$"
+          "zh": "第 3 步 · 抽走 $(3m+2n)$",
+          "en": "Step 3 · Take out $(3m+2n)$"
          },
          "math": "=(3m+2n)(3m-2n-2)",
          "zh": "抽走 $(3m+2n)$，剩下 $(3m-2n)$ 與 $-2$。",
@@ -2117,8 +2117,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "調位再平方差",
-          "en": "Rearrange and use the difference of two squares"
+          "zh": "第 1 步 · 調位再平方差",
+          "en": "Step 1 · Rearrange and use the difference of two squares"
          },
          "math": "a^{2}+a-b^{2}-b=a^{2}-b^{2}+a-b",
          "zh": "把 $a^{2}$ 與 $-b^{2}$ 拉在一起：$a^{2}-b^{2}=(a-b)(a+b)$。",
@@ -2126,8 +2126,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "剩下兩項抽公因式",
-          "en": "Factor what is left"
+          "zh": "第 2 步 · 剩下兩項抽公因式",
+          "en": "Step 2 · Factor what is left"
          },
          "math": "=(a-b)(a+b)+(a-b)",
          "zh": "$+a-b=+(a-b)$，正是前面那個括號。",
@@ -2135,8 +2135,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走 $(a-b)$",
-          "en": "Take out $(a-b)$"
+          "zh": "第 3 步 · 抽走 $(a-b)$",
+          "en": "Step 3 · Take out $(a-b)$"
          },
          "math": "=(a-b)(a+b+1)",
          "zh": "抽走 $(a-b)$，剩下 $(a+b)$ 與 $+1$。",
@@ -2204,8 +2204,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "調位再平方差",
-          "en": "Rearrange and use the difference of two squares"
+          "zh": "第 1 步 · 調位再平方差",
+          "en": "Step 1 · Rearrange and use the difference of two squares"
          },
          "math": "m^{2}+n-m-n^{2}=m^{2}-n^{2}-m+n",
          "zh": "$m^{2}-n^{2}=(m-n)(m+n)$。",
@@ -2213,8 +2213,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "剩下兩項抽負公因式",
-          "en": "Factor the remaining pair"
+          "zh": "第 2 步 · 剩下兩項抽負公因式",
+          "en": "Step 2 · Factor the remaining pair"
          },
          "math": "=(m-n)(m+n)-(m-n)",
          "zh": "$-m+n=-(m-n)$：抽 $-1$ 出來才對得上。",
@@ -2222,8 +2222,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走 $(m-n)$",
-          "en": "Take out $(m-n)$"
+          "zh": "第 3 步 · 抽走 $(m-n)$",
+          "en": "Step 3 · Take out $(m-n)$"
          },
          "math": "=(m-n)(m+n-1)",
          "zh": "抽走 $(m-n)$，剩下 $(m+n)$ 與 $-1$。",
@@ -2289,8 +2289,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "調位再平方差",
-          "en": "Rearrange and use the difference of two squares"
+          "zh": "第 1 步 · 調位再平方差",
+          "en": "Step 1 · Rearrange and use the difference of two squares"
          },
          "math": "h^{2}-4h-k^{2}+4k=h^{2}-k^{2}-4h+4k",
          "zh": "$h^{2}-k^{2}=(h-k)(h+k)$；$-4h+4k=-4(h-k)$。",
@@ -2298,8 +2298,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "兩項出現同一個括號",
-          "en": "The same bracket appears twice"
+          "zh": "第 2 步 · 兩項出現同一個括號",
+          "en": "Step 2 · The same bracket appears twice"
          },
          "math": "=(h-k)(h+k)-4(h-k)",
          "zh": "兩項都有 $(h-k)$。",
@@ -2307,8 +2307,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走 $(h-k)$",
-          "en": "Take out $(h-k)$"
+          "zh": "第 3 步 · 抽走 $(h-k)$",
+          "en": "Step 3 · Take out $(h-k)$"
          },
          "math": "=(h-k)(h+k-4)",
          "zh": "抽走 $(h-k)$，剩下 $(h+k)$ 與 $-4$。",
@@ -2374,8 +2374,8 @@ window.LEARN_TOPIC_WS01B = {
        "steps": [
         {
          "title": {
-          "zh": "調位再平方差",
-          "en": "Rearrange and use the difference of two squares"
+          "zh": "第 1 步 · 調位再平方差",
+          "en": "Step 1 · Rearrange and use the difference of two squares"
          },
          "math": "m^{2}-2m-9n^{2}-6n=m^{2}-9n^{2}-2m-6n",
          "zh": "$m^{2}-9n^{2}=(m+3n)(m-3n)$；$-(2m+6n)=-2(m+3n)$。",
@@ -2383,8 +2383,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "兩項出現同一個括號",
-          "en": "The same bracket appears twice"
+          "zh": "第 2 步 · 兩項出現同一個括號",
+          "en": "Step 2 · The same bracket appears twice"
          },
          "math": "=(m+3n)(m-3n)-2(m+3n)",
          "zh": "兩項都有 $(m+3n)$。",
@@ -2392,8 +2392,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "抽走 $(m+3n)$",
-          "en": "Take out $(m+3n)$"
+          "zh": "第 3 步 · 抽走 $(m+3n)$",
+          "en": "Step 3 · Take out $(m+3n)$"
          },
          "math": "=(m+3n)(m-3n-2)",
          "zh": "抽走 $(m+3n)$，剩下 $(m-3n)$ 與 $-2$。",

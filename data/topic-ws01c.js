@@ -107,8 +107,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 抽公因式",
-         "en": "Part (a): take out the common factor"
+         "zh": "第 1 步 · (a) 抽公因式",
+         "en": "Step 1 · (a) Take out the common factor"
         },
         "math": "x^{2}y+3xy^{2}=xy(x+3y)",
         "zh": "兩個單項的公因式是 $xy$（每個字母取最低次）。這一步的答案就是 (b) 的鎖匙。",
@@ -117,8 +117,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 搬 (a) 的答案，再配出同一個括號",
-         "en": "Part (b): reuse (a) and create the same bracket"
+         "zh": "第 2 步 · (b) 搬 (a) 的答案，再配出同一個括號",
+         "en": "Step 2 · (b) Reuse (a) and create the same bracket"
         },
         "math": "x^{2}y+3xy^{2}+2x+6y=xy(x+3y)+2x+6y\n=xy(x+3y)+2(x+3y)",
         "zh": "把 (a) 的結果直接搬過來；餘下的 $+2x+6y$ 抽 $2$ 得 $2(x+3y)$，與 (a) 的括號一致。",
@@ -127,8 +127,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走共同括號",
-         "en": "Take out the common bracket"
+         "zh": "第 3 步 · 抽走共同括號",
+         "en": "Step 3 · Take out the common bracket"
         },
         "math": "=(x+3y)(xy+2)",
         "zh": "抽走 $(x+3y)$，剩下 $xy+2$。",
@@ -201,8 +201,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 抽公因式",
-         "en": "Part (a): take out the common factor"
+         "zh": "第 1 步 · (a) 抽公因式",
+         "en": "Step 1 · (a) Take out the common factor"
         },
         "math": "2m^{2}n-4mn^{2}=2mn(m-2n)",
         "zh": "係數取 H.C.F.（$2$），字母取最低次（$mn$），所以公因式是 $2mn$。",
@@ -211,8 +211,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 用 (a) 的結果",
-         "en": "Part (b): use the result of (a)"
+         "zh": "第 2 步 · (b) 用 (a) 的結果",
+         "en": "Step 2 · (b) Use the result of (a)"
         },
         "math": "2m^{2}n-4mn^{2}-m+2n=2mn(m-2n)-m+2n\n=2mn(m-2n)-(m-2n)",
         "zh": "後兩項 $-m+2n=-(m-2n)$：負號要連 $-1$ 一起抽，括號才對得上 (a)。",
@@ -221,8 +221,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(m-2n)$",
-         "en": "Take out $(m-2n)$"
+         "zh": "第 3 步 · 抽走 $(m-2n)$",
+         "en": "Step 3 · Take out $(m-2n)$"
         },
         "math": "=(m-2n)(2mn-1)",
         "zh": "抽走 $(m-2n)$，剩下 $2mn-1$（那個 $-1$ 一定要寫，不可以消失）。",
@@ -301,8 +301,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a)(b) 兩部各自抽公因式／用平方差",
-         "en": "Parts (a) and (b): factor each simple expression"
+         "zh": "第 1 步 · (a)(b) 兩部各自抽公因式／用平方差",
+         "en": "Step 1 · Parts (a) and (b): factor each simple expression"
         },
         "math": "2b-ab=b(2-a)\n4-a^{2}=(2+a)(2-a)",
         "zh": "(a) 兩項都有 $b$；(b) 是平方差 $2^{2}-a^{2}$。兩部的答案都是 (c) 的材料。",
@@ -311,8 +311,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(c) 先分組，再用 (a)(b) 的答案",
-         "en": "Part (c): group, then substitute (a) and (b)"
+         "zh": "第 2 步 · (c) 先分組，再用 (a)(b) 的答案",
+         "en": "Step 2 · (c) Group, then substitute (a) and (b)"
         },
         "math": "4-a^{2}+2b-ab=(2+a)(2-a)+b(2-a)",
         "zh": "$4-a^{2}$ 用 (b) 的結果；$+2b-ab$ 用 (a) 的結果 $b(2-a)$（官方 marking：(c) 直接給 1A，分組那一步不另給分）。",
@@ -320,8 +320,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(2-a)$",
-         "en": "Take out $(2-a)$"
+         "zh": "第 3 步 · 抽走 $(2-a)$",
+         "en": "Step 3 · Take out $(2-a)$"
         },
         "math": "=(2-a)(2+a+b)",
         "zh": "兩項都有 $(2-a)$，抽走後剩下 $(2+a)$ 與 $b$。",
@@ -400,8 +400,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a)(b) 各自分解",
-         "en": "Parts (a) and (b)"
+         "zh": "第 1 步 · (a)(b) 各自分解",
+         "en": "Step 1 · Parts (a) and (b)"
         },
         "math": "4mn-3n=n(4m-3)\n16m^{2}-9=(4m+3)(4m-3)",
         "zh": "(a) 抽 $n$；(b) 平方差 $16m^{2}-9=(4m)^{2}-3^{2}$。",
@@ -410,8 +410,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(c) 分組並代入",
-         "en": "Part (c): group and substitute"
+         "zh": "第 2 步 · (c) 分組並代入",
+         "en": "Step 2 · (c) Group and substitute"
         },
         "math": "16m^{2}-9-4mn+3n=(16m^{2}-9)-(4mn-3n)\n=(4m+3)(4m-3)-n(4m-3)",
         "zh": "把 (c) 分成兩組：前面用 (b)，後面用 (a)（注意後面要整體加負號再抽 $n$，官方 marking 這一步不另給分）。",
@@ -419,8 +419,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(4m-3)$",
-         "en": "Take out $(4m-3)$"
+         "zh": "第 3 步 · 抽走 $(4m-3)$",
+         "en": "Step 3 · Take out $(4m-3)$"
         },
         "math": "=(4m-3)(4m+3-n)",
         "zh": "抽走 $(4m-3)$，剩下 $(4m+3)$ 與 $-n$。",
@@ -493,8 +493,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 完全平方",
-         "en": "Part (a): perfect square"
+         "zh": "第 1 步 · (a) 完全平方",
+         "en": "Step 1 · (a) Perfect square"
         },
         "math": "r^{2}+12r+36=(r+6)^{2}",
         "zh": "$r^{2}+12r+36=r^{2}+2(r)(6)+6^{2}$，符合 $a^{2}+2ab+b^{2}$。",
@@ -503,8 +503,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 用 (a) 造成平方差",
-         "en": "Part (b): use (a) to create a difference of two squares"
+         "zh": "第 2 步 · (b) 用 (a) 造成平方差",
+         "en": "Step 2 · (b) Use (a) to create a difference of two squares"
         },
         "math": "r^{2}+12r+36-s^{2}=(r+6)^{2}-s^{2}",
         "zh": "把 (a) 的結果 $ (r+6)^{2}$ 搬過來，整條變成 $a^{2}-b^{2}$（$a=r+6$、$b=s$）。",
@@ -513,8 +513,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "套平方差",
-         "en": "Apply the difference of two squares"
+         "zh": "第 3 步 · 套平方差",
+         "en": "Step 3 · Apply the difference of two squares"
         },
         "math": "=(r+6+s)(r+6-s)",
         "zh": "$(a+b)(a-b)$：$a=r+6$ 要整條加括號。",
@@ -587,8 +587,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 完全平方",
-         "en": "Part (a): perfect square"
+         "zh": "第 1 步 · (a) 完全平方",
+         "en": "Step 1 · (a) Perfect square"
         },
         "math": "p^{2}+14pq+49q^{2}=(p+7q)^{2}",
         "zh": "$p^{2}+2(p)(7q)+(7q)^{2}$ ✓",
@@ -597,8 +597,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 先抽負號，造成平方差",
-         "en": "Part (b): take out the minus to create a difference of squares"
+         "zh": "第 2 步 · (b) 先抽負號，造成平方差",
+         "en": "Step 2 · (b) Take out the minus to create a difference of squares"
         },
         "math": "4r^{2}-p^{2}-14pq-49q^{2}\n=4r^{2}-(p^{2}+14pq+49q^{2})\n=(2r)^{2}-(p+7q)^{2}",
         "zh": "後面三項整體加括號並變號，再用 (a) 的結果：$-p^{2}-14pq-49q^{2}=-(p+7q)^{2}$。",
@@ -607,8 +607,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "套平方差",
-         "en": "Apply the difference of two squares"
+         "zh": "第 3 步 · 套平方差",
+         "en": "Step 3 · Apply the difference of two squares"
         },
         "math": "=(2r+p+7q)(2r-p-7q)",
         "zh": "$a=2r$、$b=p+7q$；拆括號時只有「減的那個」變號：$2r-(p+7q)=2r-p-7q$。",
@@ -681,8 +681,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 平方差",
-         "en": "Part (a): difference of two squares"
+         "zh": "第 1 步 · (a) 平方差",
+         "en": "Step 1 · (a) Difference of two squares"
         },
         "math": "9x^{2}-4y^{2}=(3x+2y)(3x-2y)",
         "zh": "$(3x)^{2}-(2y)^{2}$ ✓",
@@ -691,8 +691,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 用 (a)，後兩項抽 $3$",
-         "en": "Part (b): use (a) and factor $3$ from the last two terms"
+         "zh": "第 2 步 · (b) 用 (a)，後兩項抽 $3$",
+         "en": "Step 2 · (b) Use (a) and factor $3$ from the last two terms"
         },
         "math": "9x^{2}-4y^{2}+9x+6y\n=(3x+2y)(3x-2y)+3(3x+2y)",
         "zh": "$+9x+6y=+3(3x+2y)$：正是 (a) 其中一個括號。",
@@ -701,8 +701,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(3x+2y)$",
-         "en": "Take out $(3x+2y)$"
+         "zh": "第 3 步 · 抽走 $(3x+2y)$",
+         "en": "Step 3 · Take out $(3x+2y)$"
         },
         "math": "=(3x+2y)(3x-2y+3)",
         "zh": "抽走 $(3x+2y)$，剩下 $(3x-2y)$ 與 $+3$。",
@@ -775,8 +775,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 平方差",
-         "en": "Part (a): difference of two squares"
+         "zh": "第 1 步 · (a) 平方差",
+         "en": "Step 1 · (a) Difference of two squares"
         },
         "math": "25r^{2}-16s^{2}=(5r+4s)(5r-4s)",
         "zh": "$(5r)^{2}-(4s)^{2}$ ✓",
@@ -785,8 +785,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 後兩項抽 $-4$",
-         "en": "Part (b): take out $-4$ from the last two terms"
+         "zh": "第 2 步 · (b) 後兩項抽 $-4$",
+         "en": "Step 2 · (b) Take out $-4$ from the last two terms"
         },
         "math": "25r^{2}-16s^{2}-20r+16s\n=(5r+4s)(5r-4s)-4(5r-4s)",
         "zh": "$-20r+16s=-4(5r-4s)$：抽 $-4$ 才對上 (a) 的 $(5r-4s)$。",
@@ -795,8 +795,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(5r-4s)$",
-         "en": "Take out $(5r-4s)$"
+         "zh": "第 3 步 · 抽走 $(5r-4s)$",
+         "en": "Step 3 · Take out $(5r-4s)$"
         },
         "math": "=(5r-4s)(5r+4s-4)",
         "zh": "抽走 $(5r-4s)$，剩下 $(5r+4s)$ 與 $-4$。",
@@ -911,8 +911,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 完全平方",
-         "en": "Part (a): perfect square"
+         "zh": "第 1 步 · (a) 完全平方",
+         "en": "Step 1 · (a) Perfect square"
         },
         "math": "a^{2}-8ab+16b^{2}=(a-4b)^{2}",
         "zh": "$a^{2}-2(a)(4b)+(4b)^{2}$ ✓（中間項是減，所以括號內是減）。",
@@ -921,8 +921,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 後兩項抽 $5$",
-         "en": "Part (b): take out $5$ from the last two terms"
+         "zh": "第 2 步 · (b) 後兩項抽 $5$",
+         "en": "Step 2 · (b) Take out $5$ from the last two terms"
         },
         "math": "a^{2}-8ab+16b^{2}+5a-20b\n=(a-4b)^{2}+5(a-4b)",
         "zh": "$+5a-20b=+5(a-4b)$，正是 (a) 的括號。",
@@ -931,8 +931,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(a-4b)$",
-         "en": "Take out $(a-4b)$"
+         "zh": "第 3 步 · 抽走 $(a-4b)$",
+         "en": "Step 3 · Take out $(a-4b)$"
         },
         "math": "=(a-4b)(a-4b+5)",
         "zh": "兩項都有 $(a-4b)$；抽走後剩下 $(a-4b)$ 與 $+5$。",
@@ -1005,8 +1005,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 完全平方",
-         "en": "Part (a): perfect square"
+         "zh": "第 1 步 · (a) 完全平方",
+         "en": "Step 1 · (a) Perfect square"
         },
         "math": "4x^{2}+12xy+9y^{2}=(2x+3y)^{2}",
         "zh": "$(2x)^{2}+2(2x)(3y)+(3y)^{2}$ ✓",
@@ -1015,8 +1015,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 後兩項抽 $-4$",
-         "en": "Part (b): take out $-4$ from the last two terms"
+         "zh": "第 2 步 · (b) 後兩項抽 $-4$",
+         "en": "Step 2 · (b) Take out $-4$ from the last two terms"
         },
         "math": "4x^{2}+12xy+9y^{2}-8x-12y\n=(2x+3y)^{2}-4(2x+3y)",
         "zh": "$-8x-12y=-4(2x+3y)$：抽 $-4$ 就對上 (a)。",
@@ -1025,8 +1025,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(2x+3y)$",
-         "en": "Take out $(2x+3y)$"
+         "zh": "第 3 步 · 抽走 $(2x+3y)$",
+         "en": "Step 3 · Take out $(2x+3y)$"
         },
         "math": "=(2x+3y)(2x+3y-4)",
         "zh": "抽走 $(2x+3y)$，剩下 $(2x+3y)$ 與 $-4$。",
@@ -1099,8 +1099,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 十字相乘（寫成 $a^{2}+5a+6$ 較易看）",
-         "en": "Part (a): cross-method (write it as $a^{2}+5a+6$)"
+         "zh": "第 1 步 · (a) 十字相乘（寫成 $a^{2}+5a+6$ 較易看）",
+         "en": "Step 1 · (a) Cross-method (write it as $a^{2}+5a+6$)"
         },
         "math": "6+5a+a^{2}=a^{2}+5a+6=(2+a)(3+a)",
         "zh": "習慣上把 $a$ 的次數由高至低排好：$a^{2}+5a+6$，再十字相乘。",
@@ -1109,8 +1109,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 後兩項抽 $b^{2}$",
-         "en": "Part (b): take out $b^{2}$ from the last two terms"
+         "zh": "第 2 步 · (b) 後兩項抽 $b^{2}$",
+         "en": "Step 2 · (b) Take out $b^{2}$ from the last two terms"
         },
         "math": "6+5a+a^{2}+3b^{2}+ab^{2}\n=(2+a)(3+a)+b^{2}(3+a)",
         "zh": "$+3b^{2}+ab^{2}=+b^{2}(3+a)$：正是 (a) 的其中一個括號。",
@@ -1119,8 +1119,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(3+a)$",
-         "en": "Take out $(3+a)$"
+         "zh": "第 3 步 · 抽走 $(3+a)$",
+         "en": "Step 3 · Take out $(3+a)$"
         },
         "math": "=(3+a)(2+a+b^{2})",
         "zh": "抽走 $(3+a)$，剩下 $(2+a)$ 與 $b^{2}$。",
@@ -1193,8 +1193,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 十字相乘",
-         "en": "Part (a): cross-method"
+         "zh": "第 1 步 · (a) 十字相乘",
+         "en": "Step 1 · (a) Cross-method"
         },
         "math": "2m^{2}-m-3=(2m-3)(m+1)",
         "zh": "交叉相乘 $(2m)(1)+(-3)(m)=2m-3m=-m$ ✓",
@@ -1203,8 +1203,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 把 $2m^{2}-m-3$ 換成 (a)，其餘抽 $2n^{2}$",
-         "en": "Part (b): replace $2m^{2}-m-3$ by (a) and factor $2n^{2}$"
+         "zh": "第 2 步 · (b) 把 $2m^{2}-m-3$ 換成 (a)，其餘抽 $2n^{2}$",
+         "en": "Step 2 · (b) Replace $2m^{2}-m-3$ by (a) and factor $2n^{2}$"
         },
         "math": "2mn^{2}+2n^{2}+2m^{2}-m-3\n=2n^{2}(m+1)+(2m-3)(m+1)",
         "zh": "前面兩項 $2mn^{2}+2n^{2}=2n^{2}(m+1)$；後面三項就是 (a)。",
@@ -1213,8 +1213,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(m+1)$",
-         "en": "Take out $(m+1)$"
+         "zh": "第 3 步 · 抽走 $(m+1)$",
+         "en": "Step 3 · Take out $(m+1)$"
         },
         "math": "=(m+1)(2n^{2}+2m-3)",
         "zh": "兩項都有 $(m+1)$，抽走後剩下 $2n^{2}$ 與 $(2m-3)$。",
@@ -1287,8 +1287,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 十字相乘",
-         "en": "Part (a): cross-method"
+         "zh": "第 1 步 · (a) 十字相乘",
+         "en": "Step 1 · (a) Cross-method"
         },
         "math": "a^{2}+3ab+2b^{2}=(a+b)(a+2b)",
         "zh": "交叉相乘 $(a)(2b)+(b)(a)=3ab$ ✓",
@@ -1297,8 +1297,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 後兩項抽 $9$",
-         "en": "Part (b): take out $9$ from the last two terms"
+         "zh": "第 2 步 · (b) 後兩項抽 $9$",
+         "en": "Step 2 · (b) Take out $9$ from the last two terms"
         },
         "math": "a^{2}+3ab+2b^{2}+9a+18b\n=(a+b)(a+2b)+9(a+2b)",
         "zh": "$+9a+18b=+9(a+2b)$，正是 (a) 的括號。",
@@ -1307,8 +1307,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(a+2b)$",
-         "en": "Take out $(a+2b)$"
+         "zh": "第 3 步 · 抽走 $(a+2b)$",
+         "en": "Step 3 · Take out $(a+2b)$"
         },
         "math": "=(a+2b)(a+b+9)",
         "zh": "抽走 $(a+2b)$，剩下 $(a+b)$ 與 $9$。",
@@ -1381,8 +1381,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 十字相乘",
-         "en": "Part (a): cross-method"
+         "zh": "第 1 步 · (a) 十字相乘",
+         "en": "Step 1 · (a) Cross-method"
         },
         "math": "6m^{2}-13mn+6n^{2}=(3m-2n)(2m-3n)",
         "zh": "交叉相乘 $(3m)(-3n)+(-2n)(2m)=-9mn-4mn=-13mn$ ✓",
@@ -1391,8 +1391,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 整組抽負號，再用 (a)",
-         "en": "Part (b): take out the minus, then use (a)"
+         "zh": "第 2 步 · (b) 整組抽負號，再用 (a)",
+         "en": "Step 2 · (b) Take out the minus, then use (a)"
         },
         "math": "9m-6n-6m^{2}+13mn-6n^{2}\n=(9m-6n)-(6m^{2}-13mn+6n^{2})\n=3(3m-2n)-(3m-2n)(2m-3n)",
         "zh": "後三項整組抽負號後就是 (a)；$9m-6n=3(3m-2n)$ 又與 (a) 的 $(3m-2n)$ 相同。",
@@ -1475,8 +1475,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 十字相乘",
-         "en": "Part (a): cross-method"
+         "zh": "第 1 步 · (a) 十字相乘",
+         "en": "Step 1 · (a) Cross-method"
         },
         "math": "a^{2}+a-12=(a+4)(a-3)",
         "zh": "交叉相乘 $(a)(-3)+(4)(a)=-3a+4a=a$ ✓",
@@ -1485,8 +1485,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 高次題：先抽 $a^{2}$",
-         "en": "Part (b): factor out $a^{2}$ first"
+         "zh": "第 2 步 · (b) 高次題：先抽 $a^{2}$",
+         "en": "Step 2 · (b) Factor out $a^{2}$ first"
         },
         "math": "a^{4}+a^{3}-12a^{2}=a^{2}(a^{2}+a-12)",
         "zh": "三項最低次都是 $a^{2}$，抽走它之後括號內就是 (a) 的原式。",
@@ -1495,8 +1495,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "代入 (a) 的答案",
-         "en": "Substitute (a)'s answer"
+         "zh": "第 3 步 · 代入 (a) 的答案",
+         "en": "Step 3 · Substitute (a)'s answer"
         },
         "math": "=a^{2}(a+4)(a-3)",
         "zh": "括號內用 (a) 的結果：$a^{2}(a+4)(a-3)$，三個因式相乘。",
@@ -1569,8 +1569,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 十字相乘",
-         "en": "Part (a): cross-method"
+         "zh": "第 1 步 · (a) 十字相乘",
+         "en": "Step 1 · (a) Cross-method"
         },
         "math": "2a^{2}+a-15=(2a-5)(a+3)",
         "zh": "交叉相乘 $(2a)(3)+(-5)(a)=6a-5a=a$ ✓",
@@ -1579,8 +1579,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 先抽 $a^{2}$",
-         "en": "Part (b): factor out $a^{2}$"
+         "zh": "第 2 步 · (b) 先抽 $a^{2}$",
+         "en": "Step 2 · (b) Factor out $a^{2}$"
         },
         "math": "2a^{4}+a^{3}-15a^{2}=a^{2}(2a^{2}+a-15)",
         "zh": "三項最低次是 $a^{2}$；抽走後括號內就是 (a)。",
@@ -1589,8 +1589,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "代入 (a) 的答案",
-         "en": "Substitute (a)'s answer"
+         "zh": "第 3 步 · 代入 (a) 的答案",
+         "en": "Step 3 · Substitute (a)'s answer"
         },
         "math": "=a^{2}(2a-5)(a+3)",
         "zh": "答案要寫成三個因式相乘：$a^{2}(2a-5)(a+3)$。",
@@ -1705,8 +1705,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 十字相乘",
-         "en": "Part (a): cross-method"
+         "zh": "第 1 步 · (a) 十字相乘",
+         "en": "Step 1 · (a) Cross-method"
         },
         "math": "6b^{2}-5b-6=(3b+2)(2b-3)",
         "zh": "交叉相乘 $(3b)(-3)+(2)(2b)=-9b+4b=-5b$ ✓",
@@ -1715,8 +1715,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 先抽 $-b^{2}$（負號＋最低次）",
-         "en": "Part (b): take out $-b^{2}$ (minus and lowest power)"
+         "zh": "第 2 步 · (b) 先抽 $-b^{2}$（負號＋最低次）",
+         "en": "Step 2 · (b) Take out $-b^{2}$ (minus and lowest power)"
         },
         "math": "6b^{2}+5b^{3}-6b^{4}=-b^{2}(6b^{2}-5b-6)",
         "zh": "最高次是 $-6b^{4}$（負），所以抽 $-b^{2}$；這樣括號內就變回 (a) 的原式。",
@@ -1725,8 +1725,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "代入 (a)",
-         "en": "Substitute (a)"
+         "zh": "第 3 步 · 代入 (a)",
+         "en": "Step 3 · Substitute (a)"
         },
         "math": "=-b^{2}(3b+2)(2b-3)",
         "zh": "括號內用 (a) 的答案，最後寫成三個因式相乘。",
@@ -1799,8 +1799,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 抽 $x^{2}$",
-         "en": "Part (a): take out $x^{2}$"
+         "zh": "第 1 步 · (a) 抽 $x^{2}$",
+         "en": "Step 1 · (a) Take out $x^{2}$"
         },
         "math": "x^{3}+x^{2}y+5x^{2}=x^{2}(x+y+5)",
         "zh": "三項最低次都是 $x^{2}$，抽走後括號內是 $(x+y+5)$。",
@@ -1809,8 +1809,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 後三項＝(a) 括號的負數",
-         "en": "Part (b): the last three terms are minus (a)'s bracket"
+         "zh": "第 2 步 · (b) 後三項＝(a) 括號的負數",
+         "en": "Step 2 · (b) The last three terms are minus (a)'s bracket"
         },
         "math": "x^{3}+x^{2}y+5x^{2}-x-y-5\n=x^{2}(x+y+5)-(x+y+5)",
         "zh": "$-x-y-5=-(x+y+5)$：正是 (a) 括號的負數，可以直接抽走。",
@@ -1819,8 +1819,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(x+y+5)$，再分解 $x^{2}-1$",
-         "en": "Take out $(x+y+5)$, then factorize $x^{2}-1$"
+         "zh": "第 3 步 · 抽走 $(x+y+5)$，再分解 $x^{2}-1$",
+         "en": "Step 3 · Take out $(x+y+5)$, then factorize $x^{2}-1$"
         },
         "math": "=(x^{2}-1)(x+y+5)=(x-1)(x+1)(x+y+5)",
         "zh": "抽走之後餘下 $x^{2}-1$，仍可用平方差分解 —— 題目要求 completely，一定要做這一步。",
@@ -1893,8 +1893,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 抽 $a^{2}$",
-         "en": "Part (a): take out $a^{2}$"
+         "zh": "第 1 步 · (a) 抽 $a^{2}$",
+         "en": "Step 1 · (a) Take out $a^{2}$"
         },
         "math": "a^{3}+3a^{2}b-4a^{2}=a^{2}(a+3b-4)",
         "zh": "三項最低次是 $a^{2}$；括號內 $(a+3b-4)$ 就是 (b) 的鎖匙。",
@@ -1903,8 +1903,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 後三項＝負數",
-         "en": "Part (b): the last three terms are the negative"
+         "zh": "第 2 步 · (b) 後三項＝負數",
+         "en": "Step 2 · (b) The last three terms are the negative"
         },
         "math": "a^{3}+3a^{2}b-4a^{2}-a-3b+4\n=a^{2}(a+3b-4)-(a+3b-4)",
         "zh": "$-a-3b+4=-(a+3b-4)$ ✓",
@@ -1913,8 +1913,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走，再用平方差",
-         "en": "Take out, then difference of squares"
+         "zh": "第 3 步 · 抽走，再用平方差",
+         "en": "Step 3 · Take out, then difference of squares"
         },
         "math": "=(a^{2}-1)(a+3b-4)=(a-1)(a+1)(a+3b-4)",
         "zh": "$a^{2}-1=(a-1)(a+1)$，最後三個因式。",
@@ -1987,8 +1987,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 抽 $x^{2}$",
-         "en": "Part (a): take out $x^{2}$"
+         "zh": "第 1 步 · (a) 抽 $x^{2}$",
+         "en": "Step 1 · (a) Take out $x^{2}$"
         },
         "math": "x^{3}-x^{2}y+2x^{2}=x^{2}(x-y+2)",
         "zh": "三項最低次是 $x^{2}$。",
@@ -1997,8 +1997,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 後三項抽 $-9$",
-         "en": "Part (b): take out $-9$ from the last three terms"
+         "zh": "第 2 步 · (b) 後三項抽 $-9$",
+         "en": "Step 2 · (b) Take out $-9$ from the last three terms"
         },
         "math": "x^{3}-x^{2}y+2x^{2}-9x+9y-18\n=x^{2}(x-y+2)-9(x-y+2)",
         "zh": "$-9x+9y-18=-9(x-y+2)$：與 (a) 的括號完全一致。",
@@ -2007,8 +2007,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走，再用平方差",
-         "en": "Take out, then difference of squares"
+         "zh": "第 3 步 · 抽走，再用平方差",
+         "en": "Step 3 · Take out, then difference of squares"
         },
         "math": "=(x^{2}-9)(x-y+2)=(x-3)(x+3)(x-y+2)",
         "zh": "$x^{2}-9=(x-3)(x+3)$。",
@@ -2081,8 +2081,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 抽 $m^{2}$",
-         "en": "Part (a): take out $m^{2}$"
+         "zh": "第 1 步 · (a) 抽 $m^{2}$",
+         "en": "Step 1 · (a) Take out $m^{2}$"
         },
         "math": "m^{3}+3m^{2}n=m^{2}(m+3n)",
         "zh": "兩項最低次是 $m^{2}$。",
@@ -2091,8 +2091,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 後兩項抽 $-n^{2}$",
-         "en": "Part (b): take out $-n^{2}$ from the last two terms"
+         "zh": "第 2 步 · (b) 後兩項抽 $-n^{2}$",
+         "en": "Step 2 · (b) Take out $-n^{2}$ from the last two terms"
         },
         "math": "m^{3}+3m^{2}n-mn^{2}-3n^{3}\n=m^{2}(m+3n)-n^{2}(m+3n)",
         "zh": "$-mn^{2}-3n^{3}=-n^{2}(m+3n)$：與 (a) 相同。",
@@ -2101,8 +2101,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走，再用平方差",
-         "en": "Take out, then difference of squares"
+         "zh": "第 3 步 · 抽走，再用平方差",
+         "en": "Step 3 · Take out, then difference of squares"
         },
         "math": "=(m+3n)(m^{2}-n^{2})=(m+3n)(m-n)(m+n)",
         "zh": "$m^{2}-n^{2}=(m-n)(m+n)$。",
@@ -2175,8 +2175,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 抽 $4x^{2}$",
-         "en": "Part (a): take out $4x^{2}$"
+         "zh": "第 1 步 · (a) 抽 $4x^{2}$",
+         "en": "Step 1 · (a) Take out $4x^{2}$"
         },
         "math": "4x^{3}-20x^{2}y=4x^{2}(x-5y)",
         "zh": "係數取 H.C.F. $4$、字母取 $x^{2}$。",
@@ -2185,8 +2185,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 後兩項抽 $-y^{2}$",
-         "en": "Part (b): take out $-y^{2}$ from the last two terms"
+         "zh": "第 2 步 · (b) 後兩項抽 $-y^{2}$",
+         "en": "Step 2 · (b) Take out $-y^{2}$ from the last two terms"
         },
         "math": "4x^{3}-20x^{2}y-xy^{2}+5y^{3}\n=4x^{2}(x-5y)-y^{2}(x-5y)",
         "zh": "$-xy^{2}+5y^{3}=-y^{2}(x-5y)$ ✓",
@@ -2195,8 +2195,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走，再用平方差",
-         "en": "Take out, then difference of squares"
+         "zh": "第 3 步 · 抽走，再用平方差",
+         "en": "Step 3 · Take out, then difference of squares"
         },
         "math": "=(x-5y)(4x^{2}-y^{2})=(x-5y)(2x-y)(2x+y)",
         "zh": "$4x^{2}-y^{2}=(2x)^{2}-y^{2}=(2x-y)(2x+y)$。",
@@ -2269,8 +2269,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 抽 $4s^{2}$",
-         "en": "Part (a): take out $4s^{2}$"
+         "zh": "第 1 步 · (a) 抽 $4s^{2}$",
+         "en": "Step 1 · (a) Take out $4s^{2}$"
         },
         "math": "8rs^{2}-4s^{3}=4s^{2}(2r-s)",
         "zh": "兩項的公因式是 $4s^{2}$。",
@@ -2279,8 +2279,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 前面兩項抽 $9r^{2}$",
-         "en": "Part (b): take out $9r^{2}$ from the first two terms"
+         "zh": "第 2 步 · (b) 前面兩項抽 $9r^{2}$",
+         "en": "Step 2 · (b) Take out $9r^{2}$ from the first two terms"
         },
         "math": "18r^{3}-9r^{2}s-8rs^{2}+4s^{3}\n=9r^{2}(2r-s)-4s^{2}(2r-s)",
         "zh": "$18r^{3}-9r^{2}s=9r^{2}(2r-s)$，與 (a) 的括號相同。",
@@ -2289,8 +2289,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走，再用平方差",
-         "en": "Take out, then difference of squares"
+         "zh": "第 3 步 · 抽走，再用平方差",
+         "en": "Step 3 · Take out, then difference of squares"
         },
         "math": "=(2r-s)(9r^{2}-4s^{2})\n=(2r-s)(3r-2s)(3r+2s)",
         "zh": "$9r^{2}-4s^{2}=(3r)^{2}-(2s)^{2}$。",
@@ -2369,8 +2369,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a)(b) 各自分解",
-         "en": "Parts (a) and (b)"
+         "zh": "第 1 步 · (a)(b) 各自分解",
+         "en": "Step 1 · Parts (a) and (b)"
         },
         "math": "3m-12n=3(m-4n)\nm^{2}+mn-20n^{2}=(m+5n)(m-4n)",
         "zh": "(a) 抽 $3$；(b) 十字相乘：$(m)(-4n)+(5n)(m)=-4mn+5mn=mn$ ✓ 兩部都有 $(m-4n)$。",
@@ -2379,8 +2379,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(c) 分組並代入",
-         "en": "Part (c): group and substitute"
+         "zh": "第 2 步 · (c) 分組並代入",
+         "en": "Step 2 · (c) Group and substitute"
         },
         "math": "m^{2}+mn-20n^{2}-3m+12n\n=(m+5n)(m-4n)-3(m-4n)",
         "zh": "後面 $-3m+12n=-3(m-4n)$，與 (b) 的括號一致。",
@@ -2389,8 +2389,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(m-4n)$",
-         "en": "Take out $(m-4n)$"
+         "zh": "第 3 步 · 抽走 $(m-4n)$",
+         "en": "Step 3 · Take out $(m-4n)$"
         },
         "math": "=(m-4n)(m+5n-3)",
         "zh": "抽走後剩下 $(m+5n)$ 與 $-3$。",
@@ -2511,8 +2511,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a)(b) 各自分解",
-         "en": "Parts (a) and (b)"
+         "zh": "第 1 步 · (a)(b) 各自分解",
+         "en": "Step 1 · Parts (a) and (b)"
         },
         "math": "6x-18y=6(x-3y)\nx^{2}-5xy+6y^{2}=(x-2y)(x-3y)",
         "zh": "(b) 十字相乘：$(x)(-3y)+(-2y)(x)=-3xy-2xy=-5xy$ ✓",
@@ -2521,8 +2521,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(c) 代入並抽走",
-         "en": "Part (c): substitute and factor"
+         "zh": "第 2 步 · (c) 代入並抽走",
+         "en": "Step 2 · (c) Substitute and factor"
         },
         "math": "x^{2}-5xy+6y^{2}-6x+18y\n=(x-2y)(x-3y)-6(x-3y)",
         "zh": "$-6x+18y=-6(x-3y)$，與 (b) 其中一個括號相同。",
@@ -2531,8 +2531,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "寫出答案",
-         "en": "Write the answer"
+         "zh": "第 3 步 · 寫出答案",
+         "en": "Step 3 · Write the answer"
         },
         "math": "=(x-3y)(x-2y-6)",
         "zh": "抽走 $(x-3y)$，剩下 $(x-2y)$ 與 $-6$。",
@@ -2611,8 +2611,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a)(b) 各自分解",
-         "en": "Parts (a) and (b)"
+         "zh": "第 1 步 · (a)(b) 各自分解",
+         "en": "Step 1 · Parts (a) and (b)"
         },
         "math": "4a-10b=2(2a-5b)\n2a^{2}-3ab-5b^{2}=(2a-5b)(a+b)",
         "zh": "(b) 十字相乘：$(2a)(b)+(-5b)(a)=2ab-5ab=-3ab$ ✓ 兩部都有 $(2a-5b)$。",
@@ -2621,8 +2621,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(c) 整組抽負號，再代入",
-         "en": "Part (c): take out the minus, then substitute"
+         "zh": "第 2 步 · (c) 整組抽負號，再代入",
+         "en": "Step 2 · (c) Take out the minus, then substitute"
         },
         "math": "4a-10b-2a^{2}+3ab+5b^{2}\n=2(2a-5b)-(2a-5b)(a+b)",
         "zh": "$-(2a^{2}-3ab-5b^{2})$：後三項全體變號，(b) 的答案直接可用。",
@@ -2631,8 +2631,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(2a-5b)$",
-         "en": "Take out $(2a-5b)$"
+         "zh": "第 3 步 · 抽走 $(2a-5b)$",
+         "en": "Step 3 · Take out $(2a-5b)$"
         },
         "math": "=(2a-5b)(2-a-b)",
         "zh": "抽走後剩下 $2$ 與 $-(a+b)$，即 $2-a-b$。",
@@ -2711,8 +2711,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a)(b) 各自分解",
-         "en": "Parts (a) and (b)"
+         "zh": "第 1 步 · (a)(b) 各自分解",
+         "en": "Step 1 · Parts (a) and (b)"
         },
         "math": "4m^{2}-1=(2m+1)(2m-1)\n2m^{2}n+11mn-6n=n(2m-1)(m+6)",
         "zh": "(b) 先抽 $n$，括號內 $2m^{2}+11m-6=(2m-1)(m+6)$（交叉相乘 $-m+12m=11m$ ✓）。",
@@ -2721,8 +2721,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(c) 整組抽負號，再代入",
-         "en": "Part (c): take out the minus, then substitute"
+         "zh": "第 2 步 · (c) 整組抽負號，再代入",
+         "en": "Step 2 · (c) Take out the minus, then substitute"
         },
         "math": "4m^{2}-1-2m^{2}n-11mn+6n\n=(2m+1)(2m-1)-n(2m-1)(m+6)",
         "zh": "$-(2m^{2}n+11mn-6n)$ 用 (b) 的答案；(a) 與 (b) 都藏著 $(2m-1)$。",
@@ -2811,8 +2811,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a)(b) 各自分解",
-         "en": "Parts (a) and (b)"
+         "zh": "第 1 步 · (a)(b) 各自分解",
+         "en": "Step 1 · Parts (a) and (b)"
         },
         "math": "9r^{2}-16=(3r+4)(3r-4)\n3r^{2}s-11rs-20s=s(3r+4)(r-5)",
         "zh": "(b) 抽 $s$，括號內 $3r^{2}-11r-20=(3r+4)(r-5)$（交叉相乘 $-15r+4r=-11r$ ✓）。",
@@ -2821,8 +2821,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(c) 整組抽負號，再代入",
-         "en": "Part (c): take out the minus, then substitute"
+         "zh": "第 2 步 · (c) 整組抽負號，再代入",
+         "en": "Step 2 · (c) Take out the minus, then substitute"
         },
         "math": "9r^{2}-16-3r^{2}s+11rs+20s\n=(3r+4)(3r-4)-s(3r+4)(r-5)",
         "zh": "兩部都藏著 $(3r+4)$。",
@@ -2831,8 +2831,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(3r+4)$",
-         "en": "Take out $(3r+4)$"
+         "zh": "第 3 步 · 抽走 $(3r+4)$",
+         "en": "Step 3 · Take out $(3r+4)$"
         },
         "math": "=(3r+4)(3r-4-s(r-5))\n=(3r+4)(3r-rs+5s-4)",
         "zh": "展開 $-s(r-5)=-rs+5s$，再合併同類項。",
@@ -2911,8 +2911,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a)(b) 各自分解",
-         "en": "Parts (a) and (b)"
+         "zh": "第 1 步 · (a)(b) 各自分解",
+         "en": "Step 1 · Parts (a) and (b)"
         },
         "math": "36-25y^{2}=(6+5y)(6-5y)\n10xy^{2}+17xy+6x=x(5y+6)(2y+1)",
         "zh": "(b) 抽 $x$，括號內 $10y^{2}+17y+6=(5y+6)(2y+1)$（交叉相乘 $5y+12y=17y$ ✓）。",
@@ -2921,8 +2921,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(c) 整組抽負號，再代入",
-         "en": "Part (c): take out the minus, then substitute"
+         "zh": "第 2 步 · (c) 整組抽負號，再代入",
+         "en": "Step 2 · (c) Take out the minus, then substitute"
         },
         "math": "36-25y^{2}-10xy^{2}-17xy-6x\n=(6+5y)(6-5y)-x(5y+6)(2y+1)",
         "zh": "留意 $(6+5y)$ 與 $(5y+6)$ 是同一個括號（加法交換律）。",
@@ -2931,8 +2931,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "抽走 $(6+5y)$",
-         "en": "Take out $(6+5y)$"
+         "zh": "第 3 步 · 抽走 $(6+5y)$",
+         "en": "Step 3 · Take out $(6+5y)$"
         },
         "math": "=(6+5y)(6-5y-x(2y+1))\n=(6+5y)(6-5y-2xy-x)",
         "zh": "展開 $-x(2y+1)=-2xy-x$。",
@@ -3005,8 +3005,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 完全平方",
-         "en": "Part (a): perfect square"
+         "zh": "第 1 步 · (a) 完全平方",
+         "en": "Step 1 · (a) Perfect square"
         },
         "math": "81c^{2}-18c+1=(9c-1)^{2}",
         "zh": "$(9c)^{2}-2(9c)(1)+1^{2}$ ✓",
@@ -3015,8 +3015,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 後三項抽負號，用 (a)",
-         "en": "Part (b): take the minus out of the last three terms and use (a)"
+         "zh": "第 2 步 · (b) 後三項抽負號，用 (a)",
+         "en": "Step 2 · (b) Take the minus out of the last three terms and use (a)"
         },
         "math": "(10c-d)^{2}-81c^{2}+18c-1\n=(10c-d)^{2}-(81c^{2}-18c+1)\n=(10c-d)^{2}-(9c-1)^{2}",
         "zh": "整條變成 $a^{2}-b^{2}$（$a=10c-d$、$b=9c-1$）。",
@@ -3025,8 +3025,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "套平方差並化簡",
-         "en": "Apply the difference of two squares and simplify"
+         "zh": "第 3 步 · 套平方差並化簡",
+         "en": "Step 3 · Apply the difference of two squares and simplify"
         },
         "math": "=(10c-d+9c-1)(10c-d-(9c-1))\n=(19c-d-1)(c-d+1)",
         "zh": "$10c-d-(9c-1)=10c-d-9c+1=c-d+1$：負號要分配給兩項。",
@@ -3107,8 +3107,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 完全平方",
-         "en": "Part (a): perfect square"
+         "zh": "第 1 步 · (a) 完全平方",
+         "en": "Step 1 · (a) Perfect square"
         },
         "math": "9r^{2}+12r+4=(3r+2)^{2}",
         "zh": "$(3r)^{2}+2(3r)(2)+2^{2}$ ✓",
@@ -3117,8 +3117,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 造成平方差",
-         "en": "Part (b): create a difference of two squares"
+         "zh": "第 2 步 · (b) 造成平方差",
+         "en": "Step 2 · (b) Create a difference of two squares"
         },
         "math": "(4r-5s)^{2}-9r^{2}-12r-4\n=(4r-5s)^{2}-(3r+2)^{2}",
         "zh": "後面三項整組抽負號之後就是 (a)。",
@@ -3127,8 +3127,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "套平方差並化簡",
-         "en": "Apply the identity and simplify"
+         "zh": "第 3 步 · 套平方差並化簡",
+         "en": "Step 3 · Apply the identity and simplify"
         },
         "math": "=(4r-5s+3r+2)(4r-5s-(3r+2))\n=(7r-5s+2)(r-5s-2)",
         "zh": "$4r-5s-(3r+2)=r-5s-2$。",
@@ -3201,8 +3201,8 @@ window.LEARN_TOPIC_WS01C = {
       "steps": [
        {
         "title": {
-         "zh": "(a) 完全平方",
-         "en": "Part (a): perfect square"
+         "zh": "第 1 步 · (a) 完全平方",
+         "en": "Step 1 · (a) Perfect square"
         },
         "math": "16x^{2}-40x+25=(4x-5)^{2}",
         "zh": "$(4x)^{2}-2(4x)(5)+5^{2}$ ✓",
@@ -3211,8 +3211,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "(b) 造成平方差並套用",
-         "en": "Part (b): create a difference of two squares and apply it"
+         "zh": "第 2 步 · (b) 造成平方差並套用",
+         "en": "Step 2 · (b) Create a difference of two squares and apply it"
         },
         "math": "(6x+5y)^{2}-16x^{2}+40x-25\n=(6x+5y)^{2}-(4x-5)^{2}",
         "zh": "後面三項抽負號後就是 (a)。",
@@ -3221,8 +3221,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "拆括號、化簡、再抽公因式",
-         "en": "Remove brackets, simplify, then factor again"
+         "zh": "第 3 步 · 拆括號、化簡、再抽公因式",
+         "en": "Step 3 · Remove brackets, simplify, then factor again"
         },
         "math": "=(6x+5y+4x-5)(6x+5y-(4x-5))\n=(10x+5y-5)(2x+5y+5)\n=5(2x+y-1)(2x+5y+5)",
         "zh": "最後一步是官方 marking 的關鍵：$(10x+5y-5)$ 三項還有公因式 $5$，抽走才是 completely。",

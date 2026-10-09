@@ -406,8 +406,12 @@ $node = "C:\Users\t073\.workbuddy\binaries\node\versions\22.22.2-3\node.exe"
     或 `T({zh,en})`（單語；切語言時 `i18n.js` 會觸發 `__LEARN_RELANG()` 重繪）。
     不要自己拼中文字串，否則切到英文會殘留中文。
 16. **問 AI 提問模板**：`data/learn/prompt-templates.json` 是通用的，**新增課題不用改**；
-    但改動它就要跑 `learn_check.py`（I6 驗中英對稱、欄位齊全）與 `learn_smoke_test.js`
+   但改動它就要跑 `learn_check.py`（I6 驗中英對稱、欄位齊全）與 `learn_smoke_test.js`
     （第 10 節驗 prompt 內容、勾選項、複製）。
+17. **每條長題都要有 `traps`（常見錯誤）與 `alt`（進階解法／驗算）** —— 2026-10-09 老師指示
+   「第一階段要對齊第二階段的風格與功能」：兩階段的學生在長題頁看到的區塊要一致
+   （看完示範 → 常見錯誤 → 進階解法／驗算）。`learn_check` 的 **I13** 會擋；
+   `steps[].title` 一律用「第 N 步 · …」／「Step N · …」，多部分題寫「第 N 步 · (a) …」。
 
 ### 5.2 ★ 三輪審閱最常挑出的 10 類問題（開工前先掃一次，可省一輪來回）
 

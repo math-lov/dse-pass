@@ -10,6 +10,8 @@
   S6 貨幣／定界符：文字欄位不准出現單數 $（會被當成數學定界符）
   S8 概念卡 vocab：每組要有 en／zh，中文欄不可被英文詞頭污染（english = 中文）
   S10 術語一致性：代數語境用「公因式」，不可寫成「公因數」（純數字 H.C.F. 除外）
+  I13 長題區塊齊全：每條長題都要有 traps（常見錯誤）與 alt（進階解法／驗算）——
+      第一階段與第二階段的學生看到的區塊一致（2026-10-09 對齊）
   R1 課程合規：角度一律用度（禁 rad／弧度／\\frac{\\pi}{n}）
   R2 主解法不得用坐標法或向量法（幾何題）
       → R1／R2 的樣式與 tools/syllabus_check.py 一致，重用同一套規則
@@ -197,6 +199,16 @@ def main(argv: list[str] | None = None) -> int:
         tip = (sol.get("tip") or {}).get("zh")
         if not tip:
             warn("S3", "%s：沒有 tip（可取走的技巧）" % qid)
+
+        # ── I13：長題的說明區塊要齊 ────────────────────────────────────────
+        # 每條長題都要有「常見錯誤」(traps) 與「進階解法／驗算」(alt)：
+        # 前者是做完之後的自我檢查，後者是另一條路／驗算方法。
+        # （2026-10-09 把第一階段對齊第二階段的標準，兩邊學生看到的區塊一致。）
+        if qtype == "long":
+            if not (sol.get("traps") or []):
+                err("I13", "%s：長題缺 traps（常見錯誤）" % qid)
+            if not (sol.get("alt") or []):
+                err("I13", "%s：長題缺 alt（進階解法／驗算）" % qid)
 
         options = q.get("options") or {}
         if qtype == "mc":
