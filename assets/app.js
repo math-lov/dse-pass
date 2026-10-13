@@ -4,9 +4,9 @@
      body[data-page="index"]  首頁（課題按鈕牆）
      body[data-page="topic"]  課題頁（概念卡 → 長題示範 → MC 每頁 3 題）
      body[data-page="wrong"]  弱點升級庫（前稱「錯題本」）
-   進度存 localStorage：key = dse-learn:v1（與每日三題站分開）
+   進度存 localStorage：key = dse-learn:v1
 
-   數學渲染沿用每日三題站已驗證的兩路機制：
+   數學渲染用兩路機制：
      data-tex        → katex.render（整串 LaTeX）
      data-tex-inline → renderMathInElement（文字中的 $...$）
    選項則沿用 isProse() 三路判別（純 LaTeX／含 $...$ 的文字／純文字）。
@@ -310,8 +310,8 @@
     var rb = qs("#reset");
     if (rb) rb.onclick = function () {
       if (!confirm(T({
-        zh: "要清除這個網站的學習進度嗎？（每日三題站的進度不受影響）",
-        en: "Clear the progress of this site? (The Daily Three site is not affected.)"
+        zh: "要清除這個網站的學習進度嗎？",
+        en: "Clear the progress of this site?"
       }))) return;
       store = { mc: {}, long: {}, cards: {} };
       save();

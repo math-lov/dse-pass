@@ -10,7 +10,7 @@
 | 本機 | `C:\Code Buddy\DSEPass` |
 | 現有課題 | **第一階段 · 代數基礎**：`ws01`（18 MC ＋ 7 條示範）、`ws01b`（27 題 MC）、`ws01c`（卷一 32 題，四節）<br>**第二階段 · 統測前哨戰**：`as01` 二次方程與複數（兩節）、`as02` 直線方程（讀圖題）、`as03` 不等式、`as04` 排列與組合 |
 | 規模 | 7 個課題 · 128 題（MC 81 ＋ 長題 47）· 29 張概念卡 · 128 份題解 |
-| 進度 | 只存學生瀏覽器；與「每日三題」站完全分開 |
+| 進度 | 只存學生瀏覽器，不收集任何資料 |
 
 ## 頁面與檔案
 
@@ -97,15 +97,12 @@ npm install                    # jsdom 30 ＋ katex 0.16（冒煙測試與 KaTeX
 見 **`docs/LEARN-ADD-TOPICS-HANDOFF.md`**（先讀它；內有現況、頁碼對照表與硬規則）。
 現時 7 個課題已完成（第一階段 `ws01`／`ws01b`／`ws01c`；第二階段 `as01`–`as04`）；
 下一個課題照該文件的流程加入即可。
-（註：該交接文件的頁碼／路徑屬姊妹專案，數字要按本站現況對照。）
+（註：該交接文件的頁碼／路徑未必對應本站現況，數字要按本站對照。）
 
 ## 與其他站的關係（首頁有跳轉列）
 
 | 站 | 網址 |
 |---|---|
-| 每日三題 Daily 3 | `https://math-lov.github.io/daily.math/` |
 | **自學追上站**（本站） | `https://math-lov.github.io/dse-pass/` |
 | 5A 數學溫習站 | `https://math-lov.github.io/s5a-maths/` |
 | Endeavour 研習站 | `https://math-lov.github.io/endeavour/` |
-
-⚠️ **不要連去 `daily.math/learn/`** —— 該站計劃砍掉重做（連 deploy workflow 的 assemble 步驟一齊拆）。

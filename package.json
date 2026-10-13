@@ -1,8 +1,8 @@
 {
-  "name": "daily-three",
+  "name": "dse-pass",
   "version": "1.0.0",
   "private": true,
-  "description": "Daily Three — DSE Maths MC practice site + question bank tooling",
+  "description": "DSE Pass — 自學追上站（概念卡／示範題解／MC 練習）",
   "scripts": {
     "check:learn": "node tools/learn_katex_check.js",
     "check:lang": "python tools/learn_lang_check.py --site",

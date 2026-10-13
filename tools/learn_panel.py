@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 """自學追上站 · 本機維護平台（127.0.0.1:8788）
 
-與每日三題站的面板（tools/panel_server.py，8787）**完全獨立**：
-不同的資料層（data/learn/）、不同的工作流（docx 抽取 → 覆核 → 生成 → 發佈）、
-不同的埠。兩者可同時開，互不干擾。
+獨立於其他站的面板：本面板只讀寫本站的資料層（data/learn/），
+只用本站的工作流（docx 抽取 → 覆核 → 生成 → 發佈），與其他站互不干擾。
 
 功能
   1. 總覽：課題／題數／待覆核／檢查狀態；課題「發佈／暫緩」開關
@@ -564,7 +563,7 @@ def page(title: str, body: str) -> bytes:
 <body><div class="wrap">
 <div class="top">
   <div><h1>自學追上站 · 維護平台</h1>
-  <div class="muted">本機專用（127.0.0.1:8788）· 與每日三題站的面板完全分開</div></div>
+  <div class="muted">本機專用（127.0.0.1:8788）· 只讀寫本站檔案</div></div>
   <div class="spacer"></div>
   <nav><a href="/">總覽</a><a href="/review">覆核清單</a><a href="/edit">內容編輯</a>
   <a href="/site/index.html" target="_blank">本機預覽 ↗</a>

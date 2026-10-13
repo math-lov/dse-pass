@@ -14,9 +14,8 @@
 
 ## 0. 30 秒現況
 
-> ⚠️ **本檔原為姊妹專案（`math-lov/daily.math` 的自學站）而寫。** 那一邊已完成 ws01–ws06
-> （7 課、127 題 MC、23 條長題示範、42 張概念卡）；**本 repo（`math-lov/dse-pass`）目前只有 ws01**。
-> 兩邊的數字不可混用；本 repo 的實況見下表。
+> ⚠️ **本檔部分內容沿自早期流程文件，課題數、頁碼與計數未必與本 repo 現況一致。**
+> **本 repo（`math-lov/dse-pass`）的實況見下表，不要照抄文中的數字。**
 
 | 項目 | 數字（本 repo，2026-09-28） |
 |---|---|
@@ -46,8 +45,7 @@
 
 * 「示範頁」＝ 學生按分頁列的那一格。**同一節 ≥4 條示範會自動收成一頁**（用「下一條」切換），
   2–3 條仍是一條一頁；所以 ws05b 的 4 條示範在分頁列只佔 1 格，而 ws05a／ws06 各節只有 2–3 條 → 一條一頁。
-* 網址：本 repo＝`https://math-lov.github.io/dse-pass/`（自學頁在根目錄：`index.html`／`topic.html`／`wrong.html`／`start.html`；**沒有** `learn/` 子目錄）。文中的 `daily.math/learn/` 屬姊妹專案。
-* 每日三題站（`site/`、`data/bank.json`、`data/solutions.json`）**與自學站完全分開**，這一輪沒有動它。
+* 網址：本 repo＝`https://math-lov.github.io/dse-pass/`（自學頁在根目錄：`index.html`／`topic.html`／`wrong.html`／`start.html`；**沒有** `learn/` 子目錄）。
 
 ---
 
@@ -657,7 +655,7 @@ ok(t07.$$("#pagenav .pg").length === 12, "ws06 = two lessons (1+2+3 and 1+2+3 pa
 
 ⚠️ 開工前先掃 handoff §5.2「審閱最常挑出的 10 類問題」（特別是長題分數要對官方 marking、
    出題後要驗算至少一個選項正確、解說不可以自相矛盾、題目字眼不可照抄別課）。
-⚠️ 不要改既有結構（頁面節奏、分頁列、已有功能），也不要動 site/（每日三題站）。
+⚠️ 不要改既有結構（頁面節奏、分頁列、已有功能）。
 ```
 
 ---
