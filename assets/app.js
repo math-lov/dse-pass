@@ -1015,11 +1015,20 @@
       if (st.math) {
         var f = el("div", "formula");
         formulaBlock(f, st.math, true);
-        box.appendChild(f);
+        if (st.marking) {
+          /* 評分代號貼在算式右手邊的「批改欄」，跟算式同一行 */
+          var frow = el("div", "formula-row");
+          frow.appendChild(f);
+          frow.appendChild(el("span", "marking", st.marking));
+          box.appendChild(frow);
+        } else {
+          box.appendChild(f);
+        }
       }
       var why = biNode({ zh: st.zh || "", en: st.en || st.zh || "" }, "div", "why");
       box.appendChild(why);
-      if (st.marking) box.appendChild(el("span", "marking", st.marking));
+      /* 冇算式（純文字步驟）才把評分代號留在下面 */
+      if (st.marking && !st.math) box.appendChild(el("span", "marking", st.marking));
       appendStepExtras(box, st);
       stepsHost.appendChild(box);
       // 逐步出圖：標了 step 的圖跟住那一步出場（圖跟步驟逐幅出，唔會一次過爆出來）
@@ -1372,10 +1381,19 @@
       if (st.math) {
         var f = el("div", "formula");
         formulaBlock(f, st.math, true);
-        box.appendChild(f);
+        if (st.marking) {
+          /* 評分代號貼在算式右手邊的「批改欄」，跟算式同一行（同 5A 一致） */
+          var frow = el("div", "formula-row");
+          frow.appendChild(f);
+          frow.appendChild(el("span", "marking", st.marking));
+          box.appendChild(frow);
+        } else {
+          box.appendChild(f);
+        }
       }
       box.appendChild(biNode({ zh: st.zh || "", en: st.en || st.zh || "" }, "div", "why"));
-      if (st.marking) box.appendChild(el("span", "marking", st.marking));
+      /* 冇算式（純文字步驟）才把評分代號留在下面 */
+      if (st.marking && !st.math) box.appendChild(el("span", "marking", st.marking));
       appendStepExtras(box, st);
       stepsHost.appendChild(box);
     }
