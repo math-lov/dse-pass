@@ -31,11 +31,40 @@ function stripDelims(t) {
   return s;
 }
 
+/* 題解重點標記 \hl{…} \hlw{…} \hlg{…} → KaTeX 的 \htmlClass{…}{…}
+   （同 assets/app.js 的 markHighlights 一致；括號要配對，否則交返 KaTeX 報錯） */
+const HL_CLASS = { hl: "hlk", hlw: "hlw", hlg: "hlg" };
+function markHighlights(src) {
+  const s = String(src == null ? "" : src);
+  if (s.indexOf("\\hl") < 0) return s;
+  let out = "";
+  let i = 0;
+  while (i < s.length) {
+    const m = /^\\(hlw|hlg|hl)\{/.exec(s.slice(i));
+    if (!m) { out += s[i]; i++; continue; }
+    let j = i + m[0].length;
+    let depth = 1;
+    const start = j;
+    while (j < s.length) {
+      const ch = s[j];
+      if (ch === "{") depth++;
+      else if (ch === "}") { depth--; if (!depth) break; }
+      j++;
+    }
+    if (depth) { out += s.slice(i); break; }
+    out += "\\htmlClass{" + HL_CLASS[m[1]] + "}{" + s.slice(start, j) + "}";
+    i = j + 1;
+  }
+  return out;
+}
+
 function check(tex, where) {
   if (!tex) return;
   checked++;
   try {
-    katex.renderToString(stripDelims(tex), { throwOnError: true, strict: false, displayMode: false });
+    katex.renderToString(markHighlights(stripDelims(tex)), {
+      throwOnError: true, strict: false, displayMode: false, trust: true
+    });
   } catch (e) {
     console.log("[ERROR] " + where);
     console.log("        source: " + tex);

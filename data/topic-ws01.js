@@ -55,7 +55,7 @@ window.LEARN_TOPIC_WS01 = {
       "en": "Factorization means writing a polynomial as a product of factors. For any factorisation question, the first step is always to look for a common factor in every term.\nFor example, both terms of $6r^{2}+4rs$ contain $2r$, so taking it out leaves $3r+2s$ inside the bracket: {{math:0}}\nAfter taking out the common factor, make a habit of checking by expanding the result — it must give back the original expression: {{math:1}}"
      },
      "math": [
-      "6r^{2}+4rs=2r(3r+2s)",
+      "\\hl{6r^{2}}+\\hl{4rs}=\\hl{2r}(\\hlg{3r+2s})",
       "2r(3r+2s)=6r^{2}+4rs"
      ],
      "vocab": [
@@ -93,8 +93,8 @@ window.LEARN_TOPIC_WS01 = {
       "en": "When there are four terms and no factor common to all of them, use grouping: split the four terms into two pairs, take out the common factor of each pair, and the same bracket should then appear in both pairs — take that bracket out.\nExample: $hk+1+h+k$ — rearrange the terms first, then group: {{math:0}}\nNote 1: when the last two terms share no letter, you are in fact taking out $+1$; that $+1$ stays inside the bracket, it does not disappear.\nNote 2: the two brackets must be identical. If they differ only by a minus sign, take out $-1$ and they match: {{math:1}}"
      },
      "math": [
-      "hk+1+h+k=hk+h+k+1\n=h(k+1)+1(k+1)\n=(k+1)(h+1)",
-      "ab-ac-b+c\n=a(b-c)-(b-c)\n=(b-c)(a-1)"
+      "hk+1+h+k=hk+h+k+1\n=h\\hl{(k+1)}+\\hlw{1}\\hl{(k+1)}\n=\\hlg{(k+1)(h+1)}",
+      "ab-ac-b+c\n=a\\hl{(b-c)}\\hlw{-}\\hl{(b-c)}\n=\\hlg{(b-c)(a-1)}"
      ],
      "vocab": [
       {
@@ -123,9 +123,9 @@ window.LEARN_TOPIC_WS01 = {
       "en": "Learn the three identities by heart and use them on sight:\nDifference of two squares{{math:0}}\nPerfect square (sum){{math:1}}\nPerfect square (difference){{math:2}}\nHow to decide: two terms with “square minus square” → difference of two squares; three terms → check whether the first and last are squares and the middle equals $2ab$ → perfect square."
      },
      "math": [
-      "a^{2}-b^{2}=(a+b)(a-b)",
-      "a^{2}+2ab+b^{2}=(a+b)^{2}",
-      "a^{2}-2ab+b^{2}=(a-b)^{2}"
+      "\\hl{a^{2}}-\\hl{b^{2}}=\\hlg{(a+b)(a-b)}",
+      "a^{2}+\\hlw{2ab}+b^{2}=\\hlg{(a+b)^{2}}",
+      "a^{2}\\hlw{-2ab}+b^{2}=\\hlg{(a-b)^{2}}"
      ],
      "vocab": [
       {
@@ -158,8 +158,8 @@ window.LEARN_TOPIC_WS01 = {
       "en": "If the trinomial $ax^{2}+bx+c$ does not fit a perfect-square identity, use the cross-method: split the coefficient of $x^{2}$ and the constant term into factors, arrange them in a cross, multiply across and add — the sum must match the middle term exactly.\nFor example $x^{2}-5x+6$: the middle term matches because $(-2)+(-3)=-5$, so{{math:0}}\nWhen the coefficient of $x^{2}$ is not 1 you may have to try several factor combinations: {{math:1}}"
      },
      "math": [
-      "x^{2}-5x+6=(x-2)(x-3)",
-      "6x^{2}-7x-5=(2x+1)(3x-5)"
+      "x^{2}-5x+6=\\hlg{(x-2)(x-3)}",
+      "6x^{2}\\hlw{-7x}-5=(\\hl{2x}\\hlw{+1})(\\hlw{3x}\\hl{-5})"
      ],
      "vocab": [
       {
@@ -234,7 +234,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 2 步 · (a) 十字相乘",
          "en": "Step 2 · Factorize (a)"
         },
-        "math": "15x^{2}+xy-2y^{2}=(3x-y)(5x+2y)",
+        "math": "15x^{2}+xy-2y^{2}=\\hlg{(3x-y)(5x+2y)}",
         "zh": "首項 $15x^{2}$ 拆成 $3x\\cdot 5x$，末項 $-2y^{2}$ 拆成 $(-y)\\cdot(+2y)$。交叉相乘檢查中間項：$(3x)(+2y)+(-y)(5x)=6xy-5xy=xy$，與題目的 $+xy$ 相符，所以分解正確。這一步是 A 分，答案寫對就有分。",
         "marking": "(1A)",
         "highlight": [
@@ -247,7 +247,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 3 步 · (b) 先分組，加括號",
          "en": "Step 3 · Group the terms in (b)"
         },
-        "math": "9x-3y-15x^{2}-xy+2y^{2}\n=(9x-3y)-(15x^{2}+xy-2y^{2})",
+        "math": "9x-3y-15x^{2}-xy+2y^{2}\n=(9x-3y)\\hlw{-}(\\hl{15x^{2}+xy-2y^{2}})",
         "zh": "四項要用併項分組。看見後三項 $-15x^{2}-xy+2y^{2}$ 的係數符號剛好與 (a) 完全相反。把負號抽出並加括號時，括號內每一項都要同時變號：$-15x^{2}$ 變 $+15x^{2}$、$-xy$ 變 $+xy$、$+2y^{2}$ 變 $-2y^{2}$，即 $-(15x^{2}+xy-2y^{2})$。這一步是卷一必考位，漏變號就無法套用 (a) 的結果。",
         "highlight": [
          "(9x-3y)-(15x^{2}+xy-2y^{2})"
@@ -259,7 +259,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 4 步 · 用 (a) 的結果",
          "en": "Step 4 · Use the result of (a)"
         },
-        "math": "=3(3x-y)-(3x-y)(5x+2y)",
+        "math": "=\\hl{3}\\hl{(3x-y)}-\\hl{(3x-y)}(5x+2y)",
         "zh": "兩邊各自抽公因式：$9x-3y=3(3x-y)$；括號內再用 (a) 的答案 $15x^{2}+xy-2y^{2}=(3x-y)(5x+2y)$。這一步「用上一部的結果」就是 M 分。",
         "marking": "(1M: Use the result of (a).)",
         "highlight": [
@@ -276,7 +276,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 5 步 · 抽出共同括號，再拆中括號",
          "en": "Step 5 · Factor out the common bracket, then remove the square brackets"
         },
-        "math": "=(3x-y)[3-(5x+2y)]\n=(3x-y)(3-5x-2y)",
+        "math": "=\\hl{(3x-y)}[3-(5x+2y)]\n=\\hlg{(3x-y)(3-5x-2y)}",
         "zh": "抽出共同括號 $(3x-y)$ 之後，餘下的部分先用中括號整組包住：$[3-(5x+2y)]$。中括號前的減號必須逐項分配：$-(+5x)=-5x$、$-(+2y)=-2y$。寫的時候一定要把中括號這一步寫出來，靠心算跳步是最常見的失分位（很多同學會寫成 $3-5x+2y$）。",
         "marking": "(1A)",
         "highlight": [
@@ -496,7 +496,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 1 步 · 三項、首項負數：先抽 $-1$",
          "en": "Step 1 · Negative leading term: take $-1$ out first"
         },
-        "math": "-4m^{2}+20mn-25n^{2}=-(4m^{2}-20mn+25n^{2})",
+        "math": "\\hlw{-}4m^{2}+20mn-25n^{2}=\\hlw{-}(\\hl{4m^{2}-20mn+25n^{2}})",
         "zh": "整條式三項，首項是 $-4m^{2}$。第一步一律把 $-1$ 抽出來（等於每一項都變號），括號內才用恆等式。這一步是方法分，寫了才有後面的分。",
         "en": "The expression has three terms and the leading term is $-4m^{2}$. Take $-1$ out first (that flips every sign), then use an identity inside the bracket. This is the method mark.",
         "marking": "(1M)"
@@ -506,7 +506,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 2 步 · 認出完全平方",
          "en": "Step 2 · Recognise the perfect square"
         },
-        "math": "=-\\left[(2m)^{2}-2(2m)(5n)+(5n)^{2}\\right]",
+        "math": "=-\\left[\\hl{(2m)^{2}}\\hlw{-2(2m)(5n)}+\\hl{(5n)^{2}}\\right]",
         "zh": "括號內：$4m^{2}=(2m)^{2}$、$25n^{2}=(5n)^{2}$，而中間項 $-20mn=-2(2m)(5n)$，完全符合 $a^{2}-2ab+b^{2}=(a-b)^{2}$。",
         "en": "Inside the bracket $4m^{2}=(2m)^{2}$, $25n^{2}=(5n)^{2}$ and the middle term $-20mn=-2(2m)(5n)$, which is exactly $a^{2}-2ab+b^{2}=(a-b)^{2}$."
        },
@@ -515,7 +515,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 3 步 · 寫成平方，記得保留負號",
          "en": "Step 3 · Write it as a square — keep the minus sign"
         },
-        "math": "=-(2m-5n)^{2}",
+        "math": "=\\hlg{-(2m-5n)^{2}}",
         "zh": "答案是 $-(2m-5n)^{2}$。答題時外面的負號一定要抄，漏了的話展開就變回正數。",
         "en": "The answer is $-(2m-5n)^{2}$. Always copy the minus sign in front — drop it and expanding gives the wrong sign.",
         "marking": "(1A)"

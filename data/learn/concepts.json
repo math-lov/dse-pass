@@ -12,7 +12,7 @@
     "en": "Factorization means writing a polynomial as a product of factors. For any factorisation question, the first step is always to look for a common factor in every term.\nFor example, both terms of $6r^{2}+4rs$ contain $2r$, so taking it out leaves $3r+2s$ inside the bracket: {{math:0}}\nAfter taking out the common factor, make a habit of checking by expanding the result — it must give back the original expression: {{math:1}}"
    },
    "math": [
-    "6r^{2}+4rs=2r(3r+2s)",
+    "\\hl{6r^{2}}+\\hl{4rs}=\\hl{2r}(\\hlg{3r+2s})",
     "2r(3r+2s)=6r^{2}+4rs"
    ],
    "vocab": [
@@ -50,8 +50,8 @@
     "en": "When there are four terms and no factor common to all of them, use grouping: split the four terms into two pairs, take out the common factor of each pair, and the same bracket should then appear in both pairs — take that bracket out.\nExample: $hk+1+h+k$ — rearrange the terms first, then group: {{math:0}}\nNote 1: when the last two terms share no letter, you are in fact taking out $+1$; that $+1$ stays inside the bracket, it does not disappear.\nNote 2: the two brackets must be identical. If they differ only by a minus sign, take out $-1$ and they match: {{math:1}}"
    },
    "math": [
-    "hk+1+h+k=hk+h+k+1\n=h(k+1)+1(k+1)\n=(k+1)(h+1)",
-    "ab-ac-b+c\n=a(b-c)-(b-c)\n=(b-c)(a-1)"
+    "hk+1+h+k=hk+h+k+1\n=h\\hl{(k+1)}+\\hlw{1}\\hl{(k+1)}\n=\\hlg{(k+1)(h+1)}",
+    "ab-ac-b+c\n=a\\hl{(b-c)}\\hlw{-}\\hl{(b-c)}\n=\\hlg{(b-c)(a-1)}"
    ],
    "vocab": [
     {
@@ -80,9 +80,9 @@
     "en": "Learn the three identities by heart and use them on sight:\nDifference of two squares{{math:0}}\nPerfect square (sum){{math:1}}\nPerfect square (difference){{math:2}}\nHow to decide: two terms with “square minus square” → difference of two squares; three terms → check whether the first and last are squares and the middle equals $2ab$ → perfect square."
    },
    "math": [
-    "a^{2}-b^{2}=(a+b)(a-b)",
-    "a^{2}+2ab+b^{2}=(a+b)^{2}",
-    "a^{2}-2ab+b^{2}=(a-b)^{2}"
+    "\\hl{a^{2}}-\\hl{b^{2}}=\\hlg{(a+b)(a-b)}",
+    "a^{2}+\\hlw{2ab}+b^{2}=\\hlg{(a+b)^{2}}",
+    "a^{2}\\hlw{-2ab}+b^{2}=\\hlg{(a-b)^{2}}"
    ],
    "vocab": [
     {
@@ -115,8 +115,8 @@
     "en": "If the trinomial $ax^{2}+bx+c$ does not fit a perfect-square identity, use the cross-method: split the coefficient of $x^{2}$ and the constant term into factors, arrange them in a cross, multiply across and add — the sum must match the middle term exactly.\nFor example $x^{2}-5x+6$: the middle term matches because $(-2)+(-3)=-5$, so{{math:0}}\nWhen the coefficient of $x^{2}$ is not 1 you may have to try several factor combinations: {{math:1}}"
    },
    "math": [
-    "x^{2}-5x+6=(x-2)(x-3)",
-    "6x^{2}-7x-5=(2x+1)(3x-5)"
+    "x^{2}-5x+6=\\hlg{(x-2)(x-3)}",
+    "6x^{2}\\hlw{-7x}-5=(\\hl{2x}\\hlw{+1})(\\hlw{3x}\\hl{-5})"
    ],
    "vocab": [
     {

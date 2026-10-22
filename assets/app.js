@@ -115,20 +115,93 @@
   }
 
   /* ── 數學渲染（沿用每日站兩路機制）───────────────────────────────────── */
+  /* 資料層可以用三個輕量標記標重點（老師寫題解時只加標記，不用寫 CSS）：
+       \hl{…}  靛藍：今次抽出的公因式／共同括號等重點
+       \hlw{…} 橙：易錯位（漏負號、漏 +1）
+       \hlg{…} 綠：最後答案
+     渲染前轉成 KaTeX 的 \htmlClass{…}（需要 trust: true），再交 CSS 做閃動。 */
+  /* 用 hlk 而唔係 hl：.step .hl 已經係「提示」區塊，撞名會食埋佢啲款式 */
+  var HL_CLASS = { hl: "hlk", hlw: "hlw", hlg: "hlg" };
+  function markHighlights(src) {
+    var s = String(src == null ? "" : src);
+    if (s.indexOf("\\hl") < 0) return s;
+    var out = "", i = 0, n = s.length;
+    while (i < n) {
+      var m = /^\\(hlw|hlg|hl)\{/.exec(s.substr(i));
+      if (!m) { out += s.charAt(i); i++; continue; }
+      var j = i + m[0].length, depth = 1, start = j;
+      while (j < n) {                       // 配對大括號（\frac{1}{2} 之類都應付到）
+        var ch = s.charAt(j);
+        if (ch === "{") depth++;
+        else if (ch === "}") { depth--; if (!depth) break; }
+        j++;
+      }
+      if (depth) { out += s.slice(i); break; }   // 括號唔配對：原樣交返 KaTeX 報錯
+      out += "\\htmlClass{" + HL_CLASS[m[1]] + "}{" + s.slice(start, j) + "}";
+      i = j + 1;
+    }
+    return out;
+  }
+  /* 重點需要「第一次見到先播」：用 IntersectionObserver 等佢入畫面才加 .play */
+  function playWhenVisible(node) {
+    if (!node) return;
+    function go() { node.classList.add("play"); }
+    if (!("IntersectionObserver" in window)) { go(); return; }
+    try {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting) { go(); io.disconnect(); }
+        });
+      }, { threshold: 0.35 });
+      io.observe(node);
+    } catch (e) { go(); }
+  }
+  function replay(node) {
+    if (!node) return;
+    var targets = qsa(".formula-line", node);   // 多行公式：逐行重播
+    if (!targets.length) targets = [node];
+    targets.forEach(function (t) {
+      t.classList.remove("play");
+      void t.offsetWidth;                   // 強制 reflow，動畫才會重播
+      t.classList.add("play");
+    });
+  }
+  /* 渲染完之後：排好逐個閃嘅次序（--i），等佢入畫面就播 */
+  function decorateHighlights(host) {
+    var marks = qsa(".hlk, .hlw, .hlg", host);
+    if (!marks.length) return false;
+    marks.forEach(function (m, i) { m.style.setProperty("--i", i); });
+    playWhenVisible(host);
+    return true;
+  }
+  /* 一步一步睇題解時，學生可能想再睇一次重點 → 喺步驟右下角加 ⟲ */
+  function replayButton(target) {
+    var btn = el("button", "replay", "⟲");
+    btn.type = "button";
+    btn.title = "重播重點動畫 / Replay";
+    btn.setAttribute("aria-label", "重播重點動畫");
+    btn.onclick = function () { replay(target); };
+    return btn;
+  }
   function tex(node, src, display) {
     if (!src) { node.textContent = "—"; return; }
-    node.setAttribute("data-tex", src);
+    var out = markHighlights(src);
+    node.setAttribute("data-tex", out);
     node.setAttribute("data-display", display ? "1" : "0");
     if (window.katex) {
       try {
-        katex.render(src, node, { displayMode: !!display, throwOnError: false, strict: false });
+        katex.render(out, node, {
+          displayMode: !!display, throwOnError: false, strict: false, trust: true
+        });
+        decorateHighlights(node);
         return;
       } catch (e) { /* 退回純文字 */ }
     }
     node.textContent = src;
   }
   /* 長公式放唔落：math 字串內用 \n 斷行 → 每行一個 <div class="formula-line">
-     （各自帶 data-tex，KaTeX 遲載入時 rerenderAll 仍可逐行重繪） */
+     （各自帶 data-tex，KaTeX 遲載入時 rerenderAll 仍可逐行重繪）
+     opt.replay：有重點標記時，喺算式下面加一個 ⟲ 重播掣 */
   function formulaBlock(host, src, display) {
     var lines = String(src == null ? "" : src).split(/\r?\n/)
       .map(function (s) { return s.trim(); })
@@ -157,8 +230,9 @@
       try {
         katex.render(n.getAttribute("data-tex"), n, {
           displayMode: n.getAttribute("data-display") === "1",
-          throwOnError: false, strict: false
+          throwOnError: false, strict: false, trust: true
         });
+        decorateHighlights(n);            // data-tex 已係 markHighlights 之後嘅版本
       } catch (e) {}
     });
     qsa("[data-tex-inline]").forEach(autoRender);
@@ -1030,6 +1104,7 @@
         } else {
           box.appendChild(f);
         }
+        if (qsa(".hlk, .hlw, .hlg", f).length) box.appendChild(replayButton(f));
       }
       var why = biNode({ zh: st.zh || "", en: st.en || st.zh || "" }, "div", "why");
       box.appendChild(why);
@@ -1397,6 +1472,7 @@
         } else {
           box.appendChild(f);
         }
+        if (qsa(".hlk, .hlw, .hlg", f).length) box.appendChild(replayButton(f));
       }
       box.appendChild(biNode({ zh: st.zh || "", en: st.en || st.zh || "" }, "div", "why"));
       /* 冇算式（純文字步驟）才把評分代號留在下面 */

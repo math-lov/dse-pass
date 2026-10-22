@@ -58,6 +58,13 @@
   --bar-done: var(--ok);
   --bar-off: #efe9e1;
 
+  /* 題解重點標記（\hl 系列）的底色：淡底 = 定稿態，強底 = 閃動那一刻 */
+  --mk-a: rgba(79, 70, 229, .15);
+  --mk-a-strong: rgba(79, 70, 229, .40);
+  --mk-w: rgba(249, 115, 22, .17);
+  --mk-w-strong: rgba(249, 115, 22, .45);
+  --mk-g: rgba(21, 160, 90, .17);
+
   /* 間距級（8 的倍數） */
   --sp-1: 4px;
   --sp-2: 8px;
@@ -270,6 +277,57 @@ body {
 .step .hl {
   display: inline-block; margin-top: 8px; font-size: 15px; color: var(--primary-ink);
   background: var(--primary-soft); border-radius: 8px; padding: 4px 10px;
+}
+
+/* ── 題解重點動畫（\hl / \hlw / \hlg）──────────────────────────────────
+   顏色語意：靛藍＝今次抽出的重點／共同括號、橙＝易錯位、綠＝最後答案。
+   平常係淡底（定稿態）；一入畫面（.play）就閃兩下，之後停低。
+   box-shadow 只用嚟做外框，唔會推位（KaTeX 唔可以加 padding 改行高）。 */
+.hlk { background: var(--mk-a); border-radius: 4px; box-shadow: 0 0 0 2px var(--mk-a); }
+.hlw { background: var(--mk-w); border-radius: 4px; box-shadow: 0 0 0 2px var(--mk-w); }
+.hlg { background: var(--mk-g); border-radius: 4px; box-shadow: 0 0 0 2px var(--mk-g); }
+
+@keyframes hlFlash {
+  0%   { background-color: var(--mk-a); box-shadow: 0 0 0 2px var(--mk-a); }
+  16%  { background-color: var(--mk-a-strong); box-shadow: 0 0 0 2px var(--mk-a-strong); }
+  38%  { background-color: var(--mk-a); box-shadow: 0 0 0 2px var(--mk-a); }
+  60%  { background-color: var(--mk-a-strong); box-shadow: 0 0 0 2px var(--mk-a-strong); }
+  100% { background-color: var(--mk-a); box-shadow: 0 0 0 2px var(--mk-a); }
+}
+@keyframes hlWarnFlash {
+  0%   { background-color: var(--mk-w); box-shadow: 0 0 0 2px var(--mk-w); }
+  16%  { background-color: var(--mk-w-strong); box-shadow: 0 0 0 2px var(--mk-w-strong); }
+  38%  { background-color: var(--mk-w); box-shadow: 0 0 0 2px var(--mk-w); }
+  60%  { background-color: var(--mk-w-strong); box-shadow: 0 0 0 2px var(--mk-w-strong); }
+  100% { background-color: var(--mk-w); box-shadow: 0 0 0 2px var(--mk-w); }
+}
+@keyframes hlOkIn {
+  from { background-color: transparent; box-shadow: 0 0 0 2px transparent; }
+  to   { background-color: var(--mk-g); box-shadow: 0 0 0 2px var(--mk-g); }
+}
+.play .hlk { animation: hlFlash 1.25s ease-in-out both; animation-delay: calc(var(--i, 0) * 130ms); }
+.play .hlw { animation: hlWarnFlash 1.3s ease-in-out both; animation-delay: calc(var(--i, 0) * 130ms); }
+.play .hlg { animation: hlOkIn .55s ease-out both; animation-delay: calc(var(--i, 0) * 130ms); }
+
+/* 重播：一步一步睇題解時，學生想再睇一次重點 */
+.replay {
+  display: block; margin: 8px 0 0 auto;
+  border: 1px solid var(--line); background: #fff; color: var(--muted);
+  font-size: 13px; line-height: 1; padding: 6px 9px; border-radius: 999px;
+  cursor: pointer; transition: color .15s ease, border-color .15s ease, background .15s ease;
+}
+.replay:hover, .replay:focus-visible {
+  color: var(--primary-ink); border-color: var(--primary-line); background: var(--primary-soft);
+}
+
+/* 系統設定減少動態 → 只留淡底，唔閃 */
+@media (prefers-reduced-motion: reduce) {
+  .play .hlk, .play .hlw, .play .hlg { animation: none; }
+}
+/* 列印：顏色底轉淺灰（影印多數係黑白，但仍然想見到邊度係重點） */
+@media print {
+  .hlk, .hlw, .hlg { background: #ededed !important; box-shadow: none !important; }
+  .replay { display: none !important; }
 }
 
 /* ── 公式與圖 ─────────────────────────────────────────────────────────── */
