@@ -119,15 +119,16 @@
        \hl{…}  靛藍：今次抽出的公因式／共同括號等重點
        \hlw{…} 橙：易錯位（漏負號、漏 +1）
        \hlg{…} 綠：最後答案
+       \xf{…}  負號分配：逐個抖一下再變色，提醒「拆括號要變號」
      渲染前轉成 KaTeX 的 \htmlClass{…}（需要 trust: true），再交 CSS 做閃動。 */
   /* 用 hlk 而唔係 hl：.step .hl 已經係「提示」區塊，撞名會食埋佢啲款式 */
-  var HL_CLASS = { hl: "hlk", hlw: "hlw", hlg: "hlg" };
+  var HL_CLASS = { hl: "hlk", hlw: "hlw", hlg: "hlg", xf: "xf" };
   function markHighlights(src) {
     var s = String(src == null ? "" : src);
-    if (s.indexOf("\\hl") < 0) return s;
+    if (s.indexOf("\\hl") < 0 && s.indexOf("\\xf") < 0) return s;
     var out = "", i = 0, n = s.length;
     while (i < n) {
-      var m = /^\\(hlw|hlg|hl)\{/.exec(s.substr(i));
+      var m = /^\\(hlw|hlg|hl|xf)\{/.exec(s.substr(i));
       if (!m) { out += s.charAt(i); i++; continue; }
       var j = i + m[0].length, depth = 1, start = j;
       while (j < n) {                       // 配對大括號（\frac{1}{2} 之類都應付到）
@@ -137,7 +138,9 @@
         j++;
       }
       if (depth) { out += s.slice(i); break; }   // 括號唔配對：原樣交返 KaTeX 報錯
-      out += "\\htmlClass{" + HL_CLASS[m[1]] + "}{" + s.slice(start, j) + "}";
+      /* 內部可以再夾標記（例如 \hlg{…\xf{…}…}），所以要遞歸 */
+      out += "\\htmlClass{" + HL_CLASS[m[1]] + "}{"
+        + markHighlights(s.slice(start, j)) + "}";
       i = j + 1;
     }
     return out;
@@ -168,7 +171,7 @@
   }
   /* 渲染完之後：排好逐個閃嘅次序（--i），等佢入畫面就播 */
   function decorateHighlights(host) {
-    var marks = qsa(".hlk, .hlw, .hlg", host);
+    var marks = qsa(".hlk, .hlw, .hlg, .xf", host);
     if (!marks.length) return false;
     marks.forEach(function (m, i) { m.style.setProperty("--i", i); });
     playWhenVisible(host);
@@ -1104,7 +1107,7 @@
         } else {
           box.appendChild(f);
         }
-        if (qsa(".hlk, .hlw, .hlg", f).length) box.appendChild(replayButton(f));
+        if (qsa(".hlk, .hlw, .hlg, .xf", f).length) box.appendChild(replayButton(f));
       }
       var why = biNode({ zh: st.zh || "", en: st.en || st.zh || "" }, "div", "why");
       box.appendChild(why);
@@ -1472,7 +1475,7 @@
         } else {
           box.appendChild(f);
         }
-        if (qsa(".hlk, .hlw, .hlg", f).length) box.appendChild(replayButton(f));
+        if (qsa(".hlk, .hlw, .hlg, .xf", f).length) box.appendChild(replayButton(f));
       }
       box.appendChild(biNode({ zh: st.zh || "", en: st.en || st.zh || "" }, "div", "why"));
       /* 冇算式（純文字步驟）才把評分代號留在下面 */

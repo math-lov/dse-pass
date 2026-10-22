@@ -305,6 +305,21 @@ body {
   from { background-color: transparent; box-shadow: 0 0 0 2px transparent; }
   to   { background-color: var(--mk-g); box-shadow: 0 0 0 2px var(--mk-g); }
 }
+/* 負號分配（\xf）：逐個抖一抖再定住，提醒「拆括號要變號」。
+   transform 只作用於 non-inline 元素，所以要 inline-block；數學式都係同一行，唔會走位。 */
+.xf {
+  display: inline-block; border-radius: 3px;
+  box-shadow: inset 0 -2px 0 var(--mk-w-strong);
+}
+@keyframes xfFlip {
+  0%   { background-color: transparent; transform: translateX(0) rotate(0); }
+  18%  { background-color: var(--mk-w-strong); transform: translateX(-2.5px) rotate(-1.5deg); }
+  36%  { background-color: var(--mk-w); transform: translateX(2.5px) rotate(1.5deg); }
+  54%  { background-color: var(--mk-w-strong); transform: translateX(-1px) rotate(0); }
+  100% { background-color: transparent; transform: translateX(0) rotate(0); }
+}
+.play .xf { animation: xfFlip .72s ease-in-out both; animation-delay: calc(var(--i, 0) * 420ms); }
+
 .play .hlk { animation: hlFlash 1.25s ease-in-out both; animation-delay: calc(var(--i, 0) * 130ms); }
 .play .hlw { animation: hlWarnFlash 1.3s ease-in-out both; animation-delay: calc(var(--i, 0) * 130ms); }
 .play .hlg { animation: hlOkIn .55s ease-out both; animation-delay: calc(var(--i, 0) * 130ms); }
@@ -322,7 +337,7 @@ body {
 
 /* 系統設定減少動態 → 只留淡底，唔閃 */
 @media (prefers-reduced-motion: reduce) {
-  .play .hlk, .play .hlw, .play .hlg { animation: none; }
+  .play .hlk, .play .hlw, .play .hlg, .play .xf { animation: none; }
 }
 /* 列印：顏色底轉淺灰（影印多數係黑白，但仍然想見到邊度係重點） */
 @media print {

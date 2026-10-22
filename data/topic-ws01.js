@@ -276,7 +276,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 5 步 · 抽出共同括號，再拆中括號",
          "en": "Step 5 · Factor out the common bracket, then remove the square brackets"
         },
-        "math": "=\\hl{(3x-y)}[3-(5x+2y)]\n=\\hlg{(3x-y)(3-5x-2y)}",
+        "math": "=\\hl{(3x-y)}[3\\hlw{-}(5x+2y)]\n=\\hlg{(3x-y)(3\\xf{-5x}\\xf{-2y})}",
         "zh": "抽出共同括號 $(3x-y)$ 之後，餘下的部分先用中括號整組包住：$[3-(5x+2y)]$。中括號前的減號必須逐項分配：$-(+5x)=-5x$、$-(+2y)=-2y$。寫的時候一定要把中括號這一步寫出來，靠心算跳步是最常見的失分位（很多同學會寫成 $3-5x+2y$）。",
         "marking": "(1A)",
         "highlight": [
@@ -371,7 +371,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 2 步 · (a) 用完全平方",
          "en": "Step 2 · Factorize (a)"
         },
-        "math": "16c^{2}-8c+1=(4c)^{2}-2(4c)(1)+1^{2}\n=(4c-1)^{2}",
+        "math": "\\hl{16c^{2}-8c+1}=(\\hl{4c})^{2}\\hlw{-2(4c)(1)}+(\\hl{1})^{2}\n=\\hlg{(4c-1)^{2}}",
         "zh": "首項 $16c^{2}=(4c)^{2}$、尾項 $1=1^{2}$、中間 $-8c=-2(4c)(1)$，完全符合 $a^{2}-2ab+b^{2}=(a-b)^{2}$，所以是 $(4c-1)^{2}$。這一步是 A 分。",
         "marking": "(1A)",
         "highlight": [
@@ -384,7 +384,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 3 步 · (b) 先把後三項包起來",
          "en": "Step 3 · Put brackets in (b)"
         },
-        "math": "(5c+d)^{2}-16c^{2}+8c-1\n=(5c+d)^{2}-(16c^{2}-8c+1)",
+        "math": "(5c+d)^{2}-16c^{2}+8c-1\n=(5c+d)^{2}\\hlw{-}(\\hl{16c^{2}-8c+1})",
         "zh": "後三項 $-16c^{2}+8c-1$ 提出負號加括號，變成 $-(16c^{2}-8c+1)$。注意括號內每一項都要變號：$-16c^{2}$ 變 $16c^{2}$、$+8c$ 變 $-8c$、$-1$ 變 $+1$。",
         "highlight": [
          "(5c+d)^{2}-(16c^{2}-8c+1)"
@@ -396,7 +396,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 4 步 · 用 (a) 化成平方減平方",
          "en": "Step 4 · Use the result of (a)"
         },
-        "math": "=(5c+d)^{2}-(4c-1)^{2}",
+        "math": "=\\hl{(5c+d)^{2}}-\\hl{(4c-1)^{2}}",
         "zh": "括號內正是 (a) 的式子，代入 (a) 的答案：$16c^{2}-8c+1=(4c-1)^{2}$。現在整題變成「平方減平方」，可以用平方差。這一步「用上一部結果」是 M 分。",
         "marking": "(1M: Use the result of (a).)",
         "highlight": [
@@ -413,7 +413,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 5 步 · 用平方差恆等式",
          "en": "Step 5 · Difference of two squares"
         },
-        "math": "=[(5c+d)+(4c-1)][(5c+d)-(4c-1)]",
+        "math": "=[(5c+d)+(4c-1)][(5c+d)\\hlw{-}(4c-1)]",
         "zh": "套用 $a^{2}-b^{2}=(a+b)(a-b)$，其中 $a=5c+d$、$b=4c-1$。這裡減號的括號最易錯：$(5c+d)-(4c-1)$ 不能漏掉括號，否則 $-(-1)$ 會變成 $-1$。這一步是 M 分。",
         "marking": "(1M)",
         "highlight": [
@@ -426,7 +426,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 6 步 · 逐項分配負號後化簡",
          "en": "Step 6 · Distribute the minus to each term, then simplify"
         },
-        "math": "=(5c+d+4c-1)(5c+d-4c+1)\n=(9c+d-1)(c+d+1)",
+        "math": "=(5c+d+4c-1)(5c+d\\xf{-4c}\\xf{+1})\n=\\hlg{(9c+d-1)(c+d+1)}",
         "zh": "把兩個中括號拆開：第一個 $(5c+d)+(4c-1)$ 直接去括號；第二個 $(5c+d)-(4c-1)$ 前面的減號要逐項分配 —— $-(+4c)=-4c$、$-(-1)=+1$，所以是 $5c+d-4c+1$（不是 $5c+d-4c-1$）。合併同類項後得 $(9c+d-1)(c+d+1)$。",
         "marking": "(1A)",
         "highlight": [
@@ -496,7 +496,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 1 步 · 三項、首項負數：先抽 $-1$",
          "en": "Step 1 · Negative leading term: take $-1$ out first"
         },
-        "math": "\\hlw{-}4m^{2}+20mn-25n^{2}=\\hlw{-}(\\hl{4m^{2}-20mn+25n^{2}})",
+        "math": "\\hlw{-}4m^{2}+20mn-25n^{2}=\\hlw{-}(\\xf{4m^{2}}\\xf{-20mn}\\xf{+25n^{2}})",
         "zh": "整條式三項，首項是 $-4m^{2}$。第一步一律把 $-1$ 抽出來（等於每一項都變號），括號內才用恆等式。這一步是方法分，寫了才有後面的分。",
         "en": "The expression has three terms and the leading term is $-4m^{2}$. Take $-1$ out first (that flips every sign), then use an identity inside the bracket. This is the method mark.",
         "marking": "(1M)"
@@ -576,7 +576,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 1 步 · 十字相乘：拆首項與末項",
          "en": "Step 1 · Cross-method: split the first and last terms"
         },
-        "math": "x^{2}+4xy+3y^{2}\\Rightarrow (x\\quad y)(x\\quad y)",
+        "math": "x^{2}+4xy+3y^{2}\\Rightarrow(x\\quad y)(x\\quad \\hl{3y})",
         "zh": "首項 $x^{2}$ 只能拆成 $x\\cdot x$；末項 $3y^{2}$ 拆成 $y\\cdot 3y$（因為兩個括號都要有 $y$，展開才會有 $y^{2}$ 項）。",
         "en": "The first term $x^{2}$ can only split as $x\\cdot x$; the last term $3y^{2}$ splits as $y\\cdot 3y$ — both brackets need a $y$, otherwise expanding never produces $y^{2}$.",
         "marking": "(1M)"
@@ -586,7 +586,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 2 步 · 交叉相乘驗中間項",
          "en": "Step 2 · Cross-check the middle term"
         },
-        "math": "x\\cdot 3y+y\\cdot x=3xy+xy=4xy",
+        "math": "x\\cdot 3y+y\\cdot x=3xy+xy=\\hl{4xy}",
         "zh": "交叉相乘的兩個積相加要等於題目的中間項 $+4xy$。剛剛好，代表拆對了。這一步只花幾秒，卻可以救回一分。",
         "en": "The two cross products must add up to the given middle term $+4xy$. They do, so the split is right. It takes seconds and saves a mark."
        },
@@ -595,7 +595,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 3 步 · 寫出答案",
          "en": "Step 3 · Write the answer"
         },
-        "math": "x^{2}+4xy+3y^{2}=(x+y)(x+3y)",
+        "math": "x^{2}+4xy+3y^{2}=\\hlg{(x+y)(x+3y)}",
         "zh": "兩個括號內都是加號：因為末項 $+3y^{2}$ 是正數、中間項 $+4xy$ 也是正數。",
         "en": "Both brackets take a plus sign: the last term $+3y^{2}$ is positive and the middle term $+4xy$ is positive too.",
         "marking": "(1A)"
@@ -662,7 +662,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 1 步 · 拆首項 $6m^{2}$",
          "en": "Step 1 · Split the leading term $6m^{2}$"
         },
-        "math": "6m^{2}\\Rightarrow 2m\\cdot 3m",
+        "math": "6m^{2}\\Rightarrow\\hl{2m\\cdot 3m}",
         "zh": "首項 $6m^{2}$ 有兩個拆法（$m\\cdot 6m$ 或 $2m\\cdot 3m$）。先試 $2m\\cdot 3m$，因為係數小、組合較少，容易篩。",
         "en": "The leading term $6m^{2}$ can split two ways ($m\\cdot 6m$ or $2m\\cdot 3m$). Try $2m\\cdot 3m$ first — the coefficients are smaller and there are fewer cases to test.",
         "marking": "(1M)"
@@ -672,7 +672,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 2 步 · 末項負數 → 兩個符號相反，再交叉相乘",
          "en": "Step 2 · Negative last term means opposite signs, then cross-check"
         },
-        "math": "2m\\cdot(+2n)+(-5n)\\cdot 3m=4mn-15mn=-11mn",
+        "math": "2m\\cdot(\\hlw{+2n})+(\\hlw{-5n})\\cdot 3m=4mn-15mn=\\hl{-11mn}",
         "zh": "$-10n^{2}$ 拆成 $(-5n)\\cdot(+2n)$，因為末項是負數，兩個括號的符號一定相反。交叉相乘：$4mn-15mn=-11mn$，與題目的 $-11mn$ 相符。",
         "en": "Split $-10n^{2}$ as $(-5n)\\cdot(+2n)$: the last term is negative, so the two brackets must carry opposite signs. Cross-check: $4mn-15mn=-11mn$, matching the given $-11mn$."
        },
@@ -681,7 +681,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 3 步 · 寫出答案",
          "en": "Step 3 · Write the answer"
         },
-        "math": "6m^{2}-11mn-10n^{2}=(2m-5n)(3m+2n)",
+        "math": "6m^{2}-11mn-10n^{2}=\\hlg{(2m-5n)(3m+2n)}",
         "zh": "答案就是 $(2m-5n)(3m+2n)$。次序可以寫 $(3m+2n)(2m-5n)$，但符號要配對好，不要一個括號內同時改兩個符號。",
         "en": "The answer is $(2m-5n)(3m+2n)$. Writing $(3m+2n)(2m-5n)$ is equally correct, but keep the signs paired — never flip two signs inside one bracket.",
         "marking": "(1A)"
@@ -742,7 +742,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 1 步 · 三項都有 $n$：先抽公因式",
          "en": "Step 1 · Every term has $n$: take out the common factor"
         },
-        "math": "2m^{2}n+3mn-14n=n(2m^{2}+3m-14)",
+        "math": "2m^{2}n+3mn-14n=\\hl{n}(2m^{2}+3m-14)",
         "zh": "三項都含 $n$，先抽走它。抽走之後括號內只剩 $m$，變回「純數字係數」的十字相乘，處理起來容易得多。",
         "en": "All three terms contain $n$, so take it out first. Inside the bracket only $m$ is left, which turns the problem back into a cross-method with plain number coefficients.",
         "marking": "(1M)"
@@ -752,7 +752,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 2 步 · 括號內十字相乘",
          "en": "Step 2 · Cross-method inside the bracket"
         },
-        "math": "2m^{2}+3m-14=(2m+7)(m-2)",
+        "math": "2m^{2}+3m-14=\\hl{(2m+7)(m-2)}",
         "zh": "$2m^{2}$ 拆 $2m\\cdot m$、$-14$ 拆 $(+7)\\cdot(-2)$；交叉相乘 $(2m)(-2)+(7)(m)=-4m+7m=3m$，與 $+3m$ 相符。",
         "en": "Split $2m^{2}$ as $2m\\cdot m$ and $-14$ as $(+7)\\cdot(-2)$; cross-checking gives $(2m)(-2)+(7)(m)=-4m+7m=3m$, matching $+3m$."
        },
@@ -761,7 +761,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 3 步 · 把 $n$ 乘回去",
          "en": "Step 3 · Put the $n$ back"
         },
-        "math": "=n(2m+7)(m-2)",
+        "math": "=\\hlg{n(2m+7)(m-2)}",
         "zh": "答案要保留外面的 $n$：$n(2m+7)(m-2)$。漏了 $n$ 就是漏了一個因式。",
         "en": "Keep the $n$ in the answer: $n(2m+7)(m-2)$. Dropping it means dropping a factor.",
         "marking": "(1A)"
@@ -822,7 +822,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 1 步 · 首項負數：整條抽 $-1$",
          "en": "Step 1 · Negative leading term: take $-1$ out"
         },
-        "math": "-4x^{2}+15xy-9y^{2}=-(4x^{2}-15xy+9y^{2})",
+        "math": "\\hlw{-}4x^{2}+15xy-9y^{2}=\\hlw{-}(\\xf{4x^{2}}\\xf{-15xy}\\xf{+9y^{2}})",
         "zh": "抽 $-1$ 是「每一項都變號」：$-4x^{2}\\to 4x^{2}$、$+15xy\\to -15xy$、$-9y^{2}\\to +9y^{2}$。三個符號都要反，只改一項就錯。",
         "en": "Taking out $-1$ flips every sign: $-4x^{2}\\to 4x^{2}$, $+15xy\\to -15xy$ and $-9y^{2}\\to +9y^{2}$. All three change — changing only one is wrong.",
         "marking": "(1M)"
@@ -832,7 +832,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 2 步 · 括號內十字相乘",
          "en": "Step 2 · Cross-method inside the bracket"
         },
-        "math": "4x^{2}-15xy+9y^{2}=(4x-3y)(x-3y)",
+        "math": "4x^{2}-15xy+9y^{2}=\\hl{(4x-3y)(x-3y)}",
         "zh": "$4x^{2}$ 拆 $4x\\cdot x$、$9y^{2}$ 拆 $(-3y)\\cdot(-3y)$；交叉相乘 $(4x)(-3y)+(-3y)(x)=-12xy-3xy=-15xy$，與 $-15xy$ 相符。",
         "en": "Split $4x^{2}$ as $4x\\cdot x$ and $9y^{2}$ as $(-3y)\\cdot(-3y)$; the cross products $(4x)(-3y)+(-3y)(x)=-12xy-3xy=-15xy$ match the given $-15xy$."
        },
@@ -841,7 +841,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 3 步 · 寫答案，負號要留住",
          "en": "Step 3 · Write the answer and keep the minus"
         },
-        "math": "=-(4x-3y)(x-3y)",
+        "math": "=\\hlg{-(4x-3y)(x-3y)}",
         "zh": "答案 $-(4x-3y)(x-3y)$。如果想把負號收進括號寫成 $(3y-4x)(x-3y)$，也是等值，但兩者只可選其一，不可以兩個都做。",
         "en": "The answer is $-(4x-3y)(x-3y)$. Absorbing the minus into a bracket, giving $(3y-4x)(x-3y)$, is equally correct — but do only one of the two.",
         "marking": "(1A)"
@@ -910,7 +910,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 找係數的公因式",
           "en": "Step 1 · Find the common factor"
          },
-         "math": "6m+12n=6(m)+6(2n)",
+         "math": "6m+12n=\\hl{6}(m)+6(2n)",
          "zh": "係數 $6$ 和 $12$ 的最大公因數是 $6$，所以每一項都先抽走 $6$。字母方面，$m$ 只在第一項有，$n$ 只在第二項有，所以沒有共同的字母可以抽。",
          "en": "The HCF of the coefficients 6 and 12 is 6, so take 6 out of every term. As for the letters, $m$ appears only in the first term and $n$ only in the second, so there is no common letter to take out."
         },
@@ -919,7 +919,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 寫成因式相乘",
           "en": "Step 2 · Write as a product"
          },
-         "math": "=6(m+2n)",
+         "math": "=\\hlg{6(m+2n)}",
          "zh": "$6m$ 抽走 $6$ 剩 $m$，$12n$ 抽走 $6$ 剩 $2n$，合起來是 $6(m+2n)$。答案是 B。展開檢查：$6(m+2n)=6m+12n$，回到原式。",
          "en": "$6m$ leaves $m$ and $12n$ leaves $2n$ after taking out 6, giving $6(m+2n)$. The answer is B. Check by expanding: $6(m+2n)=6m+12n$, back to the original."
         }
@@ -977,7 +977,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 負號也一起抽",
           "en": "Step 1 · Take out the minus sign too"
          },
-         "math": "-r^{3}-r^{2}s=-r^{2}(r)-r^{2}(s)",
+         "math": "-r^{3}-r^{2}s=\\hl{-r^{2}}(r)\\hl{-r^{2}}(s)",
          "zh": "兩項都有 $r^{2}$（$-r^{3}=-r^{2}\\cdot r$、$-r^{2}s=-r^{2}\\cdot s$），而且兩項都是負號，所以把 $-r^{2}$ 一次抽走最安全。",
          "en": "Both terms contain $r^{2}$ ($-r^{3}=-r^{2}\\cdot r$ and $-r^{2}s=-r^{2}\\cdot s$), and both are negative, so factorizing out $-r^{2}$ in a single step is the safest move."
         },
@@ -986,7 +986,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 寫成因式相乘",
           "en": "Step 2 · Write as a product"
          },
-         "math": "=-r^{2}(r+s)",
+         "math": "=\\hlg{-r^{2}(r+s)}",
          "zh": "抽走 $-r^{2}$ 之後括號內是 $r+s$（兩項都變成正）。答案是 C。展開檢查：$-r^{2}(r+s)=-r^{3}-r^{2}s$，與原式相同。",
          "en": "After taking out $-r^{2}$ the bracket is $r+s$ (both terms become positive). The answer is C. Check: $-r^{2}(r+s)=-r^{3}-r^{2}s$, the same as the original."
         }
@@ -1044,7 +1044,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 先抽公因式",
           "en": "Step 1 · Take out the common factor"
          },
-         "math": "2m^{2}-32=2(m^{2}-16)",
+         "math": "2m^{2}-32=\\hl{2}(\\hlw{m^{2}-16})",
          "zh": "兩項都有公因式 $2$，先抽走，括號內變成 $m^{2}-16$。抽完不要停，還要看括號內能不能再分。",
          "en": "Both terms have the common factor 2; take it out and the bracket becomes $m^{2}-16$. Do not stop there — always look at the bracket again."
         },
@@ -1053,7 +1053,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 括號內是平方差",
           "en": "Step 2 · Difference of two squares"
          },
-         "math": "=2(m+4)(m-4)",
+         "math": "=\\hlg{2(m+4)(m-4)}",
          "zh": "$m^{2}-16=m^{2}-4^{2}$，是「平方減平方」，用 $a^{2}-b^{2}=(a+b)(a-b)$ 得 $(m+4)(m-4)$。答案是 A。",
          "en": "$m^{2}-16=m^{2}-4^{2}$ is a difference of two squares; by $a^{2}-b^{2}=(a+b)(a-b)$ it becomes $(m+4)(m-4)$. The answer is A."
         }
@@ -1123,7 +1123,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 改寫成平方減平方 (Recognise Difference of Two Squares)",
           "en": "Step 1 · Difference of Squares"
          },
-         "math": "9x^{2}-25y^{2}=(3x)^{2}-(5y)^{2}",
+         "math": "9x^{2}-25y^{2}=\\hl{(3x)^{2}}-\\hl{(5y)^{2}}",
          "zh": "把兩項分別改寫為完全平方：$9x^{2}=(3x)^{2}$，$25y^{2}=(5y)^{2}$。確認形態符合平方差 (Difference of Two Squares) $a^{2}-b^{2}$。",
          "en": "Rewrite each term as a perfect square: $9x^{2}=(3x)^{2}$ and $25y^{2}=(5y)^{2}$. This has the form $a^{2}-b^{2}$ — the difference of two squares."
         },
@@ -1132,7 +1132,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 套用恆等式 (Apply Identity)",
           "en": "Step 2 · Factorize"
          },
-         "math": "=(3x+5y)(3x-5y)",
+         "math": "=\\hlg{(3x+5y)(3x-5y)}",
          "zh": "套用恆等式 $a^{2}-b^{2}=(a+b)(a-b)$，其中 $a=3x$ 及 $b=5y$。因此正確答案為 C。",
          "en": "Apply the identity $a^{2}-b^{2}=(a+b)(a-b)$ with $a=3x$ and $b=5y$, so the answer is C."
         }
@@ -1200,7 +1200,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 識別括號平方減數字平方",
           "en": "Step 1 · Spot the Pattern"
          },
-         "math": "(x+3)^{2}-16=(x+3)^{2}-4^{2}",
+         "math": "(x+3)^{2}-16=\\hl{(x+3)^{2}}-\\hl{4^{2}}",
          "zh": "整題是「一組式子的平方」減去「數字的平方」。這裡 $a=x+3$、$b=4$。不要急著把 $(x+3)^{2}$ 展開，直接套用平方差會快很多。",
          "en": "This is (a bracket)$^{2}$ minus (a number)$^{2}$, with $a=x+3$ and $b=4$. Do not expand $(x+3)^{2}$ — using the difference of squares directly is far faster."
         },
@@ -1209,7 +1209,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 套用平方差並合併同類項 (Simplify)",
           "en": "Step 2 · Apply Identity and Simplify"
          },
-         "math": "=[(x+3)+4][(x+3)-4]\n=(x+7)(x-1)",
+         "math": "=[(x+3)+4][(x+3)\\hlw{-}4]\n=\\hlg{(x+7)(x-1)}",
          "zh": "第一個括號相加得 $x+3+4=x+7$；第二個括號相減得 $x+3-4=x-1$。答案是 A。",
          "en": "Adding gives $x+3+4=x+7$ in the first bracket; subtracting gives $x+3-4=x-1$ in the second. The answer is A."
         }
@@ -1267,7 +1267,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 認出平方差",
           "en": "Step 1 · Recognise the pattern"
          },
-         "math": "a^{2}-b^{2}=(a+b)(a-b)",
+         "math": "\\hl{a^{2}-b^{2}=(a+b)(a-b)}",
          "zh": "整題是「平方減平方」：$(5c+d)^{2}$ 減 $(3c-2)^{2}$。直接用平方差恆等式，不要展開那兩個平方（展開會多走很多步）。",
          "en": "The whole expression is square minus square: $(5c+d)^{2}$ minus $(3c-2)^{2}$. Use the difference of two squares straight away — expanding those squares costs many extra steps."
         },
@@ -1276,7 +1276,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 代入 $a$ 與 $b$",
           "en": "Step 2 · Substitute"
          },
-         "math": "=[(5c+d)+(3c-2)]\n\\times[(5c+d)-(3c-2)]",
+         "math": "=[(5c+d)+(3c-2)]\n\\times[(5c+d)\\hlw{-}(3c-2)]",
          "zh": "這裡 $a=5c+d$、$b=3c-2$。平方差的兩個括號是「一加一減」。減號那個一定要加括號，因為 $-(3c-2)$ 的 $-(-2)$ 會變成 $+2$。",
          "en": "Here $a=5c+d$ and $b=3c-2$. One bracket adds and one subtracts. The subtracting bracket must be bracketed, because $-(-2)$ becomes $+2$."
         },
@@ -1285,7 +1285,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 3 步 · 化簡",
           "en": "Step 3 · Simplify"
          },
-         "math": "=(8c+d-2)(2c+d+2)",
+         "math": "=\\hlg{(8c+d-2)(2c+d\\xf{+2})}",
          "zh": "第一個括號：$5c+d+3c-2=8c+d-2$；第二個括號：$5c+d-3c+2=2c+d+2$。答案是 A。",
          "en": "First bracket: $5c+d+3c-2=8c+d-2$; second bracket: $5c+d-3c+2=2c+d+2$. The answer is A."
         }
@@ -1345,7 +1345,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 看見相同括號",
           "en": "Step 1 · Spot the common bracket"
          },
-         "math": "b^{2}(a-1)+(a-1)(a+3)=(a-1)[b^{2}+(a+3)]",
+         "math": "b^{2}(a-1)+(a-1)(a+3)=\\hl{(a-1)}[b^{2}+(a+3)]",
          "zh": "兩項都有同一個括號 $(a-1)$，它本身就是公因式，直接抽走，剩下的部分加進另一個括號。",
          "en": "Both terms contain the same bracket $(a-1)$, so that bracket itself is the common factor: take it out and put what is left into another bracket."
         },
@@ -1354,7 +1354,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 整理括號",
           "en": "Step 2 · Tidy the bracket"
          },
-         "math": "=(a-1)(b^{2}+a+3)",
+         "math": "=\\hlg{(a-1)(b^{2}+a+3)}",
          "zh": "剩下的是 $b^{2}$ 與 $(a+3)$，加起來得 $b^{2}+a+3$。答案是 D。這題不用展開，看見相同括號就是「抽公因式」。",
          "en": "What is left is $b^{2}$ and $(a+3)$, which add up to $b^{2}+a+3$. The answer is D. Nothing needs expanding — a repeated bracket always means “take out the common factor”."
         }
@@ -1412,7 +1412,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 處理次序倒轉的括號",
           "en": "Step 1 · Handle the reversed bracket"
          },
-         "math": "(x-2y)^{2}-(2y-x)=(x-2y)^{2}+(x-2y)",
+         "math": "(x-2y)^{2}\\hlw{-}(\\hl{2y-x})=(x-2y)^{2}\\hlw{+}(\\xf{x}\\xf{-2y})",
          "zh": "關鍵：$2y-x=-(x-2y)$。所以「減去 $(2y-x)$」等於「加上 $(x-2y)$」。括號內次序倒轉要變號，是這類題的必考位。",
          "en": "Key idea: $2y-x=-(x-2y)$. So “minus $(2y-x)$” is the same as “plus $(x-2y)$”. Reversing the order inside a bracket flips its sign — a favourite exam trap."
         },
@@ -1421,7 +1421,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 抽共同括號",
           "en": "Step 2 · Take out the common bracket"
          },
-         "math": "=(x-2y)(x-2y+1)",
+         "math": "=\\hlg{(x-2y)(x-2y+1)}",
          "zh": "兩項都有 $(x-2y)$：第一項抽走後剩 $(x-2y)$，第二項抽走後剩 $1$，所以是 $(x-2y)(x-2y+1)$。答案是 B。",
          "en": "Both terms contain $(x-2y)$: taking it out leaves $(x-2y)$ from the first term and $1$ from the second, so the answer is $(x-2y)(x-2y+1)$ — that is B."
         }
@@ -1489,7 +1489,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 四項分兩組",
           "en": "Step 1 · Group into two pairs"
          },
-         "math": "cd-4d+3c-12=d(c-4)+3(c-4)",
+         "math": "cd-4d+3c-12=d(c-4)+3\\hl{(c-4)}",
          "zh": "前兩項 $cd-4d$ 抽 $d$ 得 $d(c-4)$；後兩項 $3c-12$ 抽 $3$ 得 $3(c-4)$。分組的目標是讓兩個括號一模一樣。",
          "en": "From the first pair $cd-4d$ take out $d$ to get $d(c-4)$; from the last pair $3c-12$ take out 3 to get $3(c-4)$. The aim of grouping is to make the two brackets identical."
         },
@@ -1498,7 +1498,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 抽共同括號",
           "en": "Step 2 · Take out the common bracket"
          },
-         "math": "=(c-4)(d+3)",
+         "math": "=\\hlg{(c-4)(d+3)}",
          "zh": "$(c-4)$ 是兩組的共同因式，抽走後剩下 $(d+3)$。答案是 A。展開檢查：$(c-4)(d+3)=cd+3c-4d-12$，與原式相同。",
          "en": "$(c-4)$ is common to both groups; taking it out leaves $(d+3)$. The answer is A. Check by expanding: $(c-4)(d+3)=cd+3c-4d-12$, the same as the original."
         }
@@ -1558,7 +1558,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 四項分兩組",
           "en": "Step 1 · Group into two pairs"
          },
-         "math": "2km-kn-14m+7n=k(2m-n)-7(2m-n)",
+         "math": "2km-kn-14m+7n=\\hl{k}(2m-n)\\hlw{-7}(2m-n)",
          "zh": "前兩項抽 $k$ 得 $k(2m-n)$；後兩項 $-14m+7n$ 是負號開頭，抽 $-7$ 得 $-7(2m-n)$（抽負號後括號內次序保持 $2m-n$）。",
          "en": "From the first pair take out $k$ to get $k(2m-n)$. The last pair $-14m+7n$ starts with a minus, so take out $-7$: $-7(2m-n)$ (keep the order $2m-n$ inside the bracket)."
         },
@@ -1567,7 +1567,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 抽共同括號",
           "en": "Step 2 · Take out the common bracket"
          },
-         "math": "=(2m-n)(k-7)",
+         "math": "=\\hlg{(2m-n)(k-7)}",
          "zh": "兩組都有 $(2m-n)$，抽走後剩 $(k-7)$。答案是 C。展開檢查：$(2m-n)(k-7)=2km-14m-kn+7n$，與原式相同。",
          "en": "Both groups contain $(2m-n)$; taking it out leaves $(k-7)$. The answer is C. Check: $(2m-n)(k-7)=2km-14m-kn+7n$, the same as the original."
         }
@@ -1625,7 +1625,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 先調位再分組",
           "en": "Step 1 · Rearrange then group"
          },
-         "math": "h^{2}+ak+ah+hk=h^{2}+ah+ak+hk",
+         "math": "h^{2}+ak+ah+hk=\\hl{h^{2}+ah}+\\hl{ak+hk}",
          "zh": "把項調位，讓可以分組的排在一起：$h^{2}+ah$（都有 $h$）與 $ak+hk$（都有 $k$）。四項題不要被原本次序困住。",
          "en": "Rearrange the terms so that pairs that can be grouped sit together: $h^{2}+ah$ (both contain $h$) and $ak+hk$ (both contain $k$). Do not let the original order trap you."
         },
@@ -1634,7 +1634,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 抽公因式再抽共同括號",
           "en": "Step 2 · Factor each pair"
          },
-         "math": "=h(h+a)+k(a+h)=(a+h)(h+k)",
+         "math": "=h(h+a)+k(\\hl{a+h})=\\hlg{(a+h)(h+k)}",
          "zh": "$h^{2}+ah=h(h+a)$，$ak+hk=k(a+h)$。因 $h+a=a+h$，兩組括號相同，抽出來得 $(a+h)(h+k)$。答案是 B。",
          "en": "$h^{2}+ah=h(h+a)$ and $ak+hk=k(a+h)$. Since $h+a=a+h$, the two brackets are the same, so taking it out gives $(a+h)(h+k)$ — that is B."
         }
@@ -1702,7 +1702,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 調位分組",
           "en": "Step 1 · Rearrange and group"
          },
-         "math": "2x^{2}-4yz-xz+8xy=2x^{2}-xz+8xy-4yz",
+         "math": "2x^{2}-4yz-xz+8xy=\\hl{2x^{2}-xz}+\\hl{8xy-4yz}",
          "zh": "先看哪兩項有共同字母：$2x^{2}$ 與 $-xz$ 都有 $x$；$8xy$ 與 $-4yz$ 都有 $4y$。把它們排在一起。",
          "en": "First look for pairs that share a letter: $2x^{2}$ and $-xz$ both contain $x$; $8xy$ and $-4yz$ both contain $4y$. Put those pairs together."
         },
@@ -1711,7 +1711,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 兩組各自抽公因式",
           "en": "Step 2 · Factor each pair"
          },
-         "math": "=x(2x-z)+4y(2x-z)=(2x-z)(x+4y)",
+         "math": "=x(2x-z)+4y(\\hl{2x-z})=\\hlg{(2x-z)(x+4y)}",
          "zh": "$2x^{2}-xz=x(2x-z)$，$8xy-4yz=4y(2x-z)$。兩組括號相同，抽出來得 $(2x-z)(x+4y)$。答案是 D。展開檢查：$(2x-z)(x+4y)=2x^{2}+8xy-xz-4yz$，與原式相同。",
          "en": "$2x^{2}-xz=x(2x-z)$ and $8xy-4yz=4y(2x-z)$. The brackets match, so the answer is $(2x-z)(x+4y)$ — that is D. Check: $(2x-z)(x+4y)=2x^{2}+8xy-xz-4yz$, the same as the original."
         }
@@ -1771,7 +1771,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 檢查是否完全平方",
           "en": "Step 1 · Check the perfect-square pattern"
          },
-         "math": "9a^{2}+6a+1=(3a)^{2}+2(3a)(1)+1^{2}",
+         "math": "9a^{2}+6a+1=\\hl{(3a)^{2}}+2(3a)(1)+\\hl{1^{2}}",
          "zh": "首項 $9a^{2}=(3a)^{2}$、尾項 $1=1^{2}$、中間項 $6a=2(3a)(1)$，完全符合 $a^{2}+2ab+b^{2}$ 的樣子，所以是完全平方。",
          "en": "Leading term $9a^{2}=(3a)^{2}$, last term $1=1^{2}$, middle term $6a=2(3a)(1)$ — exactly the $a^{2}+2ab+b^{2}$ pattern, so it is a perfect square."
         },
@@ -1780,7 +1780,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 寫成平方",
           "en": "Step 2 · Write the square"
          },
-         "math": "=(3a+1)^{2}",
+         "math": "=\\hlg{(3a+1)^{2}}",
          "zh": "中間項是正號，所以用 $(a+b)^{2}$ 的形式：$(3a+1)^{2}$。答案是 C。展開檢查：$(3a+1)^{2}=9a^{2}+6a+1$。",
          "en": "The middle term is positive, so use the $(a+b)^{2}$ form: $(3a+1)^{2}$. The answer is C. Check: $(3a+1)^{2}=9a^{2}+6a+1$."
         }
@@ -1838,7 +1838,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 負號開頭，先抽 $-3$",
           "en": "Step 1 · Take out -3"
          },
-         "math": "-3a^{2}+12a-12=-3(a^{2}-4a+4)",
+         "math": "\\hlw{-}3a^{2}+12a-12=\\hlw{-}(\\xf{a^{2}}\\xf{-4a}\\xf{+4})",
          "zh": "三項係數的最大公因數是 $3$，而首項是負號，所以把 $-3$ 一次抽走。抽負號時括號內每一項都要變號：$-3a^{2}$ 變 $a^{2}$、$+12a$ 變 $-4a$、$-12$ 變 $+4$。",
          "en": "The HCF of the three coefficients is 3 and the leading term is negative, so factorize out $-3$ in a single step. Every term inside changes sign: $-3a^{2}\\to a^{2}$, $+12a\\to-4a$, $-12\\to+4$."
         },
@@ -1847,7 +1847,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 括號內是完全平方",
           "en": "Step 2 · Perfect square inside"
          },
-         "math": "=-3(a-2)^{2}",
+         "math": "=\\hlg{-3(a-2)^{2}}",
          "zh": "$a^{2}-4a+4=(a-2)^{2}$。答案是 B。展開檢查：$-3(a-2)^{2}=-3(a^{2}-4a+4)=-3a^{2}+12a-12$。",
          "en": "$a^{2}-4a+4=(a-2)^{2}$. The answer is B. Check: $-3(a-2)^{2}=-3(a^{2}-4a+4)=-3a^{2}+12a-12$."
         }
@@ -1905,7 +1905,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 檢查是否完全平方",
           "en": "Step 1 · Check the perfect-square pattern"
          },
-         "math": "x^{2}+8xy+16y^{2}=x^{2}+2(x)(4y)+(4y)^{2}",
+         "math": "x^{2}+8xy+16y^{2}=\\hl{x^{2}}+2(x)(4y)+\\hl{(4y)^{2}}",
          "zh": "首項是 $x^{2}$、尾項 $16y^{2}=(4y)^{2}$、中間項 $8xy=2(x)(4y)$，符合完全平方。注意尾項的平方根是 $4y$（連 $y$ 一起）。",
          "en": "First term $x^{2}$, last term $16y^{2}=(4y)^{2}$, middle term $8xy=2(x)(4y)$ — a perfect square. Note that the square root of the last term is $4y$ (the $y$ comes with it)."
         },
@@ -1914,7 +1914,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 寫成平方",
           "en": "Step 2 · Write the square"
          },
-         "math": "=(x+4y)^{2}",
+         "math": "=\\hlg{(x+4y)^{2}}",
          "zh": "中間項是正號，用 $(a+b)^{2}$：$(x+4y)^{2}$。答案是 D。展開檢查：$(x+4y)^{2}=x^{2}+8xy+16y^{2}$。",
          "en": "The middle term is positive, so use $(a+b)^{2}$: $(x+4y)^{2}$. The answer is D. Check: $(x+4y)^{2}=x^{2}+8xy+16y^{2}$."
         }
@@ -1974,7 +1974,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 十字相乘",
           "en": "Step 1 · Cross-method"
          },
-         "math": "x^{2}-4x-5=(x-5)(x+1)",
+         "math": "x^{2}-4x-5=\\hl{(x-5)(x+1)}",
          "zh": "首項 $x^{2}=x × x$；末項 $-5$ 拆成 $(-5)(+1)$（一正一負）。交叉相加：$(-5)+(+1)=-4$，正好等於中間項係數 $-4$，所以這組正確。",
          "en": "Leading term $x^{2}=x\\times x$; the last term $-5$ splits into $(-5)(+1)$ — one negative, one positive. Now check by cross-multiplying and adding: $(-5)+(+1)=-4$, exactly the middle coefficient, so this combination is correct."
         },
@@ -1983,7 +1983,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 展開檢查",
           "en": "Step 2 · Check by expanding"
          },
-         "math": "(x-5)(x+1)=x^{2}+x-5x-5=x^{2}-4x-5",
+         "math": "(x-5)(x+1)=x^{2}+x-5x-5=\\hlg{x^{2}-4x-5}",
          "zh": "展開後回到原式，答案是 A。做完十字相乘一定要展開檢查，這是免費的保險。",
          "en": "Expanding gives back the original expression, so the answer is A. Always check a cross-method result by expanding — it is free insurance."
         }
@@ -2041,7 +2041,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 十字拆解首項與末項",
           "en": "Step 1 · Cross-method Setup"
          },
-         "math": "2x^{2}+7x+3=(2x+1)(x+3)",
+         "math": "2x^{2}+7x+3=\\hl{(2x+1)(x+3)}",
          "zh": "首項 $2x^{2}$ 只能拆成 $2x$ 與 $x$；末項 $3$ 是質數，只能拆成 $1$ 與 $3$。交叉相乘檢驗：$(2x)(3)+(1)(x)=6x+x=7x$，剛好吻合中間項。",
          "en": "The leading term $2x^{2}$ can only split into $2x$ and $x$; the last term 3 is prime, so it can only split into 1 and 3. Cross-checking: $(2x)(3)+(1)(x)=6x+x=7x$, which matches the middle term exactly."
         },
@@ -2050,7 +2050,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 寫出因式並展開驗算",
           "en": "Step 2 · Verify"
          },
-         "math": "(2x+1)(x+3)=2x^{2}+6x+x+3\n=2x^{2}+7x+3",
+         "math": "(2x+1)(x+3)=2x^{2}+6x+x+3\n=\\hlg{2x^{2}+7x+3}",
          "zh": "展開後完全符合原式，所以答案是 B。",
          "en": "Expanding gives back the original expression, so the answer is B."
         }
@@ -2108,7 +2108,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 十字相乘（首項係數不是 1）",
           "en": "Step 1 · Cross-method with a ≠ 1"
          },
-         "math": "2a^{2}+5a-12=(2a-3)(a+4)",
+         "math": "2a^{2}+5a-12=\\hl{(2a-3)(a+4)}",
          "zh": "首項 $2a^{2}$ 拆成 $2a × a$；末項 $-12$ 拆成 $(-3)(+4)$。交叉相乘：$(2a)(+4)+(-3)(a)=8a-3a=5a$，等於中間項，所以這組正確。",
          "en": "The leading term $2a^{2}$ splits into $2a\\times a$; the last term $-12$ splits into $(-3)(+4)$. Cross-multiply: $(2a)(+4)+(-3)(a)=8a-3a=5a$, which equals the middle term, so this combination is correct."
         },
@@ -2117,7 +2117,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 2 步 · 展開檢查",
           "en": "Step 2 · Check by expanding"
          },
-         "math": "(2a-3)(a+4)=2a^{2}+8a-3a-12=2a^{2}+5a-12",
+         "math": "(2a-3)(a+4)=2a^{2}+8a-3a-12=\\hlg{2a^{2}+5a-12}",
          "zh": "展開後回到原式，答案是 C。首項係數不是 1 時，每個組合都要這樣核對一次。",
          "en": "Expanding gives back the original expression, so the answer is C. When the leading coefficient is not 1, every combination has to be checked this way."
         }

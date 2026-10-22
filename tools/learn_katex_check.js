@@ -33,14 +33,14 @@ function stripDelims(t) {
 
 /* 題解重點標記 \hl{…} \hlw{…} \hlg{…} → KaTeX 的 \htmlClass{…}{…}
    （同 assets/app.js 的 markHighlights 一致；括號要配對，否則交返 KaTeX 報錯） */
-const HL_CLASS = { hl: "hlk", hlw: "hlw", hlg: "hlg" };
+const HL_CLASS = { hl: "hlk", hlw: "hlw", hlg: "hlg", xf: "xf" };
 function markHighlights(src) {
   const s = String(src == null ? "" : src);
-  if (s.indexOf("\\hl") < 0) return s;
+  if (s.indexOf("\\hl") < 0 && s.indexOf("\\xf") < 0) return s;
   let out = "";
   let i = 0;
   while (i < s.length) {
-    const m = /^\\(hlw|hlg|hl)\{/.exec(s.slice(i));
+    const m = /^\\(hlw|hlg|hl|xf)\{/.exec(s.slice(i));
     if (!m) { out += s[i]; i++; continue; }
     let j = i + m[0].length;
     let depth = 1;
@@ -52,7 +52,8 @@ function markHighlights(src) {
       j++;
     }
     if (depth) { out += s.slice(i); break; }
-    out += "\\htmlClass{" + HL_CLASS[m[1]] + "}{" + s.slice(start, j) + "}";
+    // 內部可以再夾標記（\hlg{…\xf{…}…}），所以遞歸轉換
+    out += "\\htmlClass{" + HL_CLASS[m[1]] + "}{" + markHighlights(s.slice(start, j)) + "}";
     i = j + 1;
   }
   return out;
