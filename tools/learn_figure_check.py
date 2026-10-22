@@ -51,7 +51,11 @@ def main() -> int:
                 fs = float(t.get("font-size", 11))
                 x, y = float(t.get("x")), float(t.get("y"))
                 txt = t.text or ""
-                texts.append((x, y, label_width(txt, fs), fs, txt))
+                anchor = (t.get("text-anchor") or "start").strip()
+                w = label_width(txt, fs)
+                # text-anchor 會把文字向左／向中間推，檢查框要跟住一齊推
+                x0 = x - (w if anchor == "end" else w / 2.0 if anchor == "middle" else 0.0)
+                texts.append((x0, y, w, fs, txt))
             pts = [(float(c.get("cx")), float(c.get("cy")))
                    for c in root.iter(NS + "circle") if float(c.get("r", 0)) < 8]
 

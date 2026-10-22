@@ -273,7 +273,7 @@ window.LEARN_INDEX = {
    }
   }
  },
- "generatedAt": "2026-10-22T01:07:14Z",
+ "generatedAt": "2026-10-22T05:36:52Z",
  "counts": {
   "topics": 7,
   "held": 0,

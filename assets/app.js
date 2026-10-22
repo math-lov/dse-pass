@@ -696,7 +696,13 @@
       fig.innerHTML = fg.svg;
       host.appendChild(fig);
     }
-    if (fg.caption && !o.skipCaption) host.appendChild(el("div", "fig-cap", fg.caption));
+    if (fg.caption && !o.skipCaption) {
+      /* 圖說可以夾數學（$m\ge 0$）：用行內 KaTeX 渲染，唔會顯示一堆 $ 同反斜線 */
+      var cap = el("div", "fig-cap");
+      richInto(cap, fg.caption);
+      autoRender(cap);
+      host.appendChild(cap);
+    }
   }
   function appendFigures(host, node, opt) {
     (node.figures || []).forEach(function (fg) { appendFigure(host, fg, opt); });

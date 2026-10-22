@@ -36,6 +36,7 @@ import io
 import json
 import math
 import os
+from xml.sax.saxutils import escape as xml_escape
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(BASE, "data", "learn")
@@ -60,18 +61,20 @@ class Frame:
 
     def __init__(self, xmin: float, xmax: float, ymin: float, ymax: float,
                  w: int = W, h: int = H, pad: int = PAD, key: str = "f",
-                 show_o: bool = True):
+                 show_o: bool = True, xlabel: str = "x", ylabel: str = "y"):
         self.xmin, self.xmax, self.ymin, self.ymax = xmin, xmax, ymin, ymax
         self.w, self.h, self.pad = w, h, pad
         self.key = key
         # 等比例：取兩軸可用空間中較細嘅一邊，格仔先會係正方形
         self.show_o = show_o
+        self.xlabel, self.ylabel = xlabel, ylabel
         self.scale = min((w - 2 * pad) / (xmax - xmin), (h - 2 * pad) / (ymax - ymin))
         self.cx = (xmin + xmax) / 2.0
         self.cy = (ymin + ymax) / 2.0
         self.parts: list[str] = []          # 數據層（線、點、註釋）
         self._labels: list[tuple] = []      # 已畫的文字框，畀刻度數字避位
         self._pts: list[tuple] = []         # 已畫的點 (cx, cy, r)
+        self._shade = ""                    # 底色（畫喺方格下面）
         self._grid_svg = self._grid()
         self._axes_svg = self._axes()
 
@@ -110,17 +113,17 @@ class Frame:
             a.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" marker-end="url(#ar-%s)"/>'
                      % (self.px(self.xmin), self.py(0), self.px(self.xmax), self.py(0), self.key))
             a.append('<text x="%.1f" y="%.1f" font-size="12.5" font-style="italic" '
-                     'fill="%s">x</text>'
-                     % (self.px(self.xmax) + 6, self.py(0) + 15, AXIS))
-            self._book(self.px(self.xmax) + 6, self.py(0) + 15, "x", 12.5)
+                     'fill="%s">%s</text>'
+                     % (self.px(self.xmax) + 6, self.py(0) + 15, AXIS, self.xlabel))
+            self._book(self.px(self.xmax) + 6, self.py(0) + 15, self.xlabel, 12.5)
         if self.xmin <= 0 <= self.xmax:
             # y 軸：箭咀指住正方向（上）
             a.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" marker-end="url(#ar-%s)"/>'
                      % (self.px(0), self.py(self.ymin), self.px(0), self.py(self.ymax), self.key))
             a.append('<text x="%.1f" y="%.1f" font-size="12.5" font-style="italic" '
-                     'fill="%s">y</text>'
-                     % (self.px(0) + 7, self.py(self.ymax) - 1, AXIS))
-            self._book(self.px(0) + 7, self.py(self.ymax) - 1, "y", 12.5)
+                     'fill="%s">%s</text>'
+                     % (self.px(0) + 7, self.py(self.ymax) - 1, AXIS, self.ylabel))
+            self._book(self.px(0) + 7, self.py(self.ymax) - 1, self.ylabel, 12.5)
         if self.xmin <= 0 <= self.xmax and self.ymin <= 0 <= self.ymax and self.show_o:
             # 放喺原點右下（避開左下／左上常見嘅點標籤）
             a.append('<text x="%.1f" y="%.1f" font-size="10" font-style="italic" '
@@ -146,11 +149,11 @@ class Frame:
                ' font-style="italic"' if italic else "",
                ' text-anchor="%s"' % anchor if anchor != "start" else "",
                ' stroke="#fff" stroke-width="2.6" paint-order="stroke"' if halo else "",
-               s))
+               xml_escape(s)))    # 「y < 0」之類要跳出，否則 SVG 唔係合法 XML
 
     # ── 元件 ──
     def point(self, x: float, y: float, label: str = "", hollow: bool = False,
-              dx: float = 8, dy: float = -10) -> None:
+              dx: float = 8, dy: float = -10, halo: bool = False) -> None:
         cx, cy = self.px(x), self.py(y)
         r = 4.0
         if hollow:
@@ -171,7 +174,7 @@ class Frame:
                 tx = 2
             if ty < 12:                             # 上邊出界 → 改放點嘅下面
                 ty = cy + 20
-            self._t(tx, ty, label, fs, INK)
+            self._t(tx, ty, label, fs, INK, halo=halo)
 
     def seg(self, x1, y1, x2, y2, color: str = MID, width: float = 1.2,
             dash: str | None = None) -> None:
@@ -212,6 +215,16 @@ class Frame:
             self._t(cx + (r_px + 15) * math.cos(tm),
                     cy - (r_px + 15) * math.sin(tm) + 4, label, 11, INK)
 
+    def shade_below(self, color: str = "#f0b27a", opacity: float = 0.20) -> None:
+        """把 y<0 嘅半平面淡淡填色 —— 即「不等式 <0 有解」嘅區域。"""
+        if not (self.ymin < 0 < self.ymax):
+            return
+        self._shade = ('<rect x="%.1f" y="%.1f" width="%.1f" height="%.1f" fill="%s" '
+                       'fill-opacity="%.2f"/>'
+                       % (self.px(self.xmin), self.py(0),
+                          self.px(self.xmax) - self.px(self.xmin),
+                          self.py(self.ymin) - self.py(0), color, opacity))
+
     def circle(self, r: float, dash: str = "4 3") -> None:
         """以原點為圓心、半徑 r（數學單位）嘅圓（x／y 等比例，一定係正圓）。"""
         self.parts.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="none" stroke="%s" '
@@ -219,8 +232,9 @@ class Frame:
                           % (self.px(0), self.py(0), self.sx(r), MID, dash))
 
     def text(self, x: float, y: float, s: str, size: float = 11, color: str = INK,
-             italic: bool = False, halo: bool = False) -> None:
-        self._t(self.px(x), self.py(y), s, size, color, italic=italic, halo=halo)
+             italic: bool = False, halo: bool = False, anchor: str = "start") -> None:
+        self._t(self.px(x), self.py(y), s, size, color,
+                italic=italic, halo=halo, anchor=anchor)
 
     def line_by_eq(self, slope: float, intercept: float, color: str = INK, width: float = 1.9) -> None:
         """整條直線 y = mx + c（裁到畫面範圍內）。"""
@@ -238,17 +252,19 @@ class Frame:
             self.seg(pts[0][0], pts[0][1], pts[1][0], pts[1][1], color=color, width=width)
 
     def curve(self, fn, x1: float, x2: float, color: str = INK, width: float = 1.8,
-              n: int = 140) -> None:
+              n: int = 140, dash: str | None = None) -> None:
         """畫一段函數曲線 y = fn(x)（x 由 x1 到 x2）。
 
-        只負責畫線；呼叫前要自己確保 y 落在畫面範圍內（否則會畫出畫布外）。
+        超出方格範圍嘅部分會自動裁走（clip-path），所以出界都唔會壓到軸名。
         """
         pts = []
         for i in range(n + 1):
             x = x1 + (x2 - x1) * i / float(n)
             pts.append("%.1f,%.1f" % (self.px(x), self.py(fn(x))))
         self.parts.append('<polyline points="%s" fill="none" stroke="%s" stroke-width="%.1f" '
-                          'stroke-linejoin="round"/>' % (" ".join(pts), color, width))
+                          'stroke-linejoin="round"%s clip-path="url(#cp-%s)"/>'
+                          % (" ".join(pts), color, width,
+                             ' stroke-dasharray="%s"' % dash if dash else "", self.key))
 
     def vline(self, x: float, label: str = "") -> None:
         """垂直虛線（例如拋物線的對稱軸）。"""
@@ -320,11 +336,16 @@ class Frame:
     def svg(self) -> str:
         defs = ('<defs><marker id="ar-%s" viewBox="0 0 10 10" refX="8.5" refY="5" '
                 'markerWidth="5.2" markerHeight="5.2" orient="auto-start-reverse">'
-                '<path d="M0,0 L10,5 L0,10 z" fill="%s"/></marker></defs>' % (self.key, INK))
+                '<path d="M0,0 L10,5 L0,10 z" fill="%s"/></marker>'
+                '<clipPath id="cp-%s"><rect x="%.1f" y="%.1f" width="%.1f" height="%.1f"/>'
+                '</clipPath></defs>'
+                % (self.key, INK, self.key, self.px(self.xmin), self.py(self.ymax),
+                   self.px(self.xmax) - self.px(self.xmin),
+                   self.py(self.ymin) - self.py(self.ymax)))
         marks, nums = self._ticks()
         return ('<svg viewBox="0 0 %d %d" xmlns="http://www.w3.org/2000/svg" '
-                'font-family="%s" role="img">%s%s%s%s%s%s</svg>'
-                % (self.w, self.h, FONT, defs, self._grid_svg, marks,
+                'font-family="%s" role="img">%s%s%s%s%s%s%s</svg>'
+                % (self.w, self.h, FONT, defs, self._grid_svg, self._shade, marks,
                    self._axes_svg, "".join(self.parts), nums))
 
 
@@ -804,6 +825,34 @@ def fig_ws06_q13() -> str:
 
 
 # ──────────────────────────────────────────────────────────────────────────
+# AS03（二次不等式）：為什麼「無解」要包等號（Δ ≤ 0，不是 Δ < 0）
+#   m09：x²+4x+k<0 無實數解 → 學生常選 k>4，漏了 k=4 相切這一格。
+# ──────────────────────────────────────────────────────────────────────────
+def fig_as03_m09_touch() -> str:
+    """k=4 時曲線只「掂」住 x 軸（頂點 (−2,0)），冇一段跌入陰影區 y<0。"""
+    f = Frame(-6, 2, -3, 6, key="a3m09a")
+    f.shade_below()                                   # y<0：不等式有解嘅區域
+    f.curve(lambda x: x * x + 4 * x + 2, -6, 2, color=MID, width=1.7, dash="5 4")
+    f.curve(lambda x: x * x + 4 * x + 4, -6, 2, color=INK, width=2.1)
+    f.point(-2, 0)                                    # 頂點啱啱落喺 x 軸上
+    # 兩個標籤都放喺各自頂點嘅正上／正下：一眼睇到「最低點喺邊」
+    f.text(-2, 1.15, "k = 4", size=11, color=INK, anchor="middle", halo=True)
+    f.text(-2, -2.55, "k = 2", size=11, color=MID, anchor="middle")
+    f.text(0.55, -2.35, "y < 0", size=10.5, color=MID, italic=True, halo=True)
+    return f.svg()
+
+
+def fig_as03_m09_min() -> str:
+    """最小值 m = k − 4：冇解 ⇔ m ≥ 0 ⇔ k ≥ 4（k=4 時 m=0，仍然冇解）。"""
+    f = Frame(-1, 8, -3, 5, key="a3m09b", xlabel="k", ylabel="m")
+    f.shade_below()                                   # m<0：仍然有解
+    f.line_by_eq(1, -4)                               # m = k − 4
+    f.point(4, 0, "k = 4", dx=9, dy=-13, halo=True)   # 標籤壓住條線 → 加白邊
+    f.text(5.2, 3.2, "m = k − 4", size=11, italic=True, halo=True)
+    return f.svg()
+
+
+# ──────────────────────────────────────────────────────────────────────────
 # AS02（直線方程）：讀圖題 —— 線往哪一邊斜、兩個截距在原點之上還是之下
 #   MC 題的圖在作答之後才出（防劇透），所以只放 figures.json。
 #   空心點 ＝ 線與座標軸的交點：讓學生自己讀正負，圖上不寫答案。
@@ -849,6 +898,14 @@ def fig_as02_m06() -> str:
 #     ws04（坐標變換）與 ws06（函數圖像）圖形條目已移除（那些課題不在這裡）；
 #     對應的繪圖函數仍保留在上方，日後畫變換圖或拋物線時可以參考。
 FIGURES = {
+    "eph-as03-m09": [(fig_as03_m09_touch,
+                      "實線 $k=4$：$y=(x+2)^2$，頂點 $(-2,0)$ 啱啱好掂住 $x$ 軸 —— "
+                      "曲線冇一段跌入陰影區（$y<0$），所以 $x^2+4x+4<0$ 仍然冇解，"
+                      "$k=4$ 要包。虛線 $k=2$：曲線穿過 $x$ 軸、跌入陰影區，"
+                      "$x^2+4x+2<0$ 有解。"),
+                     (fig_as03_m09_min,
+                      "最小值 $m=k-4$。無解 ⇔ 曲線唔跌入 $y<0$ ⇔ $m\\ge 0$ ⇔ $k\\ge 4$；"
+                      "$k=4$ 時 $m=0$，曲線只掂軸、仍然無解，所以等號要保留（答案 B）。")],
     "eph-as02-m04": [(fig_as02_m04,
                       "讀圖：線往右上斜 → 斜率 $>0$；與 $y$ 軸交於原點之下 → $y$ 截距 $<0$；"
                       "與 $x$ 軸交於原點之右 → $x$ 截距 $>0$")],
