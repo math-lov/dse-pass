@@ -1328,7 +1328,8 @@
       qsa(".opt", opts).forEach(function (b) {     // 只鎖這一題的選項（root = opts）
         b.disabled = true;
         if (b.dataset.opt === q.answer) {
-          b.classList.add(correct ? "correct" : "reveal");
+          /* 正確答案一律綠色（就算學生答錯都要見到綠，方便同自己揀嘅紅色對照） */
+          b.classList.add("correct");
         } else if (b.dataset.opt === picked && !correct) {
           b.classList.add("wrong");
         }

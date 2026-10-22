@@ -234,7 +234,7 @@ body {
 
 .q-stem { font-size: 19px; font-weight: 500; margin: 4px 0 12px; line-height: 1.6; }
 
-/* ── 選項（白底橫條、選取藍、正確綠、答錯紅、揭曉橙）──────────────────── */
+/* ── 選項（白底橫條、正確綠、答錯紅）────────────────────────────────── */
 .opts { display: grid; gap: 10px; margin-top: 8px; }
 .opt { display: flex; align-items: flex-start; gap: var(--sp-3); width: 100%; text-align: left; min-height: 52px; padding: 13px 16px; cursor: pointer; background: var(--card); border: 2px solid var(--line); border-radius: var(--btn-radius); font: inherit; color: inherit; transition: border-color .15s ease, background .15s ease, transform .1s ease; }
 .opt:hover:not([disabled]) { border-color: var(--primary-line); background: #f9f9ff; }
@@ -246,9 +246,6 @@ body {
 .opt.correct .letter { background: var(--ok); color: #fff; }
 .opt.wrong { border-color: var(--err); background: var(--err-soft); }
 .opt.wrong .letter { background: var(--err); color: #fff; }
-/* .reveal：學生未作答、但按了「看完整解答」→ 答案位置用橙色（不是綠，因為他未答對）*/
-.opt.reveal { border-color: var(--warn); background: var(--warn-soft); }
-.opt.reveal .letter { background: var(--warn); color: #fff; }
 .opt[disabled] { cursor: default; }
 
 /* 作答前已經常駐的提示列（本站：看提示不扣分） */
