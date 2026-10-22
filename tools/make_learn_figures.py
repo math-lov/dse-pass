@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""自學追上站 · 概念卡示意圖產生器（SVG，黑白試卷風）
+"""自學追上站 · 概念卡示意圖產生器（SVG，教科書方格紙風）
 
 為什麼用 SVG 而唔係 Word 入面嘅圖：
   WS04.docx 嘅坐標平面圖係 Word 自選圖形＋文字框砌出嚟，.docx 入面冇對應嘅圖片檔；
@@ -14,6 +14,12 @@
   ● 實心黑點 = 原本的點      ○ 空心點 = 變換後的影像
   ┈ 虛線     = 對稱連線／移動路徑／等距圓
   ▬ 粗黑線   = 鏡軸（反射軸）  ↷ 弧形箭嘴 = 旋轉方向
+
+視覺規格（克制、似教科書）
+  淺暖灰方格（每 1 格）＋ 每 5 格深少少；座標軸 1.1px 幼線＋細箭嘴；
+  軸上每格有短刻度，夠位才標數字（9.5px 灰、自動避開點同標籤）；
+  數據線 1.9px 暖黑、圓端；文字用襯線體（同 KaTeX 一系），
+  軸名 x／y 同方程用斜體，方程加白色描邊墊底，壓住方格都讀得清。
 
 輸出
   data/learn/figures.json   { "<id>": [ {"svg": …, "caption": …, "step": ?}, … ] }（自動產生，勿手改）
@@ -38,11 +44,15 @@ OUT = os.path.join(DATA, "figures.json")
 W, H = 260, 260          # 畫布（正方形）
 PAD = 22                 # 邊界留白（放座標標籤）
 
-INK = "#111"             # 主線／點
-AXIS = "#333"            # 座標軸
-MID = "#666"             # 輔助線
-GRID = "#E3E3E3"         # 方格紙
-FONT = "system-ui, 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif"
+# 一套色只做一件事：數據線最深、座標軸其次、方格最淺（走網站的暖色系）
+INK = "#221f1c"          # 數據線／點（暖黑，比純黑柔和）
+AXIS = "#5b544c"         # 座標軸
+MID = "#8a8178"          # 輔助線、註釋
+GRID = "#e9e2da"         # 方格（每 1 格）
+GRID_MAJOR = "#d8cdc0"   # 方格（每 5 格，深少少，方便讀座標）
+TICK = "#b8afa3"         # 刻度短線
+FONT = ("'STIX Two Text', 'Source Serif 4', Georgia, "
+        "'Noto Sans TC', 'Microsoft JhengHei', serif")
 
 
 class Frame:
@@ -59,9 +69,11 @@ class Frame:
         self.scale = min((w - 2 * pad) / (xmax - xmin), (h - 2 * pad) / (ymax - ymin))
         self.cx = (xmin + xmax) / 2.0
         self.cy = (ymin + ymax) / 2.0
-        self.parts: list[str] = []
-        self._grid()
-        self._axes()
+        self.parts: list[str] = []          # 數據層（線、點、註釋）
+        self._labels: list[tuple] = []      # 已畫的文字框，畀刻度數字避位
+        self._pts: list[tuple] = []         # 已畫的點 (cx, cy, r)
+        self._grid_svg = self._grid()
+        self._axes_svg = self._axes()
 
     # ── 座標轉換 ──
     def px(self, x: float) -> float:
@@ -74,47 +86,82 @@ class Frame:
         return dx * self.scale
 
     # ── 底層 ──
-    def _grid(self) -> None:
-        g = []
-        for x in range(int(self.xmin), int(self.xmax) + 1):
-            g.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f"/>'
-                     % (self.px(x), self.py(self.ymin), self.px(x), self.py(self.ymax)))
-        for y in range(int(self.ymin), int(self.ymax) + 1):
-            g.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f"/>'
-                     % (self.px(self.xmin), self.py(y), self.px(self.xmax), self.py(y)))
-        self.parts.append('<g stroke="%s" stroke-width="1">%s</g>' % (GRID, "".join(g)))
+    def _grid(self) -> str:
+        """方格紙：每 1 格一條淺線、每 5 格一條深少少（同真嘅方格簿一樣）。"""
+        minor, major = [], []
+        x0, y0 = int(math.floor(self.xmin)), int(math.floor(self.ymin))
+        for x in range(x0, int(math.ceil(self.xmax)) + 1):
+            ln = ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f"/>'
+                  % (self.px(x), self.py(self.ymin), self.px(x), self.py(self.ymax)))
+            (major if x % 5 == 0 else minor).append(ln)
+        for y in range(y0, int(math.ceil(self.ymax)) + 1):
+            ln = ('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f"/>'
+                  % (self.px(self.xmin), self.py(y), self.px(self.xmax), self.py(y)))
+            (major if y % 5 == 0 else minor).append(ln)
+        return ('<g stroke="%s" stroke-width="1">%s</g>'
+                '<g stroke="%s" stroke-width="1">%s</g>'
+                % (GRID, "".join(minor), GRID_MAJOR, "".join(major)))
 
-    def _axes(self) -> None:
+    def _axes(self) -> str:
+        """座標軸：幼線＋細箭咀，軸名用斜體襯線（同 KaTeX 的數學字同一家族）。"""
         a = []
         if self.ymin <= 0 <= self.ymax:
             # x 軸：箭咀指住正方向（右）
             a.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" marker-end="url(#ar-%s)"/>'
                      % (self.px(self.xmin), self.py(0), self.px(self.xmax), self.py(0), self.key))
-            a.append('<text x="%.1f" y="%.1f" font-size="11" fill="%s" font-family="%s">x</text>'
-                     % (self.px(self.xmax) + 5, self.py(0) + 14, AXIS, FONT))
+            a.append('<text x="%.1f" y="%.1f" font-size="12.5" font-style="italic" '
+                     'fill="%s">x</text>'
+                     % (self.px(self.xmax) + 6, self.py(0) + 15, AXIS))
+            self._book(self.px(self.xmax) + 6, self.py(0) + 15, "x", 12.5)
         if self.xmin <= 0 <= self.xmax:
             # y 軸：箭咀指住正方向（上）
             a.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" marker-end="url(#ar-%s)"/>'
                      % (self.px(0), self.py(self.ymin), self.px(0), self.py(self.ymax), self.key))
-            a.append('<text x="%.1f" y="%.1f" font-size="11" fill="%s" font-family="%s">y</text>'
-                     % (self.px(0) + 5, self.py(self.ymax) - 2, AXIS, FONT))
+            a.append('<text x="%.1f" y="%.1f" font-size="12.5" font-style="italic" '
+                     'fill="%s">y</text>'
+                     % (self.px(0) + 7, self.py(self.ymax) - 1, AXIS))
+            self._book(self.px(0) + 7, self.py(self.ymax) - 1, "y", 12.5)
         if self.xmin <= 0 <= self.xmax and self.ymin <= 0 <= self.ymax and self.show_o:
             # 放喺原點右下（避開左下／左上常見嘅點標籤）
-            a.append('<text x="%.1f" y="%.1f" font-size="10" fill="%s" font-family="%s">O</text>'
-                     % (self.px(0) + 6, self.py(0) + 14, AXIS, FONT))
-        self.parts.append('<g stroke="%s" stroke-width="1.3" fill="%s">%s</g>' % (AXIS, AXIS, "".join(a)))
+            a.append('<text x="%.1f" y="%.1f" font-size="10" font-style="italic" '
+                     'fill="%s">O</text>'
+                     % (self.px(0) + 6, self.py(0) + 14, AXIS))
+            self._book(self.px(0) + 6, self.py(0) + 14, "O", 10)
+        return ('<g stroke="%s" stroke-width="1.1" fill="%s" stroke-linecap="round">%s</g>'
+                % (AXIS, AXIS, "".join(a)))
+
+    # ── 文字（全部經呢一個入口，順便記住個框，刻度數字先識避位）──
+    def _book(self, x: float, y: float, s: str, fs: float,
+              anchor: str = "start") -> None:
+        w = label_width(s, fs)
+        x0 = x - (w if anchor == "end" else w / 2.0 if anchor == "middle" else 0)
+        self._labels.append((x0, y - fs * 0.95, x0 + w, y + fs * 0.3))
+
+    def _t(self, x: float, y: float, s: str, fs: float = 11, color: str = INK,
+           italic: bool = False, anchor: str = "start", halo: bool = False) -> None:
+        self._book(x, y, s, fs, anchor)
+        self.parts.append(
+            '<text x="%.1f" y="%.1f" font-size="%.1f" fill="%s"%s%s%s>%s</text>'
+            % (x, y, fs, color,
+               ' font-style="italic"' if italic else "",
+               ' text-anchor="%s"' % anchor if anchor != "start" else "",
+               ' stroke="#fff" stroke-width="2.6" paint-order="stroke"' if halo else "",
+               s))
 
     # ── 元件 ──
     def point(self, x: float, y: float, label: str = "", hollow: bool = False,
               dx: float = 8, dy: float = -10) -> None:
         cx, cy = self.px(x), self.py(y)
+        r = 4.0
         if hollow:
-            self.parts.append('<circle cx="%.1f" cy="%.1f" r="4.6" fill="#fff" stroke="%s" stroke-width="1.7"/>'
-                              % (cx, cy, INK))
+            self.parts.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="#fff" stroke="%s" '
+                              'stroke-width="1.5"/>' % (cx, cy, r, INK))
         else:
-            self.parts.append('<circle cx="%.1f" cy="%.1f" r="4.6" fill="%s"/>' % (cx, cy, INK))
+            self.parts.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="%s"/>'
+                              % (cx, cy, r, INK))
+        self._pts.append((cx, cy, r))
         if label:
-            fs = 11.5
+            fs = 11
             tx, ty = cx + dx, cy + dy
             w = label_width(label, fs)
             # 右邊留 18px 俾座標軸嘅「x」標籤：會出界或太貼 → 改放點嘅左邊
@@ -124,33 +171,30 @@ class Frame:
                 tx = 2
             if ty < 12:                             # 上邊出界 → 改放點嘅下面
                 ty = cy + 20
-            self.parts.append('<text x="%.1f" y="%.1f" font-size="%.1f" fill="%s" font-family="%s">%s</text>'
-                              % (tx, ty, fs, INK, FONT, label))
+            self._t(tx, ty, label, fs, INK)
 
     def seg(self, x1, y1, x2, y2, color: str = MID, width: float = 1.2,
             dash: str | None = None) -> None:
         d = ' stroke-dasharray="%s"' % dash if dash else ""
         self.parts.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" '
-                          'stroke-width="%.1f"%s/>'
+                          'stroke-width="%.1f" stroke-linecap="round"%s/>'
                           % (self.px(x1), self.py(y1), self.px(x2), self.py(y2), color, width, d))
 
-    def arrow(self, x1, y1, x2, y2, color: str = INK, width: float = 1.7) -> None:
+    def arrow(self, x1, y1, x2, y2, color: str = INK, width: float = 1.6) -> None:
         self.parts.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" stroke="%s" '
-                          'stroke-width="%.1f" marker-end="url(#ar-%s)"/>'
+                          'stroke-width="%.1f" stroke-linecap="round" marker-end="url(#ar-%s)"/>'
                           % (self.px(x1), self.py(y1), self.px(x2), self.py(y2),
                              color, width, self.key))
 
     def mirror_h(self, y: float, label: str = "") -> None:
-        self.seg(self.xmin, y, self.xmax, y, color=INK, width=2.6)
+        self.seg(self.xmin, y, self.xmax, y, color=INK, width=2.4)
         if label:
-            self.parts.append('<text x="%.1f" y="%.1f" font-size="11" fill="%s" font-family="%s">%s</text>'
-                              % (self.px(self.xmax) - 66, self.py(y) - 7, INK, FONT, label))
+            self._t(self.px(self.xmax) - 66, self.py(y) - 7, label, 11, INK)
 
     def mirror_v(self, x: float, label: str = "") -> None:
-        self.seg(x, self.ymin, x, self.ymax, color=INK, width=2.6)
+        self.seg(x, self.ymin, x, self.ymax, color=INK, width=2.4)
         if label:
-            self.parts.append('<text x="%.1f" y="%.1f" font-size="11" fill="%s" font-family="%s">%s</text>'
-                              % (self.px(x) + 6, self.py(self.ymax) + 14, INK, FONT, label))
+            self._t(self.px(x) + 6, self.py(self.ymax) + 14, label, 11, INK)
 
     def arc(self, r_px: float, t1_deg: float, t2_deg: float, label: str = "") -> None:
         """以原點為圓心、由角度 t1 畫到 t2（數學角，逆時針為正）。"""
@@ -165,9 +209,8 @@ class Frame:
                           % (p1[0], p1[1], r_px, r_px, large, sweep, p2[0], p2[1], INK, self.key))
         if label:
             tm = math.radians((t1_deg + t2_deg) / 2.0)
-            self.parts.append('<text x="%.1f" y="%.1f" font-size="11" fill="%s" font-family="%s">%s</text>'
-                              % (cx + (r_px + 15) * math.cos(tm), cy - (r_px + 15) * math.sin(tm) + 4,
-                                 INK, FONT, label))
+            self._t(cx + (r_px + 15) * math.cos(tm),
+                    cy - (r_px + 15) * math.sin(tm) + 4, label, 11, INK)
 
     def circle(self, r: float, dash: str = "4 3") -> None:
         """以原點為圓心、半徑 r（數學單位）嘅圓（x／y 等比例，一定係正圓）。"""
@@ -175,11 +218,11 @@ class Frame:
                           'stroke-width="1.1" stroke-dasharray="%s"/>'
                           % (self.px(0), self.py(0), self.sx(r), MID, dash))
 
-    def text(self, x: float, y: float, s: str, size: float = 11, color: str = INK) -> None:
-        self.parts.append('<text x="%.1f" y="%.1f" font-size="%.1f" fill="%s" font-family="%s">%s</text>'
-                          % (self.px(x), self.py(y), size, color, FONT, s))
+    def text(self, x: float, y: float, s: str, size: float = 11, color: str = INK,
+             italic: bool = False, halo: bool = False) -> None:
+        self._t(self.px(x), self.py(y), s, size, color, italic=italic, halo=halo)
 
-    def line_by_eq(self, slope: float, intercept: float, color: str = INK, width: float = 1.6) -> None:
+    def line_by_eq(self, slope: float, intercept: float, color: str = INK, width: float = 1.9) -> None:
         """整條直線 y = mx + c（裁到畫面範圍內）。"""
         pts = []
         for x in (self.xmin, self.xmax):
@@ -211,15 +254,78 @@ class Frame:
         """垂直虛線（例如拋物線的對稱軸）。"""
         self.seg(x, self.ymin, x, self.ymax, color=INK, width=1.4, dash="4 3")
         if label:
-            self.parts.append('<text x="%.1f" y="%.1f" font-size="11" fill="%s" font-family="%s">%s</text>'
-                              % (self.px(x) + 5, self.py(self.ymax) + 14, INK, FONT, label))
+            self._t(self.px(x) + 5, self.py(self.ymax) + 14, label, 11, INK)
+
+    def _ticks(self) -> tuple[str, str]:
+        """刻度（軸上短線）同數字。數字畫喺數據線之上，並會避開已有文字同點。"""
+        on_x = self.ymin <= 0 <= self.ymax
+        on_y = self.xmin <= 0 <= self.xmax
+        if not (on_x or on_y):
+            return "", ""
+        step = 1
+        while self.scale * step < 15:            # 太密就隔 2／5 格先標數字
+            step += 1
+        boxes = list(self._labels)
+        fs = 9.5
+
+        def free(x0: float, y0: float, x1: float, y1: float) -> bool:
+            if x0 < 1 or x1 > self.w - 1 or y0 < 5 or y1 > self.h - 1:
+                return False
+            for a, b, c, d in boxes:
+                if not (x1 < a - 4 or c < x0 - 4 or y1 < b - 4 or d < y0 - 4):
+                    return False
+            for cx, cy, r in self._pts:
+                if x0 - 6 <= cx <= x1 + 6 and y0 - 6 <= cy <= y1 + 6:
+                    return False
+            return True
+
+        marks, nums = [], []
+        if on_x:
+            ay = self.py(0)
+            for x in range(int(math.floor(self.xmin)), int(math.ceil(self.xmax)) + 1):
+                cx = self.px(x)
+                marks.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f"/>'
+                             % (cx, ay - 3, cx, ay + 3))
+                if x == 0 or x % step:
+                    continue
+                s = str(x)
+                w = label_width(s, fs)
+                bx0, by0 = cx - w / 2.0, ay + 6
+                if free(bx0, by0, bx0 + w, by0 + fs):
+                    nums.append((bx0, ay + 15, s))
+                    boxes.append((bx0, by0, bx0 + w, by0 + fs))
+        if on_y:
+            ax = self.px(0)
+            for y in range(int(math.floor(self.ymin)), int(math.ceil(self.ymax)) + 1):
+                cy = self.py(y)
+                marks.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f"/>'
+                             % (ax - 3, cy, ax + 3, cy))
+                if y == 0 or y % step:
+                    continue
+                s = str(y)
+                w = label_width(s, fs)
+                bx0, by0 = ax - 8 - w, cy - fs / 2.0
+                if free(bx0, by0, bx0 + w, by0 + fs):
+                    nums.append((bx0, cy + fs * 0.36, s))
+                    boxes.append((bx0, by0, bx0 + w, by0 + fs))
+        marks_svg = '<g stroke="%s" stroke-width="1">%s</g>' % (TICK, "".join(marks))
+        nums_svg = ""
+        if nums:
+            # 白邊墊底：就算數據線穿過數字，都仍然讀得清
+            nums_svg = ('<g fill="%s" font-size="9.5" stroke="#fff" stroke-width="2.2" '
+                        'paint-order="stroke">%s</g>'
+                        % (MID, "".join('<text x="%.1f" y="%.1f">%s</text>' % n for n in nums)))
+        return marks_svg, nums_svg
 
     def svg(self) -> str:
-        defs = ('<defs><marker id="ar-%s" viewBox="0 0 10 10" refX="9" refY="5" '
-                'markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">'
+        defs = ('<defs><marker id="ar-%s" viewBox="0 0 10 10" refX="8.5" refY="5" '
+                'markerWidth="5.2" markerHeight="5.2" orient="auto-start-reverse">'
                 '<path d="M0,0 L10,5 L0,10 z" fill="%s"/></marker></defs>' % (self.key, INK))
+        marks, nums = self._ticks()
         return ('<svg viewBox="0 0 %d %d" xmlns="http://www.w3.org/2000/svg" '
-                'font-family="%s">%s%s</svg>' % (self.w, self.h, FONT, defs, "".join(self.parts)))
+                'font-family="%s" role="img">%s%s%s%s%s%s</svg>'
+                % (self.w, self.h, FONT, defs, self._grid_svg, marks,
+                   self._axes_svg, "".join(self.parts), nums))
 
 
 # ──────────────────────────────────────────────────────────────────────────
@@ -715,10 +821,12 @@ def _as02_line(slope: float, intercept: float, key: str,
         f.point(0, intercept, "", hollow=True)
     # 標籤放在線沒有經過、又不會撞到 y 軸標籤的一角
     # （y 軸標籤在畫面最頂，所以「左上」要再低一格；升線放左上、降線放左下）
+    # 方程用斜體襯線＋白色描邊墊底，壓在方格上仍然讀得清（同教科書一樣）
+    label = dict(size=11.5, italic=True, halo=True)
     if pos == "tl":
-        f.text(xr[0] + 0.3, yr[1] - 1.6, "ax + y + b = 0")
+        f.text(xr[0] + 0.3, yr[1] - 1.6, "ax + y + b = 0", **label)
     else:
-        f.text(xr[0] + 0.3, yr[0] + 0.6, "ax + y + b = 0")
+        f.text(xr[0] + 0.3, yr[0] + 0.6, "ax + y + b = 0", **label)
     return f.svg()
 
 
