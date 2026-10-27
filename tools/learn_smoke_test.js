@@ -79,6 +79,21 @@ ok(!!home.$(".safety-note") && /沒有老師打分/.test(home.$(".safety-note").
    "home states the no-pressure design");
 ok(!!home.$('.safety-note a[href="start.html"]'), "home links to the preface");
 
+/* 統測考完之後：階段 2 有一張公告卡，直接連到統測題解與評分平台
+   （資料在 lessons.json 的 stages[].link；卡片由 renderIndex 畫） */
+const stage2 = (LESSONS.stages || []).filter((s) => s.id === 2)[0] || {};
+const stLink = stage2.link || {};
+const slCard = home.$(".stage-link");
+ok(!!slCard, "階段 2 有一張對外連結公告卡（統測題解）");
+const slA = slCard ? slCard.querySelector("a") : null;
+ok(!!slA && slA.getAttribute("href") === stLink.href,
+   "公告卡直接連結統測題解與評分平台（" + (slA ? slA.getAttribute("href") : "無") + "）");
+ok(!!slA && slA.getAttribute("target") === "_blank"
+   && /noopener/.test(slA.getAttribute("rel") || ""),
+   "對外連結開新分頁並帶 rel=noopener");
+ok(!!slCard && /統測/.test(slCard.textContent) && /Uniform test/.test(slCard.textContent),
+   "公告卡中英齊全（統測／Uniform test）");
+
 /* ── 2. 開始之前（前言）───────────────────────────────────────────────── */
 console.log("\n— 開始之前（前言）—");
 const pre = boot("start.html", "");
@@ -507,6 +522,9 @@ ok(lDup.$$(".topic-btn").length === cardsBefore,
    "切三次語言後課題卡數目不變（" + cardsBefore + " → " + lDup.$$(".topic-btn").length + "）");
 ok(lDup.$$("#topics .section-title").length === secsBefore,
    "階段標題也不會變成多份（" + secsBefore + " → " + lDup.$$("#topics .section-title").length + "）");
+const linkStages = (LESSONS.stages || []).filter((s) => s.link && s.link.href).length;
+ok(lDup.$$(".stage-link").length === linkStages,
+   "階段公告卡數目 = 有 link 的階段數（" + lDup.$$(".stage-link").length + " vs " + linkStages + "）");
 
 const wDup = bootLang("wrong.html", "", JSON.stringify({
   mc: { "eph-ws01-q1": { picked: "A", correct: false, tries: 1, ts: 1 } }, long: {}, cards: {} }), "both");

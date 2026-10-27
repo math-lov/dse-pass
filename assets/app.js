@@ -303,6 +303,37 @@
   }
 
   /* ── 首頁 ───────────────────────────────────────────────────────────── */
+  /* 階段公告卡：一個標籤、一句標題、一段說明、一個對外連結。
+     資料來自 lessons.json 的 stages[].link；缺哪個欄位就不畫哪一塊。 */
+  function stageLinkCard(lk) {
+    var card = el("div", "card stage-link");
+    if (lk.tag) {
+      var tag = el("div", "sl-tag");
+      tag.appendChild(biSpan(lk.tag));
+      card.appendChild(tag);
+    }
+    if (lk.title) {
+      var h = el("div", "sl-title");
+      h.appendChild(biSpan(lk.title));
+      card.appendChild(h);
+    }
+    if (lk.desc) {
+      var d = el("div", "sl-desc small muted");
+      d.appendChild(biSpan(lk.desc));
+      card.appendChild(d);
+    }
+    var row = el("div", "sl-actions");
+    var a = el("a", "btn btn-sm btn-primary");
+    a.href = lk.href;
+    /* 對外網站開新分頁：學生回到本站時進度仍在，不會迷路 */
+    a.target = "_blank";
+    a.rel = "noopener";
+    a.appendChild(biSpan(lk.btn || { zh: "開啟 →", en: "Open →" }));
+    row.appendChild(a);
+    card.appendChild(row);
+    return card;
+  }
+
   function renderIndex() {
     var host = qs("#topics");
     if (!host) return;
@@ -312,8 +343,11 @@
     (INDEX.topics || []).forEach(function (t) {
       (byStage[t.stage] = byStage[t.stage] || []).push(t);
     });
-    var stageNames = {};
-    (INDEX.stages || []).forEach(function (s) { stageNames[s.id] = s.name || {}; });
+    var stageNames = {}, stageById = {};
+    (INDEX.stages || []).forEach(function (s) {
+      stageNames[s.id] = s.name || {};
+      stageById[s.id] = s;
+    });
 
     Object.keys(byStage).sort().forEach(function (sid) {
       var name = stageNames[sid] || {};
@@ -323,6 +357,11 @@
         en: name.en || ("Stage " + sid)
       }));
       host.appendChild(st);
+
+      /* 階段公告卡：這一階段有一條對外連結就畫出來
+         （目前是「統測前哨戰」→ 統測題解與評分平台；資料在 lessons.json 的 stages[].link） */
+      var lk = (stageById[sid] || {}).link;
+      if (lk && lk.href) host.appendChild(stageLinkCard(lk));
 
       var grid = el("div", "topic-grid");
       byStage[sid].forEach(function (t) {

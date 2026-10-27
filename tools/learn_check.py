@@ -398,6 +398,20 @@ def main(argv: list[str] | None = None) -> int:
     for stg in lessons.get("stages", []):
         nm = stg.get("name") or {}
         need_pair("I4", "stage %s 名稱" % stg.get("id"), nm.get("zh"), nm.get("en"))
+        # 階段公告卡（首頁每一階段的一條對外連結，例如統測題解與評分平台）
+        lk = stg.get("link")
+        if lk:
+            sid = stg.get("id", "?")
+            href = str(lk.get("href") or "")
+            if not href.startswith("https://"):
+                err("I4", "stage %s link.href 必須是 https:// 開頭的完整網址（現為 %r）"
+                    % (sid, href))
+            for key in ("tag", "title", "desc", "btn"):
+                if not lk.get(key):
+                    continue
+                need_pair("I4", "stage %s link.%s" % (sid, key),
+                          (lk.get(key) or {}).get("zh"), (lk.get(key) or {}).get("en"),
+                          allow_han_in_en=False, min_en=4)
 
     for qid, s in sols.items():
         sol = s.get("solution") or {}

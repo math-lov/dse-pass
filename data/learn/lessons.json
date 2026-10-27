@@ -19,10 +19,29 @@
     "en": "Stage 2 · Uniform Test Warm-up"
    },
    "note": {
-    "zh": "為統測（uniform test）而設：把最常考、最基本的題型拆成小步練熟，做完一課就穩住一部分分數。"
+     "zh": "為統測（uniform test）而設：把最常考、最基本的題型拆成小步練熟，做完一課就穩住一部分分數。"
+   },
+   "link": {
+    "href": "https://sites.google.com/skhbbss.edu.hk/s5-math-uniform-test-platform/full-page-embed",
+    "tag": {
+     "zh": "統測已完成",
+     "en": "Uniform test finished"
+    },
+    "title": {
+     "zh": "統測題解與評分已經上載",
+     "en": "Marking scheme and worked solutions are online"
+    },
+    "desc": {
+     "zh": "統測卷的評分參考與逐步題解，已經放在學校的統測平台上。想對答案、想知道自己哪一步失分，直接按下面開啟。",
+     "en": "The marking scheme and step-by-step solutions are now on the school's uniform test platform — open it to check your answers and see which step cost you marks."
+    },
+    "btn": {
+     "zh": "開啟統測題解與評分",
+     "en": "Open the marking & solutions"
+    }
    }
-  }
- ],
+   }
+   ],
  "topics": [
   {
    "id": "ws01",
