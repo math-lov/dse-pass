@@ -358,7 +358,29 @@ window.LEARN_TOPIC_AS04 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "(a)",
+       "options": [
+        "1260",
+        "126000",
+        "12600",
+        "2100"
+       ],
+       "answer": "C"
+      },
+      {
+       "part": "(b)",
+       "options": [
+        "1821800",
+        "1821820",
+        "1820000",
+        "2821"
+       ],
+       "answer": "B"
+      }
+     ]
     },
     {
      "id": "eph-as04-ex02",
@@ -465,7 +487,29 @@ window.LEARN_TOPIC_AS04 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "(a)",
+       "options": [
+        "7200",
+        "720000",
+        "72000",
+        "14400"
+       ],
+       "answer": "C"
+      },
+      {
+       "part": "(b)",
+       "options": [
+        "556920",
+        "5569200",
+        "55692000",
+        "4880"
+       ],
+       "answer": "B"
+      }
+     ]
     }
    ],
    "pages": [

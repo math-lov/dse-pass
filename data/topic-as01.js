@@ -293,7 +293,29 @@ window.LEARN_TOPIC_AS01 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "(a)",
+       "options": [
+        "-3",
+        "21",
+        "3",
+        "39"
+       ],
+       "answer": "C"
+      },
+      {
+       "part": "(b)",
+       "options": [
+        "x=\\frac{1}{2} \\text{ or } x=3",
+        "x=-\\frac{1}{2} \\text{ or } x=-3",
+        "x=-\\frac{1}{2} \\text{ or } x=3",
+        "x=\\frac{1}{2} \\text{ or } x=-3"
+       ],
+       "answer": "B"
+      }
+     ]
     },
     {
      "id": "eph-as01-ex02",
@@ -400,7 +422,29 @@ window.LEARN_TOPIC_AS01 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "(a)",
+       "options": [
+        "5",
+        "75",
+        "-5",
+        "-75"
+       ],
+       "answer": "C"
+      },
+      {
+       "part": "(b)",
+       "options": [
+        "x=\\frac{1}{3} \\text{ or } x=-5",
+        "x=-\\frac{1}{3} \\text{ or } x=5",
+        "x=-\\frac{1}{3} \\text{ or } x=-5",
+        "x=\\frac{1}{3} \\text{ or } x=5"
+       ],
+       "answer": "B"
+      }
+     ]
     }
    ],
    "pages": [
@@ -1596,7 +1640,29 @@ window.LEARN_TOPIC_AS01 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "(a)",
+       "options": [
+        "8-6i",
+        "10+6i",
+        "8+6i",
+        "9+6i"
+       ],
+       "answer": "C"
+      },
+      {
+       "part": "(b)",
+       "options": [
+        "32+24i",
+        "32-24i",
+        "-32+24i",
+        "32-24"
+       ],
+       "answer": "B"
+      }
+     ]
     },
     {
      "id": "eph-as01-ex04",
@@ -1713,7 +1779,29 @@ window.LEARN_TOPIC_AS01 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "(a)",
+       "options": [
+        "15+8i",
+        "17-8i",
+        "15-8i",
+        "15-8"
+       ],
+       "answer": "C"
+      },
+      {
+       "part": "(b)",
+       "options": [
+        "15-8i",
+        "15+8i",
+        "17+8i",
+        "15+8"
+       ],
+       "answer": "B"
+      }
+     ]
     }
    ],
    "pages": [

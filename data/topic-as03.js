@@ -317,7 +317,29 @@ window.LEARN_TOPIC_AS03 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "(a)",
+       "options": [
+        "x\\le 12",
+        "x\\ge 6",
+        "x<6",
+        "x\\le 6"
+       ],
+       "answer": "D"
+      },
+      {
+       "part": "(b)",
+       "options": [
+        "6",
+        "12",
+        "5",
+        "6.5"
+       ],
+       "answer": "A"
+      }
+     ]
     },
     {
      "id": "eph-as03-ex02",
@@ -444,7 +466,29 @@ window.LEARN_TOPIC_AS03 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "(a)",
+       "options": [
+        "-2\\le x\\le 10",
+        "-2<x<10",
+        "-2\\le x<10",
+        "-2<x\\le 10"
+       ],
+       "answer": "D"
+      },
+      {
+       "part": "(b)",
+       "options": [
+        "10",
+        "9",
+        "11",
+        "-2"
+       ],
+       "answer": "A"
+      }
+     ]
     }
    ],
    "pages": [
