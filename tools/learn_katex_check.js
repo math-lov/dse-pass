@@ -15,6 +15,7 @@ const dataDir = path.join(root, "data", "learn");
 const bank = JSON.parse(fs.readFileSync(path.join(dataDir, "bank.json"), "utf8"));
 const concepts = JSON.parse(fs.readFileSync(path.join(dataDir, "concepts.json"), "utf8"));
 const solutions = JSON.parse(fs.readFileSync(path.join(dataDir, "solutions.json"), "utf8")).solutions || {};
+const checks = (JSON.parse(fs.readFileSync(path.join(dataDir, "checks.json"), "utf8")).checks) || {};
 
 let errors = 0;
 let checked = 0;
@@ -146,7 +147,17 @@ Object.keys(solutions).forEach((qid) => {
   }
 });
 
+// ── 長題答案核對的選項（純數式）──
+Object.keys(checks).forEach((qid) => {
+  (checks[qid] || []).forEach((it, i) => {
+    (it.options || []).forEach((o, j) => {
+      checkField(o, `${qid} · check[${i + 1}] option ${"ABCD"[j] || j + 1}`);
+    });
+  });
+});
+
 console.log(`checked ${checked} LaTeX fragment(s) across ${bank.questions.length} questions, ` +
-            `${(concepts.cards || []).length} concept cards and ${Object.keys(solutions).length} solutions`);
+            `${(concepts.cards || []).length} concept cards, ${Object.keys(solutions).length} solutions ` +
+            `and ${Object.keys(checks).length} long-question checks`);
 console.log(errors ? `${errors} LaTeX problem(s)` : "all LaTeX renders cleanly");
 process.exit(errors ? 1 : 0);

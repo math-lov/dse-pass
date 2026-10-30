@@ -33,6 +33,7 @@ const LESSONS = JSON.parse(fs.readFileSync(path.join(root, "data", "learn", "les
 const BANK = JSON.parse(fs.readFileSync(path.join(root, "data", "learn", "bank.json"), "utf8")).questions;
 const SOLS = JSON.parse(fs.readFileSync(path.join(root, "data", "learn", "solutions.json"), "utf8")).solutions;
 const CARDS = JSON.parse(fs.readFileSync(path.join(root, "data", "learn", "concepts.json"), "utf8")).cards;
+const CHECKS = JSON.parse(fs.readFileSync(path.join(root, "data", "learn", "checks.json"), "utf8")).checks;
 
 let fails = 0;
 const ok = (cond, label) => { console.log((cond ? "  PASS  " : "  FAIL  ") + label); if (!cond) fails++; };
@@ -398,8 +399,51 @@ ok(qCards[2].querySelectorAll(".steps .step").length === 1, "hint reveals one st
 console.log("\n— 長題示範 —");
 const d = boot("topic.html", "?t=" + t0.id + "&p=1");
 ok(!!d.$(".demo-try"), "demo page invites the student to try first");
+const longQid = t0.lessons[0].longQuestionIds[0];
+const exChecks = CHECKS[longQid] || [];
+ok(d.$$(".lcheck").length === exChecks.length,
+   longQid + "：每一部都有答案核對（" + d.$$(".lcheck").length + " / " + exChecks.length + "）");
+const startBtn = d.$(".demo-try .btn");
+ok(!!startBtn && startBtn.disabled, "未核對答案之前，題解步驟是鎖住的");
+const lc0 = d.$$(".lcheck")[0];
+ok(lc0.querySelectorAll(".opt").length === 4, "答案核對是四選一");
+function pickLc(box, L) {
+  box.querySelector('.opt[data-opt="' + L + '"]').click();
+  box.querySelector("[data-lc-submit]").click();
+}
+const wrong0 = ["A", "B", "C", "D"].filter((L) => L !== exChecks[0].answer)[0];
+pickLc(lc0, wrong0);
+ok(!!lc0.querySelector(".feedback.bad"), "第一次核對錯 → 叫再試");
+ok(!lc0.querySelector(".opt.correct"), "第一次核對錯 → 不揭答案");
+ok(startBtn.disabled, "未全部核對完 → 題解仍然鎖住");
+pickLc(lc0, wrong0);
+ok(!!lc0.querySelector(".opt.correct"), "第二次核對錯 → 正確選項變綠");
+const dStore = d.store();
+ok(!!(dStore.weak && dStore.weak[longQid] && dStore.weak[longQid].auto),
+   "第二次核對錯 → 自動加入弱點升級庫");
+const wAuto = boot("wrong.html", "", JSON.stringify(dStore));
+ok(/長題答案核對兩次都錯/.test(wAuto.$("#wrong-body").textContent),
+   "弱點升級庫標示長題是自動加入");
+const againAuto = wAuto.$$(".wrong-item .btn").filter((b) => /再練一次/.test(b.textContent))[0];
+if (againAuto) againAuto.click();
+const lcLeft = Object.keys(wAuto.store().lc || {}).filter((k) => k.indexOf(longQid + "|") === 0);
+ok(lcLeft.length === 0, "「再練一次」會清空該題的長題核對記錄");
+ok(startBtn.disabled, "還有一部未核對 → 題解仍然鎖住");
+pickLc(d.$$(".lcheck")[1], exChecks[1].answer);
+ok(!startBtn.disabled, "全部核對完 → 解鎖題解");
 d.$(".demo-try .btn").click();
 ok(d.$$(".steps .step").length === 1, "steps are revealed one at a time");
+/* 跳過：不應把題目塞進弱點升級庫 */
+const dSkip = boot("topic.html", "?t=" + t0.id + "&p=1");
+ok(!!dSkip.$(".lcheck-skip"), "有「跳過核對」按鈕");
+dSkip.$(".lcheck-skip").click();
+ok(!dSkip.$(".demo-try .btn").disabled, "跳過之後可以直接看題解");
+ok(!dSkip.store().weak || !dSkip.store().weak[longQid],
+   "跳過不會加入弱點升級庫");
+/* 重開：已核對的部要保持鎖定，題解保持解鎖 */
+const dReload = boot("topic.html", "?t=" + t0.id + "&p=1", JSON.stringify(d.store()));
+ok(dReload.$$(".lcheck .opt.correct").length >= 1, "重開時已核對的部仍然顯示正確答案");
+ok(!dReload.$(".demo-try .btn").disabled, "重開時題解仍然解鎖");
 d.$$(".card .row .btn").filter((b) => /全部顯示/.test(b.textContent))[0].click();
 ok(d.$$(".steps .step").length >= 3, "all steps revealed (got " + d.$$(".steps .step").length + ")");
 ok(!!d.$(".done-banner"), "finishing the demo shows the completion banner");

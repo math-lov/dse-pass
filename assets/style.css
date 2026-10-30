@@ -341,6 +341,7 @@ body[data-lang="both"] .stage-link .sl-actions .l-en::before { content: "· "; }
 .q-code { font-size: 12.5px; font-weight: 800; letter-spacing: .04em; color: var(--primary-ink); background: var(--primary-soft); border-radius: 999px; padding: 3px 12px; }
 .q-diff { font-size: 12px; color: var(--accent); letter-spacing: 2px; }
 .q-source { font-size: 13px; color: var(--muted); }
+body[data-lang="both"] .q-source .l-zh + .l-en::before { content: " · "; opacity: .6; }
 /* 短答標記：題目照原檔全英，只有詳解要中英；長／短答一律紙上作答 */
 .q-kind {
   font-size: 12px; font-weight: 800; letter-spacing: .02em;
@@ -641,6 +642,31 @@ body[data-lang="both"] #continue-label .l-en {
   border-radius: 999px; padding: 3px 10px;
 }
 .vocab b { color: var(--primary); }
+
+/* ── 長題答案核對（每部一題、四選一）──────────────────────────────────── */
+.lchecks { margin: 14px 0 4px; display: grid; gap: 10px; }
+.lcheck {
+  border: 1px solid var(--line-soft); border-radius: var(--radius-sm);
+  padding: 12px 14px; background: #faf8f5;
+}
+.lcheck-head {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  font-weight: 800; font-size: 14.5px; color: var(--primary-ink); margin-bottom: 8px;
+}
+.lcheck-head .l-zh + .l-en::before { content: " · "; opacity: .5; }
+.lcheck-part {
+  font-size: 12.5px; font-weight: 800; color: var(--primary-ink);
+  background: var(--primary-soft); border: 1px solid var(--primary-line);
+  border-radius: 999px; padding: 2px 9px;
+}
+.lcheck-opts { margin-top: 0; gap: 8px; }
+.lcheck-opts .opt { min-height: 45px; padding: 9px 13px; }
+.lcheck .check-row { margin-top: 10px; }
+.lcheck-note { margin-top: 6px; }
+.demo-try .lcheck-note { flex-basis: 100%; margin-top: 2px; }
+.lcheck-skip { margin-top: 2px; justify-self: start; }
+.lcheck-skipped { opacity: .72; }
+.lcheck-skipped .lcheck-opts { display: none; }
 
 /* ── 示範頁（長題目）──────────────────────────────────────────────────── */
 .demo-nav { justify-content: space-between; margin-bottom: 10px; }

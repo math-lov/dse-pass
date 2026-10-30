@@ -21,7 +21,8 @@
 | `wrong.html` | 弱點升級庫（兩次都答錯的 MC ＋ 學生自己加入的長／短答） |
 | `start.html` | 開始之前（使用指南） |
 | `quadratic-inequalities.html` | 二次不等式探索器（獨立互動頁） |
-| `data/learn/*.json` | ✅ **手改**：`bank`／`concepts`／`solutions`／`lessons`／`figures`／`prompt-templates` |
+| `data/learn/*.json` | ✅ **手改**：`bank`／`concepts`／`solutions`／`lessons`／`figures`／`prompt-templates`／`checks`（長題答案核對） |
+| `docs/LONG-CHECK-REVIEW.md` | 長題答案核對的覆核表（每批簽核後才 push） |
 | `data/*.js` | ❌ 生成檔（下次生成會覆蓋） |
 | `tools/make_learn_data.py` | 生成 `data/*.js` ＋ 寫版本戳（**內容 hash**；算 hash 時會剔走 `generatedAt`，所以無改動時 `?v=` 不會亂跳） |
 | `tools/learn_check.py` | 結構／契約／雙語／數式／排版規則（S1–S10、I1–I12、R1–R2）→ **必須 0 錯 0 警** |

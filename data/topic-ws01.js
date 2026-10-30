@@ -321,7 +321,29 @@ window.LEARN_TOPIC_WS01 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "(a)",
+       "options": [
+        "(3x+y)(5x+2y)",
+        "(3x-y)(5x-2y)",
+        "(3x-y)(5x+2y)",
+        "(3x-2y)(5x+y)"
+       ],
+       "answer": "C"
+      },
+      {
+       "part": "(b)",
+       "options": [
+        "(3x-y)(3-5x-2y)",
+        "(3x-y)(3+5x+2y)",
+        "(3x+y)(3-5x-2y)",
+        "(3x-y)(3-5x+2y)"
+       ],
+       "answer": "A"
+      }
+     ]
     },
     {
      "id": "eph-ws01-ex02",
@@ -471,7 +493,29 @@ window.LEARN_TOPIC_WS01 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "(a)",
+       "options": [
+        "(4c-1)^{2}",
+        "(4c+1)^{2}",
+        "(4c-1)(4c+1)",
+        "(2c-1)^{2}"
+       ],
+       "answer": "A"
+      },
+      {
+       "part": "(b)",
+       "options": [
+        "(9c+d+1)(c+d+1)",
+        "(9c+d-1)(c+d+1)",
+        "(9c-d-1)(c+d+1)",
+        "(9c+d-1)(c-d+1)"
+       ],
+       "answer": "B"
+      }
+     ]
     },
     {
      "id": "eph-ws01-s01",
@@ -551,7 +595,19 @@ window.LEARN_TOPIC_WS01 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "",
+       "options": [
+        "(2m-5n)^{2}",
+        "-(2m-5n)^{2}",
+        "-(2m+5n)^{2}",
+        "-(2m-5n)(2m+5n)"
+       ],
+       "answer": "B"
+      }
+     ]
     },
     {
      "id": "eph-ws01-s02",
@@ -637,7 +693,19 @@ window.LEARN_TOPIC_WS01 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "",
+       "options": [
+        "(x-y)(x+3y)",
+        "(x+y)(x-3y)",
+        "(x+y)(x+3y)",
+        "(x+3y)^{2}"
+       ],
+       "answer": "C"
+      }
+     ]
     },
     {
      "id": "eph-ws01-s03",
@@ -717,7 +785,19 @@ window.LEARN_TOPIC_WS01 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "",
+       "options": [
+        "(2m+5n)(3m+2n)",
+        "(2m-5n)(3m-2n)",
+        "(2m-5n)(3m+2n)",
+        "(2m+5n)(3m-2n)"
+       ],
+       "answer": "C"
+      }
+     ]
     },
     {
      "id": "eph-ws01-s04",
@@ -797,7 +877,19 @@ window.LEARN_TOPIC_WS01 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "",
+       "options": [
+        "n(2m-7)(m-2)",
+        "n(2m+7)(m+2)",
+        "(2m+7)(m-2)",
+        "n(2m+7)(m-2)"
+       ],
+       "answer": "D"
+      }
+     ]
     },
     {
      "id": "eph-ws01-s05",
@@ -877,7 +969,19 @@ window.LEARN_TOPIC_WS01 = {
       ]
      },
      "answer": null,
-     "verify": "checked"
+     "verify": "checked",
+     "checks": [
+      {
+       "part": "",
+       "options": [
+        "-(4x+3y)(x-3y)",
+        "-(4x-3y)(x+3y)",
+        "(4x-3y)(x-3y)",
+        "-(4x-3y)(x-3y)"
+       ],
+       "answer": "D"
+      }
+     ]
     }
    ],
    "pages": [

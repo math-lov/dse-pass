@@ -26,10 +26,11 @@
       s.mc = s.mc || {};        // { qid: {picked, correct, ts, tries} }
       s.long = s.long || {};    // { qid: true }（已讀完示範）
       s.cards = s.cards || {};  // { lessonId: true }（已看完概念卡）
-      s.weak = s.weak || {};    // { qid: {ts} }（自己按「加入弱點升級庫」的長／短答題）
+      s.weak = s.weak || {};    // { qid: {ts, auto} }（弱點升級庫：手動或長題核對自動加入）
+      s.lc = s.lc || {};        // { "qid|part": {picked, correct, tries, final, skipped} }
       return s;
     } catch (e) {
-      return { mc: {}, long: {}, cards: {}, weak: {} };
+      return { mc: {}, long: {}, cards: {}, weak: {}, lc: {} };
     }
   }
   function save() {
@@ -429,7 +430,7 @@
         zh: "要清除這個網站的學習進度嗎？",
         en: "Clear the progress of this site?"
       }))) return;
-      store = { mc: {}, long: {}, cards: {} };
+      store = { mc: {}, long: {}, cards: {}, weak: {}, lc: {} };
       save();
       location.reload();
     };
@@ -1052,7 +1053,10 @@
     head.appendChild(weakBtn(q));     // 加入弱點升級庫（長／短答是紙上作答，自己標記）
     if (q.marks) {
       var mk = el("span", "q-source");
-      mk.appendChild(biSpan({ zh: "（" + q.marks + " 分）", en: "(" + q.marks + " marks)" }));
+      mk.appendChild(biSpan({
+        zh: "（" + q.marks + " 分）",
+        en: "(" + q.marks + " mark" + (q.marks > 1 ? "s" : "") + ")"
+      }));
       head.appendChild(mk);
     }
     card.appendChild(head);
@@ -1083,13 +1087,20 @@
     (q.parts || []).forEach(function (pt) {
       var d = el("div", "q-stem");
       d.appendChild(el("b", null, (pt.label || "") + " "));
-      d.appendChild(biNode({
-        zh: pt.zh || pt.text || (q.stem && q.stem.zh) || "",
-        en: pt.en || pt.text || (q.stem && q.stem.en) || ""
-      }, "span"));
+      var pz = pt.zh || pt.text || (q.stem && q.stem.zh) || "";
+      var pe = pt.en || pt.text || (q.stem && q.stem.en) || "";
+      /* 純數式的小題：中英版本一字不差 → 只出一次（否則並列模式會重複整條式）。
+         數式要放入獨立 span：mathInto/tex 會清空目標節點，否則會連 (a) 也清走。 */
+      var pbody = el("span", "q-part-body");
+      if (pz === pe) mathInto(pbody, pz);
+      else pbody.appendChild(biNode({ zh: pz, en: pe }, "span"));
+      d.appendChild(pbody);
       if (pt.marks) {
         var pm = el("span", "q-source");
-        pm.appendChild(biSpan({ zh: "（" + pt.marks + " 分）", en: "(" + pt.marks + " marks)" }));
+        pm.appendChild(biSpan({
+          zh: "（" + pt.marks + " 分）",
+          en: "(" + pt.marks + " mark" + (pt.marks > 1 ? "s" : "") + ")"
+        }));
         d.appendChild(pm);
       }
       card.appendChild(d);
@@ -1102,7 +1113,8 @@
       en: "Think it through and write it down yourself first, then reveal the steps one by one."
     }));
     tryRow.appendChild(tt);
-    var startBtn = btnPair("btn btn-sm btn-primary", { zh: "開始看題解 →", en: "Show the steps →" });
+    var startBtn = btnPair("btn btn-sm btn-primary", { zh: "開始看題解", en: "Show the steps" });
+    startBtn.appendChild(el("span", "arw", "→"));
     tryRow.appendChild(startBtn);
     if (aiOn()) {
       var ai = btnPair("btn btn-sm btn-ai", { zh: "問 AI", en: "Ask AI" });
@@ -1110,7 +1122,234 @@
       ai.onclick = function () { openPrompt({ q: q, item: q }); };
       tryRow.appendChild(ai);
     }
+
+    /* ── 長題答案核對（data/learn/checks.json；每部一題、四選一）──────────
+       學生先在紙上做，再揀「與自己答案相同」的那一個：
+         第一次錯 → 只叫再試（不揭答案）
+         第二次錯 → 鎖定、正確選項變綠、自動加入弱點升級庫
+       全部核對完（或按「跳過」）才解鎖「開始看題解」。 */
+    var checks = q.checks || [];
+    var checksUI = [];
+    var gateNote = null;
+
+    function keyOf(c) { return q.id + "|" + (c.part || ""); }
+    function allChecked() {
+      return checks.every(function (c) {
+        var s = store.lc[keyOf(c)];
+        return s && (s.final === true || s.skipped === true);
+      });
+    }
+    function refreshGate() {
+      if (!checks.length) return;
+      var done = allChecked();
+      startBtn.disabled = !done;
+      if (gateNote) gateNote.classList.toggle("hidden", done);
+      if (skipBtn) skipBtn.classList.toggle("hidden", done);
+    }
+    function autoWeak() {
+      var w = store.weak[q.id];
+      store.weak[q.id] = { ts: Date.now(), auto: true };
+      if (w && !w.auto) store.weak[q.id].ts = w.ts;
+      save();
+      updateWrongBadge();
+    }
+
+    function longCheck(c) {
+      var key = keyOf(c);
+      var saved = store.lc[key] || null;
+      var state = {
+        picked: null, tries: (saved && saved.tries) || 0,
+        locked: false, skipped: !!(saved && saved.skipped)
+      };
+      var box = el("div", "lcheck");
+      var head = el("div", "lcheck-head");
+      if (c.part) head.appendChild(el("span", "lcheck-part", c.part));
+      head.appendChild(biSpan({
+        zh: "你的答案與哪一個相同？", en: "Which one matches your answer?"
+      }));
+      box.appendChild(head);
+
+      var opts = el("div", "opts lcheck-opts");
+      var submit = btnPair("btn btn-sm btn-primary", { zh: "核對這一部", en: "Check this part" });
+      submit.setAttribute("data-lc-submit", "1");
+      submit.disabled = true;
+      var fb = el("div");
+      var row = el("div", "check-row");
+      row.appendChild(submit);
+      row.appendChild(fb);
+      box.appendChild(opts);
+      box.appendChild(row);
+
+      function markPicked() {
+        qsa(".opt", opts).forEach(function (b) {
+          b.classList.toggle("picked", b.dataset.opt === state.picked);
+        });
+      }
+      function markWrong(L) {
+        qsa(".opt", opts).forEach(function (b) {
+          if (b.dataset.opt === L) b.classList.add("wrong");
+        });
+      }
+      function choose(L) {
+        if (state.locked || state.skipped) return;
+        state.picked = L;
+        markPicked();
+        submit.disabled = false;
+      }
+      ["A", "B", "C", "D"].forEach(function (L) {
+        var v = (c.options || [])[["A", "B", "C", "D"].indexOf(L)];
+        if (v === undefined) return;
+        var b = el("button", "opt");
+        b.dataset.opt = L;
+        b.appendChild(el("span", "letter", L));
+        var val = el("span", "val");
+        mathInto(val, v);
+        b.appendChild(val);
+        b.onclick = function () { choose(L); };
+        opts.appendChild(b);
+      });
+
+      function feedback(ok, finalWrong) {
+        fb.innerHTML = "";
+        var f = el("div", "feedback " + (ok ? "ok" : "bad"));
+        f.setAttribute("data-feedback", ok ? "ok" : "bad");
+        f.appendChild(el("span", "fb-icon", ok ? "✓" : "✕"));
+        var txt = el("div");
+        var main = el("div");
+        main.appendChild(biSpan(ok
+          ? { zh: "正確！", en: "Correct!" }
+          : (finalWrong ? { zh: "兩次都未答對", en: "Not right after two tries" }
+                        : { zh: "唔係這一個", en: "Not this one" })));
+        var sub = el("span", "fb-sub");
+        sub.appendChild(biSpan(ok
+          ? { zh: "這一部已完成。", en: "This part is done." }
+          : (finalWrong
+            ? { zh: "下面按「開始看題解」對一次完整步驟。", en: "Press \"Show the steps\" below to check the full working." }
+            : { zh: "再試一次 —— 還有一次機會。", en: "Try again — you have one more go." })));
+        txt.appendChild(main);
+        txt.appendChild(sub);
+        f.appendChild(txt);
+        fb.appendChild(f);
+      }
+
+      function lockAll(correct) {
+        qsa(".opt", opts).forEach(function (b) {
+          b.disabled = true;
+          b.classList.remove("picked");
+          if (b.dataset.opt === c.answer) b.classList.add("correct");
+          else if (!correct && b.dataset.opt === state.picked) b.classList.add("wrong");
+        });
+        submit.disabled = true;
+        state.locked = true;
+      }
+
+      function persist(final, correct) {
+        store.lc[key] = {
+          picked: state.picked, correct: correct, tries: state.tries,
+          final: final, ts: Date.now()
+        };
+        save();
+        refreshGate();
+      }
+
+      submit.onclick = function () {
+        if (state.locked || state.skipped || !state.picked) return;
+        var ok = state.picked === c.answer;
+        state.tries++;
+        if (ok) {
+          lockAll(true);
+          feedback(true, false);
+          persist(true, true);
+        } else if (state.tries >= 2) {
+          lockAll(false);
+          feedback(false, true);
+          persist(true, false);
+          autoWeak();
+        } else {
+          var wrong = state.picked;
+          persist(false, false);          // 記住這次錯的選項（重開時仍然見到紅字）
+          state.picked = null;
+          markPicked();
+          markWrong(wrong);
+          submit.disabled = true;
+          feedback(false, false);
+        }
+      };
+
+      function markSkipped() {
+        if (state.locked) return;        // 已核對完的不會被「跳過」蓋掉
+        state.skipped = true;
+        state.locked = true;
+        qsa(".opt", opts).forEach(function (b) { b.disabled = true; });
+        submit.disabled = true;
+        box.classList.add("lcheck-skipped");
+        row.innerHTML = "";
+        var note = el("div", "small muted lcheck-note");
+        note.appendChild(biSpan({
+          zh: "已跳過這一部 —— 直接看題解對答案。",
+          en: "Skipped this part — check the worked solution instead."
+        }));
+        row.appendChild(note);
+        store.lc[key] = { skipped: true, ts: Date.now() };
+        save();
+        refreshGate();
+      }
+
+      /* 重開：已完成 → 鎖定；第一次錯 → 可以再試；已跳過 → 只顯示提示 */
+      if (saved) {
+        if (saved.skipped) {
+          state.skipped = true;
+          state.locked = true;
+          qsa(".opt", opts).forEach(function (b) { b.disabled = true; });
+          submit.disabled = true;
+          box.classList.add("lcheck-skipped");
+          var sn = el("div", "small muted lcheck-note");
+          sn.appendChild(biSpan({
+            zh: "已跳過這一部 —— 直接看題解對答案。",
+            en: "Skipped this part — check the worked solution instead."
+          }));
+          fb.appendChild(sn);
+        } else if (saved.final === true) {
+          state.picked = saved.picked;
+          lockAll(!!saved.correct);
+          feedback(!!saved.correct, !saved.correct);
+        } else if (saved.final === false) {
+          state.picked = saved.picked;
+          markWrong(saved.picked);
+          submit.disabled = true;
+        }
+      }
+
+      checksUI.push({ markSkipped: markSkipped });
+      return box;
+    }
+
+    if (checks.length) {
+      var chkBox = el("div", "lchecks");
+      var chkHead = el("div", "lcheck-head");
+      chkHead.appendChild(biSpan({
+        zh: "先核對答案（每一部一題）", en: "Check your answers first (one per part)"
+      }));
+      chkBox.appendChild(chkHead);
+      checks.forEach(function (c) { chkBox.appendChild(longCheck(c)); });
+      var skipBtn = btnPair("btn btn-sm btn-ghost lcheck-skip", {
+        zh: "跳過核對，直接看題解", en: "Skip the check — show the steps"
+      });
+      skipBtn.onclick = function () {
+        checksUI.forEach(function (u) { u.markSkipped(); });
+      };
+      chkBox.appendChild(skipBtn);
+      card.appendChild(chkBox);
+
+      gateNote = el("div", "small muted lcheck-note");
+      gateNote.appendChild(biSpan({
+        zh: "核對完每一部（或按「跳過」）就可以看題解。",
+        en: "Check every part (or skip) to unlock the steps."
+      }));
+      tryRow.appendChild(gateNote);
+    }
     card.appendChild(tryRow);
+    refreshGate();
 
     var stepsHost = el("div", "steps");
     card.appendChild(stepsHost);
@@ -1746,7 +1985,9 @@
         var inner = el("div", "wrong-item");
         var q = el("div", "wq");
         var st = store.mc[qid];
-        var manual = !st && store.weak[qid];   // 自己加入的長／短答（紙上作答，無選項）
+        var wrec = store.weak[qid];
+        var auto = !!(wrec && wrec.auto);      // 長題答案核對兩次都錯 → 自動加入
+        var manual = !st && wrec && !auto;     // 自己加入的長／短答（紙上作答，無選項）
         var m = /-q(\d+)$/.exec(qid);
         var rec = el("div");
         rec.appendChild(biSpan({
@@ -1759,9 +2000,12 @@
         note.appendChild(biSpan(manual
           ? { zh: "你自己加入的（長／短答在紙上作答，對完題解再決定要不要留著）",
               en: "Added by you (long/short answers are written on paper — check the worked solution, then decide)" }
-          : { zh: "你選了 " + st.picked + "（答錯 " + (st.tries || 1) + " 次）",
-              en: "You chose " + st.picked + " (wrong " + (st.tries || 1) +
-                  ((st.tries || 1) === 1 ? " time)" : " times)") }));
+          : auto
+            ? { zh: "長題答案核對兩次都錯（自動加入）—— 回去看一次題解再練",
+                en: "Missed twice in the long-question check (added automatically) — review the solution and try again" }
+            : { zh: "你選了 " + st.picked + "（答錯 " + (st.tries || 1) + " 次）",
+                en: "You chose " + st.picked + " (wrong " + (st.tries || 1) +
+                    ((st.tries || 1) === 1 ? " time)" : " times)") }));
         q.appendChild(note);
         inner.appendChild(q);
 
@@ -1769,6 +2013,9 @@
         again.onclick = function () {
           delete store.mc[qid];
           delete store.weak[qid];
+          Object.keys(store.lc || {}).forEach(function (k) {
+            if (k.indexOf(qid + "|") === 0) delete store.lc[k];   // 長題核對也要清空
+          });
           save();
           go("topic.html?t=" + t + "&q=" + encodeURIComponent(qid));
         };
@@ -1785,6 +2032,7 @@
         if (store.mc[qid].correct === false) delete store.mc[qid];
       });
       store.weak = {};                      // 自己加入的長／短答記錄也一併清空
+      store.lc = {};                        // 長題答案核對記錄
       save();
       location.reload();
     };

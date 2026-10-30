@@ -93,6 +93,7 @@ def main(argv: list[str] | None = None) -> int:
     lessons = _load("lessons.json", {"topics": [], "assessments": []})
     concepts = _load("concepts.json", {"cards": []})
     sols = (_load("solutions.json", {"solutions": {}}) or {}).get("solutions") or {}
+    checks = (_load("checks.json", {"checks": {}}) or {}).get("checks") or {}
 
     errors: list[str] = []
     warnings: list[str] = []
@@ -159,6 +160,53 @@ def main(argv: list[str] | None = None) -> int:
             err("S2", "%s：題幹為空" % qid)
         if not _dollar_ok(stem):
             err("S6", "%s：題幹的 $ 不成對（貨幣請用純數字）" % qid)
+
+    # ── S11：長題答案核對（每部一題、四選一）───────────────────────────────
+    # 只檢查已寫入 checks.json 的題目；未寫的長題暫時不顯示核對（可分階段加）。
+    # 同一題一旦有核對，就必須覆蓋它的每一部，否則學生會見到「漏了一部」。
+    for qid, items in checks.items():
+        q = by_id.get(qid)
+        if not q:
+            err("S11", "%s：checks.json 的題目不在 bank.json" % qid)
+            continue
+        if q.get("type") != "long":
+            err("S11", "%s：只有長題可以有答案核對" % qid)
+            continue
+        parts = [p.get("label") or "" for p in (q.get("parts") or [])] or [""]
+        seen: set[str] = set()
+        if not isinstance(items, list) or not items:
+            err("S11", "%s：核對必須是非空陣列" % qid)
+            continue
+        for i, item in enumerate(items, 1):
+            part = item.get("part", "")
+            if part not in parts:
+                err("S11", "%s[%d]：part=%r 不存在（可用：%s）"
+                    % (qid, i, part, "、".join(repr(p) for p in parts)))
+            if part in seen:
+                err("S11", "%s[%d]：part=%r 重複" % (qid, i, part))
+            seen.add(part)
+            opts = item.get("options") or []
+            if len(opts) != 4:
+                err("S11", "%s[%d]：必須剛好 4 個選項（現有 %d）" % (qid, i, len(opts)))
+            if len(set(opts)) != len(opts):
+                err("S11", "%s[%d]：選項有重複" % (qid, i))
+            ans = item.get("answer")
+            if ans not in ("A", "B", "C", "D")[:len(opts)]:
+                err("S11", "%s[%d]：answer=%r 不是 A–D 之一" % (qid, i, ans))
+            for o in opts:
+                s = str(o)
+                if not s.strip():
+                    err("S11", "%s[%d]：有空選項" % (qid, i))
+                if "**" in s:
+                    err("S11", "%s[%d]：選項不可用 Markdown **" % (qid, i))
+                if re.search(r"[\u3400-\u9fff]", s):
+                    err("S11", "%s[%d]：選項是數式，不可有中文（%s）" % (qid, i, s[:20]))
+                if not _dollar_ok(s):
+                    err("S11", "%s[%d]：選項的 $ 不成對" % (qid, i))
+        missing_parts = [p for p in parts if p not in seen]
+        if missing_parts:
+            warn("S11", "%s：未覆蓋 %d 部（%s）"
+                 % (qid, len(missing_parts), "、".join(p or "整題" for p in missing_parts)))
 
     # ── S7：概念卡的公式是否用 {{math:N}} 定位（否則公式會全部排在正文最後）──
     for cid, c in cards_by_id.items():

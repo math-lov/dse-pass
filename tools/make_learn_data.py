@@ -44,7 +44,7 @@ STAMP_HTML = ("index.html", "topic.html", "wrong.html")
 STAMP_ASSETS = ("assets/app.js", "assets/i18n.js", "assets/style.css",
                 "data/learn/bank.json", "data/learn/lessons.json",
                 "data/learn/solutions.json", "data/learn/concepts.json",
-                "data/learn/prompt-templates.json")
+                "data/learn/checks.json", "data/learn/prompt-templates.json")
 
 # 生成檔內有 "generatedAt" 時間戳：算內容 hash 時要剔走它，否則 ?v= 每次生成都會變
 # （變相退回「時間戳」），只有內容真的改了才應該變。
@@ -204,6 +204,9 @@ def main(argv: list[str] | None = None) -> int:
     lessons = _load("lessons.json")
     concepts = _load("concepts.json", {"cards": []})
     sols_doc = _load("solutions.json", {"solutions": {}})
+    # 長題答案核對（每部一題、四選一）；未列的題目不會顯示核對
+    checks_doc = _load("checks.json", {"checks": {}})
+    checks = checks_doc.get("checks") or {}
     # 問 AI 提問模板（中英各一份）：前端生成 prompt 用，改一次＝全站更新
     tpl_doc = _load("prompt-templates.json", {})
     sols = sols_doc.get("solutions") or {}
@@ -231,6 +234,8 @@ def main(argv: list[str] | None = None) -> int:
             q["answer"] = s.get("answer")
             q["verify"] = s.get("verify")
             merged += 1
+        if qid in checks:
+            q["checks"] = checks[qid]
 
     removed = strip_teacher_only(bank, sols_doc)
 

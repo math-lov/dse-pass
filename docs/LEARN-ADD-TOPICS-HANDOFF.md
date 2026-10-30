@@ -525,6 +525,7 @@ ok(t07.$$("#pagenav .pg").length === 12, "ws06 = two lessons (1+2+3 and 1+2+3 pa
 | **中英雙語切換** | `assets/i18n.js`＋`assets/app.js`（`biNode/biSpan/setPair/btnPair/T`） | 三態：中文／EN／中英（預設中英），存 `localStorage` 的 `dse-learn:lang`；所有頁面（含不載入 app.js 的 `start.html`）都有 `[data-lang-slot]` 掛載點；切語言會 `__LEARN_RELANG()` 重繪 |
 | **問 AI 提問生成** | `assets/app.js`（`openPrompt/buildPrompt/aiStepBtn`）＋`data/learn/prompt-templates.json` | 題目資料＋現有解說＋學生勾選（5 個可選項）即時生成；入口：提示列、每一步標題旁、題解底部；可改文字再複製 |
 | **短答題型** | `data/learn/bank.json` `type:"long"` ＋ `kind:"short"` | 短答沿用長題的「逐步示範」流程，只多一個「短答 / Short answer」標記；**不做輸入框**（學生紙上作答，按題解對答案） |
+| **長題答案核對** | `data/learn/checks.json` ＋ app.js `renderLong` 的 `.lchecks` | 每部一題四選一；第一次錯可再試、第二次錯才揭曉並自動入弱點升級庫；全部核對完（或跳過）才解鎖題解。覆核表：`docs/LONG-CHECK-REVIEW.md`；`learn_check.py` 的 **S11** 把關 |
 | **長／短答加入弱點升級庫** | app.js `weakBtn()`／`store.weak` | 題卡右上角「＋ 加入弱點升級庫」可自行加入／移除；`wrong.html` 會標示「你自己加入的」，並有「再練一次」用 `pageOfQuestion()` 直接跳回那一頁 |
 | **單語文字** | app.js `biNode()` | 只有 `en`（或只有 `zh`）的欄位不加 `.l-zh`／`.l-en`，**任何語言模式都顯示**（否則中文模式會空白一片） |
 | **純長題課題** | smoke test §3／`lessons.json` | 課題可以完全沒有 MC 頁（ws01c 就是）：分頁列＝概念卡頁 ＋ 每節示範集（≥4 條收一頁）；測試會改驗「示範 1 / N」、題目卡、加入弱點庫 |
