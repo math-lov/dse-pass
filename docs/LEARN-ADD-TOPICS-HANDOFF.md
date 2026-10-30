@@ -510,7 +510,8 @@ ok(t07.$$("#pagenav .pg").length === 12, "ws06 = two lessons (1+2+3 and 1+2+3 pa
 | 常駐「題目字眼」提示 | `.cmd-hints`（app.js `appendCommandHints`／`cmdHints()`） | **每一課不同**（讀 `lessons.json` 的 `cmdHints`，每頁最頂；未提供才用通用那組）。`en`／`zh` 都支援 `$...$` |
 | 長題分頁 ⚠️ 已改 | app.js `buildPages()` | **一條長題＝一頁**（老師要求：分頁列要能逐題點入去自己試）。導覽列標籤用 **題號 `q.code`**（WS1B-Q1…）。舊的「同課 ≥4 條收成一頁」已**停用**（`renderDemoSet`／`kind:"demos"` 的程式碼仍在，但目前不會產生這種頁；`DEMO_GROUP_MIN` 保留但未使用） |
 | 完成一頁的微成就 | `#page-done`（`refreshPageDone`） | 完成該頁 → 「✓ 這一頁 3 題完成了　本課完成 X%」 |
-| 答錯的重新框架 | `.trap-head`、`.answer-line.miss` | 「差一點 —— 掉進了出卷人的陷阱」＋仍然顯示正確答案 |
+| MC 提交與重試 | `.check-row`、`[data-check]`、`.feedback`（app.js `mcCard`） | 揀選項 → 提交；第一次錯只叫再試（不揭答案、不進升級庫），第二次錯才鎖定、顯示正確答案／陷阱／題解，並寫入 `store.mc[].final = true` |
+| 答錯的重新框架 | `.trap-head`、`.answer-line.miss` | 第二次提交仍錯 → 「差一點 —— 掉進了出卷人的陷阱」＋仍然顯示正確答案 |
 | 心理安全卡 | `.safety-note`（index.html） | 「這裡沒有老師打分，也沒有排名…」＋通往 `start.html` 的按鈕 |
 | **前言／使用指南** | `learn/start.html`（純靜態，不載入 app.js） | 顏色框（`.pre-block` / `.pre-ok` / `.pre-go` / `.pre-help`）＋編號徽章 `.pre-step`；含可複製的 AI 提問範本（`#prompt-text`、`#copy-prompt`）。**不要**把它做成學習卡（會干擾進度計算） |
 | 練習頁求助連結 | `.help-link`（app.js） | 每個練習頁底部連去 `start.html` |

@@ -185,6 +185,17 @@ body[data-lang="both"] .section-title .l-zh + .l-en::before {
 /* 頂部進度與分頁列：中英之間要分隔，否則「0%Page 1 / 14」會黏住 */
 body[data-lang="both"] #topic-progress .l-zh + .l-en::before { content: " · "; }
 body[data-lang="both"] .pagenav .pg .l-zh + .l-en { margin-left: 4px; }
+/* 弱點升級庫（n）與提示句：中英之間要有分隔 */
+body[data-lang="both"] #wrong-count .l-zh + .l-en::before { content: " · "; }
+body[data-lang="both"] .hint-row .small .l-zh + .l-en::before { content: " · "; }
+body[data-lang="both"] .ai-step .l-zh + .l-en { margin-left: 6px; }
+body[data-lang="both"] .ai-step .l-zh + .l-en::before,
+body[data-lang="both"] .hint-row .btn .l-zh + .l-en::before { content: " · "; }
+body[data-lang="both"] .answer-line .l-zh + .l-en::before { content: " · "; }
+/* 陷阱與技巧的正文：中英各一段，唔好黏成一大段 */
+.trap .bi .l-zh, .trap .bi .l-en,
+.tip .bi .l-zh, .tip .bi .l-en { display: block; }
+.trap .bi .l-zh + .l-en, .tip .bi .l-zh + .l-en { margin-top: 4px; }
 
 /* ── 按鈕 ─────────────────────────────────────────────────────────────── */
 .btn {
@@ -372,6 +383,9 @@ body[data-lang="both"] .stage-link .sl-actions .l-en::before { content: "· "; }
 .feedback.ok { background: var(--ok-soft); border-color: #bfe8d1; color: var(--ok-dark); }
 .feedback.bad { background: var(--err-soft); border-color: #f2c0bb; color: #a11c0c; }
 .feedback .fb-sub { display: block; font-weight: 500; font-size: 14px; margin-top: 2px; }
+/* 中英並列：回饋兩語各一行 */
+.feedback .l-zh, .feedback .l-en { display: block; }
+.feedback .fb-sub .l-en { margin-top: 2px; opacity: .95; }
 
 /* 作答前已經常駐的提示列（本站：看提示不扣分） */
 .hint-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; }
@@ -389,6 +403,7 @@ body[data-lang="both"] .stage-link .sl-actions .l-en::before { content: "· "; }
   margin: 0 0 6px; font-size: 16px; font-weight: 800; color: var(--primary-ink);
   display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap;
 }
+body[data-lang="both"] .step h4 .l-zh + .l-en::before { content: " · "; opacity: .6; }
 .step .why { font-size: 16px; }
 .step .why b { color: var(--primary); }
 .step .marking { display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 800; color: var(--ok-dark); background: var(--ok-soft); border-radius: 999px; padding: 2px 10px; }
@@ -457,6 +472,7 @@ body[data-lang="both"] .stage-link .sl-actions .l-en::before { content: "· "; }
 @media (prefers-reduced-motion: reduce) {
   .play .hlk, .play .hlw, .play .hlg, .play .xf { animation: none; }
   .card, .step, .feedback { animation: none; }
+  .btn, .opt, .pagenav .pg { transition: none; }
 }
 /* 列印：顏色底轉淺灰（影印多數係黑白，但仍然想見到邊度係重點） */
 @media print {
@@ -524,6 +540,8 @@ body[data-lang="both"] .stage-link .sl-actions .l-en::before { content: "· "; }
 }
 
 .trap-head { margin-top: 16px; font-size: 14.5px; font-weight: 700; color: var(--accent-ink); background: var(--accent-soft); border-radius: var(--radius-sm); padding: 10px 12px; border-left: 4px solid var(--accent); }
+.trap-head .l-zh, .trap-head .l-en { display: block; }
+.trap-head .l-zh + .l-en { margin-top: 2px; }
 .traps { margin-top: 10px; display: grid; gap: 8px; }
 .trap { font-size: 15px; background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: var(--radius-sm); padding: 12px 14px; border-left: 5px solid var(--accent); }
 .trap b { color: var(--accent-ink); }

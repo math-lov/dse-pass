@@ -18,7 +18,7 @@
 |---|---|
 | `index.html` | 首頁（課題卡、統計、其他網站跳轉列） |
 | `topic.html?t=<topic>&p=N` | 課題頁：概念卡 → 示範頁 → MC 練習頁（多節課題有「第 N 節」分隔） |
-| `wrong.html` | 弱點升級庫（答錯的 MC ＋ 學生自己加入的長／短答） |
+| `wrong.html` | 弱點升級庫（兩次都答錯的 MC ＋ 學生自己加入的長／短答） |
 | `start.html` | 開始之前（使用指南） |
 | `quadratic-inequalities.html` | 二次不等式探索器（獨立互動頁） |
 | `data/learn/*.json` | ✅ **手改**：`bank`／`concepts`／`solutions`／`lessons`／`figures`／`prompt-templates` |

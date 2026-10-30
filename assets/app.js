@@ -449,7 +449,10 @@
   function wrongList() {
     var out = [];
     Object.keys(store.mc).forEach(function (qid) {
-      if (store.mc[qid].correct === false) out.push(qid);
+      var rec = store.mc[qid];
+      /* 第一次錯仍然可以再試 —— 只有「兩次都錯」（final !== false）才進升級庫。
+         舊記錄沒有 final 欄位，一律當作已定局。 */
+      if (rec && rec.correct === false && rec.final !== false) out.push(qid);
     });
     /* 長／短答是紙上作答：學生自己按「加入弱點升級庫」，一樣列出來 */
     Object.keys(store.weak).forEach(function (qid) {
@@ -1296,9 +1299,9 @@
       n.classList.remove("pd-finish");
       setPair(n, {
         zh: "做完這 " + page.row.length + " 題，按「下一頁」繼續" +
-            "（答錯的會自動進「弱點升級庫」，隔天再練一次就好）。",
+            "（兩次都答錯的會自動進「弱點升級庫」，隔天再練一次就好）。",
         en: "Finish these " + page.row.length + " questions, then press \"Next page\" " +
-            "(anything you miss goes into the weak-spot list automatically — try it again tomorrow)."
+            "(anything you miss twice goes into the weak-spot list automatically — try it again tomorrow)."
       });
     }
   }
@@ -1384,17 +1387,28 @@
     opts.setAttribute("data-tex-inline", "1");
     card.appendChild(opts);
 
+    /* 提交答案（跟 5A）：揀好先可以提交；第一次錯只會叫你再試，第二次才揭曉 */
+    var checkRow = el("div", "check-row");
+    var submitBtn = btnPair("btn btn-primary", { zh: "提交答案", en: "Submit answer" });
+    submitBtn.setAttribute("data-check", "1");
+    submitBtn.disabled = true;
+    var fbHost = el("div");
+    checkRow.appendChild(submitBtn);
+    checkRow.appendChild(fbHost);
+    card.appendChild(checkRow);
+
     var hintRow = el("div", "hint-row");
     var stepsHost = el("div", "steps");
     var tail = el("div");
     card.appendChild(hintRow);
+    card.appendChild(tail);        /* 答案／陷阱／tip 先出，題解步驟排在下面 */
     card.appendChild(stepsHost);
-    card.appendChild(tail);
 
     var sol = q.solution || {};
     var steps = sol.steps || [];
     var revealed = 0;
     var hinted = false;              // 是否看過提示（看提示不扣分，只是記錄）
+    var state = { picked: null, locked: false, tries: 0 };
 
     ["A", "B", "C", "D"].forEach(function (L) {
       var b = el("button", "opt");
@@ -1403,27 +1417,51 @@
       var v = el("span", "val");
       mathInto(v, q.options && q.options[L]);
       b.appendChild(v);
-      b.onclick = function () { pick(L, b); };
+      b.onclick = function () { choose(L); };
       opts.appendChild(b);
     });
 
     var prev = mcState(q.id);
+
+    function markPicked() {
+      qsa(".opt", opts).forEach(function (b) {
+        b.classList.toggle("picked", b.dataset.opt === state.picked);
+      });
+    }
+    function markWrong(L) {
+      qsa(".opt", opts).forEach(function (b) {
+        if (b.dataset.opt === L) b.classList.add("wrong");
+      });
+    }
+    function choose(L) {
+      if (state.locked) return;
+      state.picked = L;
+      markPicked();
+      submitBtn.disabled = false;
+    }
 
     /* 提示「一開始就顯示」：弱生可以先看提示再作答，看提示不扣分。
        （舊版是答完才出現，等於逼學生先猜 —— 已修正） */
     function showHints() {
       hintRow.innerHTML = "";
       if (revealed >= steps.length) {
-        hintRow.appendChild(el("span", "small muted",
-          T({ zh: "已顯示完整解答。", en: "The full solution is shown." })));
+        var doneNote = el("span", "small muted");
+        doneNote.appendChild(biSpan({
+          zh: "已顯示完整解答。", en: "The full solution is shown."
+        }));
+        hintRow.appendChild(doneNote);
         return;
       }
-      hintRow.appendChild(el("span", "small muted", T({
+      var hintNote = el("span", "small muted");
+      hintNote.appendChild(biSpan({
         zh: "卡住了？先看提示再作答也沒問題：",
         en: "Stuck? You can look at a hint before answering — it costs nothing:"
-      })));
-      var b = btnPair("btn btn-sm", { zh: "提示 " + (revealed + 1) + " →",
-                                      en: "Hint " + (revealed + 1) + " →" });
+      }));
+      hintRow.appendChild(hintNote);
+      /* 箭咀寫在雙語之外：並列模式只會出一次「提示 1 → Hint 1」 */
+      var b = btnPair("btn btn-sm", { zh: "提示 " + (revealed + 1),
+                                      en: "Hint " + (revealed + 1) });
+      b.appendChild(el("span", "arw", "→"));
       b.onclick = function () {
         hinted = true;
         drawStep(revealed);
@@ -1447,50 +1485,134 @@
       }
     }
 
-    function lock(picked, correct) {
+    function feedback(ok, finalWrong) {
+      fbHost.innerHTML = "";
+      var box = el("div", "feedback " + (ok ? "ok" : "bad"));
+      box.setAttribute("data-feedback", ok ? "ok" : "bad");
+      box.appendChild(el("span", "fb-icon", ok ? "✓" : "✕"));
+      var txt = el("div");
+      var main = el("div");
+      main.appendChild(biSpan(ok
+        ? { zh: "正確！", en: "Correct!" }
+        : (finalWrong ? { zh: "兩次都未答對", en: "Not right after two tries" }
+                      : { zh: "唔係這一個", en: "Not this one" })));
+      var sub = el("span", "fb-sub");
+      sub.appendChild(biSpan(ok
+        ? { zh: "已記錄這一次作答。", en: "This attempt is saved." }
+        : (finalWrong
+          ? { zh: "下面顯示正確答案、陷阱與題解。", en: "The correct answer, traps and solution are below." }
+          : { zh: "再試一次 —— 還有一次機會；第二次錯才會顯示答案。",
+              en: "Try again — one more go; the answer appears after the second miss." })));
+      txt.appendChild(main);
+      txt.appendChild(sub);
+      box.appendChild(txt);
+      fbHost.appendChild(box);
+    }
+
+    function lockOptions(picked, correct) {
       qsa(".opt", opts).forEach(function (b) {     // 只鎖這一題的選項（root = opts）
         b.disabled = true;
+        b.classList.remove("picked");
         if (b.dataset.opt === q.answer) {
           /* 正確答案一律綠色（就算學生答錯都要見到綠，方便同自己揀嘅紅色對照） */
           b.classList.add("correct");
-        } else if (b.dataset.opt === picked && !correct) {
+        } else if (!correct && b.dataset.opt === picked) {
           b.classList.add("wrong");
         }
       });
-      showHints();
-      showTail(correct ? null : picked);
+      submitBtn.disabled = true;
     }
 
-    function pick(L, btn) {
-      var correct = L === q.answer;
+    function saveAttempt(picked, correct, final) {
       var rec = store.mc[q.id] || { tries: 0 };
-      rec.picked = L;
+      rec.picked = picked;
       rec.correct = correct;
-      rec.tries = (rec.tries || 0) + 1;
+      rec.tries = state.tries;
       rec.hinted = !!(hinted || rec.hinted);
+      rec.final = final;             // false＝第一次錯、可以再試（不進弱點升級庫）
       rec.ts = Date.now();
       store.mc[q.id] = rec;
       save();
-      lock(L, correct);
-      if (correct) {
-        toast(hinted ? "答對了 ✓（看過提示也可以）" : "答對了 ✓");
-        // 完成這一頁的所有題目 → 更新導覽列
-        var pageAll = page.row.every(function (x) { return !!mcState(x.id); });
-        if (pageAll) {
-          var nb = navPageBtn(cur);
-          if (nb) nb.classList.add("done");
-        }
-        if (pageAll) toast("✓ 這一頁完成了 —— 繼續下一頁");
-      } else {
-        // 答錯是「掉進陷阱」，不是「你不會」→ 先安撫，再指向陷阱解說
-        toast("差一點！看看陷阱在哪裡");
-      }
-      refreshPageDone(page);
-      updateWrongBadge();
     }
 
+    function revealAll() {
+      while (revealed < steps.length) { drawStep(revealed); revealed++; }
+    }
+
+    function markPage() {
+      refreshPageDone(page);
+      updateWrongBadge();
+      var pageAll = page.row.every(function (x) { return !!mcState(x.id); });
+      if (pageAll) {
+        var nb = navPageBtn(cur);
+        if (nb) nb.classList.add("done");
+      }
+    }
+
+    function submit() {
+      if (state.locked || !state.picked) return;
+      var correct = state.picked === q.answer;
+      state.tries++;
+      if (correct) {
+        saveAttempt(state.picked, true, true);
+        state.locked = true;
+        lockOptions(state.picked, true);
+        feedback(true, false);
+        showHints();
+        showTail(null);
+        toast(hinted
+          ? T({ zh: "答對了 ✓（看過提示也可以）", en: "Correct ✓ (even after a hint)" })
+          : T({ zh: "答對了 ✓", en: "Correct ✓" }));
+      } else if (state.tries >= 2) {
+        var missed = state.picked;
+        saveAttempt(missed, false, true);
+        state.locked = true;
+        lockOptions(missed, false);
+        feedback(false, true);
+        revealAll();                 // 兩次都錯：一次過顯示題解（跟 5A）
+        showHints();
+        showTail(missed);
+        toast(T({ zh: "兩次都差一點 —— 看看陷阱在哪裡",
+                  en: "Two misses — see where the trap caught you" }));
+      } else {
+        /* 第一次錯：只叫再試，不揭答案、不進弱點升級庫 */
+        var wrong = state.picked;
+        saveAttempt(wrong, false, false);
+        state.picked = null;
+        markPicked();
+        markWrong(wrong);
+        submitBtn.disabled = true;
+        feedback(false, false);
+        toast(T({ zh: "再試一次 —— 還有一次機會", en: "Try again — one more go" }));
+        markPage();
+        return;
+      }
+      markPage();
+    }
+
+    submitBtn.onclick = submit;
+
+    /* 重開這一題：答對＝鎖定；第一次錯＝可以再試；第二次錯（含舊記錄）＝已揭曉 */
+    if (prev) {
+      hinted = !!prev.hinted;
+      state.tries = prev.tries || 1;
+      if (prev.correct) {
+        state.locked = true;
+        lockOptions(prev.picked, true);
+        feedback(true, false);
+        showTail(null);
+      } else if (prev.final === false) {
+        markWrong(prev.picked);
+      } else {
+        state.locked = true;
+        state.tries = Math.max(state.tries, 2);
+        lockOptions(prev.picked, false);
+        feedback(false, true);
+        revealAll();
+        showTail(prev.picked);
+      }
+    }
     showHints();                                  // 作答前就顯示提示按鈕
-    if (prev) lock(prev.picked, prev.correct);
 
     function drawStep(i) {
       var st = steps[i];
@@ -1552,11 +1674,13 @@
         });
         if (box.children.length) {
           // 把「答錯」重新框架成「掉進陷阱」：內部歸因 → 具體策略修正
-          tail.appendChild(el("div", "trap-head", T(picked
+          var trapHead = el("div", "trap-head");
+          trapHead.appendChild(biSpan(picked
             ? { zh: "✕ 差一點 —— 你不是不懂，而是掉進了出卷人設計的陷阱。看看偏差出在哪一步：",
                 en: "✕ So close — you are not lost, you stepped into a trap the examiner set. " +
                     "See which step went off:" }
-            : { zh: "為什麼會這樣選？", en: "Why would someone choose these?" })));
+            : { zh: "為什麼會這樣選？", en: "Why would someone choose these?" }));
+          tail.appendChild(trapHead);
           tail.appendChild(box);
         }
       }

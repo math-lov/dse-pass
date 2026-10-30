@@ -65,6 +65,19 @@ function boot(page, search, storage) {
   };
 }
 
+/* 作答小工具（2026-10-30 起 MC 要先提交；第一次錯只會叫再試）：
+   answerCard＝揀一個選項再提交；settleWrong＝同一個錯選項提交兩次（第二次才揭曉）。 */
+function answerCard(card, letter) {
+  const btn = Array.prototype.slice.call(card.querySelectorAll(".opt"))
+    .filter((o) => o.dataset.opt === letter)[0];
+  btn.click();
+  card.querySelector("[data-check]").click();
+}
+function settleWrong(card, letter) {
+  answerCard(card, letter);
+  answerCard(card, letter);
+}
+
 /* ── 1. 首頁 ─────────────────────────────────────────────────────────── */
 console.log("\n— 首頁：課題按鈕 —");
 const home = boot("index.html", "");
@@ -217,7 +230,7 @@ ok(gCards.every((c) => c.querySelectorAll(".fig svg").length === 1),
    "讀圖題：作答之前就看到圖（沒有圖就答不到）");
 ok(gCards.every((c) => c.querySelectorAll(".fig-cap").length === 0),
    "讀圖題：作答之前未出讀圖解說（caption 會洩漏答案）");
-gCards[0].querySelectorAll(".opt")[0].click();
+answerCard(gCards[0], SOLS[gCards[0].getAttribute("data-qid")].answer);
 ok(!!gCards[0].querySelector(".fig-cap"), "作答之後補上讀圖解說（caption）");
 ok(gCards[0].querySelectorAll(".fig svg").length === 1, "作答之後圖仍然只有一幅（不會重複出圖）");
 ok(gCards[1].querySelectorAll(".fig-cap").length === 0, "未作答的下一題仍未出讀圖解說");
@@ -235,7 +248,7 @@ ok(gCards[1].querySelectorAll(".fig-cap").length === 0, "未作答的下一題�
   const card = pg.$$("#topic-body .card[data-qid=" + qid + "]")[0];
   ok(!!card, qid + " 在第 " + p + " 頁");
   if (!card) return;
-  card.querySelectorAll(".opt")[0].click();          // 作答後才會出現（在答案區）
+  answerCard(card, SOLS[qid].answer);               // 提交正確答案後才會出現（在答案區）
   const tgl = card.querySelector(".alt-toggle");
   ok(!!tgl, qid + "：作答後出現「進階解法／驗算」按鈕");
   if (!tgl) return;
@@ -249,7 +262,7 @@ ok(gCards[1].querySelectorAll(".fig-cap").length === 0, "未作答的下一題�
 const trapPage = boot("topic.html", "?t=as01&p=10");
 const trapCard = trapPage.$$("#topic-body .card[data-qid=eph-as01-m15]")[0];
 if (trapCard) {
-  trapCard.querySelectorAll(".opt")[0].click();      // 點 A（3+i）
+  settleWrong(trapCard, "A");                       // 點 A（3+i）兩次，第二次才揭曉陷阱
   const tA = (trapCard.querySelector(".trap") || {}).textContent || "";
   ok(tA.indexOf("3+i") >= 0, "m15 選 A 的陷阱說明提到 $3+i$");
   ok(tA.indexOf("1+6i") < 0, "m15 選 A 的陷阱說明不再誤寫 $1+6i$");
@@ -315,21 +328,67 @@ const firstQ = qCards[0];
 const qid = firstQ.getAttribute("data-qid");
 const sol = SOLS[qid];
 ok(!!sol && ["A", "B", "C", "D"].includes(sol.answer), "the question carries a real answer key (" + (sol || {}).answer + ")");
+const submit1 = firstQ.querySelector("[data-check]");
+ok(!!submit1, "MC carries a submit button (5A flow)");
+ok(submit1.disabled, "submit stays disabled until an option is picked");
 const wrongLetter = ["A", "B", "C", "D"].filter((L) => L !== sol.answer)[0];
-Array.prototype.slice.call(firstQ.querySelectorAll(".opt"))
-  .filter((o) => o.dataset.opt === wrongLetter)[0].click();
-ok(!!firstQ.querySelector(".trap-head"), "a wrong answer shows the 'you fell into a trap' header");
-ok(/陷阱/.test(firstQ.querySelector(".trap-head").textContent), "the header uses trap framing, not blame");
-ok(!!firstQ.querySelector(".answer-line.miss"), "the correct answer is still shown after a wrong pick");
+const wrongBtn = Array.prototype.slice.call(firstQ.querySelectorAll(".opt"))
+  .filter((o) => o.dataset.opt === wrongLetter)[0];
+wrongBtn.click();
+ok(!!firstQ.querySelector(".opt.picked"), "picking marks the option as selected");
+ok(!submit1.disabled, "picking an option enables submit");
+submit1.click();
+ok(!!firstQ.querySelector(".feedback.bad"), "first wrong submit shows the retry banner");
+ok(!firstQ.querySelector(".answer-line") && !firstQ.querySelector(".trap-head"),
+   "first wrong submit does not reveal the answer or the trap analysis");
+ok(firstQ.querySelectorAll(".opt[disabled]").length === 0,
+   "options stay open for a second try");
+ok(!!firstQ.querySelector(".opt.wrong"), "the wrong pick stays marked red");
+const wEarly = boot("wrong.html", "", JSON.stringify(t0mc.store()));
+ok(wEarly.$$(".wrong-item").length === 0,
+   "a first miss does not enter the weak-spot list yet");
+/* 第二次提交同一個錯選項 → 才揭曉答案、鎖定、進升級庫 */
+answerCard(firstQ, wrongLetter);
+ok(!!firstQ.querySelector(".answer-line.miss"), "second wrong submit reveals the correct answer");
+ok(!!firstQ.querySelector(".trap-head") && /陷阱/.test(firstQ.querySelector(".trap-head").textContent),
+   "final wrong submit shows the trap framing, not blame");
+ok(firstQ.querySelectorAll(".opt[disabled]").length === 4,
+   "all four options lock after the second miss");
+ok(!!firstQ.querySelector(".opt.correct"), "the correct option is green after settling");
 ok(qCards[2].querySelectorAll(".opt.wrong, .opt.correct, .opt.reveal").length === 0,
    "answering question 1 leaves question 3 untouched");
-// 答對第二題
+// 答對第二題（揀好 → 提交）
 const second = qCards[1];
 const qid2 = second.getAttribute("data-qid");
 const ans2 = SOLS[qid2].answer;
-second.querySelectorAll(".opt")[["A", "B", "C", "D"].indexOf(ans2)].click();
+second.querySelector('.opt[data-opt="' + ans2 + '"]').click();
+const submit2 = second.querySelector("[data-check]");
+ok(!submit2.disabled, "submit enables after picking the correct option");
+submit2.click();
 ok(!!second.querySelector(".opt.correct"), "answering correctly marks the option green");
-ok(Object.keys(t0mc.store().mc || {}).length >= 1, "answers are persisted to localStorage");
+ok(!!second.querySelector(".feedback.ok"), "correct submit shows the green banner");
+ok(Object.keys(t0mc.store().mc || {}).length >= 2, "answers are persisted to localStorage");
+const rec1 = t0mc.store().mc[qid];
+ok(rec1 && rec1.final === true && rec1.tries === 2,
+   "the settled attempt is stored with tries=2");
+/* 重開：已定局的錯題要鎖定並顯示答案；第一次錯（final:false）要可以再試 */
+const relock = boot("topic.html", "?t=" + t0.id + "&p=" + firstMcIndex(t0), JSON.stringify(t0mc.store()));
+const relockCard = relock.$('.card[data-qid="' + qid + '"]');
+ok(!!relockCard && !!relockCard.querySelector(".answer-line.miss"),
+   "a settled wrong question reopens with the answer shown");
+ok(relockCard.querySelectorAll(".opt[disabled]").length === 4,
+   "and its options stay locked");
+const half = JSON.parse(JSON.stringify(t0mc.store()));
+half.mc[qid] = { picked: wrongLetter, correct: false, tries: 1, final: false, ts: 1 };
+const retry = boot("topic.html", "?t=" + t0.id + "&p=" + firstMcIndex(t0), JSON.stringify(half));
+const retryCard = retry.$('.card[data-qid="' + qid + '"]');
+ok(!!retryCard && !retryCard.querySelector(".answer-line"),
+   "a first miss reopens with the answer still hidden");
+ok(retryCard.querySelectorAll(".opt[disabled]").length === 0,
+   "and the options remain open for the second try");
+ok(!!retryCard.querySelector(".opt.wrong"), "the earlier wrong pick stays marked");
+ok(retryCard.querySelector("[data-check]").disabled,
+   "submit is disabled again until they pick");
 // 提示逐步揭示
 const preHint = qCards[2].querySelector(".hint-row .btn");
 preHint.click();
@@ -500,7 +559,7 @@ ok(!!stI18n.querySelector("h4 .l-zh") && !!stI18n.querySelector("h4 .l-en"),
    "題解步驟標題有中英兩份");
 ok(!!stI18n.querySelector(".why .l-zh") && !!stI18n.querySelector(".why .l-en"),
    "題解步驟解說有中英兩份");
-cI18n.querySelectorAll(".opt")[0].click();                  // 作答 → 出答案行／陷阱／技巧
+answerCard(cI18n, SOLS[cI18n.getAttribute("data-qid")].answer);   // 提交 → 出答案行／陷阱／技巧
 ok(!!tI18n.$(".answer-line .l-zh") && !!tI18n.$(".answer-line .l-en"), "答案行有中英兩份");
 ok(tI18n.$$(".trap .l-zh").length >= 1 && tI18n.$$(".trap .l-en").length >= 1,
    "陷阱解說有中英兩份");
