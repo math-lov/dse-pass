@@ -8,7 +8,7 @@
 <link rel="preload" as="font" type="font/woff2" href="vendor/fonts/stix-two-text-normal-latin.woff2" crossorigin>
 <link rel="stylesheet" href="vendor/fonts/stix-two-text.css">
 <link rel="stylesheet" href="vendor/katex/katex.min.css">
-<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/style.css?v=a7dfffc0">
 </head>
 <body data-page="index">
 
@@ -24,19 +24,28 @@
   </div>
 </div>
 
-<div class="wrap">
-  <div class="hero">
-    <h1>
-      <span class="l-zh">由你現在的位置，一課一課追上去</span>
-      <span class="l-en">Start where you are, and work up one worksheet at a time</span>
-    </h1>
-    <p id="site-stats"><span class="l-zh">載入中…</span><span class="l-en">Loading…</span></p>
+<div class="ka-band">
+  <span class="doodle d-spark" aria-hidden="true"></span>
+  <span class="doodle d-ring" aria-hidden="true"></span>
+  <span class="doodle d-bolt" aria-hidden="true"></span>
+  <span class="doodle d-tri" aria-hidden="true"></span>
+  <span class="doodle d-star" aria-hidden="true"></span>
+  <div class="wrap">
+    <div class="hero">
+      <h1>
+        <span class="l-zh">由你現在的位置，一課一課追上去</span>
+        <span class="l-en">Start where you are, and work up one worksheet at a time</span>
+      </h1>
+      <p id="site-stats"><span class="l-zh">載入中…</span><span class="l-en">Loading…</span></p>
+    </div>
   </div>
+</div>
 
+<div class="wrap">
   <!-- 其他網站：3 個站互相連結（本站以 aria-current 標示；唔連已計劃重做的舊頁） -->
   <nav class="site-links" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px">
     <span class="small muted"><span class="l-zh">其他網站：</span><span class="l-en">Other sites:</span></span>
-    <span class="btn btn-sm btn-ghost" aria-current="page" style="opacity:.6;cursor:default">
+    <span class="btn btn-sm btn-ghost" aria-current="page">
       <span class="l-zh">自學追上站（本站）</span><span class="l-en">Catch-up (this site)</span></span>
     <a class="btn btn-sm btn-ghost" href="https://math-lov.github.io/s5a-maths/">
       <span class="l-zh">5A 數學溫習站</span><span class="l-en">5A Maths</span></a>
@@ -51,9 +60,12 @@
     A wrong answer only means "not yet", not that you can't do it. Your progress belongs to you
     alone, and you can always start over.</span>
     <div class="pre-actions">
-      <a class="btn btn-sm btn-primary" href="start.html">
-        <span class="l-zh">第一次來？先看「開始之前」（3 分鐘）→</span>
-        <span class="l-en">First time here? Read "Before you start" (3 minutes) →</span>
+      <a class="btn btn-sm btn-primary btn-block btn-bi" href="start.html">
+        <span class="bi">
+          <span class="l-zh">第一次來？先看「開始之前」（3 分鐘）</span>
+          <span class="l-en">First time here? Read "Before you start" (3 minutes)</span>
+        </span>
+        <span class="arw" aria-hidden="true">→</span>
       </a>
     </div>
   </div>
@@ -72,9 +84,12 @@
       change the coefficients and watch the parabola, the solution set and the steps update live.</span>
     </div>
     <div class="row" style="margin-top:12px">
-      <a class="btn btn-sm btn-primary" href="quadratic-inequalities.html">
-        <span class="l-zh">二次不等式探索器 →</span>
-        <span class="l-en">Quadratic inequality explorer →</span>
+      <a class="btn btn-sm btn-primary btn-bi" href="quadratic-inequalities.html">
+        <span class="bi">
+          <span class="l-zh">二次不等式探索器</span>
+          <span class="l-en">Quadratic inequality explorer</span>
+        </span>
+        <span class="arw" aria-hidden="true">→</span>
       </a>
     </div>
   </div>
@@ -109,7 +124,7 @@
 <script defer src="assets/i18n.js"></script>
 <script>
   // 快取戳：由 tools/make_learn_data.py 依內容 hash 寫入（內容一變，?v= 就變 → 一定取到新檔）
-  window.__V = "c7095f9a";
+  window.__V = "a7dfffc0";
   document.write('<script src="data/index.js?v=' + window.__V + '"><\/script>');
   document.write('<script src="assets/app.js?v=' + window.__V + '"><\/script>');
 </script>

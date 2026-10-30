@@ -1,7 +1,10 @@
 /* ==========================================================================
    自學追上站 · 樣式
    ---------------------------------------------------------------------------
-   與「5A 數學溫習站」用同一套設計系統（2026-10 同步）：
+   與「5A 數學溫習站」用同一套設計系統（2026-10-30 視覺層再對齊）：
+   · 首頁米白橫幅（.ka-band）＋手繪裝飾、品牌兩行、中英並列分段
+   · 按鈕／卡片／分頁列沿用 5A 的 token 與互動感；class 名稱保持本站原樣
+     （.topic-btn 等不改名，避免影響 smoke test 與既有 DOM）
      · 米白底 + 白卡、暖灰邊、極柔陰影（卡片自己浮起，不靠重陰影）
      · 正文 STIX Two Text（自架拉丁子集）＋系統中文字體
      · 主色只有一個：靛藍 #4f46e5；強調色只有一個：橙 #f97316
@@ -108,14 +111,23 @@ body {
   background: #ffffff;                     /* 全不透明：下面的 ✓ 徽章不會透出來 */
   border-top: 3px solid var(--primary);    /* 品牌線 */
   border-bottom: 1px solid var(--line-soft);
-  box-shadow: 0 1px 3px rgba(23, 43, 77, .06);
+  box-shadow: 0 1px 3px rgba(52, 38, 25, .05);
 }
 .topbar .inner {
   max-width: 720px; margin: 0 auto; padding: 10px 16px;
   display: flex; align-items: center; gap: 10px;
+  /* 空間不足時整粒按鈕換行，唔會將「主目錄」壓成兩行（跟 5A） */
+  flex-wrap: wrap; row-gap: 8px;
 }
+.topbar .btn { white-space: nowrap; }
 .brand { font-weight: 800; font-size: 18px; letter-spacing: 0; color: var(--text); line-height: 1.3; }
 .brand small { display: block; font-weight: 500; font-size: 12.5px; color: var(--muted); letter-spacing: 0; }
+/* 中英並列時品牌只出兩行（中文名 + 英文副題），唔好四行疊住頂欄 */
+body[data-lang="both"] .brand .l-zh small,
+body[data-lang="both"] .brand .l-en small { display: none; }
+body[data-lang="both"] .brand .l-en {
+  display: block; font-size: 12.5px; font-weight: 500; color: var(--muted);
+}
 .brand a { text-decoration: none; color: inherit; }
 .spacer { flex: 1; }
 .subbar {
@@ -126,9 +138,53 @@ body {
 .hero { padding: 24px 0 8px; }
 .hero h1 { margin: 0 0 6px; font-size: 30px; line-height: 1.25; font-weight: 700; letter-spacing: -.005em; }
 .hero p { margin: 0; color: var(--muted); font-size: 15.5px; }
+.hero p .l-zh, .hero p .l-en { display: block; }
+.hero h1 .l-zh, .hero h1 .l-en { display: block; }
+/* 中英並列時：大標題只搶一次焦點，英文降為副題（跟 5A 同一規則） */
+body[data-lang="both"] .hero h1 .l-en {
+  font-size: .62em; font-weight: 600; color: var(--muted); letter-spacing: 0; margin-top: 2px;
+}
+
+/* ── 首頁：米白橫幅 + 手繪裝飾（跟 5A 同一個視覺）────────────────────── */
+.ka-band {
+  position: relative; overflow: hidden; padding: 30px 0 26px;
+  background: linear-gradient(180deg, #fdfaf6 0%, #f6efe6 100%);
+  border-bottom: 1px solid var(--line-soft);
+}
+.ka-band::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(closest-side, rgba(255, 255, 255, .95), rgba(255, 255, 255, 0)) 6% 80% / 300px 200px no-repeat,
+    radial-gradient(closest-side, rgba(255, 255, 255, .9), rgba(255, 255, 255, 0)) 96% 20% / 260px 180px no-repeat;
+}
+.ka-band .hero, .ka-band .pre-hero { position: relative; padding: 0; }
+.doodle { position: absolute; pointer-events: none; z-index: 1; }
+.d-spark {
+  left: 9%; top: 16px; width: 26px; height: 26px; background: var(--accent);
+  clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+}
+.d-ring { right: 11%; top: 20px; width: 26px; height: 26px; border: 4px solid var(--primary); border-radius: 50%; border-right-color: transparent; }
+.d-bolt {
+  left: 19%; bottom: 10px; width: 22px; height: 28px; background: #fbbf24;
+  clip-path: polygon(58% 0, 16% 58%, 42% 58%, 34% 100%, 84% 40%, 54% 40%);
+}
+.d-tri { right: 19%; bottom: 12px; width: 26px; height: 24px; background: #6ee7b7; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.d-star {
+  right: 6%; bottom: 30px; width: 18px; height: 18px; background: var(--primary-line);
+  clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+}
+/* 窄屏：標題較長，裝飾一律收起，避免壓住文字 */
+@media (max-width: 620px) { .doodle { display: none; } }
 
 .section-title { margin: 28px 0 12px; font-size: 12.5px; font-weight: 800; color: var(--primary-ink); letter-spacing: .14em; text-transform: uppercase; display: flex; align-items: center; gap: var(--sp-2); }
 .section-title::after { content: ""; flex: 1; height: 1px; background: var(--line-soft); }
+/* 中英並列：小節標題兩語之間加一個淡分隔號，唔會連成一個字 */
+body[data-lang="both"] .section-title .l-zh + .l-en::before {
+  content: "·"; margin: 0 6px; opacity: .45;
+}
+/* 頂部進度與分頁列：中英之間要分隔，否則「0%Page 1 / 14」會黏住 */
+body[data-lang="both"] #topic-progress .l-zh + .l-en::before { content: " · "; }
+body[data-lang="both"] .pagenav .pg .l-zh + .l-en { margin-left: 4px; }
 
 /* ── 按鈕 ─────────────────────────────────────────────────────────────── */
 .btn {
@@ -153,6 +209,24 @@ body {
 .btn:disabled { cursor: default; transform: none; box-shadow: none; }
 /* 未可按時：用灰色清楚表示，不要用淡化主色 */
 .btn-primary:disabled { background: var(--line); border-color: var(--bar-idle); color: var(--muted); opacity: 1; }
+/* 中英並列：按鈕內兩語之間要有間隔，唔會黏成「弱點升級庫Weak-spot list」 */
+body[data-lang="both"] .btn .l-zh + .l-en { margin-left: 8px; }
+/* 長句雙語按鈕：兩語上下排，箭咀固定在右邊（唔會把英文壓成窄柱） */
+.btn-bi { text-align: left; }
+.btn-bi .bi { display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
+.btn-bi .bi .l-zh, .btn-bi .bi .l-en { display: block; }
+.btn-bi .bi .l-en {
+  margin-left: 0; font-size: 13px; font-weight: 600; line-height: 1.45;
+}
+.btn-bi .arw { flex: none; }
+/* 現時頁面（三站跳轉列）：淡靛底＋靛字，一眼睇到「你在此」（跟 5A） */
+.site-links .btn[aria-current="page"] {
+  background: var(--primary-soft); border-color: var(--primary-line);
+  color: var(--primary-ink); cursor: default;
+}
+.site-links .btn[aria-current="page"]:hover {
+  background: var(--primary-soft); border-color: var(--primary-line);
+}
 
 /* ── 卡片 ─────────────────────────────────────────────────────────────── */
 .card { background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--radius); padding: var(--sp-5); box-shadow: var(--shadow); margin-bottom: var(--sp-3); }
@@ -164,16 +238,19 @@ body {
 .topic-btn {
   width: 100%; text-align: left; cursor: pointer;
   background: var(--card); border: 1px solid var(--line-soft); border-radius: var(--radius);
-  padding: 18px; box-shadow: var(--shadow); display: flex; align-items: center; gap: 14px;
+  padding: var(--sp-5); box-shadow: var(--shadow); display: flex; align-items: center; gap: var(--sp-4);
   font: inherit; color: inherit;
   transition: border-color .15s ease, box-shadow .18s ease, transform .12s ease;
 }
-.topic-btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-lift); border-color: var(--primary); }
+.topic-btn:hover { transform: translateY(-1px); box-shadow: var(--shadow-lift); border-color: var(--primary-line); }
 .topic-btn:focus-visible { outline: 3px solid var(--primary-ring); outline-offset: 2px; }
 .topic-btn .t-body { flex: 1; min-width: 0; }
-.topic-btn .t-name { font-weight: 800; font-size: 17px; }
+.topic-btn .t-name { font-weight: 700; font-size: 17px; letter-spacing: 0; }
+.topic-btn .t-name .l-en { display: block; font-size: 13.5px; font-weight: 500; color: var(--muted); margin-top: 2px; }
 .topic-btn .t-en { display: block; font-size: 13.5px; font-weight: 500; color: var(--muted); margin-top: 2px; }
 .topic-btn .t-meta { font-size: 13.5px; color: var(--muted); margin-top: 6px; }
+/* 中英並列：meta 兩語各一行（英文做次層），唔會黏成「…18 題concept cards…」 */
+.topic-btn .t-meta .l-en { display: block; font-size: 12.5px; margin-top: 2px; opacity: .9; }
 .topic-btn.done { border-color: var(--ok); background: var(--ok-soft); }
 
 .ring { --p: 0; width: 46px; height: 46px; flex: none; border-radius: 50%; background: conic-gradient(var(--ok) calc(var(--p) * 1%), #e8e2d9 0); display: grid; place-items: center; }
@@ -243,8 +320,8 @@ body[data-lang="both"] .stage-link .sl-actions .l-en::before { content: "· "; }
 }
 .pagenav .pg-lesson, .pagenav .pg-sec {
   flex: none; align-self: center; white-space: nowrap; font-size: 11.5px; font-weight: 800;
-  color: var(--muted); letter-spacing: .04em; padding: 0 6px;
-  border-left: 2px solid var(--line);
+  color: var(--primary-ink); letter-spacing: .12em; text-transform: uppercase; padding: 0 8px;
+  border-left: 2px solid var(--line-soft);
 }
 .pagenav .pg-lesson:first-child, .pagenav .pg-sec:first-child { border-left: 0; padding-left: 0; }
 
@@ -279,8 +356,22 @@ body[data-lang="both"] .stage-link .sl-actions .l-en::before { content: "· "; }
 .opt.correct { border-color: var(--ok); background: var(--ok-soft); }
 .opt.correct .letter { background: var(--ok); color: #fff; }
 .opt.wrong { border-color: var(--err); background: var(--err-soft); }
+.opt.picked { border-color: var(--primary); background: var(--primary-soft); }
+.opt.picked .letter { background: var(--primary); color: #fff; }
 .opt.wrong .letter { background: var(--err); color: #fff; }
 .opt[disabled] { cursor: default; }
+
+/* 提交答案按鈕 + 回饋橫幅（s5a 的作答流程；commit 2 使用） */
+.check-row { margin-top: 14px; display: grid; gap: 10px; }
+.feedback {
+  display: flex; align-items: flex-start; gap: 10px;
+  border-radius: var(--btn-radius); padding: 12px 14px; font-weight: 700; font-size: 15.5px;
+  border: 1px solid transparent; animation: rise .25s ease both;
+}
+.feedback .fb-icon { flex: none; font-size: 18px; line-height: 1.4; }
+.feedback.ok { background: var(--ok-soft); border-color: #bfe8d1; color: var(--ok-dark); }
+.feedback.bad { background: var(--err-soft); border-color: #f2c0bb; color: #a11c0c; }
+.feedback .fb-sub { display: block; font-weight: 500; font-size: 14px; margin-top: 2px; }
 
 /* 作答前已經常駐的提示列（本站：看提示不扣分） */
 .hint-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 12px; }
@@ -365,6 +456,7 @@ body[data-lang="both"] .stage-link .sl-actions .l-en::before { content: "· "; }
 /* 系統設定減少動態 → 只留淡底，唔閃 */
 @media (prefers-reduced-motion: reduce) {
   .play .hlk, .play .hlw, .play .hlg, .play .xf { animation: none; }
+  .card, .step, .feedback { animation: none; }
 }
 /* 列印：顏色底轉淺灰（影印多數係黑白，但仍然想見到邊度係重點） */
 @media print {
@@ -459,6 +551,13 @@ body[data-lang="both"] .stage-link .sl-actions .l-en::before { content: "· "; }
   background: var(--card); border: 1px solid var(--line-soft); font-size: 15px; color: var(--text);
 }
 .safety-note b { color: var(--ok-dark); }
+/* 中英並列：安全提示兩語分段（跟 5A 的 .bi 一樣），唔會黏成一大段 */
+.safety-note > .l-zh, .safety-note > .l-en { display: block; }
+.safety-note > .l-zh + .l-en { margin-top: 6px; }
+/* 「繼續學習」按鈕：英文做第二行，字細一級 */
+body[data-lang="both"] #continue-label .l-en {
+  display: block; font-size: 14px; font-weight: 600; margin-left: 0;
+}
 
 @keyframes pulse-soft { 0%, 100% { box-shadow: 0 0 0 0 rgba(221, 107, 32, 0); } 50% { box-shadow: 0 0 0 4px rgba(221, 107, 32, .18); } }
 
@@ -581,6 +680,26 @@ body[data-lang="both"] .stage-link .sl-actions .l-en::before { content: "· "; }
 .pre-hero { padding: 24px 0 8px; }
 .pre-hero h1 { margin: 0 0 8px; font-size: 28px; line-height: 1.3; font-weight: 700; letter-spacing: -.005em; }
 .pre-hero p { margin: 0; font-size: 15.5px; }
+/* 中英並列：這一頁的句子很長，兩語一定要分段，否則會黏成一大段 */
+.pre-hero h1 .l-zh, .pre-hero h1 .l-en,
+.pre-hero p .l-zh, .pre-hero p .l-en { display: block; }
+body[data-lang="both"] .pre-hero h1 .l-en {
+  font-size: .62em; font-weight: 600; color: var(--muted); margin-top: 4px;
+}
+.pre-block h2 .l-zh, .pre-block h2 .l-en,
+.pre-block p .l-zh, .pre-block p .l-en,
+.pre-block li .l-zh, .pre-block li .l-en,
+.pre-step .body .l-zh, .pre-step .body .l-en { display: block; }
+.pre-block h2 .l-zh + .l-en { margin-top: 2px; }
+body[data-lang="both"] .pre-block h2 .l-en {
+  font-size: 15px; font-weight: 600; color: var(--muted);
+}
+.pre-block p .l-zh + .l-en, .pre-block li .l-zh + .l-en,
+.pre-step .body .l-zh + .l-en { margin-top: 4px; }
+/* 開始之前：標題較長，裝飾移到頁邊，窄屏收起 */
+.ka-band-start .d-spark { left: 4%; top: 12px; }
+.ka-band-start .d-ring { right: 4%; top: 12px; }
+@media (max-width: 620px) { .ka-band-start .doodle { display: none; } }
 
 .pre-block {
   background: var(--card); border: 1px solid var(--line-soft); border-top: 4px solid var(--primary);
@@ -624,6 +743,7 @@ body[data-lang="both"] .stage-link .sl-actions .l-en::before { content: "· "; }
 .langbar button {
   min-height: 36px; padding: 4px 12px; border: 0; background: transparent; cursor: pointer;
   font: inherit; font-size: 13px; font-weight: 700; color: var(--muted);
+  flex: none; white-space: nowrap;   /* 空間緊時唔可以壓到「中／文」上下斷開 */
 }
 .langbar button:hover { background: var(--primary-soft); }
 .langbar button.on { background: var(--primary); color: #fff; }
@@ -695,10 +815,13 @@ body[data-lang="both"] .ccard-head .l-en {
   .topic-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 620px) {
-  .hero h1 { font-size: 25px; }
+  .hero h1 { font-size: 23px; }
   .pre-hero h1 { font-size: 23px; }
   .q-stem { font-size: 18px; }
   .step h4 { font-size: 15.5px; }
+  /* 窄屏：按鈕同步收窄，減少頂欄行數；但高度保持 40px，手指容易按得到 */
+  .langbar button { padding: 4px 9px; font-size: 12.5px; min-height: 40px; }
+  .topbar .btn-sm { padding: 8px 10px; font-size: 13.5px; }
   .formula .katex { font-size: .94em; }
   .formula-multi .katex { font-size: .9em; }
   /* 窄螢幕：評分代號疊到算式下面靠右 */

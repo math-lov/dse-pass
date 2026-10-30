@@ -38,6 +38,8 @@ OUT_ROOT = BASE          # 網站就在 repo 根目錄（Pages 由 root 提供�
 # 瀏覽器與 GitHub Pages 的 CDN 就用回自己的舊檔 —— 學生「老師改了，但我看不到」。
 # 現在改成依內容算 hash：內容一變，?v= 必變，下次載入一定取到新檔。
 STAMP_RE = re.compile(r'window\.__V\s*=\s*[^;]+;')
+# 樣式表本身都要帶 ?v=：只計入 hash 而 link 冇 query，瀏覽器仍會用舊 CSS。
+CSS_LINK_RE = re.compile(r'href="assets/style\.css(?:\?v=[^"]*)?"')
 STAMP_HTML = ("index.html", "topic.html", "wrong.html")
 STAMP_ASSETS = ("assets/app.js", "assets/i18n.js", "assets/style.css",
                 "data/learn/bank.json", "data/learn/lessons.json",
@@ -70,13 +72,15 @@ def content_stamp(out: str) -> str:
 
 def write_stamp(stamp: str) -> list:
     changed = []
-    for name in STAMP_HTML:
+    # start.html 沒有 window.__V（不載入 app.js），但一樣要換 CSS 的 ?v=
+    for name in STAMP_HTML + ("start.html",):
         path = os.path.join(BASE, name)
         if not os.path.exists(path):
             continue
         with open(path, encoding="utf-8") as f:
             src = f.read()
         new = STAMP_RE.sub('window.__V = "%s";' % stamp, src, count=1)
+        new = CSS_LINK_RE.sub('href="assets/style.css?v=%s"' % stamp, new)
         if new != src:
             with open(path, "w", encoding="utf-8", newline="\n") as f:
                 f.write(new)

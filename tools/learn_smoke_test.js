@@ -78,6 +78,10 @@ ok(/練習 \d+ 題/.test(home.$(".topic-btn .t-meta").textContent), "topic shows
 ok(!!home.$(".safety-note") && /沒有老師打分/.test(home.$(".safety-note").textContent),
    "home states the no-pressure design");
 ok(!!home.$('.safety-note a[href="start.html"]'), "home links to the preface");
+/* 視覺層與 5A 對齊（2026-10-30）：米白橫幅、手繪裝飾、現時站標示 */
+ok(!!home.$(".ka-band .hero h1"), "首頁標題放在 5A 的米白橫幅內");
+ok(home.$$(".ka-band .doodle").length === 5, "首頁橫幅有五個手繪裝飾");
+ok(!!home.$('.site-links [aria-current="page"]'), "三站跳轉列標示現時站");
 
 /* 統測考完之後：階段 2 有一張公告卡，直接連到統測題解與評分平台
    （資料在 lessons.json 的 stages[].link；卡片由 renderIndex 畫） */
@@ -266,6 +270,11 @@ ok(/\.pagenav \{[\s\S]{0,220}?scrollbar-width: thin/.test(cssNav),
    "分頁列顯示橫向滾動條（scrollbar-width: thin）");
 ok(!/\.pagenav::-webkit-scrollbar \{ display: none/.test(cssNav),
    "分頁列不再隱藏滾動條");
+/* 5A 視覺層：米白橫幅、選項「已選」狀態、提交回饋橫幅 */
+ok(/\.ka-band \{/.test(cssNav), "style.css 有 5A 的米白橫幅 .ka-band");
+ok(/\.opt\.picked \{/.test(cssNav), "選項有「已選、未提交」狀態 .picked");
+ok(/\.feedback\.ok/.test(cssNav) && /\.feedback\.bad/.test(cssNav),
+   "回饋橫幅有正確／再試兩種狀態");
 
 /* ── 3b. 長公式要分幾行顯示（不是橫向滾動）──────────────────────────── */
 console.log("\n— 長公式斷行 —");
@@ -691,7 +700,14 @@ console.log("\n— 版本戳（cache stamp）—");
      p + " 的 ?v= 由 make_learn_data.py 依內容 hash 寫入");
   ok(!/new Date\(\)\.toISOString\(\)\.slice\(0, 13\)/.test(txt),
      p + " 不再用小時制快取戳（同一小時內再部署會取到舊檔）");
+  const stamp = (txt.match(/window\.__V = "([0-9a-f]{8})"/) || [])[1];
+  ok(!!stamp && txt.indexOf('assets/style.css?v=' + stamp) >= 0,
+     p + " 的 style.css 帶同一個內容版本戳（?v=）");
 });
+/* start.html 不載入 app.js（沒有 window.__V），但樣式表一樣要帶 ?v= */
+const startTxt = fs.readFileSync(path.join(root, "start.html"), "utf8");
+ok(/assets\/style\.css\?v=[0-9a-f]{8}/.test(startTxt),
+   "start.html 的 style.css 同樣帶內容版本戳");
 
 /* 剪貼簿是 Promise，最後等一個 microtask 才驗狀態提示，然後才總結 */
 setTimeout(() => {
