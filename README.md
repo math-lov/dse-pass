@@ -1,6 +1,8 @@
 # 自學追上站 · DSE Pass
 
-按課題逐課自學：**概念卡 → 長題逐步示範 → MC 每頁 3 題**。題目照原檔（英文）、題解中英對照，
+首頁以兩張入口卡分流：**數學拆解 · Maths Unpacked**（直接按課題學習）與
+**測考溫習 · Test & Exam Revision**（年級 → 溫習包 → 精選練習）。
+數學拆解每課可自由切換 **概念卡／逐步示範／練習**，MC 維持每頁 3 題。題目照原檔（英文）、題解中英對照，
 可重做、可重置；進度只存在學生自己的瀏覽器（無計時、不計分、無排名）。
 
 | 項目 | 值 |
@@ -8,7 +10,7 @@
 | 線上 | `https://math-lov.github.io/dse-pass/`（網站就在 repo 根目錄） |
 | Repo | `https://github.com/math-lov/dse-pass` |
 | 本機 | `C:\Code Buddy\DSEPass` |
-| 現有課題 | **第一階段 · 代數基礎**：`ws01`（18 MC ＋ 7 條示範）、`ws01b`（27 題 MC）、`ws01c`（卷一 32 題，四節）<br>**第二階段 · 統測前哨戰**：`as01` 二次方程與複數（兩節）、`as02` 直線方程（讀圖題）、`as03` 不等式、`as04` 排列與組合 |
+| 來源課題 | **第一階段 · 代數基礎**：`ws01`（18 MC ＋ 7 條示範）、`ws01b`（27 題 MC）、`ws01c`（卷一 32 題，四節）<br>**第二階段 · 統測前哨戰**：`as01` 二次方程與複數（兩節）、`as02` 直線方程（讀圖題）、`as03` 不等式、`as04` 排列與組合 |
 | 規模 | 7 個課題 · 128 題（MC 81 ＋ 長題 47）· 29 張概念卡 · 128 份題解 |
 | 進度 | 只存學生瀏覽器，不收集任何資料 |
 
@@ -16,7 +18,11 @@
 
 | 檔案 | 用途 |
 |---|---|
-| `index.html` | 首頁（課題卡、統計、其他網站跳轉列） |
+| `index.html` | 首頁（兩張入口卡、使用指南、工具與設定） |
+| `foundations.html` | 數學拆解：直接列出 5 個課題，因式分解三份原有內容合為一個入口 |
+| `revision.html` | 測考溫習：年級清單；`?grade=s5` 列溫習包；`?pack=uniform-test` 開啟溫習包 |
+| `topic.html?course=<course>&p=N` | 合併課程頁，按概念卡／示範／練習編排；仍使用原有題目與進度 key |
+| `data/learn/navigation.json` | 手改：課程與來源課題的對應、年級、溫習包與相關基礎課程 |
 | `topic.html?t=<topic>&p=N` | 課題頁：概念卡 → 示範頁 → MC 練習頁（多節課題有「第 N 節」分隔） |
 | `wrong.html` | 弱點升級庫（兩次都答錯的 MC ＋ 學生自己加入的長／短答） |
 | `start.html` | 開始之前（使用指南） |
@@ -32,12 +38,22 @@
 | `tools/learn_lang_check.py` | 繁體中文（台灣／大陸字形）檢查 |
 | `docs/LEARN-ADD-TOPICS-HANDOFF.md` | **加課題的完整交接文件**：現況統計、過渡題做法、頁碼對照、硬規則、可直接貼的開場白 |
 
+## 維護兩區導覽
+
+`data/learn/navigation.json` 的 `courses[].topicIds` 引用既有 `lessons.json` 課題。
+同一份題目可用於完整課程與溫習包，無需複製題庫。加入內容後，更新此檔再跑生成與檢查。
+`packs[].grade` 對應 `grades[].id`，`relatedCourseIds` 對應基礎課程。只有有內容的課程、溫習包及年級才顯示。
+
+舊 `topic.html?t=...&p=...`／`?q=...` 網址與 `dse-learn:v1` 進度保持相容。
+溫習包練習使用 `?t=...&pack=...`；相關基礎課程使用 `?course=...&from=...`，翻頁及重新載入後保留返回原包的入口。
+首批整理現有中五統測前哨戰，未新增題目；逐題概念對應留待後續加入。
+
 ## 日常流程
 
 ```powershell
 cd "C:\Code Buddy\DSEPass"
 
-python -X utf8 tools/make_learn_data.py      # 生成（同時更新三個 HTML 的版本戳）
+python -X utf8 tools/make_learn_data.py      # 生成（同時更新網站 HTML 的版本戳）
 python -X utf8 tools/learn_check.py          # 0 錯 0 警
 python -X utf8 tools/learn_lang_check.py --site
 python -X utf8 tools/learn_figure_check.py   # 只有加／改過示意圖才需要（例：as02 讀圖題）

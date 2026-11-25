@@ -5,7 +5,7 @@
  *       日後由 WS01 加到 WS19 時，測試不用改動。
  *
  * 覆蓋：
- *   1. 首頁：課題按鈕、進度環、繼續學習、統計
+ *   1. 首頁分流、課題整合、年級／溫習包、跨區返回與舊進度相容
  *   2. 開始之前（前言頁）
  *   3. 課題頁：分頁列、概念卡、MC 頁數與選項數
  *   4. MC：答錯（陷阱解說 + 進弱點升級庫）／答對（綠色 + 答案行 + 提示逐步）
@@ -79,38 +79,66 @@ function settleWrong(card, letter) {
   answerCard(card, letter);
 }
 
-/* ── 1. 首頁 ─────────────────────────────────────────────────────────── */
-console.log("\n— 首頁：課題按鈕 —");
+/* ── 1. 首頁分流、兩區導覽與跨區返回 ─────────────────────────────────── */
+console.log("\n— 首頁分流與課程導覽 —");
 const home = boot("index.html", "");
-ok(home.$$(".topic-btn").length === LESSONS.topics.length,
-   "renders one button per topic (got " + home.$$(".topic-btn").length + " of " + LESSONS.topics.length + ")");
-ok(/共 \d+ 個課題/.test((home.$("#site-stats") || {}).textContent || ""), "site stats rendered");
-ok(!home.$("#continue").classList.contains("hidden"), "'continue learning' is visible when nothing is finished");
-ok(/繼續學習/.test(home.$("#continue-label").textContent), "continue button labels the next topic");
-ok(!!home.$(".topic-btn .ring"), "topic shows a progress ring");
-ok(/練習 \d+ 題/.test(home.$(".topic-btn .t-meta").textContent), "topic shows its item counts");
-ok(!!home.$(".safety-note") && /沒有老師打分/.test(home.$(".safety-note").textContent),
-   "home states the no-pressure design");
-ok(!!home.$('.safety-note a[href="start.html"]'), "home links to the preface");
-/* 視覺層與 5A 對齊（2026-10-30）：米白橫幅、手繪裝飾、現時站標示 */
-ok(!!home.$(".ka-band .hero h1"), "首頁標題放在 5A 的米白橫幅內");
-ok(home.$$(".ka-band .doodle").length === 5, "首頁橫幅有五個手繪裝飾");
-ok(!!home.$('.site-links [aria-current="page"]'), "三站跳轉列標示現時站");
+const navData = JSON.parse(fs.readFileSync(path.join(root, "data", "learn", "navigation.json"), "utf8"));
+ok(home.$$(".portal-choice").length === 2, "homepage has exactly two primary area cards");
+ok(!!home.$('.portal-choice[href="foundations.html"]') && !!home.$('.portal-choice[href="revision.html"]'), "both area cards are real navigable links");
+ok(!home.$("#topics") && !home.$("#continue"), "homepage does not mix in a topic list or send newcomers straight to a worksheet");
+ok(!!home.$(".safety-note") && /進度只儲存/.test(home.$(".safety-note").textContent), "home explains browser-local progress");
+ok(!!home.$('.safety-note a[href="start.html"]'), "home links to the guide");
+ok(!!home.$('.site-links [aria-current="page"]'), "other-site navigation identifies this site");
+ok(home.$('.site-nav [aria-current="page"]').getAttribute("href") === "index.html", "home is selected in main navigation");
 
-/* 統測考完之後：階段 2 有一張公告卡，直接連到統測題解與評分平台
-   （資料在 lessons.json 的 stages[].link；卡片由 renderIndex 畫） */
-const stage2 = (LESSONS.stages || []).filter((s) => s.id === 2)[0] || {};
-const stLink = stage2.link || {};
-const slCard = home.$(".stage-link");
-ok(!!slCard, "階段 2 有一張對外連結公告卡（統測題解）");
-const slA = slCard ? slCard.querySelector("a") : null;
-ok(!!slA && slA.getAttribute("href") === stLink.href,
-   "公告卡直接連結統測題解與評分平台（" + (slA ? slA.getAttribute("href") : "無") + "）");
-ok(!!slA && slA.getAttribute("target") === "_blank"
-   && /noopener/.test(slA.getAttribute("rel") || ""),
-   "對外連結開新分頁並帶 rel=noopener");
-ok(!!slCard && /統測/.test(slCard.textContent) && /Uniform test/.test(slCard.textContent),
-   "公告卡中英齊全（統測／Uniform test）");
+const foundations = boot("foundations.html", "");
+ok(foundations.$$(".course-link").length === navData.courses.length, "one course entry per named topic");
+ok(foundations.$$(".course-link").filter(a => /因式分解/.test(a.textContent)).length === 1, "factorisation appears once despite three source worksheets");
+ok(!/第一階段|第二階段/.test(foundations.$("#topics").textContent), "students choose concrete topic names without stage categories");
+const factorLink = foundations.$('.course-link[href*="factorization"]');
+const factor = boot("topic.html", "?" + factorLink.getAttribute("href").split("?")[1]);
+ok(/因式分解/.test(factor.$("#topic-name").textContent), "course opens directly with the plain topic name");
+ok(factor.$$("#course-sections a").length === 3, "factorisation has concepts, worked examples and practice navigation");
+ok(factor.$(".ccard-head") && factor.$(".concept-body"), "course opens directly to concept cards");
+const practiceLink = factor.$('#course-sections a[data-section="mc"]').getAttribute("href");
+const practice = boot("topic.html", "?" + practiceLink.split("?")[1]);
+ok(practice.$$("#topic-body .card[data-qid]").length === 3, "practice is freely accessible without completing concepts");
+const firstCourseMc = practice.$("#topic-body .card[data-qid]");
+const firstCourseQid = firstCourseMc.getAttribute("data-qid");
+answerCard(firstCourseMc, SOLS[firstCourseQid].answer);
+ok(practice.store().mc[firstCourseQid].correct, "course answers use the original question progress key");
+const legacyStorage = JSON.stringify({ mc: { [firstCourseQid]: { correct: true, picked: SOLS[firstCourseQid].answer, final: true } }, long: {}, cards: {} });
+const returning = boot("foundations.html", "", legacyStorage);
+ok(/已完成/.test(returning.$('.course-link[href*="factorization"]').textContent), "existing worksheet progress is visible in the combined course");
+const idx = practice.$$("#pagenav .pg").filter(b => b.dataset.page !== practice.$("#pagenav .current").dataset.page)[0];
+idx.click();
+ok(/course=factorization/.test(practice.ctx.window.__LEARN_LAST_NAV), "turning a course page retains the combined course route");
+
+const years = boot("revision.html", "");
+ok(years.$$(".grade-link").length === 1 && /中五/.test(years.$(".grade-link").textContent), "only years with existing revision packs are offered");
+const year = boot("revision.html", "?grade=s5");
+ok(year.$$(".pack-link").length === 1, "year page shows its revision packs");
+const pack = boot("revision.html", "?pack=uniform-test");
+ok(pack.$$(".pack-topic").length === 4, "pack contains the four existing warm-up sets");
+ok(pack.$$(".related-links a").length === 4, "pack links to its four related foundation courses");
+const related = pack.$(".related-links a").getAttribute("href");
+const fromPack = boot("topic.html", "?" + related.split("?")[1]);
+ok(fromPack.$('#topic-context a[href="revision.html?pack=uniform-test"]'), "foundation course retains a return link to the originating pack");
+const nextFromPack = fromPack.$$('#pagenav .pg').filter(b => !b.classList.contains("current"))[0];
+nextFromPack.click();
+ok(/course=quadratic-equations/.test(fromPack.ctx.window.__LEARN_LAST_NAV) && /from=uniform-test/.test(fromPack.ctx.window.__LEARN_LAST_NAV), "page changes retain both course and revision return context");
+const revisionTopic = boot("topic.html", "?t=as01&pack=uniform-test");
+ok(revisionTopic.$('.site-nav [aria-current="page"]').getAttribute("href") === "revision.html", "revision exercises keep the revision area selected");
+ok(revisionTopic.$('.context-foundation[href*="from=uniform-test"]'), "revision exercise links to its foundation course with return context");
+const invalidPack = boot("revision.html", "?pack=unknown");
+ok(invalidPack.$('.empty a[href="revision.html"]'), "unknown pack offers a recovery link");
+const invalidCourse = boot("topic.html", "?course=unknown");
+ok(invalidCourse.$('#topic-body a[href="foundations.html"]'), "unknown course offers a recovery link");
+
+const stage2 = (LESSONS.stages || []).filter(s => s.id === 2)[0] || {};
+const slA = pack.$(".stage-link a");
+ok(slA && slA.getAttribute("href") === stage2.link.href, "existing official marking link remains inside the revision pack");
+ok(slA && slA.target === "_blank" && /noopener/.test(slA.rel), "official marking link retains safe new-tab behaviour");
 
 /* ── 2. 開始之前（前言）───────────────────────────────────────────────── */
 console.log("\n— 開始之前（前言）—");
@@ -579,10 +607,7 @@ ok(langOf(lHome) === "both", "預設語言是「中英」（" + langOf(lHome) + 
 lHome.$$(".langbar button")[1].click();
 ok(langOf(lHome) === "en", "按 EN → body[data-lang]=en");
 ok(lHome.ctx.window.localStorage.getItem(LANG_KEY) === "en", "語言選擇寫入 localStorage");
-ok(!!lHome.$("#site-stats .l-zh") && /共 \d+ 個課題/.test(lHome.$("#site-stats .l-zh").textContent),
-   "首頁統計有中文版");
-ok(!!lHome.$("#site-stats .l-en") && /\d+ topics/.test(lHome.$("#site-stats .l-en").textContent),
-   "首頁統計有英文版");
+ok(lHome.$('.portal-choice h2 .l-en') && /Maths Unpacked/.test(lHome.$('.portal-choice h2 .l-en').textContent), "area names have English text");
 ok(!!lHome.$(".brand .l-en") && /Catch-up Maths/.test(lHome.$(".brand .l-en").textContent),
    "品牌名有英文版");
 
@@ -624,19 +649,13 @@ ok(chipZh !== chipEn && /Command/.test(chipEn),
 
 /* 重繪必須 idempotent：切幾次語言都不可以疊出多份內容
    （曾經的 bug：renderIndex/renderWrong 只 appendChild 沒有清空容器）*/
-const lDup = bootLang("index.html", "", null, "both");
-const cardsBefore = lDup.$$(".topic-btn").length;
-const secsBefore = lDup.$$("#topics .section-title").length;
-ok(cardsBefore === LESSONS.topics.length,
-   "首頁課題卡數目 = 課題數（" + cardsBefore + " vs " + LESSONS.topics.length + "）");
-[0, 1, 2].forEach((i) => lDup.$$(".langbar button")[i].click());
-ok(lDup.$$(".topic-btn").length === cardsBefore,
-   "切三次語言後課題卡數目不變（" + cardsBefore + " → " + lDup.$$(".topic-btn").length + "）");
-ok(lDup.$$("#topics .section-title").length === secsBefore,
-   "階段標題也不會變成多份（" + secsBefore + " → " + lDup.$$("#topics .section-title").length + "）");
-const linkStages = (LESSONS.stages || []).filter((s) => s.link && s.link.href).length;
-ok(lDup.$$(".stage-link").length === linkStages,
-   "階段公告卡數目 = 有 link 的階段數（" + lDup.$$(".stage-link").length + " vs " + linkStages + "）");
+const lDup = bootLang("foundations.html", "", null, "both");
+const cardsBefore = lDup.$$(".course-link").length;
+[0, 1, 2].forEach(i => lDup.$$(".langbar button")[i].click());
+ok(lDup.$$(".course-link").length === cardsBefore && cardsBefore === navData.courses.length, "switching language does not duplicate course entries");
+const packDup = bootLang("revision.html", "?pack=uniform-test", null, "both");
+[0, 1, 2].forEach(i => packDup.$$(".langbar button")[i].click());
+ok(packDup.$$(".pack-topic").length === 4 && packDup.$$(".stage-link").length === 1, "switching language does not duplicate pack sets or announcements");
 
 const wDup = bootLang("wrong.html", "", JSON.stringify({
   mc: { "eph-ws01-q1": { picked: "A", correct: false, tries: 1, ts: 1 } }, long: {}, cards: {} }), "both");
@@ -797,7 +816,7 @@ if (altQ.$(".alt-toggle")) {
 
 /* ── 11. 版本戳：一定要是「內容 hash」，不可退回小時制 ─────────────────── */
 console.log("\n— 版本戳（cache stamp）—");
-["index.html", "topic.html", "wrong.html"].forEach((p) => {
+["index.html", "foundations.html", "revision.html", "topic.html", "wrong.html"].forEach((p) => {
   const txt = fs.readFileSync(path.join(root, p), "utf8");
   ok(/window\.__V = "[0-9a-f]{8}"/.test(txt),
      p + " 的 ?v= 由 make_learn_data.py 依內容 hash 寫入");

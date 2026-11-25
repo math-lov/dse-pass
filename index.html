@@ -2,129 +2,78 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>自學追上站 · 數學逐課擊破</title>
-<meta name="description" content="按課題逐課學習的中學數學自學網站：先看概念卡，再看示範題解，然後每頁三題練習。無計時、可重做，適合想追回進度的同學。中英雙語可切換（中文／英文／中英）。">
+<title>自學追上站 · DSE Pass</title>
+<meta name="description" content="DSE Pass：數學拆解與測考溫習。按課題由基本概念逐步學習，或按年級選擇測考溫習包。">
 <link rel="preload" as="font" type="font/woff2" href="vendor/fonts/stix-two-text-normal-latin.woff2" crossorigin>
 <link rel="stylesheet" href="vendor/fonts/stix-two-text.css">
 <link rel="stylesheet" href="vendor/katex/katex.min.css">
-<link rel="stylesheet" href="assets/style.css?v=2c45b0c4">
+<link rel="stylesheet" href="assets/style.css?v=767d8b6a">
 </head>
 <body data-page="index">
-
-<div class="topbar">
+<a class="skip-link" href="#main"><span class="l-zh">跳到內容</span><span class="l-en">Skip to content</span></a>
+<header class="topbar">
   <div class="inner">
-    <div class="brand">
-      <span class="l-zh">自學追上站<small>Maths Catch-up · 逐課學習</small></span>
-      <span class="l-en">Catch-up Maths<small>DSE Maths · one worksheet at a time</small></span>
-    </div>
+    <a class="brand portal-brand" href="index.html">DSE Pass<small><span class="l-zh">自學追上站</span><span class="l-en">Catch-up Maths</span></small></a>
     <div class="spacer"></div>
     <span data-lang-slot></span>
-    <a id="wrong" class="btn btn-sm btn-ghost" href="wrong.html"><span id="wrong-count"><span class="l-zh">弱點升級庫</span><span class="l-en">Weak-spot list</span></span></a>
+    <a class="btn btn-sm btn-ghost auxiliary-link" href="wrong.html"><span id="wrong-count"><span class="l-zh">弱點升級庫</span><span class="l-en">Weak-spot list</span></span></a>
   </div>
+  <nav class="site-nav" aria-label="主要導覽 / Main navigation">
+  <a href="index.html" data-area="index"><span class="l-zh">首頁</span><span class="l-en">Home</span></a>
+  <a href="foundations.html" data-area="foundations"><span class="l-zh">數學拆解</span><span class="l-en">Maths Unpacked</span></a>
+  <a href="revision.html" data-area="revision"><span class="l-zh">測考溫習</span><span class="l-en">Test &amp; Exam Revision</span></a>
+</nav>
+</header>
+<main id="main" class="wrap portal-main" tabindex="-1">
+<header class="portal-intro">
+  <p class="eyebrow"><span class="l-zh">學習與溫習，由這裡開始</span><span class="l-en">YOUR SPACE TO LEARN &amp; REVISE</span></p>
+  <h1><span class="l-zh">今天，從哪裡開始？</span><span class="l-en">Where would you like to start?</span></h1>
+  <p><span class="l-zh">溫習今次測考，或者花點時間，學懂一個課題。</span><span class="l-en">Get ready for a test, or take the time to understand a topic.</span></p>
+</header>
+<div class="portal-choices">
+  <a class="portal-choice unpacked-choice" href="foundations.html">
+    <span class="choice-icon"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 12c-5-4-13-4-18-2v27c5-2 13-2 18 2 5-4 13-4 18-2V10c-5-2-13-2-18 2Z"/><path d="M24 12v27M12 17h6m-6 6h6m12-6h6m-6 6h6"/></svg></span>
+    <h2><span class="l-zh">數學拆解</span><span class="l-en">Maths Unpacked</span></h2>
+    <p><span class="l-zh">從基本概念開始，逐課學會解題。</span><span class="l-en">Build understanding from the basics, one topic at a time.</span></p>
+    <div class="choice-path"><span class="l-zh">概念卡 · 逐步示範 · 練習</span><span class="l-en">Concepts · Worked examples · Practice</span></div>
+    <span class="choice-action"><span class="l-zh">選擇課題</span><span class="l-en">Explore topics</span></span>
+  </a>
+  <a class="portal-choice revision-choice" href="revision.html">
+    <span class="choice-icon"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="9" y="7" width="30" height="35" rx="4"/><path d="M18 7V4h12v6H18V7Zm-3 14 3 3 5-6m4 4h6M15 32l3 3 5-6m4 4h6"/></svg></span>
+    <h2><span class="l-zh">測考溫習</span><span class="l-en">Test &amp; Exam Revision</span></h2>
+    <p><span class="l-zh">按年級與測考範圍，集中重溫重點。</span><span class="l-en">Find your year and focus on what your next test covers.</span></p>
+    <div class="choice-path"><span class="l-zh">溫習包 · 精選題 · 詳解</span><span class="l-en">Revision packs · Selected questions · Solutions</span></div>
+    <span class="choice-action"><span class="l-zh">選擇溫習包</span><span class="l-en">Find a revision pack</span></span>
+  </a>
 </div>
-
-<div class="ka-band">
-  <span class="doodle d-spark" aria-hidden="true"></span>
-  <span class="doodle d-ring" aria-hidden="true"></span>
-  <span class="doodle d-bolt" aria-hidden="true"></span>
-  <span class="doodle d-tri" aria-hidden="true"></span>
-  <span class="doodle d-star" aria-hidden="true"></span>
-  <div class="wrap">
-    <div class="hero">
-      <h1>
-        <span class="l-zh">由你現在的位置，一課一課追上去</span>
-        <span class="l-en">Start where you are, and work up one worksheet at a time</span>
-      </h1>
-      <p id="site-stats"><span class="l-zh">載入中…</span><span class="l-en">Loading…</span></p>
-    </div>
+<aside class="portal-note safety-note">
+  <p><span class="l-zh">不用登入，沒有計時、老師打分或排名。進度只儲存在你自己的瀏覽器。</span><span class="l-en">No sign-in, timer, teacher marks or rankings. Progress stays in your own browser.</span></p>
+  <a href="start.html"><span class="l-zh">第一次來？看看使用指南</span><span class="l-en">New here? Read the guide</span></a>
+</aside>
+<details class="portal-support" id="toolbox">
+  <summary><span class="l-zh">工具與設定</span><span class="l-en">Tools &amp; settings</span></summary>
+  <div class="support-content">
+    <a class="btn btn-sm" href="quadratic-inequalities.html"><span class="l-zh">二次不等式探索器</span><span class="l-en">Quadratic inequality explorer</span></a>
+    <p class="small muted"><span class="l-zh">換裝置或清除瀏覽器資料，會重設這部裝置的進度。</span><span class="l-en">Changing device or clearing browser data resets your local progress.</span></p>
+    <button id="reset" class="btn btn-sm btn-ghost"><span class="l-zh">清除本機進度</span><span class="l-en">Clear local progress</span></button>
   </div>
-</div>
-
-<div class="wrap">
-  <!-- 其他網站：3 個站互相連結（本站以 aria-current 標示；唔連已計劃重做的舊頁） -->
-  <nav class="site-links" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px">
-    <span class="small muted"><span class="l-zh">其他網站：</span><span class="l-en">Other sites:</span></span>
-    <span class="btn btn-sm btn-ghost" aria-current="page">
-      <span class="l-zh">自學追上站（本站）</span><span class="l-en">Catch-up (this site)</span></span>
-    <a class="btn btn-sm btn-ghost" href="https://math-lov.github.io/s5a-maths/">
-      <span class="l-zh">5A 數學溫習站</span><span class="l-en">5A Maths</span></a>
-    <a class="btn btn-sm btn-ghost" href="https://math-lov.github.io/endeavour/">
-      <span class="l-zh">課後研習</span><span class="l-en">Endeavour</span></a>
+</details>
+<footer class="portal-footer">
+  <nav class="site-links" aria-label="其他學習網站 / Other learning sites">
+    <span aria-current="page">DSE Pass</span>
+    <a href="https://math-lov.github.io/s5a-maths/"><span class="l-zh">5A 數學溫習站</span><span class="l-en">5A Maths</span></a>
+    <a href="https://math-lov.github.io/endeavour/"><span class="l-zh">課後研習</span><span class="l-en">Endeavour</span></a>
   </nav>
-
-  <div class="card safety-note">
-    <span class="l-zh"><b>這裡沒有老師打分，也沒有排名。</b>
-    答錯只代表「還未學到」，不代表你不行；進度只屬於你，隨時可以重新開始。</span>
-    <span class="l-en"><b>Nobody marks you here, and there is no ranking.</b>
-    A wrong answer only means "not yet", not that you can't do it. Your progress belongs to you
-    alone, and you can always start over.</span>
-    <div class="pre-actions">
-      <a class="btn btn-sm btn-primary btn-block btn-bi" href="start.html">
-        <span class="bi">
-          <span class="l-zh">第一次來？先看「開始之前」（3 分鐘）</span>
-          <span class="l-en">First time here? Read "Before you start" (3 minutes)</span>
-        </span>
-        <span class="arw" aria-hidden="true">→</span>
-      </a>
-    </div>
-  </div>
-
-  <button id="continue" class="btn btn-primary btn-block hidden" style="margin-bottom:6px">
-    <span id="continue-label"></span>
-  </button>
-
-  <div id="topics"></div>
-
-  <div class="section-title"><span class="l-zh">工具箱</span><span class="l-en">Toolbox</span></div>
-  <div class="card">
-    <div class="small muted">
-      <span class="l-zh">互動小工具（不用登入、不計分、可隨便玩）：拖 slider 改變係數，即時看拋物線、解集與逐步解法。</span>
-      <span class="l-en">A small interactive toy (no login, no marks, play freely): drag the sliders to
-      change the coefficients and watch the parabola, the solution set and the steps update live.</span>
-    </div>
-    <div class="row" style="margin-top:12px">
-      <a class="btn btn-sm btn-primary btn-bi" href="quadratic-inequalities.html">
-        <span class="bi">
-          <span class="l-zh">二次不等式探索器</span>
-          <span class="l-en">Quadratic inequality explorer</span>
-        </span>
-        <span class="arw" aria-hidden="true">→</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="section-title"><span class="l-zh">設定</span><span class="l-en">Settings</span></div>
-  <div class="card">
-    <div class="small muted">
-      <span class="l-zh">進度只存在你手上這部裝置（瀏覽器）裡，換機或清除瀏覽器資料就會重設。</span>
-      <span class="l-en">Your progress is stored only in this browser on this device, and is reset if
-      you change device or clear browsing data.</span>
-    </div>
-    <div class="row" style="margin-top:12px">
-      <button id="reset" class="btn btn-sm btn-ghost">
-        <span class="l-zh">清除本機進度</span><span class="l-en">Clear progress on this device</span>
-      </button>
-      <a class="btn btn-sm btn-ghost" href="start.html">
-        <span class="l-zh">開始之前（使用指南）</span><span class="l-en">Before you start (guide)</span>
-      </a>
-    </div>
-  </div>
-
-  <p class="small muted center" style="margin:18px 0 0">
-    <span class="l-zh">練習題取自校內訂購教材，僅供本校學生溫習使用。</span>
-    <span class="l-en">The practice questions come from textbooks ordered by the school; for our own
-    students' revision only.</span>
-  </p>
-</div>
-
-<!-- KaTeX（自托管，defer）＋ 語言層 -->
+  <p class="small muted"><span class="l-zh">練習題取自校內訂購教材，僅供本校學生溫習使用。</span><span class="l-en">Practice materials are from school-ordered textbooks, for our students’ revision.</span></p>
+</footer>
+</main>
 <script defer src="vendor/katex/katex.min.js"></script>
 <script defer src="vendor/katex/auto-render.min.js"></script>
 <script defer src="assets/i18n.js"></script>
 <script>
-  // 快取戳：由 tools/make_learn_data.py 依內容 hash 寫入（內容一變，?v= 就變 → 一定取到新檔）
-  window.__V = "2c45b0c4";
+  window.__V = "767d8b6a";
   document.write('<script src="data/index.js?v=' + window.__V + '"><\/script>');
   document.write('<script src="assets/app.js?v=' + window.__V + '"><\/script>');
 </script>

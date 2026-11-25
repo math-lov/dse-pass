@@ -210,6 +210,118 @@ window.LEARN_INDEX = {
   }
  ],
  "assessments": [],
+ "navigation": {
+  "courses": [
+   {
+    "id": "factorization",
+    "name": {
+     "zh": "因式分解",
+     "en": "Factorisation"
+    },
+    "description": {
+     "zh": "由抽公因式開始，學會分組、恆等式與十字相乘。",
+     "en": "Start with common factors, then learn grouping, identities and the cross-method."
+    },
+    "topicIds": [
+     "ws01",
+     "ws01c",
+     "ws01b"
+    ]
+   },
+   {
+    "id": "quadratic-equations",
+    "name": {
+     "zh": "二次方程與複數",
+     "en": "Quadratic equations & complex numbers"
+    },
+    "description": {
+     "zh": "解二次方程、判斷根的性質，再認識複數運算。",
+     "en": "Solve quadratic equations, investigate their roots and work with complex numbers."
+    },
+    "topicIds": [
+     "as01"
+    ]
+   },
+   {
+    "id": "straight-lines",
+    "name": {
+     "zh": "直線方程",
+     "en": "Equations of straight lines"
+    },
+    "description": {
+     "zh": "從斜率、截距與垂直關係，找出直線方程。",
+     "en": "Use slopes, intercepts and perpendicular lines to find equations."
+    },
+    "topicIds": [
+     "as02"
+    ]
+   },
+   {
+    "id": "inequalities",
+    "name": {
+     "zh": "不等式",
+     "en": "Inequalities"
+    },
+    "description": {
+     "zh": "分清「及」與「或」，逐步找出一次及二次不等式的解集。",
+     "en": "Distinguish “and” from “or” and find solution sets for linear and quadratic inequalities."
+    },
+    "topicIds": [
+     "as03"
+    ]
+   },
+   {
+    "id": "counting",
+    "name": {
+     "zh": "排列與組合",
+     "en": "Permutations & combinations"
+    },
+    "description": {
+     "zh": "先判斷次序是否重要，再處理排列、選人與插空題。",
+     "en": "Decide whether order matters, then practise arrangements, selections and insertion."
+    },
+    "topicIds": [
+     "as04"
+    ]
+   }
+  ],
+  "grades": [
+   {
+    "id": "s5",
+    "name": {
+     "zh": "中五",
+     "en": "Secondary 5"
+    }
+   }
+  ],
+  "packs": [
+   {
+    "id": "uniform-test",
+    "grade": "s5",
+    "name": {
+     "zh": "統測前哨戰",
+     "en": "Uniform Test Warm-up"
+    },
+    "scope": {
+     "zh": "二次方程與複數、直線方程、不等式、排列與組合",
+     "en": "Quadratic equations and complex numbers, straight lines, inequalities, permutations and combinations"
+    },
+    "topicIds": [
+     "as01",
+     "as02",
+     "as03",
+     "as04"
+    ],
+    "relatedCourseIds": [
+     "quadratic-equations",
+     "straight-lines",
+     "inequalities",
+     "counting"
+    ],
+    "stageId": 2
+   }
+  ]
+ },
  "promptTemplates": {
   "version": 1,
   "_note": "問 AI 提問模板（中英各一份）：前端所有 prompt 都由這份模板 + 題目資料即時生成，改一次＝全站更新。硬規則：新增課題不用改這裡；但改動這份檔案要跑 tools/learn_check.py（I6 會驗欄位齊全）。",
@@ -292,7 +404,7 @@ window.LEARN_INDEX = {
    }
   }
  },
- "generatedAt": "2026-10-27T05:44:18Z",
+ "generatedAt": "2026-11-25T09:18:01Z",
  "counts": {
   "topics": 7,
   "held": 0,

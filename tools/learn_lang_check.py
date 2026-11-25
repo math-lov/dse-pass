@@ -52,7 +52,7 @@ SIMPLE2TRAD = {
     "处": "處", "复": "復", "备": "備", "龙": "龍", "龟": "龜",
 }
 
-SITE_FILES = ["index.html", "topic.html", "start.html", "wrong.html",
+SITE_FILES = ["index.html", "foundations.html", "revision.html", "topic.html", "start.html", "wrong.html",
               "quadratic-inequalities.html", "README.md",
               os.path.join("assets", "app.js"), os.path.join("assets", "style.css")]
 
@@ -85,7 +85,7 @@ def main(argv: list[str] | None = None) -> int:
     args = ap.parse_args(argv)
 
     targets = [(os.path.join(DATA, f), f) for f in
-               ("bank.json", "concepts.json", "solutions.json", "lessons.json")]
+               ("bank.json", "concepts.json", "solutions.json", "lessons.json", "navigation.json")]
     if args.site:
         targets += [(os.path.join(BASE, f), f.replace("\\", "/")) for f in SITE_FILES]
 

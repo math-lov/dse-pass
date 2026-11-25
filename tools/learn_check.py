@@ -104,6 +104,47 @@ def main(argv: list[str] | None = None) -> int:
     def warn(rule: str, msg: str) -> None:
         warnings.append("[%s] %s" % (rule, msg))
 
+    # Navigation references must stay valid as courses and revision packs grow.
+    navigation = _load("navigation.json", {})
+    nav_ids, nav_rows = {}, {}
+    for key in ("courses", "grades", "packs"):
+        rows = navigation.get(key, [])
+        if not isinstance(rows, list):
+            err("N1", "navigation.%s 必須是清單" % key)
+            rows = []
+        valid_rows = [row for row in rows if isinstance(row, dict)]
+        ids = [row.get("id") for row in valid_rows]
+        valid_ids = [i for i in ids if isinstance(i, str) and re.fullmatch(r"[a-z0-9-]+", i)]
+        if len(valid_rows) != len(rows) or len(valid_ids) != len(ids):
+            err("N1", "navigation.%s 的 id 無效" % key)
+        if len(set(valid_ids)) != len(valid_ids):
+            err("N1", "navigation.%s 的 id 重複" % key)
+        nav_ids[key], nav_rows[key] = set(valid_ids), valid_rows
+        for row in valid_rows:
+            name = row.get("name")
+            if not isinstance(name, dict) or not all(name.get(lang) for lang in ("zh", "en")):
+                err("N2", "%s/%s 缺少中英文名稱" % (key, row.get("id")))
+    topic_ids = {t.get("id") for t in lessons.get("topics", [])}
+    for key in ("courses", "packs"):
+        for row in nav_rows[key]:
+            refs = row.get("topicIds", [])
+            if (not isinstance(refs, list) or not refs or
+                    any(not isinstance(ref, str) for ref in refs) or
+                    len(refs) != len(set(refs)) or set(refs) - topic_ids):
+                err("N3", "%s/%s 的課題引用無效或重複" % (key, row.get("id")))
+            field = "description" if key == "courses" else "scope"
+            text = row.get(field)
+            if not isinstance(text, dict) or not all(text.get(lang) for lang in ("zh", "en")):
+                err("N2", "%s/%s 缺少中英文 %s" % (key, row.get("id"), field))
+    for pack in nav_rows["packs"]:
+        grade = pack.get("grade")
+        if not isinstance(grade, str) or grade not in nav_ids["grades"]:
+            err("N3", "%s 的年級不存在" % pack.get("id"))
+        related = pack.get("relatedCourseIds", [])
+        if (not isinstance(related, list) or any(not isinstance(i, str) for i in related)
+                or set(related) - nav_ids["courses"]):
+            err("N3", "%s 的相關課程不存在" % pack.get("id"))
+
     questions = bank.get("questions", [])
     by_id: dict[str, dict] = {}
     for q in questions:

@@ -1,7 +1,9 @@
 /* ==========================================================================
    自學追上站 · 前端
-   純靜態、無框架、無 build step。三種頁面共用這支檔案：
-     body[data-page="index"]  首頁（課題按鈕牆）
+   純靜態、無框架、無 build step。五種頁面共用這支檔案：
+     body[data-page="index"]  首頁（兩區入口）
+     body[data-page="foundations"]  數學拆解（課題清單）
+     body[data-page="revision"]  測考溫習（年級／溫習包）
      body[data-page="topic"]  課題頁（概念卡 → 長題示範 → MC 每頁 3 題）
      body[data-page="wrong"]  弱點升級庫（前稱「錯題本」）
    進度存 localStorage：key = dse-learn:v1
@@ -335,106 +337,234 @@
     return card;
   }
 
+  /* Navigation is authored in data/learn/navigation.json. Topic/question IDs and
+     local progress stay unchanged; a course only combines existing topic data. */
+  var NAVIGATION = INDEX.navigation || { courses: [], grades: [], packs: [] };
+  function findById(items, id) {
+    return (items || []).filter(function (x) { return x.id === id; })[0] || null;
+  }
+  function courseById(id) { return findById(NAVIGATION.courses, id); }
+  function packById(id) { return findById(NAVIGATION.packs, id); }
+  function availableTopics(ids) {
+    return (ids || []).map(function (id) { return findById(INDEX.topics, id); }).filter(Boolean);
+  }
+  function availableCourses() {
+    return (NAVIGATION.courses || []).filter(function (c) { return availableTopics(c.topicIds).length; });
+  }
+  function availablePacks() {
+    return (NAVIGATION.packs || []).filter(function (p) { return availableTopics(p.topicIds).length; });
+  }
+  function courseForTopic(id) {
+    return availableCourses().filter(function (c) { return c.topicIds.indexOf(id) >= 0; })[0];
+  }
+  function currentPack() {
+    var p = new URLSearchParams(location.search);
+    return packById(p.get("pack") || p.get("from"));
+  }
+  function linkPair(href, label, cls) {
+    var a = el("a", cls || "");
+    a.href = href;
+    a.appendChild(biSpan(label));
+    return a;
+  }
+  function packUrl(pack) { return "revision.html?pack=" + encodeURIComponent(pack.id); }
+  function courseUrl(course, pack) {
+    return "topic.html?course=" + encodeURIComponent(course.id) + (pack ? "&from=" + encodeURIComponent(pack.id) : "");
+  }
+  function topicUrl(id, page) {
+    var params = new URLSearchParams();
+    var query = new URLSearchParams(location.search);
+    params.set(query.has("course") ? "course" : "t", id);
+    params.set("p", String(page));
+    var pack = currentPack();
+    if (pack) params.set(query.has("course") ? "from" : "pack", pack.id);
+    return "topic.html?" + params.toString();
+  }
+  function summaryOf(topics) {
+    var result = { cards: 0, long: 0, mc: 0, done: 0, total: 0 };
+    topics.forEach(function (t) {
+      var stats = t.stats || {}, count = topicCounts(t);
+      result.cards += stats.cards || 0;
+      result.long += stats.long || 0;
+      result.mc += stats.mc || 0;
+      var total = count.mc + count.long + count.cards;
+      result.total += total;
+      result.done += topicPercent(t) / 100 * total;
+    });
+    result.percent = result.total ? Math.round(result.done / result.total * 100) : 0;
+    return result;
+  }
+  function countsLabel(stats) {
+    return {
+      zh: "概念卡 " + stats.cards + " 張 · 示範 " + stats.long + " 題 · 練習 " + stats.mc + " 題",
+      en: stats.cards + " concept cards · " + stats.long + " demos · " + stats.mc + " practice questions"
+    };
+  }
+  function courseCard(course, pack) {
+    var topics = availableTopics(course.topicIds), stats = summaryOf(topics);
+    var a = linkPair(courseUrl(course, pack), course.name, "course-link");
+    // Use a heading rather than a button: this opens a real, shareable page.
+    var title = el("h2", "course-title");
+    title.appendChild(a.firstChild);
+    a.appendChild(title);
+    a.appendChild(biNode(course.description, "p", "course-description"));
+    a.appendChild(biNode(countsLabel(stats), "div", "course-meta"));
+    var foot = el("div", "course-foot");
+    foot.appendChild(biNode({ zh: "開始學習", en: "Open topic" }, "span", "course-open"));
+    if (stats.percent) foot.appendChild(biNode({ zh: "已完成 " + stats.percent + "%", en: stats.percent + "% complete" }, "span", "course-progress"));
+    a.appendChild(foot);
+    return a;
+  }
+  function setCurrentArea(area) {
+    qsa(".site-nav a").forEach(function (a) {
+      if (a.dataset.area === area) a.setAttribute("aria-current", "page");
+      else a.removeAttribute("aria-current");
+    });
+  }
   function renderIndex() {
-    var host = qs("#topics");
-    if (!host) return;
-    /* 重新繪製（例如切換語言）時一定要先清空，否則會疊出多份課題卡 */
-    host.innerHTML = "";
-    var byStage = {};
-    (INDEX.topics || []).forEach(function (t) {
-      (byStage[t.stage] = byStage[t.stage] || []).push(t);
-    });
-    var stageNames = {}, stageById = {};
-    (INDEX.stages || []).forEach(function (s) {
-      stageNames[s.id] = s.name || {};
-      stageById[s.id] = s;
-    });
-
-    Object.keys(byStage).sort().forEach(function (sid) {
-      var name = stageNames[sid] || {};
-      var st = el("div", "section-title");
-      st.appendChild(biSpan({
-        zh: name.zh || ("階段 " + sid),
-        en: name.en || ("Stage " + sid)
-      }));
-      host.appendChild(st);
-
-      /* 階段公告卡：這一階段有一條對外連結就畫出來
-         （目前是「統測前哨戰」→ 統測題解與評分平台；資料在 lessons.json 的 stages[].link） */
-      var lk = (stageById[sid] || {}).link;
-      if (lk && lk.href) host.appendChild(stageLinkCard(lk));
-
-      var grid = el("div", "topic-grid");
-      byStage[sid].forEach(function (t) {
-        var pct = topicPercent(t);
-        var btn = el("button", "topic-btn" + (pct >= 100 ? " done" : ""));
-        var ring = el("div", "ring" + (pct >= 100 ? " full" : ""));
-        ring.style.setProperty("--p", pct);
-        ring.setAttribute("data-label", pct + "%");
-        btn.appendChild(ring);
-
-        var body = el("div", "t-body");
-        var nm = el("div", "t-name");
-        nm.appendChild(biSpan(t.name || { zh: t.id }));
-        body.appendChild(nm);
-        var meta = el("div", "t-meta");
-        var s = t.stats || {};
-        meta.appendChild(biSpan({
-          zh: "概念卡 " + (s.cards || 0) + " 張 · 示範 " + (s.long || 0) + " 題 · 練習 " + (s.mc || 0) + " 題",
-          en: (s.cards || 0) + " concept cards · " + (s.long || 0) + " demos · " +
-              (s.mc || 0) + " practice questions"
-        }));
-        body.appendChild(meta);
-        btn.appendChild(body);
-        btn.onclick = function () { go("topic.html?t=" + encodeURIComponent(t.id)); };
-        grid.appendChild(btn);
-      });
-      host.appendChild(grid);
-    });
-
-    // 繼續學習：跳到第一個未完成課題
-    var next = (INDEX.topics || []).filter(function (t) { return !isTopicDone(t); })[0];
-    var goBtn = qs("#continue");
-    if (goBtn) {
-      if (next) {
-        goBtn.classList.remove("hidden");
-        goBtn.onclick = function () { go("topic.html?t=" + encodeURIComponent(next.id)); };
-        var lbl = qs("#continue-label");
-        if (lbl) setPair(lbl, {
-          zh: "繼續學習 · " + ((next.name && next.name.zh) || next.id),
-          en: "Continue · " + ((next.name && next.name.en) || next.id)
-        });
-      } else if ((INDEX.topics || []).length) {
-        goBtn.classList.remove("hidden");
-        goBtn.onclick = function () {
-          toast(T({ zh: "全部課題都完成了，做得好！", en: "You have finished every topic — well done!" }));
-        };
-        var l2 = qs("#continue-label");
-        if (l2) setPair(l2, { zh: "全部完成 ✓", en: "All done ✓" });
-      }
-    }
-
-    var c = INDEX.counts || {};
-    var stat = qs("#site-stats");
-    if (stat) {
-      setPair(stat, {
-        zh: "共 " + (c.topics || 0) + " 個課題 · " + (c.mc || 0) + " 題練習 · " +
-            (c.long || 0) + " 題示範",
-        en: (c.topics || 0) + " topics · " + (c.mc || 0) + " practice questions · " +
-            (c.long || 0) + " demonstrations"
-      });
-    }
     var rb = qs("#reset");
     if (rb) rb.onclick = function () {
-      if (!confirm(T({
-        zh: "要清除這個網站的學習進度嗎？",
-        en: "Clear the progress of this site?"
-      }))) return;
+      if (!confirm(T({ zh: "要清除這個網站的學習進度嗎？", en: "Clear the progress of this site?" }))) return;
       store = { mc: {}, long: {}, cards: {}, weak: {}, lc: {} };
       save();
       location.reload();
     };
     updateWrongBadge();
+  }
+  function renderFoundations() {
+    var host = qs("#topics");
+    if (!host) return;
+    host.innerHTML = "";
+    availableCourses().forEach(function (course) { host.appendChild(courseCard(course)); });
+    if (!host.children.length) unavailable(host);
+    updateWrongBadge();
+  }
+  function unavailable(host) {
+    var box = el("div", "card empty");
+    box.appendChild(biNode({ zh: "暫時找不到這份內容，請返回清單選擇。", en: "This content is unavailable. Please choose from the list." }, "p"));
+    box.appendChild(linkPair("revision.html", { zh: "返回測考溫習", en: "Back to revision" }, "btn"));
+    host.appendChild(box);
+  }
+  function renderRevision() {
+    var host = qs("#revision-body");
+    if (!host) return;
+    host.innerHTML = "";
+    var params = new URLSearchParams(location.search);
+    var packs = availablePacks();
+    var pack = findById(packs, params.get("pack"));
+    var grades = (NAVIGATION.grades || []).filter(function (g) {
+      return packs.some(function (p) { return p.grade === g.id; });
+    });
+    var grade = findById(grades, pack ? pack.grade : params.get("grade"));
+    if ((params.has("pack") && !pack) || (params.has("grade") && !grade)) { unavailable(host); return; }
+    var trail = el("nav", "breadcrumb");
+    trail.setAttribute("aria-label", "所在位置 / Breadcrumb");
+    trail.appendChild(linkPair("revision.html", { zh: "所有年級", en: "All years" }));
+    if (grade) trail.appendChild(linkPair("revision.html?grade=" + grade.id, grade.name));
+    if (pack) trail.appendChild(biNode(pack.name, "span"));
+    host.appendChild(trail);
+    if (!grade) {
+      host.appendChild(biNode({ zh: "選擇年級", en: "Choose your year" }, "h2", "list-heading"));
+      var grid = el("div", "grade-list");
+      grades.forEach(function (g) {
+        var a = linkPair("revision.html?grade=" + g.id, g.name, "grade-link");
+        var count = packs.filter(function (p) { return p.grade === g.id; }).length;
+        a.appendChild(biNode({ zh: count + " 份溫習包", en: count + " revision pack" + (count > 1 ? "s" : "") }, "span", "small muted"));
+        grid.appendChild(a);
+      });
+      host.appendChild(grid);
+      if (!grades.length) unavailable(host);
+    } else if (!pack) {
+      host.appendChild(biNode(grade.name, "h2", "list-heading"));
+      var list = el("div", "course-list");
+      packs.filter(function (p) { return p.grade === grade.id; }).forEach(function (p) {
+        var a = el("a", "course-link pack-link"); a.href = packUrl(p);
+        a.appendChild(biNode(p.name, "h3", "course-title"));
+        a.appendChild(biNode(p.scope, "p", "course-description"));
+        a.appendChild(biNode(countsLabel(summaryOf(availableTopics(p.topicIds))), "div", "course-meta"));
+        a.appendChild(biNode({ zh: "開啟溫習包", en: "Open revision pack" }, "div", "course-open"));
+        list.appendChild(a);
+      });
+      host.appendChild(list);
+    } else {
+      var head = el("section", "pack-summary");
+      head.appendChild(biNode(pack.name, "h2", "pack-title"));
+      head.appendChild(biNode({ zh: "溫習範圍", en: "Coverage" }, "div", "eyebrow"));
+      head.appendChild(biNode(pack.scope, "p"));
+      host.appendChild(head);
+      host.appendChild(biNode({ zh: "選擇練習", en: "Choose a practice set" }, "h2", "list-heading"));
+      var list = el("div", "course-list");
+      availableTopics(pack.topicIds).forEach(function (t) {
+        var course = courseForTopic(t.id);
+        var a = el("a", "course-link pack-topic");
+        a.href = "topic.html?t=" + encodeURIComponent(t.id) + "&pack=" + encodeURIComponent(pack.id);
+        a.appendChild(biNode(course ? course.name : t.name, "h3", "course-title"));
+        a.appendChild(biNode(countsLabel(t.stats || {}), "div", "course-meta"));
+        a.appendChild(biNode({ zh: "開始溫習", en: "Start revision" }, "div", "course-open"));
+        list.appendChild(a);
+      });
+      host.appendChild(list);
+      var related = el("section", "related-courses");
+      related.appendChild(biNode({ zh: "想由基本概念開始？", en: "Want to revisit the basics?" }, "h2", "list-heading"));
+      related.appendChild(biNode({ zh: "選一課完整學習，之後可以返回這份溫習包。", en: "Work through a topic, then return to this revision pack." }, "p", "muted"));
+      var links = el("div", "related-links");
+      (pack.relatedCourseIds || []).forEach(function (id) {
+        var course = findById(availableCourses(), id);
+        if (course) links.appendChild(linkPair(courseUrl(course, pack), course.name, "btn btn-sm"));
+      });
+      related.appendChild(links); host.appendChild(related);
+      var stage = (INDEX.stages || []).filter(function (s) { return s.id === pack.stageId; })[0];
+      if (stage && stage.link && stage.link.href) host.appendChild(stageLinkCard(stage.link));
+    }
+    updateWrongBadge();
+  }
+  function loadReadingTopic(id, cb) {
+    var requested = new URLSearchParams(location.search).has("course");
+    var course = requested ? courseById(id) : null;
+    if (!requested) {
+      if (!findById(INDEX.topics, id)) { cb(null); return; }
+      loadTopicScript(id, cb); return;
+    }
+    var topics = course ? availableTopics(course.topicIds) : [];
+    if (!topics.length) { cb(null); return; }
+    var loaded = new Array(topics.length), left = topics.length;
+    topics.forEach(function (meta, i) {
+      loadTopicScript(meta.id, function (topic) {
+        loaded[i] = topic;
+        left--;
+        if (left) return;
+        // A partial course must not look complete if a topic failed to load.
+        if (loaded.some(function (t) { return !t; })) { cb(null); return; }
+        cb({ id: course.id, name: course.name, intro: course.description,
+          lessons: loaded.reduce(function (all, t) { return all.concat(t.lessons || []); }, []),
+          cmdHints: loaded[0].cmdHints || [], sourceTopics: loaded });
+      });
+    });
+  }
+  function renderTopicContext(id, pages, cur) {
+    var params = new URLSearchParams(location.search);
+    var course = params.has("course") ? courseById(id) : courseForTopic(id);
+    var pack = currentPack();
+    setCurrentArea(params.has("pack") && pack ? "revision" : "foundations");
+    var host = qs("#topic-context");
+    if (host) {
+      host.innerHTML = "";
+      if (pack) host.appendChild(linkPair(packUrl(pack), { zh: "返回溫習包 · " + pack.name.zh, en: "Back to pack · " + pack.name.en }, "context-back"));
+      else host.appendChild(linkPair("foundations.html", { zh: "所有課題", en: "All topics" }, "context-back"));
+      if (params.has("pack") && course) host.appendChild(linkPair(courseUrl(course, pack), { zh: "重溫基礎 · " + course.name.zh, en: "Revisit the basics · " + course.name.en }, "context-foundation"));
+    }
+    var sections = qs("#course-sections");
+    if (!sections) return;
+    sections.innerHTML = "";
+    if (!params.has("course") || !course) return;
+    [ ["cards", { zh: "概念卡", en: "Concepts" }], ["long", { zh: "逐步示範", en: "Worked examples" }], ["mc", { zh: "練習", en: "Practice" }] ].forEach(function (entry) {
+      var first = pages.findIndex(function (p) { return p.kind === entry[0]; });
+      if (first < 0) return;
+      var a = linkPair(topicUrl(id, first), entry[1]);
+      a.dataset.section = entry[0];
+      if (pages[cur] && pages[cur].kind === entry[0]) a.setAttribute("aria-current", "page");
+      sections.appendChild(a);
+    });
   }
 
   function updateWrongBadge() {
@@ -496,7 +626,7 @@
   /* ── 課題頁 ─────────────────────────────────────────────────────────── */
   function topicIdFromUrl() {
     var p = new URLSearchParams(location.search);
-    return (p.get("t") || (INDEX.topics[0] || {}).id || "").toLowerCase();
+    return (p.get("course") || p.get("t") || (INDEX.topics[0] || {}).id || "").toLowerCase();
   }
   function pageFromUrl() {
     var p = new URLSearchParams(location.search);
@@ -538,6 +668,13 @@
       (les.long || []).forEach(function (q) { pages.push({ kind: "long", q: q, lesson: les }); });
       (les.pages || []).forEach(function (row) { pages.push({ kind: "mc", row: row, lesson: les }); });
     });
+    if (topic.sourceTopics) {
+      // Within a combined course, Next stays in the selected activity until
+      // its final page, rather than jumping into another worksheet's cards.
+      return ["cards", "long", "mc"].reduce(function (all, kind) {
+        return all.concat(pages.filter(function (p) { return p.kind === kind; }));
+      }, []);
+    }
     return pages;
   }
 
@@ -553,10 +690,20 @@
 
   function renderTopic() {
     var id = topicIdFromUrl();
-    loadTopicScript(id, function (topic) {
+    if (!TOPIC) {
+      var loading = qs("#topic-body");
+      loading.innerHTML = "";
+      var status = biNode({ zh: "正在載入課程…", en: "Loading this topic…" }, "p", "muted");
+      status.setAttribute("role", "status");
+      loading.appendChild(status);
+    }
+    loadReadingTopic(id, function (topic) {
       if (!topic) {
         qs("#topic-body").innerHTML = "";
-        qs("#topic-body").appendChild(el("div", "empty", "找不到這個課題的資料（" + id + "）"));
+        var error = qs("#topic-body");
+        error.appendChild(biNode({ zh: "課題暫時未能載入，請重新整理或返回課題清單。", en: "This topic could not be loaded. Refresh or return to the topic list." }, "p", "empty"));
+        error.appendChild(linkPair(location.pathname + location.search, { zh: "重新載入", en: "Try again" }, "btn"));
+        error.appendChild(linkPair("foundations.html", { zh: "返回課題清單", en: "All topics" }, "btn"));
         return;
       }
       TOPIC = topic;
@@ -569,6 +716,7 @@
         if (hit >= 0) { cur = hit; focusQid = byQ; }
       }
 
+      renderTopicContext(id, pages, cur);
       var nameEl = qs("#topic-name");
       if (nameEl) setPair(nameEl, topic.name || { zh: topic.id });
       var enEl = qs("#topic-en");        /* 英文名已在 #topic-name 內，這裡不再重複 */
@@ -614,12 +762,16 @@
       });
 
       nav.innerHTML = "";
+      var courseView = new URLSearchParams(location.search).has("course");
+      var previousLesson = null;
       pages.forEach(function (p, i) {
-        if (multiLesson && p.lesson && (i === 0 || pages[i - 1].lesson !== p.lesson)) {
+        if (courseView && pages[cur] && p.kind !== pages[cur].kind) return;
+        if (multiLesson && p.lesson && p.lesson !== previousLesson) {
           var sep = el("span", "pg-lesson", "第 " + (lessons.indexOf(p.lesson) + 1) + " 節");
           sep.title = (p.lesson.title && p.lesson.title.zh) || "";
           nav.appendChild(sep);
         }
+        previousLesson = p.lesson;
         if (navHidden(p, i)) {
           var key = String(lessons.indexOf(p.lesson));
           var g = hiddenGroups[key] || (hiddenGroups[key] = { first: i, n: 0, codes: [], btn: null });
@@ -724,7 +876,7 @@
   }
 
   function gotoPage(tid, n) {
-    go("topic.html?t=" + encodeURIComponent(tid) + "&p=" + n);
+    go(topicUrl(tid, n));
   }
 
   function renderPage(pages, cur, tid, focusQid) {
@@ -2237,7 +2389,10 @@
   /* ── 啟動 ───────────────────────────────────────────────────────────── */
   var started = false;
   function renderCurrentPage() {
+    setCurrentArea(PAGE);
     if (PAGE === "index") renderIndex();
+    else if (PAGE === "foundations") renderFoundations();
+    else if (PAGE === "revision") renderRevision();
     else if (PAGE === "topic") renderTopic();
     else if (PAGE === "wrong") renderWrong();
   }

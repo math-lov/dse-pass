@@ -40,11 +40,12 @@ OUT_ROOT = BASE          # 網站就在 repo 根目錄（Pages 由 root 提供�
 STAMP_RE = re.compile(r'window\.__V\s*=\s*[^;]+;')
 # 樣式表本身都要帶 ?v=：只計入 hash 而 link 冇 query，瀏覽器仍會用舊 CSS。
 CSS_LINK_RE = re.compile(r'href="assets/style\.css(?:\?v=[^"]*)?"')
-STAMP_HTML = ("index.html", "topic.html", "wrong.html")
+STAMP_HTML = ("index.html", "foundations.html", "revision.html", "topic.html", "wrong.html")
 STAMP_ASSETS = ("assets/app.js", "assets/i18n.js", "assets/style.css",
                 "data/learn/bank.json", "data/learn/lessons.json",
                 "data/learn/solutions.json", "data/learn/concepts.json",
-                "data/learn/checks.json", "data/learn/prompt-templates.json")
+                "data/learn/checks.json", "data/learn/prompt-templates.json",
+                "data/learn/navigation.json")
 
 # 生成檔內有 "generatedAt" 時間戳：算內容 hash 時要剔走它，否則 ?v= 每次生成都會變
 # （變相退回「時間戳」），只有內容真的改了才應該變。
@@ -270,6 +271,7 @@ def main(argv: list[str] | None = None) -> int:
         "stages": lessons.get("stages", []),
         "topics": topics_index,
         "assessments": lessons.get("assessments", []),
+        "navigation": _load("navigation.json", {}),
         "promptTemplates": tpl_doc,
         "generatedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "counts": {

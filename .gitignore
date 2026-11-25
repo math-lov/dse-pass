@@ -39,3 +39,6 @@ inbox/
 # 其他 AI 的輸出／暫存：不進 git。特別注意 learn/ 是**部署目錄**，
 # 放在裡面＝公開可下載（曾經被 git add -A 誤加過）。
 learn/From Other AI/
+
+# Local browser verification screenshots
+output/playwright/
