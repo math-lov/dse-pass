@@ -20,6 +20,8 @@
   var INDEX = window.LEARN_INDEX || { topics: [], stages: [], counts: {} };
   var TOPIC = null;                       // 目前課題的完整資料
   var PAGE = (document.body.getAttribute("data-page") || "index");
+  var FACTOR_COURSE = PAGE === "topic" && new URLSearchParams(location.search).get("course") === "factorization";
+  if (FACTOR_COURSE) document.body.setAttribute("data-course", "factorization");
 
   /* ── 儲存 ───────────────────────────────────────────────────────────── */
   function load() {
@@ -84,9 +86,11 @@
     /* 只有一份文字時不加語言 class（任何語言模式都顯示）。
        題目可以只提供英文（只有詳解要中英）—— 若照舊只認 zh，中文模式會空白一片。 */
     if (!en || !zh) { richInto(box, zh || en); autoRender(box); return box; }
-    var z = el(t === "span" ? "span" : "div", "l-zh");
+    var childTag = /^(span|p|b|figcaption|h[1-6])$/.test(t) ? "span" : "div";
+    if (/^(p|b|figcaption)$/.test(t)) box.classList.add("bi-lines");
+    var z = el(childTag, "l-zh");
     richInto(z, zh);
-    var e = el(t === "span" ? "span" : "div", "l-en");
+    var e = el(childTag, "l-en");
     richInto(e, en);
     box.appendChild(z);
     box.appendChild(e);
@@ -177,7 +181,7 @@
     var marks = qsa(".hlk, .hlw, .hlg, .xf", host);
     if (!marks.length) return false;
     marks.forEach(function (m, i) { m.style.setProperty("--i", i); });
-    playWhenVisible(host);
+    if (!FACTOR_COURSE) playWhenVisible(host);
     return true;
   }
   /* 一步一步睇題解時，學生可能想再睇一次重點 → 喺步驟右下角加 ⟲ */
@@ -567,6 +571,190 @@
     });
   }
 
+  function factorStudy() {
+    store.study = store.study || {};
+    var state = store.study.factorization || (store.study.factorization = {});
+    state.cards = state.cards || {};
+    state.recall = state.recall || {};
+    return state;
+  }
+  function factorDestination(page, card) {
+    return topicUrl("factorization", page) + (card ? "&card=" + encodeURIComponent(card) : "");
+  }
+  function factorCardIndex(page) {
+    var requested = new URLSearchParams(location.search).get("card");
+    var cards = page.lesson.cards || [];
+    var found = cards.findIndex(function (c) { return c.id === requested; });
+    var saved = factorStudy().cards[page.lesson.id] || 0;
+    return found >= 0 ? found : Math.max(0, Math.min(saved, cards.length - 1));
+  }
+  function factorEntries(pages, kind) {
+    var entries = [];
+    pages.forEach(function (p, index) {
+      if (p.kind !== kind) return;
+      if (kind === "cards") {
+        (p.lesson.cards || []).forEach(function (c, ci) {
+          entries.push({ page: index, card: c, cardIndex: ci, label: c.title });
+        });
+      } else if (kind === "long") {
+        entries.push({ page: index, label: { zh: (p.q.code || "") + " · " + p.lesson.title.zh,
+          en: (p.q.code || "") + " · " + p.lesson.title.en } });
+      } else {
+        var codes = (p.row || []).map(function (q) { return q.code; }).join(", ");
+        entries.push({ page: index, label: { zh: codes, en: codes } });
+      }
+    });
+    return entries;
+  }
+  function renderFactorNavigator(pages, cur, cardIndex) {
+    if (!FACTOR_COURSE || !pages[cur]) return;
+    var bar = qs("#factor-navigation");
+    if (!bar) {
+      bar = el("div", "factor-navigation"); bar.id = "factor-navigation";
+      qs(".lessonbar").appendChild(bar);
+    }
+    bar.innerHTML = "";
+    var kind = pages[cur].kind;
+    var entries = factorEntries(pages, kind);
+    var ci = cardIndex === undefined && kind === "cards" ? factorCardIndex(pages[cur]) : cardIndex;
+    var selected = entries.findIndex(function (e) { return e.page === cur && (kind !== "cards" || e.cardIndex === ci); });
+    var labels = { cards: { zh: "選擇概念", en: "Choose a concept" }, long: { zh: "選擇示範", en: "Choose an example" }, mc: { zh: "選擇練習組", en: "Choose a practice set" } };
+    var lab = el("label", "factor-jump-label"); lab.htmlFor = "factor-jump"; lab.appendChild(biSpan(labels[kind]));
+    var select = el("select", "factor-jump"); select.id = "factor-jump";
+    entries.forEach(function (entry, i) {
+      var option = el("option", null, (i + 1) + ". " + T(entry.label));
+      option.value = String(i); option.selected = i === selected; select.appendChild(option);
+    });
+    select.onchange = function () {
+      var entry = entries[Number(select.value)];
+      if (entry) go(factorDestination(entry.page, entry.card && entry.card.id));
+    };
+    var controls = el("div", "factor-jump-controls");
+    [ [-1, { zh: "上一項", en: "Previous" }], [1, { zh: "下一項", en: "Next" }] ].forEach(function (spec) {
+      var next = entries[selected + spec[0]];
+      var b = btnPair("btn btn-sm", spec[1]); b.disabled = !next;
+      b.onclick = function () { if (next) go(factorDestination(next.page, next.card && next.card.id)); };
+      controls.appendChild(b);
+    });
+    bar.appendChild(lab); bar.appendChild(select); bar.appendChild(controls);
+    var progress = qs("#topic-progress");
+    var noun = kind === "cards" ? { zh: "概念", en: "Concept" } : kind === "long" ? { zh: "示範", en: "Example" } : { zh: "練習組", en: "Practice set" };
+    if (progress) setPair(progress, { zh: noun.zh + " " + (selected + 1) + " / " + entries.length + " · 可隨時選讀",
+      en: noun.en + " " + (selected + 1) + " / " + entries.length + " · Choose freely" });
+  }
+  function factorParagraphs(host, value) {
+    var z = String(value.zh || "").trim().split(/\n+/), e = String(value.en || "").trim().split(/\n+/);
+    for (var i = 0; i < Math.max(z.length, e.length); i++) {
+      if (!z[i] && !e[i]) continue;
+      host.appendChild(biNode({ zh: z[i] || "", en: e[i] || "" }, "div", "factor-copy"));
+    }
+  }
+  function renderFactorBody(host, card) {
+    // Both languages refer to ONE shared formula. Matching markers are checked
+    // before publishing, so translations never duplicate or reorder equations.
+    var pattern = /\{\{math:(\d+)\}\}/;
+    var z = card.body.zh.split(pattern), e = card.body.en.split(pattern);
+    for (var i = 0; i < z.length; i += 2) {
+      factorParagraphs(host, { zh: z[i], en: e[i] || "" });
+      if (z[i + 1] !== undefined) {
+        var f = el("div", "formula factor-formula");
+        formulaBlock(f, card.math[Number(z[i + 1])], true); host.appendChild(f);
+      }
+    }
+  }
+  function renderCrossExample(host, example) {
+    var figure = el("figure", "cross-example");
+    figure.appendChild(biNode({ zh: "交叉相乘，核對中間項", en: "Cross-multiply to check the middle" }, "figcaption"));
+    var table = el("table", "cross-table");
+    var tbody = el("tbody");
+    for (var i = 0; i < 2; i++) {
+      var row = el("tr"); var th = el("th"); th.scope = "row";
+      th.appendChild(biSpan(i === 0 ? { zh: "因式一", en: "Factor 1" } : { zh: "因式二", en: "Factor 2" })); row.appendChild(th);
+      for (var j = 0; j < 2; j++) { var td = el("td"); tex(td, example.factors[i * 2 + j], false); row.appendChild(td); }
+      tbody.appendChild(row);
+    }
+    table.appendChild(tbody); figure.appendChild(table);
+    var products = el("div", "cross-products");
+    example.products.forEach(function (math) { var cell = el("div", "formula"); formulaBlock(cell, math, true); products.appendChild(cell); });
+    figure.appendChild(products);
+    var sum = el("div", "formula cross-sum"); formulaBlock(sum, example.sum, true); figure.appendChild(sum);
+    host.appendChild(figure);
+  }
+  function renderFactorRecall(host, card) {
+    var recall = card.recall;
+    if (!recall) return;
+    var section = el("section", "factor-recall"); section.setAttribute("aria-label", T({ zh: "試一小題", en: "Try a quick check" }));
+    section.appendChild(biNode({ zh: "先想一想，再核對", en: "Think first, then check" }, "h3"));
+    section.appendChild(biNode(recall.prompt, "p", "factor-recall-prompt"));
+    var selected = null, passed = !!factorStudy().recall[card.id];
+    var choices = el("div", "recall-options");
+    var submit = btnPair("btn btn-primary", { zh: "核對想法", en: "Check my thinking" }); submit.disabled = true;
+    var feedback = el("div", "recall-feedback"); feedback.setAttribute("role", "status"); feedback.setAttribute("aria-live", "polite");
+    recall.options.forEach(function (option, i) {
+      var b = el("button", "recall-option"); b.type = "button"; b.setAttribute("aria-pressed", "false");
+      b.appendChild(el("span", "recall-letter", String.fromCharCode(65 + i)));
+      var value = el("span");
+      if (option.math) {
+        tex(value, option.math, false);
+        b.setAttribute("aria-label", T({ zh: "選項 ", en: "Option " }) + String.fromCharCode(65 + i) + ": " + option.math);
+      } else value.appendChild(biSpan(option));
+      b.appendChild(value);
+      b.onclick = function () {
+        selected = i; submit.disabled = false;
+        qsa("button", choices).forEach(function (node, j) { node.setAttribute("aria-pressed", String(i === j)); });
+      };
+      choices.appendChild(b);
+    });
+    function explain() { feedback.innerHTML = ""; feedback.appendChild(biNode(recall.explanation, "div")); }
+    submit.onclick = function () {
+      feedback.innerHTML = "";
+      if (selected === recall.answer) {
+        passed = true; factorStudy().recall[card.id] = true; save();
+        feedback.appendChild(biNode({ zh: "這個想法正確。看看理由：", en: "That reasoning works. Here is why:" }, "b"));
+        feedback.appendChild(biNode(recall.explanation, "div"));
+      } else {
+        feedback.appendChild(biNode({ zh: "這個選擇未符合。比較原式的符號或係數，再試一次；也可以查看解說。", en: "This choice does not match. Compare the signs or coefficients and try again, or read the explanation." }, "div"));
+      }
+    };
+    var explanation = btnPair("btn btn-sm btn-ghost", { zh: "查看解說", en: "Read the explanation" }); explanation.onclick = explain;
+    section.appendChild(choices);
+    var actions = el("div", "recall-actions"); actions.appendChild(submit); actions.appendChild(explanation); section.appendChild(actions); section.appendChild(feedback);
+    if (passed) section.appendChild(biNode({ zh: "你曾核對過這一小題，可以再想一次。", en: "You have checked this before. Try recalling it again." }, "p", "small muted"));
+    host.appendChild(section);
+  }
+  function renderFactorCards(body, page, pages, cur, tid) {
+    var cards = page.lesson.cards || [], i = factorCardIndex(page);
+    function draw() {
+      body.innerHTML = "";
+      var c = cards[i], card = el("article", "card factor-concept");
+      card.appendChild(biNode({ zh: "概念 · 一次看一個方法", en: "Concept · One method at a time" }, "div", "factor-eyebrow"));
+      var head = el("div", "ccard-head"); head.appendChild(biNode(c.title, "h2")); card.appendChild(head);
+      if (c.goal) card.appendChild(biNode(c.goal, "p", "factor-goal"));
+      var content = el("div", "concept-body factor-concept-body"); renderFactorBody(content, c); card.appendChild(content);
+      if (c.crossExample) renderCrossExample(card, c.crossExample);
+      if (c.warn) { var warn = el("aside", "callout"); warn.appendChild(biNode({ zh: "留意這一點", en: "Watch this detail" }, "b")); warn.appendChild(biNode(c.warn, "div")); card.appendChild(warn); }
+      renderFactorRecall(card, c);
+      appendCommandHints(card);
+      var foot = el("div", "factor-card-actions");
+      var previous = btnPair("btn", { zh: "上一張", en: "Previous concept" });
+      var all = factorEntries(pages, "cards"); var position = all.findIndex(function (entry) { return entry.card.id === c.id; });
+      previous.disabled = position <= 0;
+      previous.onclick = function () { var e = all[position - 1]; if (e) go(factorDestination(e.page, e.card.id)); };
+      var next = btnPair("btn btn-primary", position < all.length - 1 ? { zh: "下一張概念卡", en: "Next concept" } : { zh: "選一個示範", en: "Choose a worked example" });
+      next.onclick = function () {
+        if (i === cards.length - 1) { store.cards[page.lesson.id] = true; save(); }
+        var entry = all[position + 1];
+        if (entry) go(factorDestination(entry.page, entry.card.id));
+        else { var example = pages.findIndex(function (p) { return p.kind === "long"; }); gotoPage(tid, example >= 0 ? example : cur + 1); }
+      };
+      foot.appendChild(previous); foot.appendChild(next); card.appendChild(foot);
+      card.appendChild(biNode({ zh: "小題可自由嘗試；不必答對才看下一張。", en: "The quick check is optional. You can move on at any time." }, "p", "small muted"));
+      body.appendChild(card);
+      factorStudy().cards[page.lesson.id] = i; save(); renderFactorNavigator(pages, cur, i);
+    }
+    draw();
+  }
+
   function updateWrongBadge() {
     var n = wrongList().length;
     var b = qs("#wrong-count");
@@ -685,7 +873,7 @@
       return (p.demos || []).length > 0 &&
         p.demos.every(function (q) { return !!store.long[q.id]; });
     }
-    return p.row.every(function (q) { return !!mcState(q.id); });
+    return p.row.every(function (q) { var state = mcState(q.id); return !!state && (!FACTOR_COURSE || state.final !== false); });
   }
 
   function renderTopic() {
@@ -858,6 +1046,7 @@
         } catch (e) {}
       }
 
+      if (FACTOR_COURSE) renderFactorNavigator(pages, cur);
       updateWrongBadge();
     });
   }
@@ -894,12 +1083,17 @@
       body.appendChild(intro);
     }
 
-    appendCommandHints(body);      // 常駐考試指令提示：做之前先看，減少「睇錯題目」的失分
+    if (FACTOR_COURSE) {
+      var source = (TOPIC.sourceTopics || []).filter(function (t) { return t.lessons.some(function (l) { return l.id === p.lesson.id; }); })[0];
+      if (source) TOPIC.cmdHints = source.cmdHints;
+    }
+    if (!FACTOR_COURSE) appendCommandHints(body);      // 常駐考試指令提示：做之前先看，減少「睇錯題目」的失分
 
     if (p.kind === "cards") renderCards(body, p, pages, cur, tid);
     else if (p.kind === "long") renderLong(body, p, pages, cur, tid);
     else if (p.kind === "demos") renderDemoSet(body, p, pages, cur, tid);
     else renderMcPage(body, p, pages, cur, tid, focusQid);
+    if (FACTOR_COURSE && p.kind !== "cards") appendCommandHints(body);
 
     // 卡住時才需要的東西：放在頁尾，不干擾作答
     var help = el("div", "help-link");
@@ -1065,10 +1259,15 @@
       chip.appendChild(z);
       box.appendChild(chip);
     });
-    body.appendChild(box);
+    if (FACTOR_COURSE) {
+      var details = el("details", "factor-glossary");
+      var summary = el("summary"); summary.appendChild(biSpan({ zh: "題目字眼 · 按需要查看", en: "Question words · Open when needed" }));
+      details.appendChild(summary); details.appendChild(box); body.appendChild(details);
+    } else body.appendChild(box);
   }
 
   function renderCards(body, page, pages, cur, tid) {
+    if (FACTOR_COURSE) { renderFactorCards(body, page, pages, cur, tid); return; }
     var cards = page.lesson.cards || [];
     var i = 0;
     var cardEl = null;          // 目前這一張卡（換卡後捲回它的頂部）
@@ -1191,6 +1390,7 @@
     var sol = q.solution || {};
     var steps = sol.steps || [];
     var shown = 0;
+    var finished = false;
 
     var card = el("div", "card");
     card.setAttribute("data-qid", q.id);
@@ -1261,8 +1461,8 @@
     var tryRow = el("div", "demo-try");
     var tt = el("span");
     tt.appendChild(biSpan({
-      zh: "先自己想一想、動手寫一寫，再逐步看題解。",
-      en: "Think it through and write it down yourself first, then reveal the steps one by one."
+      zh: FACTOR_COURSE ? "可以先在紙上試做，也可以由第一步開始看示範。" : "先自己想一想、動手寫一寫，再逐步看題解。",
+      en: FACTOR_COURSE ? "Try it on paper, or start with the first worked step." : "Think it through and write it down yourself first, then reveal the steps one by one."
     }));
     tryRow.appendChild(tt);
     var startBtn = btnPair("btn btn-sm btn-primary", { zh: "開始看題解", en: "Show the steps" });
@@ -1294,7 +1494,7 @@
     function refreshGate() {
       if (!checks.length) return;
       var done = allChecked();
-      startBtn.disabled = !done;
+      startBtn.disabled = FACTOR_COURSE ? false : !done;
       if (gateNote) gateNote.classList.toggle("hidden", done);
       if (skipBtn) skipBtn.classList.toggle("hidden", done);
     }
@@ -1326,6 +1526,7 @@
       submit.setAttribute("data-lc-submit", "1");
       submit.disabled = true;
       var fb = el("div");
+      if (FACTOR_COURSE) { fb.setAttribute("role", "status"); fb.setAttribute("aria-live", "polite"); }
       var row = el("div", "check-row");
       row.appendChild(submit);
       row.appendChild(fb);
@@ -1335,6 +1536,7 @@
       function markPicked() {
         qsa(".opt", opts).forEach(function (b) {
           b.classList.toggle("picked", b.dataset.opt === state.picked);
+          if (FACTOR_COURSE) b.setAttribute("aria-pressed", String(b.dataset.opt === state.picked));
         });
       }
       function markWrong(L) {
@@ -1480,7 +1682,7 @@
       var chkBox = el("div", "lchecks");
       var chkHead = el("div", "lcheck-head");
       chkHead.appendChild(biSpan({
-        zh: "先核對答案（每一部一題）", en: "Check your answers first (one per part)"
+        zh: FACTOR_COURSE ? "每一部各有一題核對" : "先核對答案（每一部一題）", en: FACTOR_COURSE ? "One check per part" : "Check your answers first (one per part)"
       }));
       chkBox.appendChild(chkHead);
       checks.forEach(function (c) { chkBox.appendChild(longCheck(c)); });
@@ -1490,15 +1692,19 @@
       skipBtn.onclick = function () {
         checksUI.forEach(function (u) { u.markSkipped(); });
       };
-      chkBox.appendChild(skipBtn);
-      card.appendChild(chkBox);
+      if (!FACTOR_COURSE) chkBox.appendChild(skipBtn);
+      if (FACTOR_COURSE) {
+        var optionalCheck = el("details", "factor-answer-check");
+        var checkSummary = el("summary"); checkSummary.appendChild(biSpan({ zh: "已自己做過？核對答案（可選）", en: "Tried it yourself? Check your answer (optional)" }));
+        optionalCheck.appendChild(checkSummary); optionalCheck.appendChild(chkBox); card.appendChild(optionalCheck);
+      } else card.appendChild(chkBox);
 
       gateNote = el("div", "small muted lcheck-note");
       gateNote.appendChild(biSpan({
         zh: "核對完每一部（或按「跳過」）就可以看題解。",
         en: "Check every part (or skip) to unlock the steps."
       }));
-      tryRow.appendChild(gateNote);
+      if (!FACTOR_COURSE) tryRow.appendChild(gateNote);
     }
     card.appendChild(tryRow);
     refreshGate();
@@ -1540,7 +1746,7 @@
         } else {
           box.appendChild(f);
         }
-        if (qsa(".hlk, .hlw, .hlg, .xf", f).length) box.appendChild(replayButton(f));
+        if (!FACTOR_COURSE && qsa(".hlk, .hlw, .hlg, .xf", f).length) box.appendChild(replayButton(f));
       }
       var why = biNode({ zh: st.zh || "", en: st.en || st.zh || "" }, "div", "why");
       box.appendChild(why);
@@ -1554,7 +1760,7 @@
       });
       // scrollIntoView 在部分環境（jsdom／舊瀏覽器）不存在 → 保護，不讓它中斷揭示流程
       if (typeof box.scrollIntoView === "function") {
-        try { box.scrollIntoView({ block: "nearest", behavior: "smooth" }); } catch (e) {}
+        try { box.scrollIntoView({ block: "nearest", behavior: FACTOR_COURSE && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); } catch (e) {}
       }
     }
 
@@ -1575,6 +1781,8 @@
     };
 
     function finish() {
+      if (finished) return;
+      finished = true;
       moreRow.classList.add("hidden");
       var boxt = el("div", "done-banner");
       var big = el("div", "big");
@@ -1584,7 +1792,17 @@
       if (sol.tip && (sol.tip.zh || sol.tip.en)) boxt.appendChild(biNode(sol.tip, "p"));
       endRow.appendChild(boxt);
       endRow.classList.remove("hidden");
-      appendLongTraps(endRow, sol);       // 常見錯誤（只有標了 traps 的示範才有）
+      if (FACTOR_COURSE) {
+        var checkDetails = el("details", "factor-review-details");
+        var summary = el("summary"); summary.appendChild(biSpan({ zh: "核對易混淆的位置", en: "Check common points of confusion" }));
+        checkDetails.appendChild(summary); appendLongTraps(checkDetails, sol); endRow.appendChild(checkDetails);
+        if (sol.reflect) {
+          var reflection = el("section", "factor-reflection"); reflection.appendChild(biNode(sol.reflect, "p"));
+          var retry = btnPair("btn btn-sm", { zh: "收起步驟，再自己寫一次", en: "Hide the steps and try it myself" });
+          retry.onclick = function () { stepsHost.innerHTML = ""; endRow.innerHTML = ""; endRow.classList.add("hidden"); tryRow.classList.remove("hidden"); shown = 0; finished = false; scrollToTopOf(card); };
+          reflection.appendChild(retry); endRow.appendChild(reflection);
+        }
+      } else appendLongTraps(endRow, sol);       // 常見錯誤（只有標了 traps 的示範才有）
       appendAlt(endRow, sol);             // 進階解法／驗算（例如計算機 Formula 01、數值代入）
       var row = el("div", "row");
       if (opt && opt.prev) {
@@ -1665,6 +1883,15 @@
   function refreshPageDone(page) {
     var n = qs("#page-done");
     if (!n || !page || !page.row || !page.row.length) return;
+    if (FACTOR_COURSE) {
+      var checked = page.row.filter(function (q) { var rec = mcState(q.id); return rec && rec.final !== false; }).length;
+      n.classList.toggle("pd-finish", checked === page.row.length);
+      setPair(n, {
+        zh: "這組已核對 " + checked + " / " + page.row.length + " 題。需要重溫的題目會保留在弱點升級庫；可隨時選另一組。",
+        en: checked + " / " + page.row.length + " questions checked. Questions to revisit stay in your weak-spot list. You can choose another set at any time."
+      });
+      return;
+    }
     var done = page.row.filter(function (q) { return !!mcState(q.id); }).length;
     var t = null;
     (INDEX.topics || []).some(function (x) {
@@ -1721,7 +1948,6 @@
     var txt = el("div", "small muted page-done");
     txt.id = "page-done";
     nextRow.appendChild(txt);
-    refreshPageDone(page);
     var row = el("div", "row");
     row.style.marginTop = "10px";
     var nx = btnPair("btn btn-sm btn-primary", { zh: "下一頁 →", en: "Next page →" });
@@ -1731,6 +1957,7 @@
     row.appendChild(nx); row.appendChild(hm);
     nextRow.appendChild(row);
     body.appendChild(nextRow);
+    refreshPageDone(page);
   }
 
   /* 進階解法／驗算（solution.alt）：MC 與長題共用。
@@ -1748,7 +1975,8 @@
       ab.appendChild(nm);
       ab.appendChild(biNode({ zh: a.zh || "", en: a.en || a.zh || "" }));
     });
-    tgl.onclick = function () { ab.classList.toggle("hidden"); };
+    tgl.setAttribute("aria-expanded", "false");
+    tgl.onclick = function () { ab.classList.toggle("hidden"); tgl.setAttribute("aria-expanded", String(!ab.classList.contains("hidden"))); };
     host.appendChild(tgl);
     host.appendChild(ab);
   }
@@ -1765,6 +1993,7 @@
     var stem = el("div", "q-stem");
     stem.appendChild(biNode(q.stem || { zh: "", en: "" }));
     card.appendChild(stem);
+    if (FACTOR_COURSE && q.practiceGoal) card.appendChild(biNode(q.practiceGoal, "p", "factor-practice-goal"));
 
     /* 讀圖題（資料層 figBefore: true）：圖本身就是題目的一部分 —— 題幹寫「The figure shows…」，
        沒有圖就答不到。所以這一類題目要「作答前」就看到圖；但只出圖，不出 caption
@@ -1784,6 +2013,7 @@
     submitBtn.setAttribute("data-check", "1");
     submitBtn.disabled = true;
     var fbHost = el("div");
+    if (FACTOR_COURSE) { fbHost.setAttribute("role", "status"); fbHost.setAttribute("aria-live", "polite"); }
     checkRow.appendChild(submitBtn);
     checkRow.appendChild(fbHost);
     card.appendChild(checkRow);
@@ -1817,6 +2047,7 @@
     function markPicked() {
       qsa(".opt", opts).forEach(function (b) {
         b.classList.toggle("picked", b.dataset.opt === state.picked);
+        if (FACTOR_COURSE) b.setAttribute("aria-pressed", String(b.dataset.opt === state.picked));
       });
     }
     function markWrong(L) {
@@ -1883,12 +2114,20 @@
       box.appendChild(el("span", "fb-icon", ok ? "✓" : "✕"));
       var txt = el("div");
       var main = el("div");
-      main.appendChild(biSpan(ok
+      if (FACTOR_COURSE) {
+        main.appendChild(biSpan(ok ? { zh: "這次核對正確", en: "This answer checks out" }
+          : { zh: "這個選項未符合題目要求", en: "This option does not meet the question's requirement" }));
+      } else main.appendChild(biSpan(ok
         ? { zh: "正確！", en: "Correct!" }
         : (finalWrong ? { zh: "兩次都未答對", en: "Not right after two tries" }
                       : { zh: "唔係這一個", en: "Not this one" })));
       var sub = el("span", "fb-sub");
-      sub.appendChild(biSpan(ok
+      if (FACTOR_COURSE) sub.appendChild(biSpan(ok
+        ? { zh: "再想一想：哪一個因式或恆等式令這個答案成立？", en: "Which common factor or identity makes this answer work?" }
+        : finalWrong ? { zh: "對照下面的差別，再逐步看解法。這題已留作重溫。", en: "Compare the difference below, then follow the worked steps. This question is saved to revisit." }
+        : q.practiceGoal ? { zh: "除了核對是否等值，也要檢查有沒有分解到底。可再試一次，或先看提示。", en: "Check both equivalence and whether factorisation is complete. Try again, or open a hint first." }
+        : { zh: "可先展開你選的式子核對係數，再試一次，或先看提示。", en: "Expand your choice to compare coefficients. Try again, or open a hint first." }));
+      else sub.appendChild(biSpan(ok
         ? { zh: "已記錄這一次作答。", en: "This attempt is saved." }
         : (finalWrong
           ? { zh: "下面顯示正確答案、陷阱與題解。", en: "The correct answer, traps and solution are below." }
@@ -1933,7 +2172,7 @@
     function markPage() {
       refreshPageDone(page);
       updateWrongBadge();
-      var pageAll = page.row.every(function (x) { return !!mcState(x.id); });
+      var pageAll = page.row.every(function (x) { var rec = mcState(x.id); return !!rec && (!FACTOR_COURSE || rec.final !== false); });
       if (pageAll) {
         var nb = navPageBtn(cur);
         if (nb) nb.classList.add("done");
@@ -2027,7 +2266,7 @@
         } else {
           box.appendChild(f);
         }
-        if (qsa(".hlk, .hlw, .hlg, .xf", f).length) box.appendChild(replayButton(f));
+        if (!FACTOR_COURSE && qsa(".hlk, .hlw, .hlg, .xf", f).length) box.appendChild(replayButton(f));
       }
       box.appendChild(biNode({ zh: st.zh || "", en: st.en || st.zh || "" }, "div", "why"));
       /* 冇算式（純文字步驟）才把評分代號留在下面 */
@@ -2066,13 +2305,18 @@
         if (box.children.length) {
           // 把「答錯」重新框架成「掉進陷阱」：內部歸因 → 具體策略修正
           var trapHead = el("div", "trap-head");
-          trapHead.appendChild(biSpan(picked
+          trapHead.appendChild(biSpan(FACTOR_COURSE ? (picked
+            ? { zh: "核對這個選項的分解", en: "Check this option’s factorisation" }
+            : { zh: "其他選項如何核對", en: "Checking the other options" }) : picked
             ? { zh: "✕ 差一點 —— 你不是不懂，而是掉進了出卷人設計的陷阱。看看偏差出在哪一步：",
                 en: "✕ So close — you are not lost, you stepped into a trap the examiner set. " +
                     "See which step went off:" }
             : { zh: "為什麼會這樣選？", en: "Why would someone choose these?" }));
-          tail.appendChild(trapHead);
-          tail.appendChild(box);
+          if (FACTOR_COURSE && !picked) {
+            var comparisons = el("details", "factor-review-details");
+            var summary = el("summary"); summary.appendChild(biSpan({ zh: "比較其他選項（按需要查看）", en: "Compare the other options (optional)" }));
+            comparisons.appendChild(summary); comparisons.appendChild(box); tail.appendChild(comparisons);
+          } else { tail.appendChild(trapHead); tail.appendChild(box); }
         }
       }
       if (sol.tip && (sol.tip.zh || sol.tip.en)) {

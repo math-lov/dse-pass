@@ -100,6 +100,29 @@ const factor = boot("topic.html", "?" + factorLink.getAttribute("href").split("?
 ok(/因式分解/.test(factor.$("#topic-name").textContent), "course opens directly with the plain topic name");
 ok(factor.$$("#course-sections a").length === 3, "factorisation has concepts, worked examples and practice navigation");
 ok(factor.$(".ccard-head") && factor.$(".concept-body"), "course opens directly to concept cards");
+ok(factor.$$("#factor-jump option").length === 10, "all ten concepts can be selected freely");
+ok(factor.$$(".factor-formula").length === CARDS.find(c => c.id === "ws01-c1").math.length,
+   "bilingual concepts share one copy of each display equation");
+const recallSubmit = factor.$(".recall-actions button");
+ok(recallSubmit.disabled, "recall requires a deliberate selection before checking");
+factor.$$(".recall-option")[1].click(); recallSubmit.click();
+ok(/未符合/.test(factor.$(".recall-feedback").textContent), "incorrect recall receives an actionable retry");
+ok(!factor.store().study.factorization.recall["ws01-c1"], "incorrect recall does not claim success");
+factor.$$(".recall-option")[0].click(); recallSubmit.click();
+ok(factor.store().study.factorization.recall["ws01-c1"], "successful recall saves a separate optional check record");
+ok(factor.$(".recall-option").getAttribute("aria-pressed") === "true", "selected recall is accessible without relying on colour");
+const chosenConcept = boot("topic.html", "?course=factorization&p=0&card=ws01-c4");
+ok(!!chosenConcept.$(".cross-example") && chosenConcept.$("#factor-jump").selectedIndex === 3, "direct concept links select and label the cross-method diagram");
+const factorDemo = boot("topic.html", "?course=factorization&p=6");
+const startFactorDemo = factorDemo.$$("button").find(b => /開始看題解/.test(b.textContent));
+ok(startFactorDemo && !startFactorDemo.disabled, "worked examples are available without answer gates");
+ok(!factorDemo.$(".factor-answer-check").open, "independent answer checks are optional and initially collapsed");
+startFactorDemo.click();
+const showAllFactor = factorDemo.$$("button").find(b => /全部顯示/.test(b.textContent));
+showAllFactor.click();
+ok(factorDemo.$$(".factor-reflection").length === 1, "a completed worked example prompts independent recall");
+factorDemo.$(".factor-reflection button").click();
+ok(factorDemo.$$(".steps .step").length === 0 && !startFactorDemo.closest(".hidden"), "students can hide the example and try again");
 const practiceLink = factor.$('#course-sections a[data-section="mc"]').getAttribute("href");
 const practice = boot("topic.html", "?" + practiceLink.split("?")[1]);
 ok(practice.$$("#topic-body .card[data-qid]").length === 3, "practice is freely accessible without completing concepts");
@@ -107,6 +130,12 @@ const firstCourseMc = practice.$("#topic-body .card[data-qid]");
 const firstCourseQid = firstCourseMc.getAttribute("data-qid");
 answerCard(firstCourseMc, SOLS[firstCourseQid].answer);
 ok(practice.store().mc[firstCourseQid].correct, "course answers use the original question progress key");
+const partialCard = practice.$$("#topic-body .card[data-qid]")[1];
+partialCard.querySelector('.opt[data-opt="D"]').click();
+partialCard.querySelector('[data-check]').click();
+ok(/分解到底/.test(partialCard.querySelector('[role="status"]').textContent), "equivalent partial factors get completeness feedback rather than a false coefficient mismatch");
+ok(/1 \/ 3/.test(practice.$("#page-done").textContent), "an unfinished first retry is not counted as checked");
+ok(!!partialCard.querySelector('.factor-practice-goal'), "partial-factor distractors have an explicit instruction");
 const legacyStorage = JSON.stringify({ mc: { [firstCourseQid]: { correct: true, picked: SOLS[firstCourseQid].answer, final: true } }, long: {}, cards: {} });
 const returning = boot("foundations.html", "", legacyStorage);
 ok(/已完成/.test(returning.$('.course-link[href*="factorization"]').textContent), "existing worksheet progress is visible in the combined course");
@@ -791,16 +820,16 @@ const mcAlt = BANK.filter((q) => q.type === "mc" && q.topic === "ws01b");
 ok(mcAlt.length === 27, "ws01b 有 27 題 MC（" + mcAlt.length + "）");
 ok(mcAlt.every((q) => (((SOLS[q.id] || {}).solution || {}).alt || []).length >= 1),
    "ws01b 每題 MC 都有至少一條另解／驗算（代入法或展開法）");
-ok((((SOLS["eph-ws01b-m12"] || {}).solution || {}).alt || []).length >= 2,
-   "m12 有兩條另解（展開法 ＋ 數值代入法）");
-ok(/\\frac\{1\}\{3\}/.test((((SOLS["eph-ws01-ex01"] || {}).solution || {}).alt || [{}])[0].zh || ""),
-   "ex01 的另解含 Formula 01 求根（$x=\\frac{1}{3}$）");
+ok(/does not prove an identity/.test(SOLS["eph-ws01b-m12"].solution.alt[0].en),
+   "numerical checking explains that one match does not prove an identity");
+ok(/Expand/.test(SOLS["eph-ws01-ex01"].solution.alt[0].en),
+   "ex01 offers a reproducible expansion check without model-specific calculator menus");
 /* 卷一長題也要有另解／驗算（老師第二輪審查） */
 const longAlt = BANK.filter((q) => q.type === "long" && q.topic === "ws01c");
 ok(longAlt.length === 32 && longAlt.every((q) => (((SOLS[q.id] || {}).solution || {}).alt || []).length >= 1),
    "ws01c 全部 32 題都有驗算法（alt）");
-ok((((SOLS["eph-ws01c-q30"] || {}).solution || {}).alt || []).length >= 2,
-   "q30 另有「常數項與符號保底檢查法」");
+ok(/every coefficient/.test(SOLS["eph-ws01c-q30"].solution.alt[0].en),
+   "q30 checks every coefficient rather than treating constants as proof");
 ok(!!(((BANK.filter((q) => q.id === "eph-ws01c-q01")[0] || {}).stem || {}).zh),
    "ws01c 題幹有中文（q01 已補回）");
 const altQ = boot("topic.html", "?t=ws01&p=1", null, "zh");

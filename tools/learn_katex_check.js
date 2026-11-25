@@ -114,6 +114,17 @@ bank.questions.forEach((q) => {
 
 // ── 概念卡 ──
 (concepts.cards || []).forEach((c) => {
+  ["zh", "en"].forEach((lang) => {
+    ["body", "warn", "goal"].forEach((key) => checkField(c[key] && c[key][lang], `${c.id} · ${key}.${lang}`));
+    if (c.recall) {
+      ["prompt", "explanation"].forEach((key) => checkField(c.recall[key][lang], `${c.id} · recall.${key}.${lang}`));
+      c.recall.options.forEach((o, i) => checkField(o[lang], `${c.id} · recall option ${i}.${lang}`));
+    }
+  });
+  if (c.recall) c.recall.options.forEach((o, i) => { if (o.math) check(o.math, `${c.id} · recall math ${i}`); });
+  if (c.crossExample) {
+    [...c.crossExample.factors, ...c.crossExample.products, c.crossExample.sum].forEach((m, i) => check(m, `${c.id} · cross example ${i}`));
+  }
   (c.math || []).forEach((t, i) => check(t, `${c.id} · math[${i + 1}]`));
   if (c.title) checkField(c.title.zh || c.title.en, `${c.id} · title`);
   if (c.body) checkField(c.body.zh, `${c.id} · body.zh`);
@@ -130,6 +141,12 @@ bank.questions.forEach((q) => {
 Object.keys(solutions).forEach((qid) => {
   const s = solutions[qid];
   const sol = s.solution || {};
+  ["zh", "en"].forEach((lang) => {
+    (sol.steps || []).forEach((st, i) => checkField(st[lang], `${qid} · step ${i}.${lang}`));
+    (sol.traps || []).forEach((t, i) => checkField(t[lang], `${qid} · trap ${i}.${lang}`));
+    (sol.alt || []).forEach((a, i) => checkField(a[lang], `${qid} · alternative ${i}.${lang}`));
+    ["tip", "reflect"].forEach((key) => checkField(sol[key] && sol[key][lang], `${qid} · ${key}.${lang}`));
+  });
   (sol.steps || []).forEach((st, i) => {
     const tag = `${qid} · step ${i + 1}`;
     check(st.math, tag + " math");

@@ -10,8 +10,8 @@ window.LEARN_TOPIC_WS01 = {
   "en": "WS01a · Factorization — Basic Skills"
  },
  "intro": {
-  "zh": "這一課學四種方法：抽公因式、併項分組、用恆等式（平方差／完全平方）、十字相乘。DSE 卷一幾乎年年考一題因式分解，而且題目一定設計成「(a) 先分一個簡單的，(b) 再用 (a) 的結果」——所以 (a) 答對，(b) 就等於送分。",
-  "en": "This lesson covers four methods: taking out the common factor, grouping, the identities (difference of two squares / perfect square) and the cross-method. Paper 1 of the HKDSE asks a factorisation question almost every year, and it is always designed as “(a) factorise something simple, then (b) use the result of (a)” — so getting (a) right makes (b) almost free marks."
+  "zh": "學習抽公因式、併項分組、平方差與完全平方，以及十字相乘。先看一個方法，再跟示範核對，最後自己做幾題；需要時可以隨時返回概念卡。",
+  "en": "Learn common factors, grouping, square identities and the cross-method. Study a method, follow a worked example, then try a few questions. Return to the concepts whenever needed."
  },
  "cmdHints": [
   {
@@ -32,7 +32,7 @@ window.LEARN_TOPIC_WS01 = {
   },
   {
    "en": "Hence",
-   "zh": "由此（要用上一部的結果，這是卷一的固定套路）"
+   "zh": "由此：展示如何使用上一部的結果"
   }
  ],
  "lessons": [
@@ -47,15 +47,15 @@ window.LEARN_TOPIC_WS01 = {
      "id": "ws01-c1",
      "topic": "ws01",
      "title": {
-      "zh": "第一步永遠：抽公因式 (Taking out the Common Factor)",
-      "en": "Step 1: Take out the Common Factor"
+      "zh": "抽公因式：每一項都要有",
+      "en": "Common factors: shared by every term"
      },
      "body": {
-      "zh": "因式分解 (Factorization) 就是把一個多項式寫成「幾個因式相乘」的形態。面對任何因式分解題目，第一步永遠是先觀察各項有沒有公因式 (Common Factor) 可以提取。\n例如：$6r^{2}+4rs$ 的兩項都含有 $2r$，提取之後括號內剩下 $3r+2s$：{{math:0}}\n完成提取後必須養成檢查習慣：把結果展開 (Expansion)，能夠完全回到原式才算正確：{{math:1}}",
-      "en": "Factorization means writing a polynomial as a product of factors. For any factorisation question, the first step is always to look for a common factor in every term.\nFor example, both terms of $6r^{2}+4rs$ contain $2r$, so taking it out leaves $3r+2s$ inside the bracket: {{math:0}}\nAfter taking out the common factor, make a habit of checking by expanding the result — it must give back the original expression: {{math:1}}"
+      "zh": "因式分解，是把一個式子寫成幾個因式相乘。先找每一項都有的因式。\n$6r^{2}$ 與 $4rs$ 都有 $2r$；提出後，分別留下 $3r$ 與 $2s$。{{math:0}}\n把結果展開，檢查每一項能否回到原式。{{math:1}}",
+      "en": "Factorisation rewrites an expression as a product. Start with a factor shared by every term.\nBoth $6r^{2}$ and $4rs$ contain $2r$. Taking it out leaves $3r$ and $2s$.{{math:0}}\nExpand the result and check that every term matches the original.{{math:1}}"
      },
      "math": [
-      "\\hl{6r^{2}}+\\hl{4rs}=\\hl{2r}(\\hlg{3r+2s})",
+      "6r^{2}+4rs=\\hl{2r}(3r+2s)",
       "2r(3r+2s)=6r^{2}+4rs"
      ],
      "vocab": [
@@ -77,24 +77,50 @@ window.LEARN_TOPIC_WS01 = {
       }
      ],
      "warn": {
-      "zh": "若首項帶有負號（例如 $-r^{3}-r^{2}s$），必須把負號連同公因式一併提出：$-r^{2}(r+s)$。抽完公因式後，切記檢查括號內是否仍能徹底分解 (Factorize Completely)。",
-      "en": "If the first term is negative (e.g. $-r^{3}-r^{2}s$), take the minus sign out together with the common factor: $-r^{2}(r+s)$. And always check whether the bracket can be factorized further (factorize completely)."
+      "zh": "提出負公因式可以令括號較易處理，但不是唯一做法。例：$-r^{3}-r^{2}s=-r^{2}(r+s)$。每一項都必須除以同一個公因式。",
+      "en": "A negative common factor can make the bracket easier to handle, but is not compulsory. For example, $-r^{3}-r^{2}s=-r^{2}(r+s)$. Divide every term by the same factor."
+     },
+     "goal": {
+      "zh": "找出各項共同的數字與字母。",
+      "en": "Find the numbers and letters shared by all terms."
+     },
+     "recall": {
+      "prompt": {
+       "zh": "先不看例子：$12x+18$ 的係數，最大公因數是多少？",
+       "en": "Without looking back: what is the highest common factor of the coefficients in $12x+18$?"
+      },
+      "options": [
+       {
+        "math": "6"
+       },
+       {
+        "math": "3"
+       },
+       {
+        "math": "12"
+       }
+      ],
+      "answer": 0,
+      "explanation": {
+       "zh": "答案是 $6$，因為 $12=6\\times2$、$18=6\\times3$。$3$ 亦能同時整除 $12$ 與 $18$，但不是最大的。",
+       "en": "The answer is $6$: $12=6\\times2$ and $18=6\\times3$. Although $3$ is a common factor, it is not the highest."
+      }
      }
     },
     {
      "id": "ws01-c2",
      "topic": "ws01",
      "title": {
-      "zh": "四項怎麼辦：併項分組",
-      "en": "Four Terms: Grouping"
+      "zh": "併項分組：找相同的括號",
+      "en": "Grouping: find a shared bracket"
      },
      "body": {
-      "zh": "四項而又沒有全部共同的公因式時，用 grouping（併項分組）：把四項分成兩組，每組各自抽公因式，然後兩組會出現相同的括號，再把那括號抽走。\n例：$hk+1+h+k$，先把項調位再分組：{{math:0}}\n重點提示一：後兩項抽不出字母時，其實是抽出了 $+1$；把括號抽走後，該位置會留下 $+1$，不是消失。\n重點提示二：分組後兩個括號必須一模一樣。若只差一個負號，抽 $-1$ 出來就一樣了：{{math:1}}",
-      "en": "When there are four terms and no factor common to all of them, use grouping: split the four terms into two pairs, take out the common factor of each pair, and the same bracket should then appear in both pairs — take that bracket out.\nExample: $hk+1+h+k$ — rearrange the terms first, then group: {{math:0}}\nNote 1: when the last two terms share no letter, you are in fact taking out $+1$; that $+1$ stays inside the bracket, it does not disappear.\nNote 2: the two brackets must be identical. If they differ only by a minus sign, take out $-1$ and they match: {{math:1}}"
+      "zh": "四項式可以先嘗試分成兩組；目標是讓每組提出公因式後，留下相同的括號。\n例：先把 $hk+1+h+k$ 調位，再分組。{{math:0}}\n第二組其實是 $1(k+1)$，所以提出 $(k+1)$ 後，仍要留下 $+1$。\n兩組相差負號時，可先提出 $-1$。{{math:1}}",
+      "en": "For four terms, try two pairs. Aim to leave the same bracket after taking out a common factor from each pair.\nFirst rearrange $hk+1+h+k$, then group.{{math:0}}\nThe second group is $1(k+1)$, so taking out $(k+1)$ still leaves $+1$.\nIf the brackets have opposite signs, take out $-1$ first.{{math:1}}"
      },
      "math": [
-      "hk+1+h+k=hk+h+k+1\n=h\\hl{(k+1)}+\\hlw{1}\\hl{(k+1)}\n=\\hlg{(k+1)(h+1)}",
-      "ab-ac-b+c\n=a\\hl{(b-c)}\\hlw{-}\\hl{(b-c)}\n=\\hlg{(b-c)(a-1)}"
+      "hk+1+h+k=hk+h+k+1\n=h\\hl{(k+1)}+1\\hl{(k+1)}\n=\\hl{(k+1)}(h+1)",
+      "ab-ac-b+c=a\\hl{(b-c)}-\\hl{(b-c)}\n=\\hl{(b-c)}(a-1)"
      ],
      "vocab": [
       {
@@ -107,25 +133,51 @@ window.LEARN_TOPIC_WS01 = {
       }
      ],
      "warn": {
-      "zh": "$h+a$ 與 $a+h$ 是同一個數（加法交換律），不要因為次序倒轉就以為分組失敗。",
-      "en": "$h+a$ and $a+h$ are the same number (addition is commutative), so do not think grouping has failed just because the order is reversed."
+      "zh": "$a+h=h+a$，加法調位不改變值；但 $a-h=-(h-a)$，減法調位要處理負號。",
+      "en": "Addition can be reordered: $a+h=h+a$. Subtraction needs a sign change: $a-h=-(h-a)$."
+     },
+     "goal": {
+      "zh": "先分組，再把相同括號視作一個因式。",
+      "en": "Group terms, then treat the shared bracket as one factor."
+     },
+     "recall": {
+      "prompt": {
+       "zh": "提出共同括號後，$x(y+1)+(y+1)$ 變成甚麼？",
+       "en": "What does $x(y+1)+(y+1)$ become after taking out the shared bracket?"
+      },
+      "options": [
+       {
+        "math": "x(y+1)"
+       },
+       {
+        "math": "(y+1)(x+1)"
+       },
+       {
+        "math": "(y+1)(x+y)"
+       }
+      ],
+      "answer": 1,
+      "explanation": {
+       "zh": "第二項是 $1(y+1)$，所以提出 $(y+1)$ 後留下 $x+1$。",
+       "en": "The second term is $1(y+1)$, so taking out $(y+1)$ leaves $x+1$."
+      }
      }
     },
     {
      "id": "ws01-c3",
      "topic": "ws01",
      "title": {
-      "zh": "背熟三條恆等式",
-      "en": "Three Identities to Memorise"
+      "zh": "恆等式：先辨認形狀",
+      "en": "Identities: recognise the pattern"
      },
      "body": {
-      "zh": "三條恆等式要背熟，看見就直接用：\n平方差{{math:0}}\n完全平方（和）{{math:1}}\n完全平方（差）{{math:2}}\n判斷方法：兩項而且「平方減平方」→ 平方差；三項時看首尾是否平方、中間是否等於 $2ab$ → 完全平方。",
-      "en": "Learn the three identities by heart and use them on sight:\nDifference of two squares{{math:0}}\nPerfect square (sum){{math:1}}\nPerfect square (difference){{math:2}}\nHow to decide: two terms with “square minus square” → difference of two squares; three terms → check whether the first and last are squares and the middle equals $2ab$ → perfect square."
+      "zh": "兩項相減，而且每項都可寫成平方：用平方差。{{math:0}}\n三項相加：首尾是平方，中間項必須是 $2uv$，才是完全平方。{{math:1}}\n中間項是 $-2uv$ 時，括號內用減號。{{math:2}}\n先辨認整個形狀，再把題目的數或式子放入 $u$、$v$。",
+      "en": "Two subtracted terms that are both squares: use the difference of two squares.{{math:0}}\nFor three terms, square terms at both ends are not enough: the middle term must be $2uv$.{{math:1}}\nWhen the middle term is $-2uv$, use a minus in the bracket.{{math:2}}\nRecognise the whole pattern, then substitute the given numbers or expressions for $u$ and $v$."
      },
      "math": [
-      "\\hl{a^{2}}-\\hl{b^{2}}=\\hlg{(a+b)(a-b)}",
-      "a^{2}+\\hlw{2ab}+b^{2}=\\hlg{(a+b)^{2}}",
-      "a^{2}\\hlw{-2ab}+b^{2}=\\hlg{(a-b)^{2}}"
+      "u^{2}-v^{2}=\\hlg{(u+v)(u-v)}",
+      "u^{2}+\\hlw{2uv}+v^{2}=\\hlg{(u+v)^{2}}",
+      "u^{2}\\hlw{-2uv}+v^{2}=\\hlg{(u-v)^{2}}"
      ],
      "vocab": [
       {
@@ -142,24 +194,50 @@ window.LEARN_TOPIC_WS01 = {
       }
      ],
      "warn": {
-      "zh": "$a^{2}+b^{2}$ 是不能分解的（常見錯）。負號開頭如 $-3a^{2}+12a-12$，先把 $-3$ 抽出來，題目會立刻變簡單。",
-      "en": "$a^{2}+b^{2}$ cannot be factorized — a very common mistake. When an expression starts with a minus sign, e.g. $-3a^{2}+12a-12$, take out $-3$ first and it becomes much easier."
+      "zh": "$u^{2}+v^{2}$ 不能套用平方差；在本課的實係數範圍，一般不能分成兩個一次因式。完全平方則要核對中間項，不能只看首尾。",
+      "en": "$u^{2}+v^{2}$ is not a difference of squares; over the real coefficients used here, it does not generally split into linear factors. For a perfect square, always check the middle term."
+     },
+     "goal": {
+      "zh": "分清平方差與完全平方。",
+      "en": "Distinguish a difference of squares from a perfect square."
+     },
+     "recall": {
+      "prompt": {
+       "zh": "$9x^{2}-16$ 符合哪一個分解？",
+       "en": "Which factorisation matches $9x^{2}-16$?"
+      },
+      "options": [
+       {
+        "math": "(3x-4)^{2}"
+       },
+       {
+        "math": "(9x-4)(x+4)"
+       },
+       {
+        "math": "(3x+4)(3x-4)"
+       }
+      ],
+      "answer": 2,
+      "explanation": {
+       "zh": "$9x^{2}=(3x)^{2}$、$16=4^{2}$，所以用 $(u+v)(u-v)$。",
+       "en": "Since $9x^{2}=(3x)^{2}$ and $16=4^{2}$, use $(u+v)(u-v)$."
+      }
      }
     },
     {
      "id": "ws01-c4",
      "topic": "ws01",
      "title": {
-      "zh": "二次三項式：十字相乘法 (Cross-method)",
-      "en": "Quadratic Trinomials: Cross-method"
+      "zh": "十字相乘：核對中間項",
+      "en": "Cross-method: check the middle term"
      },
      "body": {
-      "zh": "$ax^{2}+bx+c$ 這種三項式 (Trinomial) 若不符合完全平方恆等式，則需使用十字相乘法 (Cross-method)：把首項係數 (Coefficient) 與常數項 (Constant Term) 各拆成兩個因式並排成十字，交叉相乘後相加，總和必須完全吻合中間項。\n例如 $x^{2}-5x+6$：$(-2)+(-3)=-5$ 正好吻合中間項，所以{{math:0}}\n當二次項係數 $a \\neq 1$ 時，需要嘗試多種因數組合：{{math:1}}",
-      "en": "If the trinomial $ax^{2}+bx+c$ does not fit a perfect-square identity, use the cross-method: split the coefficient of $x^{2}$ and the constant term into factors, arrange them in a cross, multiply across and add — the sum must match the middle term exactly.\nFor example $x^{2}-5x+6$: the middle term matches because $(-2)+(-3)=-5$, so{{math:0}}\nWhen the coefficient of $x^{2}$ is not 1 you may have to try several factor combinations: {{math:1}}"
+      "zh": "對二次三項式，先找兩個一次因式的候選。首項乘積與末項乘積都要對。\n係數是 $1$ 的例子：$(-2)(-3)=6$，而 $(-2)+(-3)=-5$。{{math:0}}\n係數不是 $1$ 時，要交叉相乘再相加。本例 $3x-10x=-7x$。{{math:1}}\n首尾對、中間也對，才可以寫成這兩個因式。",
+      "en": "For a quadratic trinomial, choose two candidate linear factors. Their leading and constant products must match.\nWith leading coefficient $1$, $(-2)(-3)=6$ and $(-2)+(-3)=-5$.{{math:0}}\nWith a different leading coefficient, add the cross products. Here $3x-10x=-7x$.{{math:1}}\nAccept the factor pair only when both ends and the middle term match."
      },
      "math": [
       "x^{2}-5x+6=\\hlg{(x-2)(x-3)}",
-      "6x^{2}\\hlw{-7x}-5=(\\hl{2x}\\hlw{+1})(\\hlw{3x}\\hl{-5})"
+      "6x^{2}-7x-5=\\hlg{(2x+1)(3x-5)}"
      ],
      "vocab": [
       {
@@ -180,8 +258,47 @@ window.LEARN_TOPIC_WS01 = {
       }
      ],
      "warn": {
-      "zh": "因式拆解後必須透過「交叉相乘再相加」核對中間項的正負號。\n計算機保底技巧（香港考評局准用型號）：\n1. Casio fx-50FH II：按 FMLA 01，輸入 $a$、$b$、$c$ 求兩根；\n2. Casio fx-3650P II：執行內置的二次方程程式（一般為 Prog 1），同樣輸入 $a$、$b$、$c$。\n黃金反推口訣：根 $x=\\frac{p}{q}$ → 因式 $(qx-p)$（分母移給未知數、分子變號）；整數根 $x=k$ → 因式 $(x-k)$。\n例：$2x^{2}+5x-12=0$ 得 $x=\\frac{3}{2}$ 與 $x=-4$，因式即 $(2x-3)(x+4)$。\n雙變數技巧：$3x^{2}+7xy+2y^{2}$ 先當 $y=1$，輸入 $a=3$、$b=7$、$c=2$ 得根 $-\\frac{1}{3}$ 與 $-2$，寫成 $(3x+1)(x+2)$，最後在常數項補回 $y$ → $(3x+y)(x+2y)$。",
-      "en": "After splitting the terms, always check the sign of the middle term by cross-multiplying and adding.\nCalculator safety net (HKEAA-approved models):\n1. Casio fx-50FH II: press FMLA 01 and enter $a$, $b$, $c$ to get the two roots;\n2. Casio fx-3650P II: run the built-in quadratic program (usually Prog 1) and enter $a$, $b$, $c$.\nGolden rule: a root $x=\\frac{p}{q}$ gives the factor $(qx-p)$ (denominator moves to the unknown, numerator changes sign); an integer root $x=k$ gives $(x-k)$.\nExample: $2x^{2}+5x-12=0$ gives $x=\\frac{3}{2}$ and $x=-4$, so the factors are $(2x-3)(x+4)$.\nTwo-variable trick: for $3x^{2}+7xy+2y^{2}$, treat $y$ as $1$, enter $a=3$, $b=7$, $c=2$ to get $-\\frac{1}{3}$ and $-2$, write $(3x+1)(x+2)$, then put $y$ back to get $(3x+y)(x+2y)$."
+      "zh": "當首項係數為正：末項係數為負，兩個常數項異號；末項係數為正，兩個常數項同號。中間項再決定具體配對。",
+      "en": "With a positive leading coefficient, a negative constant term requires constants of opposite signs; a positive constant term requires matching signs. Then check the middle term to choose the pairing."
+     },
+     "goal": {
+      "zh": "首尾配對後，用交叉積的和驗證。",
+      "en": "After matching the ends, verify the sum of the cross products."
+     },
+     "recall": {
+      "prompt": {
+       "zh": "哪組因式的交叉積相加是 $+5x$？",
+       "en": "Which pair has cross products that add to $+5x$?"
+      },
+      "options": [
+       {
+        "math": "(2x+1)(x-3)"
+       },
+       {
+        "math": "(2x-1)(x+3)"
+       },
+       {
+        "math": "(2x-3)(x+1)"
+       }
+      ],
+      "answer": 1,
+      "explanation": {
+       "zh": "$(2x)(3)+(-1)(x)=6x-x=5x$，末項亦是 $-3$。",
+       "en": "$(2x)(3)+(-1)(x)=6x-x=5x$, and the constant product is $-3$."
+      }
+     },
+     "crossExample": {
+      "factors": [
+       "2x",
+       "+1",
+       "3x",
+       "-5"
+      ],
+      "products": [
+       "(2x)(-5)=-10x",
+       "(1)(3x)=3x"
+      ],
+      "sum": "-10x+3x=-7x"
      }
     }
    ],
@@ -226,8 +343,8 @@ window.LEARN_TOPIC_WS01 = {
          "en": "Step 1 · Read the question"
         },
         "math": "",
-        "zh": "題目要求因式分解 (Factorize)。(a) 部為二次三項式，使用十字相乘法 (Cross-method)；(b) 部由四項組成。香港文憑試卷一的固定命題邏輯為「(b) 部必須套用 (a) 部的結論」（題目常附帶指引詞 Hence / 由此）。切勿把 (b) 部由頭展開重做，而 (a) 部一定要先做對，才能取得後續的方法分 (M mark)。",
-        "en": "The question says Factorize. Part (a) is a quadratic trinomial, so use the cross-method; part (b) has four terms. In HKDSE Paper 1 the wording is almost always “(b) uses the result of (a)” (look for Hence). Do not expand (b) again from scratch — and (a) must be right first, or the method mark that follows is lost."
+        "zh": "(a) 是二次三項式，可用十字相乘。(b) 有五項；先找與 (a) 相同或相反的那三項，把它們當成一組。",
+        "en": "Part (a) is a quadratic trinomial. In the five terms of (b), look for a group that matches (a), possibly with all signs reversed."
        },
        {
         "title": {
@@ -235,12 +352,12 @@ window.LEARN_TOPIC_WS01 = {
          "en": "Step 2 · Factorize (a)"
         },
         "math": "15x^{2}+xy-2y^{2}=\\hlg{(3x-y)(5x+2y)}",
-        "zh": "首項 $15x^{2}$ 拆成 $3x\\cdot 5x$，末項 $-2y^{2}$ 拆成 $(-y)\\cdot(+2y)$。交叉相乘檢查中間項：$(3x)(+2y)+(-y)(5x)=6xy-5xy=xy$，與題目的 $+xy$ 相符，所以分解正確。這一步是 A 分，答案寫對就有分。",
+        "zh": "首項 $15x^{2}$ 拆成 $3x\\cdot 5x$，末項 $-2y^{2}$ 拆成 $(-y)\\cdot(+2y)$。交叉相乘檢查中間項：$(3x)(+2y)+(-y)(5x)=6xy-5xy=xy$，與題目的 $+xy$ 相符，所以分解正確。",
         "marking": "(1A)",
         "highlight": [
          "(3x-y)(5x+2y)"
         ],
-        "en": "Split the leading term $15x^{2}$ into $3x\\cdot 5x$ and the last term $-2y^{2}$ into $(-y)\\cdot(+2y)$. Cross-check the middle term: $(3x)(+2y)+(-y)(5x)=6xy-5xy=xy$, which matches the given $+xy$, so the factorization is correct. This is the A mark — writing the right answer earns it."
+        "en": "Split the leading term $15x^{2}$ into $3x\\cdot 5x$ and the last term $-2y^{2}$ into $(-y)\\cdot(+2y)$. Cross-check the middle term: $(3x)(+2y)+(-y)(5x)=6xy-5xy=xy$, which matches the given $+xy$, so the factorization is correct. "
        },
        {
         "title": {
@@ -248,11 +365,11 @@ window.LEARN_TOPIC_WS01 = {
          "en": "Step 3 · Group the terms in (b)"
         },
         "math": "9x-3y-15x^{2}-xy+2y^{2}\n=(9x-3y)\\hlw{-}(\\hl{15x^{2}+xy-2y^{2}})",
-        "zh": "四項要用併項分組。看見後三項 $-15x^{2}-xy+2y^{2}$ 的係數符號剛好與 (a) 完全相反。把負號抽出並加括號時，括號內每一項都要同時變號：$-15x^{2}$ 變 $+15x^{2}$、$-xy$ 變 $+xy$、$+2y^{2}$ 變 $-2y^{2}$，即 $-(15x^{2}+xy-2y^{2})$。這一步是卷一必考位，漏變號就無法套用 (a) 的結果。",
+        "zh": "後三項的符號與 (a) 相反。提出負號時，每一項都要變號，才會得到 $-(15x^{2}+xy-2y^{2})$。",
         "highlight": [
          "(9x-3y)-(15x^{2}+xy-2y^{2})"
         ],
-        "en": "Four terms mean grouping. Notice that the last three terms $-15x^{2}-xy+2y^{2}$ have exactly the opposite signs of the expression in (a). When you take out a minus sign and put in brackets, every term inside changes sign: $-15x^{2}\\to+15x^{2}$, $-xy\\to+xy$, $+2y^{2}\\to-2y^{2}$, giving $-(15x^{2}+xy-2y^{2})$. This is a Paper 1 standard step; miss the sign change and you cannot use (a)."
+        "en": "The last three terms have the opposite signs to (a). Taking out a minus changes every sign inside, giving $-(15x^{2}+xy-2y^{2})$."
        },
        {
         "title": {
@@ -260,7 +377,7 @@ window.LEARN_TOPIC_WS01 = {
          "en": "Step 4 · Use the result of (a)"
         },
         "math": "=\\hl{3}\\hl{(3x-y)}-\\hl{(3x-y)}(5x+2y)",
-        "zh": "兩邊各自抽公因式：$9x-3y=3(3x-y)$；括號內再用 (a) 的答案 $15x^{2}+xy-2y^{2}=(3x-y)(5x+2y)$。這一步「用上一部的結果」就是 M 分。",
+        "zh": "$9x-3y=3(3x-y)$；另一組用 (a) 的結果。兩組現在都含有 $(3x-y)$。",
         "marking": "(1M: Use the result of (a).)",
         "highlight": [
          "3(3x-y)-(3x-y)(5x+2y)"
@@ -269,7 +386,7 @@ window.LEARN_TOPIC_WS01 = {
          "from": "(a)",
          "math": "15x^{2}+xy-2y^{2}=(3x-y)(5x+2y)"
         },
-        "en": "Take out the common factor of each piece: $9x-3y=3(3x-y)$; inside the bracket use the answer of (a), $15x^{2}+xy-2y^{2}=(3x-y)(5x+2y)$. Using the previous part here is exactly the M mark."
+        "en": "$9x-3y=3(3x-y)$; replace the other group using (a). Both groups now contain $(3x-y)$."
        },
        {
         "title": {
@@ -277,12 +394,12 @@ window.LEARN_TOPIC_WS01 = {
          "en": "Step 5 · Factor out the common bracket, then remove the square brackets"
         },
         "math": "=\\hl{(3x-y)}[3\\hlw{-}(5x+2y)]\n=\\hlg{(3x-y)(3\\xf{-5x}\\xf{-2y})}",
-        "zh": "抽出共同括號 $(3x-y)$ 之後，餘下的部分先用中括號整組包住：$[3-(5x+2y)]$。中括號前的減號必須逐項分配：$-(+5x)=-5x$、$-(+2y)=-2y$。寫的時候一定要把中括號這一步寫出來，靠心算跳步是最常見的失分位（很多同學會寫成 $3-5x+2y$）。",
+        "zh": "提出 $(3x-y)$ 後，餘下 $3-(5x+2y)$。先保留括號，再逐項分配負號：$-5x-2y$。",
         "marking": "(1A)",
         "highlight": [
          "(3x-y)(3-5x-2y)"
         ],
-        "en": "After factorizing out $(3x-y)$, keep the remainder inside square brackets: $[3-(5x+2y)]$. The minus in front must be distributed to every term: $-(+5x)=-5x$ and $-(+2y)=-2y$. Always write the square-bracket step down — doing it in your head is the classic way to write $3-5x+2y$."
+        "en": "Taking out $(3x-y)$ leaves $3-(5x+2y)$. Keep the bracket before distributing the minus to get $-5x-2y$."
        }
       ],
       "traps": [
@@ -306,19 +423,23 @@ window.LEARN_TOPIC_WS01 = {
        }
       ],
       "tip": {
-       "zh": "卷一的因式分解題幾乎都是「(a) 先分一個，(b) 再用 (a)」。(b) 見到四項，先想「哪幾項是 (a) 的式子」，把它們用括號包起來，題目就通了。",
-       "en": "Paper 1 factorisation questions are almost always “(a) factorize one expression, (b) use (a)”. In (b), when you see four terms, ask which of them are the expression from (a), bracket them, and the question opens up."
+       "zh": "先把與 (a) 相同的三項圈成一組，再整理餘下兩項，找出共同因式。",
+       "en": "Group the three terms that match (a), then factor the remaining pair to find the common factor."
       },
       "alt": [
        {
         "name": {
-         "zh": "計算機保底：Formula 01 求根反推因式",
-         "en": "Calculator safety net: roots by Formula 01, then read off the factors"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding term by term"
         },
-        "zh": "把 $y$ 當作 $1$，$15x^{2}+xy-2y^{2}$ 就變成 $15x^{2}+x-2$。用 DSE 准用計算機（Casio fx-50FH II：按 FMLA 01）輸入 $a=15$、$b=1$、$c=-2$，得兩根 $x=\\frac{1}{3}$ 與 $x=-\\frac{2}{5}$。由根反推因式：$x=\\frac{1}{3}\\Rightarrow(3x-1)$、$x=-\\frac{2}{5}\\Rightarrow(5x+2)$，即 $(3x-1)(5x+2)$；最後把 $y$ 補回每個 $x$ 後面：$(3x-y)(5x+2y)$。（口訣：分母移給 $x$、分子變號 —— 根 $x=\\frac{p}{q}$ 對應因式 $(qx-p)$。）",
-        "en": "Treat $y$ as $1$, so $15x^{2}+xy-2y^{2}$ becomes $15x^{2}+x-2$. On a DSE-approved calculator (Casio fx-50FH II: press FMLA 01) enter $a=15$, $b=1$, $c=-2$ to get $x=\\frac{1}{3}$ and $x=-\\frac{2}{5}$. Turn each root into a factor: $x=\\frac{1}{3}\\Rightarrow(3x-1)$ and $x=-\\frac{2}{5}\\Rightarrow(5x+2)$, i.e. $(3x-1)(5x+2)$. Finally put $y$ back after each $x$: $(3x-y)(5x+2y)$. Rule of thumb: the denominator moves to $x$, the numerator changes sign."
+        "zh": "把 $(3x-y)(3-5x-2y)$ 展開，得 $9x-3y-15x^{2}-xy+2y^{2}$。每一項都要與 (b) 相同，特別留意 $xy$ 與 $y^{2}$ 的符號。",
+        "en": "Expand $(3x-y)(3-5x-2y)$ to obtain $9x-3y-15x^{2}-xy+2y^{2}$. Check every term against (b), especially the signs of $xy$ and $y^{2}$."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -385,8 +506,8 @@ window.LEARN_TOPIC_WS01 = {
          "en": "Step 1 · Read the question"
         },
         "math": "",
-        "zh": "(a) 部為二次三項式，經檢驗符合完全平方 (Perfect Square) 恆等式；(b) 部包含 $(5c+d)^{2}$ 減去三項多項式。根據文憑試常見題型，必須把後三項抽負號分組，轉化為 (a) 部的結果，再進一步利用平方差 (Difference of Two Squares) 完成徹底分解。",
-        "en": "Part (a) is a quadratic trinomial that fits the perfect-square identity; part (b) is $(5c+d)^{2}$ minus a three-term polynomial. As usual, take a minus sign out of the last three terms and bracket them so that the result of (a) appears; then finish with the difference of two squares."
+        "zh": "(a) 可寫成完全平方。(b) 後三項恰好是 (a) 的相反數；先整組提出負號，再用平方差。",
+        "en": "Part (a) is a perfect square. The last three terms in (b) are its negative: take out the minus, then use the difference of two squares."
        },
        {
         "title": {
@@ -394,12 +515,12 @@ window.LEARN_TOPIC_WS01 = {
          "en": "Step 2 · Factorize (a)"
         },
         "math": "\\hl{16c^{2}-8c+1}=(\\hl{4c})^{2}\\hlw{-2(4c)(1)}+(\\hl{1})^{2}\n=\\hlg{(4c-1)^{2}}",
-        "zh": "首項 $16c^{2}=(4c)^{2}$、尾項 $1=1^{2}$、中間 $-8c=-2(4c)(1)$，完全符合 $a^{2}-2ab+b^{2}=(a-b)^{2}$，所以是 $(4c-1)^{2}$。這一步是 A 分。",
+        "zh": "首項 $16c^{2}=(4c)^{2}$、尾項 $1=1^{2}$、中間 $-8c=-2(4c)(1)$，完全符合 $a^{2}-2ab+b^{2}=(a-b)^{2}$，所以是 $(4c-1)^{2}$。",
         "marking": "(1A)",
         "highlight": [
          "(4c-1)^{2}"
         ],
-        "en": "Leading term $16c^{2}=(4c)^{2}$, last term $1=1^{2}$, middle term $-8c=-2(4c)(1)$ — exactly $a^{2}-2ab+b^{2}=(a-b)^{2}$, so the answer is $(4c-1)^{2}$. This is the A mark."
+        "en": "Leading term $16c^{2}=(4c)^{2}$, last term $1=1^{2}$, middle term $-8c=-2(4c)(1)$ — exactly $a^{2}-2ab+b^{2}=(a-b)^{2}$, so the answer is $(4c-1)^{2}$. "
        },
        {
         "title": {
@@ -478,19 +599,23 @@ window.LEARN_TOPIC_WS01 = {
        }
       ],
       "tip": {
-       "zh": "見到「$(5c+d)^{2}$ 減去一堆」，先想「後面那堆能不能變成一個平方」。把 (a) 的答案代進去之後，題目就由「四項分組」變成「平方差」，這是卷一最常見的兩步設計。",
-       "en": "When you see $(5c+d)^{2}$ minus a pile of terms, ask whether that pile can be turned into a square. After substituting the answer of (a), “four terms to group” becomes “difference of two squares” — the most common two-step design in Paper 1."
+       "zh": "先把後三項合成一個平方，再把兩個平方的底式各自視作一整塊。",
+       "en": "Make the last three terms into one square, then treat each base expression as a whole."
       },
       "alt": [
        {
         "name": {
-         "zh": "另解：完全展開後重新分組",
-         "en": "Alternative: expand everything, then regroup"
+         "zh": "展開驗算：核對全部係數",
+         "en": "Check by expanding all terms"
         },
-        "zh": "若看不出後三項是完全平方，可把 $(5c+d)^{2}$ 展開：$25c^{2}+10cd+d^{2}-16c^{2}+8c-1=9c^{2}+10cd+d^{2}+8c-1$，再做十字相乘得 $(9c+d-1)(c+d+1)$。這條路一定行得通，但要處理 $9c^{2}$、$10cd$、$d^{2}$ 三項，運算量多一倍；考試時建議優先用平方差。",
-        "en": "If the perfect square is hard to spot, expand $(5c+d)^{2}$: $25c^{2}+10cd+d^{2}-16c^{2}+8c-1=9c^{2}+10cd+d^{2}+8c-1$, then factor by the cross-method to get $(9c+d-1)(c+d+1)$. It always works, but you then handle three terms ($9c^{2}$, $10cd$, $d^{2}$), so the difference of two squares is the faster exam route."
+        "zh": "將兩個因式展開，再與 $(5c+d)^{2}-16c^{2}+8c-1$ 展開後的式子比較。每種項的係數都相同，才確認兩式恆等；只核對常數項並不足夠。",
+        "en": "Expand both factors and compare with the expansion of $(5c+d)^{2}-16c^{2}+8c-1$. Every coefficient must match to establish the identity; checking only the constant term is insufficient."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -541,8 +666,8 @@ window.LEARN_TOPIC_WS01 = {
          "en": "Step 1 · Negative leading term: take $-1$ out first"
         },
         "math": "\\hlw{-}4m^{2}+20mn-25n^{2}=\\hlw{-}(\\xf{4m^{2}}\\xf{-20mn}\\xf{+25n^{2}})",
-        "zh": "整條式三項，首項是 $-4m^{2}$。第一步一律把 $-1$ 抽出來（等於每一項都變號），括號內才用恆等式。這一步是方法分，寫了才有後面的分。",
-        "en": "The expression has three terms and the leading term is $-4m^{2}$. Take $-1$ out first (that flips every sign), then use an identity inside the bracket. This is the method mark.",
+        "zh": "先提出 $-1$，令括號內首項係數為正，較容易辨認完全平方。每一項都要變號。",
+        "en": "Take out $-1$ so the leading coefficient inside is positive and the perfect square is easier to recognise. Change every sign.",
         "marking": "(1M)"
        },
        {
@@ -560,7 +685,7 @@ window.LEARN_TOPIC_WS01 = {
          "en": "Step 3 · Write it as a square — keep the minus sign"
         },
         "math": "=\\hlg{-(2m-5n)^{2}}",
-        "zh": "答案是 $-(2m-5n)^{2}$。答題時外面的負號一定要抄，漏了的話展開就變回正數。",
+        "zh": "答案是 $-(2m-5n)^{2}$。外面的負號要保留；漏寫便會令展開後每一項的符號相反。",
         "en": "The answer is $-(2m-5n)^{2}$. Always copy the minus sign in front — drop it and expanding gives the wrong sign.",
         "marking": "(1A)"
        }
@@ -575,13 +700,13 @@ window.LEARN_TOPIC_WS01 = {
        {
         "label": "中間項符號錯",
         "labelEn": "Wrong sign in the middle term",
-        "zh": "寫成 $(2m+5n)^{2}$：那個展開是 $+20mn$，但題目是 $-20mn$，所以必須是 $(2m-5n)^{2}$。",
-        "en": "Writing $(2m+5n)^{2}$: that expands to $+20mn$, but the question has $-20mn$, so it must be $(2m-5n)^{2}$."
+        "zh": "提出 $-1$ 後，括號內的中間項是 $-20mn$。因此內括號是 $(2m-5n)^{2}$；原式外面的負號也要保留。",
+        "en": "After taking out $-1$, the middle term inside is $-20mn$. Thus the inner square is $(2m-5n)^{2}$, and the original leading minus must remain."
        }
       ],
       "tip": {
-       "zh": "看到三項而首項是負數：先抽 $-1$。剩下的不是 $a^{2}\\pm 2ab+b^{2}$ 就是十字相乘，一刀切開兩類。",
-       "en": "Three terms with a negative leading term: take $-1$ out first. What is left is either $a^{2}\\pm 2ab+b^{2}$ or a cross-method job."
+       "zh": "提出負號後，先查完全平方；若不符合，再試十字相乘。不是每個三項式都能用整數係數分解。",
+       "en": "After taking out a minus, check for a perfect square, then try the cross-method if needed. Not every trinomial factors over integer coefficients."
       },
       "alt": [
        {
@@ -589,10 +714,14 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "驗算：展開對回原式",
          "en": "Check: expand back to the original"
         },
-        "zh": "展開檢查：$-(2m-5n)^{2}=-(4m^{2}-20mn+25n^{2})=-4m^{2}+20mn-25n^{2}$，與原式相同。負號在括號外，展開時先平方、再整組變號，是最快的自我檢查。",
+        "zh": "展開檢查：$-(2m-5n)^{2}=-(4m^{2}-20mn+25n^{2})=-4m^{2}+20mn-25n^{2}$，與原式相同。負號在括號外，展開時先平方、再整組變號，可用來核對每個係數。",
         "en": "Expand to check: $-(2m-5n)^{2}=-(4m^{2}-20mn+25n^{2})=-4m^{2}+20mn-25n^{2}$, the original expression. With the minus outside, square first and then flip every sign — the quickest self-check for this type."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -643,8 +772,8 @@ window.LEARN_TOPIC_WS01 = {
          "en": "Step 2 · Cross-check the middle term"
         },
         "math": "x\\cdot 3y+y\\cdot x=3xy+xy=\\hl{4xy}",
-        "zh": "交叉相乘的兩個積相加要等於題目的中間項 $+4xy$。剛剛好，代表拆對了。這一步只花幾秒，卻可以救回一分。",
-        "en": "The two cross products must add up to the given middle term $+4xy$. They do, so the split is right. It takes seconds and saves a mark."
+        "zh": "交叉相乘的兩個積相加要等於題目的中間項 $+4xy$。剛剛好，代表拆對了。用交叉積核對中間項，才能確認這個配對。",
+        "en": "The two cross products must add up to the given middle term $+4xy$. They do, so the split is right. Checking the cross products confirms the pairing."
        },
        {
         "title": {
@@ -652,8 +781,8 @@ window.LEARN_TOPIC_WS01 = {
          "en": "Step 3 · Write the answer"
         },
         "math": "x^{2}+4xy+3y^{2}=\\hlg{(x+y)(x+3y)}",
-        "zh": "兩個括號內都是加號：因為末項 $+3y^{2}$ 是正數、中間項 $+4xy$ 也是正數。",
-        "en": "Both brackets take a plus sign: the last term $+3y^{2}$ is positive and the middle term $+4xy$ is positive too.",
+        "zh": "兩個常數部分都用加號，因為乘積要是 $+3y^{2}$，交叉積相加又要是 $+4xy$。這裡比較的是各項的係數，並非假設 $x$、$y$ 為正數。",
+        "en": "Both constant parts take a plus: their product must be $+3y^{2}$ and their cross products must sum to $+4xy$. This concerns coefficients, not an assumption that $x$ and $y$ are positive.",
         "marking": "(1A)"
        }
       ],
@@ -678,8 +807,8 @@ window.LEARN_TOPIC_WS01 = {
        }
       ],
       "tip": {
-       "zh": "末項含 $y^{2}$ → 兩個括號都要有 $y$；中間項決定兩個符號同號還是異號（正同負異）。",
-       "en": "If the last term contains $y^{2}$, both brackets need a $y$. The sign of the middle term decides whether the two signs match (same when positive, opposite when negative)."
+       "zh": "先看末項係數決定兩個常數項同號或異號，再核對中間項。這裡 $+3y^{2}$ 要同號，而 $+4xy$ 對應兩個加號。",
+       "en": "Use the constant coefficient to decide whether the constant terms have matching or opposite signs, then check the middle. Here $+3y^{2}$ needs matching signs and $+4xy$ selects two plus signs."
       },
       "alt": [
        {
@@ -687,10 +816,14 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "驗算：代 $x=1$、$y=2$",
          "en": "Check: substitute $x=1$, $y=2$"
         },
-        "zh": "代值驗算：取 $x=1$、$y=2$。原式 $=1+4(1)(2)+3(2)^{2}=1+8+12=21$；答案 $(x+y)(x+3y)=(1+2)(1+6)=21$，兩邊相同。拆到不肯定時，代一組小數字就可以立刻確認。",
-        "en": "Substitute values: take $x=1$, $y=2$. The original is $1+4(1)(2)+3(2)^{2}=1+8+12=21$; the answer gives $(x+y)(x+3y)=(1+2)(1+6)=21$ — the same. One small substitution confirms a doubtful split at once."
+        "zh": "代值驗算：取 $x=1$、$y=2$。原式 $=1+4(1)(2)+3(2)^{2}=1+8+12=21$；答案 $(x+y)(x+3y)=(1+2)(1+6)=21$，兩邊相同。拆到不肯定時，代一組小數字就可以立刻確認。 數值不相同可排除錯誤；一次代值相同不能證明恆等，仍應展開逐項核對。",
+        "en": "Substitute values: take $x=1$, $y=2$. The original is $1+4(1)(2)+3(2)^{2}=1+8+12=21$; the answer gives $(x+y)(x+3y)=(1+2)(1+6)=21$ — the same. One small substitution confirms a doubtful split at once. A numerical mismatch disproves the identity, but one match is not a proof; expand to compare every term."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -750,8 +883,8 @@ window.LEARN_TOPIC_WS01 = {
          "en": "Step 3 · Write the answer"
         },
         "math": "6m^{2}-11mn-10n^{2}=\\hlg{(2m-5n)(3m+2n)}",
-        "zh": "答案就是 $(2m-5n)(3m+2n)$。次序可以寫 $(3m+2n)(2m-5n)$，但符號要配對好，不要一個括號內同時改兩個符號。",
-        "en": "The answer is $(2m-5n)(3m+2n)$. Writing $(3m+2n)(2m-5n)$ is equally correct, but keep the signs paired — never flip two signs inside one bracket.",
+        "zh": "因式次序可以交換，寫成 $(3m+2n)(2m-5n)$ 也相同。只把其中一個因式改成相反數，則整個乘積會變號。",
+        "en": "The factors may be reordered: $(3m+2n)(2m-5n)$ is the same product. Negating only one factor changes the sign of the product.",
         "marking": "(1A)"
        }
       ],
@@ -765,8 +898,8 @@ window.LEARN_TOPIC_WS01 = {
        {
         "label": "首項拆成 $m\\cdot 6m$ 硬做",
         "labelEn": "Forcing $m\\cdot 6m$",
-        "zh": "拆成 $m\\cdot 6m$ 之後要試很多組才對得上 $-11mn$，浪費時間。係數先試「接近的拆法」。",
-        "en": "Splitting as $m\\cdot 6m$ needs many trial cases before $-11mn$ works — start with the closer split $2m\\cdot 3m$."
+        "zh": "若選 $m$ 與 $6m$，沒有整數常數配對能同時得到末項 $-10n^{2}$ 與中間項 $-11mn$。改試 $2m$ 與 $3m$。",
+        "en": "With leading factors $m$ and $6m$, no integer pairing matches both $-10n^{2}$ and $-11mn$. Try $2m$ and $3m$ instead."
        }
       ],
       "tip": {
@@ -779,10 +912,14 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "驗算：代 $m=1$、$n=1$",
          "en": "Check: substitute $m=1$, $n=1$"
         },
-        "zh": "代值驗算：取 $m=1$、$n=1$。原式 $=6-11-10=-15$；答案 $(2m-5n)(3m+2n)=(2-5)(3+2)=(-3)(5)=-15$。係數較大的十字相乘最容易配錯符號，代一組小數字是最便宜的保險。",
-        "en": "Substitute values: $m=1$, $n=1$. The original is $6-11-10=-15$; the answer gives $(2m-5n)(3m+2n)=(2-5)(3+2)=(-3)(5)=-15$. Cross-method with larger coefficients is where sign pairs go wrong, so one substitution is the cheapest insurance."
+        "zh": "代值驗算：取 $m=1$、$n=1$。原式 $=6-11-10=-15$；答案 $(2m-5n)(3m+2n)=(2-5)(3+2)=(-3)(5)=-15$。係數較大的十字相乘最容易配錯符號，代一組小數字是最便宜的保險。 數值不相同可排除錯誤；一次代值相同不能證明恆等，仍應展開逐項核對。",
+        "en": "Substitute values: $m=1$, $n=1$. The original is $6-11-10=-15$; the answer gives $(2m-5n)(3m+2n)=(2-5)(3+2)=(-3)(5)=-15$. Cross-method with larger coefficients is where sign pairs go wrong, so one substitution is the cheapest insurance. A numerical mismatch disproves the identity, but one match is not a proof; expand to compare every term."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -841,7 +978,7 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 3 步 · 把 $n$ 乘回去",
          "en": "Step 3 · Put the $n$ back"
         },
-        "math": "=\\hlg{n(2m+7)(m-2)}",
+        "math": "2m^{2}n+3mn-14n=\\hlg{n(2m+7)(m-2)}",
         "zh": "答案要保留外面的 $n$：$n(2m+7)(m-2)$。漏了 $n$ 就是漏了一個因式。",
         "en": "Keep the $n$ in the answer: $n(2m+7)(m-2)$. Dropping it means dropping a factor.",
         "marking": "(1A)"
@@ -862,19 +999,23 @@ window.LEARN_TOPIC_WS01 = {
        }
       ],
       "tip": {
-       "zh": "三項都含同一個字母 → 先抽公因式，括號內變回純係數十字相乘。這個「先抽後拆」的次序，幾乎每一年的卷一都合用。",
-       "en": "When every term shares a letter, take the common factor out first: inside the bracket it is a plain cross-method again. 'Factor out, then split' works almost every year."
+       "zh": "先提出所有項共有的 $n$，再分解括號內的二次三項式。最後檢查 $n$ 有沒有保留。",
+       "en": "Take out the shared $n$, factor the remaining trinomial, then check that $n$ is still present."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算：代 $m=1$、$n=1$（留意 $n\\ne0$）",
-         "en": "Check: substitute $m=1$, $n=1$ (keep $n\\ne0$)"
+         "zh": "代值排錯：用 $n=2$ 檢查有沒有漏因式",
+         "en": "Numerical error check: use $n=2$ to spot a missing factor"
         },
-        "zh": "代值驗算：取 $m=1$、$n=1$。原式 $=2+3-14=-9$；答案 $n(2m+7)(m-2)=1\\times9\\times(-1)=-9$。另外要檢查外面的 $n$ 有沒有漏 —— 代 $n=0$ 時兩邊都是 $0$，看不出分別，所以驗算一定要取 $n\\ne0$ 的值。",
-        "en": "Substitute values: $m=1$, $n=1$. The original is $2+3-14=-9$; the answer gives $n(2m+7)(m-2)=1\\times9\\times(-1)=-9$. Also check that the outside $n$ is still there — with $n=0$ both sides are $0$ and the omission hides, so a checking value must have $n\\ne0$."
+        "zh": "取 $m=1$、$n=2$，原式為 $4+6-28=-18$；答案為 $2(9)(-1)=-18$。若漏了外面的 $n$，只會得到 $-9$。$n=1$ 無法測出這個錯誤；一次代值相同仍不能證明恆等，最後應展開逐項核對。",
+        "en": "With $m=1$, $n=2$, the original is $4+6-28=-18$ and the answer is $2(9)(-1)=-18$. Dropping the outside $n$ gives only $-9$. Using $n=1$ would hide this error. A single numerical match is not a proof; finish by expanding term by term."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -933,9 +1074,9 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "第 3 步 · 寫答案，負號要留住",
          "en": "Step 3 · Write the answer and keep the minus"
         },
-        "math": "=\\hlg{-(4x-3y)(x-3y)}",
-        "zh": "答案 $-(4x-3y)(x-3y)$。如果想把負號收進括號寫成 $(3y-4x)(x-3y)$，也是等值，但兩者只可選其一，不可以兩個都做。",
-        "en": "The answer is $-(4x-3y)(x-3y)$. Absorbing the minus into a bracket, giving $(3y-4x)(x-3y)$, is equally correct — but do only one of the two.",
+        "math": "-4x^{2}+15xy-9y^{2}=\\hlg{-(4x-3y)(x-3y)}",
+        "zh": "可以保留外面的負號，也可把它乘進一個因式，例如 $(3y-4x)(x-3y)$。不要既保留外面的負號，又把一個因式變號。",
+        "en": "Keep the leading minus, or absorb it into one factor, for example $(3y-4x)(x-3y)$. Do not keep the outside minus and also negate one factor.",
         "marking": "(1A)"
        }
       ],
@@ -954,8 +1095,8 @@ window.LEARN_TOPIC_WS01 = {
        }
       ],
       "tip": {
-       "zh": "首項負數的十字相乘：抽 $-1$ → 括號內十字相乘 → 負號留在外面。三步固定，卷一只需半分鐘，是必搶的分。",
-       "en": "Cross-method with a negative leading term: take out $-1$, do the cross-method inside, then leave the minus outside. A fixed three-move routine worth easy Paper 1 marks."
+       "zh": "先提出 $-1$，在括號內做十字相乘，最後保留外面的負號。用展開檢查三項的係數。",
+       "en": "Take out $-1$, factor the inner trinomial, then keep the leading minus. Check all three coefficients by expansion."
       },
       "alt": [
        {
@@ -966,7 +1107,11 @@ window.LEARN_TOPIC_WS01 = {
         "zh": "展開驗算：$(4x-3y)(x-3y)=4x^{2}-12xy-3xy+9y^{2}=4x^{2}-15xy+9y^{2}$，加上外面的負號就是 $-4x^{2}+15xy-9y^{2}$，與原式相同。負號留到最後才整組變號，最不易出錯。",
         "en": "Expand to check: $(4x-3y)(x-3y)=4x^{2}-12xy-3xy+9y^{2}=4x^{2}-15xy+9y^{2}$; with the leading minus this is $-4x^{2}+15xy-9y^{2}$, the original expression. Keep the minus until the very end and flip the whole bracket once."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -1007,6 +1152,10 @@ window.LEARN_TOPIC_WS01 = {
        "D": "$6m(1+2n)$"
       },
       "review": null,
+      "practiceGoal": {
+       "zh": "本題選擇已分解完成的形式：提出公因式後，括號內亦要檢查。",
+       "en": "Choose the fully factorised form: take out common factors and check inside every bracket."
+      },
       "solution": {
        "steps": [
         {
@@ -1048,6 +1197,10 @@ window.LEARN_TOPIC_WS01 = {
        "tip": {
         "zh": "先抽係數的最大公因數，再看字母是否各項都有。抽完把答案展開檢查，是最穩的習慣。",
         "en": "Take out the HCF of the coefficients first, then check which letters appear in every term. Expanding your answer to check is the safest habit."
+       },
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
        }
       },
       "answer": "B",
@@ -1074,6 +1227,10 @@ window.LEARN_TOPIC_WS01 = {
        "D": "$-r(r^{2}+rs)$"
       },
       "review": null,
+      "practiceGoal": {
+       "zh": "本題選擇已分解完成的形式：提出公因式後，括號內亦要檢查。",
+       "en": "Choose the fully factorised form: take out common factors and check inside every bracket."
+      },
       "solution": {
        "steps": [
         {
@@ -1081,9 +1238,9 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 負號也一起抽",
           "en": "Step 1 · Take out the minus sign too"
          },
-         "math": "-r^{3}-r^{2}s=\\hl{-r^{2}}(r)\\hl{-r^{2}}(s)",
-         "zh": "兩項都有 $r^{2}$（$-r^{3}=-r^{2}\\cdot r$、$-r^{2}s=-r^{2}\\cdot s$），而且兩項都是負號，所以把 $-r^{2}$ 一次抽走最安全。",
-         "en": "Both terms contain $r^{2}$ ($-r^{3}=-r^{2}\\cdot r$ and $-r^{2}s=-r^{2}\\cdot s$), and both are negative, so factorizing out $-r^{2}$ in a single step is the safest move."
+         "math": "-r^{3}-r^{2}s=-r^{2}\\cdot r-r^{2}\\cdot s",
+         "zh": "兩項都含 $r^{2}$。這裡提出 $-r^{2}$，因為 $(-r^{2})r=-r^{3}$，而 $(-r^{2})s=-r^{2}s$。",
+         "en": "Both terms contain $r^{2}$. Take out $-r^{2}$ here: $(-r^{2})r=-r^{3}$ and $(-r^{2})s=-r^{2}s$."
         },
         {
          "title": {
@@ -1113,8 +1270,12 @@ window.LEARN_TOPIC_WS01 = {
         }
        ],
        "tip": {
-        "zh": "負號開頭的式子，把負號連公因式一起抽出來；抽完括號內通常全部變正號，最易檢查。",
-        "en": "For an expression that starts with a minus sign, take the minus out together with the common factor; the bracket then becomes all positive, which is easiest to check."
+        "zh": "本題兩項的係數都是負數，提出負公因式後，括號內兩項都變成正係數。混合符號的題目要逐項檢查。",
+        "en": "Both coefficients are negative here. A negative common factor leaves positive coefficients inside; for mixed signs, check each term separately."
+       },
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
        }
       },
       "answer": "C",
@@ -1141,6 +1302,10 @@ window.LEARN_TOPIC_WS01 = {
        "D": "$(2m+8)(m-4)$"
       },
       "review": null,
+      "practiceGoal": {
+       "zh": "本題選擇已分解完成的形式：提出公因式後，括號內亦要檢查。",
+       "en": "Choose the fully factorised form: take out common factors and check inside every bracket."
+      },
       "solution": {
        "steps": [
         {
@@ -1180,8 +1345,8 @@ window.LEARN_TOPIC_WS01 = {
         }
        ],
        "tip": {
-        "zh": "「抽完公因式，再看一眼括號」是 DSE 的必考習慣：很多題目抽完之後，括號內還有平方差或完全平方。",
-        "en": "“Take out the common factor, then look at the bracket again” is a DSE habit worth keeping: many questions hide a difference of squares or a perfect square inside."
+        "zh": "抽出公因式後，再檢查括號內能否用平方差或完全平方繼續分解。",
+        "en": "After taking out a common factor, check whether the bracket can be factored further using a difference of squares or a perfect square."
        },
        "alt": [
         {
@@ -1192,7 +1357,11 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "展開驗算：$2(m+4)(m-4)=2(m^{2}-16)=2m^{2}-32$，對回原式。想快一點可以先看選項：B 的括號未分完、D 的第一個括號仍有公因式 $2$，凡未「分得徹底」的都可以先刪。",
          "en": "Expand to check: $2(m+4)(m-4)=2(m^{2}-16)=2m^{2}-32$, back to the original. For speed, scan the options first: B leaves the bracket unfactorised and D still has a common factor $2$ in the first bracket — anything not factorised completely can be deleted at once."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "answer": "A",
       "verify": "checked"
@@ -1271,7 +1440,11 @@ window.LEARN_TOPIC_WS01 = {
          "zh": "快速檢查：平方差的兩個括號一定「一加一減」，其餘完全相同，所以答案必須長成 $(3x+5y)(3x-5y)$。A 是完全平方；B、D 展開後會多出 $xy$ 項（原式沒有中間項），三個都可以即時刪去。",
          "en": "Quick check: the two brackets of a difference of two squares are always “one plus, one minus” with everything else identical, so the answer must look like $(3x+5y)(3x-5y)$. A is a perfect square, and B and D gain an $xy$ term the original does not have — all three can be deleted on sight."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "answer": "C",
       "verify": "checked"
@@ -1338,6 +1511,10 @@ window.LEARN_TOPIC_WS01 = {
        "tip": {
         "zh": "括號外的常數若是平方數（例如 $16=4^{2}$），就可以直接用 $[( )+b][( )-b]$ 迅速化簡。",
         "en": "If the constant outside the bracket is a perfect square (e.g. $16=4^{2}$), you can go straight to $[( )+b][( )-b]$."
+       },
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
        }
       },
       "answer": "A",
@@ -1371,7 +1548,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 認出平方差",
           "en": "Step 1 · Recognise the pattern"
          },
-         "math": "\\hl{a^{2}-b^{2}=(a+b)(a-b)}",
+         "math": "(5c+d)^{2}-(3c-2)^{2}",
          "zh": "整題是「平方減平方」：$(5c+d)^{2}$ 減 $(3c-2)^{2}$。直接用平方差恆等式，不要展開那兩個平方（展開會多走很多步）。",
          "en": "The whole expression is square minus square: $(5c+d)^{2}$ minus $(3c-2)^{2}$. Use the difference of two squares straight away — expanding those squares costs many extra steps."
         },
@@ -1407,13 +1584,17 @@ window.LEARN_TOPIC_WS01 = {
         },
         {
          "opt": "D",
-         "zh": "$(8c+d-2)^{2}$ 是把平方差當成完全平方；平方差一定是兩個不同括號相乘。",
-         "en": "$(8c+d-2)^{2}$ treats a difference of squares as a perfect square; a difference of squares always gives two different brackets."
+         "zh": "這個選項把兩個不同的因式寫成同一個因式的平方。先保留 $U+V$ 與 $U-V$，再分別化簡。",
+         "en": "This option replaces two different factors with one repeated factor. Keep $U+V$ and $U-V$ separate before simplifying."
         }
        ],
        "tip": {
-        "zh": "平方差的兩個括號只有「中間那個符號」不同（一加一減），其餘完全相同。用這個特徵可以快速檢查答案。",
-        "en": "The two brackets of a difference of squares differ only in the middle sign (one plus, one minus) — everything else is identical, which makes checking quick."
+        "zh": "平方差先寫成 $(U+V)(U-V)$。當 $U$、$V$ 本身含多項，化簡後的兩個括號未必只差一個符號。",
+        "en": "Start with $(U+V)(U-V)$. If $U$ and $V$ contain several terms, the simplified brackets need not differ in only one sign."
+       },
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
        }
       },
       "answer": "A",
@@ -1460,7 +1641,7 @@ window.LEARN_TOPIC_WS01 = {
          },
          "math": "=\\hlg{(a-1)(b^{2}+a+3)}",
          "zh": "剩下的是 $b^{2}$ 與 $(a+3)$，加起來得 $b^{2}+a+3$。答案是 D。這題不用展開，看見相同括號就是「抽公因式」。",
-         "en": "What is left is $b^{2}$ and $(a+3)$, which add up to $b^{2}+a+3$. The answer is D. Nothing needs expanding — a repeated bracket always means “take out the common factor”."
+         "en": "The remaining terms are $b^{2}$ and $(a+3)$, giving $b^{2}+a+3$. The answer is D. This expression can be factored directly without expanding the repeated bracket."
         }
        ],
        "traps": [
@@ -1483,6 +1664,10 @@ window.LEARN_TOPIC_WS01 = {
        "tip": {
         "zh": "見到兩項有「一模一樣的括號」，直接把那括號當公因式抽走，不必先展開。",
         "en": "When two terms share an identical bracket, take that bracket out as the common factor instead of expanding."
+       },
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
        }
       },
       "answer": "D",
@@ -1517,7 +1702,7 @@ window.LEARN_TOPIC_WS01 = {
           "en": "Step 1 · Handle the reversed bracket"
          },
          "math": "(x-2y)^{2}\\hlw{-}(\\hl{2y-x})=(x-2y)^{2}\\hlw{+}(\\xf{x}\\xf{-2y})",
-         "zh": "關鍵：$2y-x=-(x-2y)$。所以「減去 $(2y-x)$」等於「加上 $(x-2y)$」。括號內次序倒轉要變號，是這類題的必考位。",
+         "zh": "關鍵：$2y-x=-(x-2y)$。所以「減去 $(2y-x)$」等於「加上 $(x-2y)$」。括號內次序倒轉要變號，要連同整組負號一起處理。",
          "en": "Key idea: $2y-x=-(x-2y)$. So “minus $(2y-x)$” is the same as “plus $(x-2y)$”. Reversing the order inside a bracket flips its sign — a favourite exam trap."
         },
         {
@@ -1533,8 +1718,8 @@ window.LEARN_TOPIC_WS01 = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$(x-2y)(x-2y-1)$ 是把「減 $(2y-x)$」當成「減 $(x-2y)$」，負號處理錯誤。展開後常數項符號不符。",
-         "en": "$(x-2y)(x-2y-1)$ treats “minus $(2y-x)$” as “minus $(x-2y)$” — the minus sign is handled wrongly and the constant term has the wrong sign when expanded."
+         "zh": "這個選項把減去 $(2y-x)$ 當成減去 $(x-2y)$。展開後，一次項的符號會與原式不同。",
+         "en": "This option treats subtracting $(2y-x)$ as subtracting $(x-2y)$. The linear terms then have the wrong signs."
         },
         {
          "opt": "C",
@@ -1557,10 +1742,14 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "驗算：代 $x=1$、$y=2$",
           "en": "Check: substitute $x=1$, $y=2$"
          },
-         "zh": "代值驗算：取 $x=1$、$y=2$。原式 $=(1-4)^{2}-(4-1)=9-3=6$；答案 $(x-2y)(x-2y+1)=(-3)(-2)=6$。其餘選項分別得 $12$、$27$、$-10$，全部不符 —— 次序倒轉的題目做完，代一組值是最後保險。",
-         "en": "Substitute values: $x=1$, $y=2$. The original is $(1-4)^{2}-(4-1)=9-3=6$; the answer gives $(x-2y)(x-2y+1)=(-3)(-2)=6$. The other options give $12$, $27$ and $-10$. After a reversed-order question, one substitution is the final safety net."
+         "zh": "代值驗算：取 $x=1$、$y=2$。原式 $=(1-4)^{2}-(4-1)=9-3=6$；答案 $(x-2y)(x-2y+1)=(-3)(-2)=6$。其餘選項分別得 $12$、$27$、$-10$，全部不符 —— 次序倒轉的題目做完，代一組值是最後保險。 數值不相同可排除錯誤；一次代值相同不能證明恆等，仍應展開逐項核對。",
+         "en": "Substitute values: $x=1$, $y=2$. The original is $(1-4)^{2}-(4-1)=9-3=6$; the answer gives $(x-2y)(x-2y+1)=(-3)(-2)=6$. The other options give $12$, $27$ and $-10$. After a reversed-order question, one substitution is the final safety net. A numerical mismatch disproves the identity, but one match is not a proof; expand to compare every term."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "answer": "B",
       "verify": "checked"
@@ -1615,8 +1804,8 @@ window.LEARN_TOPIC_WS01 = {
         },
         {
          "opt": "C",
-         "zh": "$(c-4)(d-3)$ 是第二組抽 $+3$ 時沒有變號；$3c-12=3(c-4)$，抽 $+3$ 括號內應是 $(c-4)$。",
-         "en": "$(c-4)(d-3)$ does not change signs when taking out $+3$: $3c-12=3(c-4)$, so the bracket must be $(c-4)$."
+         "zh": "第二組是 $+3(c-4)$，所以提出 $(c-4)$ 後留下 $+3$，不是 $-3$。",
+         "en": "The second group is $+3(c-4)$, so taking out $(c-4)$ leaves $+3$, not $-3$."
         },
         {
          "opt": "D",
@@ -1627,6 +1816,10 @@ window.LEARN_TOPIC_WS01 = {
        "tip": {
         "zh": "分組後兩個括號必須一模一樣；不一樣就換一種分法，不要硬做。",
         "en": "After grouping, the two brackets must be identical. If they are not, try another grouping — do not force it."
+       },
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
        }
       },
       "answer": "A",
@@ -1696,6 +1889,10 @@ window.LEARN_TOPIC_WS01 = {
        "tip": {
         "zh": "後兩項負號開頭時，抽負號出來，括號內次序跟著第一組寫（例如都寫成 $2m-n$），兩組就會一樣。",
         "en": "When the last two terms start with a minus, take the minus out and write the bracket in the same order as the first group (both as $2m-n$) so that the two match."
+       },
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
        }
       },
       "answer": "C",
@@ -1770,10 +1967,14 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "驗算：代 $h=2$、$a=3$、$k=5$",
           "en": "Check: substitute $h=2$, $a=3$, $k=5$"
          },
-         "zh": "代值驗算：取 $h=2$、$a=3$、$k=5$。原式 $=4+15+6+10=35$；答案 $(a+h)(h+k)=5\\times7=35$。其餘選項分別得 $-15$、$7$、$56$，全部不符。四個字母的題目最易抄錯，代一組小數字一次過驗完。",
-         "en": "Substitute values: $h=2$, $a=3$, $k=5$. The original is $4+15+6+10=35$; the answer gives $(a+h)(h+k)=5\\times7=35$. The other options give $-15$, $7$ and $56$. Four-letter questions are the easiest place to mis-copy, so one substitution checks everything."
+         "zh": "代值驗算：取 $h=2$、$a=3$、$k=5$。原式 $=4+15+6+10=35$；答案 $(a+h)(h+k)=5\\times7=35$。其餘選項分別得 $-15$、$7$、$56$，全部不符。四個字母的題目最易抄錯，代一組小數字一次過驗完。 數值不相同可排除錯誤；一次代值相同不能證明恆等，仍應展開逐項核對。",
+         "en": "Substitute values: $h=2$, $a=3$, $k=5$. The original is $4+15+6+10=35$; the answer gives $(a+h)(h+k)=5\\times7=35$. The other options give $-15$, $7$ and $56$. Four-letter questions are the easiest place to mis-copy, so one substitution checks everything. A numerical mismatch disproves the identity, but one match is not a proof; expand to compare every term."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "answer": "B",
       "verify": "checked"
@@ -1828,8 +2029,8 @@ window.LEARN_TOPIC_WS01 = {
         },
         {
          "opt": "B",
-         "zh": "$(2x-z)(x-4y)$ 是第二組抽 $+4y$ 時沒有變號；$8xy-4yz=4y(2x-z)$，外面是 $+4y$，括號內不變號。",
-         "en": "$(2x-z)(x-4y)$ does not change signs when taking out $+4y$: $8xy-4yz=4y(2x-z)$, so the bracket stays unchanged."
+         "zh": "第二組是 $+4y(2x-z)$。提出 $(2x-z)$ 後，$+4y$ 的正號必須保留。",
+         "en": "The second group is $+4y(2x-z)$. Keep the positive sign of $+4y$ after taking out $(2x-z)$."
         },
         {
          "opt": "C",
@@ -1840,6 +2041,10 @@ window.LEARN_TOPIC_WS01 = {
        "tip": {
         "zh": "四項題先調位再分組。分組的原則是「兩組抽完後括號要一樣」，所以先試最有希望的一對。",
         "en": "For four terms, rearrange first and then group. The rule is “the brackets must match after grouping”, so try the most promising pair first."
+       },
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
        }
       },
       "answer": "D",
@@ -1868,6 +2073,10 @@ window.LEARN_TOPIC_WS01 = {
        "D": "$3a(3a+2)+1$"
       },
       "review": null,
+      "practiceGoal": {
+       "zh": "本題選擇已分解完成的形式：提出公因式後，括號內亦要檢查。",
+       "en": "Choose the fully factorised form: take out common factors and check inside every bracket."
+      },
       "solution": {
        "steps": [
         {
@@ -1907,8 +2116,12 @@ window.LEARN_TOPIC_WS01 = {
         }
        ],
        "tip": {
-        "zh": "檢查完全平方的口訣：中間項是否等於 $2 ×$（首項的平方根）$×$（尾項的平方根）。",
-        "en": "Quick perfect-square test: is the middle term $2\\times$(square root of the first term)$\\times$(square root of the last term)?"
+        "zh": "把首尾寫成平方，再計算兩個底式乘積的兩倍，核對是否等於中間項。",
+        "en": "Write the first and last terms as squares. Twice the product of their bases must equal the middle term."
+       },
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
        }
       },
       "answer": "C",
@@ -1942,7 +2155,7 @@ window.LEARN_TOPIC_WS01 = {
           "zh": "第 1 步 · 負號開頭，先抽 $-3$",
           "en": "Step 1 · Take out -3"
          },
-         "math": "\\hlw{-}3a^{2}+12a-12=\\hlw{-}(\\xf{a^{2}}\\xf{-4a}\\xf{+4})",
+         "math": "-3a^{2}+12a-12=-3(a^{2}-4a+4)",
          "zh": "三項係數的最大公因數是 $3$，而首項是負號，所以把 $-3$ 一次抽走。抽負號時括號內每一項都要變號：$-3a^{2}$ 變 $a^{2}$、$+12a$ 變 $-4a$、$-12$ 變 $+4$。",
          "en": "The HCF of the three coefficients is 3 and the leading term is negative, so factorize out $-3$ in a single step. Every term inside changes sign: $-3a^{2}\\to a^{2}$, $+12a\\to-4a$, $-12\\to+4$."
         },
@@ -1959,7 +2172,7 @@ window.LEARN_TOPIC_WS01 = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$3(a-2)^{2}$ 漏了負號：原式首項是 $-3a^{2}$，抽出來的外面必須是 $-3$。",
+         "zh": "$3(a-2)^{2}$ 展開後的 $a^{2}$ 項係數是 $+3$，原式是 $-3$。若保留 $(a-2)^{2}$ 這個因式，外面要乘 $-3$。",
          "en": "$3(a-2)^{2}$ loses the minus sign: the leading term is $-3a^{2}$, so the factor outside must be $-3$."
         },
         {
@@ -1976,6 +2189,10 @@ window.LEARN_TOPIC_WS01 = {
        "tip": {
         "zh": "見到所有係數都有公因式、而且首項是負號，先抽負的公因式出來，題目會立刻變簡單。",
         "en": "If every coefficient has a common factor and the first term is negative, take out the negative common factor and the question becomes much easier."
+       },
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
        }
       },
       "answer": "B",
@@ -2010,8 +2227,8 @@ window.LEARN_TOPIC_WS01 = {
           "en": "Step 1 · Check the perfect-square pattern"
          },
          "math": "x^{2}+8xy+16y^{2}=\\hl{x^{2}}+2(x)(4y)+\\hl{(4y)^{2}}",
-         "zh": "首項是 $x^{2}$、尾項 $16y^{2}=(4y)^{2}$、中間項 $8xy=2(x)(4y)$，符合完全平方。注意尾項的平方根是 $4y$（連 $y$ 一起）。",
-         "en": "First term $x^{2}$, last term $16y^{2}=(4y)^{2}$, middle term $8xy=2(x)(4y)$ — a perfect square. Note that the square root of the last term is $4y$ (the $y$ comes with it)."
+         "zh": "$16y^{2}$ 可寫成 $(4y)^{2}$，而 $8xy=2(x)(4y)$，所以三項符合完全平方。這裡是辨認平方的底式，沒有假設 $y$ 的正負。",
+         "en": "Write $16y^{2}$ as $(4y)^{2}$ and check $8xy=2(x)(4y)$. The perfect-square pattern holds without assuming a sign for $y$."
         },
         {
          "title": {
@@ -2041,8 +2258,12 @@ window.LEARN_TOPIC_WS01 = {
         }
        ],
        "tip": {
-        "zh": "尾項有字母時，記得把字母也放進平方根裡：$16y^{2}$ 的平方根是 $4y$ 不是 $4$。",
-        "en": "When the last term contains a letter, take the letter into the square root: the square root of $16y^{2}$ is $4y$, not 4."
+        "zh": "把 $16y^{2}$ 寫成 $(4y)^{2}$，再核對中間項 $2(x)(4y)$；字母也要保留。",
+        "en": "Write $16y^{2}$ as $(4y)^{2}$, then check the middle term $2(x)(4y)$. Keep the letter as part of the base."
+       },
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
        }
       },
       "answer": "D",
@@ -2110,8 +2331,12 @@ window.LEARN_TOPIC_WS01 = {
         }
        ],
        "tip": {
-        "zh": "末項是負數時，兩個因式一定一正一負；交叉相加要等於中間項的係數（連符號）。",
-        "en": "When the last term is negative, the two factors must have opposite signs; the cross-sum must equal the middle coefficient together with its sign."
+        "zh": "末項係數為負，兩個常數項要異號；再用中間項的係數判斷哪個常數是負的。",
+        "en": "A negative constant term requires constants of opposite signs. Use the middle coefficient to decide which constant is negative."
+       },
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
        }
       },
       "answer": "A",
@@ -2177,8 +2402,12 @@ window.LEARN_TOPIC_WS01 = {
         }
        ],
        "tip": {
-        "zh": "首項與末項都是質數時，組合極少；先用較大的數字跟 $2x$ 相乘，很快就能逼近中間項的係數。",
-        "en": "When both the leading and the last term are prime there are very few combinations; multiply the larger number with $2x$ first to get close to the middle coefficient quickly."
+        "zh": "先配對首項與末項，再交叉相乘驗中間項。這裡比較的是係數 $2$ 與常數 $3$ 的因數組合。",
+        "en": "Pair the leading and constant factors, then check the cross products. Here the combinations come from coefficient $2$ and constant $3$."
+       },
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
        }
       },
       "answer": "B",
@@ -2246,6 +2475,10 @@ window.LEARN_TOPIC_WS01 = {
        "tip": {
         "zh": "係數不是 1 時要多試幾個組合，方法固定：先拆首項，再拆末項，然後交叉相乘相加，看是否等於中間項。",
         "en": "When the leading coefficient is not 1, try several combinations. The method is fixed: split the first term, split the last term, cross-multiply and add, then compare with the middle term."
+       },
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
        }
       },
       "answer": "C",

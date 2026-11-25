@@ -10,8 +10,8 @@ window.LEARN_TOPIC_WS01C = {
   "en": "WS01c · 32 Paper 1 questions, step by step"
  },
  "intro": {
-  "zh": "卷一長題（DSE Paper 1）的因式分解題幾乎年年出現，而且設計成「(a) 先做一個簡單的，(b) 再用 (a) 的結果」。這一課把 WS01 第 2 節的 32 題全部拆成逐步示範：先自己做，卡住了才逐步看，重點是學會「(b) 一定藏著 (a) 的括號」這個套路 —— 看懂一次，之後所有年份的卷一都會做。",
-  "en": "The Paper 1 factorization question appears almost every year and is designed as “(a) do something simple, (b) use the result of (a)”. This lesson breaks all 32 questions of WS01 Section 1B into step-by-step demonstrations: try each one yourself first, reveal the steps only when stuck, and learn the routine that (b) always hides the bracket from (a)."
+  "zh": "這組分部題練習重用前一小題的結果：找出共同括號、整理正負號，再檢查能否繼續分解。每次先處理一個小目標；需要時逐步看示範。",
+  "en": "These multipart questions practise reusing earlier results, identifying shared brackets, handling signs and checking for further factors. Work on one subgoal at a time and reveal the demonstration when needed."
  },
  "cmdHints": [
   {
@@ -47,15 +47,15 @@ window.LEARN_TOPIC_WS01C = {
      "id": "ws01c-c1",
      "topic": "ws01c",
      "title": {
-      "zh": "卷一的固定套路：見 Hence 就用 (a)",
-      "en": "The Paper 1 routine: use (a) whenever you see Hence"
+      "zh": "由 (a) 接到 (b)",
+      "en": "Connect part (a) to part (b)"
      },
      "body": {
-      "zh": "卷一長題（Factorize (a)…(b)…）幾乎永遠是同一個結構：(a) 用一個簡單方法分解，(b) 必須用 (a) 的結果。\n標準三步：① 先做 (a) 並把答案圈起來；② 在 (b) 找出「同一條括號」（通常是把餘下兩項抽公因式之後出現）；③ 把共同括號抽走。\n例：$x^{2}y+3xy^{2}+2x+6y$ —— (a) 給 $xy(x+3y)$，而 $+2x+6y=2(x+3y)$：{{math:0}}\n不要重新由頭分解 (b)：既浪費時間，又拿不到方法分。",
-      "en": "Paper 1 long questions (Factorize (a)…(b)…) almost always share one structure: (a) uses a simple method, (b) must use the result of (a).\nThree standard moves: (1) do (a) and circle the answer; (2) find the same bracket in (b) (usually after factoring the remaining two terms); (3) take that bracket out.\nExample: $x^{2}y+3xy^{2}+2x+6y$ — (a) gives $xy(x+3y)$ and $+2x+6y=2(x+3y)$: {{math:0}}\nNever start (b) from scratch: it wastes time and loses the method mark."
+      "zh": "這組題目練習把前一小題的結果用在後一小題。若題目寫 Hence，更要清楚展示這個連接。\n例：前一部得到 $xy(x+3y)$，餘下兩項又可寫成 $2(x+3y)$。{{math:0}}\n圈起兩處相同的 $(x+3y)$，提出後，把餘下的 $xy$ 與 $2$ 相加。",
+      "en": "These questions practise reusing an earlier result. When the instruction says Hence, show that connection explicitly.\nSuppose the earlier result is $xy(x+3y)$ and the remaining pair is $2(x+3y)$.{{math:0}}\nIdentify both copies of $(x+3y)$, take it out and add the remaining $xy$ and $2$."
      },
      "math": [
-      "x^{2}y+3xy^{2}+2x+6y=xy(x+3y)+2(x+3y)\n=(x+3y)(xy+2)"
+      "x^{2}y+3xy^{2}+2x+6y\n=xy\\hl{(x+3y)}+2\\hl{(x+3y)}\n=\\hl{(x+3y)}(xy+2)"
      ],
      "vocab": [
       {
@@ -68,8 +68,34 @@ window.LEARN_TOPIC_WS01C = {
       }
      ],
      "warn": {
-      "zh": "(b) 最少要寫一行「用 (a) 的結果」的動作（例如把 (a) 的答案搬過來），否則會失去方法分 (1M)。",
-      "en": "Part (b) must show at least one line using (a)'s result (e.g. copying it in), otherwise the method mark (1M) is lost."
+      "zh": "先核對兩個括號是否相同，才提出；題目的小題編排是一個提示，並不能代替代數驗證。",
+      "en": "Check that the brackets really match before taking one out. The question structure offers a clue, not a substitute for algebra."
+     },
+     "goal": {
+      "zh": "把之前得到的因式當作一整塊使用。",
+      "en": "Reuse a factor from the previous part as one object."
+     },
+     "recall": {
+      "prompt": {
+       "zh": "提出共同括號：$3z(z+2)+4(z+2)$。",
+       "en": "Take out the common bracket in $3z(z+2)+4(z+2)$."
+      },
+      "options": [
+       {
+        "math": "(z+2)(3z+4)"
+       },
+       {
+        "math": "(z+2)(3z-4)"
+       },
+       {
+        "math": "(z+2)(7z)"
+       }
+      ],
+      "answer": 0,
+      "explanation": {
+       "zh": "共同因式是 $(z+2)$；餘下兩部分是 $3z$ 與 $4$，所以相加為 $3z+4$。",
+       "en": "The shared factor is $(z+2)$. The remaining parts are $3z$ and $4$, giving $3z+4$."
+      }
      }
     }
    ],
@@ -140,8 +166,8 @@ window.LEARN_TOPIC_WS01C = {
        {
         "label": "(b) 逐項抽公因式就停手",
         "labelEn": "(b) stopping at separate common factors",
-        "zh": "把六項各自抽完就當完成；題目要的是「一個乘積」，必須抽到出現共同括號為止。",
-        "en": "Factoring each term separately is not enough: the answer must be a single product, so keep going until one bracket appears twice."
+        "zh": "將四項分組後，仍要把兩組共同的 $(x+3y)$ 提出。答案要是因式的乘積，而不是兩組的和。",
+        "en": "After grouping these four terms, take out the shared $(x+3y)$. The answer should be a product, not a sum of two groups."
        },
        {
         "label": "(a) 抽 $x^{2}y$",
@@ -151,19 +177,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "卷一的 (b) 幾乎一定「藏著」與 (a) 相同的括號；(a) 做對，(b) 就是送分。",
-       "en": "In Paper 1, part (b) almost always hides the same bracket as (a): get (a) right and (b) is nearly free."
+       "zh": "本題 (b) 可重用 (a) 的結果。先找出相同的部分，再將餘下兩項分組，找共同括號。",
+       "en": "Part (b) reuses the result of (a). Identify the matching expression, then group the remaining pair to find a common bracket."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -262,8 +292,8 @@ window.LEARN_TOPIC_WS01C = {
        {
         "label": "忘記寫 $-1$",
         "labelEn": "Dropping the $-1$",
-        "zh": "抽走括號後該位置是 $-1$，漏寫就等於少了一個因式。",
-        "en": "After factoring out the bracket the leftover is $-1$; dropping it loses a factor."
+        "zh": "提出 $(m-2n)$ 後，第二項留下的是 $-1$。漏寫它會漏掉原式的 $-m+2n$。",
+        "en": "Taking out $(m-2n)$ leaves $-1$ from the second term. Dropping it loses the original $-m+2n$."
        }
       ],
       "tip": {
@@ -273,13 +303,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -359,7 +393,7 @@ window.LEARN_TOPIC_WS01C = {
          "en": "Step 2 · (c) Group, then substitute (a) and (b)"
         },
         "math": "4-a^{2}+2b-ab=(2+a)(2-a)+b(2-a)",
-        "zh": "$4-a^{2}$ 用 (b) 的結果；$+2b-ab$ 用 (a) 的結果 $b(2-a)$（官方 marking：(c) 直接給 1A，分組那一步不另給分）。",
+        "zh": "$4-a^{2}$ 用 (b) 的結果；$+2b-ab$ 用 (a) 的結果 $b(2-a)$。",
         "en": "Use (b)'s result for $4-a^{2}$ and (a)'s result $b(2-a)$ for $+2b-ab$."
        },
        {
@@ -394,13 +428,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -519,19 +557,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "(c) 第一步永遠是「加括號」：把 $_ - (_)$ 寫出來，之後就是抽公因式。",
-       "en": "Part (c) always starts by inserting brackets: write it as $-(\\;)$ and then factor."
+       "zh": "(c) 可先把與 (b) 相差負號的幾項放進同一括號，再重用 (b) 的分解結果。",
+       "en": "For part (c), first group the terms that are the negative of the expression in (b), then reuse its factorization."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -634,14 +676,14 @@ window.LEARN_TOPIC_WS01C = {
        {
         "label": "(b) 由頭十字相乘",
         "labelEn": "(b) redoing the cross-method",
-        "zh": "(b) 只要用 (a) 的結果就能變成平方差；重新分解會浪費時間，而且通常做不出來（有兩個字母）。",
-        "en": "Part (b) only needs (a)'s result to become a difference of squares; starting again wastes time and usually fails."
+        "zh": "重用 (a) 可以直接得到平方差。由頭展開也是可行的代數路徑，但需要處理更多項。",
+        "en": "Reusing (a) gives a difference of squares directly. Expanding from scratch is also valid, but creates more terms to handle."
        },
        {
         "label": "平方差的 $b$ 忘了括號",
         "labelEn": "Forgetting the bracket in the identity",
-        "zh": "$(r+6+s)(r+6-s)$：$a$ 是整條 $(r+6)$，不能寫成 $r+6+s$ 後又拆散。",
-        "en": "$(r+6+s)(r+6-s)$: $a$ is the whole bracket $(r+6)$, so keep it together."
+        "zh": "平方差的兩個因式都要保留：一個是 $r+6+s$，另一個是 $r+6-s$，不是其中一個因式的平方。",
+        "en": "Keep both factors: $r+6+s$ and $r+6-s$. The result is not the square of either one."
        }
       ],
       "tip": {
@@ -651,13 +693,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -767,13 +813,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -877,19 +927,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "(a) 給兩個括號，(b) 一定選其中一個：把餘下兩項抽到能產生它。",
-       "en": "Part (a) gives two brackets; part (b) uses one of them — factor the remaining pair to produce it."
+       "zh": "本題 (a) 的其中一個因式是 $(3x+2y)$；(b) 的後兩項也可寫成 $3(3x+2y)$。這就產生共同括號。",
+       "en": "One factor in (a) is $(3x+2y)$. The last two terms in (b) are $3(3x+2y)$, producing a common bracket."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -982,8 +1036,8 @@ window.LEARN_TOPIC_WS01C = {
        {
         "label": "抽 $+4$ 而不是 $-4$",
         "labelEn": "Taking out $+4$ instead of $-4$",
-        "zh": "$-20r+16s=-4(5r-4s)$；抽 $+4$ 會得到 $-(5r+4s)$，對不上 (a)。",
-        "en": "$-20r+16s=-4(5r-4s)$; taking out $+4$ gives $-(5r+4s)$, which does not match (a)."
+        "zh": "提出 $+4$ 會得到 $4(-5r+4s)$，仍然是正確等值式，但括號與目標 $(5r-4s)$ 相差負號。提出 $-4$ 可直接配對。",
+        "en": "Taking out $+4$ gives the equivalent $4(-5r+4s)$, whose bracket is the negative of $(5r-4s)$. Taking out $-4$ gives a direct match."
        },
        {
         "label": "$-4$ 漏寫",
@@ -999,13 +1053,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -1046,16 +1104,16 @@ window.LEARN_TOPIC_WS01C = {
      "id": "ws01c-c2",
      "topic": "ws01c",
      "title": {
-      "zh": "(b) 的後兩項：抽公因式去「製造」共同括號",
-      "en": "The last pair in (b): factor it to create the shared bracket"
+      "zh": "整理負號，配出共同括號",
+      "en": "Handle the minus to match a bracket"
      },
      "body": {
-      "zh": "(b) 的尾巴（兩項或三項）一定可以抽成 (a) 那個括號的倍數，常見三種：\n① 直接抽正數：$+9a+18b=9(a+2b)$；\n② 倒轉次序 → 抽負號：$-m+2n=-(m-2n)$、$-20r+16s=-4(5r-4s)$；\n③ 高次題先抽最低次：$a^{4}+a^{3}-12a^{2}=a^{2}(a^{2}+a-12)$。\n三項題的例子：{{math:0}}\n再代入 (a) 的答案，最後抽走共同括號：{{math:1}}\n只要抽到與 (a) 相同的括號，最後一步就是「抽走它」。",
-      "en": "The tail of (b) can always be written as a multiple of (a)'s bracket. Three common cases:\n(1) factor a positive number: $+9a+18b=9(a+2b)$;\n(2) reversed order → factor out a minus: $-m+2n=-(m-2n)$, $-20r+16s=-4(5r-4s)$;\n(3) higher degree → factor out the lowest power first: $a^{4}+a^{3}-12a^{2}=a^{2}(a^{2}+a-12)$.\nExample with three parts: {{math:0}}\nNow substitute (a)'s answer and take the shared bracket out: {{math:1}}\nOnce the bracket matches (a), the last step is simply to take it out."
+      "zh": "先找出哪些項與前一小題相同，或剛好相差一個負號。\n把後三項當成一整組：{{math:0}}\n用前一部的分解結果，再提出相同括號。{{math:1}}\n最後一個減號仍然作用於整個 $(2m-3n)$，所以化簡時是 $-2m+3n$。",
+      "en": "Find the terms that match the earlier part, possibly with every sign reversed.\nTreat the last three terms as one group.{{math:0}}\nUse the earlier factorisation and take out the common bracket.{{math:1}}\nThe last minus applies to all of $(2m-3n)$, giving $-2m+3n$."
      },
      "math": [
       "9m-6n-6m^{2}+13mn-6n^{2}\n=(9m-6n)-(6m^{2}-13mn+6n^{2})",
-      "=3(3m-2n)-(3m-2n)(2m-3n)\n=(3m-2n)(3-2m+3n)"
+      "=3\\hl{(3m-2n)}-\\hl{(3m-2n)}(2m-3n)\n=\\hl{(3m-2n)}(3-2m+3n)"
      ],
      "vocab": [
       {
@@ -1068,8 +1126,34 @@ window.LEARN_TOPIC_WS01C = {
       }
      ],
      "warn": {
-      "zh": "抽走共同括號之後，剩下的部分（例如 $3-2m+3n$、$xy+2$）要完整寫出，漏寫會扣分。",
-      "en": "After taking the bracket out, write the remaining part completely (e.g. $3-2m+3n$, $xy+2$) — omitting it loses marks."
+      "zh": "只改第一項的符號會改變原式。寫出括號後，再逐項檢查一次。",
+      "en": "Changing only the first sign changes the expression. Write the bracket, then check every term."
+     },
+     "goal": {
+      "zh": "提出負號時，括號內每一項都要變號。",
+      "en": "Taking out a minus changes every sign inside."
+     },
+     "recall": {
+      "prompt": {
+       "zh": "怎樣把 $-8x+12y$ 寫成含 $(2x-3y)$ 的形式？",
+       "en": "How can $-8x+12y$ be written using $(2x-3y)$?"
+      },
+      "options": [
+       {
+        "math": "-4(2x-3y)"
+       },
+       {
+        "math": "4(2x-3y)"
+       },
+       {
+        "math": "-4(2x+3y)"
+       }
+      ],
+      "answer": 0,
+      "explanation": {
+       "zh": "$-4(2x)=-8x$，而 $-4(-3y)=+12y$；兩項都對回原式。",
+       "en": "$-4(2x)=-8x$ and $-4(-3y)=+12y$, so both terms match."
+      }
      }
     }
    ],
@@ -1151,19 +1235,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "(a) 是完全平方時，(b) 通常就是「同一條括號」再乘一個數字。",
-       "en": "When (a) is a perfect square, (b) is usually that same bracket multiplied by a number."
+       "zh": "把重複的 $(a-4b)$ 當成一整塊：$U^{2}+5U=U(U+5)$。",
+       "en": "Treat $(a-4b)$ as one object: $U^{2}+5U=U(U+5)$."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -1267,19 +1355,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "完全平方的三個數：首平方、末平方、中間是「$2\times$ 首 $\times$ 末」。",
-       "en": "Perfect square: first squared, last squared, middle is $2\\times$ first $\\times$ last."
+       "zh": "首尾分別寫成 $(2x)^{2}$ 與 $(3y)^{2}$，再核對中間項 $2(2x)(3y)=12xy$。",
+       "en": "Write the ends as $(2x)^{2}$ and $(3y)^{2}$, then check the middle term $2(2x)(3y)=12xy$."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -1372,8 +1464,8 @@ window.LEARN_TOPIC_WS01C = {
        {
         "label": "(a) 次序寫成 $(a+2)(a+3)$ 就當不同",
         "labelEn": "(a) thinking $(a+2)(a+3)$ is a different answer",
-        "zh": "$(2+a)(3+a)$ 與 $(a+2)(a+3)$ 是同一個數；但 (b) 要對上的是官方寫法 $(3+a)$。",
-        "en": "$(2+a)(3+a)$ and $(a+2)(a+3)$ are the same product, but part (b) must match the bracket you used in (a)."
+        "zh": "$(2+a)(3+a)$ 與 $(a+2)(a+3)$ 是同一個乘積。你可以用任一寫法，只要辨認 $3+a=a+3$，就能配對 (b)。",
+        "en": "$(2+a)(3+a)$ and $(a+2)(a+3)$ are the same product. Either is valid; recognising $3+a=a+3$ lets you match part (b)."
        },
        {
         "label": "(b) 漏寫 $(2+a)$",
@@ -1389,13 +1481,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -1499,19 +1595,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "(b) 部「分散」時，先看哪幾項可以併回 (a) 的原式，這是最快的入手點。",
+       "zh": "(b) 部「分散」時，先看哪幾項可以併回 (a) 的原式，可由這一步入手。",
        "en": "When (b) looks scattered, find the terms that recombine into (a)'s expression — that is the entry point."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -1615,19 +1715,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "這一題是 2017 與 2021 兩年的卷一真題：套路完全一樣。",
-       "en": "This question appeared in both 2017 and 2021: the routine is identical."
+       "zh": "提出的是兩組共有的 $(a+2b)$；另一個因式要保留餘下的 $(a+b)$ 與 $+9$。",
+       "en": "Take out the shared $(a+2b)$ and keep both remaining pieces, $(a+b)$ and $+9$, in the other factor."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -1711,8 +1815,8 @@ window.LEARN_TOPIC_WS01C = {
          "en": "Step 3 · Factor the common bracket out and distribute the minus inside the square brackets"
         },
         "math": "=(3m-2n)[3-(2m-3n)]\n=(3m-2n)(3-2m+3n)",
-        "zh": "抽走 $(3m-2n)$ 之後，餘下部分先用中括號整組包住：$[3-(2m-3n)]$。減號必須逐項分配：$-(+2m)=-2m$、$-(-3n)=+3n$，化簡得 $(3m-2n)(3-2m+3n)$。這一格最忌心算跳步 —— 直接寫就會變成 $3-2m-3n$（第二項漏了變號），一分就飛走。",
-        "en": "After factoring out $(3m-2n)$, keep the remainder inside square brackets: $[3-(2m-3n)]$. Distribute the minus to every term: $-(+2m)=-2m$ and $-(-3n)=+3n$, giving $(3m-2n)(3-2m+3n)$. Never do this step in your head: the classic slip is $3-2m-3n$, which loses the last mark.",
+        "zh": "抽出 $(3m-2n)$ 後，餘下 $[3-(2m-3n)]$。逐項分配負號：$-(+2m)=-2m$、$-(-3n)=+3n$，所以得到 $(3m-2n)(3-2m+3n)$。寫出這一行，有助核對兩個符號。",
+        "en": "After factoring out $(3m-2n)$, the remainder is $[3-(2m-3n)]$. Distribute the minus: $-(+2m)=-2m$ and $-(-3n)=+3n$, giving $(3m-2n)(3-2m+3n)$. Writing this line makes both signs easier to check.",
         "marking": "(1A)"
        }
       ],
@@ -1731,19 +1835,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "(b) 的首兩項若「順序倒轉」（$9m-6n$），先抽一個數，再看能否與 (a) 的括號對上。",
-       "en": "If (b) starts with a reversed pair ($9m-6n$), factor it and check whether it matches (a)'s bracket."
+       "zh": "前兩項 $9m-6n$ 可提出 $3$，留下與 (a) 相同的 $(3m-2n)$。再仔細處理整組減號。",
+       "en": "Taking $3$ out of $9m-6n$ produces $(3m-2n)$ from (a). Then handle the minus on the other group carefully."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -1853,13 +1961,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -1963,19 +2075,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "抽公因式 → 括號內用 (a) → 寫成乘積，這三步對所有高次題都合用。",
-       "en": "Factor out, use (a) inside the bracket, write the product — this routine covers every higher-degree question."
+       "zh": "本題先提出 $a^{2}$，括號內就變回 (a)。較高次的題目先找共同的最低次冪，再決定下一步。",
+       "en": "Taking out $a^{2}$ restores (a) in this question. For higher powers, find a shared lowest power before choosing the next step."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -2016,16 +2132,16 @@ window.LEARN_TOPIC_WS01C = {
      "id": "ws01c-c3",
      "topic": "ws01c",
      "title": {
-      "zh": "(a) 是鎖匙：(b) 收成「(a) × 另一個括號」",
-      "en": "(a) is the key: (b) collapses into (a) × another bracket"
+      "zh": "提出之後，再看能否分解",
+      "en": "After factoring out, check again"
      },
      "body": {
-      "zh": "卷一 4 分題的模式固定：(a) 先抽公因式，(b) 的三項剛好就是 (a) 的負數或倍數。\n例：$x^{3}+x^{2}y+5x^{2}=x^{2}(x+y+5)$，而 (b) 的尾巴 $-x-y-5=-(x+y+5)$：{{math:0}}\n抽出共同括號之後，餘下的通常是 $x^{2}-1$、$x^{2}-9$、$x^{2}-16$ —— 全部可以再用平方差：{{math:1}}\n所以「completely」的意思是：抽完括號之後，仍要檢查餘下那塊能否再分解。",
-      "en": "The 4-mark pattern never changes: (a) factors out, and (b)'s remaining terms are exactly a multiple of (a).\nExample: $x^{3}+x^{2}y+5x^{2}=x^{2}(x+y+5)$ while (b)'s tail $-x-y-5=-(x+y+5)$: {{math:0}}\nAfter the shared bracket is taken out, what remains is usually $x^{2}-1$, $x^{2}-9$ or $x^{2}-16$ — all of which split further: {{math:1}}\nSo 'completely' means: after factoring the bracket, check whether the remainder can still be factorized."
+      "zh": "這一組先把六項分成兩組，令相同括號出現。{{math:0}}\n提出 $(x+y+5)$ 後，餘下的 $x^{2}-1$ 仍是平方差。{{math:1}}\n完成之前，逐個因式檢查：有沒有公因式，或仍可套用恆等式？",
+      "en": "In this set, group the six terms so a shared bracket appears.{{math:0}}\nAfter taking out $(x+y+5)$, the remaining $x^{2}-1$ is still a difference of squares.{{math:1}}\nBefore finishing, check every factor for another common factor or identity."
      },
      "math": [
-      "x^{3}+x^{2}y+5x^{2}-x-y-5\n=x^{2}(x+y+5)-(x+y+5)",
-      "=(x^{2}-1)(x+y+5)=(x-1)(x+1)(x+y+5)"
+      "x^{3}+x^{2}y+5x^{2}-x-y-5\n=x^{2}\\hl{(x+y+5)}-\\hl{(x+y+5)}",
+      "=(x^{2}-1)(x+y+5)\n=\\hlg{(x-1)(x+1)(x+y+5)}"
      ],
      "vocab": [
       {
@@ -2038,8 +2154,34 @@ window.LEARN_TOPIC_WS01C = {
       }
      ],
      "warn": {
-      "zh": "少了最後一步（$x^{2}-1$ 不再分解）是卷一的常見失分位；官方 marking 把那一分寫得很清楚。",
-      "en": "Missing the last step (leaving $x^{2}-1$ unfactorised) is a common loss of marks; the official marking spells it out."
+      "zh": "分解完成後，把因式展開應得到原式；只看第一個因式正確，仍不足以確認整個答案。",
+      "en": "Expanding all factors should recover the original. One correct factor does not verify the whole answer."
+     },
+     "goal": {
+      "zh": "不要把可繼續分解的平方差留在答案。",
+      "en": "Do not leave a factorable difference of squares in the answer."
+     },
+     "recall": {
+      "prompt": {
+       "zh": "將 $(x^{2}-9)(x+y)$ 分解到底。",
+       "en": "Factorise $(x^{2}-9)(x+y)$ completely."
+      },
+      "options": [
+       {
+        "math": "(x-3)^{2}(x+y)"
+       },
+       {
+        "math": "(x-3)(x+3)(x+y)"
+       },
+       {
+        "math": "(x-9)(x+9)(x+y)"
+       }
+      ],
+      "answer": 1,
+      "explanation": {
+       "zh": "$x^{2}-9=x^{2}-3^{2}=(x-3)(x+3)$；原有的 $(x+y)$ 亦要保留。",
+       "en": "$x^{2}-9=x^{2}-3^{2}=(x-3)(x+3)$. Keep the original factor $(x+y)$ as well."
+      }
      }
     }
    ],
@@ -2110,8 +2252,8 @@ window.LEARN_TOPIC_WS01C = {
        {
         "label": "(b) 抽 $b^{2}$",
         "labelEn": "(b) taking out $b^{2}$",
-        "zh": "抽 $b^{2}$ 會得到 $b^{2}(6-5b-6b^{2})$，符號全部相反，之後無法直接代入 (a)。",
-        "en": "Taking out $b^{2}$ gives $b^{2}(6-5b-6b^{2})$, whose signs are all reversed — (a) cannot be substituted."
+        "zh": "提出 $+b^{2}$ 會得到 $b^{2}(6+5b-6b^{2})$，也是等值式。括號內是 (a) 的相反數，所以提出 $-b^{2}$ 較方便直接重用 (a)。",
+        "en": "Taking out $+b^{2}$ gives the equivalent $b^{2}(6+5b-6b^{2})$. The bracket is the negative of (a), so $-b^{2}$ is more convenient for reusing (a)."
        },
        {
         "label": "(b) 抽完就停手",
@@ -2121,19 +2263,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "高次項而首項係數是負的：抽 $-x^{2}$ 連負號一起走，括號內就會變回 (a)。",
-       "en": "When the highest-degree coefficient is negative, take out $-x^{2}$ with the minus so the bracket becomes (a)."
+       "zh": "本題用 $-b^{2}$，可令括號內直接還原 (a)；提出甚麼因式，要由各項共同部分及符號決定。",
+       "en": "Here $-b^{2}$ reproduces (a) directly. Choose a common factor by checking all terms and their signs."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -2243,13 +2389,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -2353,19 +2503,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "抽 $x^{2}$ 之後餘下的通常是 $x^{2}-1$：一定是 $(x-1)(x+1)$。",
-       "en": "After factoring $x^{2}$ the remainder is usually $x^{2}-1$, which is always $(x-1)(x+1)$."
+       "zh": "提出共同括號後，仍要檢查另一個因式。本題是 $a^{2}-1$，可以再用平方差。",
+       "en": "After taking out the shared bracket, inspect the remaining factor. Here $a^{2}-1$ splits by the difference of squares."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -2475,13 +2629,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -2585,19 +2743,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "六項／四項題的收尾都一樣：抽走共同括號之後，餘下的多半是平方差。",
-       "en": "Four- and six-term questions end the same way: after factoring out the shared bracket, what remains is usually a difference of two squares."
+       "zh": "提出 $(m+3n)$ 後，另一個因式是 $m^{2}-n^{2}$，仍須再分解。",
+       "en": "After taking out $(m+3n)$, the remaining factor $m^{2}-n^{2}$ still needs factorising."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -2707,13 +2869,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -2823,13 +2989,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -2945,13 +3115,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -3002,16 +3176,16 @@ window.LEARN_TOPIC_WS01C = {
      "id": "ws01c-c4",
      "topic": "ws01c",
      "title": {
-      "zh": "三部曲 (a)(b)(c) 與「平方 − 平方」",
-      "en": "Three-part (a)(b)(c) questions and 'square $-$ square'"
+      "zh": "把整個括號當成一個量",
+      "en": "Treat a whole bracket as one quantity"
      },
      "body": {
-      "zh": "(a)(b)(c) 型：(a) 與 (b) 各自簡單，兩者都藏著「同一條括號」，(c) 把兩塊拼起來再抽走那條括號：{{math:0}}\n(平方 − 平方) 型（HKDSE 2022 Paper 1 Q4）：(a) 先做完全平方 $81c^{2}-18c+1=(9c-1)^{2}$，(b) 把後面三項整組抽負號，就變成 $a^{2}-b^{2}$：{{math:1}}\n最後要檢查每個括號能否再抽公因式，例如 $(10x+5y-5)=5(2x+y-1)$；本例 $(19c-d-1)$ 與 $(c-d+1)$ 都沒有，所以已經分解完全。",
-      "en": "(a)(b)(c) type: (a) and (b) are simple and both hide the same bracket; (c) joins the two pieces and factors that bracket out: {{math:0}}\n(square $-$ square) type (HKDSE 2022 Paper 1 Q4): (a) makes a perfect square $81c^{2}-18c+1=(9c-1)^{2}$, then (b) takes a minus out of the last three terms, giving $a^{2}-b^{2}$: {{math:1}}\nFinally check every bracket for a remaining common factor, e.g. $(10x+5y-5)=5(2x+y-1)$; here neither $(19c-d-1)$ nor $(c-d+1)$ has one, so the factorisation is complete."
+      "zh": "多部題可以先找前兩部相同的因式，再用於最後一部。{{math:0}}\n另一類題先把三項變成完全平方，再套用平方差。{{math:1}}\n在 $U^{2}-V^{2}$ 中，$U$、$V$ 可以各自是一整個式子；先寫 $(U+V)(U-V)$，再化簡。",
+      "en": "In a multipart question, find a factor shared by the earlier results and reuse it in the final part.{{math:0}}\nAnother pattern turns three terms into a perfect square before using the difference of squares.{{math:1}}\nIn $U^{2}-V^{2}$, both $U$ and $V$ may be whole expressions. Write $(U+V)(U-V)$ before simplifying."
      },
      "math": [
-      "m^{2}+mn-20n^{2}-3m+12n\n=(m+5n)(m-4n)-3(m-4n)\n=(m-4n)(m+5n-3)",
-      "(10c-d)^{2}-81c^{2}+18c-1\n=(10c-d)^{2}-(81c^{2}-18c+1)\n=(10c-d)^{2}-(9c-1)^{2}\n=(19c-d-1)(c-d+1)"
+      "m^{2}+mn-20n^{2}-3m+12n\n=(m+5n)\\hl{(m-4n)}-3\\hl{(m-4n)}\n=\\hl{(m-4n)}(m+5n-3)",
+      "(10c-d)^{2}-81c^{2}+18c-1\n=(10c-d)^{2}-(9c-1)^{2}\n=\\hlg{(19c-d-1)(c-d+1)}"
      ],
      "vocab": [
       {
@@ -3024,8 +3198,34 @@ window.LEARN_TOPIC_WS01C = {
       }
      ],
      "warn": {
-      "zh": "三部曲的 (c) 是由 (a)(b) 拼出來的：先圈起 (a)(b) 答案中相同的那條括號，再決定 (c) 要抽什麼。",
-      "en": "Part (c) is assembled from (a) and (b): circle the identical bracket first, then decide what (c) factors out."
+      "zh": "括號前有減號，括號內每項都受影響。最後也要檢查每個因式是否仍有公因式。",
+      "en": "A minus before a bracket affects every term inside. Also check each final factor for another common factor."
+     },
+     "goal": {
+      "zh": "用平方差時，保留括號並檢查負號。",
+      "en": "Keep brackets intact when applying the difference of squares."
+     },
+     "recall": {
+      "prompt": {
+       "zh": "$(2x+1)^{2}-(x-2)^{2}$ 分解後是哪一個？",
+       "en": "Which is the factorisation of $(2x+1)^{2}-(x-2)^{2}$?"
+      },
+      "options": [
+       {
+        "math": "(3x-1)(x+3)"
+       },
+       {
+        "math": "(3x-1)(x-1)"
+       },
+       {
+        "math": "(x+3)^{2}"
+       }
+      ],
+      "answer": 0,
+      "explanation": {
+       "zh": "相加得 $3x-1$；相減得 $2x+1-(x-2)=x+3$。",
+       "en": "Adding gives $3x-1$; subtracting gives $2x+1-(x-2)=x+3$."
+      }
      }
     }
    ],
@@ -3119,13 +3319,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -3245,19 +3449,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "(c) 的次數倒轉（先兩次、後三次）時，通常要「整組抽負號」再代入。",
-       "en": "When (c) lists the lower-degree pair first, take a minus out of the whole group and then substitute."
+       "zh": "後三項是 (b) 的相反數。先整組提出負號，再重用 (b) 的因式。",
+       "en": "The last three terms are the negative of (b). Take out the minus as a group before reusing its factors."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -3357,17 +3565,17 @@ window.LEARN_TOPIC_WS01C = {
          "en": "Step 3 · Factor out $(2m-1)$, then expand the product inside the bracket"
         },
         "math": "=(2m-1)[(2m+1)-n(m+6)]\n=(2m-1)(2m+1-mn-6n)\n=(2m-1)(2m-mn-6n+1)",
-        "zh": "抽走共同括號 $(2m-1)$ 之後，中括號內留下 $[(2m+1)-n(m+6)]$。把 $-n$ 乘進去：$-n(m)=-mn$、$-n(+6)=-6n$（兩個都要變號），得 $2m+1-mn-6n$；最後按字母整理成 $2m-mn-6n+1$。答案內不可以留著未展開的括號乘積 —— 官方 marking 的最後一分就是這一步。",
-        "en": "After factoring out $(2m-1)$, the square bracket holds $[(2m+1)-n(m+6)]$. Multiply $-n$ in: $-n(m)=-mn$ and $-n(6)=-6n$ (both terms change sign), giving $2m+1-mn-6n$, then tidy it as $2m-mn-6n+1$. Never leave an unexpanded product inside a factor — the final mark depends on it.",
+        "zh": "提出 $(2m-1)$ 後，餘下 $(2m+1)-n(m+6)$。這個括號形式與化簡後的答案等值；展開 $-n(m+6)$，可逐項檢查 $-mn$ 與 $-6n$。",
+        "en": "Taking out $(2m-1)$ leaves $(2m+1)-n(m+6)$. This nested form is equivalent to the simplified answer. Expanding $-n(m+6)$ makes the signs of $-mn$ and $-6n$ explicit.",
         "marking": "(1A)"
        }
       ],
       "traps": [
        {
-        "label": "(c) 只抽 $(2m-1)$ 卻沒有展開 $-n(m+6)$",
-        "labelEn": "(c) leaving $-n(m+6)$ unexpanded",
-        "zh": "答案的第二個括號要化簡成 $2m-mn-6n+1$，不可留有未展開的乘積。",
-        "en": "The second bracket must be simplified to $2m-mn-6n+1$; no products may be left unexpanded."
+        "label": "化簡內括號時漏乘一項",
+        "labelEn": "Missing a term when simplifying the inner bracket",
+        "zh": "括號形式與化簡式等值。若要整理成標準多項式，$-n(m+6)$ 的兩項都要乘 $-n$，得到 $-mn-6n$。",
+        "en": "The nested and simplified forms are equivalent. To write a standard polynomial, multiply both terms of $m+6$ by $-n$, giving $-mn-6n$."
        },
        {
         "label": "(b) 抽 $n$ 之後只寫 $(2m^{2}+11m-6)$",
@@ -3377,19 +3585,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "三部曲抽走共同括號之後，括號內若有「$-n(…)$」這種乘積，要展開化簡才完成。",
-       "en": "After factoring the shared bracket out, any product such as $-n(\\ldots)$ left inside must be expanded and simplified."
+       "zh": "保留括號可以幫助檢查結構；化簡內括號時，再逐項分配負因式。",
+       "en": "Keeping brackets helps check the structure. When simplifying inside, distribute the negative factor to every term."
       },
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -3515,13 +3727,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -3647,13 +3863,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -3767,27 +3987,23 @@ window.LEARN_TOPIC_WS01C = {
        }
       ],
       "tip": {
-       "zh": "卷一最後一兩年的「平方 − 平方」題：先 (a) 做完全平方，再整條套平方差。",
-       "en": "For the recent 'square $-$ square' questions: do the perfect square in (a), then apply the identity to the whole expression."
+       "zh": "先用 (a) 寫出兩個平方，再套平方差；減去 $(9c-1)$ 時，常數項會變成 $+1$。",
+       "en": "Use (a) to expose the two squares. When subtracting $(9c-1)$, the constant becomes $+1$."
       },
       "alt": [
        {
         "name": {
-         "zh": "另解：常數項與符號保底檢查法",
-         "en": "Alternative: check the constant term to confirm the signs"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "不用重做，只看「純 $d$ 與常數」的部分就可以確認符號：原式的 $-81c^{2}+18c-1$ 與 $(10c-d)^{2}$ 中的 $-d$ 部分，對應 $(-d)^{2}-1=d^{2}-1$；而答案 $(19c-d-1)(c-d+1)$ 中，把 $c$ 視為 $0$ 得 $(-d-1)(-d+1)=d^{2}-1$ ✓ 完全相符，證明正負號全部都對。這是卷一最後檢查答案最快的方法。",
-        "en": "No need to redo the question: check only the terms in $d$ and the constant. The question contributes $(-d)^{2}-1=d^{2}-1$; in the answer $(19c-d-1)(c-d+1)$, putting $c=0$ gives $(-d-1)(-d+1)=d^{2}-1$ ✓ — identical, so every sign is right. The quickest final check in Paper 1."
-       },
-       {
-        "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
-        },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -3897,13 +4113,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",
@@ -3973,8 +4193,8 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "第 2 步 · (b) 造成平方差並套用",
-         "en": "Step 2 · (b) Create a difference of two squares and apply it"
+         "zh": "第 2 步 · (b) 重用 (a) 的完全平方",
+         "en": "Step 2 · (b) Reuse the square from (a)"
         },
         "math": "(6x+5y)^{2}-16x^{2}+40x-25\n=(6x+5y)^{2}-(4x-5)^{2}",
         "zh": "後面三項抽負號後就是 (a)。",
@@ -3983,13 +4203,32 @@ window.LEARN_TOPIC_WS01C = {
        },
        {
         "title": {
-         "zh": "第 3 步 · 拆括號、化簡、再抽公因式",
-         "en": "Step 3 · Remove brackets, simplify, then factor again"
+         "zh": "第 3 步 · 套用平方差",
+         "en": "Step 3 · Apply the difference of squares"
         },
-        "math": "=(6x+5y+4x-5)(6x+5y-(4x-5))\n=(10x+5y-5)(2x+5y+5)\n=5(2x+y-1)(2x+5y+5)",
-        "zh": "最後一步是官方 marking 的關鍵：$(10x+5y-5)$ 三項還有公因式 $5$，抽走才是 completely。",
-        "en": "The final move is the key to the official marking: $(10x+5y-5)$ still has a common factor $5$; take it out for 'completely'.",
-        "marking": "(1M)(1A)"
+        "math": "=[(6x+5y)+(4x-5)][(6x+5y)-(4x-5)]",
+        "zh": "先保留兩組括號，分別寫成兩個底式的和與差。",
+        "en": "Keep both groups in brackets and form the sum and difference of the base expressions.",
+        "marking": "(1M)"
+       },
+       {
+        "title": {
+         "zh": "第 4 步 · 分配負號並化簡",
+         "en": "Step 4 · Distribute the minus and simplify"
+        },
+        "math": "=(10x+5y-5)(2x+5y+5)",
+        "zh": "第二個括號減去的是整組 $(4x-5)$，所以 $-(-5)=+5$。",
+        "en": "The second bracket subtracts the whole of $(4x-5)$, so $-(-5)=+5$."
+       },
+       {
+        "title": {
+         "zh": "第 5 步 · 再提出公因式",
+         "en": "Step 5 · Take out the remaining common factor"
+        },
+        "math": "=\\hlg{5(2x+y-1)(2x+5y+5)}",
+        "zh": "第一個括號三項都含 $5$。提出後，檢查所有因式已不能再用本課方法分解。",
+        "en": "Every term in the first bracket has factor $5$. Take it out, then check that none of the factors splits further using the methods in this course.",
+        "marking": "(1A)"
        }
       ],
       "traps": [
@@ -4013,13 +4252,17 @@ window.LEARN_TOPIC_WS01C = {
       "alt": [
        {
         "name": {
-         "zh": "驗算法：展開對回原式（做完自己檢查）",
-         "en": "Check: expand and compare with the question"
+         "zh": "展開驗算：逐項核對",
+         "en": "Check by expanding every term"
         },
-        "zh": "把答案展開，逐項對回原式：① (a)(b) 抽出的括號有沒有在 (c)／(b) 出現？② 最高次項係數對不對？③ 中間項（$mn$／$xy$ 那類）符號對不對？④ 常數項對不對？核對這四點，就算老師未改你都知自己對唔對。",
-        "en": "Expand your answer and compare term by term: (1) does the bracket found in (a) or (b) reappear? (2) is the leading coefficient right? (3) is the sign of the middle term ($mn$, $xy$, …) right? (4) is the constant term right? Check these four and you will know whether you are correct."
+        "zh": "把每個小題的答案分開展開，核對原式中每種項的係數與符號。因式次序不同可以等值；提出的數字、字母和外面的負號都要保留。只代一組數相同，仍不能證明恆等。",
+        "en": "Expand the answer to each part separately and compare every coefficient and sign with the original. Reordered factors can be equivalent. Keep all outside numbers, letters and minus signs. One matching numerical substitution does not prove an identity."
        }
-      ]
+      ],
+      "reflect": {
+       "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+       "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+      }
      },
      "answer": null,
      "verify": "checked",

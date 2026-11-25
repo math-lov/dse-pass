@@ -426,6 +426,23 @@ def main(argv: list[str] | None = None) -> int:
         ttl = c.get("title") or {}
         need_pair("I4", "%s 標題" % cid, ttl.get("zh"), ttl.get("en"))
         body = c.get("body") or {}
+        if c.get("recall"):
+            rc = c["recall"]
+            for field in ("prompt", "explanation"):
+                pair = rc.get(field) or {}
+                need_pair("S12", "%s recall.%s" % (cid, field), pair.get("zh"), pair.get("en"))
+            options = rc.get("options") or []
+            answer = rc.get("answer")
+            if not 2 <= len(options) <= 4 or type(answer) is not int or not 0 <= answer < len(options):
+                err("S12", "%s：小檢查選項／答案索引不正確" % cid)
+            for option in options:
+                if not option.get("math"):
+                    need_pair("S12", "%s recall option" % cid, option.get("zh"), option.get("en"), min_en=1)
+            markers = [re.findall(r"\{\{math:(\d+)\}\}", body.get(lang, "")) for lang in ("zh", "en")]
+            if markers[0] != markers[1] or sorted(map(int, markers[0])) != list(range(len(c.get("math", [])))):
+                err("S12", "%s：共用公式的中英定位標記必須一致，並各引用每條公式一次" % cid)
+        if c.get("goal"):
+            need_pair("S12", "%s goal" % cid, c["goal"].get("zh"), c["goal"].get("en"))
         need_pair("I3", "%s 正文" % cid, body.get("zh"), body.get("en"),
                   allow_han_in_en=False, min_en=15)
         wn = c.get("warn") or {}

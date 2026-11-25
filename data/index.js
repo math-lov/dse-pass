@@ -52,8 +52,8 @@ window.LEARN_INDEX = {
     "en": "WS01a · Factorization — Basic Skills"
    },
    "intro": {
-    "zh": "這一課學四種方法：抽公因式、併項分組、用恆等式（平方差／完全平方）、十字相乘。DSE 卷一幾乎年年考一題因式分解，而且題目一定設計成「(a) 先分一個簡單的，(b) 再用 (a) 的結果」——所以 (a) 答對，(b) 就等於送分。",
-    "en": "This lesson covers four methods: taking out the common factor, grouping, the identities (difference of two squares / perfect square) and the cross-method. Paper 1 of the HKDSE asks a factorisation question almost every year, and it is always designed as “(a) factorise something simple, then (b) use the result of (a)” — so getting (a) right makes (b) almost free marks."
+    "zh": "學習抽公因式、併項分組、平方差與完全平方，以及十字相乘。先看一個方法，再跟示範核對，最後自己做幾題；需要時可以隨時返回概念卡。",
+    "en": "Learn common factors, grouping, square identities and the cross-method. Study a method, follow a worked example, then try a few questions. Return to the concepts whenever needed."
    },
    "source": "EPH DSE Pass · Worksheet 1",
    "stats": {
@@ -75,8 +75,8 @@ window.LEARN_INDEX = {
     "en": "WS01b · 27 MC (Paper 2 style)"
    },
    "intro": {
-    "zh": "這一課把卷一因式分解的功夫搬去卷二（MC）。卷二題目多、時間少，所以除了「識做」，還要「快」：先看符號刪去一半選項、認出題目其實是平方差、或者先製造出共同的括號。每題都是歷屆 HKCEE／HKDSE 卷二真題，做完你就會發現它們來來去去都是同幾條路。",
-    "en": "This lesson moves the factorization skills of Paper 1 into Paper 2 (multiple choice). Paper 2 has many questions and little time, so you need speed as well as understanding: read the signs to delete half the options, spot a hidden difference of two squares, or create the common bracket first. Every question is a real HKCEE/HKDSE Paper 2 question — you will see the same few routes again and again."
+    "zh": "這組多項選擇題練習辨認結構、整理負號與核對答案。可以用符號或代值排除選項，但最後仍要檢查整式是否等值，以及是否已分解完成。",
+    "en": "These multiple-choice questions practise recognising structure, handling minus signs and checking answers. Signs and numerical substitution can help eliminate options, but verify equivalence and complete factorisation."
    },
    "source": "EPH DSE Pass · Worksheet 1 · Section 1C (DSE Paper 2 MC)",
    "stats": {
@@ -98,8 +98,8 @@ window.LEARN_INDEX = {
     "en": "WS01c · 32 Paper 1 questions, step by step"
    },
    "intro": {
-    "zh": "卷一長題（DSE Paper 1）的因式分解題幾乎年年出現，而且設計成「(a) 先做一個簡單的，(b) 再用 (a) 的結果」。這一課把 WS01 第 2 節的 32 題全部拆成逐步示範：先自己做，卡住了才逐步看，重點是學會「(b) 一定藏著 (a) 的括號」這個套路 —— 看懂一次，之後所有年份的卷一都會做。",
-    "en": "The Paper 1 factorization question appears almost every year and is designed as “(a) do something simple, (b) use the result of (a)”. This lesson breaks all 32 questions of WS01 Section 1B into step-by-step demonstrations: try each one yourself first, reveal the steps only when stuck, and learn the routine that (b) always hides the bracket from (a)."
+    "zh": "這組分部題練習重用前一小題的結果：找出共同括號、整理正負號，再檢查能否繼續分解。每次先處理一個小目標；需要時逐步看示範。",
+    "en": "These multipart questions practise reusing earlier results, identifying shared brackets, handling signs and checking for further factors. Work on one subgoal at a time and reveal the demonstration when needed."
    },
    "source": "EPH DSE Pass · Worksheet 1 · Section 1B (DSE Paper 1 long questions)",
    "stats": {
@@ -404,7 +404,7 @@ window.LEARN_INDEX = {
    }
   }
  },
- "generatedAt": "2026-11-25T09:18:01Z",
+ "generatedAt": "2026-11-25T10:24:30Z",
  "counts": {
   "topics": 7,
   "held": 0,

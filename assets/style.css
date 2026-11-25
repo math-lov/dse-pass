@@ -1036,3 +1036,124 @@ body[data-page="topic"] .topbar { position: static; }
 
 .portal-support summary .l-en { margin-left: 8px; }
 .portal-footer .site-links .l-en { margin-left: 6px; }
+
+/* Factorisation: readable teaching sequence, shared equations and optional recall.
+   Scoped to the combined course; existing worksheet links keep their layout. */
+body[data-course="factorization"] { --muted: #625c56; }
+body[data-course="factorization"] .lessonbar .subbar { display: none; }
+body[data-course="factorization"] .lessonbar { padding: 0 16px 10px; box-shadow: 0 2px 5px #221f1c08; }
+body[data-course="factorization"] .course-sections { padding-left: 0; padding-right: 0; }
+.factor-navigation { max-width: 688px; margin: auto; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 10px; align-items: center; }
+.factor-jump-label { font-size: 14px; color: var(--muted); }
+.factor-jump-label .l-zh, .factor-jump-label .l-en { display: block; }
+.factor-jump { width: 100%; min-width: 0; min-height: 44px; padding: 8px 28px 8px 10px; border: 1px solid #b4aca2; border-radius: 8px; background: white; color: var(--text); font: inherit; font-size: 16px; }
+.factor-jump-controls { display: flex; gap: 6px; }
+body[data-course="factorization"] .btn { min-height: 44px; white-space: normal; }
+body[data-course="factorization"] :is(button, select, summary, a):focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
+body[data-course="factorization"] .card { box-shadow: none; }
+body[data-course="factorization"] #topic-progress { font-size: 14px; }
+body[data-course="factorization"][data-lang="both"] .l-en { opacity: 1; }
+body[data-course="factorization"][data-lang="both"] :is(.factor-copy, .factor-goal, .factor-recall, .callout, .factor-reflection, .step .why, .factor-eyebrow) .l-en { color: var(--muted); }
+.factor-concept { padding: 24px; }
+.factor-eyebrow { font-size: 13px; color: var(--primary-ink); margin-bottom: 10px; }
+.factor-eyebrow > .l-zh, .factor-eyebrow > .l-en { display: block; }
+.factor-concept h2 { margin: 0; font-size: 25px; line-height: 1.4; }
+.factor-concept .ccard-head { margin-bottom: 12px; }
+.factor-goal { margin: 0 0 24px; padding-bottom: 18px; border-bottom: 1px solid var(--line); font-size: 16px; }
+.factor-goal .l-zh, .factor-goal .l-en, .factor-copy .l-zh, .factor-copy .l-en { display: block; }
+.factor-copy { margin: 14px 0; font-size: 18px; line-height: 1.8; }
+body[data-course="factorization"][data-lang="both"] .factor-copy .l-en { margin-top: 4px; font-size: 17px; }
+body[data-course="factorization"] .factor-formula { margin: 14px 0 22px; padding: 16px; border: 1px solid var(--line-soft); border-radius: 8px; background: var(--tint); }
+body[data-course="factorization"] .katex-display { text-align: left; margin: .4em 0; overflow-x: auto; overflow-y: hidden; padding: 4px 2px 8px; }
+body[data-course="factorization"] .katex-display > .katex { text-align: left; }
+body[data-course="factorization"] .callout { margin: 22px 0; border-left: 3px solid #b45309; background: #fff8ed; padding: 14px 16px; }
+body[data-course="factorization"] .callout > b { display: block; margin-bottom: 6px; }
+.cross-example { margin: 24px 0; padding: 18px; border: 1px solid var(--primary-line); border-radius: 10px; background: #f8f8ff; }
+.cross-example figcaption { margin-bottom: 14px; font-weight: 700; color: var(--primary-ink); }
+.cross-table { width: 100%; border-collapse: collapse; }
+.cross-table th { text-align: left; font-weight: 500; color: var(--muted); font-size: 14px; width: 40%; }
+.cross-table td { text-align: center; background: white; border: 1px solid var(--primary-line); padding: 10px; }
+.cross-table th .l-en { display: block; }
+.cross-products { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 12px; }
+.cross-sum { border-top: 1px solid var(--primary-line); padding-top: 8px; }
+.factor-recall { margin-top: 28px; padding-top: 22px; border-top: 2px solid var(--primary-line); }
+.factor-recall h3 { font-size: 19px; margin: 0 0 10px; }
+.factor-recall h3 .l-zh, .factor-recall h3 .l-en, .factor-recall-prompt .l-zh, .factor-recall-prompt .l-en { display: block; }
+.recall-options { display: grid; gap: 10px; margin: 16px 0; }
+.recall-option { font: inherit; color: var(--text); min-height: 48px; text-align: left; padding: 12px 16px; border: 1px solid #b4aca2; background: white; border-radius: 8px; cursor: pointer; }
+.recall-option[aria-pressed="true"] { outline: 2px solid var(--primary); outline-offset: -2px; background: var(--primary-soft); }
+.recall-option:hover { border-color: var(--primary); }
+.recall-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.recall-feedback:not(:empty) { margin-top: 16px; padding: 14px; border-left: 3px solid var(--primary); background: var(--primary-soft); }
+.recall-feedback b { display: block; margin-bottom: 8px; }
+.factor-card-actions { margin-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+body[data-course="factorization"] :is(.factor-glossary, .factor-answer-check, .factor-review-details) { margin: 20px 0; border-top: 1px solid var(--line); padding-top: 14px; }
+body[data-course="factorization"] summary { cursor: pointer; color: var(--primary-ink); font-size: 16px; padding: 8px 0; min-height: 44px; }
+body[data-course="factorization"] summary .l-en { margin-left: 8px; }
+body[data-course="factorization"] .factor-glossary .cmd-hints { margin-top: 12px; }
+.factor-reflection { margin: 22px 0; padding: 16px; background: var(--tint); border: 1px solid var(--line); border-radius: 8px; }
+.factor-reflection p { margin: 0 0 12px; }
+body[data-course="factorization"] .q-diff { display: none; }
+body[data-course="factorization"] .q-source { font-size: 12px; }
+body[data-course="factorization"] .step { animation: none; border-left-width: 3px; padding: 18px; }
+body[data-course="factorization"] .step h4 { font-size: 17px; display: block; }
+body[data-course="factorization"] .step h4 .l-en { display: block; margin: 4px 0 0; font-weight: 500; }
+body[data-course="factorization"] .step h4 .l-en::before { content: none; }
+body[data-course="factorization"] .step .why { font-size: 17px; line-height: 1.8; }
+body[data-course="factorization"] .step .marking { color: #14633c; }
+body[data-course="factorization"] :is(.hlk, .hlw, .hlg, .xf, .feedback) { animation: none !important; }
+body[data-course="factorization"] .feedback.bad { background: var(--primary-soft); border-color: var(--primary-line); color: var(--primary-ink); }
+body[data-course="factorization"] .factor-practice-goal { font-size: 16px; padding: 12px; background: var(--tint); border-left: 3px solid var(--primary-line); }
+body[data-course="factorization"] .page-done { font-size: 15px; font-weight: 500; }
+@media (max-width: 600px) {
+  .factor-navigation { grid-template-columns: minmax(0, 1fr) auto; gap: 6px; }
+  .factor-jump-label { grid-column: 1 / -1; font-size: 12px; }
+  .factor-jump-label .l-zh, .factor-jump-label .l-en { display: inline; }
+  .factor-jump-label .l-en { margin-left: 6px; }
+  .factor-jump-controls .btn { padding: 8px; font-size: 13px; }
+  .factor-concept { padding: 18px 16px; }
+  .factor-concept h2 { font-size: 22px; }
+  .factor-copy { font-size: 17px; }
+  .cross-example { padding: 12px; margin-left: -2px; margin-right: -2px; }
+  .cross-products { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  body[data-course="factorization"] .lessonbar { padding-left: 12px; padding-right: 12px; }
+  body[data-course="factorization"] .step { padding: 14px 12px; }
+  body[data-course="factorization"] .course-sections { gap: 4px; }
+  body[data-course="factorization"] .course-sections a { padding: 8px; font-size: 14px; }
+}
+@media print {
+  body[data-course="factorization"] .lessonbar, .recall-actions, .factor-card-actions { display: none; }
+}
+body[data-course="factorization"] .topbar .inner { padding-top: 8px; padding-bottom: 8px; }
+body[data-course="factorization"] .site-nav { padding-top: 0; padding-bottom: 4px; }
+body[data-course="factorization"] .topic-heading { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding-top: 12px; padding-bottom: 12px; align-items: center; }
+body[data-course="factorization"] .topic-heading h1 { grid-column: 1; }
+body[data-course="factorization"] #topic-en:empty { display: none; }
+body[data-course="factorization"] #topic-progress { grid-column: 1 / -1; margin: 0; }
+body[data-course="factorization"] #topic-context { grid-column: 2; grid-row: 1; margin: 0; font-size: 14px; }
+body[data-course="factorization"] .context-back { padding: 0; }
+body[data-course="factorization"] .factor-eyebrow { display: none; }
+body[data-course="factorization"] .btn:disabled { opacity: .45; cursor: default; }
+@media (min-width: 601px) {
+  body[data-course="factorization"] .topic-heading h1 .l-en { display: inline; margin-left: 12px; }
+  body[data-course="factorization"] #topic-context .l-en { display: inline; margin-left: 6px; }
+}
+body[data-course="factorization"] :is(.callout, .recall-feedback, .factor-reflection) > .bi > :is(.l-zh, .l-en),
+body[data-course="factorization"] .cross-example figcaption > :is(.l-zh, .l-en) { display: block; }
+@media (max-width: 600px) {
+  .factor-navigation { grid-template-columns: minmax(0, 1fr); }
+  .factor-jump-label { grid-column: 1; }
+  .factor-jump-controls { display: none; }
+}
+body[data-course="factorization"] .card { animation: none; }
+body[data-course="factorization"] .callout { display: block; }
+body[data-course="factorization"] .formula { text-align: left; }
+.bi-lines > .l-zh, .bi-lines > .l-en { display: block; }
+body[data-course="factorization"] .formula { align-items: stretch; }
+.recall-option { display: flex; align-items: baseline; gap: 12px; }
+.recall-letter { color: var(--primary-ink); font-size: 14px; font-weight: 700; flex: none; }
+body[data-course="factorization"] .factor-concept :is(h2, h3) > .l-zh { display: block; }
+/* Language preference wins over the block layout used for paired explanations. */
+body[data-course="factorization"][data-lang="en"] .l-zh,
+body[data-course="factorization"][data-lang="zh"] .l-en { display: none !important; }
+body[data-course="factorization"] { --ok: #0f7f47; }

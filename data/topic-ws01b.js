@@ -10,8 +10,8 @@ window.LEARN_TOPIC_WS01B = {
   "en": "WS01b · 27 MC (Paper 2 style)"
  },
  "intro": {
-  "zh": "這一課把卷一因式分解的功夫搬去卷二（MC）。卷二題目多、時間少，所以除了「識做」，還要「快」：先看符號刪去一半選項、認出題目其實是平方差、或者先製造出共同的括號。每題都是歷屆 HKCEE／HKDSE 卷二真題，做完你就會發現它們來來去去都是同幾條路。",
-  "en": "This lesson moves the factorization skills of Paper 1 into Paper 2 (multiple choice). Paper 2 has many questions and little time, so you need speed as well as understanding: read the signs to delete half the options, spot a hidden difference of two squares, or create the common bracket first. Every question is a real HKCEE/HKDSE Paper 2 question — you will see the same few routes again and again."
+  "zh": "這組多項選擇題練習辨認結構、整理負號與核對答案。可以用符號或代值排除選項，但最後仍要檢查整式是否等值，以及是否已分解完成。",
+  "en": "These multiple-choice questions practise recognising structure, handling minus signs and checking answers. Signs and numerical substitution can help eliminate options, but verify equivalence and complete factorisation."
  },
  "cmdHints": [
   {
@@ -24,7 +24,7 @@ window.LEARN_TOPIC_WS01B = {
   },
   {
    "en": "By observing the signs",
-   "zh": "看符號：某一項正／負，就知答案必是哪個選項"
+   "zh": "看符號：先找線索或排除選項，再核對整式"
   },
   {
    "en": "Take out the common factor",
@@ -47,16 +47,16 @@ window.LEARN_TOPIC_WS01B = {
      "id": "ws01b-c1",
      "topic": "ws01b",
      "title": {
-      "zh": "卷二 MC 快速法：先看符號",
-      "en": "Paper 2 shortcut: read the signs first"
+      "zh": "觀察符號，再驗證線索",
+      "en": "Use signs as clues, then verify"
      },
      "body": {
-      "zh": "卷二（MC）不需要長題的完整步驟 —— 但也不需要由頭展開到尾。\n很多因式分解 MC，看「尾巴那一兩項」的符號就可以先刪去一半選項：尾巴 $+m-n$ 就是 $+(m-n)$，所以答案的兩個括號之中，一定有一個是 $(m-n)$ —— 其他選項即刻可以刪。\n例：$4m^{2}-7mn+3n^{2}+m-n$：{{math:0}}\n刪完之後仍要驗算一次（把答案展開，看能否完全回到原式）：{{math:1}}",
-      "en": "Paper 2 is multiple choice: you do not need the full written solution — but you do not have to expand everything either. In many factorisation MC questions, the signs of the last two terms eliminate half the options at once: the tail $+m-n$ is just $+(m-n)$, so one of the two brackets must be $(m-n)$ — the other options can be deleted immediately.\nExample: $4m^{2}-7mn+3n^{2}+m-n$: {{math:0}}\nAfter deleting, still verify once by expanding the answer back to the original expression: {{math:1}}"
+      "zh": "尾兩項出現 $m-n$，可以提示我們試找這個因式；但仍要檢查其餘部分。\n本例前三項也可寫成 $(m-n)(4m-3n)$，所以整式才有共同因式 $(m-n)$。{{math:0}}\n最後展開檢查每一項，而非只看尾巴。{{math:1}}",
+      "en": "The last pair $m-n$ suggests trying this factor, but the rest of the expression must be checked too.\nHere the first three terms also factor as $(m-n)(4m-3n)$, so the whole expression shares $(m-n)$.{{math:0}}\nExpand and check every term, not just the tail.{{math:1}}"
      },
      "math": [
-      "4m^{2}-7mn+3n^{2}+m-n=(m-n)(4m-3n+1)",
-      "(m-n)(4m-3n+1)=4m^{2}-7mn+3n^{2}+m-n"
+      "4m^{2}-7mn+3n^{2}+m-n\n=\\hl{(m-n)}(4m-3n)+\\hl{(m-n)}\n=\\hl{(m-n)}(4m-3n+1)",
+      "(m-n)(4m-3n+1)\n=4m^{2}-7mn+3n^{2}+m-n"
      ],
      "vocab": [
       {
@@ -69,24 +69,49 @@ window.LEARN_TOPIC_WS01B = {
       }
      ],
      "warn": {
-      "zh": "快速法只用來「刪選項」，最後仍要看一眼交叉相乘的結果，確認中間項對得上。",
-      "en": "Use the shortcut only to eliminate options; still check the cross products so that the middle term matches."
+      "zh": "某一部分有 $(m-n)$，不代表整式一定有這個因式。提出之前，每組都要含有它。",
+      "en": "A factor of one part need not be a factor of the whole expression. Every group must contain it before it can be taken out."
+     },
+     "goal": {
+      "zh": "用符號提出候選，不把線索當成證明。",
+      "en": "Use signs to suggest a factor, not to prove one."
+     },
+     "recall": {
+      "prompt": {
+       "zh": "只因末尾是 $+x-y$，就能證明整式有因式 $(x-y)$ 嗎？",
+       "en": "Does a tail of $+x-y$ alone prove that the whole expression has factor $(x-y)$?"
+      },
+      "options": [
+       {
+        "zh": "可以",
+        "en": "Yes"
+       },
+       {
+        "zh": "不可以，還要檢查其餘部分",
+        "en": "No — check the remaining part too"
+       }
+      ],
+      "answer": 1,
+      "explanation": {
+       "zh": "尾巴只提供線索；其餘部分亦要是 $(x-y)$ 的倍數，才可以把它提出。",
+       "en": "The tail is only a clue. The remaining part must also be a multiple of $(x-y)$."
+      }
      }
     },
     {
      "id": "ws01b-c2",
      "topic": "ws01b",
      "title": {
-      "zh": "四項／六項的固定套路",
-      "en": "A fixed routine for four or six terms"
+      "zh": "項數多，也是一組一組處理",
+      "en": "More terms: work one group at a time"
      },
      "body": {
-      "zh": "卷二的四項題幾乎都是同一條路：分組 → 每組抽公因式 → 兩個括號要一樣。\n例：$2xy-xz+4y^{2}-2yz$，分組後兩組都是 $(2y-z)$：{{math:0}}\n如果分組後括號差一個負號，把 $-1$ 抽出來就一樣：{{math:1}}\n如果兩組完全配不上，就調位（把有共同括號的兩項拉在一起）再試。六項題同理：三項一組、抽三次，通常會出現同一個括號。",
-      "en": "Almost every four-term question in Paper 2 follows one route: group → factor each pair → make the brackets identical.\nExample: $2xy-xz+4y^{2}-2yz$ — after grouping, both brackets are $(2y-z)$: {{math:0}}\nIf the brackets differ by a sign, take out $-1$: {{math:1}}\nIf they do not match at all, rearrange the terms (pull together the two that share a bracket) and try again. Six terms work the same way: group into threes and the same bracket usually appears."
+      "zh": "四項可以分成兩對，分別提出公因式。{{math:0}}\n若兩個括號剛好相差負號，先把負號整理好。{{math:1}}\n六項可試三組、每組兩項，或兩組、每組三項。分法不只一種，目標都是留下共同因式。",
+      "en": "Four terms can be grouped into two pairs, each with its own common factor.{{math:0}}\nIf the brackets have opposite signs, deal with the minus first.{{math:1}}\nFor six terms, try three pairs or two groups of three. Different groupings can work; the goal is a common factor."
      },
      "math": [
-      "2xy-xz+4y^{2}-2yz=x(2y-z)+2y(2y-z)\n=(x+2y)(2y-z)",
-      "xy-xz-y+z\n=x(y-z)-(y-z)\n=(y-z)(x-1)"
+      "2xy-xz+4y^{2}-2yz\n=x\\hl{(2y-z)}+2y\\hl{(2y-z)}\n=\\hl{(2y-z)}(x+2y)",
+      "xy-xz-y+z=x\\hl{(y-z)}-\\hl{(y-z)}\n=\\hl{(y-z)}(x-1)"
      ],
      "vocab": [
       {
@@ -99,8 +124,34 @@ window.LEARN_TOPIC_WS01B = {
       }
      ],
      "warn": {
-      "zh": "分組後第二組記得「整組抽」：$-3y^{2}-2yz=-y(3y+2z)$，括號內兩項要同時變號。",
-      "en": "Remember to factor the whole second pair: $-3y^{2}-2yz=-y(3y+2z)$ — both signs inside flip."
+      "zh": "提出負因式時，整組每一項都要除以它。例如 $-3y^{2}-2yz=-y(3y+2z)$。",
+      "en": "When taking out a negative factor, divide every term in that group by it. For example, $-3y^{2}-2yz=-y(3y+2z)$."
+     },
+     "goal": {
+      "zh": "選擇能產生共同括號的分組。",
+      "en": "Choose groups that produce a shared bracket."
+     },
+     "recall": {
+      "prompt": {
+       "zh": "分組後，$pr-qr-ps+qs$ 等於甚麼？",
+       "en": "After grouping, what is $pr-qr-ps+qs$?"
+      },
+      "options": [
+       {
+        "math": "(p-q)(r-s)"
+       },
+       {
+        "math": "(p+q)(r-s)"
+       },
+       {
+        "math": "(p-q)(r+s)"
+       }
+      ],
+      "answer": 0,
+      "explanation": {
+       "zh": "$pr-qr=r(p-q)$，$-ps+qs=-s(p-q)$，所以餘下 $r-s$。",
+       "en": "$pr-qr=r(p-q)$ and $-ps+qs=-s(p-q)$, leaving $r-s$."
+      }
      }
     }
    ],
@@ -161,18 +212,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "符號：$(a+b)$ 對不上原式首兩項 $ac-bc$（那是 $c(a-b)$，不是 $c(a+b)$）。",
-         "en": "Sign: $(a+b)$ cannot give $ac-bc$, which is $c(a-b)$, not $c(a+b)$."
+         "zh": "選項 A 展開後，$b c$ 項的係數是 $1$；原式同一項的係數是 $-1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $b c$ is $1$; the original coefficient is $-1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "B",
-         "zh": "把兩組抽出來的公因式寫成 $(d-c)$：$(d-c)=-\\,(c-d)$，與 $(c-d)$ 差一個負號。",
-         "en": "Writing $(d-c)$: note $(d-c)=-(c-d)$, so it differs from $(c-d)$ by a sign."
+         "zh": "選項 B 展開後，$a c$ 項的係數是 $-1$；原式同一項的係數是 $1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $a c$ is $-1$; the original coefficient is $1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "同時抄錯兩個符號（$a+b$ 與 $d-c$）：展開後首項會變成 $+ac$ 而非 $ac-bc$。",
-         "en": "Two sign slips together ($a+b$ and $d-c$): expanding gives $+ac$ where the question has $ac-bc$."
+         "zh": "選項 D 展開後，$a c$ 項的係數是 $-1$；原式同一項的係數是 $1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $a c$ is $-1$; the original coefficient is $1$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -182,13 +233,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $a=2$, $b=3$, $c=5$, $d=7$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $a=2$, $b=3$, $c=5$, $d=7$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -246,18 +301,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "B",
-         "zh": "$(q-p)=-(p-q)$：與正確答案相差一個負號，展開後 $pr$ 的係數會變成 $-p$。",
-         "en": "$(q-p)=-(p-q)$: it differs from the correct answer by a sign, giving $-p$ as the coefficient of $r$."
+         "zh": "選項 B 展開後，$p r$ 項的係數是 $-1$；原式同一項的係數是 $1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $p r$ is $-1$; the original coefficient is $1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "第一組的公因式是 $p$ 而不是 $r$：$pr$ 與 $ps$ 都含 $p$。",
-         "en": "The common factor of the first pair is $p$, not $r$: both $pr$ and $ps$ contain $p$."
+         "zh": "選項 C 展開後，$p s$ 項的係數是 $-1$；原式同一項的係數是 $1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $p s$ is $-1$; the original coefficient is $1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "同時抄錯兩處（$r-s$ 與 $q-p$）：展開後 $ps$ 一項會變成 $-ps$。",
-         "en": "Two slips at once ($r-s$ and $q-p$): expanding gives $-ps$ instead of $+ps$."
+         "zh": "選項 D 展開後，$p r$ 項的係數是 $-1$；原式同一項的係數是 $1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $p r$ is $-1$; the original coefficient is $1$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -267,13 +322,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $p=2$, $q=3$, $r=5$, $s=7$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $p=2$, $q=3$, $r=5$, $s=7$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -306,8 +365,8 @@ window.LEARN_TOPIC_WS01B = {
           "en": "Step 1 · Four terms: look for a common bracket"
          },
          "math": "2xy-xz+4y^{2}-2yz",
-         "zh": "先把第一、三項（都有 $2y$）與第二、四項（都有 $z$）分開想：$2y(x+2y)$ 與 $z(x+2y)$。",
-         "en": "Think of the first and third terms together (both have $2y$) and the second and fourth (both have $z$): $2y(x+2y)$ and $z(x+2y)$."
+         "zh": "先按原次序分成兩對：前兩項可提出 $x$，後兩項可提出 $2y$。檢查是否留下同一個括號。",
+         "en": "Use two pairs in the given order: the first shares $x$ and the second shares $2y$. Check whether the same bracket remains."
         },
         {
          "title": {
@@ -331,18 +390,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$(x-2y)$ 與 $2y(2y-z)$ 配不成原式的 $+4y^{2}$：展開會變成 $-4y^{2}$。",
-         "en": "$(x-2y)$ with $2y(2y-z)$ cannot give the $+4y^{2}$ of the question — it produces $-4y^{2}$."
+         "zh": "選項 A 展開後，$y^{2}$ 項的係數是 $-4$；原式同一項的係數是 $4$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $y^{2}$ is $-4$; the original coefficient is $4$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "B",
-         "zh": "兩個括號都寫加號：分組時第二組是 $+4y^{2}-2yz$，抽 $2y$ 之後必然是 $(2y-z)$。",
-         "en": "Both brackets positive: the second pair is $+4y^{2}-2yz$, so after taking out $2y$ it must be $(2y-z)$."
+         "zh": "選項 B 展開後，$x z$ 項的係數是 $1$；原式同一項的係數是 $-1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $x z$ is $1$; the original coefficient is $-1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "$(x-2y)$ 這個符號配不出第一項 $+2xy$。",
-         "en": "$(x-2y)$ cannot reproduce the first term $+2xy$."
+         "zh": "選項 C 展開後，$x z$ 項的係數是 $1$；原式同一項的係數是 $-1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $x z$ is $1$; the original coefficient is $-1$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -352,13 +411,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $x=2$, $y=3$, $z=5$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $x=2$, $y=3$, $z=5$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      }
@@ -393,8 +456,8 @@ window.LEARN_TOPIC_WS01B = {
           "en": "Step 1 · Four terms: rearrange, then group"
          },
          "math": "pq-2pr-p^{2}+2qr=pq+2qr-p^{2}-2pr",
-         "zh": "直接把首兩項一組會抽不出共同括號；把 $+2qr$ 調上前，令 $pq+2qr=q(p+2r)$ 與 $p^{2}+2pr=p(p+2r)$ 配成一對。",
-         "en": "Grouping the first two as written leads nowhere; move $+2qr$ forward so that $pq+2qr=q(p+2r)$ pairs with $p^{2}+2pr=p(p+2r)$."
+         "zh": "把 $+2qr$ 調到前面，讓 $pq+2qr$ 與 $-p^{2}-2pr$ 各自分組。這是一種可行分法，其他等值分組也可以。",
+         "en": "Move $+2qr$ forward and group $pq+2qr$ with $-p^{2}-2pr$. This is one valid grouping; other equivalent groupings can also work."
         },
         {
          "title": {
@@ -418,18 +481,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$(p-q)$ 的次序倒轉了：$-p(p+2r)$ 抽出來的是 $-p$，所以括號是 $(q-p)$。",
-         "en": "The order in $(p-q)$ is reversed: $-p(p+2r)$ contributes $-p$, so the bracket is $(q-p)$."
+         "zh": "選項 A 展開後，$p^{2}$ 項的係數是 $1$；原式同一項的係數是 $-1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $p^{2}$ is $1$; the original coefficient is $-1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "$(q-2r)$ 抽不出 $pq-2pr$（那組的公因式是 $p$，不是 $q$）。",
-         "en": "$(q-2r)$ cannot produce $pq-2pr$ — the common factor of that pair is $p$, not $q$."
+         "zh": "選項 C 展開後，$p^{2}$ 項的係數是 $0$；原式同一項的係數是 $-1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $p^{2}$ is $0$; the original coefficient is $-1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "兩處都錯（次序與 $2r$ 的符號）：展開後會得到 $-2qr$。",
-         "en": "Both wrong (order and the sign of $2r$): expanding gives $-2qr$."
+         "zh": "選項 D 展開後，$p^{2}$ 項的係數是 $0$；原式同一項的係數是 $-1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $p^{2}$ is $0$; the original coefficient is $-1$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -439,13 +502,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $p=2$, $q=3$, $r=5$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $p=2$, $q=3$, $r=5$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -503,18 +570,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$(3y-2z)$ 與第一組 $2x(3y+2z)$ 不符：$z$ 項的符號相反。",
-         "en": "$(3y-2z)$ does not match the first pair $2x(3y+2z)$: the sign of the $z$ term is opposite."
+         "zh": "選項 A 展開後，$x z$ 項的係數是 $-4$；原式同一項的係數是 $4$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $x z$ is $-4$; the original coefficient is $4$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "$(2x+y)$ 會令 $6xy$ 變成 $-6xy$（因為 $-y\\cdot 3y=-3y^{2}$ 是對的，但 $+y$ 不對）。",
-         "en": "$(2x+y)$ turns $6xy$ into $-6xy$: the $-y$ factor is right for $-3y^{2}$, but $+y$ is not."
+         "zh": "選項 C 展開後，$x z$ 項的係數是 $-4$；原式同一項的係數是 $4$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $x z$ is $-4$; the original coefficient is $4$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "兩個括號的符號都錯：$+y$ 與 $+2z$ 展開後 $xy$ 一項會變成 $-6xy$。",
-         "en": "Both brackets have the wrong sign: $+y$ with $+2z$ expands to $-6xy$."
+         "zh": "選項 D 展開後，$y^{2}$ 項的係數是 $3$；原式同一項的係數是 $-3$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $y^{2}$ is $3$; the original coefficient is $-3$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -524,13 +591,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $x=2$, $y=3$, $z=5$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $x=2$, $y=3$, $z=5$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -568,17 +639,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "第 2 步 · 檢查抽出的符號",
-          "en": "Step 2 · Check the signs you took out"
-         },
-         "math": "=r(p-q)-s(p-q)+t(p-q)",
-         "zh": "$-ps+qs=-s(p-q)$（抽 $-s$，括號內兩項都變號）；這一步是這題唯一易錯位。",
-         "en": "$-ps+qs=-s(p-q)$ — taking out $-s$ flips both signs inside. This is the only tricky step."
-        },
-        {
-         "title": {
-          "zh": "第 3 步 · 抽走 $(p-q)$",
-          "en": "Step 3 · Take out $(p-q)$"
+          "zh": "第 2 步 · 抽走 $(p-q)$",
+          "en": "Step 2 · Take out $(p-q)$"
          },
          "math": "=(p-q)(r-s+t)",
          "zh": "把 $(p-q)$ 抽走，剩下的 $r$、$-s$、$+t$ 全部放進同一個括號。",
@@ -588,18 +650,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "B",
-         "zh": "$-s$ 被寫成 $+s$：$-ps+qs$ 抽 $-s$ 才是 $(p-q)$。",
-         "en": "$-s$ written as $+s$: $-ps+qs$ only gives $(p-q)$ if you take out $-s$."
+         "zh": "選項 B 展開後，$p s$ 項的係數是 $1$；原式同一項的係數是 $-1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $p s$ is $1$; the original coefficient is $-1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "$(p+q)$ 對不上：三組括號分別是 $r(p-q)$、$-s(p-q)$、$t(p-q)$，全部是 $p-q$。",
-         "en": "$(p+q)$ does not fit: the three brackets are $r(p-q)$, $-s(p-q)$ and $t(p-q)$ — all $p-q$."
+         "zh": "選項 C 展開後，$q r$ 項的係數是 $1$；原式同一項的係數是 $-1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $q r$ is $1$; the original coefficient is $-1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "兩處符號都錯（$p+q$ 與 $+s$）：展開後 $qr$ 一項的符號會相反。",
-         "en": "Both signs wrong ($p+q$ and $+s$): expanding gives the opposite sign for the $qr$ term."
+         "zh": "選項 D 展開後，$p s$ 項的係數是 $1$；原式同一項的係數是 $-1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $p s$ is $1$; the original coefficient is $-1$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -609,13 +671,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $p=2$, $q=3$, $r=5$, $s=7$, $t=11$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $p=2$, $q=3$, $r=5$, $s=7$, $t=11$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      }
@@ -675,18 +741,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$(x-y+z)$ 的符號錯：原式是 $+ay$、$-az$，括號內應為 $x+y-z$。",
-         "en": "The signs in $(x-y+z)$ are wrong: the question has $+ay$ and $-az$, so the bracket is $x+y-z$."
+         "zh": "選項 A 展開後，$a y$ 項的係數是 $-1$；原式同一項的係數是 $1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $a y$ is $-1$; the original coefficient is $1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "B",
-         "zh": "$(a+b)$ 對不上：含 $b$ 的三項前面全部變號，抽出來是 $-b$。",
-         "en": "$(a+b)$ does not fit: the three $b$-terms all flip sign, so $-b$ comes out."
+         "zh": "選項 B 展開後，$b x$ 項的係數是 $1$；原式同一項的係數是 $-1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $b x$ is $1$; the original coefficient is $-1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "兩處都錯（$a-b$ 配 $x-y+z$）：展開後 $ay$ 會變成 $-ay$。",
-         "en": "Both wrong ($a-b$ with $x-y+z$): expanding gives $-ay$ instead of $+ay$."
+         "zh": "選項 C 展開後，$a y$ 項的係數是 $-1$；原式同一項的係數是 $1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $a y$ is $-1$; the original coefficient is $1$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -696,13 +762,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $a=2$, $b=3$, $x=5$, $y=7$, $z=11$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $a=2$, $b=3$, $x=5$, $y=7$, $z=11$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -734,7 +804,7 @@ window.LEARN_TOPIC_WS01B = {
           "zh": "第 1 步 · 認題：先製造共同括號",
           "en": "Step 1 · Make a common bracket appear"
          },
-         "math": "x(12x-9y)=3x(4x-3y)",
+         "math": "(4x-3y)(2x+7y)-x(12x-9y)",
          "zh": "看似要展開重做，其實不用：$12x-9y=3(4x-3y)$，所以 $-x(12x-9y)=-3x(4x-3y)$，與前面那項共用 $(4x-3y)$。",
          "en": "No need to expand: $12x-9y=3(4x-3y)$, so $-x(12x-9y)=-3x(4x-3y)$, which shares the bracket $(4x-3y)$ with the first term."
         },
@@ -760,18 +830,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "B",
-         "zh": "括號內 $2x-3x$ 寫成 $5x$（應該相減，不是相加）。",
-         "en": "Writing $2x-3x$ as $5x$: the terms subtract, they do not add."
+         "zh": "選項 B 展開後，$x^{2}$ 項的係數是 $20$；原式同一項的係數是 $-4$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $x^{2}$ is $20$; the original coefficient is $-4$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "$(4x+3y)$ 不對：原式是 $4x-3y$，抽公因式不會改變它。",
-         "en": "$(4x+3y)$ is wrong: the original bracket $4x-3y$ does not change when you factor."
+         "zh": "選項 C 展開後，$x y$ 項的係數是 $-31$；原式同一項的係數是 $31$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $x y$ is $-31$; the original coefficient is $31$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "兩處都錯（$+3y$ 與 $5x$）：展開後 $xy$ 一項會變成 $-35xy$。",
-         "en": "Both wrong ($+3y$ and $5x$): expanding gives $-35xy$ for the $xy$ term."
+         "zh": "選項 D 展開後，$x^{2}$ 項的係數是 $20$；原式同一項的係數是 $-4$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $x^{2}$ is $20$; the original coefficient is $-4$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -781,13 +851,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $x=2$, $y=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $x=2$, $y=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -819,7 +893,7 @@ window.LEARN_TOPIC_WS01B = {
           "zh": "第 1 步 · 認題：先製造共同括號",
           "en": "Step 1 · Make a common bracket appear"
          },
-         "math": "3u(10u-12v)=6u(5u-6v)",
+         "math": "(7u-4v)(5u-6v)-3u(10u-12v)",
          "zh": "$10u-12v=2(5u-6v)$，所以 $3u(10u-12v)=6u(5u-6v)$，與前面共用 $(5u-6v)$。",
          "en": "$10u-12v=2(5u-6v)$, so $3u(10u-12v)=6u(5u-6v)$, sharing the bracket $(5u-6v)$."
         },
@@ -845,34 +919,38 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$(5u+6v)$ 不對：原式的括號是 $5u-6v$。",
-         "en": "$(5u+6v)$ is wrong: the original bracket is $5u-6v$."
+         "zh": "選項 A 展開後，$u v$ 項的係數是 $26$；原式同一項的係數是 $-26$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $u v$ is $26$; the original coefficient is $-26$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "B",
-         "zh": "兩處都錯（$+6v$ 與 $13u$）：$7u-6u=u$，不是 $13u$。",
-         "en": "Both wrong ($+6v$ and $13u$): $7u-6u=u$, not $13u$."
+         "zh": "選項 B 展開後，$u^{2}$ 項的係數是 $65$；原式同一項的係數是 $5$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $u^{2}$ is $65$; the original coefficient is $5$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "$13u$ 是把 $7u+6u$ 相加：題目是「減去 $6u(5u-6v)$」，所以要相減。",
-         "en": "$13u$ comes from adding $7u+6u$, but the question subtracts $6u(5u-6v)$, so the terms subtract."
+         "zh": "選項 D 展開後，$u^{2}$ 項的係數是 $65$；原式同一項的係數是 $5$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $u^{2}$ is $65$; the original coefficient is $5$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
-        "zh": "減號在括號前面，抽公因式後「整條括號」都要減 —— 卷二最常考這個位。",
-        "en": "With a minus in front, the whole bracket is subtracted — one of the most common Paper 2 traps."
+        "zh": "減號在括號前面，抽出公因式後，整個餘下括號仍要被減去。展開核對每一項的符號。",
+        "en": "A minus before a group still applies to the whole remainder after factoring. Expand to check the sign of every term."
        },
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $u=2$, $v=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $u=2$, $v=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      }
@@ -932,18 +1010,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$-2y$ 沒有變號：$6-(3x-2y)$ 應該是 $6-3x+2y$。",
-         "en": "$-2y$ was not flipped: $6-(3x-2y)$ is $6-3x+2y$."
+         "zh": "選項 A 展開後，$x y$ 項的係數是 $-12$；原式同一項的係數是 $12$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $x y$ is $-12$; the original coefficient is $12$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "B",
-         "zh": "第二個括號寫成 $6+3x-2y$：$(a-b)$ 的 $b$ 本身就是 $3x-2y$，符號只變一次。",
-         "en": "The second bracket is written $6+3x-2y$: in $(a-b)$ the $b$ is already $3x-2y$, so the signs change only once."
+         "zh": "選項 B 展開後，$x y$ 項的係數是 $0$；原式同一項的係數是 $12$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $x y$ is $0$; the original coefficient is $12$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "兩個括號的 $2y$ 符號都錯：應為 $+2y$ 配 $-2y$。",
-         "en": "The $2y$ signs are wrong in both brackets: they should be $+2y$ against $-2y$."
+         "zh": "選項 C 展開後，$x y$ 項的係數是 $0$；原式同一項的係數是 $12$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $x y$ is $0$; the original coefficient is $12$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -953,13 +1031,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "另解二：卷二 MC 專用數值代入法（Substitution）",
-          "en": "Method 3: substitution strategy for MC"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "代 $x=1$、$y=1$：原式 $=36-(3-2)^{2}=35$；A 得 $11$、B 得 $7$、C 得 $55$、D 得 $35$ → 只有 D 相符。",
-         "en": "Put $x=1$, $y=1$: the expression is $36-(3-2)^{2}=35$; A gives $11$, B gives $7$, C gives $55$ and D gives $35$ — only D matches."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -1017,34 +1099,38 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$-3s$ 沒有變號（$7-4r-3s$ 應為 $7-4r+3s$）。",
-         "en": "$-3s$ was not flipped ($7-4r-3s$ should be $7-4r+3s$)."
+         "zh": "選項 A 展開後，$r s$ 項的係數是 $0$；原式同一項的係數是 $24$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $r s$ is $0$; the original coefficient is $24$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "B",
-         "zh": "第二個括號的 $-3s$ 加了括號卻沒有保持原樣：應為 $7+4r-3s$。",
-         "en": "The second bracket should read $7+4r-3s$; the $-3s$ keeps its sign."
+         "zh": "選項 B 展開後，$r s$ 項的係數是 $-24$；原式同一項的係數是 $24$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $r s$ is $-24$; the original coefficient is $24$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "兩處都錯：把兩個括號的 $3s$ 都寫成加號。",
-         "en": "Both wrong: both brackets show $+3s$."
+         "zh": "選項 D 展開後，$r s$ 項的係數是 $0$；原式同一項的係數是 $24$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $r s$ is $0$; the original coefficient is $24$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
-        "zh": "「$\\square-(\\;)^{2}$」永遠是平方差；拆括號時只變「減法那一個」的符號。",
-        "en": "Anything of the form $\\square-(\\;)^{2}$ is a difference of two squares; only the subtracted bracket flips sign."
+        "zh": "把 $49$ 寫成 $7^{2}$，再用平方差。拆開減法括號時，括號內每一項都要變號。",
+        "en": "Write $49=7^{2}$ before using the difference of squares. Subtracting a bracket changes every sign inside it."
        },
        "alt": [
         {
          "name": {
-          "zh": "另解二：卷二 MC 專用數值代入法（Substitution）",
-          "en": "Method 3: substitution strategy for MC"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "代 $r=1$、$s=1$：原式 $=49-(4-3)^{2}=48$；A 得 $0$、B 得 $0$、C 得 $48$、D 得 $84$ → 只有 C 相符。",
-         "en": "Put $r=1$, $s=1$: the expression is $49-(4-3)^{2}=48$; A gives $0$, B gives $0$, C gives $48$ and D gives $84$ — only C matches."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -1077,7 +1163,7 @@ window.LEARN_TOPIC_WS01B = {
           "en": "Step 1 · Spot the difference of two squares"
          },
          "math": "(3p+q)^{2}-(3p-q)^{2}",
-         "zh": "$a=3p+q$、$b=3p-q$：這是 $a^{2}-b^{2}$，用公式最快。",
+         "zh": "$a=3p+q$、$b=3p-q$：這是 $a^{2}-b^{2}$，可用平方差公式。",
          "en": "With $a=3p+q$ and $b=3p-q$ this is $a^{2}-b^{2}$, so the identity is quickest."
         },
         {
@@ -1102,18 +1188,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "以為兩個平方相減等於 $0$：只有在 $a=b$ 時才成立。",
-         "en": "Thinking the squares cancel to $0$: that only happens when $a=b$."
+         "zh": "選項 A 展開後，$p q$ 項的係數是 $0$；原式同一項的係數是 $12$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $p q$ is $0$; the original coefficient is $12$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "B",
-         "zh": "$2q^{2}$ 是把 $2q$ 再乘一次自己；正確是 $6p\\times 2q$。",
-         "en": "$2q^{2}$ squares $2q$; the correct step is $6p\\times 2q$."
+         "zh": "選項 B 展開後，$p q$ 項的係數是 $0$；原式同一項的係數是 $12$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $p q$ is $0$; the original coefficient is $12$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "$6pq$ 只取了 $(a+b)$ 那部分，漏了 $\\times 2q$。",
-         "en": "$6pq$ keeps only part of $(a+b)$ and misses the $\\times 2q$."
+         "zh": "選項 C 展開後，$p q$ 項的係數是 $6$；原式同一項的係數是 $12$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $p q$ is $6$; the original coefficient is $12$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -1123,21 +1209,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "另解一：直接完全展開相消（最穩做法）",
-          "en": "Method 2: direct expansion"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "直接展開兩組完全平方：$(9p^{2}+6pq+q^{2})-(9p^{2}-6pq+q^{2})$。減號後面要整組變號：$9p^{2}+6pq+q^{2}-9p^{2}+6pq-q^{2}$；$9p^{2}$ 與 $q^{2}$ 互相抵消，剩下 $6pq+6pq=12pq$。搞不清公式中括號的正負號時，這條路最穩。",
-         "en": "Expand both squares directly: $(9p^{2}+6pq+q^{2})-(9p^{2}-6pq+q^{2})$. Everything after the minus changes sign: $9p^{2}+6pq+q^{2}-9p^{2}+6pq-q^{2}$. $9p^{2}$ and $q^{2}$ cancel, leaving $6pq+6pq=12pq$ — the safest route if the signs confuse you."
-        },
-        {
-         "name": {
-          "zh": "另解二：卷二 MC 專用數值代入法（Substitution）",
-          "en": "Method 3: substitution strategy for MC"
-         },
-         "zh": "代 $p=1$、$q=2$：原式 $=(3+2)^{2}-(3-2)^{2}=25-1=24$；A 得 $0$、B 得 $8$、C 得 $12$、D 得 $12pq=24$ → 只有 D 相符。",
-         "en": "Put $p=1$, $q=2$: the expression is $(3+2)^{2}-(3-2)^{2}=25-1=24$; A gives $0$, B gives $8$, C gives $12$ and D gives $12(1)(2)=24$ — only D matches."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      }
@@ -1172,8 +1254,8 @@ window.LEARN_TOPIC_WS01B = {
           "en": "Step 1 · Spot the difference of two squares"
          },
          "math": "(2a-5b)^{2}-(2a+5b)^{2}",
-         "zh": "$a=2a-5b$、$b=2a+5b$，用 $a^{2}-b^{2}=(a+b)(a-b)$。",
-         "en": "With $a=2a-5b$ and $b=2a+5b$, use $a^{2}-b^{2}=(a+b)(a-b)$."
+         "zh": "把 $U=2a-5b$、$V=2a+5b$ 各當成一整塊，套用 $U^{2}-V^{2}=(U+V)(U-V)$。",
+         "en": "Treat $U=2a-5b$ and $V=2a+5b$ as whole expressions and use $U^{2}-V^{2}=(U+V)(U-V)$."
         },
         {
          "title": {
@@ -1197,18 +1279,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$-10ab$ 是只取了第二個括號 $-10b$ 的部分：還要乘 $4a$。",
-         "en": "$-10ab$ keeps only the $-10b$ from the second bracket; it still has to be multiplied by $4a$."
+         "zh": "選項 A 展開後，$a b$ 項的係數是 $-10$；原式同一項的係數是 $-40$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $a b$ is $-10$; the original coefficient is $-40$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "B",
-         "zh": "$-20ab$ 是把 $a$ 的係數當成 $2a$（正確是 $4a$）：$2a-5b+2a+5b=4a$。",
-         "en": "$-20ab$ uses $2a$ for the $a$-coefficient instead of $4a$: $2a-5b+2a+5b=4a$."
+         "zh": "選項 B 展開後，$a b$ 項的係數是 $-20$；原式同一項的係數是 $-40$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $a b$ is $-20$; the original coefficient is $-40$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "$-50b^{2}$ 是展開時把 $(-5b)^{2}$ 與 $-(5b)^{2}$ 混在一起；平方差消去了 $b^{2}$ 項。",
-         "en": "$-50b^{2}$ comes from mixing $(-5b)^{2}$ with $-(5b)^{2}$; the $b^{2}$ terms cancel in a difference of squares."
+         "zh": "選項 D 展開後，$a b$ 項的係數是 $0$；原式同一項的係數是 $-40$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $a b$ is $0$; the original coefficient is $-40$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -1218,21 +1300,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "另解一：直接完全展開相消（最穩做法）",
-          "en": "Method 2: direct expansion"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "直接展開：$(4a^{2}-20ab+25b^{2})-(4a^{2}+20ab+25b^{2})$$=4a^{2}-20ab+25b^{2}-4a^{2}-20ab-25b^{2}=-40ab$。$a^{2}$ 與 $b^{2}$ 項全部抵消，只剩中間項。",
-         "en": "Expand directly: $(4a^{2}-20ab+25b^{2})-(4a^{2}+20ab+25b^{2})$$=4a^{2}-20ab+25b^{2}-4a^{2}-20ab-25b^{2}=-40ab$. The $a^{2}$ and $b^{2}$ terms cancel and only the middle term survives."
-        },
-        {
-         "name": {
-          "zh": "另解二：卷二 MC 專用數值代入法（Substitution）",
-          "en": "Method 3: substitution strategy for MC"
-         },
-         "zh": "代 $a=1$、$b=1$：原式 $=(2-5)^{2}-(2+5)^{2}=9-49=-40$；A 得 $-10$、B 得 $-20$、C 得 $-40ab=-40$、D 得 $-50$ → 只有 C 相符。",
-         "en": "Put $a=1$, $b=1$: the expression is $(2-5)^{2}-(2+5)^{2}=9-49=-40$; A gives $-10$, B gives $-20$, C gives $-40ab=-40$ and D gives $-50$ — only C matches."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -1264,7 +1342,7 @@ window.LEARN_TOPIC_WS01B = {
           "zh": "第 1 步 · 認題：前三項是二次三項式，先十字相乘",
           "en": "Step 1 · The first three terms are a quadratic: use the cross-method"
          },
-         "math": "x^{2}+xy-2y^{2}=(x-y)(x+2y)",
+         "math": "x^{2}+xy-2y^{2}+x-y",
          "zh": "把 $x^{2}+xy-2y^{2}$ 分解：交叉相乘 $(x)(2y)+(-y)(x)=2xy-xy=xy$ ✓",
          "en": "Factorize $x^{2}+xy-2y^{2}$: the cross products give $(x)(2y)+(-y)(x)=2xy-xy=xy$ ✓"
         },
@@ -1290,34 +1368,38 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$(x-2y)$ 對不上：$x^{2}+xy-2y^{2}=(x-y)(x+2y)$，中間項要 $+xy$。",
-         "en": "$(x-2y)$ does not fit: $x^{2}+xy-2y^{2}=(x-y)(x+2y)$ needs $+xy$ in the middle."
+         "zh": "選項 A 展開後，$x y$ 項的係數是 $-3$；原式同一項的係數是 $1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $x y$ is $-3$; the original coefficient is $1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "$(x+y)$ 會令首三項的中間項變成 $-xy$。",
-         "en": "$(x+y)$ would make the middle term $-xy$."
+         "zh": "選項 C 展開後，$x y$ 項的係數是 $-1$；原式同一項的係數是 $1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $x y$ is $-1$; the original coefficient is $1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "兩處都錯（$x+y$ 與 $+2y-1$）：最後抽出來的「$+1$」應該是加號。",
-         "en": "Both wrong ($x+y$ and $+2y-1$): the $+1$ taken out must be positive."
+         "zh": "選項 D 展開後，$x y$ 項的係數是 $3$；原式同一項的係數是 $1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $x y$ is $3$; the original coefficient is $1$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
-        "zh": "四項題：前三項做十字相乘，剩下的那兩項通常正好是「同一個括號」或它的倍數。",
-        "en": "For four terms: factorize the first three by the cross-method and the remaining two usually form that same bracket."
+        "zh": "這個五項式可分成「三項＋兩項」：先分解二次部分，再檢查餘下兩項是否含相同因式。",
+        "en": "Group these five terms as a trinomial and a pair. Factor the quadratic part, then check whether the pair shares one of its factors."
        },
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $x=2$, $y=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $x=2$, $y=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -1349,7 +1431,7 @@ window.LEARN_TOPIC_WS01B = {
           "zh": "第 1 步 · 前三項：十字相乘",
           "en": "Step 1 · First three terms: cross-method"
          },
-         "math": "x^{2}-3xy-10y^{2}=(x-5y)(x+2y)",
+         "math": "x^{2}-3xy-10y^{2}+3x-15y",
          "zh": "交叉相乘 $(x)(2y)+(-5y)(x)=2xy-5xy=-3xy$ ✓ 與題目的 $-3xy$ 相符。",
          "en": "The cross products $(x)(2y)+(-5y)(x)=2xy-5xy=-3xy$ ✓ matching the given $-3xy$."
         },
@@ -1375,34 +1457,38 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "B",
-         "zh": "$-3$ 的符號錯：$+3x-15y=+3(x-5y)$，所以應為 $+3$。",
-         "en": "The sign of $3$ is wrong: $+3x-15y=+3(x-5y)$, so it is $+3$."
+         "zh": "選項 B 展開後，$x$ 項的係數是 $-3$；原式同一項的係數是 $3$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $x$ is $-3$; the original coefficient is $3$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "$(x+5y)(x-2y)$ 的中間項是 $+3xy$，與題目的 $-3xy$ 相反。",
-         "en": "$(x+5y)(x-2y)$ gives $+3xy$ in the middle, the opposite of the given $-3xy$."
+         "zh": "選項 C 展開後，$x y$ 項的係數是 $3$；原式同一項的係數是 $-3$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $x y$ is $3$; the original coefficient is $-3$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "兩處都錯（$+5y$ 與 $-3$）：展開後 $xy$ 一項會變成 $+3xy$。",
-         "en": "Both wrong ($+5y$ and $-3$): expanding gives $+3xy$ for the $xy$ term."
+         "zh": "選項 D 展開後，$x y$ 項的係數是 $3$；原式同一項的係數是 $-3$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $x y$ is $3$; the original coefficient is $-3$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
-        "zh": "四項題：前三項做十字相乘，後兩項通常就是那個括號的倍數。",
-        "en": "Four terms: factorize the first three by the cross-method; the last two are usually a multiple of that bracket."
+        "zh": "這個五項式可分成「三項＋兩項」：先分解二次部分，再檢查餘下兩項是否含相同因式。",
+        "en": "Group these five terms as a trinomial and a pair. Factor the quadratic part, then check whether the pair shares one of its factors."
        },
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $x=2$, $y=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $x=2$, $y=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      }
@@ -1436,7 +1522,7 @@ window.LEARN_TOPIC_WS01B = {
           "zh": "第 1 步 · 前三項：十字相乘",
           "en": "Step 1 · First three terms: cross-method"
          },
-         "math": "5a^{2}-8ab+3b^{2}=(a-b)(5a-3b)",
+         "math": "5a^{2}-8ab+3b^{2}+b-a",
          "zh": "交叉相乘 $(a)(-3b)+(-b)(5a)=-3ab-5ab=-8ab$ ✓",
          "en": "The cross products $(a)(-3b)+(-b)(5a)=-3ab-5ab=-8ab$ ✓"
         },
@@ -1462,18 +1548,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "B",
-         "zh": "$(5a+3b)$ 的交叉相乘是 $-2ab$，不是 $-8ab$。",
-         "en": "$(5a+3b)$ gives $-2ab$ from the cross products, not $-8ab$."
+         "zh": "選項 B 展開後，$a b$ 項的係數是 $-2$；原式同一項的係數是 $-8$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $a b$ is $-2$; the original coefficient is $-8$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "$(a+b)$ 對不上：題目的中間項是 $-8ab$，需要 $(a-b)$。",
-         "en": "$(a+b)$ does not fit: the middle term $-8ab$ requires $(a-b)$."
+         "zh": "選項 C 展開後，$a b$ 項的係數是 $2$；原式同一項的係數是 $-8$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $a b$ is $2$; the original coefficient is $-8$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "兩處都錯（$a+b$ 與 $-1$）：最後的 $b-a$ 應抽成 $-(a-b)$。",
-         "en": "Both wrong ($a+b$ and $-1$): the final $b-a$ must be taken out as $-(a-b)$."
+         "zh": "選項 D 展開後，$a b$ 項的係數是 $8$；原式同一項的係數是 $-8$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $a b$ is $8$; the original coefficient is $-8$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -1483,13 +1569,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $a=2$, $b=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $a=2$, $b=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -1547,18 +1637,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$-2$ 的符號錯：$x-(y-2)=x-y+2$，所以第一個括號是 $+2$。",
-         "en": "The sign of $2$ is wrong: $x-(y-2)=x-y+2$, so the first bracket has $+2$."
+         "zh": "選項 A 展開後，$x$ 項的係數是 $-4$；原式同一項的係數是 $0$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $x$ is $-4$; the original coefficient is $0$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "B",
-         "zh": "兩處都錯（$-2$ 與 $+2$）：$x-(y-2)$ 只會變一次號。",
-         "en": "Both signs wrong ($-2$ and $+2$): $x-(y-2)$ flips the sign only once."
+         "zh": "選項 B 展開後，$y$ 項的係數是 $-4$；原式同一項的係數是 $4$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $y$ is $-4$; the original coefficient is $4$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "第二個括號寫成 $x-y-2$：$x+(y-2)=x+y-2$，中間是加號。",
-         "en": "The second bracket reads $x-y-2$, but $x+(y-2)=x+y-2$ — the middle sign is plus."
+         "zh": "選項 D 展開後，$x y$ 項的係數是 $-2$；原式同一項的係數是 $0$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $x y$ is $-2$; the original coefficient is $0$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -1568,13 +1658,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $x=2$, $y=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $x=2$, $y=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -1632,18 +1726,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "B",
-         "zh": "兩個括號的常數項寫成 $+1$ 與 $-1$：應該相加的那邊是 $m+3n+1$。",
-         "en": "The constants are written $+1$ and $-1$ in the wrong brackets: the added one is $m+3n+1$."
+         "zh": "選項 B 展開後，$n$ 項的係數是 $6$；原式同一項的係數是 $-6$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $n$ is $6$; the original coefficient is $-6$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "兩個括號都寫 $m-3n+1$：展開後會出現 $+9n^{2}$ 而不是 $-9n^{2}$。",
-         "en": "Both brackets read $m-3n+1$: expanding gives $+9n^{2}$, not $-9n^{2}$."
+         "zh": "選項 C 展開後，$m$ 項的係數是 $2$；原式同一項的係數是 $0$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $m$ is $2$; the original coefficient is $0$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "完全平方的平方根是 $3n+1$（加號）：$m$ 與它相加、相減，不是兩邊都減。",
-         "en": "The square root is $3n+1$ (plus sign): $m$ is added to it once and subtracted once, not subtracted twice."
+         "zh": "選項 D 展開後，$m n$ 項的係數是 $-6$；原式同一項的係數是 $0$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $m n$ is $-6$; the original coefficient is $0$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -1653,13 +1747,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $m=2$, $n=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $m=2$, $n=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      }
@@ -1719,18 +1817,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "第二個括號應為 $4+2a-5b$：減的那個括號才變號。",
-         "en": "The second bracket should be $4+2a-5b$: only the subtracted bracket changes sign."
+         "zh": "選項 A 展開後，$a^{2}$ 項的係數是 $4$；原式同一項的係數是 $-4$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $a^{2}$ is $4$; the original coefficient is $-4$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "兩個括號的常數項寫成 $4-2a-5b$ 與 $4+2a+5b$：$-5b$ 沒有變號。",
-         "en": "The constants read $4-2a-5b$ and $4+2a+5b$: the $-5b$ was not flipped."
+         "zh": "選項 C 展開後，$a b$ 項的係數是 $-20$；原式同一項的係數是 $20$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $a b$ is $-20$; the original coefficient is $20$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "兩個括號都寫 $4-2a-5b$：展開後不會是原式（少了 $+20ab$）。",
-         "en": "Both brackets read $4-2a-5b$: expanding does not give the original (the $+20ab$ term is lost)."
+         "zh": "選項 D 展開後，$a b$ 項的係數是 $0$；原式同一項的係數是 $20$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $a b$ is $0$; the original coefficient is $20$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -1740,13 +1838,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $a=2$, $b=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $a=2$, $b=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -1784,17 +1886,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "第 2 步 · 兩項出現同一個括號",
-          "en": "Step 2 · The same bracket appears twice"
-         },
-         "math": "=(x-y)(x+y)-(x-y)",
-         "zh": "兩項都有 $(x-y)$ —— 第二項其實是 $(x-y)$ 的 $1$ 倍。",
-         "en": "Both terms contain $(x-y)$ — the second is simply $1$ times $(x-y)$."
-        },
-        {
-         "title": {
-          "zh": "第 3 步 · 抽走 $(x-y)$",
-          "en": "Step 3 · Take out $(x-y)$"
+          "zh": "第 2 步 · 抽走 $(x-y)$",
+          "en": "Step 2 · Take out $(x-y)$"
          },
          "math": "=(x-y)(x+y-1)",
          "zh": "抽走之後剩下 $(x+y)$ 與 $-1$。",
@@ -1804,18 +1897,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "B",
-         "zh": "$(x-y)(x-y-1)$ 的第二個括號重複了 $x-y$：應該一個是 $x+y$、一個是 $x-y$。",
-         "en": "$(x-y)(x-y-1)$ repeats $x-y$ in both brackets; one should be $x+y$."
+         "zh": "選項 B 展開後，$x y$ 項的係數是 $-2$；原式同一項的係數是 $0$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $x y$ is $-2$; the original coefficient is $0$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "$(x+y)(x+y-1)$ 完全沒有 $x-y$：展開後會多出 $xy$ 項。",
-         "en": "$(x+y)(x+y-1)$ has no $x-y$; expanding produces extra $xy$ terms."
+         "zh": "選項 C 展開後，$x y$ 項的係數是 $2$；原式同一項的係數是 $0$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $x y$ is $2$; the original coefficient is $0$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "$(x+y)(x-y+1)$：$-x+y$ 應為 $-(x-y)$，所以最後是 $-1$ 而不是 $+1$。",
-         "en": "$(x+y)(x-y+1)$: since $-x+y=-(x-y)$ the last term is $-1$, not $+1$."
+         "zh": "選項 D 展開後，$x$ 項的係數是 $1$；原式同一項的係數是 $-1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $x$ is $1$; the original coefficient is $-1$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -1825,13 +1918,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $x=2$, $y=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $x=2$, $y=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -1869,17 +1966,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "第 2 步 · 兩項出現同一個括號",
-          "en": "Step 2 · The same bracket appears twice"
-         },
-         "math": "=(u+v)(u-v)-3(u+v)",
-         "zh": "兩項都是 $(u+v)$ 的倍數。",
-         "en": "Both terms are multiples of $(u+v)$."
-        },
-        {
-         "title": {
-          "zh": "第 3 步 · 抽走 $(u+v)$",
-          "en": "Step 3 · Take out $(u+v)$"
+          "zh": "第 2 步 · 抽走 $(u+v)$",
+          "en": "Step 2 · Take out $(u+v)$"
          },
          "math": "=(u+v)(u-v-3)",
          "zh": "抽走 $(u+v)$，剩下 $(u-v)$ 與 $-3$。",
@@ -1889,18 +1977,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "B",
-         "zh": "$(u+v-3)$ 的第二個括號重複 $u+v$：平方差已提供 $(u-v)$。",
-         "en": "$(u+v-3)$ repeats $u+v$; the difference of two squares already gives $(u-v)$."
+         "zh": "選項 B 展開後，$u v$ 項的係數是 $2$；原式同一項的係數是 $0$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $u v$ is $2$; the original coefficient is $0$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "$(u-v)(u-v+3)$：$-3$ 應該是減，不是加（$-3u-3v=-3(u+v)$）。",
-         "en": "$(u-v)(u-v+3)$: the term is $-3$, not $+3$, since $-3u-3v=-3(u+v)$."
+         "zh": "選項 C 展開後，$u v$ 項的係數是 $-2$；原式同一項的係數是 $0$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $u v$ is $-2$; the original coefficient is $0$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "$(u-v)(u+v-3)$：平方差給 $(u+v)$、抽出來的是 $(u-v)$，次序倒轉了。",
-         "en": "$(u-v)(u+v-3)$ swaps the two brackets: the square difference gives $(u+v)$ and the factored part is $(u-v)$."
+         "zh": "選項 D 展開後，$v$ 項的係數是 $3$；原式同一項的係數是 $-3$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $v$ is $3$; the original coefficient is $-3$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -1910,13 +1998,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $u=2$, $v=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $u=2$, $v=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      }
@@ -1956,17 +2048,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "第 2 步 · 兩項出現同一個括號",
-          "en": "Step 2 · The same bracket appears twice"
-         },
-         "math": "=(2p-q)(2p+q)+4(2p-q)",
-         "zh": "兩項都有 $(2p-q)$。",
-         "en": "Both terms contain $(2p-q)$."
-        },
-        {
-         "title": {
-          "zh": "第 3 步 · 抽走 $(2p-q)$",
-          "en": "Step 3 · Take out $(2p-q)$"
+          "zh": "第 2 步 · 抽走 $(2p-q)$",
+          "en": "Step 2 · Take out $(2p-q)$"
          },
          "math": "=(2p-q)(2p+q+4)",
          "zh": "抽走 $(2p-q)$，剩下 $(2p+q)$ 與 $+4$。",
@@ -1976,18 +2059,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$+4$ 的符號錯：$+8p-4q=+4(2p-q)$，所以是 $+4$。",
-         "en": "The sign of $4$ is wrong: $+8p-4q=+4(2p-q)$, so it is $+4$."
+         "zh": "選項 A 展開後，$p$ 項的係數是 $-8$；原式同一項的係數是 $8$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $p$ is $-8$; the original coefficient is $8$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "B",
-         "zh": "$(2p+q)$ 與 $-4$ 配不上：抽出來的是 $(2p-q)$，剩下 $(2p+q)+4$。",
-         "en": "$(2p+q)$ with $-4$ does not fit: $(2p-q)$ is factored out, leaving $(2p+q)+4$."
+         "zh": "選項 B 展開後，$q$ 項的係數是 $4$；原式同一項的係數是 $-4$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $q$ is $4$; the original coefficient is $-4$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "$-4$ 的符號錯：最後一項是加 $4$。",
-         "en": "The sign of $4$ is wrong: the last term is $+4$."
+         "zh": "選項 D 展開後，$p$ 項的係數是 $-8$；原式同一項的係數是 $8$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $p$ is $-8$; the original coefficient is $8$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -1997,13 +2080,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $p=2$, $q=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $p=2$, $q=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -2041,17 +2128,8 @@ window.LEARN_TOPIC_WS01B = {
         },
         {
          "title": {
-          "zh": "第 2 步 · 兩項出現同一個括號",
-          "en": "Step 2 · The same bracket appears twice"
-         },
-         "math": "=(3m+2n)(3m-2n)-2(3m+2n)",
-         "zh": "兩項都有 $(3m+2n)$。",
-         "en": "Both terms contain $(3m+2n)$."
-        },
-        {
-         "title": {
-          "zh": "第 3 步 · 抽走 $(3m+2n)$",
-          "en": "Step 3 · Take out $(3m+2n)$"
+          "zh": "第 2 步 · 抽走 $(3m+2n)$",
+          "en": "Step 2 · Take out $(3m+2n)$"
          },
          "math": "=(3m+2n)(3m-2n-2)",
          "zh": "抽走 $(3m+2n)$，剩下 $(3m-2n)$ 與 $-2$。",
@@ -2061,18 +2139,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$(3m-2n)$ 抽不出來：兩項的共同括號是 $(3m+2n)$。",
-         "en": "$(3m-2n)$ cannot be factored out: the shared bracket is $(3m+2n)$."
+         "zh": "選項 A 展開後，$n$ 項的係數是 $4$；原式同一項的係數是 $-4$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $n$ is $4$; the original coefficient is $-4$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "B",
-         "zh": "$+2$ 的符號錯：$-(6m+4n)=-2(3m+2n)$，所以是 $-2$。",
-         "en": "The sign of $2$ is wrong: $-(6m+4n)=-2(3m+2n)$, so it is $-2$."
+         "zh": "選項 B 展開後，$m$ 項的係數是 $6$；原式同一項的係數是 $-6$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $m$ is $6$; the original coefficient is $-6$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "兩處都錯（括號次序與 $+2$）：展開後 $mn$ 項會是 $+4mn$。",
-         "en": "Both wrong (the bracket order and $+2$): expanding gives $+4mn$."
+         "zh": "選項 C 展開後，$m$ 項的係數是 $6$；原式同一項的係數是 $-6$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $m$ is $6$; the original coefficient is $-6$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -2082,13 +2160,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $m=2$, $n=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $m=2$, $n=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -2146,18 +2228,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$(a+b)(a-b+1)$ 展開是 $a^{2}-b^{2}+a+b$：最後一項是 $+b$，但題目要 $-b$（因為 $+a-b=+(a-b)$）。",
-         "en": "$(a+b)(a-b+1)$ expands to $a^{2}-b^{2}+a+b$, but the question needs $-b$ (since $+a-b=+(a-b)$)."
+         "zh": "選項 A 展開後，$b$ 項的係數是 $1$；原式同一項的係數是 $-1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $b$ is $1$; the original coefficient is $-1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "B",
-         "zh": "兩個符號都錯：展開會得到 $a^{2}-b^{2}-a-b$，與原式相差兩個符號。",
-         "en": "Both signs wrong: expanding gives $a^{2}-b^{2}-a-b$, which differs from the question in two signs."
+         "zh": "選項 B 展開後，$a$ 項的係數是 $-1$；原式同一項的係數是 $1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $a$ is $-1$; the original coefficient is $1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "$-1$ 的符號錯：$+a-b=+(a-b)$，所以常數項是 $+1$。",
-         "en": "The sign of $1$ is wrong: $+a-b=+(a-b)$, so the constant term is $+1$."
+         "zh": "選項 D 展開後，$a$ 項的係數是 $-1$；原式同一項的係數是 $1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $a$ is $-1$; the original coefficient is $1$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -2167,13 +2249,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $a=2$, $b=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $a=2$, $b=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      }
@@ -2233,18 +2319,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$+1$ 的符號錯：$-m+n=-(m-n)$，所以是 $-1$。",
-         "en": "The sign of $1$ is wrong: $-m+n=-(m-n)$, so it is $-1$."
+         "zh": "選項 A 展開後，$m$ 項的係數是 $1$；原式同一項的係數是 $-1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $m$ is $1$; the original coefficient is $-1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "$(m+n)$ 抽不出來：兩項都是 $(m-n)$ 的倍數。",
-         "en": "$(m+n)$ cannot be factored out: both terms are multiples of $(m-n)$."
+         "zh": "選項 C 展開後，$m$ 項的係數是 $1$；原式同一項的係數是 $-1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $m$ is $1$; the original coefficient is $-1$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "$(m+n)(m-n-1)$ 只是把兩個括號對調了次序，展開後常數項符號會相反。",
-         "en": "$(m+n)(m-n-1)$ merely swaps the brackets, which flips the sign of the constant term."
+         "zh": "選項 D 展開後，$n$ 項的係數是 $-1$；原式同一項的係數是 $1$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $n$ is $-1$; the original coefficient is $1$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -2254,13 +2340,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $m=2$, $n=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $m=2$, $n=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -2318,18 +2408,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "B",
-         "zh": "$+4$ 的符號錯：$-4h+4k=-4(h-k)$，所以是 $-4$。",
-         "en": "The sign of $4$ is wrong: $-4h+4k=-4(h-k)$, so it is $-4$."
+         "zh": "選項 B 展開後，$h$ 項的係數是 $4$；原式同一項的係數是 $-4$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option B, the coefficient of $h$ is $4$; the original coefficient is $-4$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "$(h+k)$ 抽不出來：共同括號是 $(h-k)$。",
-         "en": "$(h+k)$ cannot be factored out: the shared bracket is $(h-k)$."
+         "zh": "選項 C 展開後，$k$ 項的係數是 $-4$；原式同一項的係數是 $4$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $k$ is $-4$; the original coefficient is $4$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "$(h+k)(h-k+4)$：$-4$ 的符號錯，而且兩個括號對調了。",
-         "en": "$(h+k)(h-k+4)$: the sign of $4$ is wrong and the brackets are swapped."
+         "zh": "選項 D 展開後，$h$ 項的係數是 $4$；原式同一項的係數是 $-4$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $h$ is $4$; the original coefficient is $-4$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -2339,13 +2429,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $h=2$, $k=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $h=2$, $k=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      },
@@ -2403,18 +2497,18 @@ window.LEARN_TOPIC_WS01B = {
        "traps": [
         {
          "opt": "A",
-         "zh": "$(m-3n)$ 抽不出來：$-2m-6n=-2(m+3n)$，共同括號是 $(m+3n)$。",
-         "en": "$(m-3n)$ cannot be factored out: $-2m-6n=-2(m+3n)$, so the shared bracket is $(m+3n)$."
+         "zh": "選項 A 展開後，$m n$ 項的係數是 $-6$；原式同一項的係數是 $0$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option A, the coefficient of $m n$ is $-6$; the original coefficient is $0$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "C",
-         "zh": "$+2$ 的符號錯：$-2m-6n=-2(m+3n)$，所以是 $-2$。",
-         "en": "The sign of $2$ is wrong: $-2m-6n=-2(m+3n)$, so it is $-2$."
+         "zh": "選項 C 展開後，$m$ 項的係數是 $2$；原式同一項的係數是 $-2$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option C, the coefficient of $m$ is $2$; the original coefficient is $-2$. Recheck this coefficient when grouping or removing brackets."
         },
         {
          "opt": "D",
-         "zh": "兩個括號都寫 $m+3n$：平方差提供的是 $(m-3n)$，不是兩個都加。",
-         "en": "Both brackets read $m+3n$, but the difference of two squares gives $(m-3n)$ for one of them."
+         "zh": "選項 D 展開後，$m n$ 項的係數是 $6$；原式同一項的係數是 $0$。回到分組或拆括號那一步，核對這個係數。",
+         "en": "In the expansion of option D, the coefficient of $m n$ is $6$; the original coefficient is $0$. Recheck this coefficient when grouping or removing brackets."
         }
        ],
        "tip": {
@@ -2424,13 +2518,17 @@ window.LEARN_TOPIC_WS01B = {
        "alt": [
         {
          "name": {
-          "zh": "卷二保底：數值代入法（Substitution）",
-          "en": "Paper 2 safety net: substitution"
+          "zh": "驗算：展開比對，代值可排錯",
+          "en": "Check: expand to verify; substitution can reject errors"
          },
-         "zh": "卷二救急法：隨意代小的數入題目中的字母（例如 $m=2$, $n=3$；避開 $0$ 與 $1$，因為它們會令很多選項同時變成 $0$ 或相同值，分不出真假），用計算機算出題目的值；再把同一組數逐個代入四個選項，只有一個會得到相同的數值 —— 那就是答案。完全不懂分組都可以用，最適合用來核對或救急。",
-         "en": "Paper 2 rescue plan: put small numbers into the letters (for example $m=2$, $n=3$; avoid $0$ and $1$ because they make several options equal and useless), evaluate the question on your calculator, then substitute the same numbers into the four options — only one gives the same value, and that is the answer. It works even when you cannot see the grouping."
+         "zh": "將因式逐項相乘，收集同類項後，核對原式中每一項的係數。代一組數得到不同值，可以排除選項；得到相同值只代表通過這一次檢查，並不能證明恆等。",
+         "en": "Multiply the factors, collect like terms and compare every coefficient with the original. A numerical mismatch rejects an option. A match passes only that one numerical check and does not prove an identity."
         }
-       ]
+       ],
+       "reflect": {
+        "zh": "收起題解後，你能解釋這題用了哪個方法，並寫出關鍵一步嗎？",
+        "en": "With the solution hidden, can you explain which method this question uses and write its key step?"
+       }
       },
       "verify": "checked"
      }

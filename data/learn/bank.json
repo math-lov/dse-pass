@@ -86,7 +86,11 @@
     "C": "$3(2m+4n)$",
     "D": "$6m(1+2n)$"
    },
-   "review": null
+   "review": null,
+   "practiceGoal": {
+    "zh": "本題選擇已分解完成的形式：提出公因式後，括號內亦要檢查。",
+    "en": "Choose the fully factorised form: take out common factors and check inside every bracket."
+   }
   },
   {
    "id": "eph-ws01-w02",
@@ -108,7 +112,11 @@
     "C": "$-r^{2}(r+s)$",
     "D": "$-r(r^{2}+rs)$"
    },
-   "review": null
+   "review": null,
+   "practiceGoal": {
+    "zh": "本題選擇已分解完成的形式：提出公因式後，括號內亦要檢查。",
+    "en": "Choose the fully factorised form: take out common factors and check inside every bracket."
+   }
   },
   {
    "id": "eph-ws01-w03",
@@ -130,7 +138,11 @@
     "C": "$2(m-4)^{2}$",
     "D": "$(2m+8)(m-4)$"
    },
-   "review": null
+   "review": null,
+   "practiceGoal": {
+    "zh": "本題選擇已分解完成的形式：提出公因式後，括號內亦要檢查。",
+    "en": "Choose the fully factorised form: take out common factors and check inside every bracket."
+   }
   },
   {
    "id": "eph-ws01-w04",
@@ -372,7 +384,11 @@
     "C": "$(3a+1)^{2}$",
     "D": "$3a(3a+2)+1$"
    },
-   "review": null
+   "review": null,
+   "practiceGoal": {
+    "zh": "本題選擇已分解完成的形式：提出公因式後，括號內亦要檢查。",
+    "en": "Choose the fully factorised form: take out common factors and check inside every bracket."
+   }
   },
   {
    "id": "eph-ws01-q09",
