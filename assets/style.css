@@ -1162,3 +1162,4 @@ body[data-course="factorization"] .factor-concept :is(h2, h3) > .l-zh { display:
 body[data-course="factorization"][data-lang="en"] .l-zh,
 body[data-course="factorization"][data-lang="zh"] .l-en { display: none !important; }
 body[data-course="factorization"] { --ok: #0f7f47; }
+body[data-course="factorization"][data-lang="both"] .factor-recall .btn-primary .l-en { color: inherit; }
