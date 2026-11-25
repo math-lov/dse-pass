@@ -1084,6 +1084,11 @@ body[data-course="factorization"] .callout > b { display: block; margin-bottom: 
 .recall-option[aria-pressed="true"] { outline: 2px solid var(--primary); outline-offset: -2px; background: var(--primary-soft); }
 .recall-option:hover { border-color: var(--primary); }
 .recall-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+body[data-course="factorization"] .recall-correct,
+body[data-course="factorization"] .recall-correct:hover {
+  background: var(--ok-dark); border-color: var(--ok-dark); color: #fff;
+  box-shadow: 0 2px 0 #09532e;
+}
 .recall-feedback:not(:empty) { margin-top: 16px; padding: 14px; border-left: 3px solid var(--primary); background: var(--primary-soft); }
 .recall-feedback b { display: block; margin-bottom: 8px; }
 .factor-card-actions { margin-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }

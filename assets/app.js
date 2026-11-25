@@ -700,6 +700,11 @@
       } else value.appendChild(biSpan(option));
       b.appendChild(value);
       b.onclick = function () {
+        if (selected !== i) {
+          submit.classList.remove("recall-correct");
+          setPair(submit, { zh: "核對想法", en: "Check my thinking" });
+          feedback.innerHTML = "";
+        }
         selected = i; submit.disabled = false;
         qsa("button", choices).forEach(function (node, j) { node.setAttribute("aria-pressed", String(i === j)); });
       };
@@ -707,8 +712,11 @@
     });
     function explain() { feedback.innerHTML = ""; feedback.appendChild(biNode(recall.explanation, "div")); }
     submit.onclick = function () {
+      if (selected === null) return;
       feedback.innerHTML = "";
       if (selected === recall.answer) {
+        submit.classList.add("recall-correct");
+        setPair(submit, { zh: "✓ 正確", en: "✓ Correct" });
         passed = true; factorStudy().recall[card.id] = true; save();
         feedback.appendChild(biNode({ zh: "這個想法正確。看看理由：", en: "That reasoning works. Here is why:" }, "b"));
         feedback.appendChild(biNode(recall.explanation, "div"));

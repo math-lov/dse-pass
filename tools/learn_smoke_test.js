@@ -110,7 +110,11 @@ ok(/未符合/.test(factor.$(".recall-feedback").textContent), "incorrect recall
 ok(!factor.store().study.factorization.recall["ws01-c1"], "incorrect recall does not claim success");
 factor.$$(".recall-option")[0].click(); recallSubmit.click();
 ok(factor.store().study.factorization.recall["ws01-c1"], "successful recall saves a separate optional check record");
+ok(recallSubmit.classList.contains("recall-correct") && /✓ Correct/.test(recallSubmit.textContent), "correct recall gives the check button a green success state and explicit label");
 ok(factor.$(".recall-option").getAttribute("aria-pressed") === "true", "selected recall is accessible without relying on colour");
+factor.$$(".recall-option")[1].click();
+ok(!recallSubmit.classList.contains("recall-correct") && /Check my thinking/.test(recallSubmit.textContent) && !factor.$(".recall-feedback").textContent,
+   "changing an answer resets success styling, label and stale feedback before checking again");
 const chosenConcept = boot("topic.html", "?course=factorization&p=0&card=ws01-c4");
 ok(!!chosenConcept.$(".cross-example") && chosenConcept.$("#factor-jump").selectedIndex === 3, "direct concept links select and label the cross-method diagram");
 const factorDemo = boot("topic.html", "?course=factorization&p=6");
