@@ -1065,6 +1065,558 @@
         ],
         "answer": "C"
       }
+    ],
+    "eph-ws02-a01": [
+      {
+        "part": "",
+        "options": [
+          "x=2,\\quad y=8",
+          "x=3,\\quad y=8",
+          "x=2,\\quad y=9",
+          "x=3,\\quad y=9"
+        ],
+        "answer": "A"
+      }
+    ],
+    "eph-ws02-a02": [
+      {
+        "part": "",
+        "options": [
+          "x=-9,\\quad y=-2",
+          "x=-10,\\quad y=-1",
+          "x=-9,\\quad y=-1",
+          "x=-10,\\quad y=-2"
+        ],
+        "answer": "D"
+      }
+    ],
+    "eph-ws02-a03": [
+      {
+        "part": "",
+        "options": [
+          "x=8,\\quad y=-4",
+          "x=9,\\quad y=-4",
+          "x=8,\\quad y=-5",
+          "x=9,\\quad y=-5"
+        ],
+        "answer": "C"
+      }
+    ],
+    "eph-ws02-a04": [
+      {
+        "part": "",
+        "options": [
+          "x=-2,\\quad y=2",
+          "x=-3,\\quad y=1",
+          "x=-2,\\quad y=1",
+          "x=-3,\\quad y=2"
+        ],
+        "answer": "B"
+      }
+    ],
+    "eph-ws02-a05": [
+      {
+        "part": "",
+        "options": [
+          "x=2,\\quad y=4",
+          "x=3,\\quad y=4",
+          "x=2,\\quad y=5",
+          "x=3,\\quad y=5"
+        ],
+        "answer": "A"
+      }
+    ],
+    "eph-ws02-a06": [
+      {
+        "part": "",
+        "options": [
+          "x=-4,\\quad y=-3",
+          "x=-5,\\quad y=-2",
+          "x=-4,\\quad y=-2",
+          "x=-5,\\quad y=-3"
+        ],
+        "answer": "D"
+      }
+    ],
+    "eph-ws02-a07": [
+      {
+        "part": "",
+        "options": [
+          "x=-2,\\quad y=6",
+          "x=-1,\\quad y=6",
+          "x=-2,\\quad y=5",
+          "x=-1,\\quad y=5"
+        ],
+        "answer": "C"
+      }
+    ],
+    "eph-ws02-a08": [
+      {
+        "part": "",
+        "options": [
+          "x=4,\\quad y=-5",
+          "x=3,\\quad y=-6",
+          "x=4,\\quad y=-6",
+          "x=3,\\quad y=-5"
+        ],
+        "answer": "B"
+      }
+    ],
+    "eph-ws02-a09": [
+      {
+        "part": "",
+        "options": [
+          "x=-4,\\quad y=-11",
+          "x=-3,\\quad y=-11",
+          "x=-4,\\quad y=-10",
+          "x=-3,\\quad y=-10"
+        ],
+        "answer": "A"
+      }
+    ],
+    "eph-ws02-a10": [
+      {
+        "part": "",
+        "options": [
+          "m=5,\\quad n=-8",
+          "m=4,\\quad n=-7",
+          "m=5,\\quad n=-7",
+          "m=4,\\quad n=-8"
+        ],
+        "answer": "D"
+      }
+    ],
+    "eph-ws02-a11": [
+      {
+        "part": "",
+        "options": [
+          "p=2,\\quad q=5",
+          "p=3,\\quad q=5",
+          "p=2,\\quad q=4",
+          "p=3,\\quad q=4"
+        ],
+        "answer": "C"
+      }
+    ],
+    "eph-ws02-a12": [
+      {
+        "part": "",
+        "options": [
+          "a=\\dfrac{7}{2},\\quad b=6",
+          "a=\\dfrac{5}{2},\\quad b=5",
+          "a=\\dfrac{7}{2},\\quad b=5",
+          "a=\\dfrac{5}{2},\\quad b=6"
+        ],
+        "answer": "B"
+      }
+    ],
+    "eph-ws02-b01": [
+      {
+        "part": "",
+        "options": [
+          "48",
+          "49",
+          "47",
+          "96"
+        ],
+        "answer": "A"
+      }
+    ],
+    "eph-ws02-b02": [
+      {
+        "part": "",
+        "options": [
+          "14",
+          "12",
+          "26",
+          "13"
+        ],
+        "answer": "D"
+      }
+    ],
+    "eph-ws02-b03": [
+      {
+        "part": "",
+        "options": [
+          "17",
+          "36",
+          "18",
+          "19"
+        ],
+        "answer": "C"
+      }
+    ],
+    "eph-ws02-b04": [
+      {
+        "part": "",
+        "options": [
+          "14",
+          "7",
+          "8",
+          "6"
+        ],
+        "answer": "B"
+      }
+    ],
+    "eph-ws02-b05": [
+      {
+        "part": "",
+        "options": [
+          "4",
+          "5",
+          "3",
+          "8"
+        ],
+        "answer": "A"
+      }
+    ],
+    "eph-ws02-b06": [
+      {
+        "part": "",
+        "options": [
+          "6",
+          "4",
+          "10",
+          "5"
+        ],
+        "answer": "D"
+      }
+    ],
+    "eph-ws02-b07": [
+      {
+        "part": "",
+        "options": [
+          "14",
+          "30",
+          "15",
+          "16"
+        ],
+        "answer": "C"
+      }
+    ],
+    "eph-ws02-b08": [
+      {
+        "part": "",
+        "options": [
+          "28",
+          "14",
+          "15",
+          "13"
+        ],
+        "answer": "B"
+      }
+    ],
+    "eph-ws02-b09": [
+      {
+        "part": "",
+        "options": [
+          "24",
+          "25",
+          "23",
+          "48"
+        ],
+        "answer": "A"
+      }
+    ],
+    "eph-ws02-b10": [
+      {
+        "part": "",
+        "options": [
+          "10",
+          "8",
+          "18",
+          "9"
+        ],
+        "answer": "D"
+      }
+    ],
+    "eph-ws02-b11": [
+      {
+        "part": "",
+        "options": [
+          "11",
+          "24",
+          "12",
+          "13"
+        ],
+        "answer": "C"
+      }
+    ],
+    "eph-ws02-b12": [
+      {
+        "part": "",
+        "options": [
+          "88",
+          "44",
+          "45",
+          "43"
+        ],
+        "answer": "B"
+      }
+    ],
+    "eph-ws02-b13": [
+      {
+        "part": "",
+        "options": [
+          "312",
+          "313",
+          "311",
+          "624"
+        ],
+        "answer": "A"
+      }
+    ],
+    "eph-ws02-b14": [
+      {
+        "part": "",
+        "options": [
+          "25",
+          "23",
+          "48",
+          "24"
+        ],
+        "answer": "D"
+      }
+    ],
+    "eph-ws02-b15": [
+      {
+        "part": "",
+        "options": [
+          "47",
+          "96",
+          "48",
+          "49"
+        ],
+        "answer": "C"
+      }
+    ],
+    "eph-ws02-b16": [
+      {
+        "part": "",
+        "options": [
+          "144",
+          "72",
+          "73",
+          "71"
+        ],
+        "answer": "B"
+      }
+    ],
+    "eph-ws02-b17": [
+      {
+        "part": "",
+        "options": [
+          "75",
+          "76",
+          "74",
+          "150"
+        ],
+        "answer": "A"
+      }
+    ],
+    "eph-ws02-b18": [
+      {
+        "part": "",
+        "options": [
+          "57",
+          "55",
+          "112",
+          "56"
+        ],
+        "answer": "D"
+      }
+    ],
+    "eph-ws02-b19": [
+      {
+        "part": "",
+        "options": [
+          "69",
+          "140",
+          "70",
+          "71"
+        ],
+        "answer": "C"
+      }
+    ],
+    "eph-ws02-b20": [
+      {
+        "part": "",
+        "options": [
+          "72",
+          "36",
+          "37",
+          "35"
+        ],
+        "answer": "B"
+      }
+    ],
+    "eph-ws02-b21": [
+      {
+        "part": "",
+        "options": [
+          "85",
+          "86",
+          "84",
+          "170"
+        ],
+        "answer": "A"
+      }
+    ],
+    "eph-ws02-b22": [
+      {
+        "part": "",
+        "options": [
+          "91",
+          "89",
+          "180",
+          "90"
+        ],
+        "answer": "D"
+      }
+    ],
+    "eph-ws02-b23": [
+      {
+        "part": "",
+        "options": [
+          "21",
+          "44",
+          "22",
+          "23"
+        ],
+        "answer": "C"
+      }
+    ],
+    "eph-ws02-b24": [
+      {
+        "part": "",
+        "options": [
+          "60",
+          "30",
+          "31",
+          "29"
+        ],
+        "answer": "B"
+      }
+    ],
+    "eph-ws02-b25": [
+      {
+        "part": "",
+        "options": [
+          "60",
+          "61",
+          "59",
+          "120"
+        ],
+        "answer": "A"
+      }
+    ],
+    "eph-ws02-b26": [
+      {
+        "part": "",
+        "options": [
+          "36",
+          "34",
+          "70",
+          "35"
+        ],
+        "answer": "D"
+      }
+    ],
+    "eph-ws02-b27": [
+      {
+        "part": "",
+        "options": [
+          "44",
+          "90",
+          "45",
+          "46"
+        ],
+        "answer": "C"
+      }
+    ],
+    "eph-ws02-bex01": [
+      {
+        "part": "",
+        "options": [
+          "24",
+          "12",
+          "13",
+          "11"
+        ],
+        "answer": "B"
+      }
+    ],
+    "eph-ws02-bpr01": [
+      {
+        "part": "",
+        "options": [
+          "24",
+          "25",
+          "23",
+          "48"
+        ],
+        "answer": "A"
+      }
+    ],
+    "eph-ws02-bex02": [
+      {
+        "part": "",
+        "options": [
+          "46",
+          "44",
+          "90",
+          "45"
+        ],
+        "answer": "D"
+      }
+    ],
+    "eph-ws02-bpr02": [
+      {
+        "part": "",
+        "options": [
+          "699",
+          "1400",
+          "700",
+          "701"
+        ],
+        "answer": "C"
+      }
+    ],
+    "eph-ws02-keysub": [
+      {
+        "part": "",
+        "options": [
+          "m=10,\\quad n=-1",
+          "m=9,\\quad n=-2",
+          "m=10,\\quad n=-2",
+          "m=9,\\quad n=-1"
+        ],
+        "answer": "B"
+      }
+    ],
+    "eph-ws02-keysubtract": [
+      {
+        "part": "",
+        "options": [
+          "x=-7,\\quad y=-15",
+          "x=-6,\\quad y=-15",
+          "x=-7,\\quad y=-14",
+          "x=-6,\\quad y=-14"
+        ],
+        "answer": "A"
+      }
+    ],
+    "eph-ws02-keyscale": [
+      {
+        "part": "",
+        "options": [
+          "x=0,\\quad y=3",
+          "x=-1,\\quad y=4",
+          "x=0,\\quad y=4",
+          "x=-1,\\quad y=3"
+        ],
+        "answer": "D"
+      }
     ]
   }
 }

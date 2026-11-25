@@ -20,8 +20,9 @@
   var INDEX = window.LEARN_INDEX || { topics: [], stages: [], counts: {} };
   var TOPIC = null;                       // 目前課題的完整資料
   var PAGE = (document.body.getAttribute("data-page") || "index");
-  var FACTOR_COURSE = PAGE === "topic" && new URLSearchParams(location.search).get("course") === "factorization";
-  if (FACTOR_COURSE) document.body.setAttribute("data-course", "factorization");
+  var COURSE_ID = new URLSearchParams(location.search).get("course");
+  var GUIDED_COURSE = PAGE === "topic" && ((INDEX.navigation || {}).courses || []).some(function (course) { return course.id === COURSE_ID && course.learningMode === "guided"; });
+  if (GUIDED_COURSE) { document.body.setAttribute("data-course", COURSE_ID); document.body.setAttribute("data-learning", "guided"); }
 
   /* ── 儲存 ───────────────────────────────────────────────────────────── */
   function load() {
@@ -181,7 +182,7 @@
     var marks = qsa(".hlk, .hlw, .hlg, .xf", host);
     if (!marks.length) return false;
     marks.forEach(function (m, i) { m.style.setProperty("--i", i); });
-    if (!FACTOR_COURSE) playWhenVisible(host);
+    if (!GUIDED_COURSE) playWhenVisible(host);
     return true;
   }
   /* 一步一步睇題解時，學生可能想再睇一次重點 → 喺步驟右下角加 ⟲ */
@@ -573,13 +574,13 @@
 
   function factorStudy() {
     store.study = store.study || {};
-    var state = store.study.factorization || (store.study.factorization = {});
+    var state = store.study[COURSE_ID] || (store.study[COURSE_ID] = {});
     state.cards = state.cards || {};
     state.recall = state.recall || {};
     return state;
   }
   function factorDestination(page, card) {
-    return topicUrl("factorization", page) + (card ? "&card=" + encodeURIComponent(card) : "");
+    return topicUrl(COURSE_ID, page) + (card ? "&card=" + encodeURIComponent(card) : "");
   }
   function factorCardIndex(page) {
     var requested = new URLSearchParams(location.search).get("card");
@@ -607,7 +608,7 @@
     return entries;
   }
   function renderFactorNavigator(pages, cur, cardIndex) {
-    if (!FACTOR_COURSE || !pages[cur]) return;
+    if (!GUIDED_COURSE || !pages[cur]) return;
     var bar = qs("#factor-navigation");
     if (!bar) {
       bar = el("div", "factor-navigation"); bar.id = "factor-navigation";
@@ -881,7 +882,7 @@
       return (p.demos || []).length > 0 &&
         p.demos.every(function (q) { return !!store.long[q.id]; });
     }
-    return p.row.every(function (q) { var state = mcState(q.id); return !!state && (!FACTOR_COURSE || state.final !== false); });
+    return p.row.every(function (q) { var state = mcState(q.id); return !!state && (!GUIDED_COURSE || state.final !== false); });
   }
 
   function renderTopic() {
@@ -1054,7 +1055,7 @@
         } catch (e) {}
       }
 
-      if (FACTOR_COURSE) renderFactorNavigator(pages, cur);
+      if (GUIDED_COURSE) renderFactorNavigator(pages, cur);
       updateWrongBadge();
     });
   }
@@ -1091,17 +1092,17 @@
       body.appendChild(intro);
     }
 
-    if (FACTOR_COURSE) {
+    if (GUIDED_COURSE) {
       var source = (TOPIC.sourceTopics || []).filter(function (t) { return t.lessons.some(function (l) { return l.id === p.lesson.id; }); })[0];
       if (source) TOPIC.cmdHints = source.cmdHints;
     }
-    if (!FACTOR_COURSE) appendCommandHints(body);      // 常駐考試指令提示：做之前先看，減少「睇錯題目」的失分
+    if (!GUIDED_COURSE) appendCommandHints(body);      // 常駐考試指令提示：做之前先看，減少「睇錯題目」的失分
 
     if (p.kind === "cards") renderCards(body, p, pages, cur, tid);
     else if (p.kind === "long") renderLong(body, p, pages, cur, tid);
     else if (p.kind === "demos") renderDemoSet(body, p, pages, cur, tid);
     else renderMcPage(body, p, pages, cur, tid, focusQid);
-    if (FACTOR_COURSE && p.kind !== "cards") appendCommandHints(body);
+    if (GUIDED_COURSE && p.kind !== "cards") appendCommandHints(body);
 
     // 卡住時才需要的東西：放在頁尾，不干擾作答
     var help = el("div", "help-link");
@@ -1267,7 +1268,7 @@
       chip.appendChild(z);
       box.appendChild(chip);
     });
-    if (FACTOR_COURSE) {
+    if (GUIDED_COURSE) {
       var details = el("details", "factor-glossary");
       var summary = el("summary"); summary.appendChild(biSpan({ zh: "題目字眼 · 按需要查看", en: "Question words · Open when needed" }));
       details.appendChild(summary); details.appendChild(box); body.appendChild(details);
@@ -1275,7 +1276,7 @@
   }
 
   function renderCards(body, page, pages, cur, tid) {
-    if (FACTOR_COURSE) { renderFactorCards(body, page, pages, cur, tid); return; }
+    if (GUIDED_COURSE) { renderFactorCards(body, page, pages, cur, tid); return; }
     var cards = page.lesson.cards || [];
     var i = 0;
     var cardEl = null;          // 目前這一張卡（換卡後捲回它的頂部）
@@ -1469,8 +1470,8 @@
     var tryRow = el("div", "demo-try");
     var tt = el("span");
     tt.appendChild(biSpan({
-      zh: FACTOR_COURSE ? "可以先在紙上試做，也可以由第一步開始看示範。" : "先自己想一想、動手寫一寫，再逐步看題解。",
-      en: FACTOR_COURSE ? "Try it on paper, or start with the first worked step." : "Think it through and write it down yourself first, then reveal the steps one by one."
+      zh: GUIDED_COURSE ? "可以先在紙上試做，也可以由第一步開始看示範。" : "先自己想一想、動手寫一寫，再逐步看題解。",
+      en: GUIDED_COURSE ? "Try it on paper, or start with the first worked step." : "Think it through and write it down yourself first, then reveal the steps one by one."
     }));
     tryRow.appendChild(tt);
     var startBtn = btnPair("btn btn-sm btn-primary", { zh: "開始看題解", en: "Show the steps" });
@@ -1502,7 +1503,7 @@
     function refreshGate() {
       if (!checks.length) return;
       var done = allChecked();
-      startBtn.disabled = FACTOR_COURSE ? false : !done;
+      startBtn.disabled = GUIDED_COURSE ? false : !done;
       if (gateNote) gateNote.classList.toggle("hidden", done);
       if (skipBtn) skipBtn.classList.toggle("hidden", done);
     }
@@ -1534,7 +1535,7 @@
       submit.setAttribute("data-lc-submit", "1");
       submit.disabled = true;
       var fb = el("div");
-      if (FACTOR_COURSE) { fb.setAttribute("role", "status"); fb.setAttribute("aria-live", "polite"); }
+      if (GUIDED_COURSE) { fb.setAttribute("role", "status"); fb.setAttribute("aria-live", "polite"); }
       var row = el("div", "check-row");
       row.appendChild(submit);
       row.appendChild(fb);
@@ -1544,7 +1545,7 @@
       function markPicked() {
         qsa(".opt", opts).forEach(function (b) {
           b.classList.toggle("picked", b.dataset.opt === state.picked);
-          if (FACTOR_COURSE) b.setAttribute("aria-pressed", String(b.dataset.opt === state.picked));
+          if (GUIDED_COURSE) b.setAttribute("aria-pressed", String(b.dataset.opt === state.picked));
         });
       }
       function markWrong(L) {
@@ -1690,7 +1691,7 @@
       var chkBox = el("div", "lchecks");
       var chkHead = el("div", "lcheck-head");
       chkHead.appendChild(biSpan({
-        zh: FACTOR_COURSE ? "每一部各有一題核對" : "先核對答案（每一部一題）", en: FACTOR_COURSE ? "One check per part" : "Check your answers first (one per part)"
+        zh: GUIDED_COURSE ? "每一部各有一題核對" : "先核對答案（每一部一題）", en: GUIDED_COURSE ? "One check per part" : "Check your answers first (one per part)"
       }));
       chkBox.appendChild(chkHead);
       checks.forEach(function (c) { chkBox.appendChild(longCheck(c)); });
@@ -1700,8 +1701,8 @@
       skipBtn.onclick = function () {
         checksUI.forEach(function (u) { u.markSkipped(); });
       };
-      if (!FACTOR_COURSE) chkBox.appendChild(skipBtn);
-      if (FACTOR_COURSE) {
+      if (!GUIDED_COURSE) chkBox.appendChild(skipBtn);
+      if (GUIDED_COURSE) {
         var optionalCheck = el("details", "factor-answer-check");
         var checkSummary = el("summary"); checkSummary.appendChild(biSpan({ zh: "已自己做過？核對答案（可選）", en: "Tried it yourself? Check your answer (optional)" }));
         optionalCheck.appendChild(checkSummary); optionalCheck.appendChild(chkBox); card.appendChild(optionalCheck);
@@ -1712,7 +1713,7 @@
         zh: "核對完每一部（或按「跳過」）就可以看題解。",
         en: "Check every part (or skip) to unlock the steps."
       }));
-      if (!FACTOR_COURSE) tryRow.appendChild(gateNote);
+      if (!GUIDED_COURSE) tryRow.appendChild(gateNote);
     }
     card.appendChild(tryRow);
     refreshGate();
@@ -1754,7 +1755,7 @@
         } else {
           box.appendChild(f);
         }
-        if (!FACTOR_COURSE && qsa(".hlk, .hlw, .hlg, .xf", f).length) box.appendChild(replayButton(f));
+        if (!GUIDED_COURSE && qsa(".hlk, .hlw, .hlg, .xf", f).length) box.appendChild(replayButton(f));
       }
       var why = biNode({ zh: st.zh || "", en: st.en || st.zh || "" }, "div", "why");
       box.appendChild(why);
@@ -1768,7 +1769,7 @@
       });
       // scrollIntoView 在部分環境（jsdom／舊瀏覽器）不存在 → 保護，不讓它中斷揭示流程
       if (typeof box.scrollIntoView === "function") {
-        try { box.scrollIntoView({ block: "nearest", behavior: FACTOR_COURSE && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); } catch (e) {}
+        try { box.scrollIntoView({ block: "nearest", behavior: GUIDED_COURSE && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); } catch (e) {}
       }
     }
 
@@ -1800,7 +1801,7 @@
       if (sol.tip && (sol.tip.zh || sol.tip.en)) boxt.appendChild(biNode(sol.tip, "p"));
       endRow.appendChild(boxt);
       endRow.classList.remove("hidden");
-      if (FACTOR_COURSE) {
+      if (GUIDED_COURSE) {
         var checkDetails = el("details", "factor-review-details");
         var summary = el("summary"); summary.appendChild(biSpan({ zh: "核對易混淆的位置", en: "Check common points of confusion" }));
         checkDetails.appendChild(summary); appendLongTraps(checkDetails, sol); endRow.appendChild(checkDetails);
@@ -1891,7 +1892,7 @@
   function refreshPageDone(page) {
     var n = qs("#page-done");
     if (!n || !page || !page.row || !page.row.length) return;
-    if (FACTOR_COURSE) {
+    if (GUIDED_COURSE) {
       var checked = page.row.filter(function (q) { var rec = mcState(q.id); return rec && rec.final !== false; }).length;
       n.classList.toggle("pd-finish", checked === page.row.length);
       setPair(n, {
@@ -2001,7 +2002,7 @@
     var stem = el("div", "q-stem");
     stem.appendChild(biNode(q.stem || { zh: "", en: "" }));
     card.appendChild(stem);
-    if (FACTOR_COURSE && q.practiceGoal) card.appendChild(biNode(q.practiceGoal, "p", "factor-practice-goal"));
+    if (GUIDED_COURSE && q.practiceGoal) card.appendChild(biNode(q.practiceGoal, "p", "factor-practice-goal"));
 
     /* 讀圖題（資料層 figBefore: true）：圖本身就是題目的一部分 —— 題幹寫「The figure shows…」，
        沒有圖就答不到。所以這一類題目要「作答前」就看到圖；但只出圖，不出 caption
@@ -2021,7 +2022,7 @@
     submitBtn.setAttribute("data-check", "1");
     submitBtn.disabled = true;
     var fbHost = el("div");
-    if (FACTOR_COURSE) { fbHost.setAttribute("role", "status"); fbHost.setAttribute("aria-live", "polite"); }
+    if (GUIDED_COURSE) { fbHost.setAttribute("role", "status"); fbHost.setAttribute("aria-live", "polite"); }
     checkRow.appendChild(submitBtn);
     checkRow.appendChild(fbHost);
     card.appendChild(checkRow);
@@ -2055,7 +2056,7 @@
     function markPicked() {
       qsa(".opt", opts).forEach(function (b) {
         b.classList.toggle("picked", b.dataset.opt === state.picked);
-        if (FACTOR_COURSE) b.setAttribute("aria-pressed", String(b.dataset.opt === state.picked));
+        if (GUIDED_COURSE) b.setAttribute("aria-pressed", String(b.dataset.opt === state.picked));
       });
     }
     function markWrong(L) {
@@ -2122,7 +2123,7 @@
       box.appendChild(el("span", "fb-icon", ok ? "✓" : "✕"));
       var txt = el("div");
       var main = el("div");
-      if (FACTOR_COURSE) {
+      if (GUIDED_COURSE) {
         main.appendChild(biSpan(ok ? { zh: "這次核對正確", en: "This answer checks out" }
           : { zh: "這個選項未符合題目要求", en: "This option does not meet the question's requirement" }));
       } else main.appendChild(biSpan(ok
@@ -2130,7 +2131,7 @@
         : (finalWrong ? { zh: "兩次都未答對", en: "Not right after two tries" }
                       : { zh: "唔係這一個", en: "Not this one" })));
       var sub = el("span", "fb-sub");
-      if (FACTOR_COURSE) sub.appendChild(biSpan(ok
+      if (GUIDED_COURSE) sub.appendChild(biSpan(ok
         ? { zh: "再想一想：哪一個因式或恆等式令這個答案成立？", en: "Which common factor or identity makes this answer work?" }
         : finalWrong ? { zh: "對照下面的差別，再逐步看解法。這題已留作重溫。", en: "Compare the difference below, then follow the worked steps. This question is saved to revisit." }
         : q.practiceGoal ? { zh: "除了核對是否等值，也要檢查有沒有分解到底。可再試一次，或先看提示。", en: "Check both equivalence and whether factorisation is complete. Try again, or open a hint first." }
@@ -2180,7 +2181,7 @@
     function markPage() {
       refreshPageDone(page);
       updateWrongBadge();
-      var pageAll = page.row.every(function (x) { var rec = mcState(x.id); return !!rec && (!FACTOR_COURSE || rec.final !== false); });
+      var pageAll = page.row.every(function (x) { var rec = mcState(x.id); return !!rec && (!GUIDED_COURSE || rec.final !== false); });
       if (pageAll) {
         var nb = navPageBtn(cur);
         if (nb) nb.classList.add("done");
@@ -2274,7 +2275,7 @@
         } else {
           box.appendChild(f);
         }
-        if (!FACTOR_COURSE && qsa(".hlk, .hlw, .hlg, .xf", f).length) box.appendChild(replayButton(f));
+        if (!GUIDED_COURSE && qsa(".hlk, .hlw, .hlg, .xf", f).length) box.appendChild(replayButton(f));
       }
       box.appendChild(biNode({ zh: st.zh || "", en: st.en || st.zh || "" }, "div", "why"));
       /* 冇算式（純文字步驟）才把評分代號留在下面 */
@@ -2313,14 +2314,14 @@
         if (box.children.length) {
           // 把「答錯」重新框架成「掉進陷阱」：內部歸因 → 具體策略修正
           var trapHead = el("div", "trap-head");
-          trapHead.appendChild(biSpan(FACTOR_COURSE ? (picked
+          trapHead.appendChild(biSpan(GUIDED_COURSE ? (picked
             ? { zh: "核對這個選項的分解", en: "Check this option’s factorisation" }
             : { zh: "其他選項如何核對", en: "Checking the other options" }) : picked
             ? { zh: "✕ 差一點 —— 你不是不懂，而是掉進了出卷人設計的陷阱。看看偏差出在哪一步：",
                 en: "✕ So close — you are not lost, you stepped into a trap the examiner set. " +
                     "See which step went off:" }
             : { zh: "為什麼會這樣選？", en: "Why would someone choose these?" }));
-          if (FACTOR_COURSE && !picked) {
+          if (GUIDED_COURSE && !picked) {
             var comparisons = el("details", "factor-review-details");
             var summary = el("summary"); summary.appendChild(biSpan({ zh: "比較其他選項（按需要查看）", en: "Compare the other options (optional)" }));
             comparisons.appendChild(summary); comparisons.appendChild(box); tail.appendChild(comparisons);

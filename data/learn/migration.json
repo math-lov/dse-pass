@@ -1,0 +1,88 @@
+{
+  "sequence": [
+    {
+      "worksheet": "WS01",
+      "status": "published"
+    },
+    {
+      "worksheet": "WS02",
+      "status": "published",
+      "course": "simultaneous-equations",
+      "questions": 76,
+      "conceptCards": 8
+    },
+    {
+      "worksheet": "WS03",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS04",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS05",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS06",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS07",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS08",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS09",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS10",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS11",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS12",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS13",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS14",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS15",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS16",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS17",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS18",
+      "status": "source-extracted"
+    },
+    {
+      "worksheet": "WS19",
+      "status": "source-extracted"
+    }
+  ],
+  "delivery": "Complete and verify one course before publishing it; then continue in worksheet order.",
+  "warmups": "Add short prerequisite practice where it helps learning; integrate it without an authored label.",
+  "exceptions": {
+    "WS09": "Original question and solution files contain sections A and C only."
+  }
+}

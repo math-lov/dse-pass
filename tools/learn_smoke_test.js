@@ -128,6 +128,19 @@ ok(factorDemo.$$(".factor-reflection").length === 1, "a completed worked example
 factorDemo.$(".factor-reflection button").click();
 ok(factorDemo.$$(".steps .step").length === 0 && !startFactorDemo.closest(".hidden"), "students can hide the example and try again");
 const practiceLink = factor.$('#course-sections a[data-section="mc"]').getAttribute("href");
+const linearSeed = JSON.stringify({ mc: {}, long: {}, cards: {}, study: { factorization: { cards: {}, recall: { "ws01-c1": true } } } });
+const linearCourse = boot("topic.html", "?course=simultaneous-equations", linearSeed);
+ok(linearCourse.$("body").dataset.learning === "guided" && linearCourse.$$("#factor-jump option").length === 8,
+   "WS02 reuses the accessible guided course with eight concepts");
+linearCourse.$$(".recall-option")[1].click(); linearCourse.$(".recall-actions button").click();
+ok(linearCourse.store().study["simultaneous-equations"].recall["ws02-c1"] && linearCourse.store().study.factorization.recall["ws01-c1"],
+   "new-course recall progress is saved separately and preserves factorisation progress");
+linearCourse.$$(".factor-card-actions button")[1].click();
+ok(/course=simultaneous-equations/.test(linearCourse.ctx.window.__LEARN_LAST_NAV) && /card=ws02-c2/.test(linearCourse.ctx.window.__LEARN_LAST_NAV),
+   "concept navigation stays in the new course");
+const linearQuestions = BANK.filter(q => q.topic === "ws02");
+ok(linearQuestions.length === 76 && linearQuestions.filter(q => q.type === "mc").length === 30,
+   "WS02 contains 70 original questions and six integrated warm-ups, including 30 MC questions");
 const practice = boot("topic.html", "?" + practiceLink.split("?")[1]);
 ok(practice.$$("#topic-body .card[data-qid]").length === 3, "practice is freely accessible without completing concepts");
 const firstCourseMc = practice.$("#topic-body .card[data-qid]");

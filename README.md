@@ -11,7 +11,7 @@
 | Repo | `https://github.com/math-lov/dse-pass` |
 | 本機 | `C:\Code Buddy\DSEPass` |
 | 來源課題 | **第一階段 · 代數基礎**：`ws01`（18 MC ＋ 7 條示範）、`ws01b`（27 題 MC）、`ws01c`（卷一 32 題，四節）<br>**第二階段 · 統測前哨戰**：`as01` 二次方程與複數（兩節）、`as02` 直線方程（讀圖題）、`as03` 不等式、`as04` 排列與組合 |
-| 規模 | 7 個課題 · 128 題（MC 81 ＋ 長題 47）· 29 張概念卡 · 128 份題解 |
+| 規模 | 8 個來源課題 · 204 題（MC 111 ＋ 長題 93）· 37 張概念卡 · 204 份題解 |
 | 進度 | 只存學生瀏覽器，不收集任何資料 |
 
 ## 頁面與檔案
@@ -19,7 +19,7 @@
 | 檔案 | 用途 |
 |---|---|
 | `index.html` | 首頁（兩張入口卡、使用指南、工具與設定） |
-| `foundations.html` | 數學拆解：直接列出 5 個課題，因式分解三份原有內容合為一個入口 |
+| `foundations.html` | 數學拆解：直接列出 6 個課題，因式分解三份原有內容合為一個入口 |
 | `revision.html` | 測考溫習：年級清單；`?grade=s5` 列溫習包；`?pack=uniform-test` 開啟溫習包 |
 | `topic.html?course=<course>&p=N` | 合併課程頁，按概念卡／示範／練習編排；仍使用原有題目與進度 key |
 | `data/learn/navigation.json` | 手改：課程與來源課題的對應、年級、溫習包與相關基礎課程 |
@@ -37,6 +37,12 @@
 | `tools/learn_smoke_test.js` | 學生全流程測試（jsdom ＋ 真 KaTeX） |
 | `tools/learn_lang_check.py` | 繁體中文（台灣／大陸字形）檢查 |
 | `docs/LEARN-ADD-TOPICS-HANDOFF.md` | **加課題的完整交接文件**：現況統計、過渡題做法、頁碼對照、硬規則、可直接貼的開場白 |
+
+## 工作紙移植進度
+
+WS01 因式分解已完成；WS02 二元一次方程新增 70 道原題與示例（A 12 題＋3 個示例、B 31、C 24）、6 道熱身及 8 張概念卡。WS03–WS19 已抽取來源草稿，按工作紙次序逐課整理與驗證；不會先建立空白課程入口。WS09 原檔只有 A、C，沒有 B 部分。
+
+進度記錄在 `data/learn/migration.json`。WS02 原題對應及數學模型在 `data/learn/source-manifests/ws02.json`；`python tools/ws02_check.py` 以精確分數獨立覆核所有原題、答案及覆蓋數量。新增的 `learningMode: "guided"` 沿用因式分解的概念選單、可選核對與綠色成功按鈕；不同課程的回想紀錄分開儲存。
 
 ## 維護兩區導覽
 
@@ -112,7 +118,7 @@ npm install                    # jsdom 30 ＋ katex 0.16（冒煙測試與 KaTeX
 ## 加課題
 
 見 **`docs/LEARN-ADD-TOPICS-HANDOFF.md`**（先讀它；內有現況、頁碼對照表與硬規則）。
-現時 7 個課題已完成（第一階段 `ws01`／`ws01b`／`ws01c`；第二階段 `as01`–`as04`）；
+現時 8 個來源課題已完成（第一階段 `ws01`／`ws01b`／`ws01c`／`ws02`；第二階段 `as01`–`as04`）；
 下一個課題照該文件的流程加入即可。
 （註：該交接文件的頁碼／路徑未必對應本站現況，數字要按本站對照。）
 

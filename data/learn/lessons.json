@@ -358,6 +358,179 @@
    ]
   },
   {
+   "id": "ws02",
+   "stage": 1,
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "source": "EPH DSE Pass · Worksheet 2",
+   "name": {
+    "zh": "二元一次方程",
+    "en": "Linear equations in two unknowns"
+   },
+   "intro": {
+    "zh": "由代入法與消元法開始，逐步把價格、數量改變、百分比及路程條件寫成方程。",
+    "en": "Start with substitution and elimination, then model prices, changes in quantities, percentages and journeys."
+   },
+   "cmdHints": [
+    {
+     "en": "solve simultaneous equations",
+     "zh": "解聯立方程：同一組數要同時滿足兩條式"
+    },
+    {
+     "en": "by the method of substitution",
+     "zh": "用代入法：先把一個未知數獨立，再代入整個式子"
+    },
+    {
+     "en": "by the method of elimination",
+     "zh": "用消元法：整式同乘，對齊係數後相加或相減"
+    },
+    {
+     "en": "the original number",
+     "zh": "原有數量：改變前的數目，要與轉移後分開"
+    },
+    {
+     "en": "80% more than",
+     "zh": "比基準多八成：等於基準的 $1.8$ 倍"
+    },
+    {
+     "en": "how long",
+     "zh": "求所需時間：最後寫明是哪段路程及時間單位"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "ws02-1",
+     "title": {
+      "zh": "代入與消元",
+      "en": "Substitution and elimination"
+     },
+     "conceptCards": [
+      "ws02-c1",
+      "ws02-c2",
+      "ws02-c3",
+      "ws02-c4"
+     ],
+     "longQuestionIds": [
+      "eph-ws02-a01",
+      "eph-ws02-a02",
+      "eph-ws02-a03",
+      "eph-ws02-a04",
+      "eph-ws02-keysubtract",
+      "eph-ws02-keyscale",
+      "eph-ws02-a05",
+      "eph-ws02-a06",
+      "eph-ws02-a07",
+      "eph-ws02-a08",
+      "eph-ws02-keysub",
+      "eph-ws02-a09",
+      "eph-ws02-a10",
+      "eph-ws02-a11",
+      "eph-ws02-a12"
+     ],
+     "mcPages": [
+      [
+       "eph-ws02-w01",
+       "eph-ws02-w02",
+       "eph-ws02-w03"
+      ],
+      [
+       "eph-ws02-w04",
+       "eph-ws02-cex01",
+       "eph-ws02-cpr01"
+      ],
+      [
+       "eph-ws02-m01",
+       "eph-ws02-m02",
+       "eph-ws02-m03"
+      ],
+      [
+       "eph-ws02-m04",
+       "eph-ws02-m05",
+       "eph-ws02-m06"
+      ],
+      [
+       "eph-ws02-m07",
+       "eph-ws02-m08",
+       "eph-ws02-m09"
+      ],
+      [
+       "eph-ws02-m10",
+       "eph-ws02-m11",
+       "eph-ws02-m12"
+      ],
+      [
+       "eph-ws02-m13",
+       "eph-ws02-m14",
+       "eph-ws02-m15"
+      ]
+     ]
+    },
+    {
+     "id": "ws02-2",
+     "title": {
+      "zh": "由文字建立方程",
+      "en": "Modelling word problems"
+     },
+     "conceptCards": [
+      "ws02-c5",
+      "ws02-c6",
+      "ws02-c7",
+      "ws02-c8"
+     ],
+     "longQuestionIds": [
+      "eph-ws02-bex01",
+      "eph-ws02-bpr01",
+      "eph-ws02-bex02",
+      "eph-ws02-bpr02",
+      "eph-ws02-b01",
+      "eph-ws02-b02",
+      "eph-ws02-b03",
+      "eph-ws02-b04",
+      "eph-ws02-b05",
+      "eph-ws02-b06",
+      "eph-ws02-b07",
+      "eph-ws02-b08",
+      "eph-ws02-b09",
+      "eph-ws02-b10",
+      "eph-ws02-b11",
+      "eph-ws02-b12",
+      "eph-ws02-b13",
+      "eph-ws02-b14",
+      "eph-ws02-b15",
+      "eph-ws02-b16",
+      "eph-ws02-b17",
+      "eph-ws02-b18",
+      "eph-ws02-b19",
+      "eph-ws02-b20",
+      "eph-ws02-b21",
+      "eph-ws02-b22",
+      "eph-ws02-b23",
+      "eph-ws02-b24",
+      "eph-ws02-b25",
+      "eph-ws02-b26",
+      "eph-ws02-b27"
+     ],
+     "mcPages": [
+      [
+       "eph-ws02-w05",
+       "eph-ws02-w06",
+       "eph-ws02-cex02"
+      ],
+      [
+       "eph-ws02-cpr02",
+       "eph-ws02-m16",
+       "eph-ws02-m17"
+      ],
+      [
+       "eph-ws02-m18",
+       "eph-ws02-m19",
+       "eph-ws02-m20"
+      ]
+     ]
+    }
+   ]
+  },
+  {
    "id": "as01",
    "stage": 2,
    "unit": 1,

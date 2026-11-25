@@ -3223,6 +3223,1387 @@
     "D": "$k<4$"
    },
    "review": null
+  },
+  {
+   "id": "eph-ws02-a01",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-A01",
+   "source": "WS02 A · Basic Skills Q1",
+   "stem": {
+    "zh": "用代入法解聯立方程 $\\begin{cases}y=4 x\\\\x + 3 y=26\\end{cases}$。",
+    "en": "Solve $\\begin{cases}y=4 x\\\\x + 3 y=26\\end{cases}$ by the method of substitution."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
+  },
+  {
+   "id": "eph-ws02-a02",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-A02",
+   "source": "WS02 A · Basic Skills Q2",
+   "stem": {
+    "zh": "用代入法解聯立方程 $\\begin{cases}5 y=x\\\\- 2 x + 7 y=6\\end{cases}$。",
+    "en": "Solve $\\begin{cases}5 y=x\\\\- 2 x + 7 y=6\\end{cases}$ by the method of substitution."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
+  },
+  {
+   "id": "eph-ws02-a03",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-A03",
+   "source": "WS02 A · Basic Skills Q3",
+   "stem": {
+    "zh": "用代入法解聯立方程 $\\begin{cases}x + y=3\\\\4 x + 3 y - 17=0\\end{cases}$。",
+    "en": "Solve $\\begin{cases}x + y=3\\\\4 x + 3 y - 17=0\\end{cases}$ by the method of substitution."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
+  },
+  {
+   "id": "eph-ws02-a04",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-A04",
+   "source": "WS02 A · Basic Skills Q4",
+   "stem": {
+    "zh": "用代入法解聯立方程 $\\begin{cases}x - 6 y + 9=0\\\\5 x + 2 y + 13=0\\end{cases}$。",
+    "en": "Solve $\\begin{cases}x - 6 y + 9=0\\\\5 x + 2 y + 13=0\\end{cases}$ by the method of substitution."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
+  },
+  {
+   "id": "eph-ws02-a05",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-A05",
+   "source": "WS02 A · Basic Skills Q5",
+   "stem": {
+    "zh": "用消元法解聯立方程 $\\begin{cases}2 x + y=8\\\\3 x - y=2\\end{cases}$。",
+    "en": "Solve $\\begin{cases}2 x + y=8\\\\3 x - y=2\\end{cases}$ by the method of elimination."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
+  },
+  {
+   "id": "eph-ws02-a06",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-A06",
+   "source": "WS02 A · Basic Skills Q6",
+   "stem": {
+    "zh": "用消元法解聯立方程 $\\begin{cases}x - 3 y=4\\\\x - 5 y=10\\end{cases}$。",
+    "en": "Solve $\\begin{cases}x - 3 y=4\\\\x - 5 y=10\\end{cases}$ by the method of elimination."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
+  },
+  {
+   "id": "eph-ws02-a07",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-A07",
+   "source": "WS02 A · Basic Skills Q7",
+   "stem": {
+    "zh": "用消元法解聯立方程 $\\begin{cases}5 x + 2 y=0\\\\7 x + 4 y=6\\end{cases}$。",
+    "en": "Solve $\\begin{cases}5 x + 2 y=0\\\\7 x + 4 y=6\\end{cases}$ by the method of elimination."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
+  },
+  {
+   "id": "eph-ws02-a08",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-A08",
+   "source": "WS02 A · Basic Skills Q8",
+   "stem": {
+    "zh": "用消元法解聯立方程 $\\begin{cases}- 3 x - 2 y=3\\\\6 x + 5 y=-12\\end{cases}$。",
+    "en": "Solve $\\begin{cases}- 3 x - 2 y=3\\\\6 x + 5 y=-12\\end{cases}$ by the method of elimination."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
+  },
+  {
+   "id": "eph-ws02-a09",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-A09",
+   "source": "WS02 A · Basic Skills Q9",
+   "stem": {
+    "zh": "用代數方法解聯立方程 $\\begin{cases}2 x - 3=y\\\\y=3 x + 1\\end{cases}$。",
+    "en": "Solve $\\begin{cases}2 x - 3=y\\\\y=3 x + 1\\end{cases}$ by an algebraic method."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
+  },
+  {
+   "id": "eph-ws02-a10",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-A10",
+   "source": "WS02 A · Basic Skills Q10",
+   "stem": {
+    "zh": "用代數方法解聯立方程 $\\begin{cases}m - 2 n=20\\\\9 m + 2 n=20\\end{cases}$。",
+    "en": "Solve $\\begin{cases}m - 2 n=20\\\\9 m + 2 n=20\\end{cases}$ by an algebraic method."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
+  },
+  {
+   "id": "eph-ws02-a11",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-A11",
+   "source": "WS02 A · Basic Skills Q11",
+   "stem": {
+    "zh": "用代數方法解聯立方程 $\\begin{cases}- p + 4 q=14\\\\- 3 p + 5 q=14\\end{cases}$。",
+    "en": "Solve $\\begin{cases}- p + 4 q=14\\\\- 3 p + 5 q=14\\end{cases}$ by an algebraic method."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
+  },
+  {
+   "id": "eph-ws02-a12",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-A12",
+   "source": "WS02 A · Basic Skills Q12",
+   "stem": {
+    "zh": "用代數方法解聯立方程 $\\begin{cases}8 a + 3 b=35\\\\2 a + 6 b=35\\end{cases}$。",
+    "en": "Solve $\\begin{cases}8 a + 3 b=35\\\\2 a + 6 b=35\\end{cases}$ by an algebraic method."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
+  },
+  {
+   "id": "eph-ws02-b01",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B01",
+   "source": "WS02 B · Paper 1 Q1",
+   "stem": {
+    "zh": "兩數 $x$、$y$ 的和是 $240$，且 $y$ 是 $x$ 的 $4$ 倍。求 $x$。",
+    "en": "Let x and y be two numbers. The sum of x and y is 240 while the product of 4 and x is y. Find x."
+   },
+   "review": null,
+   "marks": 3
+  },
+  {
+   "id": "eph-ws02-b02",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B02",
+   "source": "WS02 B · Paper 1 Q2",
+   "stem": {
+    "zh": "兩數 $x$、$y$ 的差是 $52$，且 $x$ 是 $y$ 的 $5$ 倍。求 $y$。",
+    "en": "Let x and y be two numbers. The difference of x and y is 52 while x is 5 times y. Find y."
+   },
+   "review": null,
+   "marks": 3
+  },
+  {
+   "id": "eph-ws02-b03",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B03",
+   "source": "WS02 B · Paper 1 Q3",
+   "stem": {
+    "zh": "兩數 $x$、$y$ 的和是 $73$。若 $x$ 比 $y$ 的 $3$ 倍大 $1$，求 $y$。",
+    "en": "The sum of two numbers x and y is 73. If x is greater than 3 times y by 1, find y."
+   },
+   "review": null,
+   "marks": 3
+  },
+  {
+   "id": "eph-ws02-b04",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B04",
+   "source": "WS02 B · Paper 1 Q4",
+   "stem": {
+    "zh": "兩個梨與三個芒果共售 $33$ 元；四個梨與七個芒果共售 $73$ 元。求一個芒果的售價。",
+    "en": "The price of 2 pears and 3 mangoes is \\$33 while the price of 4 pears and 7 mangoes is \\$73. Find the price of a mango."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b05",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B05",
+   "source": "WS02 B · Paper 1 Q5",
+   "stem": {
+    "zh": "三個橙與五個蘋果共售 $37$ 元；七個橙與四個蘋果共售 $48$ 元。求一個橙的售價。",
+    "en": "The price of 3 oranges and 5 apples is \\$37 while the price of 7 oranges and 4 apples is \\$48. Find the price of an orange."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b06",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B06",
+   "source": "WS02 B · Paper 1 Q6",
+   "stem": {
+    "zh": "鉛筆及擦膠的單價分別為 $3$ 元及 $4$ 元。買了共 $12$ 件，總價 $43$ 元。求鉛筆數量。",
+    "en": "The prices of a pencil and a rubber are \\$3 and \\$4 respectively. A sum of \\$43 is spent buying some  pencils and rubbers. If the total number of pencils and rubbers bought is 12, find the number of  pencils bought."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b07",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B07",
+   "source": "WS02 B · Paper 1 Q7",
+   "stem": {
+    "zh": "Gary 花 $99$ 元買了共 $35$ 枚郵票，面值分別為 $2.2$ 元及 $3.3$ 元。求 $2.2$ 元郵票的數量。",
+    "en": "Gary buys some \\$2.2 stamps and \\$3.3 stamps for \\$99. If the total number of stamps bought is 35, how many \\$2.2 stamps does Gary buy?"
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b08",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B08",
+   "source": "WS02 B · Paper 1 Q8",
+   "stem": {
+    "zh": "一盒蜜桃茶的價錢等於三瓶咖啡的價錢。三盒蜜桃茶與兩瓶咖啡共售 $154$ 元。求一瓶咖啡的價錢。",
+    "en": "The cost of a carton of peach tea is the same as the cost of 3 bottles of coffee. The total cost of \n 3 cartons of peach tea and 2 bottles of coffee is \\$154. Find the cost of a bottle of coffee."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b09",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B09",
+   "source": "WS02 B · Paper 1 Q9",
+   "stem": {
+    "zh": "Amy 與 Billy 共有 $84$ 本書。若 Amy 多買 $12$ 本，她的書本數量便是 Billy 的 $3$ 倍。求 Billy 的書本數量。",
+    "en": "The total number of books owned by Amy and Billy is 84. If Amy buys 12 books from a book  store, the number of books owned by her will be 3 times that owned by Billy. Find the number of  books owned by Billy."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b10",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B10",
+   "source": "WS02 B · Paper 1 Q10",
+   "stem": {
+    "zh": "籃球聯賽中，每勝一場得 $2$ 分，賽和得 $1$ 分，落敗得 $0$ 分。冠軍共打 $42$ 場，得 $75$ 分，而且沒有落敗。求賽和場數。",
+    "en": "In a basketball league, each team gains 2 points for a win, 1 point for a draw and 0 point for a loss.  The champion of the league plays 42 games and gains a total of 75 points. Given that the champion  does not lose any games, find the number of games that the champion draws."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b11",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B11",
+   "source": "WS02 B · Paper 1 Q11",
+   "stem": {
+    "zh": "遊戲中，每勝一場加 $500$ 分，賽和加 $200$ 分，落敗扣 $300$ 分。Alice 原有 $1300$ 分；完成 $20$ 場且沒有賽和後有 $4900$ 分。求勝出場數。",
+    "en": "In a game, a player gains 500 points for a win, gains 200 points for a draw and loses 300 points for  a loss. Alice originally scores 1300 points. After playing 20 matches without any draws, she scores  4900 points. Find the number of matches that Alice wins."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b12",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B12",
+   "source": "WS02 B · Paper 1 Q12",
+   "stem": {
+    "zh": "酒店只有雙床房及單床房，日租分別為 $1100$ 元及 $950$ 元。某天訂出的雙床房是單床房的 $3$ 倍，總租金為 $46750$ 元。求訂出的房間總數。",
+    "en": "There are only two kinds of rooms provided by a hotel: double bed rooms and single bed rooms. The prices per day of a double bed room and a single bed room are \\$1100 and \\$950 respectively. On a certain day, the number of double bed rooms booked is 3 times the number of single bed rooms booked and the sum of money for the rooms booked is \\$46 750. Find the total number of rooms booked that day."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b13",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B13",
+   "source": "WS02 B · Paper 1 Q13",
+   "stem": {
+    "zh": "列車頭等及二等車票分別售 $109$ 元及 $68$ 元。某班車售出的二等票是頭等票的 $7$ 倍，總票價為 $22815$ 元。求售出的車票總數。",
+    "en": "There are only two kinds of tickets for an express rail train: first class tickets and second class tickets. The prices per ride of a first class ticket and a second class ticket are \\$109 and \\$68 respectively. On a certain ride, the number of second class tickets sold is 7 times the number of first class tickets sold and the sum of money for the tickets sold is \\$22 815. Find the total number of tickets sold on that ride."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b14",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B14",
+   "source": "WS02 B · Paper 1 Q14",
+   "stem": {
+    "zh": "課室內男生人數是女生的 $2$ 倍。若 $10$ 名男生及 $2$ 名女生離開，男女生人數便相同。求原有學生總人數。",
+    "en": "In a classroom, the number of boys is 2 times that of girls. If 10 boys and 2 girls leave the classroom,  then the number of boys and the number of girls will be the same. Find the original total number  of boys and girls in the classroom."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b15",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B15",
+   "source": "WS02 B · Paper 1 Q15",
+   "stem": {
+    "zh": "Alan 的郵票數量是 Benny 的 $3$ 倍。若 Alan 給 Benny $12$ 枚郵票，二人的數量便相同。求二人共有多少枚郵票。",
+    "en": "The number of stamps owned by Alan is 3 times that owned by Benny. If Alan gives 12 of his  stamps to Benny, they will have the same number of stamps. Find the total number of stamps  owned by Alan and Benny."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b16",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B16",
+   "source": "WS02 B · Paper 1 Q16",
+   "stem": {
+    "zh": "女孩的糖果數量是男孩的 $2$ 倍。若女孩給男孩 $30$ 粒糖果，男孩便有女孩的 $3$ 倍。求二人共有多少粒糖果。",
+    "en": "The number of candies owned by a girl is 2 times that owned by a boy. If the girl gives 30 of her candies to the boy, then the number of candies owned by the boy is 3 times that owned by the girl.  Find the total number of candies owned by the girl and the boy."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b17",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B17",
+   "source": "WS02 B · Paper 1 Q17",
+   "stem": {
+    "zh": "Kevin 的小說數量是 Jessie 的 $4$ 倍。若 Kevin 給 Jessie $10$ 本小說，Kevin 便有 Jessie 的 $2$ 倍。求二人共有多少本小說。",
+    "en": "The number of fiction books owned by Kevin is 4 times that owned by Jessie. If Kevin gives 10 of  his fiction books to Jessie, then the number of fiction books owned by Kevin is 2 times that owned  by Jessie. Find the total number of fiction books owned by Kevin and Jessie."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b18",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B18",
+   "source": "WS02 B · Paper 1 Q18",
+   "stem": {
+    "zh": "派對中男女的人數比為 $8:7$。若 $6$ 名男士及 $4$ 名女士離開，人數比變為 $10:9$。求原有男士人數。",
+    "en": "In a party, the ratio of the number of men to the number of women is 8 : 7. If 6 men and 4 women  leave the party, then the ratio of the number of men to the number of women is 10 : 9. Find the  original number of men in the party."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b19",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B19",
+   "source": "WS02 B · Paper 1 Q19",
+   "stem": {
+    "zh": "Anthony 與 Heidi 的貼紙數量比為 $5:3$。若 Anthony 給 Heidi $21$ 張貼紙，數量比變為 $7:9$。求 Anthony 原有貼紙數量。",
+    "en": "The ratio of the number of stickers owned by Anthony to the number of stickers owned by Heidi is  5 : 3. If Anthony gives 21 of his own stickers to Heidi, then the ratio of the number of stickers  owned by Anthony to the number of stickers owned by Heidi is 7 : 9. Find the original number  of stickers owned by Anthony."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b20",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B20",
+   "source": "WS02 B · Paper 1 Q20",
+   "stem": {
+    "zh": "開放日有 $84$ 名助手，平均分成 $4$ 組；每組男助手比女助手多 $3$ 人。求全部女助手的人數。",
+    "en": "There are 84 helpers in an open day. The helpers are divided into 4 groups, and each group has the  same number of helpers. In each group, there are 3 more male helpers than female helpers. Find  the number of female helpers in the open day."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b21",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B21",
+   "source": "WS02 B · Paper 1 Q21",
+   "stem": {
+    "zh": "珠寶展有 $140$ 名保安，平均分配到 $5$ 區；每區女保安比男保安少 $6$ 人。求全部男保安的人數。",
+    "en": "There are 140 guards in an international jewellery exhibition consisting of 5 zones. Each zone has  the same number of guards. In each zone, there are 6 less female guards than male guards. Find the  number of male guards in the exhibition."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b22",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B22",
+   "source": "WS02 B · Paper 1 Q22",
+   "stem": {
+    "zh": "健身中心有 $990$ 名會員，男會員比女會員多 $20\\%$。求男女會員人數之差。",
+    "en": "In a fitness centre, there are 990 members and the number of male members is 20% more than the  number of female members. Find the difference of the numbers of male members and female  members."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b23",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B23",
+   "source": "WS02 B · Paper 1 Q23",
+   "stem": {
+    "zh": "書架上有 $154$ 本雜誌及漫畫；雜誌數量比漫畫少 $25\\%$。求兩類書本數量之差。",
+    "en": "There are 154 magazines and comic books on a bookshelf. The number of magazines is 25% less  than the number of comic books. Find the difference of the numbers of comic books and magazines."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b24",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B24",
+   "source": "WS02 B · Paper 1 Q24",
+   "stem": {
+    "zh": "電車上男乘客比女乘客多 $50\\%$。若 $25$ 名男乘客下車，女乘客便比男乘客多 $50\\%$。求女乘客人數。",
+    "en": "On a tram, the number of male passengers is 50% more than the number of female passengers. If  25 male passengers get off the tram, then the number of female passengers is 50% more than the  number of male passengers. Find the number of female passengers on the tram."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b25",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B25",
+   "source": "WS02 B · Paper 1 Q25",
+   "stem": {
+    "zh": "禮堂內老師人數比學生多 $20\\%$。若再有 $22$ 名學生進入，學生便比老師多 $20\\%$。求老師人數。",
+    "en": "In a school hall, the number of teachers is 20% more than the number of students. If 22 more students enter the hall, then the number of students is 20% more than the number of teachers. Find the number of teachers in the hall."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-b26",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B26",
+   "source": "WS02 B · Paper 1 Q26",
+   "stem": {
+    "zh": "Anson 由城市 X 駕車到 Y，平均時速 $66$ 公里；再由 Y 到 Z，平均時速 $84$ 公里。全程 $104$ 公里，共需 $85$ 分鐘。求 Y 到 Z 的行車時間。",
+    "en": "Anson drives from city X to city Y at an average speed of 66 km/h and then he drives from city Y  to city Z at an average speed of 84 km/h. It is given that Anson drives 104 km in 85 minutes for the  whole journey. How long does Anson take to drive from city Y to city Z?"
+   },
+   "review": null,
+   "marks": 5
+  },
+  {
+   "id": "eph-ws02-b27",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-B27",
+   "source": "WS02 B · Paper 1 Q27",
+   "stem": {
+    "zh": "遊艇由碼頭 A 駛到 B，平均時速 $96$ 公里；再由 B 到 C，平均時速 $78$ 公里。全程 $98$ 公里，共需 $65$ 分鐘。求 A 到 B 所需時間。",
+    "en": "A yacht sails from pier A to pier B at an average speed of 96 km/h and then the yacht sails from  pier B to pier C at an average speed of 78 km/h. It is given that the yacht sails 98 km in 65 minutes  for the whole journey. How long does the yacht take to sail from pier A to pier B?  Name: ____________________ (    )    Class:                Date:"
+   },
+   "review": null,
+   "marks": 5
+  },
+  {
+   "id": "eph-ws02-bex01",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-BEX1",
+   "source": "WS02 B · Example 1",
+   "stem": {
+    "zh": "Henry 的朱古力數量是 Winka 的 $2$ 倍。若 Henry 給 Winka $6$ 條，Winka 的數量便是 Henry 的 $5$ 倍。求二人共有多少條朱古力。",
+    "en": "The number of chocolate bars owned by Henry is 2 times that owned by Winka. If Henry gives 6 of his chocolate bars to Winka, then the number of chocolate bars owned by Winka is 5 times that owned by Henry. Find the total number of chocolate bars owned by Henry and Winka."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-bpr01",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-BP1",
+   "source": "WS02 B · Practice 1",
+   "stem": {
+    "zh": "男孩的鎖匙扣數量是女孩的 $3$ 倍。若男孩給女孩 $10$ 個，男孩的數量便是女孩的一半。求二人共有多少個鎖匙扣。",
+    "en": "The number of keychains owned by a boy is 3 times that owned by a girl. If the boy gives 10 of his keychains to the girl, then the number of keychains owned by the boy is half that owned by the girl. Find the total number of keychains owned by the boy and the girl."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-bex02",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-BEX2",
+   "source": "WS02 B · Example 2",
+   "stem": {
+    "zh": "巴士上男乘客比女乘客多 $80\\%$。若 $56$ 名男乘客下車，女乘客便比男乘客多 $80\\%$。求女乘客人數。",
+    "en": "On a bus, the number of male passengers is 80% more than the number of female passengers. If 56 male passengers get off the bus, then the number of female passengers is 80% more than the number of male passengers. Find the number of female passengers on the bus."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-bpr02",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-BP2",
+   "source": "WS02 B · Practice 2",
+   "stem": {
+    "zh": "音樂廳內女觀眾比男觀眾多 $40\\%$。若再有 $480$ 名男觀眾進入，男觀眾便比女觀眾多 $40\\%$。求女觀眾人數。",
+    "en": "In a concert hall, the number of female audiences is 40% more than the number of male audiences. If 480 more male audiences enter the hall, then the number of male audiences is 40% more than the number of female audiences. Find the number of female audiences in the hall."
+   },
+   "review": null,
+   "marks": 4
+  },
+  {
+   "id": "eph-ws02-m01",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C01",
+   "source": "WS02 C · Paper 2 Q1",
+   "stem": {
+    "zh": "若 $x + 2y = 7 and 3x + 4y = 11$，求 $x$。",
+    "en": "If $x + 2y = 7 and 3x + 4y = 11$, then $x$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-5$",
+    "B": "$-3$",
+    "C": "$3$",
+    "D": "$5$"
+   }
+  },
+  {
+   "id": "eph-ws02-m02",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C02",
+   "source": "WS02 C · Paper 2 Q2",
+   "stem": {
+    "zh": "若 $a - 4b = 2 and 5a + 2b = -12$，求 $a$。",
+    "en": "If $a - 4b = 2 and 5a + 2b = -12$, then $a$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-2$",
+    "B": "$-1$",
+    "C": "$1$",
+    "D": "$2$"
+   }
+  },
+  {
+   "id": "eph-ws02-m03",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C03",
+   "source": "WS02 C · Paper 2 Q3",
+   "stem": {
+    "zh": "若 $3p - q = 13 and 9p + 2q = 4$，求 $q$。",
+    "en": "If $3p - q = 13 and 9p + 2q = 4$, then $q$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-7$",
+    "B": "$-2$",
+    "C": "$2$",
+    "D": "$7$"
+   }
+  },
+  {
+   "id": "eph-ws02-m04",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C04",
+   "source": "WS02 C · Paper 2 Q4",
+   "stem": {
+    "zh": "若 $x + 3y + 14 = 3x - y = 11$，求 $y$。",
+    "en": "If $x + 3y + 14 = 3x - y = 11$, then $y$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-8$",
+    "B": "$-2$",
+    "C": "$1$",
+    "D": "$3$"
+   }
+  },
+  {
+   "id": "eph-ws02-m05",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C05",
+   "source": "WS02 C · Paper 2 Q5",
+   "stem": {
+    "zh": "若 $p + 2q + 11 = 3p - q = 13$，求 $p$。",
+    "en": "If $p + 2q + 11 = 3p - q = 13$, then $p$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-7$",
+    "B": "$-1$",
+    "C": "$4$",
+    "D": "$6$"
+   }
+  },
+  {
+   "id": "eph-ws02-m06",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C06",
+   "source": "WS02 C · Paper 2 Q6",
+   "stem": {
+    "zh": "若 $4r - s - 10 = r + 4s = 9$，求 $r$。",
+    "en": "If $4r - s - 10 = r + 4s = 9$, then $r$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-11$",
+    "B": "$-6$",
+    "C": "$1$",
+    "D": "$5$"
+   }
+  },
+  {
+   "id": "eph-ws02-m07",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C07",
+   "source": "WS02 C · Paper 2 Q7",
+   "stem": {
+    "zh": "若 $3a + b = 5a + 3b = 8$，求 $b$。",
+    "en": "If $3a + b = 5a + 3b = 8$, then $b$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-11$",
+    "B": "$-4$",
+    "C": "$4$",
+    "D": "$11$"
+   }
+  },
+  {
+   "id": "eph-ws02-m08",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C08",
+   "source": "WS02 C · Paper 2 Q8",
+   "stem": {
+    "zh": "若 $4p - q = 9p + 4q = 5$，求 $q$。",
+    "en": "If $4p - q = 9p + 4q = 5$, then $q$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-5$",
+    "B": "$-1$",
+    "C": "$1$",
+    "D": "$5$"
+   }
+  },
+  {
+   "id": "eph-ws02-m09",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C09",
+   "source": "WS02 C · Paper 2 Q9",
+   "stem": {
+    "zh": "若 $x + 5y = 3x + 2y = 13$，求 $x$。",
+    "en": "If $x + 5y = 3x + 2y = 13$, then $x$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-3$",
+    "B": "$-2$",
+    "C": "$2$",
+    "D": "$3$"
+   }
+  },
+  {
+   "id": "eph-ws02-m10",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C10",
+   "source": "WS02 C · Paper 2 Q10",
+   "stem": {
+    "zh": "若 $12x - 11y = 39 = 4x + 5y$，求 $y$。",
+    "en": "If $12x - 11y = 39 = 4x + 5y$, then $y$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-6$",
+    "B": "$-3$",
+    "C": "$3$",
+    "D": "$6$"
+   }
+  },
+  {
+   "id": "eph-ws02-m11",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C11",
+   "source": "WS02 C · Paper 2 Q11",
+   "stem": {
+    "zh": "若 $9m + 10n = 8 = 3m - 2n$，求 $m$。",
+    "en": "If $9m + 10n = 8 = 3m - 2n$, then $m$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-4$",
+    "B": "$-1$",
+    "C": "$2$",
+    "D": "$4$"
+   }
+  },
+  {
+   "id": "eph-ws02-m12",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C12",
+   "source": "WS02 C · Paper 2 Q12",
+   "stem": {
+    "zh": "若 $5a + 6b = 27 = 17a - 12b$，求 $a$。",
+    "en": "If $5a + 6b = 27 = 17a - 12b$, then $a$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-3$",
+    "B": "$2$",
+    "C": "$3$",
+    "D": "$7$"
+   }
+  },
+  {
+   "id": "eph-ws02-m13",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C13",
+   "source": "WS02 C · Paper 2 Q13",
+   "stem": {
+    "zh": "若 $x + 1 = y - 3 = 5x + y - 38$，求 $y$。",
+    "en": "If $x + 1 = y - 3 = 5x + y - 38$, then $y$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$7$",
+    "B": "$9$",
+    "C": "$11$",
+    "D": "$13$"
+   }
+  },
+  {
+   "id": "eph-ws02-m14",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C14",
+   "source": "WS02 C · Paper 2 Q14",
+   "stem": {
+    "zh": "若 $a - 4 = b - 10 = a - 5b + 11$，求 $a$。",
+    "en": "If $a - 4 = b - 10 = a - 5b + 11$, then $a$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-3$",
+    "B": "$-1$",
+    "C": "$1$",
+    "D": "$3$"
+   }
+  },
+  {
+   "id": "eph-ws02-m15",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-C15",
+   "source": "WS02 C · Paper 2 Q15",
+   "stem": {
+    "zh": "若 $13 - 2p = q + 9 = 3q - 2p - 5$，求 $p$。",
+    "en": "If $13 - 2p = q + 9 = 3q - 2p - 5$, then $p$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-8$",
+    "B": "$-6$",
+    "C": "$-1$",
+    "D": "$6$"
+   }
+  },
+  {
+   "id": "eph-ws02-m16",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-C16",
+   "source": "WS02 C · Paper 2 Q16",
+   "stem": {
+    "zh": "四枝螢光筆與五枝原子筆共售 $62$ 元。三枝螢光筆的價錢等於四枝原子筆。求一枝螢光筆的價錢。",
+    "en": "The price of 4 highlighters and 5 pens is \\$62. If the price of 3 highlighters and the price of 4 pens are the same, then the price of a highlighter is"
+   },
+   "review": null,
+   "options": {
+    "A": "$6$",
+    "B": "$8$",
+    "C": "$9$",
+    "D": "$12$"
+   }
+  },
+  {
+   "id": "eph-ws02-m17",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-C17",
+   "source": "WS02 C · Paper 2 Q17",
+   "stem": {
+    "zh": "三個牛油果與兩個梨共售 $70$ 元。四個牛油果的價錢等於九個梨。求一個梨的價錢。",
+    "en": "The price of 3 avocados and 2 pears is \\$70. If the price of 4 avocados and the price of 9 pears are the same, then the price of a pear is"
+   },
+   "review": null,
+   "options": {
+    "A": "$8$",
+    "B": "$12$",
+    "C": "$18$",
+    "D": "$27$"
+   }
+  },
+  {
+   "id": "eph-ws02-m18",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-C18",
+   "source": "WS02 C · Paper 2 Q18",
+   "stem": {
+    "zh": "五個漢堡包的價錢等於八份三文治。Ivan 花 $108$ 元買了兩個漢堡包與四份三文治。求一個漢堡包的價錢。",
+    "en": "The price of 5 hamburgers and 8 sandwiches are the same. Ivan buys 2 hamburgers and 4 sandwiches for \\$108. Find the price of a hamburger."
+   },
+   "review": null,
+   "options": {
+    "A": "$12.5$",
+    "B": "$15$",
+    "C": "$20$",
+    "D": "$24$"
+   }
+  },
+  {
+   "id": "eph-ws02-m19",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-C19",
+   "source": "WS02 C · Paper 2 Q19",
+   "stem": {
+    "zh": "三個橙與七個蘋果共售 $53$ 元，四個橙與兩個蘋果共售 $34$ 元。求兩個橙與三個蘋果的價錢。",
+    "en": "The price of 3 oranges and 7 apples is \\$53 while the price of 4 oranges and 2 apples is \\$34. Find the price of 2 oranges and 3 apples."
+   },
+   "review": null,
+   "options": {
+    "A": "$27$",
+    "B": "$28$",
+    "C": "$29$",
+    "D": "$30$"
+   }
+  },
+  {
+   "id": "eph-ws02-m20",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-C20",
+   "source": "WS02 C · Paper 2 Q20",
+   "stem": {
+    "zh": "展覽中，兩名成人與三名小童共付 $105$ 元；五名成人與四名小童共付 $210$ 元。求兩名成人與一名小童的總入場費。",
+    "en": "In an exhibition, the total fare of 2 adults and 3 children is \\$105 while the total fare of 5 adults and 4 children is \\$210. Find the total fare of 2 adults and 1 child."
+   },
+   "review": null,
+   "options": {
+    "A": "$60$",
+    "B": "$70$",
+    "C": "$75$",
+    "D": "$90$"
+   }
+  },
+  {
+   "id": "eph-ws02-cex01",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-CEX1",
+   "source": "WS02 C · Example 1",
+   "stem": {
+    "zh": "若 $8x-9y=30=4x+3y$，求 $y$。",
+    "en": "If $8x-9y=30=4x+3y$, then $y$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-3$",
+    "B": "$-2$",
+    "C": "$2$",
+    "D": "$6$"
+   }
+  },
+  {
+   "id": "eph-ws02-cpr01",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-CP1",
+   "source": "WS02 C · Practice 1",
+   "stem": {
+    "zh": "若 $4m-3n=7=2m-5n$，求 $n$。",
+    "en": "If $4m-3n=7=2m-5n$, then $n$ ="
+   },
+   "review": null,
+   "options": {
+    "A": "$-6$",
+    "B": "$-1$",
+    "C": "$1$",
+    "D": "$6$"
+   }
+  },
+  {
+   "id": "eph-ws02-cex02",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-CEX2",
+   "source": "WS02 C · Example 2",
+   "stem": {
+    "zh": "三個蛋撻與四個冬甩共售 $156$ 元。五個蛋撻的價錢等於兩個冬甩。求一個蛋撻的價錢。",
+    "en": "The price of 3 egg tarts and 4 doughnuts is \\$156. If the price of 5 egg tarts and the price of 2 doughnuts are the same, then the price of an egg tart is"
+   },
+   "review": null,
+   "options": {
+    "A": "$12$",
+    "B": "$14$",
+    "C": "$30$",
+    "D": "$35$"
+   }
+  },
+  {
+   "id": "eph-ws02-cpr02",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 2,
+   "code": "WS2-CP2",
+   "source": "WS02 C · Practice 2",
+   "stem": {
+    "zh": "五頂帽與四條領帶共售 $570$ 元。八頂帽的價錢等於五條領帶。求一頂帽的價錢。",
+    "en": "The price of 5 hats and 4 ties is \\$570. If the price of 8 hats and the price of 5 ties are the same, then the price of a hat is"
+   },
+   "review": null,
+   "options": {
+    "A": "$47.5$",
+    "B": "$50$",
+    "C": "$76$",
+    "D": "$80$"
+   }
+  },
+  {
+   "id": "eph-ws02-w01",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-W01",
+   "source": "WS02 · 基礎熱身",
+   "stem": {
+    "zh": "已知 $y=4x$。當 $x=2$ 時，$y$ 是多少？",
+    "en": "Given $y=4x$, find $y$ when $x=2$."
+   },
+   "review": null,
+   "options": {
+    "A": "$2$",
+    "B": "$4$",
+    "C": "$6$",
+    "D": "$8$"
+   }
+  },
+  {
+   "id": "eph-ws02-w02",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-W02",
+   "source": "WS02 · 基礎熱身",
+   "stem": {
+    "zh": "把 $x-y=1$ 寫成以 $x$ 為主項的式子。",
+    "en": "Make $x$ the subject of $x-y=1$."
+   },
+   "review": null,
+   "options": {
+    "A": "$x=y+1$",
+    "B": "$x=1-y$",
+    "C": "$x=y-1$",
+    "D": "$x=-1-y$"
+   }
+  },
+  {
+   "id": "eph-ws02-w03",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-W03",
+   "source": "WS02 · 基礎熱身",
+   "stem": {
+    "zh": "化簡 $(2x-y)-(x-y)$。",
+    "en": "Simplify $(2x-y)-(x-y)$."
+   },
+   "review": null,
+   "options": {
+    "A": "$x$",
+    "B": "$3x$",
+    "C": "$-x$",
+    "D": "$x-2y$"
+   }
+  },
+  {
+   "id": "eph-ws02-w04",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-W04",
+   "source": "WS02 · 基礎熱身",
+   "stem": {
+    "zh": "將方程 $2x-y=3$ 的兩邊同乘 $2$，得到哪一條？",
+    "en": "Multiply both sides of $2x-y=3$ by $2$. Which equation results?"
+   },
+   "review": null,
+   "options": {
+    "A": "$4x-y=6$",
+    "B": "$4x-2y=6$",
+    "C": "$4x-2y=3$",
+    "D": "$2x-2y=6$"
+   }
+  },
+  {
+   "id": "eph-ws02-w05",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-W05",
+   "source": "WS02 · 基礎熱身",
+   "stem": {
+    "zh": "鉛筆每枝 $3$ 元，擦膠每個 $4$ 元。買了 $x$ 枝鉛筆、$y$ 個擦膠，共付 $43$ 元。哪條方程表示總價？",
+    "en": "Pencils cost 3 dollars each and rubbers cost 4 dollars each. Buying $x$ pencils and $y$ rubbers costs 43 dollars. Which equation represents the total cost?"
+   },
+   "review": null,
+   "options": {
+    "A": "$x+y=43$",
+    "B": "$4x+3y=43$",
+    "C": "$3x+4y=43$",
+    "D": "$3x-4y=43$"
+   }
+  },
+  {
+   "id": "eph-ws02-w06",
+   "type": "mc",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-W06",
+   "source": "WS02 · 基礎熱身",
+   "stem": {
+    "zh": "男生人數 $x$ 比女生人數 $y$ 多 $20\\%$。哪個關係正確？",
+    "en": "The number of boys, $x$, is $20\\%$ more than the number of girls, $y$. Which relation is correct?"
+   },
+   "review": null,
+   "options": {
+    "A": "$x=0.2y$",
+    "B": "$x=0.8y$",
+    "C": "$x=y+20$",
+    "D": "$x=1.2y$"
+   }
+  },
+  {
+   "id": "eph-ws02-keysub",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-K1",
+   "source": "WS02 A · Key Point 1 Example",
+   "stem": {
+    "zh": "用代入法解聯立方程 $m+n=3m+10n=7$。",
+    "en": "Solve $m+n=3m+10n=7$ by the method of substitution."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
+  },
+  {
+   "id": "eph-ws02-keysubtract",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-K2a",
+   "source": "WS02 A · Key Point 2 Subtraction",
+   "stem": {
+    "zh": "用消元法解聯立方程 $3x-y=-6$、$2x-y=1$。",
+    "en": "Solve $3x-y=-6$ and $2x-y=1$ by the method of elimination."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
+  },
+  {
+   "id": "eph-ws02-keyscale",
+   "type": "long",
+   "topic": "ws02",
+   "unit": 5,
+   "subtopic": "simultaneous-linear-equations",
+   "difficulty": 1,
+   "code": "WS2-K2b",
+   "source": "WS02 A · Key Point 2 Example",
+   "stem": {
+    "zh": "用消元法解聯立方程 $3x-y=-6$、$5x+2y=1$。",
+    "en": "Solve $3x-y=-6$ and $5x+2y=1$ by the method of elimination."
+   },
+   "review": null,
+   "marks": 0,
+   "kind": "short"
   }
  ]
 }

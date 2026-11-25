@@ -1265,6 +1265,459 @@
      "en": "Overcounting"
     }
    ]
+  },
+  {
+   "id": "ws02-c1",
+   "topic": "ws02",
+   "title": {
+    "zh": "聯立方程：同一組數滿足兩條式",
+    "en": "Simultaneous equations: one pair, two conditions"
+   },
+   "goal": {
+    "zh": "知道答案是一組有次序的數值。",
+    "en": "Recognise a solution as a pair of values for the named unknowns."
+   },
+   "body": {
+    "zh": "解聯立方程，就是找出一組 $x$、$y$，令兩條方程同時成立。\n例如以下兩個條件：{{math:0}}\n試代 $x=3$、$y=2$，兩條都成立。{{math:1}}",
+    "en": "The two unknowns must satisfy both equations at the same time.\nConsider these two conditions:{{math:0}}\nSubstituting $x=3$ and $y=2$ makes both equations true.{{math:1}}"
+   },
+   "math": [
+    "x+y=5\nx-y=1",
+    "3+2=5\n3-2=1"
+   ],
+   "warn": {
+    "zh": "只代回其中一條不夠；其他數值也可能滿足那一條。$x$ 與 $y$ 的次序不能隨意交換。",
+    "en": "Checking just one equation is insufficient: other pairs may satisfy it. Keep the values of $x$ and $y$ distinct."
+   },
+   "recall": {
+    "prompt": {
+     "zh": "哪組數同時滿足 $x+y=5$ 及 $x-y=1$？",
+     "en": "Which pair satisfies both $x+y=5$ and $x-y=1$?"
+    },
+    "options": [
+     {
+      "math": "x=2,\\ y=3"
+     },
+     {
+      "math": "x=3,\\ y=2"
+     },
+     {
+      "math": "x=4,\\ y=1"
+     }
+    ],
+    "answer": 1,
+    "explanation": {
+     "zh": "$3+2=5$ 而且 $3-2=1$，兩個條件都成立。",
+     "en": "Both $3+2=5$ and $3-2=1$ hold."
+    }
+   },
+   "vocab": [
+    {
+     "en": "simultaneous equations",
+     "zh": "聯立方程"
+    },
+    {
+     "en": "solution",
+     "zh": "同時滿足條件的解"
+    }
+   ]
+  },
+  {
+   "id": "ws02-c2",
+   "topic": "ws02",
+   "title": {
+    "zh": "代入法：用整個式子取代字母",
+    "en": "Substitution: replace an unknown with a whole expression"
+   },
+   "goal": {
+    "zh": "把兩個未知數變成一個。",
+    "en": "Reduce the problem to one unknown."
+   },
+   "body": {
+    "zh": "若已經有一個字母獨立，可以直接代入。\n這裡先把 $y$ 寫成 $3x$：{{math:0}}\n另一條方程中的 $y$，整個改寫為 $3x$。{{math:1}}\n求得 $x$ 後，代回 $y=3x$ 求另一個數。{{math:2}}",
+    "en": "If an unknown is already isolated, substitute directly.\nHere $y$ is written as $3x$:{{math:0}}\nReplace $y$ in the other equation with the whole expression $3x$.{{math:1}}\nThen put the value of $x$ back into $y=3x$.{{math:2}}"
+   },
+   "math": [
+    "y=3x\nx+y=12",
+    "x+3x=12\n4x=12\nx=3",
+    "y=3(3)=9"
+   ],
+   "warn": {
+    "zh": "代入的是字母代表的整個式子。若前面還有係數，例如 $2y$，便要寫 $2(3x)$。",
+    "en": "Replace the unknown with its whole expression. A coefficient stays: $2y$ becomes $2(3x)$."
+   },
+   "recall": {
+    "prompt": {
+     "zh": "已知 $y=4x$，$x+2y$ 代入後是哪個式子？",
+     "en": "If $y=4x$, what does $x+2y$ become?"
+    },
+    "options": [
+     {
+      "math": "x+4x"
+     },
+     {
+      "math": "x+2(4x)"
+     },
+     {
+      "math": "4x+2x"
+     }
+    ],
+    "answer": 1,
+    "explanation": {
+     "zh": "$2y=2(4x)$，所以是 $x+2(4x)=9x$。",
+     "en": "Since $2y=2(4x)$, the expression is $x+2(4x)=9x$."
+    }
+   },
+   "vocab": [
+    {
+     "en": "substitution",
+     "zh": "代入法"
+    },
+    {
+     "en": "replace",
+     "zh": "用等值的式子取代"
+    }
+   ]
+  },
+  {
+   "id": "ws02-c3",
+   "topic": "ws02",
+   "title": {
+    "zh": "先轉換主項，再代入",
+    "en": "Change the subject before substituting"
+   },
+   "goal": {
+    "zh": "選較容易獨立的未知數，保留括號。",
+    "en": "Choose an easy unknown to isolate and keep brackets."
+   },
+   "body": {
+    "zh": "沒有字母獨立時，先找係數為 $1$ 或 $-1$ 的未知數。\n由 $x-y=1$ 得到：{{math:0}}\n把整個 $y+1$ 代入另一條方程的 $x$，乘 $2$ 時兩項都受影響。{{math:1}}\n再代回，找出 $x$。{{math:2}}",
+    "en": "When no unknown is isolated, look for a coefficient of $1$ or $-1$.\nFrom $x-y=1$:{{math:0}}\nSubstitute the whole $y+1$ for $x$. Multiplying by $2$ affects both terms.{{math:1}}\nSubstitute back to find $x$.{{math:2}}"
+   },
+   "math": [
+    "x-y=1\nx=y+1",
+    "2(y+1)+3y=12\n5y+2=12\ny=2",
+    "x=2+1=3"
+   ],
+   "warn": {
+    "zh": "把 $x$ 換成 $y+1$ 時，$2x$ 是 $2(y+1)$，不是 $2y+1$。",
+    "en": "When $x=y+1$, the term $2x$ becomes $2(y+1)$, not $2y+1$."
+   },
+   "recall": {
+    "prompt": {
+     "zh": "由 $x-y=1$，哪個以 $x$ 為主項的式子正確？",
+     "en": "Which expression for $x$ follows from $x-y=1$?"
+    },
+    "options": [
+     {
+      "math": "x=1-y"
+     },
+     {
+      "math": "x=y-1"
+     },
+     {
+      "math": "x=y+1"
+     }
+    ],
+    "answer": 2,
+    "explanation": {
+     "zh": "兩邊同加 $y$，得 $x=1+y=y+1$。",
+     "en": "Adding $y$ to both sides gives $x=1+y=y+1$."
+    }
+   },
+   "vocab": [
+    {
+     "en": "subject",
+     "zh": "主項：獨立在等號一邊的字母"
+    },
+    {
+     "en": "brackets",
+     "zh": "括號"
+    }
+   ]
+  },
+  {
+   "id": "ws02-c4",
+   "topic": "ws02",
+   "title": {
+    "zh": "消元法：係數對齊，再加或減",
+    "en": "Elimination: match coefficients, then add or subtract"
+   },
+   "goal": {
+    "zh": "用相反或相同係數消去一個未知數。",
+    "en": "Eliminate one unknown using opposite or equal coefficients."
+   },
+   "body": {
+    "zh": "相反係數可以相加消去。\n兩條方程的 $y$ 係數是 $-1$ 與 $+1$：{{math:0}}\n兩式相加，$y$ 項抵消。{{math:1}}\n係數不同時，先把整條方程乘一個數。例如：{{math:2}}",
+    "en": "Opposite coefficients cancel by addition.\nThe coefficients of $y$ here are $-1$ and $+1$:{{math:0}}\nAdd the equations to cancel $y$.{{math:1}}\nIf coefficients do not match, first scale an entire equation. For example:{{math:2}}"
+   },
+   "math": [
+    "3x-y=-6\n2x+y=1",
+    "5x=-5\nx=-1\ny=3",
+    "3x-y=-6\n6x-2y=-12"
+   ],
+   "warn": {
+    "zh": "同號且相同的係數可用相減；減號作用於整條方程，包括等號右邊。放大方程時，每項都要乘。",
+    "en": "Equal coefficients cancel by subtraction. Subtract every term, including the right-hand side. Scaling applies to every term too."
+   },
+   "recall": {
+    "prompt": {
+     "zh": "$(2x-y)-(x-y)$ 等於甚麼？",
+     "en": "What is $(2x-y)-(x-y)$?"
+    },
+    "options": [
+     {
+      "math": "x-2y"
+     },
+     {
+      "math": "x"
+     },
+     {
+      "math": "3x"
+     }
+    ],
+    "answer": 1,
+    "explanation": {
+     "zh": "先拆括號：$2x-y-x+y=x$，兩個 $y$ 項抵消。",
+     "en": "Remove the brackets: $2x-y-x+y=x$. The $y$ terms cancel."
+    }
+   },
+   "vocab": [
+    {
+     "en": "elimination",
+     "zh": "消元法"
+    },
+    {
+     "en": "coefficient",
+     "zh": "係數"
+    }
+   ]
+  },
+  {
+   "id": "ws02-c5",
+   "topic": "ws02",
+   "title": {
+    "zh": "應用題：先分清數量與單價",
+    "en": "Word problems: distinguish quantity from unit price"
+   },
+   "goal": {
+    "zh": "為兩個未知量下定義，再把條件寫成方程。",
+    "en": "Define two quantities before translating the conditions."
+   },
+   "body": {
+    "zh": "先寫清 $x$、$y$ 代表甚麼，連同單位。\n例如 $x$ 是梨的單價，$y$ 是芒果的單價：{{math:0}}\n另一組購買條件提供第二條方程。{{math:1}}\n解出後，讀清楚要的是一個物品的單價、總數，還是兩者的差。",
+    "en": "Define $x$ and $y$, including their units.\nFor example, let $x$ be the price of a pear and $y$ the price of a mango:{{math:0}}\nA second purchase gives a second equation.{{math:1}}\nAfter solving, check whether the request is a unit price, a total or a difference."
+   },
+   "math": [
+    "2x+3y=33",
+    "4x+7y=73"
+   ],
+   "warn": {
+    "zh": "「兩個梨」不代表 $x=2$。若 $x$ 是單價，兩個梨的總價才是 $2x$。",
+    "en": "“Two pears” does not mean $x=2$. If $x$ is a unit price, two pears cost $2x$."
+   },
+   "recall": {
+    "prompt": {
+     "zh": "每枝筆 $x$ 元、每本簿 $y$ 元。三枝筆與五本簿共售 $40$ 元，應列哪條？",
+     "en": "Pens cost $x$ dollars and notebooks $y$ dollars each. Three pens and five notebooks cost 40 dollars. Which equation represents this?"
+    },
+    "options": [
+     {
+      "math": "3x+5y=40"
+     },
+     {
+      "math": "5x+3y=40"
+     },
+     {
+      "math": "x+y=40"
+     }
+    ],
+    "answer": 0,
+    "explanation": {
+     "zh": "每類物品的數量乘單價，再相加：$3x+5y=40$。",
+     "en": "Multiply each quantity by its unit price, then add: $3x+5y=40$."
+    }
+   },
+   "vocab": [
+    {
+     "en": "unit price",
+     "zh": "單價"
+    },
+    {
+     "en": "total cost",
+     "zh": "總價"
+    }
+   ]
+  },
+  {
+   "id": "ws02-c6",
+   "topic": "ws02",
+   "title": {
+    "zh": "轉移物品：一邊減，另一邊加",
+    "en": "Transfers: subtract from one person, add to the other"
+   },
+   "goal": {
+    "zh": "把原有人數／物品與改變後的數量分開。",
+    "en": "Separate original quantities from quantities after a change."
+   },
+   "body": {
+    "zh": "設 $x$、$y$ 為 Alan、Benny 原有的郵票數量。\n「Alan 是 Benny 的 $3$ 倍」描述原來的情況。{{math:0}}\nAlan 給 Benny $12$ 枚後，兩人的數量相同。{{math:1}}\n物品只在二人之間轉移，總數保持不變。{{math:2}}",
+    "en": "Let $x$ and $y$ be the original numbers of stamps held by Alan and Benny.\n“Alan has three times as many” describes the original situation.{{math:0}}\nAfter Alan gives Benny $12$ stamps, the two numbers are equal.{{math:1}}\nA transfer between the two people leaves the total unchanged.{{math:2}}"
+   },
+   "math": [
+    "x=3y",
+    "x-12=y+12",
+    "(x-12)+(y+12)=x+y"
+   ],
+   "warn": {
+    "zh": "二人轉移物品時，接收的一方要增加；若只是某人離開課室，則不會自動令另一類人數增加。",
+    "en": "In a transfer, the receiver gains the items. Someone leaving a room does not automatically increase the other group."
+   },
+   "recall": {
+    "prompt": {
+     "zh": "甲有 $x$ 枚、乙有 $y$ 枚；甲給乙 $5$ 枚後數量相同。哪條正確？",
+     "en": "A has $x$ items and B has $y$. A gives B $5$ items and their numbers become equal. Which equation is correct?"
+    },
+    "options": [
+     {
+      "math": "x-5=y-5"
+     },
+     {
+      "math": "x+5=y-5"
+     },
+     {
+      "math": "x-5=y+5"
+     }
+    ],
+    "answer": 2,
+    "explanation": {
+     "zh": "甲失去 $5$ 枚，乙得到 $5$ 枚，所以是 $x-5=y+5$。",
+     "en": "A loses $5$ and B gains $5$, so $x-5=y+5$."
+    }
+   },
+   "vocab": [
+    {
+     "en": "original",
+     "zh": "改變前的數量"
+    },
+    {
+     "en": "transfer",
+     "zh": "轉移物品"
+    }
+   ]
+  },
+  {
+   "id": "ws02-c7",
+   "topic": "ws02",
+   "title": {
+    "zh": "百分比與比：先找比較基準",
+    "en": "Percentages and ratios: identify the reference"
+   },
+   "goal": {
+    "zh": "把「多／少百分之幾」寫成倍數。",
+    "en": "Translate a percentage comparison into a multiplier."
+   },
+   "body": {
+    "zh": "「男會員 $x$ 比女會員 $y$ 多 $20\\%$」，以 $y$ 為基準。{{math:0}}\n「雜誌 $x$ 比漫畫 $y$ 少 $25\\%$」，留下基準的 $75\\%$。{{math:1}}\n若兩個數的比為 $8:7$，亦可用等值方程表達。{{math:2}}",
+    "en": "If male membership $x$ is $20\\%$ more than female membership $y$, the reference is $y$.{{math:0}}\nIf magazines $x$ are $25\\%$ fewer than comic books $y$, take $75\\%$ of the reference.{{math:1}}\nA ratio of $8:7$ can also be written as an equivalent equation.{{math:2}}"
+   },
+   "math": [
+    "x=y+0.2y=1.2y",
+    "x=y-0.25y=0.75y",
+    "x:y=8:7\n7x=8y"
+   ],
+   "warn": {
+    "zh": "男比女多 $20\\%$，不代表女比男少 $20\\%$，因為比較的基準已改變。",
+    "en": "If men outnumber women by $20\\%$, women are not $20\\%$ fewer than men: the reference has changed."
+   },
+   "recall": {
+    "prompt": {
+     "zh": "若 $x$ 比 $y$ 多 $80\\%$，$x$ 等於多少？",
+     "en": "If $x$ is $80\\%$ more than $y$, what is $x$?"
+    },
+    "options": [
+     {
+      "math": "0.8y"
+     },
+     {
+      "math": "1.8y"
+     },
+     {
+      "math": "y+80"
+     }
+    ],
+    "answer": 1,
+    "explanation": {
+     "zh": "$x=y+0.8y=1.8y$，原有的 $100\\%$ 不能漏去。",
+     "en": "$x=y+0.8y=1.8y$. Include the original $100\\%$."
+    }
+   },
+   "vocab": [
+    {
+     "en": "more than",
+     "zh": "比基準多"
+    },
+    {
+     "en": "ratio",
+     "zh": "比"
+    }
+   ]
+  },
+  {
+   "id": "ws02-c8",
+   "topic": "ws02",
+   "title": {
+    "zh": "路程題：統一時間單位再列式",
+    "en": "Distance problems: use consistent time units"
+   },
+   "goal": {
+    "zh": "用路程等於速率乘時間建立兩條方程。",
+    "en": "Use distance equals speed times time to form two equations."
+   },
+   "body": {
+    "zh": "若設 $x$、$y$ 為兩段所需的分鐘，時速要先換成每分鐘速率。{{math:0}}\n全程 $85$ 分鐘、$104$ 公里，提供兩個不同條件。{{math:1}}\n解出後，按題目的最後一句選擇所求的一段時間，單位仍是分鐘。",
+    "en": "If $x$ and $y$ are the minutes for the two legs, convert hourly speeds to speeds per minute.{{math:0}}\nA total of $85$ minutes and $104$ kilometres gives two different conditions.{{math:1}}\nAfter solving, give the time for the requested leg, in minutes."
+   },
+   "math": [
+    "66/60=1.1\n84/60=1.4",
+    "x+y=85\n1.1x+1.4y=104"
+   ],
+   "warn": {
+    "zh": "分鐘不能直接乘每小時速率來求公里數。也可把時間設為小時，但所有條件都要使用相同單位。",
+    "en": "Minutes cannot directly multiply a speed in kilometres per hour to give kilometres. You may use hours instead, but keep all conditions consistent."
+   },
+   "recall": {
+    "prompt": {
+     "zh": "平均時速 $60$ 公里，行駛 $30$ 分鐘，共走多少公里？",
+     "en": "At $60$ kilometres per hour, how far is travelled in $30$ minutes?"
+    },
+    "options": [
+     {
+      "math": "1800"
+     },
+     {
+      "math": "30"
+     },
+     {
+      "math": "2"
+     }
+    ],
+    "answer": 1,
+    "explanation": {
+     "zh": "$60\\times(30/60)=30$ 公里；先把 $30$ 分鐘寫成半小時。",
+     "en": "$60\\times(30/60)=30$ kilometres. Convert $30$ minutes to half an hour."
+    }
+   },
+   "vocab": [
+    {
+     "en": "average speed",
+     "zh": "平均速率"
+    },
+    {
+     "en": "distance",
+     "zh": "路程"
+    }
+   ]
   }
  ]
 }

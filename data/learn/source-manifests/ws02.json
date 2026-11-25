@@ -1,0 +1,1143 @@
+{
+  "worksheet": "WS02",
+  "sourceFiles": [
+    {
+      "name": "EPH_DSEPass_WS02_e.docx",
+      "sha256": "0134a43f02a4150b078b28fd3acbd56b383bbfd326060cfceaaf1be0a174c9ec"
+    },
+    {
+      "name": "EPH_DSEPass_WS02_e_sol.docx",
+      "sha256": "c56f8c57c7cda80dfbb3033eb712bb7af19686c419ffacbe52dafe388d97bb0d"
+    }
+  ],
+  "originalQuestions": 70,
+  "warmupQuestions": 6,
+  "cards": 8,
+  "models": [
+    {
+      "id": "eph-ws02-a01",
+      "section": "A",
+      "equations": [
+        "y=4*x",
+        "x+3*y=26"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "2",
+        "y": "8"
+      },
+      "result": "2",
+      "answerPair": true
+    },
+    {
+      "id": "eph-ws02-a02",
+      "section": "A",
+      "equations": [
+        "5*y=x",
+        "7*y-2*x=6"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "-10",
+        "y": "-2"
+      },
+      "result": "-10",
+      "answerPair": true
+    },
+    {
+      "id": "eph-ws02-a03",
+      "section": "A",
+      "equations": [
+        "x+y=3",
+        "4*x+3*y-17=0"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "8",
+        "y": "-5"
+      },
+      "result": "8",
+      "answerPair": true
+    },
+    {
+      "id": "eph-ws02-a04",
+      "section": "A",
+      "equations": [
+        "x-6*y+9=0",
+        "5*x+2*y+13=0"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "-3",
+        "y": "1"
+      },
+      "result": "-3",
+      "answerPair": true
+    },
+    {
+      "id": "eph-ws02-a05",
+      "section": "A",
+      "equations": [
+        "2*x+y=8",
+        "3*x-y=2"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "2",
+        "y": "4"
+      },
+      "result": "2",
+      "answerPair": true
+    },
+    {
+      "id": "eph-ws02-a06",
+      "section": "A",
+      "equations": [
+        "x-3*y=4",
+        "x-5*y=10"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "-5",
+        "y": "-3"
+      },
+      "result": "-5",
+      "answerPair": true
+    },
+    {
+      "id": "eph-ws02-a07",
+      "section": "A",
+      "equations": [
+        "5*x+2*y=0",
+        "7*x+4*y=6"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "-2",
+        "y": "5"
+      },
+      "result": "-2",
+      "answerPair": true
+    },
+    {
+      "id": "eph-ws02-a08",
+      "section": "A",
+      "equations": [
+        "-3*x-2*y=3",
+        "6*x+5*y=-12"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "3",
+        "y": "-6"
+      },
+      "result": "3",
+      "answerPair": true
+    },
+    {
+      "id": "eph-ws02-a09",
+      "section": "A",
+      "equations": [
+        "2*x-3=y",
+        "y=3*x+1"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "-4",
+        "y": "-11"
+      },
+      "result": "-4",
+      "answerPair": true
+    },
+    {
+      "id": "eph-ws02-a10",
+      "section": "A",
+      "equations": [
+        "m-2*n=20",
+        "9*m+2*n=20"
+      ],
+      "variables": "mn",
+      "target": "m",
+      "values": {
+        "m": "4",
+        "n": "-8"
+      },
+      "result": "4",
+      "answerPair": true
+    },
+    {
+      "id": "eph-ws02-a11",
+      "section": "A",
+      "equations": [
+        "4*q-p=14",
+        "5*q-3*p=14"
+      ],
+      "variables": "pq",
+      "target": "p",
+      "values": {
+        "p": "2",
+        "q": "4"
+      },
+      "result": "2",
+      "answerPair": true
+    },
+    {
+      "id": "eph-ws02-a12",
+      "section": "A",
+      "equations": [
+        "8*a+3*b=35",
+        "2*a+6*b=35"
+      ],
+      "variables": "ab",
+      "target": "a",
+      "values": {
+        "a": "5/2",
+        "b": "5"
+      },
+      "result": "5/2",
+      "answerPair": true
+    },
+    {
+      "id": "eph-ws02-b01",
+      "section": "B",
+      "equations": [
+        "x+y=240",
+        "y=4*x"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "48",
+        "y": "192"
+      },
+      "result": "48",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b02",
+      "section": "B",
+      "equations": [
+        "x-y=52",
+        "x=5*y"
+      ],
+      "variables": "xy",
+      "target": "y",
+      "values": {
+        "x": "65",
+        "y": "13"
+      },
+      "result": "13",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b03",
+      "section": "B",
+      "equations": [
+        "x+y=73",
+        "x=3*y+1"
+      ],
+      "variables": "xy",
+      "target": "y",
+      "values": {
+        "x": "55",
+        "y": "18"
+      },
+      "result": "18",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b04",
+      "section": "B",
+      "equations": [
+        "2*x+3*y=33",
+        "4*x+7*y=73"
+      ],
+      "variables": "xy",
+      "target": "y",
+      "values": {
+        "x": "6",
+        "y": "7"
+      },
+      "result": "7",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b05",
+      "section": "B",
+      "equations": [
+        "3*x+5*y=37",
+        "7*x+4*y=48"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "4",
+        "y": "5"
+      },
+      "result": "4",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b06",
+      "section": "B",
+      "equations": [
+        "3*x+4*y=43",
+        "x+y=12"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "5",
+        "y": "7"
+      },
+      "result": "5",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b07",
+      "section": "B",
+      "equations": [
+        "2.2*x+3.3*y=99",
+        "x+y=35"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "15",
+        "y": "20"
+      },
+      "result": "15",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b08",
+      "section": "B",
+      "equations": [
+        "x=3*y",
+        "3*x+2*y=154"
+      ],
+      "variables": "xy",
+      "target": "y",
+      "values": {
+        "x": "42",
+        "y": "14"
+      },
+      "result": "14",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b09",
+      "section": "B",
+      "equations": [
+        "x+y=84",
+        "x+12=3*y"
+      ],
+      "variables": "xy",
+      "target": "y",
+      "values": {
+        "x": "60",
+        "y": "24"
+      },
+      "result": "24",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b10",
+      "section": "B",
+      "equations": [
+        "x+y=42",
+        "2*x+y=75"
+      ],
+      "variables": "xy",
+      "target": "y",
+      "values": {
+        "x": "33",
+        "y": "9"
+      },
+      "result": "9",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b11",
+      "section": "B",
+      "equations": [
+        "x+y=20",
+        "500*x-300*y=3600"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "12",
+        "y": "8"
+      },
+      "result": "12",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b12",
+      "section": "B",
+      "equations": [
+        "x=3*y",
+        "1100*x+950*y=46750"
+      ],
+      "variables": "xy",
+      "target": "x+y",
+      "values": {
+        "x": "33",
+        "y": "11"
+      },
+      "result": "44",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b13",
+      "section": "B",
+      "equations": [
+        "y=7*x",
+        "109*x+68*y=22815"
+      ],
+      "variables": "xy",
+      "target": "x+y",
+      "values": {
+        "x": "39",
+        "y": "273"
+      },
+      "result": "312",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b14",
+      "section": "B",
+      "equations": [
+        "x=2*y",
+        "x-10=y-2"
+      ],
+      "variables": "xy",
+      "target": "x+y",
+      "values": {
+        "x": "16",
+        "y": "8"
+      },
+      "result": "24",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b15",
+      "section": "B",
+      "equations": [
+        "x=3*y",
+        "x-12=y+12"
+      ],
+      "variables": "xy",
+      "target": "x+y",
+      "values": {
+        "x": "36",
+        "y": "12"
+      },
+      "result": "48",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b16",
+      "section": "B",
+      "equations": [
+        "x=2*y",
+        "y+30=3*(x-30)"
+      ],
+      "variables": "xy",
+      "target": "x+y",
+      "values": {
+        "x": "48",
+        "y": "24"
+      },
+      "result": "72",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b17",
+      "section": "B",
+      "equations": [
+        "x=4*y",
+        "x-10=2*(y+10)"
+      ],
+      "variables": "xy",
+      "target": "x+y",
+      "values": {
+        "x": "60",
+        "y": "15"
+      },
+      "result": "75",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b18",
+      "section": "B",
+      "equations": [
+        "7*x=8*y",
+        "9*(x-6)=10*(y-4)"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "56",
+        "y": "49"
+      },
+      "result": "56",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b19",
+      "section": "B",
+      "equations": [
+        "3*x=5*y",
+        "9*(x-21)=7*(y+21)"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "70",
+        "y": "42"
+      },
+      "result": "70",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b20",
+      "section": "B",
+      "equations": [
+        "x+y=84",
+        "x-y=12"
+      ],
+      "variables": "xy",
+      "target": "y",
+      "values": {
+        "x": "48",
+        "y": "36"
+      },
+      "result": "36",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b21",
+      "section": "B",
+      "equations": [
+        "x+y=140",
+        "x-y=30"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "85",
+        "y": "55"
+      },
+      "result": "85",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b22",
+      "section": "B",
+      "equations": [
+        "x+y=990",
+        "x=1.2*y"
+      ],
+      "variables": "xy",
+      "target": "x-y",
+      "values": {
+        "x": "540",
+        "y": "450"
+      },
+      "result": "90",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b23",
+      "section": "B",
+      "equations": [
+        "x+y=154",
+        "x=0.75*y"
+      ],
+      "variables": "xy",
+      "target": "y-x",
+      "values": {
+        "x": "66",
+        "y": "88"
+      },
+      "result": "22",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b24",
+      "section": "B",
+      "equations": [
+        "x=1.5*y",
+        "y=1.5*(x-25)"
+      ],
+      "variables": "xy",
+      "target": "y",
+      "values": {
+        "x": "45",
+        "y": "30"
+      },
+      "result": "30",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b25",
+      "section": "B",
+      "equations": [
+        "x=1.2*y",
+        "y+22=1.2*x"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "60",
+        "y": "50"
+      },
+      "result": "60",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b26",
+      "section": "B",
+      "equations": [
+        "x+y=85",
+        "66*x/60+84*y/60=104"
+      ],
+      "variables": "xy",
+      "target": "y",
+      "values": {
+        "x": "50",
+        "y": "35"
+      },
+      "result": "35",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-b27",
+      "section": "B",
+      "equations": [
+        "x+y=65",
+        "96*x/60+78*y/60=98"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "45",
+        "y": "20"
+      },
+      "result": "45",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-bex01",
+      "section": "B",
+      "equations": [
+        "x=2*y",
+        "5*(x-6)=y+6"
+      ],
+      "variables": "xy",
+      "target": "x+y",
+      "values": {
+        "x": "8",
+        "y": "4"
+      },
+      "result": "12",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-bpr01",
+      "section": "B",
+      "equations": [
+        "x=3*y",
+        "x-10=(y+10)/2"
+      ],
+      "variables": "xy",
+      "target": "x+y",
+      "values": {
+        "x": "18",
+        "y": "6"
+      },
+      "result": "24",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-bex02",
+      "section": "B",
+      "equations": [
+        "y=1.8*x",
+        "x=1.8*(y-56)"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "45",
+        "y": "81"
+      },
+      "result": "45",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-bpr02",
+      "section": "B",
+      "equations": [
+        "x=1.4*y",
+        "y+480=1.4*x"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "700",
+        "y": "500"
+      },
+      "result": "700",
+      "answerPair": false
+    },
+    {
+      "id": "eph-ws02-m01",
+      "section": "C",
+      "equations": [
+        "x+2*y=7",
+        "3*x+4*y=11"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "-3",
+        "y": "5"
+      },
+      "result": "-3",
+      "answer": "B"
+    },
+    {
+      "id": "eph-ws02-m02",
+      "section": "C",
+      "equations": [
+        "a-4*b=2",
+        "5*a+2*b=-12"
+      ],
+      "variables": "ab",
+      "target": "a",
+      "values": {
+        "a": "-2",
+        "b": "-1"
+      },
+      "result": "-2",
+      "answer": "A"
+    },
+    {
+      "id": "eph-ws02-m03",
+      "section": "C",
+      "equations": [
+        "3*p-q=13",
+        "9*p+2*q=4"
+      ],
+      "variables": "pq",
+      "target": "q",
+      "values": {
+        "p": "2",
+        "q": "-7"
+      },
+      "result": "-7",
+      "answer": "A"
+    },
+    {
+      "id": "eph-ws02-m04",
+      "section": "C",
+      "equations": [
+        "x+3*y+14=11",
+        "3*x-y=11"
+      ],
+      "variables": "xy",
+      "target": "y",
+      "values": {
+        "x": "3",
+        "y": "-2"
+      },
+      "result": "-2",
+      "answer": "B"
+    },
+    {
+      "id": "eph-ws02-m05",
+      "section": "C",
+      "equations": [
+        "p+2*q+11=13",
+        "3*p-q=13"
+      ],
+      "variables": "pq",
+      "target": "p",
+      "values": {
+        "p": "4",
+        "q": "-1"
+      },
+      "result": "4",
+      "answer": "C"
+    },
+    {
+      "id": "eph-ws02-m06",
+      "section": "C",
+      "equations": [
+        "4*r-s-10=9",
+        "r+4*s=9"
+      ],
+      "variables": "rs",
+      "target": "r",
+      "values": {
+        "r": "5",
+        "s": "1"
+      },
+      "result": "5",
+      "answer": "D"
+    },
+    {
+      "id": "eph-ws02-m07",
+      "section": "C",
+      "equations": [
+        "3*a+b=8",
+        "5*a+3*b=8"
+      ],
+      "variables": "ab",
+      "target": "b",
+      "values": {
+        "a": "4",
+        "b": "-4"
+      },
+      "result": "-4",
+      "answer": "B"
+    },
+    {
+      "id": "eph-ws02-m08",
+      "section": "C",
+      "equations": [
+        "4*p-q=5",
+        "9*p+4*q=5"
+      ],
+      "variables": "pq",
+      "target": "q",
+      "values": {
+        "p": "1",
+        "q": "-1"
+      },
+      "result": "-1",
+      "answer": "B"
+    },
+    {
+      "id": "eph-ws02-m09",
+      "section": "C",
+      "equations": [
+        "x+5*y=13",
+        "3*x+2*y=13"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "3",
+        "y": "2"
+      },
+      "result": "3",
+      "answer": "D"
+    },
+    {
+      "id": "eph-ws02-m10",
+      "section": "C",
+      "equations": [
+        "12*x-11*y=39",
+        "4*x+5*y=39"
+      ],
+      "variables": "xy",
+      "target": "y",
+      "values": {
+        "x": "6",
+        "y": "3"
+      },
+      "result": "3",
+      "answer": "C"
+    },
+    {
+      "id": "eph-ws02-m11",
+      "section": "C",
+      "equations": [
+        "9*m+10*n=8",
+        "3*m-2*n=8"
+      ],
+      "variables": "mn",
+      "target": "m",
+      "values": {
+        "m": "2",
+        "n": "-1"
+      },
+      "result": "2",
+      "answer": "C"
+    },
+    {
+      "id": "eph-ws02-m12",
+      "section": "C",
+      "equations": [
+        "5*a+6*b=27",
+        "17*a-12*b=27"
+      ],
+      "variables": "ab",
+      "target": "a",
+      "values": {
+        "a": "3",
+        "b": "2"
+      },
+      "result": "3",
+      "answer": "C"
+    },
+    {
+      "id": "eph-ws02-m13",
+      "section": "C",
+      "equations": [
+        "x+1=y-3",
+        "y-3=5*x+y-38"
+      ],
+      "variables": "xy",
+      "target": "y",
+      "values": {
+        "x": "7",
+        "y": "11"
+      },
+      "result": "11",
+      "answer": "C"
+    },
+    {
+      "id": "eph-ws02-m14",
+      "section": "C",
+      "equations": [
+        "a-4=b-10",
+        "b-10=a-5*b+11"
+      ],
+      "variables": "ab",
+      "target": "a",
+      "values": {
+        "a": "-3",
+        "b": "3"
+      },
+      "result": "-3",
+      "answer": "A"
+    },
+    {
+      "id": "eph-ws02-m15",
+      "section": "C",
+      "equations": [
+        "13-2*p=q+9",
+        "q+9=3*q-2*p-5"
+      ],
+      "variables": "pq",
+      "target": "p",
+      "values": {
+        "p": "-1",
+        "q": "6"
+      },
+      "result": "-1",
+      "answer": "C"
+    },
+    {
+      "id": "eph-ws02-m16",
+      "section": "C",
+      "equations": [
+        "4*x+5*y=62",
+        "3*x=4*y"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "8",
+        "y": "6"
+      },
+      "result": "8",
+      "answer": "B"
+    },
+    {
+      "id": "eph-ws02-m17",
+      "section": "C",
+      "equations": [
+        "3*x+2*y=70",
+        "4*x=9*y"
+      ],
+      "variables": "xy",
+      "target": "y",
+      "values": {
+        "x": "18",
+        "y": "8"
+      },
+      "result": "8",
+      "answer": "A"
+    },
+    {
+      "id": "eph-ws02-m18",
+      "section": "C",
+      "equations": [
+        "5*x=8*y",
+        "2*x+4*y=108"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "24",
+        "y": "15"
+      },
+      "result": "24",
+      "answer": "D"
+    },
+    {
+      "id": "eph-ws02-m19",
+      "section": "C",
+      "equations": [
+        "3*x+7*y=53",
+        "4*x+2*y=34"
+      ],
+      "variables": "xy",
+      "target": "2*x+3*y",
+      "values": {
+        "x": "6",
+        "y": "5"
+      },
+      "result": "27",
+      "answer": "A"
+    },
+    {
+      "id": "eph-ws02-m20",
+      "section": "C",
+      "equations": [
+        "2*x+3*y=105",
+        "5*x+4*y=210"
+      ],
+      "variables": "xy",
+      "target": "2*x+y",
+      "values": {
+        "x": "30",
+        "y": "15"
+      },
+      "result": "75",
+      "answer": "C"
+    },
+    {
+      "id": "eph-ws02-cex01",
+      "section": "C",
+      "equations": [
+        "8*x-9*y=30",
+        "4*x+3*y=30"
+      ],
+      "variables": "xy",
+      "target": "y",
+      "values": {
+        "x": "6",
+        "y": "2"
+      },
+      "result": "2",
+      "answer": "C"
+    },
+    {
+      "id": "eph-ws02-cpr01",
+      "section": "C",
+      "equations": [
+        "4*m-3*n=7",
+        "2*m-5*n=7"
+      ],
+      "variables": "mn",
+      "target": "n",
+      "values": {
+        "m": "1",
+        "n": "-1"
+      },
+      "result": "-1",
+      "answer": "B"
+    },
+    {
+      "id": "eph-ws02-cex02",
+      "section": "C",
+      "equations": [
+        "3*x+4*y=156",
+        "5*x=2*y"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "12",
+        "y": "30"
+      },
+      "result": "12",
+      "answer": "A"
+    },
+    {
+      "id": "eph-ws02-cpr02",
+      "section": "C",
+      "equations": [
+        "5*x+4*y=570",
+        "8*x=5*y"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "50",
+        "y": "80"
+      },
+      "result": "50",
+      "answer": "B"
+    },
+    {
+      "id": "eph-ws02-keysub",
+      "section": "A",
+      "equations": [
+        "m+n=7",
+        "3*m+10*n=7"
+      ],
+      "variables": "mn",
+      "target": "m",
+      "values": {
+        "m": "9",
+        "n": "-2"
+      },
+      "result": "9",
+      "answerPair": true
+    },
+    {
+      "id": "eph-ws02-keysubtract",
+      "section": "A",
+      "equations": [
+        "3*x-y=-6",
+        "2*x-y=1"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "-7",
+        "y": "-15"
+      },
+      "result": "-7",
+      "answerPair": true
+    },
+    {
+      "id": "eph-ws02-keyscale",
+      "section": "A",
+      "equations": [
+        "3*x-y=-6",
+        "5*x+2*y=1"
+      ],
+      "variables": "xy",
+      "target": "x",
+      "values": {
+        "x": "-1",
+        "y": "3"
+      },
+      "result": "-1",
+      "answerPair": true
+    }
+  ],
+  "keyPointIllustrationsInConcepts": {
+    "ws02-c2": "Key Point 1 Case 1",
+    "ws02-c3": "Key Point 1 Case 2",
+    "ws02-c4": "Key Point 2 Addition"
+  }
+}

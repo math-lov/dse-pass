@@ -64,8 +64,10 @@ def build_digest(doc: dict, max_len: int = 600) -> str:
     imgs_used: list[str] = []
     for i, b in enumerate(doc.get("blocks", [])):
         flags = list(b.get("flags") or [])
-        if b.get("dup") is not None:
-            continue                          # 文字方塊重複 → 略
+        if b.get("dup") is not None and b.get("context") == "textbox":
+            continue                          # Only remove mirrored textbox copies.
+        # Repeated body text can be a legitimate option in another question.
+        # Its global duplicate hint is not evidence that it may be discarded.
         if SKIP_FLAGS & set(flags):
             continue
 

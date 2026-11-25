@@ -116,6 +116,30 @@ window.LEARN_INDEX = {
    ]
   },
   {
+   "id": "ws02",
+   "stage": 1,
+   "unit": 5,
+   "name": {
+    "zh": "二元一次方程",
+    "en": "Linear equations in two unknowns"
+   },
+   "intro": {
+    "zh": "由代入法與消元法開始，逐步把價格、數量改變、百分比及路程條件寫成方程。",
+    "en": "Start with substitution and elimination, then model prices, changes in quantities, percentages and journeys."
+   },
+   "source": "EPH DSE Pass · Worksheet 2",
+   "stats": {
+    "mc": 30,
+    "long": 46,
+    "cards": 8,
+    "pages": 10
+   },
+   "lessonIds": [
+    "ws02-1",
+    "ws02-2"
+   ]
+  },
+  {
    "id": "as01",
    "stage": 2,
    "unit": 1,
@@ -226,7 +250,23 @@ window.LEARN_INDEX = {
      "ws01",
      "ws01c",
      "ws01b"
-    ]
+    ],
+    "learningMode": "guided"
+   },
+   {
+    "id": "simultaneous-equations",
+    "name": {
+     "zh": "二元一次方程",
+     "en": "Simultaneous linear equations"
+    },
+    "description": {
+     "zh": "由代入與消元，學會把價格、比例及路程條件寫成兩條方程。",
+     "en": "Use substitution and elimination, then form equations for prices, proportions and journeys."
+    },
+    "topicIds": [
+     "ws02"
+    ],
+    "learningMode": "guided"
    },
    {
     "id": "quadratic-equations",
@@ -404,13 +444,13 @@ window.LEARN_INDEX = {
    }
   }
  },
- "generatedAt": "2026-11-25T12:34:13Z",
+ "generatedAt": "2026-11-25T14:04:15Z",
  "counts": {
-  "topics": 7,
+  "topics": 8,
   "held": 0,
-  "mc": 81,
-  "long": 47,
-  "cards": 29,
+  "mc": 111,
+  "long": 93,
+  "cards": 37,
   "blocked": 0
  }
 };
