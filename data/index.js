@@ -267,62 +267,6 @@ window.LEARN_INDEX = {
      "ws02"
     ],
     "learningMode": "guided"
-   },
-   {
-    "id": "quadratic-equations",
-    "name": {
-     "zh": "二次方程與複數",
-     "en": "Quadratic equations & complex numbers"
-    },
-    "description": {
-     "zh": "解二次方程、判斷根的性質，再認識複數運算。",
-     "en": "Solve quadratic equations, investigate their roots and work with complex numbers."
-    },
-    "topicIds": [
-     "as01"
-    ]
-   },
-   {
-    "id": "straight-lines",
-    "name": {
-     "zh": "直線方程",
-     "en": "Equations of straight lines"
-    },
-    "description": {
-     "zh": "從斜率、截距與垂直關係，找出直線方程。",
-     "en": "Use slopes, intercepts and perpendicular lines to find equations."
-    },
-    "topicIds": [
-     "as02"
-    ]
-   },
-   {
-    "id": "inequalities",
-    "name": {
-     "zh": "不等式",
-     "en": "Inequalities"
-    },
-    "description": {
-     "zh": "分清「及」與「或」，逐步找出一次及二次不等式的解集。",
-     "en": "Distinguish “and” from “or” and find solution sets for linear and quadratic inequalities."
-    },
-    "topicIds": [
-     "as03"
-    ]
-   },
-   {
-    "id": "counting",
-    "name": {
-     "zh": "排列與組合",
-     "en": "Permutations & combinations"
-    },
-    "description": {
-     "zh": "先判斷次序是否重要，再處理排列、選人與插空題。",
-     "en": "Decide whether order matters, then practise arrangements, selections and insertion."
-    },
-    "topicIds": [
-     "as04"
-    ]
    }
   ],
   "grades": [
@@ -352,12 +296,7 @@ window.LEARN_INDEX = {
      "as03",
      "as04"
     ],
-    "relatedCourseIds": [
-     "quadratic-equations",
-     "straight-lines",
-     "inequalities",
-     "counting"
-    ],
+    "relatedCourseIds": [],
     "stageId": 2
    }
   ]
@@ -444,7 +383,7 @@ window.LEARN_INDEX = {
    }
   }
  },
- "generatedAt": "2026-11-26T06:25:02Z",
+ "generatedAt": "2026-11-26T08:48:35Z",
  "counts": {
   "topics": 8,
   "held": 0,

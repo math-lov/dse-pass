@@ -33,9 +33,11 @@
       s.cards = s.cards || {};  // { lessonId: true }（已看完概念卡）
       s.weak = s.weak || {};    // { qid: {ts, auto} }（弱點升級庫：手動或長題核對自動加入）
       s.lc = s.lc || {};        // { "qid|part": {picked, correct, tries, final, skipped} }
+      s.mastered = s.mastered || {}; // { courseOrTopicId: {ts} }（學生自評「已明白」）
+      s.cardOk = s.cardOk || {};     // { cardId: true }（概念卡「這張已明白」）
       return s;
     } catch (e) {
-      return { mc: {}, long: {}, cards: {}, weak: {}, lc: {} };
+      return { mc: {}, long: {}, cards: {}, weak: {}, lc: {}, mastered: {}, cardOk: {} };
     }
   }
   function save() {
@@ -390,6 +392,9 @@
   function courseForTopic(id) {
     return availableCourses().filter(function (c) { return c.topicIds.indexOf(id) >= 0; })[0];
   }
+  function packForTopic(id) {
+    return availablePacks().filter(function (p) { return p.topicIds.indexOf(id) >= 0; })[0];
+  }
   function currentPack() {
     var p = new URLSearchParams(location.search);
     return packById(p.get("pack") || p.get("from"));
@@ -414,7 +419,11 @@
     return "topic.html?" + params.toString();
   }
   function summaryOf(topics) {
-    var result = { cards: 0, long: 0, mc: 0, done: 0, total: 0 };
+    var result = {
+      cards: 0, long: 0, mc: 0, done: 0, total: 0,
+      mcTried: 0, mcCorrect: 0, longDone: 0, qTotal: 0, qTried: 0,
+      allTried: false, allMastered: false
+    };
     topics.forEach(function (t) {
       var stats = t.stats || {}, count = topicCounts(t);
       result.cards += stats.cards || 0;
@@ -423,9 +432,87 @@
       var total = count.mc + count.long + count.cards;
       result.total += total;
       result.done += topicPercent(t) / 100 * total;
+      Object.keys(store.mc).forEach(function (qid) {
+        var rec = store.mc[qid];
+        if (!rec || !belongsTo(qid, t)) return;
+        result.mcTried++;
+        if (rec.correct) result.mcCorrect++;
+      });
+      Object.keys(store.long).forEach(function (qid) {
+        if (store.long[qid] && belongsTo(qid, t)) result.longDone++;
+      });
     });
+    result.qTotal = result.mc + result.long;
+    result.qTried = result.mcTried + result.longDone;
+    result.allTried = result.qTotal > 0 && result.qTried >= result.qTotal;
+    result.allMastered = result.qTotal > 0 && (result.mcCorrect + result.longDone) >= result.qTotal;
     result.percent = result.total ? Math.round(result.done / result.total * 100) : 0;
     return result;
+  }
+  function statusBadgeSpec(masterKey, stats) {
+    var selfOk = !!(store.mastered && store.mastered[masterKey]);
+    if (selfOk && stats.allMastered) {
+      return { cls: "sb-ok", cardCls: "is-mastered", label: { zh: "✓ 已明白 · 全題完成", en: "✓ Understood · All complete" } };
+    }
+    if (selfOk) {
+      return { cls: "sb-ok", cardCls: "is-mastered", label: { zh: "✓ 已明白", en: "✓ Understood" } };
+    }
+    if (stats.allMastered) {
+      return { cls: "sb-ok", cardCls: "is-mastered", label: { zh: "✓ 全題掌握", en: "✓ All mastered" } };
+    }
+    if (stats.allTried) {
+      return { cls: "sb-tried", cardCls: "is-tried", label: { zh: "★ 全題已試過", en: "★ All questions tried" } };
+    }
+    if (stats.qTried > 0 || stats.percent > 0) {
+      return {
+        cls: "sb-doing", cardCls: "is-doing",
+        label: { zh: "學習中 · 已試 " + stats.qTried + " / " + stats.qTotal + " 題", en: "In progress · " + stats.qTried + " / " + stats.qTotal + " tried" }
+      };
+    }
+    return null;
+  }
+  function appendProgressBar(card, stats, spec) {
+    if (!spec) return;
+    var pct = spec.cardCls === "is-mastered" ? 100 : (stats.qTotal ? Math.round(stats.qTried / stats.qTotal * 100) : stats.percent);
+    pct = Math.max(4, Math.min(100, pct));
+    var track = el("div", "course-bar");
+    var fill = el("span", "course-bar-fill " + spec.cls);
+    fill.style.width = pct + "%";
+    track.appendChild(fill);
+    card.appendChild(track);
+  }
+  function momentumStrip(items) {
+    var masteredCount = 0, demos = 0, triedMc = 0, correctMc = 0;
+    items.forEach(function (it) {
+      if (store.mastered && store.mastered[it.key]) masteredCount++;
+      demos += it.stats.longDone;
+      triedMc += it.stats.mcTried;
+      correctMc += it.stats.mcCorrect;
+    });
+    if (!masteredCount && !demos && !triedMc) return null;
+    var box = el("aside", "momentum-strip");
+    var partsZh = [], partsEn = [];
+    if (masteredCount) {
+      partsZh.push("已明白 " + masteredCount + " 課");
+      partsEn.push(masteredCount + " topic" + (masteredCount > 1 ? "s" : "") + " understood");
+    }
+    if (demos) {
+      partsZh.push("已看 " + demos + " 條示範");
+      partsEn.push(demos + " demo" + (demos > 1 ? "s" : "") + " viewed");
+    }
+    if (triedMc) {
+      partsZh.push("已試 " + triedMc + " 題練習" + (correctMc ? "（答對 " + correctMc + " 題）" : ""));
+      partsEn.push(triedMc + " practice tried" + (correctMc ? " (" + correctMc + " correct)" : ""));
+    }
+    box.appendChild(biNode({
+      zh: "你的學習足跡：" + partsZh.join(" · "),
+      en: "Your progress: " + partsEn.join(" · ")
+    }, "div", "momentum-main"));
+    box.appendChild(biNode({
+      zh: "每一小步都在累積實力，按自己的節奏繼續就可以。",
+      en: "Every small step builds real understanding. Keep going at your own pace."
+    }, "div", "momentum-sub"));
+    return box;
   }
   function countsLabel(stats) {
     return {
@@ -435,15 +522,23 @@
   }
   function courseCard(course, pack) {
     var topics = availableTopics(course.topicIds), stats = summaryOf(topics);
-    var a = linkPair(courseUrl(course, pack), course.name, "course-link");
+    var spec = statusBadgeSpec(course.id, stats);
+    var a = linkPair(courseUrl(course, pack), course.name, "course-link" + (spec ? " " + spec.cardCls : ""));
     // Use a heading rather than a button: this opens a real, shareable page.
+    var headRow = el("div", "course-head-row");
     var title = el("h2", "course-title");
     title.appendChild(a.firstChild);
-    a.appendChild(title);
+    headRow.appendChild(title);
+    if (spec) headRow.appendChild(biNode(spec.label, "span", "status-badge " + spec.cls));
+    a.appendChild(headRow);
     a.appendChild(biNode(course.description, "p", "course-description"));
     a.appendChild(biNode(countsLabel(stats), "div", "course-meta"));
+    appendProgressBar(a, stats, spec);
     var foot = el("div", "course-foot");
-    foot.appendChild(biNode({ zh: "開始學習", en: "Open topic" }, "span", "course-open"));
+    var cta = spec && spec.cardCls === "is-mastered"
+      ? { zh: "重溫課題 →", en: "Review topic →" }
+      : (spec ? { zh: "繼續學習 →", en: "Continue →" } : { zh: "開始學習", en: "Open topic" });
+    foot.appendChild(biNode(cta, "span", "course-open"));
     if (stats.percent) foot.appendChild(biNode({ zh: "已完成 " + stats.percent + "%", en: stats.percent + "% complete" }, "span", "course-progress"));
     a.appendChild(foot);
     return a;
@@ -458,7 +553,7 @@
     var rb = qs("#reset");
     if (rb) rb.onclick = function () {
       if (!confirm(T({ zh: "要清除這個網站的學習進度嗎？", en: "Clear the progress of this site?" }))) return;
-      store = { mc: {}, long: {}, cards: {}, weak: {}, lc: {} };
+      store = { mc: {}, long: {}, cards: {}, weak: {}, lc: {}, mastered: {}, cardOk: {} };
       save();
       location.reload();
     };
@@ -468,7 +563,10 @@
     var host = qs("#topics");
     if (!host) return;
     host.innerHTML = "";
-    availableCourses().forEach(function (course) { host.appendChild(courseCard(course)); });
+    var courses = availableCourses();
+    var strip = momentumStrip(courses.map(function (c) { return { key: c.id, stats: summaryOf(availableTopics(c.topicIds)) }; }));
+    if (strip) host.appendChild(strip);
+    courses.forEach(function (course) { host.appendChild(courseCard(course)); });
     if (!host.children.length) unavailable(host);
     updateWrongBadge();
   }
@@ -526,26 +624,44 @@
       head.appendChild(biNode(pack.scope, "p"));
       host.appendChild(head);
       host.appendChild(biNode({ zh: "選擇練習", en: "Choose a practice set" }, "h2", "list-heading"));
+      var packTopics = availableTopics(pack.topicIds);
+      var packStrip = momentumStrip(packTopics.map(function (t) { return { key: t.id, stats: summaryOf([t]) }; }));
+      if (packStrip) host.appendChild(packStrip);
       var list = el("div", "course-list");
-      availableTopics(pack.topicIds).forEach(function (t) {
+      packTopics.forEach(function (t) {
         var course = courseForTopic(t.id);
-        var a = el("a", "course-link pack-topic");
+        var tStats = summaryOf([t]);
+        var spec = statusBadgeSpec(t.id, tStats);
+        var a = el("a", "course-link pack-topic" + (spec ? " " + spec.cardCls : ""));
         a.href = "topic.html?t=" + encodeURIComponent(t.id) + "&pack=" + encodeURIComponent(pack.id);
-        a.appendChild(biNode(course ? course.name : t.name, "h3", "course-title"));
+        var headRow = el("div", "course-head-row");
+        headRow.appendChild(biNode(course ? course.name : t.name, "h3", "course-title"));
+        if (spec) headRow.appendChild(biNode(spec.label, "span", "status-badge " + spec.cls));
+        a.appendChild(headRow);
         a.appendChild(biNode(countsLabel(t.stats || {}), "div", "course-meta"));
-        a.appendChild(biNode({ zh: "開始溫習", en: "Start revision" }, "div", "course-open"));
+        appendProgressBar(a, tStats, spec);
+        var foot = el("div", "course-foot");
+        var cta = spec && spec.cardCls === "is-mastered"
+          ? { zh: "再次重溫 →", en: "Review again →" }
+          : (spec ? { zh: "繼續溫習 →", en: "Continue revision →" } : { zh: "開始溫習", en: "Start revision" });
+        foot.appendChild(biNode(cta, "span", "course-open"));
+        if (tStats.percent) foot.appendChild(biNode({ zh: "已完成 " + tStats.percent + "%", en: tStats.percent + "% complete" }, "span", "course-progress"));
+        a.appendChild(foot);
         list.appendChild(a);
       });
       host.appendChild(list);
-      var related = el("section", "related-courses");
-      related.appendChild(biNode({ zh: "想由基本概念開始？", en: "Want to revisit the basics?" }, "h2", "list-heading"));
-      related.appendChild(biNode({ zh: "選一課完整學習，之後可以返回這份溫習包。", en: "Work through a topic, then return to this revision pack." }, "p", "muted"));
       var links = el("div", "related-links");
       (pack.relatedCourseIds || []).forEach(function (id) {
         var course = findById(availableCourses(), id);
         if (course) links.appendChild(linkPair(courseUrl(course, pack), course.name, "btn btn-sm"));
       });
-      related.appendChild(links); host.appendChild(related);
+      if (links.children.length) {
+        var related = el("section", "related-courses");
+        related.appendChild(biNode({ zh: "想由基本概念開始？", en: "Want to revisit the basics?" }, "h2", "list-heading"));
+        related.appendChild(biNode({ zh: "選一課完整學習，之後可以返回這份溫習包。", en: "Work through a topic, then return to this revision pack." }, "p", "muted"));
+        related.appendChild(links);
+        host.appendChild(related);
+      }
       var stage = (INDEX.stages || []).filter(function (s) { return s.id === pack.stageId; })[0];
       if (stage && stage.link && stage.link.href) host.appendChild(stageLinkCard(stage.link));
     }
@@ -574,17 +690,100 @@
       });
     });
   }
+  function masteryToggleBtn(masterKey, cls) {
+    var b = el("button", "mastery-toggle" + (cls ? " " + cls : ""));
+    b.type = "button";
+    function paint() {
+      var on = !!(store.mastered && store.mastered[masterKey]);
+      b.classList.toggle("on", on);
+      b.setAttribute("aria-pressed", String(on));
+      setPair(b, on
+        ? { zh: "✓ 我已明白這課", en: "✓ Understood" }
+        : { zh: "○ 標記為已明白", en: "○ Mark as understood" });
+    }
+    b.onclick = function () {
+      store.mastered = store.mastered || {};
+      if (store.mastered[masterKey]) {
+        delete store.mastered[masterKey];
+        toast(T({ zh: "已取消「已明白」標記，隨時可以再溫習。", en: "Removed understood mark — revisit anytime." }));
+      } else {
+        store.mastered[masterKey] = { ts: Date.now() };
+        toast(T({ zh: "太好了！已標記為「已明白」✓", en: "Nice work! Marked as understood ✓" }));
+      }
+      save();
+      qsa(".mastery-toggle[data-mkey=\"" + masterKey + "\"]").forEach(function (btn) {
+        if (btn._repaint) btn._repaint();
+      });
+    };
+    b.setAttribute("data-mkey", masterKey);
+    b._repaint = paint;
+    paint();
+    return b;
+  }
+  function cardUnderstood(cardId) {
+    return !!(store.cardOk && store.cardOk[cardId]) ||
+      !!(GUIDED_COURSE && factorStudy().recall && factorStudy().recall[cardId]);
+  }
+  function sectionProgress(pages, kind) {
+    var done = 0, tried = 0, total = 0;
+    pages.forEach(function (p) {
+      if (p.kind !== kind) return;
+      if (kind === "cards") {
+        (p.lesson.cards || []).forEach(function (c) {
+          total++;
+          if (cardUnderstood(c.id)) { done++; tried++; }
+        });
+      } else if (kind === "long") {
+        total++;
+        if (store.long[p.q.id]) { done++; tried++; }
+      } else if (kind === "mc") {
+        (p.row || []).forEach(function (q) {
+          total++;
+          var r = mcState(q.id);
+          if (r && (!GUIDED_COURSE || r.final !== false)) tried++;
+          if (r && r.correct) done++;
+        });
+      }
+    });
+    return { done: done, tried: tried, total: total };
+  }
+  function paintCourseSections(pages) {
+    var sections = qs("#course-sections");
+    if (!sections || !pages) return;
+    qsa("a[data-section]", sections).forEach(function (a) {
+      var kind = a.dataset.section;
+      var sp = sectionProgress(pages, kind);
+      var old = qs(".sec-stat", a);
+      if (old) old.remove();
+      if (!sp.total) return;
+      var badge = el("span", "sec-stat");
+      var shown = kind === "mc" ? sp.tried : sp.done;
+      if (sp.done >= sp.total) {
+        badge.classList.add("ok");
+        badge.textContent = "✓ " + sp.total + "/" + sp.total;
+      } else if (kind === "mc" && sp.tried >= sp.total) {
+        badge.classList.add("tried");
+        badge.textContent = "★ " + sp.tried + "/" + sp.total;
+      } else if (shown > 0) {
+        badge.textContent = shown + "/" + sp.total;
+      } else {
+        badge.textContent = "0/" + sp.total;
+      }
+      a.appendChild(badge);
+    });
+  }
   function renderTopicContext(id, pages, cur) {
     var params = new URLSearchParams(location.search);
     var course = params.has("course") ? courseById(id) : courseForTopic(id);
-    var pack = currentPack();
-    setCurrentArea(params.has("pack") && pack ? "revision" : "foundations");
+    var pack = currentPack() || (!params.has("course") && !course ? packForTopic(id) : null);
+    setCurrentArea((params.has("pack") || (!params.has("course") && !course)) && pack ? "revision" : "foundations");
     var host = qs("#topic-context");
     if (host) {
       host.innerHTML = "";
       if (pack) host.appendChild(linkPair(packUrl(pack), { zh: "返回溫習包 · " + pack.name.zh, en: "Back to pack · " + pack.name.en }, "context-back"));
       else host.appendChild(linkPair("foundations.html", { zh: "所有課題", en: "All topics" }, "context-back"));
       if (params.has("pack") && course) host.appendChild(linkPair(courseUrl(course, pack), { zh: "重溫基礎 · " + course.name.zh, en: "Revisit the basics · " + course.name.en }, "context-foundation"));
+      host.appendChild(masteryToggleBtn(id));
     }
     var sections = qs("#course-sections");
     if (!sections) return;
@@ -598,6 +797,7 @@
       if (pages[cur] && pages[cur].kind === entry[0]) a.setAttribute("aria-current", "page");
       sections.appendChild(a);
     });
+    paintCourseSections(pages);
   }
 
   function factorStudy() {
@@ -635,6 +835,25 @@
     });
     return entries;
   }
+  function entryStatusMark(pages, kind, entry) {
+    if (kind === "cards") return entry.card && cardUnderstood(entry.card.id) ? "✓ " : "";
+    if (kind === "long") {
+      var q = pages[entry.page] && pages[entry.page].q;
+      return q && store.long[q.id] ? "✓ " : "";
+    }
+    var row = (pages[entry.page] && pages[entry.page].row) || [];
+    if (!row.length) return "";
+    var ok = 0, tried = 0;
+    row.forEach(function (q) {
+      var r = mcState(q.id);
+      if (r && r.final !== false) tried++;
+      if (r && r.correct) ok++;
+    });
+    if (ok === row.length) return "✓ ";
+    if (tried === row.length) return "★ ";
+    if (tried > 0) return "◐ ";
+    return "";
+  }
   function renderFactorNavigator(pages, cur, cardIndex) {
     if (!GUIDED_COURSE || !pages[cur]) return;
     var bar = qs("#factor-navigation");
@@ -651,7 +870,8 @@
     var lab = el("label", "factor-jump-label"); lab.htmlFor = "factor-jump"; lab.appendChild(biSpan(labels[kind]));
     var select = el("select", "factor-jump"); select.id = "factor-jump";
     entries.forEach(function (entry, i) {
-      var option = el("option", null, (i + 1) + ". " + T(entry.label));
+      var mark = entryStatusMark(pages, kind, entry);
+      var option = el("option", null, mark + (i + 1) + ". " + T(entry.label));
       option.value = String(i); option.selected = i === selected; select.appendChild(option);
     });
     select.onchange = function () {
@@ -711,7 +931,7 @@
     var sum = el("div", "formula cross-sum"); formulaBlock(sum, example.sum, true); figure.appendChild(sum);
     host.appendChild(figure);
   }
-  function renderFactorRecall(host, card) {
+  function renderFactorRecall(host, card, onPass) {
     var recall = card.recall;
     if (!recall) return;
     var section = el("section", "factor-recall"); section.setAttribute("aria-label", T({ zh: "試一小題", en: "Try a quick check" }));
@@ -748,7 +968,10 @@
       if (selected === recall.answer) {
         submit.classList.add("recall-correct");
         setPair(submit, { zh: "✓ 正確", en: "✓ Correct" });
-        passed = true; factorStudy().recall[card.id] = true; save();
+        passed = true; factorStudy().recall[card.id] = true;
+        store.cardOk = store.cardOk || {}; store.cardOk[card.id] = true;
+        save();
+        if (typeof onPass === "function") onPass();
         feedback.appendChild(biNode({ zh: "這個想法正確。看看理由：", en: "That reasoning works. Here is why:" }, "b"));
         feedback.appendChild(biNode(recall.explanation, "div"));
       } else {
@@ -767,14 +990,51 @@
       body.innerHTML = "";
       var c = cards[i], card = el("article", "card factor-concept");
       card.appendChild(biNode({ zh: "概念 · 一次看一個方法", en: "Concept · One method at a time" }, "div", "factor-eyebrow"));
-      var head = el("div", "ccard-head"); head.appendChild(biNode(c.title, "h2")); card.appendChild(head);
+      var head = el("div", "ccard-head"); head.appendChild(biNode(c.title, "h2"));
+      var gotBtn = el("button", "mastery-toggle card-got-btn");
+      gotBtn.type = "button";
+      function paintGot() {
+        var ok = cardUnderstood(c.id);
+        gotBtn.classList.toggle("on", ok);
+        gotBtn.setAttribute("aria-pressed", String(ok));
+        setPair(gotBtn, ok ? { zh: "✓ 這張已明白", en: "✓ Got this concept" } : { zh: "○ 這張已明白", en: "○ Got this concept" });
+      }
+      gotBtn.onclick = function () {
+        store.cardOk = store.cardOk || {};
+        if (store.cardOk[c.id]) {
+          delete store.cardOk[c.id];
+        } else {
+          store.cardOk[c.id] = true;
+          toast(T({ zh: "已記下「明白這張概念」✓", en: "Marked this concept as understood ✓" }));
+        }
+        if ((page.lesson.cards || []).every(function (x) { return cardUnderstood(x.id); })) {
+          store.cards[page.lesson.id] = true;
+        }
+        save();
+        paintGot();
+        paintCourseSections(pages);
+        renderFactorNavigator(pages, cur, i);
+      };
+      paintGot();
+      head.appendChild(gotBtn);
+      card.appendChild(head);
       if (c.goal) card.appendChild(biNode(c.goal, "p", "factor-goal"));
       var content = el("div", "concept-body factor-concept-body"); renderFactorBody(content, c); card.appendChild(content);
       if (c.crossExample) renderCrossExample(card, c.crossExample);
       if (c.align) appendAlign(card, c.align);
       if (c.translate) appendTranslate(card, c.translate);
       if (c.warn) { var warn = el("aside", "callout"); warn.appendChild(biNode({ zh: "留意這一點", en: "Watch this detail" }, "b")); warn.appendChild(biNode(c.warn, "div")); card.appendChild(warn); }
-      renderFactorRecall(card, c);
+      var onCardPass = function () {
+        paintCourseSections(pages);
+        renderFactorNavigator(pages, cur, i);
+        var gb = qs(".card-got-btn", card);
+        if (gb) {
+          gb.classList.add("on");
+          gb.setAttribute("aria-pressed", "true");
+          setPair(gb, { zh: "✓ 這張已明白", en: "✓ Got this concept" });
+        }
+      };
+      renderFactorRecall(card, c, onCardPass);
       appendCommandHints(card);
       var foot = el("div", "factor-card-actions");
       var previous = btnPair("btn", { zh: "上一張", en: "Previous concept" });
@@ -907,15 +1167,21 @@
     return pages;
   }
 
-  function pageDone(p) {
-    if (p.kind === "cards") return !!store.cards[p.lesson.id];
-    if (p.kind === "long") return !!store.long[p.q.id];
+  function pageStatus(p) {
+    if (p.kind === "cards") return store.cards[p.lesson.id] ? "done" : "";
+    if (p.kind === "long") return store.long[p.q.id] ? "done" : "";
     if (p.kind === "demos") {
       return (p.demos || []).length > 0 &&
-        p.demos.every(function (q) { return !!store.long[q.id]; });
+        p.demos.every(function (q) { return !!store.long[q.id]; }) ? "done" : "";
     }
-    return p.row.every(function (q) { var state = mcState(q.id); return !!state && (!GUIDED_COURSE || state.final !== false); });
+    var row = p.row || [];
+    if (!row.length) return "";
+    var allTried = row.every(function (q) { var state = mcState(q.id); return !!state && (!GUIDED_COURSE || state.final !== false); });
+    if (!allTried) return "";
+    var allCorrect = row.every(function (q) { var state = mcState(q.id); return !!state && state.correct; });
+    return allCorrect ? "done" : "tried";
   }
+  function pageDone(p) { return !!pageStatus(p); }
 
   function renderTopic() {
     var id = topicIdFromUrl();
@@ -1014,7 +1280,8 @@
           nav.appendChild(dots);
           return;
         }
-        var b = el("button", "pg" + (i === cur ? " current" : "") + (pageDone(p) ? " done" : ""));
+        var pst = pageStatus(p);
+        var b = el("button", "pg" + (i === cur ? " current" : "") + (pst ? " " + pst : ""));
         if (p.kind === "cards") {
           b.appendChild(biSpan({ zh: "學習", en: "Learn" }));
           b.classList.add("kind");
@@ -1605,6 +1872,9 @@
       head.appendChild(kc);
     }
     head.appendChild(el("span", "q-source", q.source || ""));
+    var longStatus = el("span", "q-status qs-ok" + (store.long[q.id] ? "" : " hidden"));
+    setPair(longStatus, { zh: "✓ 已看過示範", en: "✓ Viewed" });
+    head.appendChild(longStatus);
     head.appendChild(weakBtn(q));     // 加入弱點升級庫（長／短答是紙上作答，自己標記）
     if (q.marks) {
       var mk = el("span", "q-source");
@@ -2063,6 +2333,9 @@
 
       store.long[q.id] = true;
       save();
+      longStatus.classList.remove("hidden");
+      paintCourseSections(pages);
+      renderFactorNavigator(pages, cur);
       // 打「已完成」勾：單條示範頁做一次就夠；一頁多條時要全部看完才算
       var allDone = page.kind !== "demos" ||
         (page.demos || []).every(function (x) { return !!store.long[x.id]; });
@@ -2182,7 +2455,9 @@
     nx.onclick = function () { gotoPage(tid, cur + 1); };
     var hm = btnPair("btn btn-sm btn-ghost", { zh: "回主目錄", en: "Home" });
     hm.onclick = function () { go("index.html"); };
-    row.appendChild(nx); row.appendChild(hm);
+    if (cur < pages.length - 1) row.appendChild(nx);
+    else row.appendChild(masteryToggleBtn(tid));
+    row.appendChild(hm);
     nextRow.appendChild(row);
     body.appendChild(nextRow);
     refreshPageDone(page);
@@ -2216,6 +2491,24 @@
     head.appendChild(el("span", "q-code", q.code || q.id));
     head.appendChild(el("span", "q-diff", "★".repeat(q.difficulty || 1) + "☆".repeat(3 - (q.difficulty || 1))));
     if (q.source) head.appendChild(el("span", "q-source", q.source));
+    var qStatus = el("span", "q-status hidden");
+    head.appendChild(qStatus);
+    function paintQStatus() {
+      var rec = mcState(q.id);
+      qStatus.className = "q-status";
+      if (!rec) { qStatus.classList.add("hidden"); return; }
+      if (rec.correct) {
+        qStatus.classList.add("qs-ok");
+        setPair(qStatus, { zh: "✓ 答對了", en: "✓ Correct" });
+      } else if (rec.final === false) {
+        qStatus.classList.add("qs-retry");
+        setPair(qStatus, { zh: "… 再試一次", en: "… 1 try left" });
+      } else {
+        qStatus.classList.add("qs-tried");
+        setPair(qStatus, { zh: "↻ 已試過", en: "↻ Tried" });
+      }
+    }
+    paintQStatus();
     card.appendChild(head);
 
     var stem = el("div", "q-stem");
@@ -2416,13 +2709,17 @@
     }
 
     function markPage() {
+      paintQStatus();
       refreshPageDone(page);
       updateWrongBadge();
-      var pageAll = page.row.every(function (x) { var rec = mcState(x.id); return !!rec && (!GUIDED_COURSE || rec.final !== false); });
-      if (pageAll) {
-        var nb = navPageBtn(cur);
-        if (nb) nb.classList.add("done");
+      var pst = pageStatus(page);
+      var nb = navPageBtn(cur);
+      if (nb) {
+        nb.classList.remove("done", "tried");
+        if (pst) nb.classList.add(pst);
       }
+      paintCourseSections(pages);
+      renderFactorNavigator(pages, cur);
     }
 
     function submit() {
