@@ -521,14 +521,55 @@ def main(argv: list[str] | None = None) -> int:
 
     for qid, s in sols.items():
         sol = s.get("solution") or {}
+        for cid in (sol.get("concepts") or []):
+            if cid not in cards_by_id:
+                err("S12", "%s：sol.concepts 引用了不存在的概念卡 %s" % (qid, cid))
         for i, st in enumerate(sol.get("steps") or [], 1):
             ttl = st.get("title") or {}
             need_pair("I5", "%s 第 %d 步標題" % (qid, i), ttl.get("zh"), ttl.get("en"))
             need_pair("I5", "%s 第 %d 步解說" % (qid, i), st.get("zh"), st.get("en"),
                       allow_han_in_en=False, min_en=15)
+            if st.get("think"):
+                th = st["think"]
+                need_pair("S12", "%s 第 %d 步 think.prompt" % (qid, i),
+                          (th.get("prompt") or {}).get("zh"), (th.get("prompt") or {}).get("en"),
+                          allow_han_in_en=False)
+                topts = th.get("options") or []
+                tans = th.get("answer")
+                if not 2 <= len(topts) <= 4 or type(tans) is not int or not 0 <= tans < len(topts):
+                    err("S12", "%s 第 %d 步 think 選項／答案索引無效" % (qid, i))
+                for oi, opt in enumerate(topts):
+                    if not opt.get("math"):
+                        need_pair("S12", "%s 第 %d 步 think.opt[%d]" % (qid, i, oi),
+                                  opt.get("zh"), opt.get("en"), allow_han_in_en=False, min_en=2)
+                    if opt.get("hint"):
+                        need_pair("S12", "%s 第 %d 步 think.opt[%d].hint" % (qid, i, oi),
+                                  opt["hint"].get("zh"), opt["hint"].get("en"), allow_han_in_en=False, min_en=8)
+            if st.get("align"):
+                al = st["align"]
+                if al.get("caption"):
+                    need_pair("S12", "%s 第 %d 步 align.caption" % (qid, i),
+                              al["caption"].get("zh"), al["caption"].get("en"), allow_han_in_en=False)
+                if not (al.get("rows") or []):
+                    err("S12", "%s 第 %d 步 align.rows 不可為空" % (qid, i))
+            if st.get("translate"):
+                trb = st["translate"]
+                if trb.get("caption"):
+                    need_pair("S12", "%s 第 %d 步 translate.caption" % (qid, i),
+                              trb["caption"].get("zh"), trb["caption"].get("en"), allow_han_in_en=False)
+                for ri, row in enumerate(trb.get("rows") or [], 1):
+                    need_pair("S12", "%s 第 %d 步 translate[%d]" % (qid, i, ri),
+                              (row.get("clue") or {}).get("zh"), (row.get("clue") or {}).get("en"),
+                              allow_han_in_en=False, min_en=2)
+                    if not (row.get("math") or "").strip():
+                        err("S12", "%s 第 %d 步 translate[%d] 缺少 math" % (qid, i, ri))
         for i, tr in enumerate(sol.get("traps") or [], 1):
             need_pair("I5", "%s 陷阱 %d" % (qid, i), tr.get("zh"), tr.get("en"),
                       allow_han_in_en=False, min_en=10)
+            if tr.get("nudge"):
+                need_pair("I5", "%s 陷阱 %d nudge" % (qid, i),
+                          tr["nudge"].get("zh"), tr["nudge"].get("en"),
+                          allow_han_in_en=False, min_en=10)
             if tr.get("label") and not tr.get("labelEn"):
                 err("I5", "%s 陷阱 %d 有 label 但缺 labelEn（長題陷阱要中英標籤）" % (qid, i))
         tip = sol.get("tip") or {}

@@ -141,6 +141,36 @@ ok(/course=simultaneous-equations/.test(linearCourse.ctx.window.__LEARN_LAST_NAV
 const linearQuestions = BANK.filter(q => q.topic === "ws02");
 ok(linearQuestions.length === 76 && linearQuestions.filter(q => q.type === "mc").length === 30,
    "WS02 contains 70 original questions and six integrated warm-ups, including 30 MC questions");
+const linearC4 = boot("topic.html", "?course=simultaneous-equations&p=0&card=ws02-c4");
+ok(!!linearC4.$(".align-box") && !!linearC4.$(".xc") && !!linearC4.$(".replay"),
+   "WS02 concept card c4 renders column-aligned elimination, cancellation mark and replay button");
+const linearC5 = boot("topic.html", "?course=simultaneous-equations&p=0&card=ws02-c5");
+ok(!!linearC5.$(".translate-box"), "WS02 concept card c5 renders English-to-algebra translation map");
+const linearA01 = boot("topic.html", "?course=simultaneous-equations&q=eph-ws02-a01");
+linearA01.$$("button").find(b => /開始看題解/.test(b.textContent)).click();
+ok(linearA01.$$(".steps .step").length === 1, "WS02 A01 reveals Step 1 immediately");
+linearA01.$$("button").find(b => /下一步/.test(b.textContent)).click();
+ok(!!linearA01.$(".step-think.pending"), "WS02 A01 Step 2 shows low-stakes 'Think first' micro-decision");
+linearA01.$$(".think-opt")[1].click();
+ok(!!linearA01.$(".think-hint") && linearA01.$$(".steps .step").length === 1, "wrong micro-think pick gives gentle hint without blocking");
+linearA01.$$(".think-opt")[0].click();
+ok(!!linearA01.$(".think-ok") && linearA01.$$(".steps .step").length === 2, "correct micro-think pick immediately reveals Step 2");
+linearA01.$$("button").find(b => /全部顯示/.test(b.textContent)).click();
+ok(!!linearA01.$(".related-concepts .rc-pill"), "completed WS02 worked example links back to related concept cards");
+const linearA07 = boot("topic.html", "?course=simultaneous-equations&q=eph-ws02-a07");
+linearA07.$$("button").find(b => /開始看題解/.test(b.textContent)).click();
+linearA07.$$("button").find(b => /全部顯示/.test(b.textContent)).click();
+ok(!!linearA07.$(".align-box") && !!linearA07.$(".xc"), "WS02 elimination solution renders aligned subtraction and cancellation");
+const linearB15 = boot("topic.html", "?course=simultaneous-equations&q=eph-ws02-b15");
+linearB15.$$("button").find(b => /開始看題解/.test(b.textContent)).click();
+ok(!!linearB15.$(".step-think .think-skip"), "word problem Step 1 micro-think offers a one-click skip");
+linearB15.$(".step-think .think-skip").click();
+ok(!!linearB15.$(".translate-box"), "skipping micro-think reveals the English-to-algebra translation card");
+const linearM16 = boot("topic.html", "?course=simultaneous-equations&q=eph-ws02-m16");
+const m16Card = linearM16.$('.card[data-qid="eph-ws02-m16"]');
+answerCard(m16Card, "A");
+ok(!/因式|恆等式|展開你選/.test(m16Card.querySelector('[role="status"]').textContent) && /最後一句/.test(m16Card.querySelector('[role="status"]').textContent),
+   "WS02 MC first miss gives linear-equations diagnostic nudge instead of factorisation copy");
 const practice = boot("topic.html", "?" + practiceLink.split("?")[1]);
 ok(practice.$$("#topic-body .card[data-qid]").length === 3, "practice is freely accessible without completing concepts");
 const firstCourseMc = practice.$("#topic-body .card[data-qid]");

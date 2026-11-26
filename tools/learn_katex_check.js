@@ -32,16 +32,16 @@ function stripDelims(t) {
   return s;
 }
 
-/* 題解重點標記 \hl{…} \hlw{…} \hlg{…} → KaTeX 的 \htmlClass{…}{…}
+/* 題解重點標記 \hl{…} \hlw{…} \hlg{…} \xf{…} \xc{…} → KaTeX 的 \htmlClass{…}{…}
    （同 assets/app.js 的 markHighlights 一致；括號要配對，否則交返 KaTeX 報錯） */
-const HL_CLASS = { hl: "hlk", hlw: "hlw", hlg: "hlg", xf: "xf" };
+const HL_CLASS = { hl: "hlk", hlw: "hlw", hlg: "hlg", xf: "xf", xc: "xc" };
 function markHighlights(src) {
   const s = String(src == null ? "" : src);
-  if (s.indexOf("\\hl") < 0 && s.indexOf("\\xf") < 0) return s;
+  if (s.indexOf("\\hl") < 0 && s.indexOf("\\xf") < 0 && s.indexOf("\\xc") < 0) return s;
   let out = "";
   let i = 0;
   while (i < s.length) {
-    const m = /^\\(hlw|hlg|hl|xf)\{/.exec(s.slice(i));
+    const m = /^\\(hlw|hlg|hl|xf|xc)\{/.exec(s.slice(i));
     if (!m) { out += s[i]; i++; continue; }
     let j = i + m[0].length;
     let depth = 1;
@@ -125,6 +125,20 @@ bank.questions.forEach((q) => {
   if (c.crossExample) {
     [...c.crossExample.factors, ...c.crossExample.products, c.crossExample.sum].forEach((m, i) => check(m, `${c.id} · cross example ${i}`));
   }
+  if (c.align) {
+    ["zh", "en"].forEach((lang) => checkField(c.align.caption && c.align.caption[lang], `${c.id} · align.caption.${lang}`));
+    [...(c.align.rows || []), ...(c.align.result ? [c.align.result] : [])].forEach((r, ri) => {
+      if (r.tag) check(r.tag, `${c.id} · align.row[${ri}].tag`);
+      (r.cols || []).forEach((col, ci) => { if (col) check(col, `${c.id} · align.row[${ri}].col[${ci}]`); });
+    });
+  }
+  if (c.translate) {
+    ["zh", "en"].forEach((lang) => checkField(c.translate.caption && c.translate.caption[lang], `${c.id} · translate.caption.${lang}`));
+    (c.translate.rows || []).forEach((r, ri) => {
+      ["zh", "en"].forEach((lang) => checkField(r.clue && r.clue[lang], `${c.id} · translate.row[${ri}].${lang}`));
+      if (r.math) check(r.math, `${c.id} · translate.row[${ri}].math`);
+    });
+  }
   (c.math || []).forEach((t, i) => check(t, `${c.id} · math[${i + 1}]`));
   if (c.title) checkField(c.title.zh || c.title.en, `${c.id} · title`);
   if (c.body) checkField(c.body.zh, `${c.id} · body.zh`);
@@ -153,8 +167,38 @@ Object.keys(solutions).forEach((qid) => {
     (st.highlight || []).forEach((h, j) => check(h, `${tag} highlight[${j + 1}]`));
     checkField(st.zh, tag + " zh");
     if (st.title) checkField(st.title.zh || st.title.en, tag + " title");
+    if (st.align) {
+      ["zh", "en"].forEach((lang) => checkField(st.align.caption && st.align.caption[lang], `${tag} align.caption.${lang}`));
+      [...(st.align.rows || []), ...(st.align.result ? [st.align.result] : [])].forEach((r, ri) => {
+        if (r.tag) check(r.tag, `${tag} align.row[${ri}].tag`);
+        (r.cols || []).forEach((col, ci) => { if (col) check(col, `${tag} align.row[${ri}].col[${ci}]`); });
+      });
+    }
+    if (st.translate) {
+      ["zh", "en"].forEach((lang) => checkField(st.translate.caption && st.translate.caption[lang], `${tag} translate.caption.${lang}`));
+      (st.translate.rows || []).forEach((r, ri) => {
+        ["zh", "en"].forEach((lang) => checkField(r.clue && r.clue[lang], `${tag} translate.row[${ri}].${lang}`));
+        if (r.math) check(r.math, `${tag} translate.row[${ri}].math`);
+      });
+    }
+    if (st.think) {
+      ["zh", "en"].forEach((lang) => {
+        checkField(st.think.prompt && st.think.prompt[lang], `${tag} think.prompt.${lang}`);
+        if (st.think.confirm) checkField(st.think.confirm[lang], `${tag} think.confirm.${lang}`);
+      });
+      (st.think.options || []).forEach((o, oi) => {
+        if (o.math) check(o.math, `${tag} think.opt[${oi}].math`);
+        ["zh", "en"].forEach((lang) => {
+          checkField(o[lang], `${tag} think.opt[${oi}].${lang}`);
+          if (o.hint) checkField(o.hint[lang], `${tag} think.opt[${oi}].hint.${lang}`);
+        });
+      });
+    }
   });
-  (sol.traps || []).forEach((t) => checkField(t.zh, `${qid} · trap ${t.opt}`));
+  (sol.traps || []).forEach((t) => {
+    checkField(t.zh, `${qid} · trap ${t.opt}`);
+    if (t.nudge) ["zh", "en"].forEach((lang) => checkField(t.nudge[lang], `${qid} · trap ${t.opt} nudge.${lang}`));
+  });
   if (sol.tip) checkField(sol.tip.zh, `${qid} · tip.zh`);
   const q = bank.questions.find((x) => x.id === qid);
   const isMc = q && q.type === "mc";

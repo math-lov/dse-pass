@@ -444,7 +444,7 @@ window.LEARN_INDEX = {
    }
   }
  },
- "generatedAt": "2026-11-25T14:04:15Z",
+ "generatedAt": "2026-11-26T05:24:25Z",
  "counts": {
   "topics": 8,
   "held": 0,

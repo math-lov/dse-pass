@@ -1,1723 +1,1868 @@
 {
- "cards": [
-  {
-   "id": "ws01-c1",
-   "topic": "ws01",
-   "title": {
-    "zh": "抽公因式：每一項都要有",
-    "en": "Common factors: shared by every term"
-   },
-   "body": {
-    "zh": "因式分解，是把一個式子寫成幾個因式相乘。先找每一項都有的因式。\n$6r^{2}$ 與 $4rs$ 都有 $2r$；提出後，分別留下 $3r$ 與 $2s$。{{math:0}}\n把結果展開，檢查每一項能否回到原式。{{math:1}}",
-    "en": "Factorisation rewrites an expression as a product. Start with a factor shared by every term.\nBoth $6r^{2}$ and $4rs$ contain $2r$. Taking it out leaves $3r$ and $2s$.{{math:0}}\nExpand the result and check that every term matches the original.{{math:1}}"
-   },
-   "math": [
-    "6r^{2}+4rs=\\hl{2r}(3r+2s)",
-    "2r(3r+2s)=6r^{2}+4rs"
-   ],
-   "vocab": [
+  "cards": [
     {
-     "en": "factorization",
-     "zh": "因式分解"
+      "id": "ws01-c1",
+      "topic": "ws01",
+      "title": {
+        "zh": "抽公因式：每一項都要有",
+        "en": "Common factors: shared by every term"
+      },
+      "body": {
+        "zh": "因式分解，是把一個式子寫成幾個因式相乘。先找每一項都有的因式。\n$6r^{2}$ 與 $4rs$ 都有 $2r$；提出後，分別留下 $3r$ 與 $2s$。{{math:0}}\n把結果展開，檢查每一項能否回到原式。{{math:1}}",
+        "en": "Factorisation rewrites an expression as a product. Start with a factor shared by every term.\nBoth $6r^{2}$ and $4rs$ contain $2r$. Taking it out leaves $3r$ and $2s$.{{math:0}}\nExpand the result and check that every term matches the original.{{math:1}}"
+      },
+      "math": [
+        "6r^{2}+4rs=\\hl{2r}(3r+2s)",
+        "2r(3r+2s)=6r^{2}+4rs"
+      ],
+      "vocab": [
+        {
+          "en": "factorization",
+          "zh": "因式分解"
+        },
+        {
+          "en": "factor",
+          "zh": "因式"
+        },
+        {
+          "en": "common factor",
+          "zh": "公因式"
+        },
+        {
+          "en": "expansion",
+          "zh": "展開"
+        }
+      ],
+      "warn": {
+        "zh": "提出負公因式可以令括號較易處理，但不是唯一做法。例：$-r^{3}-r^{2}s=-r^{2}(r+s)$。每一項都必須除以同一個公因式。",
+        "en": "A negative common factor can make the bracket easier to handle, but is not compulsory. For example, $-r^{3}-r^{2}s=-r^{2}(r+s)$. Divide every term by the same factor."
+      },
+      "goal": {
+        "zh": "找出各項共同的數字與字母。",
+        "en": "Find the numbers and letters shared by all terms."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "先不看例子：$12x+18$ 的係數，最大公因數是多少？",
+          "en": "Without looking back: what is the highest common factor of the coefficients in $12x+18$?"
+        },
+        "options": [
+          {
+            "math": "6"
+          },
+          {
+            "math": "3"
+          },
+          {
+            "math": "12"
+          }
+        ],
+        "answer": 0,
+        "explanation": {
+          "zh": "答案是 $6$，因為 $12=6\\times2$、$18=6\\times3$。$3$ 亦能同時整除 $12$ 與 $18$，但不是最大的。",
+          "en": "The answer is $6$: $12=6\\times2$ and $18=6\\times3$. Although $3$ is a common factor, it is not the highest."
+        }
+      }
     },
     {
-     "en": "factor",
-     "zh": "因式"
+      "id": "ws01-c2",
+      "topic": "ws01",
+      "title": {
+        "zh": "併項分組：找相同的括號",
+        "en": "Grouping: find a shared bracket"
+      },
+      "body": {
+        "zh": "四項式可以先嘗試分成兩組；目標是讓每組提出公因式後，留下相同的括號。\n例：先把 $hk+1+h+k$ 調位，再分組。{{math:0}}\n第二組其實是 $1(k+1)$，所以提出 $(k+1)$ 後，仍要留下 $+1$。\n兩組相差負號時，可先提出 $-1$。{{math:1}}",
+        "en": "For four terms, try two pairs. Aim to leave the same bracket after taking out a common factor from each pair.\nFirst rearrange $hk+1+h+k$, then group.{{math:0}}\nThe second group is $1(k+1)$, so taking out $(k+1)$ still leaves $+1$.\nIf the brackets have opposite signs, take out $-1$ first.{{math:1}}"
+      },
+      "math": [
+        "hk+1+h+k=hk+h+k+1\n=h\\hl{(k+1)}+1\\hl{(k+1)}\n=\\hl{(k+1)}(h+1)",
+        "ab-ac-b+c=a\\hl{(b-c)}-\\hl{(b-c)}\n=\\hl{(b-c)}(a-1)"
+      ],
+      "vocab": [
+        {
+          "en": "grouping",
+          "zh": "併項分組"
+        },
+        {
+          "en": "term",
+          "zh": "項"
+        }
+      ],
+      "warn": {
+        "zh": "$a+h=h+a$，加法調位不改變值；但 $a-h=-(h-a)$，減法調位要處理負號。",
+        "en": "Addition can be reordered: $a+h=h+a$. Subtraction needs a sign change: $a-h=-(h-a)$."
+      },
+      "goal": {
+        "zh": "先分組，再把相同括號視作一個因式。",
+        "en": "Group terms, then treat the shared bracket as one factor."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "提出共同括號後，$x(y+1)+(y+1)$ 變成甚麼？",
+          "en": "What does $x(y+1)+(y+1)$ become after taking out the shared bracket?"
+        },
+        "options": [
+          {
+            "math": "x(y+1)"
+          },
+          {
+            "math": "(y+1)(x+1)"
+          },
+          {
+            "math": "(y+1)(x+y)"
+          }
+        ],
+        "answer": 1,
+        "explanation": {
+          "zh": "第二項是 $1(y+1)$，所以提出 $(y+1)$ 後留下 $x+1$。",
+          "en": "The second term is $1(y+1)$, so taking out $(y+1)$ leaves $x+1$."
+        }
+      }
     },
     {
-     "en": "common factor",
-     "zh": "公因式"
+      "id": "ws01-c3",
+      "topic": "ws01",
+      "title": {
+        "zh": "恆等式：先辨認形狀",
+        "en": "Identities: recognise the pattern"
+      },
+      "body": {
+        "zh": "兩項相減，而且每項都可寫成平方：用平方差。{{math:0}}\n三項相加：首尾是平方，中間項必須是 $2uv$，才是完全平方。{{math:1}}\n中間項是 $-2uv$ 時，括號內用減號。{{math:2}}\n先辨認整個形狀，再把題目的數或式子放入 $u$、$v$。",
+        "en": "Two subtracted terms that are both squares: use the difference of two squares.{{math:0}}\nFor three terms, square terms at both ends are not enough: the middle term must be $2uv$.{{math:1}}\nWhen the middle term is $-2uv$, use a minus in the bracket.{{math:2}}\nRecognise the whole pattern, then substitute the given numbers or expressions for $u$ and $v$."
+      },
+      "math": [
+        "u^{2}-v^{2}=\\hlg{(u+v)(u-v)}",
+        "u^{2}+\\hlw{2uv}+v^{2}=\\hlg{(u+v)^{2}}",
+        "u^{2}\\hlw{-2uv}+v^{2}=\\hlg{(u-v)^{2}}"
+      ],
+      "vocab": [
+        {
+          "en": "identity",
+          "zh": "恆等式"
+        },
+        {
+          "en": "difference of two squares",
+          "zh": "平方差"
+        },
+        {
+          "en": "perfect square",
+          "zh": "完全平方"
+        }
+      ],
+      "warn": {
+        "zh": "$u^{2}+v^{2}$ 不能套用平方差；在本課的實係數範圍，一般不能分成兩個一次因式。完全平方則要核對中間項，不能只看首尾。",
+        "en": "$u^{2}+v^{2}$ is not a difference of squares; over the real coefficients used here, it does not generally split into linear factors. For a perfect square, always check the middle term."
+      },
+      "goal": {
+        "zh": "分清平方差與完全平方。",
+        "en": "Distinguish a difference of squares from a perfect square."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "$9x^{2}-16$ 符合哪一個分解？",
+          "en": "Which factorisation matches $9x^{2}-16$?"
+        },
+        "options": [
+          {
+            "math": "(3x-4)^{2}"
+          },
+          {
+            "math": "(9x-4)(x+4)"
+          },
+          {
+            "math": "(3x+4)(3x-4)"
+          }
+        ],
+        "answer": 2,
+        "explanation": {
+          "zh": "$9x^{2}=(3x)^{2}$、$16=4^{2}$，所以用 $(u+v)(u-v)$。",
+          "en": "Since $9x^{2}=(3x)^{2}$ and $16=4^{2}$, use $(u+v)(u-v)$."
+        }
+      }
     },
     {
-     "en": "expansion",
-     "zh": "展開"
+      "id": "ws01-c4",
+      "topic": "ws01",
+      "title": {
+        "zh": "十字相乘：核對中間項",
+        "en": "Cross-method: check the middle term"
+      },
+      "body": {
+        "zh": "對二次三項式，先找兩個一次因式的候選。首項乘積與末項乘積都要對。\n係數是 $1$ 的例子：$(-2)(-3)=6$，而 $(-2)+(-3)=-5$。{{math:0}}\n係數不是 $1$ 時，要交叉相乘再相加。本例 $3x-10x=-7x$。{{math:1}}\n首尾對、中間也對，才可以寫成這兩個因式。",
+        "en": "For a quadratic trinomial, choose two candidate linear factors. Their leading and constant products must match.\nWith leading coefficient $1$, $(-2)(-3)=6$ and $(-2)+(-3)=-5$.{{math:0}}\nWith a different leading coefficient, add the cross products. Here $3x-10x=-7x$.{{math:1}}\nAccept the factor pair only when both ends and the middle term match."
+      },
+      "math": [
+        "x^{2}-5x+6=\\hlg{(x-2)(x-3)}",
+        "6x^{2}-7x-5=\\hlg{(2x+1)(3x-5)}"
+      ],
+      "vocab": [
+        {
+          "en": "cross-method",
+          "zh": "十字相乘法"
+        },
+        {
+          "en": "trinomial",
+          "zh": "三項式"
+        },
+        {
+          "en": "coefficient",
+          "zh": "係數"
+        },
+        {
+          "en": "constant term",
+          "zh": "常數項"
+        }
+      ],
+      "warn": {
+        "zh": "當首項係數為正：末項係數為負，兩個常數項異號；末項係數為正，兩個常數項同號。中間項再決定具體配對。",
+        "en": "With a positive leading coefficient, a negative constant term requires constants of opposite signs; a positive constant term requires matching signs. Then check the middle term to choose the pairing."
+      },
+      "goal": {
+        "zh": "首尾配對後，用交叉積的和驗證。",
+        "en": "After matching the ends, verify the sum of the cross products."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "哪組因式的交叉積相加是 $+5x$？",
+          "en": "Which pair has cross products that add to $+5x$?"
+        },
+        "options": [
+          {
+            "math": "(2x+1)(x-3)"
+          },
+          {
+            "math": "(2x-1)(x+3)"
+          },
+          {
+            "math": "(2x-3)(x+1)"
+          }
+        ],
+        "answer": 1,
+        "explanation": {
+          "zh": "$(2x)(3)+(-1)(x)=6x-x=5x$，末項亦是 $-3$。",
+          "en": "$(2x)(3)+(-1)(x)=6x-x=5x$, and the constant product is $-3$."
+        }
+      },
+      "crossExample": {
+        "factors": [
+          "2x",
+          "+1",
+          "3x",
+          "-5"
+        ],
+        "products": [
+          "(2x)(-5)=-10x",
+          "(1)(3x)=3x"
+        ],
+        "sum": "-10x+3x=-7x"
+      }
+    },
+    {
+      "id": "ws01b-c1",
+      "topic": "ws01b",
+      "title": {
+        "zh": "觀察符號，再驗證線索",
+        "en": "Use signs as clues, then verify"
+      },
+      "body": {
+        "zh": "尾兩項出現 $m-n$，可以提示我們試找這個因式；但仍要檢查其餘部分。\n本例前三項也可寫成 $(m-n)(4m-3n)$，所以整式才有共同因式 $(m-n)$。{{math:0}}\n最後展開檢查每一項，而非只看尾巴。{{math:1}}",
+        "en": "The last pair $m-n$ suggests trying this factor, but the rest of the expression must be checked too.\nHere the first three terms also factor as $(m-n)(4m-3n)$, so the whole expression shares $(m-n)$.{{math:0}}\nExpand and check every term, not just the tail.{{math:1}}"
+      },
+      "math": [
+        "4m^{2}-7mn+3n^{2}+m-n\n=\\hl{(m-n)}(4m-3n)+\\hl{(m-n)}\n=\\hl{(m-n)}(4m-3n+1)",
+        "(m-n)(4m-3n+1)\n=4m^{2}-7mn+3n^{2}+m-n"
+      ],
+      "vocab": [
+        {
+          "en": "sign",
+          "zh": "符號"
+        },
+        {
+          "en": "eliminate the options",
+          "zh": "刪去選項"
+        }
+      ],
+      "warn": {
+        "zh": "某一部分有 $(m-n)$，不代表整式一定有這個因式。提出之前，每組都要含有它。",
+        "en": "A factor of one part need not be a factor of the whole expression. Every group must contain it before it can be taken out."
+      },
+      "goal": {
+        "zh": "用符號提出候選，不把線索當成證明。",
+        "en": "Use signs to suggest a factor, not to prove one."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "只因末尾是 $+x-y$，就能證明整式有因式 $(x-y)$ 嗎？",
+          "en": "Does a tail of $+x-y$ alone prove that the whole expression has factor $(x-y)$?"
+        },
+        "options": [
+          {
+            "zh": "可以",
+            "en": "Yes"
+          },
+          {
+            "zh": "不可以，還要檢查其餘部分",
+            "en": "No — check the remaining part too"
+          }
+        ],
+        "answer": 1,
+        "explanation": {
+          "zh": "尾巴只提供線索；其餘部分亦要是 $(x-y)$ 的倍數，才可以把它提出。",
+          "en": "The tail is only a clue. The remaining part must also be a multiple of $(x-y)$."
+        }
+      }
+    },
+    {
+      "id": "ws01b-c2",
+      "topic": "ws01b",
+      "title": {
+        "zh": "項數多，也是一組一組處理",
+        "en": "More terms: work one group at a time"
+      },
+      "body": {
+        "zh": "四項可以分成兩對，分別提出公因式。{{math:0}}\n若兩個括號剛好相差負號，先把負號整理好。{{math:1}}\n六項可試三組、每組兩項，或兩組、每組三項。分法不只一種，目標都是留下共同因式。",
+        "en": "Four terms can be grouped into two pairs, each with its own common factor.{{math:0}}\nIf the brackets have opposite signs, deal with the minus first.{{math:1}}\nFor six terms, try three pairs or two groups of three. Different groupings can work; the goal is a common factor."
+      },
+      "math": [
+        "2xy-xz+4y^{2}-2yz\n=x\\hl{(2y-z)}+2y\\hl{(2y-z)}\n=\\hl{(2y-z)}(x+2y)",
+        "xy-xz-y+z=x\\hl{(y-z)}-\\hl{(y-z)}\n=\\hl{(y-z)}(x-1)"
+      ],
+      "vocab": [
+        {
+          "en": "grouping",
+          "zh": "併項分組"
+        },
+        {
+          "en": "common bracket",
+          "zh": "共同括號"
+        }
+      ],
+      "warn": {
+        "zh": "提出負因式時，整組每一項都要除以它。例如 $-3y^{2}-2yz=-y(3y+2z)$。",
+        "en": "When taking out a negative factor, divide every term in that group by it. For example, $-3y^{2}-2yz=-y(3y+2z)$."
+      },
+      "goal": {
+        "zh": "選擇能產生共同括號的分組。",
+        "en": "Choose groups that produce a shared bracket."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "分組後，$pr-qr-ps+qs$ 等於甚麼？",
+          "en": "After grouping, what is $pr-qr-ps+qs$?"
+        },
+        "options": [
+          {
+            "math": "(p-q)(r-s)"
+          },
+          {
+            "math": "(p+q)(r-s)"
+          },
+          {
+            "math": "(p-q)(r+s)"
+          }
+        ],
+        "answer": 0,
+        "explanation": {
+          "zh": "$pr-qr=r(p-q)$，$-ps+qs=-s(p-q)$，所以餘下 $r-s$。",
+          "en": "$pr-qr=r(p-q)$ and $-ps+qs=-s(p-q)$, leaving $r-s$."
+        }
+      }
+    },
+    {
+      "id": "ws01c-c1",
+      "topic": "ws01c",
+      "title": {
+        "zh": "由 (a) 接到 (b)",
+        "en": "Connect part (a) to part (b)"
+      },
+      "body": {
+        "zh": "這組題目練習把前一小題的結果用在後一小題。若題目寫 Hence，更要清楚展示這個連接。\n例：前一部得到 $xy(x+3y)$，餘下兩項又可寫成 $2(x+3y)$。{{math:0}}\n圈起兩處相同的 $(x+3y)$，提出後，把餘下的 $xy$ 與 $2$ 相加。",
+        "en": "These questions practise reusing an earlier result. When the instruction says Hence, show that connection explicitly.\nSuppose the earlier result is $xy(x+3y)$ and the remaining pair is $2(x+3y)$.{{math:0}}\nIdentify both copies of $(x+3y)$, take it out and add the remaining $xy$ and $2$."
+      },
+      "math": [
+        "x^{2}y+3xy^{2}+2x+6y\n=xy\\hl{(x+3y)}+2\\hl{(x+3y)}\n=\\hl{(x+3y)}(xy+2)"
+      ],
+      "vocab": [
+        {
+          "en": "Hence",
+          "zh": "由此（要用上一部的結果）"
+        },
+        {
+          "en": "factorize completely",
+          "zh": "徹底分解"
+        }
+      ],
+      "warn": {
+        "zh": "先核對兩個括號是否相同，才提出；題目的小題編排是一個提示，並不能代替代數驗證。",
+        "en": "Check that the brackets really match before taking one out. The question structure offers a clue, not a substitute for algebra."
+      },
+      "goal": {
+        "zh": "把之前得到的因式當作一整塊使用。",
+        "en": "Reuse a factor from the previous part as one object."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "提出共同括號：$3z(z+2)+4(z+2)$。",
+          "en": "Take out the common bracket in $3z(z+2)+4(z+2)$."
+        },
+        "options": [
+          {
+            "math": "(z+2)(3z+4)"
+          },
+          {
+            "math": "(z+2)(3z-4)"
+          },
+          {
+            "math": "(z+2)(7z)"
+          }
+        ],
+        "answer": 0,
+        "explanation": {
+          "zh": "共同因式是 $(z+2)$；餘下兩部分是 $3z$ 與 $4$，所以相加為 $3z+4$。",
+          "en": "The shared factor is $(z+2)$. The remaining parts are $3z$ and $4$, giving $3z+4$."
+        }
+      }
+    },
+    {
+      "id": "ws01c-c2",
+      "topic": "ws01c",
+      "title": {
+        "zh": "整理負號，配出共同括號",
+        "en": "Handle the minus to match a bracket"
+      },
+      "body": {
+        "zh": "先找出哪些項與前一小題相同，或剛好相差一個負號。\n把後三項當成一整組：{{math:0}}\n用前一部的分解結果，再提出相同括號。{{math:1}}\n最後一個減號仍然作用於整個 $(2m-3n)$，所以化簡時是 $-2m+3n$。",
+        "en": "Find the terms that match the earlier part, possibly with every sign reversed.\nTreat the last three terms as one group.{{math:0}}\nUse the earlier factorisation and take out the common bracket.{{math:1}}\nThe last minus applies to all of $(2m-3n)$, giving $-2m+3n$."
+      },
+      "math": [
+        "9m-6n-6m^{2}+13mn-6n^{2}\n=(9m-6n)-(6m^{2}-13mn+6n^{2})",
+        "=3\\hl{(3m-2n)}-\\hl{(3m-2n)}(2m-3n)\n=\\hl{(3m-2n)}(3-2m+3n)"
+      ],
+      "vocab": [
+        {
+          "en": "reversed order",
+          "zh": "次序倒轉"
+        },
+        {
+          "en": "method mark",
+          "zh": "方法分 (1M)"
+        }
+      ],
+      "warn": {
+        "zh": "只改第一項的符號會改變原式。寫出括號後，再逐項檢查一次。",
+        "en": "Changing only the first sign changes the expression. Write the bracket, then check every term."
+      },
+      "goal": {
+        "zh": "提出負號時，括號內每一項都要變號。",
+        "en": "Taking out a minus changes every sign inside."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "怎樣把 $-8x+12y$ 寫成含 $(2x-3y)$ 的形式？",
+          "en": "How can $-8x+12y$ be written using $(2x-3y)$?"
+        },
+        "options": [
+          {
+            "math": "-4(2x-3y)"
+          },
+          {
+            "math": "4(2x-3y)"
+          },
+          {
+            "math": "-4(2x+3y)"
+          }
+        ],
+        "answer": 0,
+        "explanation": {
+          "zh": "$-4(2x)=-8x$，而 $-4(-3y)=+12y$；兩項都對回原式。",
+          "en": "$-4(2x)=-8x$ and $-4(-3y)=+12y$, so both terms match."
+        }
+      }
+    },
+    {
+      "id": "ws01c-c3",
+      "topic": "ws01c",
+      "title": {
+        "zh": "提出之後，再看能否分解",
+        "en": "After factoring out, check again"
+      },
+      "body": {
+        "zh": "這一組先把六項分成兩組，令相同括號出現。{{math:0}}\n提出 $(x+y+5)$ 後，餘下的 $x^{2}-1$ 仍是平方差。{{math:1}}\n完成之前，逐個因式檢查：有沒有公因式，或仍可套用恆等式？",
+        "en": "In this set, group the six terms so a shared bracket appears.{{math:0}}\nAfter taking out $(x+y+5)$, the remaining $x^{2}-1$ is still a difference of squares.{{math:1}}\nBefore finishing, check every factor for another common factor or identity."
+      },
+      "math": [
+        "x^{3}+x^{2}y+5x^{2}-x-y-5\n=x^{2}\\hl{(x+y+5)}-\\hl{(x+y+5)}",
+        "=(x^{2}-1)(x+y+5)\n=\\hlg{(x-1)(x+1)(x+y+5)}"
+      ],
+      "vocab": [
+        {
+          "en": "the result of (a)",
+          "zh": "(a) 的結果"
+        },
+        {
+          "en": "completely",
+          "zh": "徹底（分到不能再分）"
+        }
+      ],
+      "warn": {
+        "zh": "分解完成後，把因式展開應得到原式；只看第一個因式正確，仍不足以確認整個答案。",
+        "en": "Expanding all factors should recover the original. One correct factor does not verify the whole answer."
+      },
+      "goal": {
+        "zh": "不要把可繼續分解的平方差留在答案。",
+        "en": "Do not leave a factorable difference of squares in the answer."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "將 $(x^{2}-9)(x+y)$ 分解到底。",
+          "en": "Factorise $(x^{2}-9)(x+y)$ completely."
+        },
+        "options": [
+          {
+            "math": "(x-3)^{2}(x+y)"
+          },
+          {
+            "math": "(x-3)(x+3)(x+y)"
+          },
+          {
+            "math": "(x-9)(x+9)(x+y)"
+          }
+        ],
+        "answer": 1,
+        "explanation": {
+          "zh": "$x^{2}-9=x^{2}-3^{2}=(x-3)(x+3)$；原有的 $(x+y)$ 亦要保留。",
+          "en": "$x^{2}-9=x^{2}-3^{2}=(x-3)(x+3)$. Keep the original factor $(x+y)$ as well."
+        }
+      }
+    },
+    {
+      "id": "ws01c-c4",
+      "topic": "ws01c",
+      "title": {
+        "zh": "把整個括號當成一個量",
+        "en": "Treat a whole bracket as one quantity"
+      },
+      "body": {
+        "zh": "多部題可以先找前兩部相同的因式，再用於最後一部。{{math:0}}\n另一類題先把三項變成完全平方，再套用平方差。{{math:1}}\n在 $U^{2}-V^{2}$ 中，$U$、$V$ 可以各自是一整個式子；先寫 $(U+V)(U-V)$，再化簡。",
+        "en": "In a multipart question, find a factor shared by the earlier results and reuse it in the final part.{{math:0}}\nAnother pattern turns three terms into a perfect square before using the difference of squares.{{math:1}}\nIn $U^{2}-V^{2}$, both $U$ and $V$ may be whole expressions. Write $(U+V)(U-V)$ before simplifying."
+      },
+      "math": [
+        "m^{2}+mn-20n^{2}-3m+12n\n=(m+5n)\\hl{(m-4n)}-3\\hl{(m-4n)}\n=\\hl{(m-4n)}(m+5n-3)",
+        "(10c-d)^{2}-81c^{2}+18c-1\n=(10c-d)^{2}-(9c-1)^{2}\n=\\hlg{(19c-d-1)(c-d+1)}"
+      ],
+      "vocab": [
+        {
+          "en": "three-part question",
+          "zh": "三部曲題目"
+        },
+        {
+          "en": "take out the minus",
+          "zh": "整組抽負號"
+        }
+      ],
+      "warn": {
+        "zh": "括號前有減號，括號內每項都受影響。最後也要檢查每個因式是否仍有公因式。",
+        "en": "A minus before a bracket affects every term inside. Also check each final factor for another common factor."
+      },
+      "goal": {
+        "zh": "用平方差時，保留括號並檢查負號。",
+        "en": "Keep brackets intact when applying the difference of squares."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "$(2x+1)^{2}-(x-2)^{2}$ 分解後是哪一個？",
+          "en": "Which is the factorisation of $(2x+1)^{2}-(x-2)^{2}$?"
+        },
+        "options": [
+          {
+            "math": "(3x-1)(x+3)"
+          },
+          {
+            "math": "(3x-1)(x-1)"
+          },
+          {
+            "math": "(x+3)^{2}"
+          }
+        ],
+        "answer": 0,
+        "explanation": {
+          "zh": "相加得 $3x-1$；相減得 $2x+1-(x-2)=x+3$。",
+          "en": "Adding gives $3x-1$; subtracting gives $2x+1-(x-2)=x+3$."
+        }
+      }
+    },
+    {
+      "id": "as01-c1",
+      "topic": "as01",
+      "title": {
+        "zh": "解一元二次方程：三個實用方法",
+        "en": "Solving a quadratic equation: three practical methods"
+      },
+      "body": {
+        "zh": "解一元二次方程的方法不只一種 —— 因式分解、二次公式、配方法，或者兩邊有相同因式時直接約簡。本課集中三個最實用的：\n① 因式分解（用計算機求根，再逆推因式）—— 唔需要硬做十字相乘；\n② 兩邊有相同因式時：先取「它 $=0$」得一個根，再在「它 $\\ne 0$」時約走它得另一個根；\n③ 二次公式 $x=\\frac{-b\\pm\\sqrt{b^{2}-4ac}}{2a}$ —— 根是根式、或係數唔靚時用。\n方法一（計算機因式分解）：Casio fx-50FH II 按【FMLA 01】（或 fx-3650P II 執行 Prog 1），輸入 $a$、$b$、$c$ 求兩根。逆推口訣：分數根 $x=\\frac{p}{q}$ → 因式 $(qx-p)$；整數根 $x=k$ → 因式 $(x-k)$：\n{{math:0}}\n方法二（兩邊有相同因式）：分兩種情況就唔會漏根 ——\nⓐ 先假設那個共同因式 $=0$：它一定滿足方程（兩邊都變成 0），所以立即得到一個根；\nⓑ 其餘情況（它是 $\\ne 0$）才可以兩邊約走它，解剩下的一條一次方程，得到另一個根。\n✗ 錯（不分情況就直接約走 $x$）：這樣只剩 $x=-8$，漏掉 $x=0${{math:1}}\n✓ 對（先分情況）：{{math:2}}\n例：解 $(x-2t)(x-3t)=(6t-x)(x-3t)$ ——先取 $(x-3t)=0$ 得 $x=3t$；其餘情況約走 $(x-3t)$，得 $2x-8t=0$，即 $x=4t$ —— 兩根齊全。\n（把所有項移到一邊再抽公因式，結果完全一樣；兩種做法都可以，選自己做得穩的那一種。）\n方法三（二次公式）：因式分解唔靚（根是根式）時用：{{math:3}}\n最後：不論用哪個方法，答案一定要寫齊所有根（「or」前後都要）。",
+        "en": "There is more than one way to solve a quadratic equation — factorisation, the quadratic formula, completing the square, or cancelling when both sides share the same factor. This lesson focuses on the three most useful:\n(1) factorisation (find the roots with the calculator, then work back to the factors) — no need to force the cross-method;\n(2) a factor on both sides: take it $=0$ first for one root, then cancel it for the other root;\n(3) the quadratic formula $x=\\frac{-b\\pm\\sqrt{b^{2}-4ac}}{2a}$ — for surd roots or awkward coefficients.\nMethod 1 (calculator factorisation): on a Casio fx-50FH II press [FMLA 01] (or run Prog 1 on a fx-3650P II) and enter $a$, $b$, $c$ to get the two roots. Reverse rule: a fraction root $x=\\frac{p}{q}$ gives the factor $(qx-p)$; an integer root $x=k$ gives $(x-k)$:\n{{math:0}}\nMethod 2 (a factor on both sides): split it into two cases and no root is lost —\n(a) first assume that common factor $=0$: it always satisfies the equation (both sides become 0), so you get one root straight away;\n(b) for everything else (the factor is $\\ne 0$), you may cancel it and solve the remaining linear equation — that gives the other root.\n✗ Wrong (cancelling $x$ without splitting the cases): this leaves only $x=-8$ and loses $x=0${{math:1}}\n✓ Right (split the cases first): {{math:2}}\nExample: solve $(x-2t)(x-3t)=(6t-x)(x-3t)$ — take $(x-3t)=0$ to get $x=3t$; in the other case cancel $(x-3t)$ to get $2x-8t=0$, i.e. $x=4t$ — both roots kept.\n(Moving everything to one side and factoring gives exactly the same roots; both routes are acceptable, so use whichever you are steadier at.)\nMethod 3 (quadratic formula): use it when factorisation is not clean (surd roots): {{math:3}}\nFinally: whichever method you use, always write every root (both sides of “or”)."
+      },
+      "math": [
+        "3x^{2}-14x+8=0\n\\Rightarrow x=\\frac{2}{3}\\text{ or }4\n\\Rightarrow (3x-2)(x-4)=0",
+        "x(2x+3)=x(x-5)\n\\Rightarrow 2x+3=x-5\n\\Rightarrow x=-8",
+        "x(2x+3)=x(x-5)\n\\text{Case 1: }x=0:\\ \\text{both sides}=0\\ \\Rightarrow\\ x=0\n\\text{Case 2: }x\\ne 0:\\ 2x+3=x-5\\ \\Rightarrow\\ x=-8\n\\text{Roots: }x=0\\text{ or }-8",
+        "x^{2}-4x-2=0\n\\Rightarrow x=\\frac{4\\pm\\sqrt{16+8}}{2}=\\frac{4\\pm 2\\sqrt{6}}{2}=2\\pm\\sqrt{6}"
+      ],
+      "warn": {
+        "zh": "兩邊「約走」相同因式 ＝ 假設它 $\\ne 0$：不分情況就會漏掉「它 $=0$」那個根。做法：先取「公因式 $=0$」得一個根，再在「它 $\\ne 0$」時約走，取另一個根。答案務必寫齊所有根。",
+        "en": "“Cancelling” a factor that appears on both sides assumes it is $\\ne 0$: without splitting cases you lose the root “it $=0$”. Take the factor $=0$ for one root first, then cancel it for the other. Always write every root."
+      },
+      "vocab": [
+        {
+          "en": "factor method",
+          "zh": "因式分解法"
+        },
+        {
+          "en": "root",
+          "zh": "根"
+        },
+        {
+          "en": "cancel",
+          "zh": "約走（兩邊同除）"
+        }
+      ]
+    },
+    {
+      "id": "as01-c2",
+      "topic": "as01",
+      "title": {
+        "zh": "題目說「$\\alpha$ 是方程的一個根」＝把 $\\alpha$ 代入等於 0",
+        "en": "“$\\alpha$ is a root” means substituting it gives 0"
+      },
+      "body": {
+        "zh": "卷二最愛考這種題：已知一個根，要求另一條式子的值 —— 做法通常是兩步：① 寫下 $a\\alpha^{2}+b\\alpha+c=0$；② 把方程整理成「$\\alpha^{2}=$（一條含有 $\\alpha$ 的式子）」，再整塊代入目標式：那個式子是分數也可以 —— 分子整塊乘，約簡時每一項都要除。\n例：已知 $\\alpha$ 是方程 $x^{2}-4x-2=0$ 的一個根，求 $3+8\\alpha-2\\alpha^{2}$ 的值。{{math:0}}\n不需要求出 $\\alpha$ 的數值（它通常是無理數）；用「根」這個關係就夠。\n另一個例子：已知 $\\beta$ 是方程 $3\\beta^{2}-5\\beta-7=0$ 的一個根，求 $4+10\\beta-6\\beta^{2}$ 的值。{{math:1}}",
+        "en": "A Paper 2 favourite: given one root, find the value of another expression — usually two steps: (1) write down $a\\alpha^{2}+b\\alpha+c=0$; (2) rearrange the equation into $\\alpha^{2}=$ (an expression in $\\alpha$), then substitute that whole expression into the target; a fraction is fine — multiply the whole numerator, and divide every term when cancelling.\nExample: given that $\\alpha$ is a root of $x^{2}-4x-2=0$, find the value of $3+8\\alpha-2\\alpha^{2}$. {{math:0}}\nYou do not need the value of $\\alpha$ itself (it is usually irrational); the root relation is enough.\nAnother example: given that $\\beta$ is a root of $3\\beta^{2}-5\\beta-7=0$, find the value of $4+10\\beta-6\\beta^{2}$. {{math:1}}"
+      },
+      "math": [
+        "\\alpha^{2}-4\\alpha-2=0\n\\Rightarrow \\alpha^{2}-4\\alpha=2\n\\Rightarrow 3+8\\alpha-2\\alpha^{2}=3-2(\\alpha^{2}-4\\alpha)=3-2(2)=-1",
+        "3\\beta^{2}-5\\beta-7=0\n\\Rightarrow \\beta^{2}=\\frac{5\\beta+7}{3}\n\\Rightarrow -6\\beta^{2}=-6\\cdot\\frac{5\\beta+7}{3}=-2(5\\beta+7)=-10\\beta-14\n\\Rightarrow 4+10\\beta-6\\beta^{2}=4+10\\beta-(10\\beta+14)=-10"
+      ],
+      "warn": {
+        "zh": "代入分數時分子要整塊乘：$-6\\times\\frac{5\\beta+7}{3}=-2(5\\beta+7)$（$-6\\div3=-2$），不是 $-2\\times5\\beta+7$；約簡時分子每一項都要除，常數項最容易漏（$-42\\div3=-14$）。",
+        "en": "When the subject is a fraction, multiply the whole numerator: $-6\\times\\frac{5\\beta+7}{3}=-2(5\\beta+7)$ (because $-6\\div3=-2$), not $-2\\times5\\beta+7$. Every term must be divided, and the constant is the one students forget."
+      },
+      "vocab": [
+        {
+          "en": "root of an equation",
+          "zh": "方程的根"
+        },
+        {
+          "en": "substitute",
+          "zh": "代入"
+        }
+      ]
+    },
+    {
+      "id": "as01-c3",
+      "topic": "as01",
+      "title": {
+        "zh": "判別式 $\\Delta=b^{2}-4ac$：有實根／等根／無實根",
+        "en": "The discriminant $\\Delta=b^{2}-4ac$: real, equal or no real roots"
+      },
+      "body": {
+        "zh": "先寫成 $ax^{2}+bx+c=0$，再算 $\\Delta=b^{2}-4ac$：{{math:0}}\n題目字眼對照：\n· 「有實根」→ $\\Delta\\ge 0$（包含等根，所以有等號）\n· 「有兩個相異實根」→ $\\Delta>0$\n· 「有等根／重根」→ $\\Delta=0$\n· 「無實根」→ $\\Delta<0$\n使用判別式，多數是用來求未知的係數（如下列例子中的 $k$），因為判別式是不會包含方程式中的未知數（如下列例子中的 $x$）。{{math:1}}",
+        "en": "Write the equation as $ax^{2}+bx+c=0$, then compute $\\Delta=b^{2}-4ac$: {{math:0}}\nMatching the wording:\n· “has real roots” → $\\Delta\\ge 0$ (equal roots count, so the equality is included)\n· “has two distinct real roots” → $\\Delta>0$\n· “has equal (repeated) roots” → $\\Delta=0$\n· “has no real roots” → $\\Delta<0$\nThe discriminant is mostly used to find an unknown coefficient (such as $k$ in the example below), because the discriminant never contains the unknown in the equation (such as $x$ in the example below). {{math:1}}"
+      },
+      "math": [
+        "\\Delta>0:\\ \\text{two distinct real roots}\n\\Delta=0:\\ \\text{equal roots}\n\\Delta<0:\\ \\text{no real roots}",
+        "2x^{2}-4x+k=1\\ \\text{has real roots}\n\\Rightarrow 2x^{2}-4x+(k-1)=0\n\\Rightarrow \\Delta=(-4)^{2}-4(2)(k-1)=24-8k\\ge 0\n\\Rightarrow k\\le 3"
+      ],
+      "warn": {
+        "zh": "最常見錯誤：忘記把方程搬成「$=0$」的標準形，令常數項寫錯（例如 $k=1$ 要搬過去變成 $k-1$）。",
+        "en": "The most common mistake: forgetting to rearrange into the “$=0$” standard form, so the constant term is wrong (e.g. $k=1$ must move across to become $k-1$)."
+      },
+      "vocab": [
+        {
+          "en": "discriminant",
+          "zh": "判別式"
+        },
+        {
+          "en": "real roots",
+          "zh": "實根"
+        },
+        {
+          "en": "equal roots",
+          "zh": "等根／重根"
+        },
+        {
+          "en": "range of values",
+          "zh": "取值範圍"
+        }
+      ]
+    },
+    {
+      "id": "as01-c4",
+      "topic": "as01",
+      "title": {
+        "zh": "根與係數：$\\alpha+\\beta$、$\\alpha\\beta$ 與 $\\alpha^{2}+\\beta^{2}$",
+        "en": "Sum and product of roots, and $\\alpha^{2}+\\beta^{2}$"
+      },
+      "body": {
+        "zh": "如果 $\\alpha$、$\\beta$ 是方程 $ax^{2}+bx+c=0$ 的兩個根：\n{{math:0}}\n不用解方程（根通常是無理數，解出來也不漂亮）—— 用這兩個關係就夠。\n最常考的目標式：\n{{math:1}}\n例：$x^{2}+kx-15=0$ 的根是 $\\alpha$ 與 $\\beta$，以 $k$ 表示 $\\alpha^{2}+\\beta^{2}$：\n{{math:2}}\n（延伸：$(\\alpha-\\beta)^{2}=(\\alpha+\\beta)^{2}-4\\alpha\\beta$；$\\frac{1}{\\alpha}+\\frac{1}{\\beta}=\\frac{\\alpha+\\beta}{\\alpha\\beta}$。）\n這類題目多數 3 分：(1M) 寫出 $\\alpha+\\beta$ 與 $\\alpha\\beta$、(1M) 用恆等式拆開 $\\alpha^{2}+\\beta^{2}$、(1A) 代入並寫出答案。",
+        "en": "If $\\alpha$ and $\\beta$ are the roots of $ax^{2}+bx+c=0$:\n{{math:0}}\nThere is no need to solve the equation (the roots are usually irrational) — these two relations are enough.\nThe most common target expression:\n{{math:1}}\nExample: the roots of $x^{2}+kx-15=0$ are $\\alpha$ and $\\beta$; express $\\alpha^{2}+\\beta^{2}$ in terms of $k$:\n{{math:2}}\n(Also useful: $(\\alpha-\\beta)^{2}=(\\alpha+\\beta)^{2}-4\\alpha\\beta$ and $\\frac{1}{\\alpha}+\\frac{1}{\\beta}=\\frac{\\alpha+\\beta}{\\alpha\\beta}$.)\nQuestions of this kind are usually worth 3 marks: one mark for the sum and the product, one for the identity, and one for the final answer."
+      },
+      "math": [
+        "\\alpha+\\beta=-\\frac{b}{a},\\ \\alpha\\beta=\\frac{c}{a}",
+        "\\alpha^{2}+\\beta^{2}=(\\alpha+\\beta)^{2}-2\\alpha\\beta",
+        "x^{2}+kx-15=0\n\\Rightarrow \\alpha+\\beta=-k,\\ \\alpha\\beta=-15\n\\Rightarrow \\alpha^{2}+\\beta^{2}=(-k)^{2}-2(-15)\n=k^{2}+30"
+      ],
+      "warn": {
+        "zh": "最常見錯誤：硬解方程求 $\\alpha$、$\\beta$ 的數值，再逐個平方相加 —— 這樣既花時間又容易計錯。看到「兩根是 $\\alpha$ 和 $\\beta$」就要反射式寫出 $\\alpha+\\beta$ 與 $\\alpha\\beta$。另外，$\\alpha\\beta$ 要連符號：$x^{2}+kx-15=0$ 的 $\\alpha\\beta=-15$。",
+        "en": "The classic mistake is solving the equation for $\\alpha$ and $\\beta$ and squaring them one by one — slow and error-prone. When a question says “the roots are $\\alpha$ and $\\beta$”, immediately write down $\\alpha+\\beta$ and $\\alpha\\beta$. Keep the sign of the product: for $x^{2}+kx-15=0$ we have $\\alpha\\beta=-15$."
+      },
+      "vocab": [
+        {
+          "en": "sum of roots",
+          "zh": "兩根之和"
+        },
+        {
+          "en": "product of roots",
+          "zh": "兩根之積"
+        },
+        {
+          "en": "in terms of",
+          "zh": "以…表示"
+        }
+      ]
+    },
+    {
+      "id": "as01-c5",
+      "topic": "as01",
+      "title": {
+        "zh": "複數：$i$ 的冪與四則運算",
+        "en": "Complex numbers: powers of $i$ and the four operations"
+      },
+      "body": {
+        "zh": "複數的基本規則只有一條：$i^{2}=-1$。\n{{math:0}}\n加減：實部與實部合併、虛部與虛部合併 —— 例 $(4+5i)-(6-7i)=-2+12i$（減號要分配給每一項）。\n乘：展開之後把 $i^{2}$ 換成 $-1$，最後整理成 $a+bi$。\n{{math:1}}\n題目要求「express the result in the form $a+bi$」時，實部與虛部要分開兩份寫：$\\frac{3+i}{10}$ 寫成 $\\frac{3}{10}+\\frac{1}{10}i$。\n高次冪（例如 $i^{18}$、$i^{31}$）不可以硬乘 —— 先看下面的重點框，用「除以 4 看餘數」一步化簡。",
+        "en": "There is only one basic rule for complex numbers: $i^{2}=-1$.\n{{math:0}}\nAdd and subtract: combine the real parts together and the imaginary parts together — for example $(4+5i)-(6-7i)=-2+12i$ (the minus sign applies to every term).\nMultiply: expand, replace $i^{2}$ by $-1$, then tidy everything into the form $a+bi$.\n{{math:1}}\nWhen the question says “express the result in the form $a+bi$”, keep the real part and the imaginary part as two separate terms: write $\\frac{3+i}{10}$ as $\\frac{3}{10}+\\frac{1}{10}i$.\nNever expand a high power such as $i^{18}$ or $i^{31}$ by hand — read the key box below and reduce it in one step by dividing the index by 4."
+      },
+      "math": [
+        "i^{2}=-1",
+        "(1-2i)(3+4i)=3+4i-6i-8i^{2}\n=3-2i+8=11-2i"
+      ],
+      "box": {
+        "tag": {
+          "zh": "餘數法",
+          "en": "Remainder rule"
+        },
+        "title": {
+          "zh": "$i$ 的四個冪：除以 4 看餘數",
+          "en": "The four powers of $i$: divide the index by 4 and look at the remainder"
+        },
+        "zh": "① 四個冪先順序記熟（餘數 1、2、3、0 依次對應 $i$、$-1$、$-i$、$1$）：\n{{math:0}}\n② 每 4 個一循環，所以第 5 個冪由頭開始：\n{{math:1}}\n③ 化簡 $i^{n}$ 只有一步 —— 把 $n$ 除以 4，看餘數（這是整個方法的重點）：\n{{math:2}}\n④ 例子：先把指數寫成 $4k+$ 餘數，再換成對應的冪。\n{{math:3}}",
+        "en": "① First learn the four powers in order (remainders 1, 2, 3 and 0 give $i$, $-1$, $-i$ and $1$):\n{{math:0}}\n② The pattern repeats every 4, so the fifth power starts the cycle again:\n{{math:1}}\n③ There is only one step in simplifying $i^{n}$ — divide $n$ by 4 and look at the remainder (this is the heart of the method):\n{{math:2}}\n④ Examples: write the index as $4k$ plus the remainder, then swap in the matching power.\n{{math:3}}",
+        "math": [
+          "i^{1}=i,\\quad i^{2}=-1,\\quad i^{3}=-i,\\quad i^{4}=1",
+          "i^{5}=i,\\quad i^{6}=-1,\\quad i^{7}=-i,\\quad i^{8}=1",
+          "\\text{remainder }1\\to i,\\quad 2\\to-1,\\quad 3\\to-i,\\quad 0\\to1",
+          "18=4\\times4+2\\ \\Rightarrow\\ i^{18}=i^{2}=-1\n31=4\\times7+3\\ \\Rightarrow\\ i^{31}=i^{3}=-i\n20=4\\times5+0\\ \\Rightarrow\\ i^{20}=i^{4}=1"
+        ]
+      },
+      "warn": {
+        "zh": "把 $i^{4}$ 誤記成 $-1$（正確是 $1$）最致命：$i^{20}=(i^{4})^{5}=1$，寫成 $-1$ 就會全盤皆錯。另一個常見錯：展開 $(3-2i)(1+i)$ 時漏了 $-2i\\times i=-2i^{2}=+2$。",
+        "en": "Remembering $i^{4}$ as $-1$ (it is $1$) ruins everything: $i^{20}=(i^{4})^{5}=1$, and writing $-1$ makes every later step wrong. Another common slip: when expanding $(3-2i)(1+i)$, the term $-2i\\times i=-2i^{2}=+2$ is missed."
+      },
+      "vocab": [
+        {
+          "en": "imaginary unit",
+          "zh": "虛數單位 $i$"
+        },
+        {
+          "en": "power of $i$",
+          "zh": "$i$ 的冪"
+        },
+        {
+          "en": "remainder",
+          "zh": "餘數（除以 4 之後餘下多少）"
+        }
+      ]
+    },
+    {
+      "id": "as01-c6",
+      "topic": "as01",
+      "title": {
+        "zh": "複數的實部／虛部與除法：分母乘共軛",
+        "en": "Real part, imaginary part and division: multiply by the conjugate"
+      },
+      "body": {
+        "zh": "把複數寫成 $a+bi$ 之後：$a$ 是實部（real part）、$b$ 是虛部（imaginary part）。兩者都是實數，虛部只寫 $i$ 前面那個數，而且要連符號 —— $3-7i$ 的實部是 $3$、虛部是 $-7$（不是 $7$）。\n{{math:0}}\n分母有 $i$ 時，分子分母同乘分母的共軛（conjugate），把分母變成實數：$(c+di)(c-di)=c^{2}+d^{2}$。\n{{math:1}}\n兩個高頻題型：\n① 求 real part／imaginary part：先化簡成 $a+bi$，再讀出 $a$、$b$ —— 讀完要核對正負號；\n② 「is a real number」（是實數）＝虛部 $=0$：把 $i$ 的係數寫成一條方程，就求得 $k$。\n{{math:2}}",
+        "en": "Once a complex number is written as $a+bi$: $a$ is the real part and $b$ is the imaginary part. Both are real numbers, and the imaginary part is only the number in front of $i$, with its sign — for $3-7i$ the real part is $3$ and the imaginary part is $-7$, not $7$.\n{{math:0}}\nWhen the denominator contains $i$, multiply the top and the bottom by the conjugate of the denominator: $(c+di)(c-di)=c^{2}+d^{2}$ makes the denominator real.\n{{math:1}}\nTwo frequent question types:\n(1) find the real part or the imaginary part: simplify into $a+bi$ first, then read off $a$ and $b$ and check the signs;\n(2) “is a real number” means the imaginary part is $0$: set the coefficient of $i$ equal to zero and solve for $k$.\n{{math:2}}"
+      },
+      "math": [
+        "3-7i:\\ \\text{real part}=3,\\ \\text{imaginary part}=-7",
+        "\\frac{2+i}{7+i}=\\frac{(2+i)(7-i)}{(7+i)(7-i)}\n=\\frac{15+5i}{50}=\\frac{3}{10}+\\frac{1}{10}i",
+        "\\frac{k-i}{1+2i}=\\frac{(k-i)(1-2i)}{(1+2i)(1-2i)}\n=\\frac{(k-2)-(2k+1)i}{5}\n\\text{real number}\\ \\Rightarrow 2k+1=0\n\\Rightarrow k=-\\frac{1}{2}"
+      ],
+      "warn": {
+        "zh": "讀虛部時要連符號：$2-4i$ 的虛部是 $-4$。另外，$(c+di)(c-di)=c^{2}+d^{2}$（因為 $-i^{2}=+1$），不是 $c^{2}-d^{2}$ —— 這個符號錯是複數題最常見的失分位。",
+        "en": "The imaginary part keeps its sign: the imaginary part of $2-4i$ is $-4$. Also $(c+di)(c-di)=c^{2}+d^{2}$ (because $-i^{2}=+1$), not $c^{2}-d^{2}$ — that wrong sign is the most common slip in complex-number questions."
+      },
+      "vocab": [
+        {
+          "en": "conjugate",
+          "zh": "共軛"
+        },
+        {
+          "en": "real part",
+          "zh": "實部"
+        },
+        {
+          "en": "imaginary part",
+          "zh": "虛部"
+        }
+      ]
+    },
+    {
+      "id": "as01-c7",
+      "topic": "as01",
+      "title": {
+        "zh": "複數題的流程與常見錯誤（帶走這一張）",
+        "en": "Complex-number routine and common mistakes (take this card away)"
+      },
+      "body": {
+        "zh": "複數題固定四步：① 有 $i$ 的冪就先化簡（除以 4 看餘數）；② 加減乘除之後整理成 $a+bi$（$i^{2}=-1$）；③ 分母有 $i$ 就分子分母同乘共軛，分母變成 $c^{2}+d^{2}$；④ 最後才回答題目問的東西 —— real part、imaginary part，或者由「是實數」寫出虛部 $=0$。\n{{math:0}}\n五個最常見的失分位：\n① 把 $i^{4}$ 記成 $-1$（正確是 $1$）：之後 $i^{18}$、$i^{20}$ 全部錯；\n② 共軛相乘的分母寫成 $c^{2}-d^{2}$（正確是 $c^{2}+d^{2}$，因為 $-i^{2}=+1$）；\n③ 問 real part 卻答了 imaginary part（選項通常兩個都放進去）；\n④ 讀虛部時漏了負號（$2-4i$ 的虛部是 $-4$，不是 $4$）；\n⑤ 漏掉式子後面不含 $i$ 的常數項（例如 $-i^{18}=+1$），少了一項答案就錯。",
+        "en": "Complex-number questions follow four fixed steps: (1) simplify any power of $i$ first by dividing the index by 4; (2) add, subtract, multiply or divide and tidy everything into the form $a+bi$ using $i^{2}=-1$; (3) when the denominator contains $i$, multiply the top and the bottom by its conjugate so that the denominator becomes $c^{2}+d^{2}$; (4) only then answer what is asked — the real part, the imaginary part, or use “is a real number” to mean that the imaginary part is zero.\n{{math:0}}\nFive ways marks are lost:\n(1) remembering $i^{4}$ as $-1$ instead of $1$, which spoils every higher power;\n(2) writing the conjugate product as $c^{2}-d^{2}$ instead of $c^{2}+d^{2}$, because minus $i$ squared is plus 1;\n(3) answering the imaginary part when the real part was asked, since the options usually contain both;\n(4) dropping the sign of the imaginary part ($2-4i$ has imaginary part $-4$, not $4$);\n(5) missing the constant terms that carry no $i$, such as minus $i$ to the 18th being plus 1."
+      },
+      "math": [
+        "z=a+bi:\\ \\text{real part}=a,\\ \\text{imaginary part}=b\nz\\ \\text{is purely imaginary}\\ \\Leftrightarrow\\ a=0\nz\\ \\text{is real}\\ \\Leftrightarrow\\ b=0"
+      ],
+      "warn": {
+        "zh": "「是實數」＝虛部 $=0$；「是純虛數」＝實部 $=0$ —— 兩個條件剛好相反，是複數題最常見的混淆。",
+        "en": "Being real means the imaginary part is zero, while being purely imaginary means the real part is zero; the two conditions are opposites and are easily confused."
+      },
+      "vocab": [
+        {
+          "en": "conjugate",
+          "zh": "共軛"
+        },
+        {
+          "en": "purely imaginary",
+          "zh": "純虛數（實部 $=0$）"
+        }
+      ]
+    },
+    {
+      "id": "as02-c1",
+      "topic": "as02",
+      "title": {
+        "zh": "直線方程：斜率、截距與垂直條件",
+        "en": "Straight lines: slope, intercepts and the perpendicular condition"
+      },
+      "body": {
+        "zh": "一條直線由兩個數決定：斜率與 $y$ 截距。\n{{math:0}}\n{{math:1}}\n已知兩點求斜率：\n{{math:2}}\n已知斜率與一點，用點斜式：\n{{math:3}}\n最常考的是垂直條件（兩條線互相垂直）：\n{{math:4}}\n做這一類題目的固定四步：① 讀出已知直線的斜率（先寫成 $y=mx+c$）→ ② 取負倒數 → ③ 用題目給的點寫點斜式 → ④ 整理成題目要求的形式。",
+        "en": "A straight line is fixed by two numbers: the slope and the $y$-intercept.\n{{math:0}}\n{{math:1}}\nThe slope from two points:\n{{math:2}}\nGiven a slope and one point, use point-slope form:\n{{math:3}}\nThe perpendicular condition appears most often:\n{{math:4}}\nA fixed four-step routine for these questions: ① read the slope of the given line (write it as $y=mx+c$) → ② take the negative reciprocal → ③ write point-slope form using the given point → ④ rearrange into the form the question asks for."
+      },
+      "math": [
+        "y=mx+c",
+        "m=\\frac{\\text{rise}}{\\text{run}}",
+        "m=\\frac{y_{2}-y_{1}}{x_{2}-x_{1}}",
+        "y-y_{1}=m(x-x_{1})",
+        "m_{1}m_{2}=-1"
+      ],
+      "vocab": [
+        {
+          "en": "slope",
+          "zh": "斜率"
+        },
+        {
+          "en": "intercept",
+          "zh": "截距（與座標軸相交的那個數）"
+        },
+        {
+          "en": "point-slope form",
+          "zh": "點斜式"
+        }
+      ],
+      "warn": {
+        "zh": "「垂直」是取斜率的負倒數（$\\frac{2}{3}$ 變 $-\\frac{3}{2}$），只顛倒不變號是錯的；另外 $x$ 截距是 $y=0$ 時的 $x$，$y$ 截距是 $x=0$ 時的 $y$，兩者不要對調。",
+        "en": "“Perpendicular” means the negative reciprocal of the slope ($\\frac{2}{3}$ becomes $-\\frac{3}{2}$); inverting without changing the sign is wrong. Also, the $x$-intercept is the value of $x$ when $y=0$, and the $y$-intercept is the value of $y$ when $x=0$ — do not swap them."
+      }
+    },
+    {
+      "id": "as02-c2",
+      "topic": "as02",
+      "title": {
+        "zh": "由 ax + y + b = 0 的圖讀出 a、b 的正負",
+        "en": "Reading the signs of a and b from the graph of ax + y + b = 0"
+      },
+      "body": {
+        "zh": "題目給的方程是 $ax+y+b=0$，但圖上看到的是「斜率」與「截距」，所以第一步一定是改寫：\n{{math:0}}\n寫成這個形式之後可以直接讀出：\n{{math:1}}\n{{math:2}}\n於是：\n線往右上斜（斜率 $>0$）→ $-a>0$ → $a<0$；\n線往右下斜（斜率 $<0$）→ $-a<0$ → $a>0$；\n交於 $y$ 軸原點之上（$y$ 截距 $>0$）→ $-b>0$ → $b<0$；\n交於 $y$ 軸原點之下（$y$ 截距 $<0$）→ $-b<0$ → $b>0$。\n$\\frac{b}{a}$ 的正負還可以用來判斷線與 $x$ 軸交在原點的左邊還是右邊。",
+        "en": "The equation given is $ax+y+b=0$, but the graph shows the slope and the intercepts, so always rewrite first:\n{{math:0}}\nIn this form the two quantities can be read off directly:\n{{math:1}}\n{{math:2}}\nTherefore:\nrising to the right (slope $>0$) → $-a>0$ → $a<0$;\nfalling to the right (slope $<0$) → $-a<0$ → $a>0$;\nmeeting the $y$-axis above the origin ($y$-intercept $>0$) → $-b>0$ → $b<0$;\nmeeting the $y$-axis below the origin ($y$-intercept $<0$) → $-b<0$ → $b>0$.\nThe sign of $\\frac{b}{a}$ also tells you whether the line meets the $x$-axis to the left or the right of the origin."
+      },
+      "math": [
+        "ax+y+b=0",
+        "y=-ax-b",
+        "\\text{slope}=-a,\\quad y\\text{-intercept}=-b"
+      ],
+      "vocab": [
+        {
+          "en": "general form",
+          "zh": "一般式（$Ax+By+C=0$）"
+        },
+        {
+          "en": "x-intercept",
+          "zh": "$x$ 截距"
+        },
+        {
+          "en": "y-intercept",
+          "zh": "$y$ 截距"
+        }
+      ],
+      "warn": {
+        "zh": "最常見的兩個錯：① 直接把圖上的 $y$ 截距當成 $b$（其實截距是 $-b$，符號相反）；② 把「線往右上斜」當成 $a>0$（其實斜率是 $-a$）。每次由圖上的數寫成 $a$、$b$ 都要反一次號。",
+        "en": "The two most common errors: ① taking the $y$-intercept read from the graph as $b$ (it is actually $-b$, the opposite sign); ② treating “rising to the right” as $a>0$ (the slope is $-a$). Every quantity read from the graph changes sign when written as $a$ or $b$."
+      }
+    },
+    {
+      "id": "as03-c1",
+      "topic": "as03",
+      "title": {
+        "zh": "複合不等式：先逐條解，再讀出答案",
+        "en": "Compound inequalities: solve each part, then read off the answer"
+      },
+      "body": {
+        "zh": "一條題目有兩個不等式時（中間用「或」或「及」連接），做法固定三步：\n① 逐條解，各自寫成「$x$ 大於某數」或「$x$ 小於某數」；\n② 比較兩段，看看哪一段包含哪一段；\n③ 寫出最後答案 —— 不要只把兩條並列就當完成。\n\n「或」（or）：只要其中一段成立就可以，所以兩段都是答案 —— 兩段分開時照寫{{math:0}}\n如果一段完全包含另一段，只寫較寬鬆的那一段就夠{{math:1}}\n\n「及」（and）：兩段要同時成立，所以取兩段重疊的部分 —— 通常就是較嚴格的那一段{{math:2}}\n如果兩段重疊成一段區間，就把兩個端點一齊寫出來{{math:3}}\n\n三節式（例如 $2<x<7$）就是三節之間的「及」：首尾兩節都是純數字時，才可以三節一起加、減、乘、除同一個數（乘或除負數時要把不等號倒轉）；首節或尾節只要含有 $x$，就不能三節一起做，要拆成兩條「及」的不等式，分別解再取交集。最後檢查兩個端點是開（$<$、$>$）還是閉（$\\le$、$\\ge$）。",
+        "en": "When a question contains two inequalities joined by “or” or “and”, the routine always has three steps:\n(1) solve each one, writing it as “$x$ is greater than …” or “$x$ is less than …”;\n(2) compare the two pieces and see which one contains the other;\n(3) write the final answer — do not just put the two pieces side by side and stop.\n\n“Or”: it is enough that one piece holds, so both pieces belong to the answer — when the pieces are separate, keep them as they are{{math:0}}\nWhen one piece contains the other, write only the wider one{{math:1}}\n\n“And”: the two must hold together, so take the overlap — usually the stricter piece{{math:2}}\nWhen the overlap forms one interval, write the two endpoints together{{math:3}}\n\nA three-part inequality such as $2<x<7$ is simply an “and” between its three parts: only when the first and last parts are pure numbers may you add, subtract, multiply or divide all three parts by the same number at once (reverse the inequality signs when multiplying or dividing by a negative number); if the first or last part contains $x$, do not work on all three parts — split it into two “and” inequalities, solve each and intersect. Then check whether each endpoint is open ($<$, $>$) or closed ($\\le$, $\\ge$)."
+      },
+      "math": [
+        "x<-3\\text{ or }x>8\n\\text{keep both pieces}",
+        "x>7\\text{ or }x>3\n\\Rightarrow x>3\\ \\text{(the wider piece)}",
+        "x>3\\text{ and }x\\ge 5\n\\Rightarrow x\\ge 5\\ \\text{(the stricter piece)}",
+        "x\\ge 5\\text{ and }x\\le 12\n\\Rightarrow 5\\le x\\le 12"
+      ],
+      "vocab": [
+        {
+          "en": "compound inequality",
+          "zh": "複合不等式"
+        },
+        {
+          "en": "either ... or ...",
+          "zh": "「或」：其中一段成立就足夠"
+        },
+        {
+          "en": "both ... and ...",
+          "zh": "「及」：兩段要同時成立"
+        }
+      ],
+      "warn": {
+        "zh": "最大的陷阱是把「或」當成「及」：$x<-3$ 或 $x>8$ 之中，$x=0$ 兩條都不成立，所以答案不是「所有實數」。寫答案前用一個中間值代回去檢查一次。另一個常見錯誤：逐條解完就把兩條並列，沒有比較誰包含誰 —— 例如 $x>7$ 或 $x>3$，答案應該化簡為 $x>3$。",
+        "en": "The classic trap is treating “or” as “and”: for $x<-3$ or $x>8$ the value $x=0$ satisfies neither, so the answer is not “all real numbers”. Substitute one middle value to check before writing the answer. Another common slip is leaving the two pieces side by side without comparing them: $x>7$ or $x>3$ should be simplified to $x>3$."
+      }
+    },
+    {
+      "id": "as03-c2",
+      "topic": "as03",
+      "title": {
+        "zh": "解二次不等式：先分解，再判斷「中間」還是「兩邊」",
+        "en": "Quadratic inequalities: factorise, then choose “between” or “outside”"
+      },
+      "body": {
+        "zh": "二次不等式一定要先把一邊變成 0，再分解成兩個括號（假設 $a<b$）：\n{{math:0}}\n{{math:1}}\n{{math:2}}\n{{math:3}}\n記法：$>0$ 取「兩邊」、$<0$ 取「中間」；有等號（$\\ge$、$\\le$）就把兩個端點也包進去。分解不到的話，畫一畫拋物線（開口方向 ＋ 與 $x$ 軸的交點）也一樣看得出答案。",
+        "en": "For a quadratic inequality, first make one side zero and factorise into two brackets (assuming $a<b$):\n{{math:0}}\n{{math:1}}\n{{math:2}}\n{{math:3}}\nRemember: $>0$ takes the two outer regions and $<0$ takes the middle interval; with an equality sign ($\\ge$, $\\le$) both endpoints are included as well. If it does not factorise, sketching the parabola (direction of opening plus the $x$-intercepts) gives the same answer."
+      },
+      "math": [
+        "(x-a)(x-b)>0",
+        "\\Rightarrow x<a \\text{ or } x>b",
+        "(x-a)(x-b)<0",
+        "\\Rightarrow a<x<b"
+      ],
+      "vocab": [
+        {
+          "en": "inequality",
+          "zh": "不等式"
+        },
+        {
+          "en": "number line",
+          "zh": "數線"
+        },
+        {
+          "en": "endpoint",
+          "zh": "端點"
+        }
+      ],
+      "warn": {
+        "zh": "最常見的錯：$\\le0$ 與 $\\ge0$ 的方向搞亂（$\\le0$ 取兩根「之間」、$\\ge0$ 取「兩邊」）。另外分解出來的根是「括號等於 0」的 $x$ 值，寫區間時次序不要倒轉。",
+        "en": "The most common error is mixing up the directions: $\\le0$ gives the interval between the roots while $\\ge0$ gives the two outer regions. Also, the roots are the values that make a bracket zero — do not write the interval in the wrong order."
+      }
+    },
+    {
+      "id": "as03-c3",
+      "topic": "as03",
+      "title": {
+        "zh": "判別式 $\\Delta=0$：完全平方的四種情況",
+        "en": "When $\\Delta=0$: the four cases of a perfect square"
+      },
+      "body": {
+        "zh": "$\\Delta=0$ 代表二次式是一個完全平方（乘上 $x^2$ 的係數 $a$）：\n{{math:0}}\n它與 $x$ 軸只有一個交點 $x=r$，所以答案只有四種（先看 $a>0$）：\n{{math:1}}\n· 「$>0$」＝ 除了 $x=r$ 那一點之外，所有實數都成立；\n· 「$\\ge 0$」＝ 所有實數都成立（連 $x=r$ 也接受）；\n· 「$<0$」＝ 無解；\n· 「$\\le 0$」＝ 只有 $x=r$ 一個解。\n\n如果 $x^2$ 的係數 $a<0$，兩邊同乘 $-1$（不等號倒轉）就變回上面四種情況。\n例：$x^{2}-6x+9=(x-3)^{2}${{math:2}}",
+        "en": "$\\Delta=0$ means the quadratic is a perfect square multiplied by the coefficient $a$ of $x^{2}$:\n{{math:0}}\nIt meets the $x$-axis at exactly one point $x=r$, so there are only four possible answers (take $a>0$ first):\n{{math:1}}\n· “$>0$” — true for every real number except the single point $x=r$;\n· “$\\ge 0$” — true for all real numbers (the point $x=r$ counts);\n· “$<0$” — no solution;\n· “$\\le 0$” — the single solution $x=r$.\n\nIf the coefficient of $x^{2}$ is negative, multiply both sides by $-1$ (reversing the inequality sign) and you are back to the four cases above.\nExample: $x^{2}-6x+9=(x-3)^{2}${{math:2}}"
+      },
+      "math": [
+        "ax^{2}+bx+c=a(x-r)^{2},\\quad r=-\\frac{b}{2a}",
+        "(x-r)^{2}>0\\ \\Rightarrow\\ x\\ne r\n(x-r)^{2}\\ge 0\\ \\Rightarrow\\ \\text{all real }x\n(x-r)^{2}<0\\ \\Rightarrow\\ \\text{no solution}\n(x-r)^{2}\\le 0\\ \\Rightarrow\\ x=r",
+        "x^{2}-6x+9=(x-3)^{2}\n(x-3)^{2}<0:\\ \\text{no solution}\n(x-3)^{2}\\le 0:\\ x=3"
+      ],
+      "vocab": [
+        {
+          "en": "perfect square",
+          "zh": "完全平方"
+        },
+        {
+          "en": "repeated root",
+          "zh": "重根（兩個相等的根）"
+        },
+        {
+          "en": "no solution",
+          "zh": "無解"
+        }
+      ],
+      "warn": {
+        "zh": "最常見的錯是一見到 $\\Delta=0$ 就答「所有實數」—— 那只對 $\\ge 0$ 成立：「$>0$」要把 $x=r$ 那一點排除，「$\\le 0$」更加只有 $x=r$ 一個解，「$<0$」則是無解。做題前先問一句：不等號有沒有等號？",
+        "en": "The usual mistake is answering “all real numbers” as soon as $\\Delta=0$: that holds only for $\\ge 0$. For $>0$ the point $x=r$ must be excluded, for $\\le 0$ the only solution is $x=r$, and for $<0$ there is no solution. Ask one question first: does the inequality include equality?"
+      }
+    },
+    {
+      "id": "as03-c4",
+      "topic": "as03",
+      "title": {
+        "zh": "「對所有實數 x 都成立」與「無解」：一般二次式的判別式條件",
+        "en": "“True for all real x” and “no solution”: the discriminant conditions in general"
+      },
+      "body": {
+        "zh": "見到「for any real number $x$」或「對任何實數 $x$ 都成立」，代表整條拋物線要留在 $x$ 軸的同一邊，所以條件一定同時看兩件事：\n① 開口方向（$x^2$ 的係數 $a$）；\n② 有沒有穿過 $x$ 軸（判別式 $\\Delta$）。\n\n寫成一般式 $ax^{2}+bx+c$（$a\\ne 0$），「對所有實數 $x$ 都成立」有四種情況：\n{{math:0}}\n\n「無解」（沒有任何實數 $x$ 滿足）同樣是看圖：整條拋物線要留在 $x$ 軸的一邊 —— 例如 $ax^{2}+bx+c<0$ 無解，即圖像永遠不會跌到 $x$ 軸下方，所以 $a>0$ 且 $\\Delta\\le0$（不相交的 $\\Delta<0$ 與只相切的 $\\Delta=0$ 都符合）。四種情況：\n{{math:1}}\n\n三個要點：\n① $a>0$（開口向上）才可以「大於 0」撐得住；$a<0$（開口向下）才可以「小於 0」撐得住 —— 只看 $\\Delta$ 而漏看 $a$，答案一定錯。\n② 有等號（$\\ge$、$\\le$）用 $\\Delta\\le 0$；嚴格（$>$、$<$）用 $\\Delta<0$。$\\Delta=0$ 時只有一個 $x$ 值會令式子等於 0，嚴格不等式不接受那一個值（見上一張卡）。\n③ 如果 $x^2$ 的係數含未知數（例如 $kx^{2}+\\cdots$），要另外檢查 $k=0$：那時它不是二次式。\n\n例（$a\\ne 1$）：$3x^{2}+4x+k>0$ 對所有實數 $x$ 都成立{{math:2}}\n例（無解）：$kx^{2}+2x+1<0$ 沒有實數解{{math:3}}",
+        "en": "“For any real number $x$” means the whole parabola must stay on one side of the $x$-axis, so two things always matter at once:\n(1) which way it opens (the coefficient $a$ of $x^{2}$);\n(2) whether it crosses the $x$-axis (the discriminant $\\Delta$).\n\nWrite the quadratic as $ax^{2}+bx+c$ with $a\\ne 0$. “True for all real $x$” gives four cases:\n{{math:0}}\n\n“No solution” (no real $x$ satisfies it) is read from the graph in the same way: the whole parabola must stay on one side of the $x$-axis — for example, $ax^{2}+bx+c<0$ having no solution means the curve never drops below the $x$-axis, so $a>0$ and $\\Delta\\le0$ (both missing the axis, $\\Delta<0$, and only touching it, $\\Delta=0$, qualify). The four cases:\n{{math:1}}\n\nThree key points:\n(1) $a>0$ (opening upwards) is what lets a quadratic stay positive, and $a<0$ (opening downwards) is what lets it stay negative — using $\\Delta$ alone and forgetting $a$ always gives a wrong answer.\n(2) With equality ($\\ge$, $\\le$) use $\\Delta\\le 0$; for a strict inequality ($>$, $<$) use $\\Delta<0$. When $\\Delta=0$ there is one value of $x$ that makes the expression zero, and a strict inequality rejects it (see the previous card).\n(3) If the coefficient of $x^{2}$ contains the unknown (for example $kx^{2}+\\cdots$), check $k=0$ separately: then it is not a quadratic at all.\n\nExample ($a\\ne 1$): $3x^{2}+4x+k>0$ for all real $x$ {{math:2}}\nExample (no solution): $kx^{2}+2x+1<0$ has no real solution {{math:3}}"
+      },
+      "math": [
+        "ax^{2}+bx+c>0\\ \\text{for all }x\\ \\Leftrightarrow\\ a>0\\ \\text{and}\\ \\Delta<0\nax^{2}+bx+c\\ge 0\\ \\text{for all }x\\ \\Leftrightarrow\\ a>0\\ \\text{and}\\ \\Delta\\le 0\nax^{2}+bx+c<0\\ \\text{for all }x\\ \\Leftrightarrow\\ a<0\\ \\text{and}\\ \\Delta<0\nax^{2}+bx+c\\le 0\\ \\text{for all }x\\ \\Leftrightarrow\\ a<0\\ \\text{and}\\ \\Delta\\le 0",
+        "ax^{2}+bx+c>0\\ \\text{has no solution}\\ \\Leftrightarrow\\ a<0\\ \\text{and}\\ \\Delta\\le 0\nax^{2}+bx+c\\ge 0\\ \\text{has no solution}\\ \\Leftrightarrow\\ a<0\\ \\text{and}\\ \\Delta<0\nax^{2}+bx+c<0\\ \\text{has no solution}\\ \\Leftrightarrow\\ a>0\\ \\text{and}\\ \\Delta\\le 0\nax^{2}+bx+c\\le 0\\ \\text{has no solution}\\ \\Leftrightarrow\\ a>0\\ \\text{and}\\ \\Delta<0",
+        "3x^{2}+4x+k>0\\ \\text{for all real }x\n\\Rightarrow a=3>0\\ \\text{and}\\ \\Delta=4^{2}-4(3)(k)=16-12k<0\n\\Rightarrow k>\\frac{4}{3}",
+        "kx^{2}+2x+1<0\\ \\text{has no solution}\n\\Rightarrow \\text{opens upwards, never below the }x\\text{-axis}\n\\Rightarrow k>0\\ \\text{and}\\ \\Delta=2^{2}-4(k)(1)=4-4k\\le 0\n\\Rightarrow k\\ge 1"
+      ],
+      "vocab": [
+        {
+          "en": "for all real numbers",
+          "zh": "對所有實數都成立"
+        },
+        {
+          "en": "leading coefficient",
+          "zh": "二次項係數（$x^2$ 的係數）"
+        },
+        {
+          "en": "no solution",
+          "zh": "無解"
+        }
+      ],
+      "warn": {
+        "zh": "三個常見錯誤：① 只寫 $\\Delta<0$ 而忘記 $x^2$ 的係數要正 —— $a=1$ 的題目剛好不用寫，但 $a=2$ 或 $a=k$ 的題目就會漏；② 嚴格與非嚴格不分（嚴格用 $\\Delta<0$、有等號用 $\\Delta\\le 0$），寫錯會多收或少收邊界值；③ $x^2$ 的係數含未知數時沒有檢查它等於 0 的情況 —— 例如 $kx^{2}+2kx+3>0$ 對所有實數 $x$ 都成立：$k=0$ 時變成 $3>0$，所以 $k=0$ 也成立。",
+        "en": "Three common mistakes: (1) writing only $\\Delta<0$ and forgetting that the coefficient of $x^{2}$ must be positive — questions with $a=1$ hide this hole, but $a=2$ or $a=k$ exposes it; (2) mixing up strict and non-strict inequalities (strict needs $\\Delta<0$, equality allows $\\Delta\\le 0$), which adds or drops boundary values; (3) when the coefficient of $x^{2}$ contains the unknown, not checking the case where it is zero — for example $kx^{2}+2kx+3>0$ for all real $x$ also holds when $k=0$, because the statement becomes $3>0$."
+      }
+    },
+    {
+      "id": "as04-c1",
+      "topic": "as04",
+      "title": {
+        "zh": "兩條基本原理：分類用加、分步用乘",
+        "en": "Two basic principles: add for cases, multiply for steps"
+      },
+      "body": {
+        "zh": "- 加法原理（分類）：把做法分成幾類，各類分別有 $a_1, a_2, \\ldots, a_k$ 種，而每一種做法只屬於其中一類，總數就是 {{math:0}}\n- 乘法原理（分步）：要依次完成 $k$ 個步驟，各步分別有 $n_1, n_2, \\ldots, n_k$ 種做法，總數就是 {{math:1}}\n- 例：餐廳午餐 ＝ 前菜 2 選 1、主菜 4 選 1、飲品 3 選 1。三樣都要揀（分步），所以是 {{math:2}}",
+        "en": "- Addition principle (cases): split the ways into classes holding $a_1, a_2, \\ldots, a_k$ ways, where every way belongs to exactly one class. The total is {{math:0}}\n- Multiplication principle (steps): to finish the task you carry out $k$ steps in turn, with $n_1, n_2, \\ldots, n_k$ ways at each step. The total is {{math:1}}\n- Example: a lunch set = 2 appetizers, 4 main dishes, 3 drinks. All three are chosen (steps), so the total number of lunch sets is{{math:2}}"
+      },
+      "math": [
+        "a_1 + a_2 + \\cdots + a_k",
+        "n_1 \\times n_2 \\times \\cdots \\times n_k",
+        "2 \\times 4 \\times 3 = 24"
+      ],
+      "warn": {
+        "zh": "- 「或者」＝分類，用加；「同時／然後」＝分步，用乘。一題可以兩者都用（先分類，類內再分步）。\n- 分步時每步的選項數目要重新數：上一步用掉一個選擇，下一步可能只剩 9 個。\n- 分類時各類不可重疊；有重疊就要先減去重複計算的部分。",
+        "en": "- \"Or\" means cases → add; \"and then\" means steps → multiply. One question can use both (split into cases, then multiply within each case).\n- At each step count the choices again: a choice used in the previous step may leave only 9 for the next.\n- The classes must not overlap; if they do, subtract the overlapping part first."
+      },
+      "vocab": [
+        {
+          "zh": "加法原理",
+          "en": "Addition principle"
+        },
+        {
+          "zh": "乘法原理",
+          "en": "Multiplication principle"
+        },
+        {
+          "zh": "分類",
+          "en": "Cases"
+        },
+        {
+          "zh": "分步",
+          "en": "Steps"
+        }
+      ]
+    },
+    {
+      "id": "as04-c2",
+      "topic": "as04",
+      "title": {
+        "zh": "排列法：綑綁法（處理「必須相鄰」）",
+        "en": "Permutation: Bundling method (objects must be adjacent)"
+      },
+      "body": {
+        "zh": "當題目要求某些指定物件「必須相鄰」或「連在一起」時，通常可用綑綁法。做法可分為兩步：\n- 第一步 · 把所有必須相鄰的物件視為一個整體，並與其他不受限制的物件一起進行排列；\n- 第二步 · 再計算該整體內部各物件的排列數。\n總排列數為兩部分之積：{{math:0}}\n示例：將 5 名學生 A、B、C、D、E 排成一行，並要求 A 與 B 必須相鄰。\n- 第一步 · 將 A 與 B 綑綁成一個大單位，連同其餘 3 人共有 4 個單位，故有 $4! = 24$ 種排法；\n- 第二步 · 大單位內 A 與 B 的排列數為 $2! = 2$ 種（AB 或 BA）。\n因此總數為 $4! \\times 2! = 24 \\times 2 = 48$。",
+        "en": "When a question states that certain objects must be adjacent or kept together, the bundling method is usually the clearest approach. There are two standard steps:\n- Step 1 · treat all required adjacent objects as one block and arrange this block together with the other unrestricted objects;\n- Step 2 · count the number of ways to arrange the objects inside the block.\nThe total number of arrangements is the product of the two parts: {{math:0}}\nExample: arrange 5 students A, B, C, D, E in a row so that A and B must be adjacent.\n- Step 1 · tie A and B into one block; together with the other 3 students there are 4 units, so the number of arrangements is $4! = 24$;\n- Step 2 · A and B can be arranged inside the block in $2! = 2$ ways (AB or BA).\nHence the total is $4! \\times 2! = 24 \\times 2 = 48$."
+      },
+      "math": [
+        "\\text{Total}\n= (\\text{arrangement of units})\n\\times (\\text{arrangement inside the block})"
+      ],
+      "warn": {
+        "zh": "- 常見錯誤：只寫外部的 $4!$，卻忘記乘上大單位內部的 $2!$，便會得到 24，少了一半。\n- 若題目已規定塊內次序（例如「A 必須緊接在 B 之前」），則塊內只有 1 種排列。因此同樣的 5 人例子，實際只會是 $4! = 24$，不能再乘 $2!$。",
+        "en": "- Common mistake: writing only the outside factor $4!$ but forgetting the internal arrangement $2!$ gives 24, which is exactly half the correct answer.\n- If the order inside the block is fixed in advance (for example, 'A must be immediately before B'), then the block has only 1 possible arrangement. In that case, the same five-student example becomes $4! = 24$; do not multiply by $2!$ again."
+      },
+      "vocab": [
+        {
+          "zh": "綑綁法",
+          "en": "Bundling method / Block method"
+        },
+        {
+          "zh": "相鄰",
+          "en": "Adjacent / next to each other"
+        },
+        {
+          "zh": "內部排列",
+          "en": "Internal arrangement"
+        }
+      ]
+    },
+    {
+      "id": "as04-c3",
+      "topic": "as04",
+      "title": {
+        "zh": "排列法：插空法（處理「互不相鄰」）",
+        "en": "Permutation: Slot-in method (objects must not be adjacent)"
+      },
+      "body": {
+        "zh": "當題目要求某些指定物件「不可相鄰」或「互不相鄰」時，通常使用插空法。步驟一般為三步：\n- 第一步 · 先把不受限制的其他物件排列好；\n- 第二步 · 計算這些物件左右兩端及中間所形成的空隙數目；\n- 第三步 · 把受限制的物件依次放進這些空隙中。\n總排列數為兩部分之積：{{math:0}}\n示例：將 4 名男生與 3 名女生排成一行，並要求 3 名女生不可相鄰。\n- 第一步 · 先排 4 名男生，有 $4! = 24$ 種；\n- 第二步 · 4 名男生前後及中間共形成 $4 + 1 = 5$ 個空隙；\n- 第三步 · 3 名相異女生從 5 個空隙中選 3 個放入，並考慮其順序，有 $P^5_3 = 5 \\times 4 \\times 3 = 60$ 種。\n因此總數為 $4! \\times P^5_3 = 24 \\times 60 = 1440$。",
+        "en": "When a question requires certain objects to be non-adjacent or separated from one another, the slot-in method is the standard technique. It usually follows three steps:\n- Step 1 · arrange the unrestricted objects first;\n- Step 2 · count the available spaces before, between and after them;\n- Step 3 · place the restricted objects into these spaces in order.\nThe total number of arrangements is the product of the two parts: {{math:0}}\nExample: arrange 4 boys and 3 girls in a row so that no two girls are adjacent.\n- Step 1 · arrange the 4 boys in $4! = 24$ ways;\n- Step 2 · the 4 boys create $4 + 1 = 5$ gaps;\n- Step 3 · place the 3 distinct girls into 3 of the 5 gaps in order, giving $P^5_3 = 5 \\times 4 \\times 3 = 60$ ways.\nHence the total is $4! \\times P^5_3 = 24 \\times 60 = 1440$."
+      },
+      "math": [
+        "\\text{Total}\n= (\\text{arrangement of unrestricted items})\n\\times P^{\\text{gaps}}_{\\text{restricted items}}"
+      ],
+      "warn": {
+        "zh": "- 數空隙時常見失誤：2 件物件會形成 3 個空隙（前、中、後），並非 1 個；一般而言，$k$ 件物件能形成 $k+1$ 個空隙。\n- 例如 2 名男生與 3 名女生排成一行，若 3 名女生互不相鄰，先排男生會形成 3 個空隙，3 名女生須各佔一個空隙，故正確數目是 $2! \\times P^3_3 = 12$。若錯用「全部排列減去 3 名女生全部相鄰」，便會算成 $5! - (3! \\times 3!) = 84$；但這只扣除了 3 名女生連成一組的情況，仍把「剛好 2 名女生相鄰」的排列算在內，所以 84 並非正確答案。\n- 因此，涉及 3 個或以上指定物件互不相鄰時，插空法尤其可靠；不要把「不可互相相鄰」的反面誤當成「全部相鄰」。\n- 這類題目最重要的是先排列不受限制的物件，再把受限制的物件放入空隙，較容易避免重複或遺漏。",
+        "en": "- A common error is to count the gaps incorrectly: 2 objects form 3 gaps (before, between and after), not 1. In general, $k$ objects create $k+1$ gaps.\n- For example, arrange 2 boys and 3 girls in a row, with no two girls adjacent. Arranging the boys first creates 3 gaps, and each girl must occupy a different gap, so the correct count is $2! \\times P^3_3 = 12$. The incorrect shortcut 'total arrangements minus the arrangements with all 3 girls together' gives $5! - (3! \\times 3!) = 84$. However, this subtracts only the cases where all 3 girls form one block; it still counts arrangements where exactly 2 girls are adjacent, so 84 is not the correct answer.\n- The slot-in method is especially reliable when 3 or more specified objects must be mutually non-adjacent. Do not mistake the opposite of 'not mutually adjacent' for 'all together'.\n- The key is to arrange the unrestricted objects first, then place the restricted objects into the gaps. This helps avoid double-counting or missing cases."
+      },
+      "vocab": [
+        {
+          "zh": "插空法",
+          "en": "Slot-in method / Gap method"
+        },
+        {
+          "zh": "互不相鄰",
+          "en": "Not adjacent to one another"
+        },
+        {
+          "zh": "空隙",
+          "en": "Gaps / spaces"
+        }
+      ]
+    },
+    {
+      "id": "as04-c4",
+      "topic": "as04",
+      "title": {
+        "zh": "組合：只選一組，不計次序",
+        "en": "Combinations: choose a group, ignore order"
+      },
+      "body": {
+        "zh": "若只關心選出哪些物件，不理會選取次序，便使用組合。從 $n$ 件相異物件中選 $r$ 件：\n- 第一步 · 依次排列所選的 $r$ 件物件，有 $P^n_r$ 種；\n- 第二步 · 同一組物件有 $r!$ 種內部次序，這些次序都代表同一組選擇，所以除以 $r!$。\n因此組合數為：{{math:0}}\n例如從 5 名學生中選 3 人組隊：同一個組合有 $3! = 6$ 種次序，所以用 $C^5_3 = \\frac{60}{3!} = 10$，而不是 $P^5_3 = 60$。",
+        "en": "Use a combination when only the selected objects matter and their selection order is irrelevant. To select $r$ objects from $n$ distinct objects:\n- Step 1 · Arrange the selected $r$ objects in order: $P^n_r$ ways;\n- Step 2 · Each group has $r!$ internal orders, all representing the same selection, so divide by $r!$.\nHence the number of combinations is: {{math:0}}\nFor example, choosing 3 students from 5 to form a team: the same selection has $3! = 6$ orders, so use $C^5_3 = \\frac{60}{3!} = 10$, not $P^5_3 = 60$."
+      },
+      "math": [
+        "C^n_r = \\frac{P^n_r}{r!} = \\frac{n!}{r!(n-r)!}"
+      ],
+      "warn": {
+        "zh": "- 組隊只選成員，用組合；若成員分任隊長與副隊長，職位不同，便須計次序。\n- 「至少一個」條件可考慮反面計數：例如至少一男一女，等於全部隊伍減去全男及全女隊伍。",
+        "en": "- Forming a team selects members, so use combinations; assigning different roles such as president and vice-president makes order matter.\n- For an 'at least one' condition, consider the complement. For example, at least one boy and one girl equals all teams minus all-boys and all-girls teams."
+      },
+      "vocab": [
+        {
+          "zh": "組合",
+          "en": "Combination"
+        },
+        {
+          "zh": "不計次序",
+          "en": "Order does not matter"
+        },
+        {
+          "zh": "相異物件",
+          "en": "Distinct objects"
+        }
+      ]
+    },
+    {
+      "id": "as04-c5",
+      "topic": "as04",
+      "title": {
+        "zh": "「至少／至多」：用反面計數",
+        "en": "At least / at most: count the complement"
+      },
+      "body": {
+        "zh": "題目出現「至少」或「至多」時，直接分類討論容易漏掉情況。先把「反面」（不符合條件的全部情況）寫出來，再用全部情況減去它，通常最快又最穩。\n- 第一步 · 數出沒有限制時的全部情況；\n- 第二步 · 數出「反面」的情況（通常是「全部來自某一類」這種極端情況）；\n- 第三步 · 相減。\n關係式為：{{math:0}}\n示例：6 男 7 女中選 5 人，要求至少 1 男 1 女。全部有 $C^{13}_5=1287$ 種；反面是全男（$C^6_5=6$）或全女（$C^7_5=21$），故答案為 $1287-6-21=1260$。",
+        "en": "When a question says \"at least\" or \"at most\", listing cases directly easily misses some. Write down the complement (the cases that fail the condition) and subtract it from all cases - usually faster and safer.\n- Step 1 · count all cases with no restriction;\n- Step 2 · count the complement (often the extreme case of everything coming from one group);\n- Step 3 · subtract.\nThe relation is: {{math:0}}\nExample: choose 5 from 6 boys and 7 girls with at least 1 boy and 1 girl. All cases: $C^{13}_5=1287$; the complement is all boys ($C^6_5=6$) or all girls ($C^7_5=21$), giving $1287-6-21=1260$."
+      },
+      "math": [
+        "\\text{At least one of each}\n= \\text{all cases}\n- \\text{all from one group}"
+      ],
+      "warn": {
+        "zh": "- 反面情況要寫齊：例如「至少一男一女」的反面是「全男」加「全女」兩種，不可只減一種。\n- 切勿用「先選一男一女、再選其餘」的做法：同一隊會被重複計算（有 $b$ 名男生、$5-b$ 名女生的隊伍會被數 $b(5-b)$ 次）。",
+        "en": "- List every complement case: the complement of \"at least one boy and one girl\" is \"all boys\" plus \"all girls\", not just one of them.\n- Never use the anchor-first trick (choose one boy and one girl first, then the rest): the same team is counted more than once (a team with $b$ boys and $5-b$ girls is counted $b(5-b)$ times)."
+      },
+      "vocab": [
+        {
+          "zh": "至少",
+          "en": "At least"
+        },
+        {
+          "zh": "至多",
+          "en": "At most"
+        },
+        {
+          "zh": "反面計數",
+          "en": "Counting the complement"
+        }
+      ]
+    },
+    {
+      "id": "as04-c6",
+      "topic": "as04",
+      "title": {
+        "zh": "分組問題：組別有沒有編號？",
+        "en": "Dividing into groups: are the groups labelled?"
+      },
+      "body": {
+        "zh": "把物件「分組」時，先問一句：各組有沒有編號（第一組、第二組）？\n- 有編號或有先後次序：第 1 組先選、第 2 組再選，如此類推，直接相乘即可；\n- 沒有編號：人數相同的組會互相重複計算 $k!$ 次（$k$ ＝ 人數相同的組數），所以要除以 $k!$。\n關係式為：{{math:0}}\n示例：6 人分成 2 組、每組 3 人。\n- 有組名（一隊去數學賽、一隊去科學賽）：$C^6_3 \\times C^3_3 = 20$ 種；\n- 無組名（分兩隊打街頭籃球）：兩個 3 人組對調係同一場球賽，所以 $\\frac{C^6_3 \\times C^3_3}{2!} = 10$ 種。\n再看一層：10 人分成 4、4、2 三組，不編號時只除 $2!$（只有兩個 4 人組對調會重複），不是除 $3!$，得 $\\frac{C^{10}_4 C^6_4 C^2_2}{2!} = 1575$ 種。",
+        "en": "When objects are divided into groups, ask first: are the groups labelled (group 1, group 2, ...)?\n- Labelled, or in a stated order: choose group 1 first, then group 2, and multiply the counts;\n- Not labelled: groups of the same size are counted $k!$ times ($k$ = number of groups of that size), so divide by $k!$.\nThe relation is: {{math:0}}\nExample: 6 people divided into 2 groups of 3.\n- Labelled (one team to a maths contest, one to a science contest): $C^6_3 \\times C^3_3 = 20$ ways;\n- Unlabelled (two teams for a street-ball game): swapping the two 3-person teams is the same match, so $\\frac{C^6_3 \\times C^3_3}{2!} = 10$ ways.\nOne level further: 10 people divided into groups of 4, 4 and 2 — with no labels only $2!$ is cancelled (only the two 4-person groups duplicate each other), not $3!$, giving $\\frac{C^{10}_4 C^6_4 C^2_2}{2!} = 1575$ ways."
+      },
+      "math": [
+        "\\text{Unlabelled groups}\n= \\frac{\\text{ordered selection}}{k!}"
+      ],
+      "warn": {
+        "zh": "- 「依次」「先後」會令組別有次序，此時不可再除以 $k!$。\n- 「分成兩隊」如沒有說明「第一隊、第二隊」，嚴格來說兩隊不編號；若題目把兩隊視為有別（例如比賽的 A 隊、B 隊），才直接相乘。\n- 除以 $k!$ 的 $k$ 只計「人數相同」的組：10 人分成 4、4、2 時，只有兩個 4 人組會互相重複，所以只除 $2!$，不是 $3!$。",
+        "en": "- Words such as \"in order\" or \"one by one\" already order the groups, so do not divide by $k!$.\n- Two teams with no names (\"team 1 / team 2\") are unlabelled in principle; multiply directly only when the question treats them as distinct (e.g. team A and team B).\n- The $k$ in $k!$ counts only groups of the same size: for 10 people split 4, 4, 2, only the two 4-person groups duplicate each other, so divide by $2!$, not $3!$."
+      },
+      "vocab": [
+        {
+          "zh": "分組",
+          "en": "Dividing into groups"
+        },
+        {
+          "zh": "編號",
+          "en": "Labelled"
+        },
+        {
+          "zh": "重複計算",
+          "en": "Overcounting"
+        }
+      ]
+    },
+    {
+      "id": "ws02-c1",
+      "topic": "ws02",
+      "title": {
+        "zh": "聯立方程：同一組數滿足兩條式",
+        "en": "Simultaneous equations: one pair, two conditions"
+      },
+      "goal": {
+        "zh": "學會替兩條方程編號 (1)、(2)，並知道答案是一組同時滿足兩式的數值。",
+        "en": "Number equations (1) and (2), and recognise a solution as one pair satisfying both."
+      },
+      "body": {
+        "zh": "解聯立方程，就是找出一組 $(x, y)$，令兩條方程同時成立。動手前先幫它們編號 $(1)$、$(2)$，後面說話才不會亂：{{math:0}}\n把 $x=3$、$y=2$ 代入兩條式，左右兩邊都剛好相等，所以這組數才是真正的解。{{math:1}}",
+        "en": "Solving simultaneous equations means finding one pair $(x, y)$ that makes both equations true at once. Number them $(1)$ and $(2)$ first so every step stays clear:{{math:0}}\nSubstituting $x=3$ and $y=2$ makes both equations balance, so this pair is the solution.{{math:1}}"
+      },
+      "math": [
+        "\\begin{cases} x+y=5 \\quad \\cdots (1) \\\\ x-y=1 \\quad \\cdots (2) \\end{cases}",
+        "\\hl{3}+\\hl{2}=5 \\quad (\\checkmark) \n\\hl{3}-\\hl{2}=1 \\quad (\\checkmark) \n\\therefore \\hlg{x=3,\\ y=2}"
+      ],
+      "warn": {
+        "zh": "只代回其中一條不夠：例如 $x=4,\\ y=1$ 滿足 $(1)$，卻令 $(2)$ 變成 $4-1=3\\neq 1$。另外，$x$ 與 $y$ 的次序不能隨意互換。",
+        "en": "Checking one equation is not enough: $x=4,\\ y=1$ satisfies $(1)$ but gives $4-1=3\\neq 1$ in $(2)$. Also never swap the values of $x$ and $y$."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "哪組數同時滿足 $x+y=5$ 及 $x-y=1$？",
+          "en": "Which pair satisfies both $x+y=5$ and $x-y=1$?"
+        },
+        "options": [
+          {
+            "math": "x=2,\\ y=3"
+          },
+          {
+            "math": "x=3,\\ y=2"
+          },
+          {
+            "math": "x=4,\\ y=1"
+          }
+        ],
+        "answer": 1,
+        "explanation": {
+          "zh": "$3+2=5$ 而且 $3-2=1$，兩條方程同時成立；$x=2, y=3$ 會令 $x-y=-1$。",
+          "en": "Both $3+2=5$ and $3-2=1$ hold; $x=2, y=3$ would give $x-y=-1$."
+        }
+      },
+      "vocab": [
+        {
+          "en": "simultaneous equations",
+          "zh": "聯立方程"
+        },
+        {
+          "en": "solution",
+          "zh": "同時滿足兩式的解"
+        }
+      ]
+    },
+    {
+      "id": "ws02-c2",
+      "topic": "ws02",
+      "title": {
+        "zh": "代入法：整塊打包取代字母",
+        "en": "Substitution: replace an unknown with a whole block"
+      },
+      "goal": {
+        "zh": "把兩個未知數變成一個，並緊記代入時套上括號。",
+        "en": "Reduce two unknowns to one, always wrapping the substituted block in brackets."
+      },
+      "body": {
+        "zh": "當其中一條方程已經把一個字母單獨放在等號一邊（例如 $y=3x$），就可以直接「整塊打包」代入另一條式：{{math:0}}\n把 $(2)$ 裡面的 $y$ 換成整個 $3x$（若前面有係數就一定加括號），式子立刻只剩一個未知數 $x$，一步步展開求解：{{math:1}}\n求出 $x=3$ 後，代回較短的 $(1)$ 算出 $y$，最後兩個未知數一併寫清楚。{{math:2}}",
+        "en": "When one unknown already stands alone on one side (such as $y=3x$), pack its expression as one block and substitute it into the other equation:{{math:0}}\nReplace $y$ in $(2)$ with the whole block $3x$ (keeping brackets if there is a coefficient), then solve step by step:{{math:1}}\nPut $x=3$ back into the shorter equation $(1)$ to find $y$, and state both answers clearly.{{math:2}}"
+      },
+      "math": [
+        "y=\\hl{3x} \\quad \\cdots (1)\nx+2y=21 \\quad \\cdots (2)",
+        "x+2(\\hl{3x})=21\nx+6x=21\n7x=21\n\\hlg{x=3}",
+        "y=3(\\hl{3})=\\hlg{9}"
+      ],
+      "warn": {
+        "zh": "代入時一定要保留原來的係數並套括號：$2y$ 代入 $y=3x$ 後是 $2(3x)=6x$，不要漏乘前面的 $2$。",
+        "en": "Keep the coefficient and use brackets: substituting $y=3x$ into $2y$ gives $2(3x)=6x$; never drop the $2$."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "已知 $y=4x$，$x+2y$ 代入後是哪個式子？",
+          "en": "If $y=4x$, what does $x+2y$ become?"
+        },
+        "options": [
+          {
+            "math": "x+4x"
+          },
+          {
+            "math": "x+2(4x)"
+          },
+          {
+            "math": "4x+2x"
+          }
+        ],
+        "answer": 1,
+        "explanation": {
+          "zh": "$2y=2(4x)$，所以整個式子變成 $x+2(4x)=x+8x=9x$。",
+          "en": "Since $2y=2(4x)$, the expression becomes $x+2(4x)=x+8x=9x$."
+        }
+      },
+      "vocab": [
+        {
+          "en": "substitution",
+          "zh": "代入法"
+        },
+        {
+          "en": "replace",
+          "zh": "整塊取代"
+        }
+      ]
+    },
+    {
+      "id": "ws02-c3",
+      "topic": "ws02",
+      "title": {
+        "zh": "先轉換主項，再套括號代入",
+        "en": "Make one unknown the subject, then substitute with brackets"
+      },
+      "goal": {
+        "zh": "專挑係數為 1 或 -1 的未知數轉換主項，展開時每項都乘清楚。",
+        "en": "Pick an unknown with coefficient 1 or -1 to isolate, and expand every term inside brackets."
+      },
+      "body": {
+        "zh": "如果兩條式都沒有獨立的字母，先掃一眼找係數是 $1$ 或 $-1$ 的那一項，移項變號做成主項，避免出現分數：{{math:0}}\n把整個 $y+1$ 套上括號代入另一條方程，展開時外面那個 $2$ 要乘進括號內的每一項（不要漏乘 $+1$）：{{math:1}}\n求出 $y=2$ 後，代回剛剛做好的 $(3)$，馬上得出 $x$。{{math:2}}",
+        "en": "If no unknown is isolated yet, look for a coefficient of $1$ or $-1$ and transpose it cleanly so you avoid fractions:{{math:0}}\nWrap the whole block $y+1$ in brackets when substituting, and multiply every term inside by $2$:{{math:1}}\nSubstitute $y=2$ back into $(3)$ to get $x$ directly.{{math:2}}"
+      },
+      "math": [
+        "x-y=1 \\quad \\cdots (1)\nx=\\hl{y+1} \\quad \\cdots (3)",
+        "2(\\hl{y+1})+3y=12\n\\hlw{2y+2}+3y=12\n5y=10\n\\hlg{y=2}",
+        "x=\\hl{2}+1=\\hlg{3}"
+      ],
+      "warn": {
+        "zh": "把 $x$ 換成 $y+1$ 時，$2x$ 必須寫成 $2(y+1)=2y+2$，切勿漏括號寫成 $2y+1$；前面若是減號（例如 $-3(y-2)$），拆括號時每項都要變號。",
+        "en": "When $x=y+1$, $2x$ becomes $2(y+1)=2y+2$, never $2y+1$. If there is a minus sign outside, flip every sign inside when expanding."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "由 $x-y=1$，哪個以 $x$ 為主項的式子正確？",
+          "en": "Which expression for $x$ follows from $x-y=1$?"
+        },
+        "options": [
+          {
+            "math": "x=1-y"
+          },
+          {
+            "math": "x=y-1"
+          },
+          {
+            "math": "x=y+1"
+          }
+        ],
+        "answer": 2,
+        "explanation": {
+          "zh": "把 $-y$ 移去右邊要變號成 $+y$，得 $x=1+y=y+1$。",
+          "en": "Moving $-y$ to the right flips its sign to $+y$, giving $x=1+y=y+1$."
+        }
+      },
+      "vocab": [
+        {
+          "en": "subject",
+          "zh": "主項：單獨留在等號一邊的字母"
+        },
+        {
+          "en": "brackets",
+          "zh": "括號（保護整塊式子）"
+        }
+      ]
+    },
+    {
+      "id": "ws02-c4",
+      "topic": "ws02",
+      "title": {
+        "zh": "消元法：係數對齊，同號相減、異號相加",
+        "en": "Elimination: match coefficients, then add or subtract"
+      },
+      "goal": {
+        "zh": "用直式對齊看清哪一欄會抵消，整式放大與相減時不漏右邊常數。",
+        "en": "Align like terms vertically to see which unknown cancels, scaling or subtracting every term."
+      },
+      "body": {
+        "zh": "先把兩條方程的 $x$ 項、$y$ 項與常數對齊。看見同一字母的係數大小相同時，記住口訣：異號相加、同號相減。例如 $y$ 的係數是 $-1$ 與 $+1$（異號），兩式相加就會直接抵消：{{math:0}}\n相加後只剩一元一次方程，解出 $x$ 再代回原式求 $y$：{{math:1}}\n如果係數本來不相等，先選最小公倍數把整條方程同乘一數——左邊每一項和等號右邊都要一起乘：{{math:2}}",
+        "en": "Line up the $x$-terms, $y$-terms and constants first. Once one unknown has matching magnitudes, remember: opposite signs add, same signs subtract. Here the $y$-coefficients are $-1$ and $+1$ (opposite signs), so adding cancels $y$:{{math:0}}\nSolve the one-unknown equation for $x$, then substitute back to find $y$:{{math:1}}\nWhen coefficients do not match yet, multiply an entire equation—every term on both sides—to align them:{{math:2}}"
+      },
+      "math": [
+        "3x-\\xc{y}=-6 \\quad \\cdots (1)\n2x+\\xc{y}=1 \\quad \\cdots (2)",
+        "5x=-5\n\\hlg{x=-1},\\quad \\hlg{y=3}",
+        "(3x-y=-6) \\times \\hlw{2}\n\\Rightarrow 6x-2y=\\hlw{-12}"
+      ],
+      "align": {
+        "caption": {
+          "zh": "直式對齊示範：異號相加，直接消去 $y$",
+          "en": "Vertical alignment: opposite signs add to eliminate $y$"
+        },
+        "rows": [
+          {
+            "tag": "(1)",
+            "cols": [
+              "3x",
+              "-\\xc{y}",
+              "=",
+              "-6"
+            ]
+          },
+          {
+            "op": "+",
+            "tag": "(2)",
+            "cols": [
+              "2x",
+              "+\\xc{y}",
+              "=",
+              "1"
+            ]
+          }
+        ],
+        "result": {
+          "tag": "",
+          "cols": [
+            "\\hlg{5x}",
+            "",
+            "=",
+            "\\hlg{-5}"
+          ]
+        }
+      },
+      "warn": {
+        "zh": "同號相減時，減號作用於整條方程，特別留意減去負數要變加（例如 $-(-5)=+5$）；整式同乘時，等號右邊的常數最常被漏乘。",
+        "en": "When subtracting equations, apply the minus sign to every term (watch $-(-5)=+5$). When scaling an equation, never forget to multiply the constant on the right."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "$(2x-y)-(x-y)$ 等於甚麼？",
+          "en": "What is $(2x-y)-(x-y)$?"
+        },
+        "options": [
+          {
+            "math": "x-2y"
+          },
+          {
+            "math": "x"
+          },
+          {
+            "math": "3x"
+          }
+        ],
+        "answer": 1,
+        "explanation": {
+          "zh": "先拆括號變號：$2x-y-x+y=x$，兩個 $y$ 項剛好抵消。",
+          "en": "Flip signs when opening the second bracket: $2x-y-x+y=x$. The $y$ terms cancel."
+        }
+      },
+      "vocab": [
+        {
+          "en": "elimination",
+          "zh": "消元法"
+        },
+        {
+          "en": "coefficient",
+          "zh": "係數"
+        }
+      ]
+    },
+    {
+      "id": "ws02-c5",
+      "topic": "ws02",
+      "title": {
+        "zh": "應用題：先分清數量與單價",
+        "en": "Word problems: distinguish quantity from unit price"
+      },
+      "goal": {
+        "zh": "逐句把英文購物／計分條件翻譯成兩條方程，解完再對回問題最後一句。",
+        "en": "Translate each English pricing or scoring clue into an equation, then match the final question."
+      },
+      "body": {
+        "zh": "讀應用題分三步：① 設 $x$、$y$ 並寫明單位（究竟代表「單價」還是「數量」）；② 把兩句條件各自翻譯成一條方程；③ 解完後重讀最後一句，看題目問 $x$、$y$、總和還是差。\n例如設 $x$ 元為梨的單價、$y$ 元為芒果的單價，第一組購買條件給出 $(1)$：{{math:0}}\n第二組購買條件給出 $(2)$，兩條聯立即可求解：{{math:1}}",
+        "en": "Tackle word problems in three steps: (1) define $x$ and $y$ with units (price or quantity?); (2) translate each sentence into one equation; (3) re-read the final question to see whether it asks for $x$, $y$, a total or a difference.\nLet \\$x and \\$y be the prices of a pear and a mango. The first purchase gives $(1)$:{{math:0}}\nThe second purchase gives $(2)$, forming a pair you can solve:{{math:1}}"
+      },
+      "math": [
+        "2\\hl{x}+3\\hl{y}=33 \\quad \\cdots (1)",
+        "4\\hl{x}+7\\hl{y}=73 \\quad \\cdots (2)"
+      ],
+      "translate": {
+        "caption": {
+          "zh": "逐句翻譯示範：單價 × 數量 ＝ 總價",
+          "en": "Sentence-to-equation map: unit price × quantity = total cost"
+        },
+        "rows": [
+          {
+            "clue": {
+              "en": "Price of 2 pears and 3 mangoes is \\$33",
+              "zh": "2 個梨與 3 個芒果共 33 元"
+            },
+            "math": "2x+3y=33"
+          },
+          {
+            "clue": {
+              "en": "Price of 4 pears and 7 mangoes is \\$73",
+              "zh": "4 個梨與 7 個芒果共 73 元"
+            },
+            "math": "4x+7y=73"
+          },
+          {
+            "clue": {
+              "en": "Price of 3 highlighters = price of 4 pens",
+              "zh": "3 枝螢光筆與 4 枝原子筆同價"
+            },
+            "math": "3x=4y"
+          }
+        ]
+      },
+      "warn": {
+        "zh": "「兩個梨」不代表 $x=2$。若 $x$ 是每個梨的單價，兩個梨的總價是 $2x$；相反，若題目已給單價 $3$ 元而未知數量，則總價才是 $3x$。",
+        "en": "“Two pears” does not mean $x=2$. If $x$ is the unit price, two pears cost $2x$. If the unit price is given as \\$3 and $x$ is the quantity, the cost is $3x$."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "每枝筆 $x$ 元、每本簿 $y$ 元。三枝筆與五本簿共售 $40$ 元，應列哪條？",
+          "en": "Pens cost $x$ dollars and notebooks $y$ dollars each. Three pens and five notebooks cost 40 dollars. Which equation represents this?"
+        },
+        "options": [
+          {
+            "math": "3x+5y=40"
+          },
+          {
+            "math": "5x+3y=40"
+          },
+          {
+            "math": "x+y=40"
+          }
+        ],
+        "answer": 0,
+        "explanation": {
+          "zh": "每類物品的數量乘單價，再相加：$3x+5y=40$。",
+          "en": "Multiply each quantity by its unit price, then add: $3x+5y=40$."
+        }
+      },
+      "vocab": [
+        {
+          "en": "unit price",
+          "zh": "單價"
+        },
+        {
+          "en": "total cost",
+          "zh": "總價"
+        }
+      ]
+    },
+    {
+      "id": "ws02-c6",
+      "topic": "ws02",
+      "title": {
+        "zh": "轉移物品：一邊減，另一邊加",
+        "en": "Transfers: subtract from one person, add to the other"
+      },
+      "goal": {
+        "zh": "分清「原有數量」與「變動後數量」，轉移時必有一減一加。",
+        "en": "Separate original amounts from updated amounts; a transfer subtracts from one and adds to the other."
+      },
+      "body": {
+        "zh": "凡是出現「原本…後來給了／離開了…」的題目，一律設 $x$、$y$ 為改變前（原有）的數量。\n「Alan 是 Benny 的 $3$ 倍」描述原來的情況：{{math:0}}\nAlan 給 Benny $12$ 枚後，Alan 少了 $12$ 枚、同時 Benny 多了 $12$ 枚，兩者相等：{{math:1}}\n留意：物品只在二人之間轉移，總數 $(x-12)+(y+12)$ 仍然等於 $x+y$。{{math:2}}",
+        "en": "Whenever a problem compares before and after, always define $x$ and $y$ as the original quantities.\n“Alan has three times as many as Benny” describes the original state:{{math:0}}\nAfter Alan gives Benny $12$ stamps, Alan loses $12$ while Benny gains $12$, making them equal:{{math:1}}\nNotice that transferring between two people keeps the total unchanged:{{math:2}}"
+      },
+      "math": [
+        "x=3y \\quad \\cdots (1)",
+        "x\\hlw{-12}=y\\hlw{+12} \\quad \\cdots (2)",
+        "(x-12)+(y+12)=x+y"
+      ],
+      "translate": {
+        "caption": {
+          "zh": "變動情境對照：看清誰減少、誰增加",
+          "en": "Change-of-quantity map: track who loses and who gains"
+        },
+        "rows": [
+          {
+            "clue": {
+              "en": "Alan gives 12 stamps to Benny → same",
+              "zh": "Alan 給 Benny 12 枚後相同（兩人互相轉移）"
+            },
+            "math": "x\\hlw{-12}=y\\hlw{+12}"
+          },
+          {
+            "clue": {
+              "en": "Amy buys 12 new books → same",
+              "zh": "Amy 從書店新買 12 本後相同（只加 Amy 一方）"
+            },
+            "math": "x\\hlw{+12}=y"
+          },
+          {
+            "clue": {
+              "en": "10 boys and 2 girls leave → same",
+              "zh": "10 名男生與 2 名女生離開後相同（各自減去）"
+            },
+            "math": "x-10=y-2"
+          }
+        ]
+      },
+      "warn": {
+        "zh": "二人轉移物品時，接收的一方一定會加（漏寫 $+12$ 會令答案差一半）；若只是從外買入或離開課室，則只有相關一方增減。",
+        "en": "In a transfer between two people, the receiver gains the items (forgetting $+12$ halves the difference). Buying from outside or leaving a room only changes the person involved."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "甲有 $x$ 枚、乙有 $y$ 枚；甲給乙 $5$ 枚後數量相同。哪條正確？",
+          "en": "A has $x$ items and B has $y$. A gives B $5$ items and their numbers become equal. Which equation is correct?"
+        },
+        "options": [
+          {
+            "math": "x-5=y-5"
+          },
+          {
+            "math": "x+5=y-5"
+          },
+          {
+            "math": "x-5=y+5"
+          }
+        ],
+        "answer": 2,
+        "explanation": {
+          "zh": "甲失去 $5$ 枚變成 $x-5$，乙得到 $5$ 枚變成 $y+5$，所以是 $x-5=y+5$。",
+          "en": "A loses $5$ to become $x-5$ and B gains $5$ to become $y+5$, so $x-5=y+5$."
+        }
+      },
+      "vocab": [
+        {
+          "en": "original",
+          "zh": "改變前的數量"
+        },
+        {
+          "en": "transfer",
+          "zh": "轉移物品"
+        }
+      ]
+    },
+    {
+      "id": "ws02-c7",
+      "topic": "ws02",
+      "title": {
+        "zh": "百分比與比：先找比較基準",
+        "en": "Percentages and ratios: identify the reference"
+      },
+      "goal": {
+        "zh": "認出「than / 比」後面那個量就是基準，把百分數與比準確寫成方程。",
+        "en": "Spot the reference quantity after “than”, and turn percentages or ratios into clean equations."
+      },
+      "body": {
+        "zh": "英文寫「$x$ is $20\\%$ more than $y$」時，緊跟在 than 後面的 $y$ 就是基準 $100\\%$，所以 $x$ 等於 $y$ 的 $(1+20\\%)=1.2$ 倍：{{math:0}}\n若是「$25\\%$ fewer / less than $y$」，則是留下 $(1-25\\%)=0.75$ 倍：{{math:1}}\n遇到比 $x:y=8:7$，交叉相乘立即得到沒有分數的整數方程：{{math:2}}",
+        "en": "In “$x$ is $20\\%$ more than $y$”, the quantity right after “than” ($y$) is the $100\\%$ reference, so $x$ is $(1+20\\%)=1.2$ times $y$:{{math:0}}\nFor “$25\\%$ fewer/less than $y$”, keep $(1-25\\%)=0.75$ of $y$:{{math:1}}\nFor a ratio $x:y=8:7$, cross-multiplying turns it into a clean integer equation:{{math:2}}"
+      },
+      "math": [
+        "x=(1+20\\%)y=\\hl{1.2y}",
+        "x=(1-25\\%)y=\\hl{0.75y}",
+        "\\frac{x}{y}=\\frac{8}{7} \\Rightarrow \\hl{7x=8y}"
+      ],
+      "translate": {
+        "caption": {
+          "zh": "百分比與比常用句式速查",
+          "en": "Quick translation guide for percentages and ratios"
+        },
+        "rows": [
+          {
+            "clue": {
+              "en": "x is 80% more than y",
+              "zh": "x 比 y 多 80%（以 y 為基準）"
+            },
+            "math": "x=\\hl{1.8y}"
+          },
+          {
+            "clue": {
+              "en": "x is 25% less than y",
+              "zh": "x 比 y 少 25%（以 y 為基準）"
+            },
+            "math": "x=\\hl{0.75y}"
+          },
+          {
+            "clue": {
+              "en": "ratio of x to y is 8 : 7",
+              "zh": "x 與 y 之比是 8 : 7（內項積＝外項積）"
+            },
+            "math": "7x=8y"
+          }
+        ]
+      },
+      "warn": {
+        "zh": "不要把「多 $80\\%$」寫成 $0.8y$（漏了原有的 $100\\%$）或 $y+80$（把百分數當成實數）。另外，$x$ 比 $y$ 多 $20\\%$，不等於 $y$ 比 $x$ 少 $20\\%$。",
+        "en": "Never write “$80\\%$ more” as $0.8y$ (missing the original $100\\%$) or $y+80$. Also “$x$ is $20\\%$ more than $y$” does not mean “$y$ is $20\\%$ less than $x$”."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "若 $x$ 比 $y$ 多 $80\\%$，$x$ 等於多少？",
+          "en": "If $x$ is $80\\%$ more than $y$, what is $x$?"
+        },
+        "options": [
+          {
+            "math": "0.8y"
+          },
+          {
+            "math": "1.8y"
+          },
+          {
+            "math": "y+80"
+          }
+        ],
+        "answer": 1,
+        "explanation": {
+          "zh": "$x=y+0.8y=1.8y$，原有的 $100\\%$ 不能漏去。",
+          "en": "$x=y+0.8y=1.8y$. Include the original $100\\%$."
+        }
+      },
+      "vocab": [
+        {
+          "en": "more than",
+          "zh": "比基準多（乘 $1+r\\%$）"
+        },
+        {
+          "en": "ratio",
+          "zh": "比"
+        }
+      ]
+    },
+    {
+      "id": "ws02-c8",
+      "topic": "ws02",
+      "title": {
+        "zh": "路程題：統一時間單位再列式",
+        "en": "Distance problems: use consistent time units"
+      },
+      "goal": {
+        "zh": "先把分鐘與小時統一，再用「總時間」與「總路程」列出兩條方程。",
+        "en": "Unify minutes and hours first, then write one time equation and one distance equation."
+      },
+      "body": {
+        "zh": "DSE 路程題最常見的陷阱是速率用 $\\text{km/h}$，時間卻給分鐘！只要先統一單位，公式就只剩一條：路程＝速率 × 時間。\n若設 $x$、$y$ 為兩段所用的分鐘，就把每段時速除以 $60$ 換成分鐘速率（或把分鐘寫成 $\\frac{x}{60}$ 小時）：{{math:0}}\n接著用「總時間」列 $(1)$、用「總路程」列 $(2)$，再消去小數／分母求解：{{math:1}}",
+        "en": "The classic trap in journey problems is mixing $\\text{km/h}$ with minutes. Once units match, you only need one formula: distance = speed × time.\nIf $x$ and $y$ are the minutes for the two legs, divide each hourly speed by $60$ (or write time as $\\frac{x}{60}$ hours):{{math:0}}\nThen form $(1)$ from total time and $(2)$ from total distance, and clear decimals/fractions to solve:{{math:1}}"
+      },
+      "math": [
+        "\\frac{66}{\\hlw{60}}=1.1,\\quad \\frac{84}{\\hlw{60}}=1.4",
+        "x+y=85 \\quad \\cdots (1)\n1.1x+1.4y=104 \\quad \\cdots (2)"
+      ],
+      "translate": {
+        "caption": {
+          "zh": "路程題兩條固定方程：時間 ＋ 路程",
+          "en": "The two standard journey equations: time + distance"
+        },
+        "rows": [
+          {
+            "clue": {
+              "en": "Total time is 85 minutes",
+              "zh": "全程共花 85 分鐘"
+            },
+            "math": "x+y=85"
+          },
+          {
+            "clue": {
+              "en": "66 km/h for x min + 84 km/h for y min = 104 km",
+              "zh": "兩段路程相加等於 104 公里（先除以 60 轉小時）"
+            },
+            "math": "66\\cdot\\frac{x}{\\hlw{60}}+84\\cdot\\frac{y}{\\hlw{60}}=104"
+          }
+        ]
+      },
+      "warn": {
+        "zh": "千萬不要直接用「$66x+84y=104$」把每小時速率乘以分鐘！一定要先除以 $60$ 統一單位；解出答案後再核對題目問的是哪一段。",
+        "en": "Never write $66x+84y=104$ by multiplying km/h directly by minutes. Always divide by $60$ first, and check which leg the final question asks for."
+      },
+      "recall": {
+        "prompt": {
+          "zh": "平均時速 $60$ 公里，行駛 $30$ 分鐘，共走多少公里？",
+          "en": "At $60$ kilometres per hour, how far is travelled in $30$ minutes?"
+        },
+        "options": [
+          {
+            "math": "1800"
+          },
+          {
+            "math": "30"
+          },
+          {
+            "math": "2"
+          }
+        ],
+        "answer": 1,
+        "explanation": {
+          "zh": "先把 $30$ 分鐘換成 $\\frac{30}{60}=0.5$ 小時，路程 $=60\\times 0.5=30$ 公里。",
+          "en": "Convert $30$ minutes to $\\frac{30}{60}=0.5$ hours, so distance $=60\\times 0.5=30$ km."
+        }
+      },
+      "vocab": [
+        {
+          "en": "average speed",
+          "zh": "平均速率"
+        },
+        {
+          "en": "distance",
+          "zh": "路程（速率 × 時間）"
+        }
+      ]
     }
-   ],
-   "warn": {
-    "zh": "提出負公因式可以令括號較易處理，但不是唯一做法。例：$-r^{3}-r^{2}s=-r^{2}(r+s)$。每一項都必須除以同一個公因式。",
-    "en": "A negative common factor can make the bracket easier to handle, but is not compulsory. For example, $-r^{3}-r^{2}s=-r^{2}(r+s)$. Divide every term by the same factor."
-   },
-   "goal": {
-    "zh": "找出各項共同的數字與字母。",
-    "en": "Find the numbers and letters shared by all terms."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "先不看例子：$12x+18$ 的係數，最大公因數是多少？",
-     "en": "Without looking back: what is the highest common factor of the coefficients in $12x+18$?"
-    },
-    "options": [
-     {
-      "math": "6"
-     },
-     {
-      "math": "3"
-     },
-     {
-      "math": "12"
-     }
-    ],
-    "answer": 0,
-    "explanation": {
-     "zh": "答案是 $6$，因為 $12=6\\times2$、$18=6\\times3$。$3$ 亦能同時整除 $12$ 與 $18$，但不是最大的。",
-     "en": "The answer is $6$: $12=6\\times2$ and $18=6\\times3$. Although $3$ is a common factor, it is not the highest."
-    }
-   }
-  },
-  {
-   "id": "ws01-c2",
-   "topic": "ws01",
-   "title": {
-    "zh": "併項分組：找相同的括號",
-    "en": "Grouping: find a shared bracket"
-   },
-   "body": {
-    "zh": "四項式可以先嘗試分成兩組；目標是讓每組提出公因式後，留下相同的括號。\n例：先把 $hk+1+h+k$ 調位，再分組。{{math:0}}\n第二組其實是 $1(k+1)$，所以提出 $(k+1)$ 後，仍要留下 $+1$。\n兩組相差負號時，可先提出 $-1$。{{math:1}}",
-    "en": "For four terms, try two pairs. Aim to leave the same bracket after taking out a common factor from each pair.\nFirst rearrange $hk+1+h+k$, then group.{{math:0}}\nThe second group is $1(k+1)$, so taking out $(k+1)$ still leaves $+1$.\nIf the brackets have opposite signs, take out $-1$ first.{{math:1}}"
-   },
-   "math": [
-    "hk+1+h+k=hk+h+k+1\n=h\\hl{(k+1)}+1\\hl{(k+1)}\n=\\hl{(k+1)}(h+1)",
-    "ab-ac-b+c=a\\hl{(b-c)}-\\hl{(b-c)}\n=\\hl{(b-c)}(a-1)"
-   ],
-   "vocab": [
-    {
-     "en": "grouping",
-     "zh": "併項分組"
-    },
-    {
-     "en": "term",
-     "zh": "項"
-    }
-   ],
-   "warn": {
-    "zh": "$a+h=h+a$，加法調位不改變值；但 $a-h=-(h-a)$，減法調位要處理負號。",
-    "en": "Addition can be reordered: $a+h=h+a$. Subtraction needs a sign change: $a-h=-(h-a)$."
-   },
-   "goal": {
-    "zh": "先分組，再把相同括號視作一個因式。",
-    "en": "Group terms, then treat the shared bracket as one factor."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "提出共同括號後，$x(y+1)+(y+1)$ 變成甚麼？",
-     "en": "What does $x(y+1)+(y+1)$ become after taking out the shared bracket?"
-    },
-    "options": [
-     {
-      "math": "x(y+1)"
-     },
-     {
-      "math": "(y+1)(x+1)"
-     },
-     {
-      "math": "(y+1)(x+y)"
-     }
-    ],
-    "answer": 1,
-    "explanation": {
-     "zh": "第二項是 $1(y+1)$，所以提出 $(y+1)$ 後留下 $x+1$。",
-     "en": "The second term is $1(y+1)$, so taking out $(y+1)$ leaves $x+1$."
-    }
-   }
-  },
-  {
-   "id": "ws01-c3",
-   "topic": "ws01",
-   "title": {
-    "zh": "恆等式：先辨認形狀",
-    "en": "Identities: recognise the pattern"
-   },
-   "body": {
-    "zh": "兩項相減，而且每項都可寫成平方：用平方差。{{math:0}}\n三項相加：首尾是平方，中間項必須是 $2uv$，才是完全平方。{{math:1}}\n中間項是 $-2uv$ 時，括號內用減號。{{math:2}}\n先辨認整個形狀，再把題目的數或式子放入 $u$、$v$。",
-    "en": "Two subtracted terms that are both squares: use the difference of two squares.{{math:0}}\nFor three terms, square terms at both ends are not enough: the middle term must be $2uv$.{{math:1}}\nWhen the middle term is $-2uv$, use a minus in the bracket.{{math:2}}\nRecognise the whole pattern, then substitute the given numbers or expressions for $u$ and $v$."
-   },
-   "math": [
-    "u^{2}-v^{2}=\\hlg{(u+v)(u-v)}",
-    "u^{2}+\\hlw{2uv}+v^{2}=\\hlg{(u+v)^{2}}",
-    "u^{2}\\hlw{-2uv}+v^{2}=\\hlg{(u-v)^{2}}"
-   ],
-   "vocab": [
-    {
-     "en": "identity",
-     "zh": "恆等式"
-    },
-    {
-     "en": "difference of two squares",
-     "zh": "平方差"
-    },
-    {
-     "en": "perfect square",
-     "zh": "完全平方"
-    }
-   ],
-   "warn": {
-    "zh": "$u^{2}+v^{2}$ 不能套用平方差；在本課的實係數範圍，一般不能分成兩個一次因式。完全平方則要核對中間項，不能只看首尾。",
-    "en": "$u^{2}+v^{2}$ is not a difference of squares; over the real coefficients used here, it does not generally split into linear factors. For a perfect square, always check the middle term."
-   },
-   "goal": {
-    "zh": "分清平方差與完全平方。",
-    "en": "Distinguish a difference of squares from a perfect square."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "$9x^{2}-16$ 符合哪一個分解？",
-     "en": "Which factorisation matches $9x^{2}-16$?"
-    },
-    "options": [
-     {
-      "math": "(3x-4)^{2}"
-     },
-     {
-      "math": "(9x-4)(x+4)"
-     },
-     {
-      "math": "(3x+4)(3x-4)"
-     }
-    ],
-    "answer": 2,
-    "explanation": {
-     "zh": "$9x^{2}=(3x)^{2}$、$16=4^{2}$，所以用 $(u+v)(u-v)$。",
-     "en": "Since $9x^{2}=(3x)^{2}$ and $16=4^{2}$, use $(u+v)(u-v)$."
-    }
-   }
-  },
-  {
-   "id": "ws01-c4",
-   "topic": "ws01",
-   "title": {
-    "zh": "十字相乘：核對中間項",
-    "en": "Cross-method: check the middle term"
-   },
-   "body": {
-    "zh": "對二次三項式，先找兩個一次因式的候選。首項乘積與末項乘積都要對。\n係數是 $1$ 的例子：$(-2)(-3)=6$，而 $(-2)+(-3)=-5$。{{math:0}}\n係數不是 $1$ 時，要交叉相乘再相加。本例 $3x-10x=-7x$。{{math:1}}\n首尾對、中間也對，才可以寫成這兩個因式。",
-    "en": "For a quadratic trinomial, choose two candidate linear factors. Their leading and constant products must match.\nWith leading coefficient $1$, $(-2)(-3)=6$ and $(-2)+(-3)=-5$.{{math:0}}\nWith a different leading coefficient, add the cross products. Here $3x-10x=-7x$.{{math:1}}\nAccept the factor pair only when both ends and the middle term match."
-   },
-   "math": [
-    "x^{2}-5x+6=\\hlg{(x-2)(x-3)}",
-    "6x^{2}-7x-5=\\hlg{(2x+1)(3x-5)}"
-   ],
-   "vocab": [
-    {
-     "en": "cross-method",
-     "zh": "十字相乘法"
-    },
-    {
-     "en": "trinomial",
-     "zh": "三項式"
-    },
-    {
-     "en": "coefficient",
-     "zh": "係數"
-    },
-    {
-     "en": "constant term",
-     "zh": "常數項"
-    }
-   ],
-   "warn": {
-    "zh": "當首項係數為正：末項係數為負，兩個常數項異號；末項係數為正，兩個常數項同號。中間項再決定具體配對。",
-    "en": "With a positive leading coefficient, a negative constant term requires constants of opposite signs; a positive constant term requires matching signs. Then check the middle term to choose the pairing."
-   },
-   "goal": {
-    "zh": "首尾配對後，用交叉積的和驗證。",
-    "en": "After matching the ends, verify the sum of the cross products."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "哪組因式的交叉積相加是 $+5x$？",
-     "en": "Which pair has cross products that add to $+5x$?"
-    },
-    "options": [
-     {
-      "math": "(2x+1)(x-3)"
-     },
-     {
-      "math": "(2x-1)(x+3)"
-     },
-     {
-      "math": "(2x-3)(x+1)"
-     }
-    ],
-    "answer": 1,
-    "explanation": {
-     "zh": "$(2x)(3)+(-1)(x)=6x-x=5x$，末項亦是 $-3$。",
-     "en": "$(2x)(3)+(-1)(x)=6x-x=5x$, and the constant product is $-3$."
-    }
-   },
-   "crossExample": {
-    "factors": [
-     "2x",
-     "+1",
-     "3x",
-     "-5"
-    ],
-    "products": [
-     "(2x)(-5)=-10x",
-     "(1)(3x)=3x"
-    ],
-    "sum": "-10x+3x=-7x"
-   }
-  },
-  {
-   "id": "ws01b-c1",
-   "topic": "ws01b",
-   "title": {
-    "zh": "觀察符號，再驗證線索",
-    "en": "Use signs as clues, then verify"
-   },
-   "body": {
-    "zh": "尾兩項出現 $m-n$，可以提示我們試找這個因式；但仍要檢查其餘部分。\n本例前三項也可寫成 $(m-n)(4m-3n)$，所以整式才有共同因式 $(m-n)$。{{math:0}}\n最後展開檢查每一項，而非只看尾巴。{{math:1}}",
-    "en": "The last pair $m-n$ suggests trying this factor, but the rest of the expression must be checked too.\nHere the first three terms also factor as $(m-n)(4m-3n)$, so the whole expression shares $(m-n)$.{{math:0}}\nExpand and check every term, not just the tail.{{math:1}}"
-   },
-   "math": [
-    "4m^{2}-7mn+3n^{2}+m-n\n=\\hl{(m-n)}(4m-3n)+\\hl{(m-n)}\n=\\hl{(m-n)}(4m-3n+1)",
-    "(m-n)(4m-3n+1)\n=4m^{2}-7mn+3n^{2}+m-n"
-   ],
-   "vocab": [
-    {
-     "en": "sign",
-     "zh": "符號"
-    },
-    {
-     "en": "eliminate the options",
-     "zh": "刪去選項"
-    }
-   ],
-   "warn": {
-    "zh": "某一部分有 $(m-n)$，不代表整式一定有這個因式。提出之前，每組都要含有它。",
-    "en": "A factor of one part need not be a factor of the whole expression. Every group must contain it before it can be taken out."
-   },
-   "goal": {
-    "zh": "用符號提出候選，不把線索當成證明。",
-    "en": "Use signs to suggest a factor, not to prove one."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "只因末尾是 $+x-y$，就能證明整式有因式 $(x-y)$ 嗎？",
-     "en": "Does a tail of $+x-y$ alone prove that the whole expression has factor $(x-y)$?"
-    },
-    "options": [
-     {
-      "zh": "可以",
-      "en": "Yes"
-     },
-     {
-      "zh": "不可以，還要檢查其餘部分",
-      "en": "No — check the remaining part too"
-     }
-    ],
-    "answer": 1,
-    "explanation": {
-     "zh": "尾巴只提供線索；其餘部分亦要是 $(x-y)$ 的倍數，才可以把它提出。",
-     "en": "The tail is only a clue. The remaining part must also be a multiple of $(x-y)$."
-    }
-   }
-  },
-  {
-   "id": "ws01b-c2",
-   "topic": "ws01b",
-   "title": {
-    "zh": "項數多，也是一組一組處理",
-    "en": "More terms: work one group at a time"
-   },
-   "body": {
-    "zh": "四項可以分成兩對，分別提出公因式。{{math:0}}\n若兩個括號剛好相差負號，先把負號整理好。{{math:1}}\n六項可試三組、每組兩項，或兩組、每組三項。分法不只一種，目標都是留下共同因式。",
-    "en": "Four terms can be grouped into two pairs, each with its own common factor.{{math:0}}\nIf the brackets have opposite signs, deal with the minus first.{{math:1}}\nFor six terms, try three pairs or two groups of three. Different groupings can work; the goal is a common factor."
-   },
-   "math": [
-    "2xy-xz+4y^{2}-2yz\n=x\\hl{(2y-z)}+2y\\hl{(2y-z)}\n=\\hl{(2y-z)}(x+2y)",
-    "xy-xz-y+z=x\\hl{(y-z)}-\\hl{(y-z)}\n=\\hl{(y-z)}(x-1)"
-   ],
-   "vocab": [
-    {
-     "en": "grouping",
-     "zh": "併項分組"
-    },
-    {
-     "en": "common bracket",
-     "zh": "共同括號"
-    }
-   ],
-   "warn": {
-    "zh": "提出負因式時，整組每一項都要除以它。例如 $-3y^{2}-2yz=-y(3y+2z)$。",
-    "en": "When taking out a negative factor, divide every term in that group by it. For example, $-3y^{2}-2yz=-y(3y+2z)$."
-   },
-   "goal": {
-    "zh": "選擇能產生共同括號的分組。",
-    "en": "Choose groups that produce a shared bracket."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "分組後，$pr-qr-ps+qs$ 等於甚麼？",
-     "en": "After grouping, what is $pr-qr-ps+qs$?"
-    },
-    "options": [
-     {
-      "math": "(p-q)(r-s)"
-     },
-     {
-      "math": "(p+q)(r-s)"
-     },
-     {
-      "math": "(p-q)(r+s)"
-     }
-    ],
-    "answer": 0,
-    "explanation": {
-     "zh": "$pr-qr=r(p-q)$，$-ps+qs=-s(p-q)$，所以餘下 $r-s$。",
-     "en": "$pr-qr=r(p-q)$ and $-ps+qs=-s(p-q)$, leaving $r-s$."
-    }
-   }
-  },
-  {
-   "id": "ws01c-c1",
-   "topic": "ws01c",
-   "title": {
-    "zh": "由 (a) 接到 (b)",
-    "en": "Connect part (a) to part (b)"
-   },
-   "body": {
-    "zh": "這組題目練習把前一小題的結果用在後一小題。若題目寫 Hence，更要清楚展示這個連接。\n例：前一部得到 $xy(x+3y)$，餘下兩項又可寫成 $2(x+3y)$。{{math:0}}\n圈起兩處相同的 $(x+3y)$，提出後，把餘下的 $xy$ 與 $2$ 相加。",
-    "en": "These questions practise reusing an earlier result. When the instruction says Hence, show that connection explicitly.\nSuppose the earlier result is $xy(x+3y)$ and the remaining pair is $2(x+3y)$.{{math:0}}\nIdentify both copies of $(x+3y)$, take it out and add the remaining $xy$ and $2$."
-   },
-   "math": [
-    "x^{2}y+3xy^{2}+2x+6y\n=xy\\hl{(x+3y)}+2\\hl{(x+3y)}\n=\\hl{(x+3y)}(xy+2)"
-   ],
-   "vocab": [
-    {
-     "en": "Hence",
-     "zh": "由此（要用上一部的結果）"
-    },
-    {
-     "en": "factorize completely",
-     "zh": "徹底分解"
-    }
-   ],
-   "warn": {
-    "zh": "先核對兩個括號是否相同，才提出；題目的小題編排是一個提示，並不能代替代數驗證。",
-    "en": "Check that the brackets really match before taking one out. The question structure offers a clue, not a substitute for algebra."
-   },
-   "goal": {
-    "zh": "把之前得到的因式當作一整塊使用。",
-    "en": "Reuse a factor from the previous part as one object."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "提出共同括號：$3z(z+2)+4(z+2)$。",
-     "en": "Take out the common bracket in $3z(z+2)+4(z+2)$."
-    },
-    "options": [
-     {
-      "math": "(z+2)(3z+4)"
-     },
-     {
-      "math": "(z+2)(3z-4)"
-     },
-     {
-      "math": "(z+2)(7z)"
-     }
-    ],
-    "answer": 0,
-    "explanation": {
-     "zh": "共同因式是 $(z+2)$；餘下兩部分是 $3z$ 與 $4$，所以相加為 $3z+4$。",
-     "en": "The shared factor is $(z+2)$. The remaining parts are $3z$ and $4$, giving $3z+4$."
-    }
-   }
-  },
-  {
-   "id": "ws01c-c2",
-   "topic": "ws01c",
-   "title": {
-    "zh": "整理負號，配出共同括號",
-    "en": "Handle the minus to match a bracket"
-   },
-   "body": {
-    "zh": "先找出哪些項與前一小題相同，或剛好相差一個負號。\n把後三項當成一整組：{{math:0}}\n用前一部的分解結果，再提出相同括號。{{math:1}}\n最後一個減號仍然作用於整個 $(2m-3n)$，所以化簡時是 $-2m+3n$。",
-    "en": "Find the terms that match the earlier part, possibly with every sign reversed.\nTreat the last three terms as one group.{{math:0}}\nUse the earlier factorisation and take out the common bracket.{{math:1}}\nThe last minus applies to all of $(2m-3n)$, giving $-2m+3n$."
-   },
-   "math": [
-    "9m-6n-6m^{2}+13mn-6n^{2}\n=(9m-6n)-(6m^{2}-13mn+6n^{2})",
-    "=3\\hl{(3m-2n)}-\\hl{(3m-2n)}(2m-3n)\n=\\hl{(3m-2n)}(3-2m+3n)"
-   ],
-   "vocab": [
-    {
-     "en": "reversed order",
-     "zh": "次序倒轉"
-    },
-    {
-     "en": "method mark",
-     "zh": "方法分 (1M)"
-    }
-   ],
-   "warn": {
-    "zh": "只改第一項的符號會改變原式。寫出括號後，再逐項檢查一次。",
-    "en": "Changing only the first sign changes the expression. Write the bracket, then check every term."
-   },
-   "goal": {
-    "zh": "提出負號時，括號內每一項都要變號。",
-    "en": "Taking out a minus changes every sign inside."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "怎樣把 $-8x+12y$ 寫成含 $(2x-3y)$ 的形式？",
-     "en": "How can $-8x+12y$ be written using $(2x-3y)$?"
-    },
-    "options": [
-     {
-      "math": "-4(2x-3y)"
-     },
-     {
-      "math": "4(2x-3y)"
-     },
-     {
-      "math": "-4(2x+3y)"
-     }
-    ],
-    "answer": 0,
-    "explanation": {
-     "zh": "$-4(2x)=-8x$，而 $-4(-3y)=+12y$；兩項都對回原式。",
-     "en": "$-4(2x)=-8x$ and $-4(-3y)=+12y$, so both terms match."
-    }
-   }
-  },
-  {
-   "id": "ws01c-c3",
-   "topic": "ws01c",
-   "title": {
-    "zh": "提出之後，再看能否分解",
-    "en": "After factoring out, check again"
-   },
-   "body": {
-    "zh": "這一組先把六項分成兩組，令相同括號出現。{{math:0}}\n提出 $(x+y+5)$ 後，餘下的 $x^{2}-1$ 仍是平方差。{{math:1}}\n完成之前，逐個因式檢查：有沒有公因式，或仍可套用恆等式？",
-    "en": "In this set, group the six terms so a shared bracket appears.{{math:0}}\nAfter taking out $(x+y+5)$, the remaining $x^{2}-1$ is still a difference of squares.{{math:1}}\nBefore finishing, check every factor for another common factor or identity."
-   },
-   "math": [
-    "x^{3}+x^{2}y+5x^{2}-x-y-5\n=x^{2}\\hl{(x+y+5)}-\\hl{(x+y+5)}",
-    "=(x^{2}-1)(x+y+5)\n=\\hlg{(x-1)(x+1)(x+y+5)}"
-   ],
-   "vocab": [
-    {
-     "en": "the result of (a)",
-     "zh": "(a) 的結果"
-    },
-    {
-     "en": "completely",
-     "zh": "徹底（分到不能再分）"
-    }
-   ],
-   "warn": {
-    "zh": "分解完成後，把因式展開應得到原式；只看第一個因式正確，仍不足以確認整個答案。",
-    "en": "Expanding all factors should recover the original. One correct factor does not verify the whole answer."
-   },
-   "goal": {
-    "zh": "不要把可繼續分解的平方差留在答案。",
-    "en": "Do not leave a factorable difference of squares in the answer."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "將 $(x^{2}-9)(x+y)$ 分解到底。",
-     "en": "Factorise $(x^{2}-9)(x+y)$ completely."
-    },
-    "options": [
-     {
-      "math": "(x-3)^{2}(x+y)"
-     },
-     {
-      "math": "(x-3)(x+3)(x+y)"
-     },
-     {
-      "math": "(x-9)(x+9)(x+y)"
-     }
-    ],
-    "answer": 1,
-    "explanation": {
-     "zh": "$x^{2}-9=x^{2}-3^{2}=(x-3)(x+3)$；原有的 $(x+y)$ 亦要保留。",
-     "en": "$x^{2}-9=x^{2}-3^{2}=(x-3)(x+3)$. Keep the original factor $(x+y)$ as well."
-    }
-   }
-  },
-  {
-   "id": "ws01c-c4",
-   "topic": "ws01c",
-   "title": {
-    "zh": "把整個括號當成一個量",
-    "en": "Treat a whole bracket as one quantity"
-   },
-   "body": {
-    "zh": "多部題可以先找前兩部相同的因式，再用於最後一部。{{math:0}}\n另一類題先把三項變成完全平方，再套用平方差。{{math:1}}\n在 $U^{2}-V^{2}$ 中，$U$、$V$ 可以各自是一整個式子；先寫 $(U+V)(U-V)$，再化簡。",
-    "en": "In a multipart question, find a factor shared by the earlier results and reuse it in the final part.{{math:0}}\nAnother pattern turns three terms into a perfect square before using the difference of squares.{{math:1}}\nIn $U^{2}-V^{2}$, both $U$ and $V$ may be whole expressions. Write $(U+V)(U-V)$ before simplifying."
-   },
-   "math": [
-    "m^{2}+mn-20n^{2}-3m+12n\n=(m+5n)\\hl{(m-4n)}-3\\hl{(m-4n)}\n=\\hl{(m-4n)}(m+5n-3)",
-    "(10c-d)^{2}-81c^{2}+18c-1\n=(10c-d)^{2}-(9c-1)^{2}\n=\\hlg{(19c-d-1)(c-d+1)}"
-   ],
-   "vocab": [
-    {
-     "en": "three-part question",
-     "zh": "三部曲題目"
-    },
-    {
-     "en": "take out the minus",
-     "zh": "整組抽負號"
-    }
-   ],
-   "warn": {
-    "zh": "括號前有減號，括號內每項都受影響。最後也要檢查每個因式是否仍有公因式。",
-    "en": "A minus before a bracket affects every term inside. Also check each final factor for another common factor."
-   },
-   "goal": {
-    "zh": "用平方差時，保留括號並檢查負號。",
-    "en": "Keep brackets intact when applying the difference of squares."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "$(2x+1)^{2}-(x-2)^{2}$ 分解後是哪一個？",
-     "en": "Which is the factorisation of $(2x+1)^{2}-(x-2)^{2}$?"
-    },
-    "options": [
-     {
-      "math": "(3x-1)(x+3)"
-     },
-     {
-      "math": "(3x-1)(x-1)"
-     },
-     {
-      "math": "(x+3)^{2}"
-     }
-    ],
-    "answer": 0,
-    "explanation": {
-     "zh": "相加得 $3x-1$；相減得 $2x+1-(x-2)=x+3$。",
-     "en": "Adding gives $3x-1$; subtracting gives $2x+1-(x-2)=x+3$."
-    }
-   }
-  },
-  {
-   "id": "as01-c1",
-   "topic": "as01",
-   "title": {
-    "zh": "解一元二次方程：三個實用方法",
-    "en": "Solving a quadratic equation: three practical methods"
-   },
-   "body": {
-    "zh": "解一元二次方程的方法不只一種 —— 因式分解、二次公式、配方法，或者兩邊有相同因式時直接約簡。本課集中三個最實用的：\n① 因式分解（用計算機求根，再逆推因式）—— 唔需要硬做十字相乘；\n② 兩邊有相同因式時：先取「它 $=0$」得一個根，再在「它 $\\ne 0$」時約走它得另一個根；\n③ 二次公式 $x=\\frac{-b\\pm\\sqrt{b^{2}-4ac}}{2a}$ —— 根是根式、或係數唔靚時用。\n方法一（計算機因式分解）：Casio fx-50FH II 按【FMLA 01】（或 fx-3650P II 執行 Prog 1），輸入 $a$、$b$、$c$ 求兩根。逆推口訣：分數根 $x=\\frac{p}{q}$ → 因式 $(qx-p)$；整數根 $x=k$ → 因式 $(x-k)$：\n{{math:0}}\n方法二（兩邊有相同因式）：分兩種情況就唔會漏根 ——\nⓐ 先假設那個共同因式 $=0$：它一定滿足方程（兩邊都變成 0），所以立即得到一個根；\nⓑ 其餘情況（它是 $\\ne 0$）才可以兩邊約走它，解剩下的一條一次方程，得到另一個根。\n✗ 錯（不分情況就直接約走 $x$）：這樣只剩 $x=-8$，漏掉 $x=0${{math:1}}\n✓ 對（先分情況）：{{math:2}}\n例：解 $(x-2t)(x-3t)=(6t-x)(x-3t)$ ——先取 $(x-3t)=0$ 得 $x=3t$；其餘情況約走 $(x-3t)$，得 $2x-8t=0$，即 $x=4t$ —— 兩根齊全。\n（把所有項移到一邊再抽公因式，結果完全一樣；兩種做法都可以，選自己做得穩的那一種。）\n方法三（二次公式）：因式分解唔靚（根是根式）時用：{{math:3}}\n最後：不論用哪個方法，答案一定要寫齊所有根（「or」前後都要）。",
-    "en": "There is more than one way to solve a quadratic equation — factorisation, the quadratic formula, completing the square, or cancelling when both sides share the same factor. This lesson focuses on the three most useful:\n(1) factorisation (find the roots with the calculator, then work back to the factors) — no need to force the cross-method;\n(2) a factor on both sides: take it $=0$ first for one root, then cancel it for the other root;\n(3) the quadratic formula $x=\\frac{-b\\pm\\sqrt{b^{2}-4ac}}{2a}$ — for surd roots or awkward coefficients.\nMethod 1 (calculator factorisation): on a Casio fx-50FH II press [FMLA 01] (or run Prog 1 on a fx-3650P II) and enter $a$, $b$, $c$ to get the two roots. Reverse rule: a fraction root $x=\\frac{p}{q}$ gives the factor $(qx-p)$; an integer root $x=k$ gives $(x-k)$:\n{{math:0}}\nMethod 2 (a factor on both sides): split it into two cases and no root is lost —\n(a) first assume that common factor $=0$: it always satisfies the equation (both sides become 0), so you get one root straight away;\n(b) for everything else (the factor is $\\ne 0$), you may cancel it and solve the remaining linear equation — that gives the other root.\n✗ Wrong (cancelling $x$ without splitting the cases): this leaves only $x=-8$ and loses $x=0${{math:1}}\n✓ Right (split the cases first): {{math:2}}\nExample: solve $(x-2t)(x-3t)=(6t-x)(x-3t)$ — take $(x-3t)=0$ to get $x=3t$; in the other case cancel $(x-3t)$ to get $2x-8t=0$, i.e. $x=4t$ — both roots kept.\n(Moving everything to one side and factoring gives exactly the same roots; both routes are acceptable, so use whichever you are steadier at.)\nMethod 3 (quadratic formula): use it when factorisation is not clean (surd roots): {{math:3}}\nFinally: whichever method you use, always write every root (both sides of “or”)."
-   },
-   "math": [
-    "3x^{2}-14x+8=0\n\\Rightarrow x=\\frac{2}{3}\\text{ or }4\n\\Rightarrow (3x-2)(x-4)=0",
-    "x(2x+3)=x(x-5)\n\\Rightarrow 2x+3=x-5\n\\Rightarrow x=-8",
-    "x(2x+3)=x(x-5)\n\\text{Case 1: }x=0:\\ \\text{both sides}=0\\ \\Rightarrow\\ x=0\n\\text{Case 2: }x\\ne 0:\\ 2x+3=x-5\\ \\Rightarrow\\ x=-8\n\\text{Roots: }x=0\\text{ or }-8",
-    "x^{2}-4x-2=0\n\\Rightarrow x=\\frac{4\\pm\\sqrt{16+8}}{2}=\\frac{4\\pm 2\\sqrt{6}}{2}=2\\pm\\sqrt{6}"
-   ],
-   "warn": {
-    "zh": "兩邊「約走」相同因式 ＝ 假設它 $\\ne 0$：不分情況就會漏掉「它 $=0$」那個根。做法：先取「公因式 $=0$」得一個根，再在「它 $\\ne 0$」時約走，取另一個根。答案務必寫齊所有根。",
-    "en": "“Cancelling” a factor that appears on both sides assumes it is $\\ne 0$: without splitting cases you lose the root “it $=0$”. Take the factor $=0$ for one root first, then cancel it for the other. Always write every root."
-   },
-   "vocab": [
-    {
-     "en": "factor method",
-     "zh": "因式分解法"
-    },
-    {
-     "en": "root",
-     "zh": "根"
-    },
-    {
-     "en": "cancel",
-     "zh": "約走（兩邊同除）"
-    }
-   ]
-  },
-  {
-   "id": "as01-c2",
-   "topic": "as01",
-   "title": {
-    "zh": "題目說「$\\alpha$ 是方程的一個根」＝把 $\\alpha$ 代入等於 0",
-    "en": "“$\\alpha$ is a root” means substituting it gives 0"
-   },
-   "body": {
-    "zh": "卷二最愛考這種題：已知一個根，要求另一條式子的值 —— 做法通常是兩步：① 寫下 $a\\alpha^{2}+b\\alpha+c=0$；② 把方程整理成「$\\alpha^{2}=$（一條含有 $\\alpha$ 的式子）」，再整塊代入目標式：那個式子是分數也可以 —— 分子整塊乘，約簡時每一項都要除。\n例：已知 $\\alpha$ 是方程 $x^{2}-4x-2=0$ 的一個根，求 $3+8\\alpha-2\\alpha^{2}$ 的值。{{math:0}}\n不需要求出 $\\alpha$ 的數值（它通常是無理數）；用「根」這個關係就夠。\n另一個例子：已知 $\\beta$ 是方程 $3\\beta^{2}-5\\beta-7=0$ 的一個根，求 $4+10\\beta-6\\beta^{2}$ 的值。{{math:1}}",
-    "en": "A Paper 2 favourite: given one root, find the value of another expression — usually two steps: (1) write down $a\\alpha^{2}+b\\alpha+c=0$; (2) rearrange the equation into $\\alpha^{2}=$ (an expression in $\\alpha$), then substitute that whole expression into the target; a fraction is fine — multiply the whole numerator, and divide every term when cancelling.\nExample: given that $\\alpha$ is a root of $x^{2}-4x-2=0$, find the value of $3+8\\alpha-2\\alpha^{2}$. {{math:0}}\nYou do not need the value of $\\alpha$ itself (it is usually irrational); the root relation is enough.\nAnother example: given that $\\beta$ is a root of $3\\beta^{2}-5\\beta-7=0$, find the value of $4+10\\beta-6\\beta^{2}$. {{math:1}}"
-   },
-   "math": [
-    "\\alpha^{2}-4\\alpha-2=0\n\\Rightarrow \\alpha^{2}-4\\alpha=2\n\\Rightarrow 3+8\\alpha-2\\alpha^{2}=3-2(\\alpha^{2}-4\\alpha)=3-2(2)=-1",
-    "3\\beta^{2}-5\\beta-7=0\n\\Rightarrow \\beta^{2}=\\frac{5\\beta+7}{3}\n\\Rightarrow -6\\beta^{2}=-6\\cdot\\frac{5\\beta+7}{3}=-2(5\\beta+7)=-10\\beta-14\n\\Rightarrow 4+10\\beta-6\\beta^{2}=4+10\\beta-(10\\beta+14)=-10"
-   ],
-   "warn": {
-    "zh": "代入分數時分子要整塊乘：$-6\\times\\frac{5\\beta+7}{3}=-2(5\\beta+7)$（$-6\\div3=-2$），不是 $-2\\times5\\beta+7$；約簡時分子每一項都要除，常數項最容易漏（$-42\\div3=-14$）。",
-    "en": "When the subject is a fraction, multiply the whole numerator: $-6\\times\\frac{5\\beta+7}{3}=-2(5\\beta+7)$ (because $-6\\div3=-2$), not $-2\\times5\\beta+7$. Every term must be divided, and the constant is the one students forget."
-   },
-   "vocab": [
-    {
-     "en": "root of an equation",
-     "zh": "方程的根"
-    },
-    {
-     "en": "substitute",
-     "zh": "代入"
-    }
-   ]
-  },
-  {
-   "id": "as01-c3",
-   "topic": "as01",
-   "title": {
-    "zh": "判別式 $\\Delta=b^{2}-4ac$：有實根／等根／無實根",
-    "en": "The discriminant $\\Delta=b^{2}-4ac$: real, equal or no real roots"
-   },
-   "body": {
-    "zh": "先寫成 $ax^{2}+bx+c=0$，再算 $\\Delta=b^{2}-4ac$：{{math:0}}\n題目字眼對照：\n· 「有實根」→ $\\Delta\\ge 0$（包含等根，所以有等號）\n· 「有兩個相異實根」→ $\\Delta>0$\n· 「有等根／重根」→ $\\Delta=0$\n· 「無實根」→ $\\Delta<0$\n使用判別式，多數是用來求未知的係數（如下列例子中的 $k$），因為判別式是不會包含方程式中的未知數（如下列例子中的 $x$）。{{math:1}}",
-    "en": "Write the equation as $ax^{2}+bx+c=0$, then compute $\\Delta=b^{2}-4ac$: {{math:0}}\nMatching the wording:\n· “has real roots” → $\\Delta\\ge 0$ (equal roots count, so the equality is included)\n· “has two distinct real roots” → $\\Delta>0$\n· “has equal (repeated) roots” → $\\Delta=0$\n· “has no real roots” → $\\Delta<0$\nThe discriminant is mostly used to find an unknown coefficient (such as $k$ in the example below), because the discriminant never contains the unknown in the equation (such as $x$ in the example below). {{math:1}}"
-   },
-   "math": [
-    "\\Delta>0:\\ \\text{two distinct real roots}\n\\Delta=0:\\ \\text{equal roots}\n\\Delta<0:\\ \\text{no real roots}",
-    "2x^{2}-4x+k=1\\ \\text{has real roots}\n\\Rightarrow 2x^{2}-4x+(k-1)=0\n\\Rightarrow \\Delta=(-4)^{2}-4(2)(k-1)=24-8k\\ge 0\n\\Rightarrow k\\le 3"
-   ],
-   "warn": {
-    "zh": "最常見錯誤：忘記把方程搬成「$=0$」的標準形，令常數項寫錯（例如 $k=1$ 要搬過去變成 $k-1$）。",
-    "en": "The most common mistake: forgetting to rearrange into the “$=0$” standard form, so the constant term is wrong (e.g. $k=1$ must move across to become $k-1$)."
-   },
-   "vocab": [
-    {
-     "en": "discriminant",
-     "zh": "判別式"
-    },
-    {
-     "en": "real roots",
-     "zh": "實根"
-    },
-    {
-     "en": "equal roots",
-     "zh": "等根／重根"
-    },
-    {
-     "en": "range of values",
-     "zh": "取值範圍"
-    }
-   ]
-  },
-  {
-   "id": "as01-c4",
-   "topic": "as01",
-   "title": {
-    "zh": "根與係數：$\\alpha+\\beta$、$\\alpha\\beta$ 與 $\\alpha^{2}+\\beta^{2}$",
-    "en": "Sum and product of roots, and $\\alpha^{2}+\\beta^{2}$"
-   },
-   "body": {
-    "zh": "如果 $\\alpha$、$\\beta$ 是方程 $ax^{2}+bx+c=0$ 的兩個根：\n{{math:0}}\n不用解方程（根通常是無理數，解出來也不漂亮）—— 用這兩個關係就夠。\n最常考的目標式：\n{{math:1}}\n例：$x^{2}+kx-15=0$ 的根是 $\\alpha$ 與 $\\beta$，以 $k$ 表示 $\\alpha^{2}+\\beta^{2}$：\n{{math:2}}\n（延伸：$(\\alpha-\\beta)^{2}=(\\alpha+\\beta)^{2}-4\\alpha\\beta$；$\\frac{1}{\\alpha}+\\frac{1}{\\beta}=\\frac{\\alpha+\\beta}{\\alpha\\beta}$。）\n這類題目多數 3 分：(1M) 寫出 $\\alpha+\\beta$ 與 $\\alpha\\beta$、(1M) 用恆等式拆開 $\\alpha^{2}+\\beta^{2}$、(1A) 代入並寫出答案。",
-    "en": "If $\\alpha$ and $\\beta$ are the roots of $ax^{2}+bx+c=0$:\n{{math:0}}\nThere is no need to solve the equation (the roots are usually irrational) — these two relations are enough.\nThe most common target expression:\n{{math:1}}\nExample: the roots of $x^{2}+kx-15=0$ are $\\alpha$ and $\\beta$; express $\\alpha^{2}+\\beta^{2}$ in terms of $k$:\n{{math:2}}\n(Also useful: $(\\alpha-\\beta)^{2}=(\\alpha+\\beta)^{2}-4\\alpha\\beta$ and $\\frac{1}{\\alpha}+\\frac{1}{\\beta}=\\frac{\\alpha+\\beta}{\\alpha\\beta}$.)\nQuestions of this kind are usually worth 3 marks: one mark for the sum and the product, one for the identity, and one for the final answer."
-   },
-   "math": [
-    "\\alpha+\\beta=-\\frac{b}{a},\\ \\alpha\\beta=\\frac{c}{a}",
-    "\\alpha^{2}+\\beta^{2}=(\\alpha+\\beta)^{2}-2\\alpha\\beta",
-    "x^{2}+kx-15=0\n\\Rightarrow \\alpha+\\beta=-k,\\ \\alpha\\beta=-15\n\\Rightarrow \\alpha^{2}+\\beta^{2}=(-k)^{2}-2(-15)\n=k^{2}+30"
-   ],
-   "warn": {
-    "zh": "最常見錯誤：硬解方程求 $\\alpha$、$\\beta$ 的數值，再逐個平方相加 —— 這樣既花時間又容易計錯。看到「兩根是 $\\alpha$ 和 $\\beta$」就要反射式寫出 $\\alpha+\\beta$ 與 $\\alpha\\beta$。另外，$\\alpha\\beta$ 要連符號：$x^{2}+kx-15=0$ 的 $\\alpha\\beta=-15$。",
-    "en": "The classic mistake is solving the equation for $\\alpha$ and $\\beta$ and squaring them one by one — slow and error-prone. When a question says “the roots are $\\alpha$ and $\\beta$”, immediately write down $\\alpha+\\beta$ and $\\alpha\\beta$. Keep the sign of the product: for $x^{2}+kx-15=0$ we have $\\alpha\\beta=-15$."
-   },
-   "vocab": [
-    {
-     "en": "sum of roots",
-     "zh": "兩根之和"
-    },
-    {
-     "en": "product of roots",
-     "zh": "兩根之積"
-    },
-    {
-     "en": "in terms of",
-     "zh": "以…表示"
-    }
-   ]
-  },
-  {
-   "id": "as01-c5",
-   "topic": "as01",
-   "title": {
-    "zh": "複數：$i$ 的冪與四則運算",
-    "en": "Complex numbers: powers of $i$ and the four operations"
-   },
-   "body": {
-    "zh": "複數的基本規則只有一條：$i^{2}=-1$。\n{{math:0}}\n加減：實部與實部合併、虛部與虛部合併 —— 例 $(4+5i)-(6-7i)=-2+12i$（減號要分配給每一項）。\n乘：展開之後把 $i^{2}$ 換成 $-1$，最後整理成 $a+bi$。\n{{math:1}}\n題目要求「express the result in the form $a+bi$」時，實部與虛部要分開兩份寫：$\\frac{3+i}{10}$ 寫成 $\\frac{3}{10}+\\frac{1}{10}i$。\n高次冪（例如 $i^{18}$、$i^{31}$）不可以硬乘 —— 先看下面的重點框，用「除以 4 看餘數」一步化簡。",
-    "en": "There is only one basic rule for complex numbers: $i^{2}=-1$.\n{{math:0}}\nAdd and subtract: combine the real parts together and the imaginary parts together — for example $(4+5i)-(6-7i)=-2+12i$ (the minus sign applies to every term).\nMultiply: expand, replace $i^{2}$ by $-1$, then tidy everything into the form $a+bi$.\n{{math:1}}\nWhen the question says “express the result in the form $a+bi$”, keep the real part and the imaginary part as two separate terms: write $\\frac{3+i}{10}$ as $\\frac{3}{10}+\\frac{1}{10}i$.\nNever expand a high power such as $i^{18}$ or $i^{31}$ by hand — read the key box below and reduce it in one step by dividing the index by 4."
-   },
-   "math": [
-    "i^{2}=-1",
-    "(1-2i)(3+4i)=3+4i-6i-8i^{2}\n=3-2i+8=11-2i"
-   ],
-   "box": {
-    "tag": {
-     "zh": "餘數法",
-     "en": "Remainder rule"
-    },
-    "title": {
-     "zh": "$i$ 的四個冪：除以 4 看餘數",
-     "en": "The four powers of $i$: divide the index by 4 and look at the remainder"
-    },
-    "zh": "① 四個冪先順序記熟（餘數 1、2、3、0 依次對應 $i$、$-1$、$-i$、$1$）：\n{{math:0}}\n② 每 4 個一循環，所以第 5 個冪由頭開始：\n{{math:1}}\n③ 化簡 $i^{n}$ 只有一步 —— 把 $n$ 除以 4，看餘數（這是整個方法的重點）：\n{{math:2}}\n④ 例子：先把指數寫成 $4k+$ 餘數，再換成對應的冪。\n{{math:3}}",
-    "en": "① First learn the four powers in order (remainders 1, 2, 3 and 0 give $i$, $-1$, $-i$ and $1$):\n{{math:0}}\n② The pattern repeats every 4, so the fifth power starts the cycle again:\n{{math:1}}\n③ There is only one step in simplifying $i^{n}$ — divide $n$ by 4 and look at the remainder (this is the heart of the method):\n{{math:2}}\n④ Examples: write the index as $4k$ plus the remainder, then swap in the matching power.\n{{math:3}}",
-    "math": [
-     "i^{1}=i,\\quad i^{2}=-1,\\quad i^{3}=-i,\\quad i^{4}=1",
-     "i^{5}=i,\\quad i^{6}=-1,\\quad i^{7}=-i,\\quad i^{8}=1",
-     "\\text{remainder }1\\to i,\\quad 2\\to-1,\\quad 3\\to-i,\\quad 0\\to1",
-     "18=4\\times4+2\\ \\Rightarrow\\ i^{18}=i^{2}=-1\n31=4\\times7+3\\ \\Rightarrow\\ i^{31}=i^{3}=-i\n20=4\\times5+0\\ \\Rightarrow\\ i^{20}=i^{4}=1"
-    ]
-   },
-   "warn": {
-    "zh": "把 $i^{4}$ 誤記成 $-1$（正確是 $1$）最致命：$i^{20}=(i^{4})^{5}=1$，寫成 $-1$ 就會全盤皆錯。另一個常見錯：展開 $(3-2i)(1+i)$ 時漏了 $-2i\\times i=-2i^{2}=+2$。",
-    "en": "Remembering $i^{4}$ as $-1$ (it is $1$) ruins everything: $i^{20}=(i^{4})^{5}=1$, and writing $-1$ makes every later step wrong. Another common slip: when expanding $(3-2i)(1+i)$, the term $-2i\\times i=-2i^{2}=+2$ is missed."
-   },
-   "vocab": [
-    {
-     "en": "imaginary unit",
-     "zh": "虛數單位 $i$"
-    },
-    {
-     "en": "power of $i$",
-     "zh": "$i$ 的冪"
-    },
-    {
-     "en": "remainder",
-     "zh": "餘數（除以 4 之後餘下多少）"
-    }
-   ]
-  },
-  {
-   "id": "as01-c6",
-   "topic": "as01",
-   "title": {
-    "zh": "複數的實部／虛部與除法：分母乘共軛",
-    "en": "Real part, imaginary part and division: multiply by the conjugate"
-   },
-   "body": {
-    "zh": "把複數寫成 $a+bi$ 之後：$a$ 是實部（real part）、$b$ 是虛部（imaginary part）。兩者都是實數，虛部只寫 $i$ 前面那個數，而且要連符號 —— $3-7i$ 的實部是 $3$、虛部是 $-7$（不是 $7$）。\n{{math:0}}\n分母有 $i$ 時，分子分母同乘分母的共軛（conjugate），把分母變成實數：$(c+di)(c-di)=c^{2}+d^{2}$。\n{{math:1}}\n兩個高頻題型：\n① 求 real part／imaginary part：先化簡成 $a+bi$，再讀出 $a$、$b$ —— 讀完要核對正負號；\n② 「is a real number」（是實數）＝虛部 $=0$：把 $i$ 的係數寫成一條方程，就求得 $k$。\n{{math:2}}",
-    "en": "Once a complex number is written as $a+bi$: $a$ is the real part and $b$ is the imaginary part. Both are real numbers, and the imaginary part is only the number in front of $i$, with its sign — for $3-7i$ the real part is $3$ and the imaginary part is $-7$, not $7$.\n{{math:0}}\nWhen the denominator contains $i$, multiply the top and the bottom by the conjugate of the denominator: $(c+di)(c-di)=c^{2}+d^{2}$ makes the denominator real.\n{{math:1}}\nTwo frequent question types:\n(1) find the real part or the imaginary part: simplify into $a+bi$ first, then read off $a$ and $b$ and check the signs;\n(2) “is a real number” means the imaginary part is $0$: set the coefficient of $i$ equal to zero and solve for $k$.\n{{math:2}}"
-   },
-   "math": [
-    "3-7i:\\ \\text{real part}=3,\\ \\text{imaginary part}=-7",
-    "\\frac{2+i}{7+i}=\\frac{(2+i)(7-i)}{(7+i)(7-i)}\n=\\frac{15+5i}{50}=\\frac{3}{10}+\\frac{1}{10}i",
-    "\\frac{k-i}{1+2i}=\\frac{(k-i)(1-2i)}{(1+2i)(1-2i)}\n=\\frac{(k-2)-(2k+1)i}{5}\n\\text{real number}\\ \\Rightarrow 2k+1=0\n\\Rightarrow k=-\\frac{1}{2}"
-   ],
-   "warn": {
-    "zh": "讀虛部時要連符號：$2-4i$ 的虛部是 $-4$。另外，$(c+di)(c-di)=c^{2}+d^{2}$（因為 $-i^{2}=+1$），不是 $c^{2}-d^{2}$ —— 這個符號錯是複數題最常見的失分位。",
-    "en": "The imaginary part keeps its sign: the imaginary part of $2-4i$ is $-4$. Also $(c+di)(c-di)=c^{2}+d^{2}$ (because $-i^{2}=+1$), not $c^{2}-d^{2}$ — that wrong sign is the most common slip in complex-number questions."
-   },
-   "vocab": [
-    {
-     "en": "conjugate",
-     "zh": "共軛"
-    },
-    {
-     "en": "real part",
-     "zh": "實部"
-    },
-    {
-     "en": "imaginary part",
-     "zh": "虛部"
-    }
-   ]
-  },
-  {
-   "id": "as01-c7",
-   "topic": "as01",
-   "title": {
-    "zh": "複數題的流程與常見錯誤（帶走這一張）",
-    "en": "Complex-number routine and common mistakes (take this card away)"
-   },
-   "body": {
-    "zh": "複數題固定四步：① 有 $i$ 的冪就先化簡（除以 4 看餘數）；② 加減乘除之後整理成 $a+bi$（$i^{2}=-1$）；③ 分母有 $i$ 就分子分母同乘共軛，分母變成 $c^{2}+d^{2}$；④ 最後才回答題目問的東西 —— real part、imaginary part，或者由「是實數」寫出虛部 $=0$。\n{{math:0}}\n五個最常見的失分位：\n① 把 $i^{4}$ 記成 $-1$（正確是 $1$）：之後 $i^{18}$、$i^{20}$ 全部錯；\n② 共軛相乘的分母寫成 $c^{2}-d^{2}$（正確是 $c^{2}+d^{2}$，因為 $-i^{2}=+1$）；\n③ 問 real part 卻答了 imaginary part（選項通常兩個都放進去）；\n④ 讀虛部時漏了負號（$2-4i$ 的虛部是 $-4$，不是 $4$）；\n⑤ 漏掉式子後面不含 $i$ 的常數項（例如 $-i^{18}=+1$），少了一項答案就錯。",
-    "en": "Complex-number questions follow four fixed steps: (1) simplify any power of $i$ first by dividing the index by 4; (2) add, subtract, multiply or divide and tidy everything into the form $a+bi$ using $i^{2}=-1$; (3) when the denominator contains $i$, multiply the top and the bottom by its conjugate so that the denominator becomes $c^{2}+d^{2}$; (4) only then answer what is asked — the real part, the imaginary part, or use “is a real number” to mean that the imaginary part is zero.\n{{math:0}}\nFive ways marks are lost:\n(1) remembering $i^{4}$ as $-1$ instead of $1$, which spoils every higher power;\n(2) writing the conjugate product as $c^{2}-d^{2}$ instead of $c^{2}+d^{2}$, because minus $i$ squared is plus 1;\n(3) answering the imaginary part when the real part was asked, since the options usually contain both;\n(4) dropping the sign of the imaginary part ($2-4i$ has imaginary part $-4$, not $4$);\n(5) missing the constant terms that carry no $i$, such as minus $i$ to the 18th being plus 1."
-   },
-   "math": [
-    "z=a+bi:\\ \\text{real part}=a,\\ \\text{imaginary part}=b\nz\\ \\text{is purely imaginary}\\ \\Leftrightarrow\\ a=0\nz\\ \\text{is real}\\ \\Leftrightarrow\\ b=0"
-   ],
-   "warn": {
-    "zh": "「是實數」＝虛部 $=0$；「是純虛數」＝實部 $=0$ —— 兩個條件剛好相反，是複數題最常見的混淆。",
-    "en": "Being real means the imaginary part is zero, while being purely imaginary means the real part is zero; the two conditions are opposites and are easily confused."
-   },
-   "vocab": [
-    {
-     "en": "conjugate",
-     "zh": "共軛"
-    },
-    {
-     "en": "purely imaginary",
-     "zh": "純虛數（實部 $=0$）"
-    }
-   ]
-  },
-  {
-   "id": "as02-c1",
-   "topic": "as02",
-   "title": {
-    "zh": "直線方程：斜率、截距與垂直條件",
-    "en": "Straight lines: slope, intercepts and the perpendicular condition"
-   },
-   "body": {
-    "zh": "一條直線由兩個數決定：斜率與 $y$ 截距。\n{{math:0}}\n{{math:1}}\n已知兩點求斜率：\n{{math:2}}\n已知斜率與一點，用點斜式：\n{{math:3}}\n最常考的是垂直條件（兩條線互相垂直）：\n{{math:4}}\n做這一類題目的固定四步：① 讀出已知直線的斜率（先寫成 $y=mx+c$）→ ② 取負倒數 → ③ 用題目給的點寫點斜式 → ④ 整理成題目要求的形式。",
-    "en": "A straight line is fixed by two numbers: the slope and the $y$-intercept.\n{{math:0}}\n{{math:1}}\nThe slope from two points:\n{{math:2}}\nGiven a slope and one point, use point-slope form:\n{{math:3}}\nThe perpendicular condition appears most often:\n{{math:4}}\nA fixed four-step routine for these questions: ① read the slope of the given line (write it as $y=mx+c$) → ② take the negative reciprocal → ③ write point-slope form using the given point → ④ rearrange into the form the question asks for."
-   },
-   "math": [
-    "y=mx+c",
-    "m=\\frac{\\text{rise}}{\\text{run}}",
-    "m=\\frac{y_{2}-y_{1}}{x_{2}-x_{1}}",
-    "y-y_{1}=m(x-x_{1})",
-    "m_{1}m_{2}=-1"
-   ],
-   "vocab": [
-    {
-     "en": "slope",
-     "zh": "斜率"
-    },
-    {
-     "en": "intercept",
-     "zh": "截距（與座標軸相交的那個數）"
-    },
-    {
-     "en": "point-slope form",
-     "zh": "點斜式"
-    }
-   ],
-   "warn": {
-    "zh": "「垂直」是取斜率的負倒數（$\\frac{2}{3}$ 變 $-\\frac{3}{2}$），只顛倒不變號是錯的；另外 $x$ 截距是 $y=0$ 時的 $x$，$y$ 截距是 $x=0$ 時的 $y$，兩者不要對調。",
-    "en": "“Perpendicular” means the negative reciprocal of the slope ($\\frac{2}{3}$ becomes $-\\frac{3}{2}$); inverting without changing the sign is wrong. Also, the $x$-intercept is the value of $x$ when $y=0$, and the $y$-intercept is the value of $y$ when $x=0$ — do not swap them."
-   }
-  },
-  {
-   "id": "as02-c2",
-   "topic": "as02",
-   "title": {
-    "zh": "由 ax + y + b = 0 的圖讀出 a、b 的正負",
-    "en": "Reading the signs of a and b from the graph of ax + y + b = 0"
-   },
-   "body": {
-    "zh": "題目給的方程是 $ax+y+b=0$，但圖上看到的是「斜率」與「截距」，所以第一步一定是改寫：\n{{math:0}}\n寫成這個形式之後可以直接讀出：\n{{math:1}}\n{{math:2}}\n於是：\n線往右上斜（斜率 $>0$）→ $-a>0$ → $a<0$；\n線往右下斜（斜率 $<0$）→ $-a<0$ → $a>0$；\n交於 $y$ 軸原點之上（$y$ 截距 $>0$）→ $-b>0$ → $b<0$；\n交於 $y$ 軸原點之下（$y$ 截距 $<0$）→ $-b<0$ → $b>0$。\n$\\frac{b}{a}$ 的正負還可以用來判斷線與 $x$ 軸交在原點的左邊還是右邊。",
-    "en": "The equation given is $ax+y+b=0$, but the graph shows the slope and the intercepts, so always rewrite first:\n{{math:0}}\nIn this form the two quantities can be read off directly:\n{{math:1}}\n{{math:2}}\nTherefore:\nrising to the right (slope $>0$) → $-a>0$ → $a<0$;\nfalling to the right (slope $<0$) → $-a<0$ → $a>0$;\nmeeting the $y$-axis above the origin ($y$-intercept $>0$) → $-b>0$ → $b<0$;\nmeeting the $y$-axis below the origin ($y$-intercept $<0$) → $-b<0$ → $b>0$.\nThe sign of $\\frac{b}{a}$ also tells you whether the line meets the $x$-axis to the left or the right of the origin."
-   },
-   "math": [
-    "ax+y+b=0",
-    "y=-ax-b",
-    "\\text{slope}=-a,\\quad y\\text{-intercept}=-b"
-   ],
-   "vocab": [
-    {
-     "en": "general form",
-     "zh": "一般式（$Ax+By+C=0$）"
-    },
-    {
-     "en": "x-intercept",
-     "zh": "$x$ 截距"
-    },
-    {
-     "en": "y-intercept",
-     "zh": "$y$ 截距"
-    }
-   ],
-   "warn": {
-    "zh": "最常見的兩個錯：① 直接把圖上的 $y$ 截距當成 $b$（其實截距是 $-b$，符號相反）；② 把「線往右上斜」當成 $a>0$（其實斜率是 $-a$）。每次由圖上的數寫成 $a$、$b$ 都要反一次號。",
-    "en": "The two most common errors: ① taking the $y$-intercept read from the graph as $b$ (it is actually $-b$, the opposite sign); ② treating “rising to the right” as $a>0$ (the slope is $-a$). Every quantity read from the graph changes sign when written as $a$ or $b$."
-   }
-  },
-  {
-   "id": "as03-c1",
-   "topic": "as03",
-   "title": {
-    "zh": "複合不等式：先逐條解，再讀出答案",
-    "en": "Compound inequalities: solve each part, then read off the answer"
-   },
-   "body": {
-    "zh": "一條題目有兩個不等式時（中間用「或」或「及」連接），做法固定三步：\n① 逐條解，各自寫成「$x$ 大於某數」或「$x$ 小於某數」；\n② 比較兩段，看看哪一段包含哪一段；\n③ 寫出最後答案 —— 不要只把兩條並列就當完成。\n\n「或」（or）：只要其中一段成立就可以，所以兩段都是答案 —— 兩段分開時照寫{{math:0}}\n如果一段完全包含另一段，只寫較寬鬆的那一段就夠{{math:1}}\n\n「及」（and）：兩段要同時成立，所以取兩段重疊的部分 —— 通常就是較嚴格的那一段{{math:2}}\n如果兩段重疊成一段區間，就把兩個端點一齊寫出來{{math:3}}\n\n三節式（例如 $2<x<7$）就是三節之間的「及」：首尾兩節都是純數字時，才可以三節一起加、減、乘、除同一個數（乘或除負數時要把不等號倒轉）；首節或尾節只要含有 $x$，就不能三節一起做，要拆成兩條「及」的不等式，分別解再取交集。最後檢查兩個端點是開（$<$、$>$）還是閉（$\\le$、$\\ge$）。",
-    "en": "When a question contains two inequalities joined by “or” or “and”, the routine always has three steps:\n(1) solve each one, writing it as “$x$ is greater than …” or “$x$ is less than …”;\n(2) compare the two pieces and see which one contains the other;\n(3) write the final answer — do not just put the two pieces side by side and stop.\n\n“Or”: it is enough that one piece holds, so both pieces belong to the answer — when the pieces are separate, keep them as they are{{math:0}}\nWhen one piece contains the other, write only the wider one{{math:1}}\n\n“And”: the two must hold together, so take the overlap — usually the stricter piece{{math:2}}\nWhen the overlap forms one interval, write the two endpoints together{{math:3}}\n\nA three-part inequality such as $2<x<7$ is simply an “and” between its three parts: only when the first and last parts are pure numbers may you add, subtract, multiply or divide all three parts by the same number at once (reverse the inequality signs when multiplying or dividing by a negative number); if the first or last part contains $x$, do not work on all three parts — split it into two “and” inequalities, solve each and intersect. Then check whether each endpoint is open ($<$, $>$) or closed ($\\le$, $\\ge$)."
-   },
-   "math": [
-    "x<-3\\text{ or }x>8\n\\text{keep both pieces}",
-    "x>7\\text{ or }x>3\n\\Rightarrow x>3\\ \\text{(the wider piece)}",
-    "x>3\\text{ and }x\\ge 5\n\\Rightarrow x\\ge 5\\ \\text{(the stricter piece)}",
-    "x\\ge 5\\text{ and }x\\le 12\n\\Rightarrow 5\\le x\\le 12"
-   ],
-   "vocab": [
-    {
-     "en": "compound inequality",
-     "zh": "複合不等式"
-    },
-    {
-     "en": "either ... or ...",
-     "zh": "「或」：其中一段成立就足夠"
-    },
-    {
-     "en": "both ... and ...",
-     "zh": "「及」：兩段要同時成立"
-    }
-   ],
-   "warn": {
-    "zh": "最大的陷阱是把「或」當成「及」：$x<-3$ 或 $x>8$ 之中，$x=0$ 兩條都不成立，所以答案不是「所有實數」。寫答案前用一個中間值代回去檢查一次。另一個常見錯誤：逐條解完就把兩條並列，沒有比較誰包含誰 —— 例如 $x>7$ 或 $x>3$，答案應該化簡為 $x>3$。",
-    "en": "The classic trap is treating “or” as “and”: for $x<-3$ or $x>8$ the value $x=0$ satisfies neither, so the answer is not “all real numbers”. Substitute one middle value to check before writing the answer. Another common slip is leaving the two pieces side by side without comparing them: $x>7$ or $x>3$ should be simplified to $x>3$."
-   }
-  },
-  {
-   "id": "as03-c2",
-   "topic": "as03",
-   "title": {
-    "zh": "解二次不等式：先分解，再判斷「中間」還是「兩邊」",
-    "en": "Quadratic inequalities: factorise, then choose “between” or “outside”"
-   },
-   "body": {
-    "zh": "二次不等式一定要先把一邊變成 0，再分解成兩個括號（假設 $a<b$）：\n{{math:0}}\n{{math:1}}\n{{math:2}}\n{{math:3}}\n記法：$>0$ 取「兩邊」、$<0$ 取「中間」；有等號（$\\ge$、$\\le$）就把兩個端點也包進去。分解不到的話，畫一畫拋物線（開口方向 ＋ 與 $x$ 軸的交點）也一樣看得出答案。",
-    "en": "For a quadratic inequality, first make one side zero and factorise into two brackets (assuming $a<b$):\n{{math:0}}\n{{math:1}}\n{{math:2}}\n{{math:3}}\nRemember: $>0$ takes the two outer regions and $<0$ takes the middle interval; with an equality sign ($\\ge$, $\\le$) both endpoints are included as well. If it does not factorise, sketching the parabola (direction of opening plus the $x$-intercepts) gives the same answer."
-   },
-   "math": [
-    "(x-a)(x-b)>0",
-    "\\Rightarrow x<a \\text{ or } x>b",
-    "(x-a)(x-b)<0",
-    "\\Rightarrow a<x<b"
-   ],
-   "vocab": [
-    {
-     "en": "inequality",
-     "zh": "不等式"
-    },
-    {
-     "en": "number line",
-     "zh": "數線"
-    },
-    {
-     "en": "endpoint",
-     "zh": "端點"
-    }
-   ],
-   "warn": {
-    "zh": "最常見的錯：$\\le0$ 與 $\\ge0$ 的方向搞亂（$\\le0$ 取兩根「之間」、$\\ge0$ 取「兩邊」）。另外分解出來的根是「括號等於 0」的 $x$ 值，寫區間時次序不要倒轉。",
-    "en": "The most common error is mixing up the directions: $\\le0$ gives the interval between the roots while $\\ge0$ gives the two outer regions. Also, the roots are the values that make a bracket zero — do not write the interval in the wrong order."
-   }
-  },
-  {
-   "id": "as03-c3",
-   "topic": "as03",
-   "title": {
-    "zh": "判別式 $\\Delta=0$：完全平方的四種情況",
-    "en": "When $\\Delta=0$: the four cases of a perfect square"
-   },
-   "body": {
-    "zh": "$\\Delta=0$ 代表二次式是一個完全平方（乘上 $x^2$ 的係數 $a$）：\n{{math:0}}\n它與 $x$ 軸只有一個交點 $x=r$，所以答案只有四種（先看 $a>0$）：\n{{math:1}}\n· 「$>0$」＝ 除了 $x=r$ 那一點之外，所有實數都成立；\n· 「$\\ge 0$」＝ 所有實數都成立（連 $x=r$ 也接受）；\n· 「$<0$」＝ 無解；\n· 「$\\le 0$」＝ 只有 $x=r$ 一個解。\n\n如果 $x^2$ 的係數 $a<0$，兩邊同乘 $-1$（不等號倒轉）就變回上面四種情況。\n例：$x^{2}-6x+9=(x-3)^{2}${{math:2}}",
-    "en": "$\\Delta=0$ means the quadratic is a perfect square multiplied by the coefficient $a$ of $x^{2}$:\n{{math:0}}\nIt meets the $x$-axis at exactly one point $x=r$, so there are only four possible answers (take $a>0$ first):\n{{math:1}}\n· “$>0$” — true for every real number except the single point $x=r$;\n· “$\\ge 0$” — true for all real numbers (the point $x=r$ counts);\n· “$<0$” — no solution;\n· “$\\le 0$” — the single solution $x=r$.\n\nIf the coefficient of $x^{2}$ is negative, multiply both sides by $-1$ (reversing the inequality sign) and you are back to the four cases above.\nExample: $x^{2}-6x+9=(x-3)^{2}${{math:2}}"
-   },
-   "math": [
-    "ax^{2}+bx+c=a(x-r)^{2},\\quad r=-\\frac{b}{2a}",
-    "(x-r)^{2}>0\\ \\Rightarrow\\ x\\ne r\n(x-r)^{2}\\ge 0\\ \\Rightarrow\\ \\text{all real }x\n(x-r)^{2}<0\\ \\Rightarrow\\ \\text{no solution}\n(x-r)^{2}\\le 0\\ \\Rightarrow\\ x=r",
-    "x^{2}-6x+9=(x-3)^{2}\n(x-3)^{2}<0:\\ \\text{no solution}\n(x-3)^{2}\\le 0:\\ x=3"
-   ],
-   "vocab": [
-    {
-     "en": "perfect square",
-     "zh": "完全平方"
-    },
-    {
-     "en": "repeated root",
-     "zh": "重根（兩個相等的根）"
-    },
-    {
-     "en": "no solution",
-     "zh": "無解"
-    }
-   ],
-   "warn": {
-    "zh": "最常見的錯是一見到 $\\Delta=0$ 就答「所有實數」—— 那只對 $\\ge 0$ 成立：「$>0$」要把 $x=r$ 那一點排除，「$\\le 0$」更加只有 $x=r$ 一個解，「$<0$」則是無解。做題前先問一句：不等號有沒有等號？",
-    "en": "The usual mistake is answering “all real numbers” as soon as $\\Delta=0$: that holds only for $\\ge 0$. For $>0$ the point $x=r$ must be excluded, for $\\le 0$ the only solution is $x=r$, and for $<0$ there is no solution. Ask one question first: does the inequality include equality?"
-   }
-  },
-  {
-   "id": "as03-c4",
-   "topic": "as03",
-   "title": {
-    "zh": "「對所有實數 x 都成立」與「無解」：一般二次式的判別式條件",
-    "en": "“True for all real x” and “no solution”: the discriminant conditions in general"
-   },
-   "body": {
-    "zh": "見到「for any real number $x$」或「對任何實數 $x$ 都成立」，代表整條拋物線要留在 $x$ 軸的同一邊，所以條件一定同時看兩件事：\n① 開口方向（$x^2$ 的係數 $a$）；\n② 有沒有穿過 $x$ 軸（判別式 $\\Delta$）。\n\n寫成一般式 $ax^{2}+bx+c$（$a\\ne 0$），「對所有實數 $x$ 都成立」有四種情況：\n{{math:0}}\n\n「無解」（沒有任何實數 $x$ 滿足）同樣是看圖：整條拋物線要留在 $x$ 軸的一邊 —— 例如 $ax^{2}+bx+c<0$ 無解，即圖像永遠不會跌到 $x$ 軸下方，所以 $a>0$ 且 $\\Delta\\le0$（不相交的 $\\Delta<0$ 與只相切的 $\\Delta=0$ 都符合）。四種情況：\n{{math:1}}\n\n三個要點：\n① $a>0$（開口向上）才可以「大於 0」撐得住；$a<0$（開口向下）才可以「小於 0」撐得住 —— 只看 $\\Delta$ 而漏看 $a$，答案一定錯。\n② 有等號（$\\ge$、$\\le$）用 $\\Delta\\le 0$；嚴格（$>$、$<$）用 $\\Delta<0$。$\\Delta=0$ 時只有一個 $x$ 值會令式子等於 0，嚴格不等式不接受那一個值（見上一張卡）。\n③ 如果 $x^2$ 的係數含未知數（例如 $kx^{2}+\\cdots$），要另外檢查 $k=0$：那時它不是二次式。\n\n例（$a\\ne 1$）：$3x^{2}+4x+k>0$ 對所有實數 $x$ 都成立{{math:2}}\n例（無解）：$kx^{2}+2x+1<0$ 沒有實數解{{math:3}}",
-    "en": "“For any real number $x$” means the whole parabola must stay on one side of the $x$-axis, so two things always matter at once:\n(1) which way it opens (the coefficient $a$ of $x^{2}$);\n(2) whether it crosses the $x$-axis (the discriminant $\\Delta$).\n\nWrite the quadratic as $ax^{2}+bx+c$ with $a\\ne 0$. “True for all real $x$” gives four cases:\n{{math:0}}\n\n“No solution” (no real $x$ satisfies it) is read from the graph in the same way: the whole parabola must stay on one side of the $x$-axis — for example, $ax^{2}+bx+c<0$ having no solution means the curve never drops below the $x$-axis, so $a>0$ and $\\Delta\\le0$ (both missing the axis, $\\Delta<0$, and only touching it, $\\Delta=0$, qualify). The four cases:\n{{math:1}}\n\nThree key points:\n(1) $a>0$ (opening upwards) is what lets a quadratic stay positive, and $a<0$ (opening downwards) is what lets it stay negative — using $\\Delta$ alone and forgetting $a$ always gives a wrong answer.\n(2) With equality ($\\ge$, $\\le$) use $\\Delta\\le 0$; for a strict inequality ($>$, $<$) use $\\Delta<0$. When $\\Delta=0$ there is one value of $x$ that makes the expression zero, and a strict inequality rejects it (see the previous card).\n(3) If the coefficient of $x^{2}$ contains the unknown (for example $kx^{2}+\\cdots$), check $k=0$ separately: then it is not a quadratic at all.\n\nExample ($a\\ne 1$): $3x^{2}+4x+k>0$ for all real $x$ {{math:2}}\nExample (no solution): $kx^{2}+2x+1<0$ has no real solution {{math:3}}"
-   },
-   "math": [
-    "ax^{2}+bx+c>0\\ \\text{for all }x\\ \\Leftrightarrow\\ a>0\\ \\text{and}\\ \\Delta<0\nax^{2}+bx+c\\ge 0\\ \\text{for all }x\\ \\Leftrightarrow\\ a>0\\ \\text{and}\\ \\Delta\\le 0\nax^{2}+bx+c<0\\ \\text{for all }x\\ \\Leftrightarrow\\ a<0\\ \\text{and}\\ \\Delta<0\nax^{2}+bx+c\\le 0\\ \\text{for all }x\\ \\Leftrightarrow\\ a<0\\ \\text{and}\\ \\Delta\\le 0",
-    "ax^{2}+bx+c>0\\ \\text{has no solution}\\ \\Leftrightarrow\\ a<0\\ \\text{and}\\ \\Delta\\le 0\nax^{2}+bx+c\\ge 0\\ \\text{has no solution}\\ \\Leftrightarrow\\ a<0\\ \\text{and}\\ \\Delta<0\nax^{2}+bx+c<0\\ \\text{has no solution}\\ \\Leftrightarrow\\ a>0\\ \\text{and}\\ \\Delta\\le 0\nax^{2}+bx+c\\le 0\\ \\text{has no solution}\\ \\Leftrightarrow\\ a>0\\ \\text{and}\\ \\Delta<0",
-    "3x^{2}+4x+k>0\\ \\text{for all real }x\n\\Rightarrow a=3>0\\ \\text{and}\\ \\Delta=4^{2}-4(3)(k)=16-12k<0\n\\Rightarrow k>\\frac{4}{3}",
-    "kx^{2}+2x+1<0\\ \\text{has no solution}\n\\Rightarrow \\text{opens upwards, never below the }x\\text{-axis}\n\\Rightarrow k>0\\ \\text{and}\\ \\Delta=2^{2}-4(k)(1)=4-4k\\le 0\n\\Rightarrow k\\ge 1"
-   ],
-   "vocab": [
-    {
-     "en": "for all real numbers",
-     "zh": "對所有實數都成立"
-    },
-    {
-     "en": "leading coefficient",
-     "zh": "二次項係數（$x^2$ 的係數）"
-    },
-    {
-     "en": "no solution",
-     "zh": "無解"
-    }
-   ],
-   "warn": {
-    "zh": "三個常見錯誤：① 只寫 $\\Delta<0$ 而忘記 $x^2$ 的係數要正 —— $a=1$ 的題目剛好不用寫，但 $a=2$ 或 $a=k$ 的題目就會漏；② 嚴格與非嚴格不分（嚴格用 $\\Delta<0$、有等號用 $\\Delta\\le 0$），寫錯會多收或少收邊界值；③ $x^2$ 的係數含未知數時沒有檢查它等於 0 的情況 —— 例如 $kx^{2}+2kx+3>0$ 對所有實數 $x$ 都成立：$k=0$ 時變成 $3>0$，所以 $k=0$ 也成立。",
-    "en": "Three common mistakes: (1) writing only $\\Delta<0$ and forgetting that the coefficient of $x^{2}$ must be positive — questions with $a=1$ hide this hole, but $a=2$ or $a=k$ exposes it; (2) mixing up strict and non-strict inequalities (strict needs $\\Delta<0$, equality allows $\\Delta\\le 0$), which adds or drops boundary values; (3) when the coefficient of $x^{2}$ contains the unknown, not checking the case where it is zero — for example $kx^{2}+2kx+3>0$ for all real $x$ also holds when $k=0$, because the statement becomes $3>0$."
-   }
-  },
-  {
-   "id": "as04-c1",
-   "topic": "as04",
-   "title": {
-    "zh": "兩條基本原理：分類用加、分步用乘",
-    "en": "Two basic principles: add for cases, multiply for steps"
-   },
-   "body": {
-    "zh": "- 加法原理（分類）：把做法分成幾類，各類分別有 $a_1, a_2, \\ldots, a_k$ 種，而每一種做法只屬於其中一類，總數就是 {{math:0}}\n- 乘法原理（分步）：要依次完成 $k$ 個步驟，各步分別有 $n_1, n_2, \\ldots, n_k$ 種做法，總數就是 {{math:1}}\n- 例：餐廳午餐 ＝ 前菜 2 選 1、主菜 4 選 1、飲品 3 選 1。三樣都要揀（分步），所以是 {{math:2}}",
-    "en": "- Addition principle (cases): split the ways into classes holding $a_1, a_2, \\ldots, a_k$ ways, where every way belongs to exactly one class. The total is {{math:0}}\n- Multiplication principle (steps): to finish the task you carry out $k$ steps in turn, with $n_1, n_2, \\ldots, n_k$ ways at each step. The total is {{math:1}}\n- Example: a lunch set = 2 appetizers, 4 main dishes, 3 drinks. All three are chosen (steps), so the total number of lunch sets is{{math:2}}"
-   },
-   "math": [
-    "a_1 + a_2 + \\cdots + a_k",
-    "n_1 \\times n_2 \\times \\cdots \\times n_k",
-    "2 \\times 4 \\times 3 = 24"
-   ],
-   "warn": {
-    "zh": "- 「或者」＝分類，用加；「同時／然後」＝分步，用乘。一題可以兩者都用（先分類，類內再分步）。\n- 分步時每步的選項數目要重新數：上一步用掉一個選擇，下一步可能只剩 9 個。\n- 分類時各類不可重疊；有重疊就要先減去重複計算的部分。",
-    "en": "- \"Or\" means cases → add; \"and then\" means steps → multiply. One question can use both (split into cases, then multiply within each case).\n- At each step count the choices again: a choice used in the previous step may leave only 9 for the next.\n- The classes must not overlap; if they do, subtract the overlapping part first."
-   },
-   "vocab": [
-    {
-     "zh": "加法原理",
-     "en": "Addition principle"
-    },
-    {
-     "zh": "乘法原理",
-     "en": "Multiplication principle"
-    },
-    {
-     "zh": "分類",
-     "en": "Cases"
-    },
-    {
-     "zh": "分步",
-     "en": "Steps"
-    }
-   ]
-  },
-  {
-   "id": "as04-c2",
-   "topic": "as04",
-   "title": {
-    "zh": "排列法：綑綁法（處理「必須相鄰」）",
-    "en": "Permutation: Bundling method (objects must be adjacent)"
-   },
-   "body": {
-    "zh": "當題目要求某些指定物件「必須相鄰」或「連在一起」時，通常可用綑綁法。做法可分為兩步：\n- 第一步 · 把所有必須相鄰的物件視為一個整體，並與其他不受限制的物件一起進行排列；\n- 第二步 · 再計算該整體內部各物件的排列數。\n總排列數為兩部分之積：{{math:0}}\n示例：將 5 名學生 A、B、C、D、E 排成一行，並要求 A 與 B 必須相鄰。\n- 第一步 · 將 A 與 B 綑綁成一個大單位，連同其餘 3 人共有 4 個單位，故有 $4! = 24$ 種排法；\n- 第二步 · 大單位內 A 與 B 的排列數為 $2! = 2$ 種（AB 或 BA）。\n因此總數為 $4! \\times 2! = 24 \\times 2 = 48$。",
-    "en": "When a question states that certain objects must be adjacent or kept together, the bundling method is usually the clearest approach. There are two standard steps:\n- Step 1 · treat all required adjacent objects as one block and arrange this block together with the other unrestricted objects;\n- Step 2 · count the number of ways to arrange the objects inside the block.\nThe total number of arrangements is the product of the two parts: {{math:0}}\nExample: arrange 5 students A, B, C, D, E in a row so that A and B must be adjacent.\n- Step 1 · tie A and B into one block; together with the other 3 students there are 4 units, so the number of arrangements is $4! = 24$;\n- Step 2 · A and B can be arranged inside the block in $2! = 2$ ways (AB or BA).\nHence the total is $4! \\times 2! = 24 \\times 2 = 48$."
-   },
-   "math": [
-    "\\text{Total}\n= (\\text{arrangement of units})\n\\times (\\text{arrangement inside the block})"
-   ],
-   "warn": {
-    "zh": "- 常見錯誤：只寫外部的 $4!$，卻忘記乘上大單位內部的 $2!$，便會得到 24，少了一半。\n- 若題目已規定塊內次序（例如「A 必須緊接在 B 之前」），則塊內只有 1 種排列。因此同樣的 5 人例子，實際只會是 $4! = 24$，不能再乘 $2!$。",
-    "en": "- Common mistake: writing only the outside factor $4!$ but forgetting the internal arrangement $2!$ gives 24, which is exactly half the correct answer.\n- If the order inside the block is fixed in advance (for example, 'A must be immediately before B'), then the block has only 1 possible arrangement. In that case, the same five-student example becomes $4! = 24$; do not multiply by $2!$ again."
-   },
-   "vocab": [
-    {
-     "zh": "綑綁法",
-     "en": "Bundling method / Block method"
-    },
-    {
-     "zh": "相鄰",
-     "en": "Adjacent / next to each other"
-    },
-    {
-     "zh": "內部排列",
-     "en": "Internal arrangement"
-    }
-   ]
-  },
-  {
-   "id": "as04-c3",
-   "topic": "as04",
-   "title": {
-    "zh": "排列法：插空法（處理「互不相鄰」）",
-    "en": "Permutation: Slot-in method (objects must not be adjacent)"
-   },
-   "body": {
-    "zh": "當題目要求某些指定物件「不可相鄰」或「互不相鄰」時，通常使用插空法。步驟一般為三步：\n- 第一步 · 先把不受限制的其他物件排列好；\n- 第二步 · 計算這些物件左右兩端及中間所形成的空隙數目；\n- 第三步 · 把受限制的物件依次放進這些空隙中。\n總排列數為兩部分之積：{{math:0}}\n示例：將 4 名男生與 3 名女生排成一行，並要求 3 名女生不可相鄰。\n- 第一步 · 先排 4 名男生，有 $4! = 24$ 種；\n- 第二步 · 4 名男生前後及中間共形成 $4 + 1 = 5$ 個空隙；\n- 第三步 · 3 名相異女生從 5 個空隙中選 3 個放入，並考慮其順序，有 $P^5_3 = 5 \\times 4 \\times 3 = 60$ 種。\n因此總數為 $4! \\times P^5_3 = 24 \\times 60 = 1440$。",
-    "en": "When a question requires certain objects to be non-adjacent or separated from one another, the slot-in method is the standard technique. It usually follows three steps:\n- Step 1 · arrange the unrestricted objects first;\n- Step 2 · count the available spaces before, between and after them;\n- Step 3 · place the restricted objects into these spaces in order.\nThe total number of arrangements is the product of the two parts: {{math:0}}\nExample: arrange 4 boys and 3 girls in a row so that no two girls are adjacent.\n- Step 1 · arrange the 4 boys in $4! = 24$ ways;\n- Step 2 · the 4 boys create $4 + 1 = 5$ gaps;\n- Step 3 · place the 3 distinct girls into 3 of the 5 gaps in order, giving $P^5_3 = 5 \\times 4 \\times 3 = 60$ ways.\nHence the total is $4! \\times P^5_3 = 24 \\times 60 = 1440$."
-   },
-   "math": [
-    "\\text{Total}\n= (\\text{arrangement of unrestricted items})\n\\times P^{\\text{gaps}}_{\\text{restricted items}}"
-   ],
-   "warn": {
-    "zh": "- 數空隙時常見失誤：2 件物件會形成 3 個空隙（前、中、後），並非 1 個；一般而言，$k$ 件物件能形成 $k+1$ 個空隙。\n- 例如 2 名男生與 3 名女生排成一行，若 3 名女生互不相鄰，先排男生會形成 3 個空隙，3 名女生須各佔一個空隙，故正確數目是 $2! \\times P^3_3 = 12$。若錯用「全部排列減去 3 名女生全部相鄰」，便會算成 $5! - (3! \\times 3!) = 84$；但這只扣除了 3 名女生連成一組的情況，仍把「剛好 2 名女生相鄰」的排列算在內，所以 84 並非正確答案。\n- 因此，涉及 3 個或以上指定物件互不相鄰時，插空法尤其可靠；不要把「不可互相相鄰」的反面誤當成「全部相鄰」。\n- 這類題目最重要的是先排列不受限制的物件，再把受限制的物件放入空隙，較容易避免重複或遺漏。",
-    "en": "- A common error is to count the gaps incorrectly: 2 objects form 3 gaps (before, between and after), not 1. In general, $k$ objects create $k+1$ gaps.\n- For example, arrange 2 boys and 3 girls in a row, with no two girls adjacent. Arranging the boys first creates 3 gaps, and each girl must occupy a different gap, so the correct count is $2! \\times P^3_3 = 12$. The incorrect shortcut 'total arrangements minus the arrangements with all 3 girls together' gives $5! - (3! \\times 3!) = 84$. However, this subtracts only the cases where all 3 girls form one block; it still counts arrangements where exactly 2 girls are adjacent, so 84 is not the correct answer.\n- The slot-in method is especially reliable when 3 or more specified objects must be mutually non-adjacent. Do not mistake the opposite of 'not mutually adjacent' for 'all together'.\n- The key is to arrange the unrestricted objects first, then place the restricted objects into the gaps. This helps avoid double-counting or missing cases."
-   },
-   "vocab": [
-    {
-     "zh": "插空法",
-     "en": "Slot-in method / Gap method"
-    },
-    {
-     "zh": "互不相鄰",
-     "en": "Not adjacent to one another"
-    },
-    {
-     "zh": "空隙",
-     "en": "Gaps / spaces"
-    }
-   ]
-  },
-  {
-   "id": "as04-c4",
-   "topic": "as04",
-   "title": {
-    "zh": "組合：只選一組，不計次序",
-    "en": "Combinations: choose a group, ignore order"
-   },
-   "body": {
-    "zh": "若只關心選出哪些物件，不理會選取次序，便使用組合。從 $n$ 件相異物件中選 $r$ 件：\n- 第一步 · 依次排列所選的 $r$ 件物件，有 $P^n_r$ 種；\n- 第二步 · 同一組物件有 $r!$ 種內部次序，這些次序都代表同一組選擇，所以除以 $r!$。\n因此組合數為：{{math:0}}\n例如從 5 名學生中選 3 人組隊：同一個組合有 $3! = 6$ 種次序，所以用 $C^5_3 = \\frac{60}{3!} = 10$，而不是 $P^5_3 = 60$。",
-    "en": "Use a combination when only the selected objects matter and their selection order is irrelevant. To select $r$ objects from $n$ distinct objects:\n- Step 1 · Arrange the selected $r$ objects in order: $P^n_r$ ways;\n- Step 2 · Each group has $r!$ internal orders, all representing the same selection, so divide by $r!$.\nHence the number of combinations is: {{math:0}}\nFor example, choosing 3 students from 5 to form a team: the same selection has $3! = 6$ orders, so use $C^5_3 = \\frac{60}{3!} = 10$, not $P^5_3 = 60$."
-   },
-   "math": [
-    "C^n_r = \\frac{P^n_r}{r!} = \\frac{n!}{r!(n-r)!}"
-   ],
-   "warn": {
-    "zh": "- 組隊只選成員，用組合；若成員分任隊長與副隊長，職位不同，便須計次序。\n- 「至少一個」條件可考慮反面計數：例如至少一男一女，等於全部隊伍減去全男及全女隊伍。",
-    "en": "- Forming a team selects members, so use combinations; assigning different roles such as president and vice-president makes order matter.\n- For an 'at least one' condition, consider the complement. For example, at least one boy and one girl equals all teams minus all-boys and all-girls teams."
-   },
-   "vocab": [
-    {
-     "zh": "組合",
-     "en": "Combination"
-    },
-    {
-     "zh": "不計次序",
-     "en": "Order does not matter"
-    },
-    {
-     "zh": "相異物件",
-     "en": "Distinct objects"
-    }
-   ]
-  },
-  {
-   "id": "as04-c5",
-   "topic": "as04",
-   "title": {
-    "zh": "「至少／至多」：用反面計數",
-    "en": "At least / at most: count the complement"
-   },
-   "body": {
-    "zh": "題目出現「至少」或「至多」時，直接分類討論容易漏掉情況。先把「反面」（不符合條件的全部情況）寫出來，再用全部情況減去它，通常最快又最穩。\n- 第一步 · 數出沒有限制時的全部情況；\n- 第二步 · 數出「反面」的情況（通常是「全部來自某一類」這種極端情況）；\n- 第三步 · 相減。\n關係式為：{{math:0}}\n示例：6 男 7 女中選 5 人，要求至少 1 男 1 女。全部有 $C^{13}_5=1287$ 種；反面是全男（$C^6_5=6$）或全女（$C^7_5=21$），故答案為 $1287-6-21=1260$。",
-    "en": "When a question says \"at least\" or \"at most\", listing cases directly easily misses some. Write down the complement (the cases that fail the condition) and subtract it from all cases - usually faster and safer.\n- Step 1 · count all cases with no restriction;\n- Step 2 · count the complement (often the extreme case of everything coming from one group);\n- Step 3 · subtract.\nThe relation is: {{math:0}}\nExample: choose 5 from 6 boys and 7 girls with at least 1 boy and 1 girl. All cases: $C^{13}_5=1287$; the complement is all boys ($C^6_5=6$) or all girls ($C^7_5=21$), giving $1287-6-21=1260$."
-   },
-   "math": [
-    "\\text{At least one of each}\n= \\text{all cases}\n- \\text{all from one group}"
-   ],
-   "warn": {
-    "zh": "- 反面情況要寫齊：例如「至少一男一女」的反面是「全男」加「全女」兩種，不可只減一種。\n- 切勿用「先選一男一女、再選其餘」的做法：同一隊會被重複計算（有 $b$ 名男生、$5-b$ 名女生的隊伍會被數 $b(5-b)$ 次）。",
-    "en": "- List every complement case: the complement of \"at least one boy and one girl\" is \"all boys\" plus \"all girls\", not just one of them.\n- Never use the anchor-first trick (choose one boy and one girl first, then the rest): the same team is counted more than once (a team with $b$ boys and $5-b$ girls is counted $b(5-b)$ times)."
-   },
-   "vocab": [
-    {
-     "zh": "至少",
-     "en": "At least"
-    },
-    {
-     "zh": "至多",
-     "en": "At most"
-    },
-    {
-     "zh": "反面計數",
-     "en": "Counting the complement"
-    }
-   ]
-  },
-  {
-   "id": "as04-c6",
-   "topic": "as04",
-   "title": {
-    "zh": "分組問題：組別有沒有編號？",
-    "en": "Dividing into groups: are the groups labelled?"
-   },
-   "body": {
-    "zh": "把物件「分組」時，先問一句：各組有沒有編號（第一組、第二組）？\n- 有編號或有先後次序：第 1 組先選、第 2 組再選，如此類推，直接相乘即可；\n- 沒有編號：人數相同的組會互相重複計算 $k!$ 次（$k$ ＝ 人數相同的組數），所以要除以 $k!$。\n關係式為：{{math:0}}\n示例：6 人分成 2 組、每組 3 人。\n- 有組名（一隊去數學賽、一隊去科學賽）：$C^6_3 \\times C^3_3 = 20$ 種；\n- 無組名（分兩隊打街頭籃球）：兩個 3 人組對調係同一場球賽，所以 $\\frac{C^6_3 \\times C^3_3}{2!} = 10$ 種。\n再看一層：10 人分成 4、4、2 三組，不編號時只除 $2!$（只有兩個 4 人組對調會重複），不是除 $3!$，得 $\\frac{C^{10}_4 C^6_4 C^2_2}{2!} = 1575$ 種。",
-    "en": "When objects are divided into groups, ask first: are the groups labelled (group 1, group 2, ...)?\n- Labelled, or in a stated order: choose group 1 first, then group 2, and multiply the counts;\n- Not labelled: groups of the same size are counted $k!$ times ($k$ = number of groups of that size), so divide by $k!$.\nThe relation is: {{math:0}}\nExample: 6 people divided into 2 groups of 3.\n- Labelled (one team to a maths contest, one to a science contest): $C^6_3 \\times C^3_3 = 20$ ways;\n- Unlabelled (two teams for a street-ball game): swapping the two 3-person teams is the same match, so $\\frac{C^6_3 \\times C^3_3}{2!} = 10$ ways.\nOne level further: 10 people divided into groups of 4, 4 and 2 — with no labels only $2!$ is cancelled (only the two 4-person groups duplicate each other), not $3!$, giving $\\frac{C^{10}_4 C^6_4 C^2_2}{2!} = 1575$ ways."
-   },
-   "math": [
-    "\\text{Unlabelled groups}\n= \\frac{\\text{ordered selection}}{k!}"
-   ],
-   "warn": {
-    "zh": "- 「依次」「先後」會令組別有次序，此時不可再除以 $k!$。\n- 「分成兩隊」如沒有說明「第一隊、第二隊」，嚴格來說兩隊不編號；若題目把兩隊視為有別（例如比賽的 A 隊、B 隊），才直接相乘。\n- 除以 $k!$ 的 $k$ 只計「人數相同」的組：10 人分成 4、4、2 時，只有兩個 4 人組會互相重複，所以只除 $2!$，不是 $3!$。",
-    "en": "- Words such as \"in order\" or \"one by one\" already order the groups, so do not divide by $k!$.\n- Two teams with no names (\"team 1 / team 2\") are unlabelled in principle; multiply directly only when the question treats them as distinct (e.g. team A and team B).\n- The $k$ in $k!$ counts only groups of the same size: for 10 people split 4, 4, 2, only the two 4-person groups duplicate each other, so divide by $2!$, not $3!$."
-   },
-   "vocab": [
-    {
-     "zh": "分組",
-     "en": "Dividing into groups"
-    },
-    {
-     "zh": "編號",
-     "en": "Labelled"
-    },
-    {
-     "zh": "重複計算",
-     "en": "Overcounting"
-    }
-   ]
-  },
-  {
-   "id": "ws02-c1",
-   "topic": "ws02",
-   "title": {
-    "zh": "聯立方程：同一組數滿足兩條式",
-    "en": "Simultaneous equations: one pair, two conditions"
-   },
-   "goal": {
-    "zh": "知道答案是一組有次序的數值。",
-    "en": "Recognise a solution as a pair of values for the named unknowns."
-   },
-   "body": {
-    "zh": "解聯立方程，就是找出一組 $x$、$y$，令兩條方程同時成立。\n例如以下兩個條件：{{math:0}}\n試代 $x=3$、$y=2$，兩條都成立。{{math:1}}",
-    "en": "The two unknowns must satisfy both equations at the same time.\nConsider these two conditions:{{math:0}}\nSubstituting $x=3$ and $y=2$ makes both equations true.{{math:1}}"
-   },
-   "math": [
-    "x+y=5\nx-y=1",
-    "3+2=5\n3-2=1"
-   ],
-   "warn": {
-    "zh": "只代回其中一條不夠；其他數值也可能滿足那一條。$x$ 與 $y$ 的次序不能隨意交換。",
-    "en": "Checking just one equation is insufficient: other pairs may satisfy it. Keep the values of $x$ and $y$ distinct."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "哪組數同時滿足 $x+y=5$ 及 $x-y=1$？",
-     "en": "Which pair satisfies both $x+y=5$ and $x-y=1$?"
-    },
-    "options": [
-     {
-      "math": "x=2,\\ y=3"
-     },
-     {
-      "math": "x=3,\\ y=2"
-     },
-     {
-      "math": "x=4,\\ y=1"
-     }
-    ],
-    "answer": 1,
-    "explanation": {
-     "zh": "$3+2=5$ 而且 $3-2=1$，兩個條件都成立。",
-     "en": "Both $3+2=5$ and $3-2=1$ hold."
-    }
-   },
-   "vocab": [
-    {
-     "en": "simultaneous equations",
-     "zh": "聯立方程"
-    },
-    {
-     "en": "solution",
-     "zh": "同時滿足條件的解"
-    }
-   ]
-  },
-  {
-   "id": "ws02-c2",
-   "topic": "ws02",
-   "title": {
-    "zh": "代入法：用整個式子取代字母",
-    "en": "Substitution: replace an unknown with a whole expression"
-   },
-   "goal": {
-    "zh": "把兩個未知數變成一個。",
-    "en": "Reduce the problem to one unknown."
-   },
-   "body": {
-    "zh": "若已經有一個字母獨立，可以直接代入。\n這裡先把 $y$ 寫成 $3x$：{{math:0}}\n另一條方程中的 $y$，整個改寫為 $3x$。{{math:1}}\n求得 $x$ 後，代回 $y=3x$ 求另一個數。{{math:2}}",
-    "en": "If an unknown is already isolated, substitute directly.\nHere $y$ is written as $3x$:{{math:0}}\nReplace $y$ in the other equation with the whole expression $3x$.{{math:1}}\nThen put the value of $x$ back into $y=3x$.{{math:2}}"
-   },
-   "math": [
-    "y=3x\nx+y=12",
-    "x+3x=12\n4x=12\nx=3",
-    "y=3(3)=9"
-   ],
-   "warn": {
-    "zh": "代入的是字母代表的整個式子。若前面還有係數，例如 $2y$，便要寫 $2(3x)$。",
-    "en": "Replace the unknown with its whole expression. A coefficient stays: $2y$ becomes $2(3x)$."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "已知 $y=4x$，$x+2y$ 代入後是哪個式子？",
-     "en": "If $y=4x$, what does $x+2y$ become?"
-    },
-    "options": [
-     {
-      "math": "x+4x"
-     },
-     {
-      "math": "x+2(4x)"
-     },
-     {
-      "math": "4x+2x"
-     }
-    ],
-    "answer": 1,
-    "explanation": {
-     "zh": "$2y=2(4x)$，所以是 $x+2(4x)=9x$。",
-     "en": "Since $2y=2(4x)$, the expression is $x+2(4x)=9x$."
-    }
-   },
-   "vocab": [
-    {
-     "en": "substitution",
-     "zh": "代入法"
-    },
-    {
-     "en": "replace",
-     "zh": "用等值的式子取代"
-    }
-   ]
-  },
-  {
-   "id": "ws02-c3",
-   "topic": "ws02",
-   "title": {
-    "zh": "先轉換主項，再代入",
-    "en": "Change the subject before substituting"
-   },
-   "goal": {
-    "zh": "選較容易獨立的未知數，保留括號。",
-    "en": "Choose an easy unknown to isolate and keep brackets."
-   },
-   "body": {
-    "zh": "沒有字母獨立時，先找係數為 $1$ 或 $-1$ 的未知數。\n由 $x-y=1$ 得到：{{math:0}}\n把整個 $y+1$ 代入另一條方程的 $x$，乘 $2$ 時兩項都受影響。{{math:1}}\n再代回，找出 $x$。{{math:2}}",
-    "en": "When no unknown is isolated, look for a coefficient of $1$ or $-1$.\nFrom $x-y=1$:{{math:0}}\nSubstitute the whole $y+1$ for $x$. Multiplying by $2$ affects both terms.{{math:1}}\nSubstitute back to find $x$.{{math:2}}"
-   },
-   "math": [
-    "x-y=1\nx=y+1",
-    "2(y+1)+3y=12\n5y+2=12\ny=2",
-    "x=2+1=3"
-   ],
-   "warn": {
-    "zh": "把 $x$ 換成 $y+1$ 時，$2x$ 是 $2(y+1)$，不是 $2y+1$。",
-    "en": "When $x=y+1$, the term $2x$ becomes $2(y+1)$, not $2y+1$."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "由 $x-y=1$，哪個以 $x$ 為主項的式子正確？",
-     "en": "Which expression for $x$ follows from $x-y=1$?"
-    },
-    "options": [
-     {
-      "math": "x=1-y"
-     },
-     {
-      "math": "x=y-1"
-     },
-     {
-      "math": "x=y+1"
-     }
-    ],
-    "answer": 2,
-    "explanation": {
-     "zh": "兩邊同加 $y$，得 $x=1+y=y+1$。",
-     "en": "Adding $y$ to both sides gives $x=1+y=y+1$."
-    }
-   },
-   "vocab": [
-    {
-     "en": "subject",
-     "zh": "主項：獨立在等號一邊的字母"
-    },
-    {
-     "en": "brackets",
-     "zh": "括號"
-    }
-   ]
-  },
-  {
-   "id": "ws02-c4",
-   "topic": "ws02",
-   "title": {
-    "zh": "消元法：係數對齊，再加或減",
-    "en": "Elimination: match coefficients, then add or subtract"
-   },
-   "goal": {
-    "zh": "用相反或相同係數消去一個未知數。",
-    "en": "Eliminate one unknown using opposite or equal coefficients."
-   },
-   "body": {
-    "zh": "相反係數可以相加消去。\n兩條方程的 $y$ 係數是 $-1$ 與 $+1$：{{math:0}}\n兩式相加，$y$ 項抵消。{{math:1}}\n係數不同時，先把整條方程乘一個數。例如：{{math:2}}",
-    "en": "Opposite coefficients cancel by addition.\nThe coefficients of $y$ here are $-1$ and $+1$:{{math:0}}\nAdd the equations to cancel $y$.{{math:1}}\nIf coefficients do not match, first scale an entire equation. For example:{{math:2}}"
-   },
-   "math": [
-    "3x-y=-6\n2x+y=1",
-    "5x=-5\nx=-1\ny=3",
-    "3x-y=-6\n6x-2y=-12"
-   ],
-   "warn": {
-    "zh": "同號且相同的係數可用相減；減號作用於整條方程，包括等號右邊。放大方程時，每項都要乘。",
-    "en": "Equal coefficients cancel by subtraction. Subtract every term, including the right-hand side. Scaling applies to every term too."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "$(2x-y)-(x-y)$ 等於甚麼？",
-     "en": "What is $(2x-y)-(x-y)$?"
-    },
-    "options": [
-     {
-      "math": "x-2y"
-     },
-     {
-      "math": "x"
-     },
-     {
-      "math": "3x"
-     }
-    ],
-    "answer": 1,
-    "explanation": {
-     "zh": "先拆括號：$2x-y-x+y=x$，兩個 $y$ 項抵消。",
-     "en": "Remove the brackets: $2x-y-x+y=x$. The $y$ terms cancel."
-    }
-   },
-   "vocab": [
-    {
-     "en": "elimination",
-     "zh": "消元法"
-    },
-    {
-     "en": "coefficient",
-     "zh": "係數"
-    }
-   ]
-  },
-  {
-   "id": "ws02-c5",
-   "topic": "ws02",
-   "title": {
-    "zh": "應用題：先分清數量與單價",
-    "en": "Word problems: distinguish quantity from unit price"
-   },
-   "goal": {
-    "zh": "為兩個未知量下定義，再把條件寫成方程。",
-    "en": "Define two quantities before translating the conditions."
-   },
-   "body": {
-    "zh": "先寫清 $x$、$y$ 代表甚麼，連同單位。\n例如 $x$ 是梨的單價，$y$ 是芒果的單價：{{math:0}}\n另一組購買條件提供第二條方程。{{math:1}}\n解出後，讀清楚要的是一個物品的單價、總數，還是兩者的差。",
-    "en": "Define $x$ and $y$, including their units.\nFor example, let $x$ be the price of a pear and $y$ the price of a mango:{{math:0}}\nA second purchase gives a second equation.{{math:1}}\nAfter solving, check whether the request is a unit price, a total or a difference."
-   },
-   "math": [
-    "2x+3y=33",
-    "4x+7y=73"
-   ],
-   "warn": {
-    "zh": "「兩個梨」不代表 $x=2$。若 $x$ 是單價，兩個梨的總價才是 $2x$。",
-    "en": "“Two pears” does not mean $x=2$. If $x$ is a unit price, two pears cost $2x$."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "每枝筆 $x$ 元、每本簿 $y$ 元。三枝筆與五本簿共售 $40$ 元，應列哪條？",
-     "en": "Pens cost $x$ dollars and notebooks $y$ dollars each. Three pens and five notebooks cost 40 dollars. Which equation represents this?"
-    },
-    "options": [
-     {
-      "math": "3x+5y=40"
-     },
-     {
-      "math": "5x+3y=40"
-     },
-     {
-      "math": "x+y=40"
-     }
-    ],
-    "answer": 0,
-    "explanation": {
-     "zh": "每類物品的數量乘單價，再相加：$3x+5y=40$。",
-     "en": "Multiply each quantity by its unit price, then add: $3x+5y=40$."
-    }
-   },
-   "vocab": [
-    {
-     "en": "unit price",
-     "zh": "單價"
-    },
-    {
-     "en": "total cost",
-     "zh": "總價"
-    }
-   ]
-  },
-  {
-   "id": "ws02-c6",
-   "topic": "ws02",
-   "title": {
-    "zh": "轉移物品：一邊減，另一邊加",
-    "en": "Transfers: subtract from one person, add to the other"
-   },
-   "goal": {
-    "zh": "把原有人數／物品與改變後的數量分開。",
-    "en": "Separate original quantities from quantities after a change."
-   },
-   "body": {
-    "zh": "設 $x$、$y$ 為 Alan、Benny 原有的郵票數量。\n「Alan 是 Benny 的 $3$ 倍」描述原來的情況。{{math:0}}\nAlan 給 Benny $12$ 枚後，兩人的數量相同。{{math:1}}\n物品只在二人之間轉移，總數保持不變。{{math:2}}",
-    "en": "Let $x$ and $y$ be the original numbers of stamps held by Alan and Benny.\n“Alan has three times as many” describes the original situation.{{math:0}}\nAfter Alan gives Benny $12$ stamps, the two numbers are equal.{{math:1}}\nA transfer between the two people leaves the total unchanged.{{math:2}}"
-   },
-   "math": [
-    "x=3y",
-    "x-12=y+12",
-    "(x-12)+(y+12)=x+y"
-   ],
-   "warn": {
-    "zh": "二人轉移物品時，接收的一方要增加；若只是某人離開課室，則不會自動令另一類人數增加。",
-    "en": "In a transfer, the receiver gains the items. Someone leaving a room does not automatically increase the other group."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "甲有 $x$ 枚、乙有 $y$ 枚；甲給乙 $5$ 枚後數量相同。哪條正確？",
-     "en": "A has $x$ items and B has $y$. A gives B $5$ items and their numbers become equal. Which equation is correct?"
-    },
-    "options": [
-     {
-      "math": "x-5=y-5"
-     },
-     {
-      "math": "x+5=y-5"
-     },
-     {
-      "math": "x-5=y+5"
-     }
-    ],
-    "answer": 2,
-    "explanation": {
-     "zh": "甲失去 $5$ 枚，乙得到 $5$ 枚，所以是 $x-5=y+5$。",
-     "en": "A loses $5$ and B gains $5$, so $x-5=y+5$."
-    }
-   },
-   "vocab": [
-    {
-     "en": "original",
-     "zh": "改變前的數量"
-    },
-    {
-     "en": "transfer",
-     "zh": "轉移物品"
-    }
-   ]
-  },
-  {
-   "id": "ws02-c7",
-   "topic": "ws02",
-   "title": {
-    "zh": "百分比與比：先找比較基準",
-    "en": "Percentages and ratios: identify the reference"
-   },
-   "goal": {
-    "zh": "把「多／少百分之幾」寫成倍數。",
-    "en": "Translate a percentage comparison into a multiplier."
-   },
-   "body": {
-    "zh": "「男會員 $x$ 比女會員 $y$ 多 $20\\%$」，以 $y$ 為基準。{{math:0}}\n「雜誌 $x$ 比漫畫 $y$ 少 $25\\%$」，留下基準的 $75\\%$。{{math:1}}\n若兩個數的比為 $8:7$，亦可用等值方程表達。{{math:2}}",
-    "en": "If male membership $x$ is $20\\%$ more than female membership $y$, the reference is $y$.{{math:0}}\nIf magazines $x$ are $25\\%$ fewer than comic books $y$, take $75\\%$ of the reference.{{math:1}}\nA ratio of $8:7$ can also be written as an equivalent equation.{{math:2}}"
-   },
-   "math": [
-    "x=y+0.2y=1.2y",
-    "x=y-0.25y=0.75y",
-    "x:y=8:7\n7x=8y"
-   ],
-   "warn": {
-    "zh": "男比女多 $20\\%$，不代表女比男少 $20\\%$，因為比較的基準已改變。",
-    "en": "If men outnumber women by $20\\%$, women are not $20\\%$ fewer than men: the reference has changed."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "若 $x$ 比 $y$ 多 $80\\%$，$x$ 等於多少？",
-     "en": "If $x$ is $80\\%$ more than $y$, what is $x$?"
-    },
-    "options": [
-     {
-      "math": "0.8y"
-     },
-     {
-      "math": "1.8y"
-     },
-     {
-      "math": "y+80"
-     }
-    ],
-    "answer": 1,
-    "explanation": {
-     "zh": "$x=y+0.8y=1.8y$，原有的 $100\\%$ 不能漏去。",
-     "en": "$x=y+0.8y=1.8y$. Include the original $100\\%$."
-    }
-   },
-   "vocab": [
-    {
-     "en": "more than",
-     "zh": "比基準多"
-    },
-    {
-     "en": "ratio",
-     "zh": "比"
-    }
-   ]
-  },
-  {
-   "id": "ws02-c8",
-   "topic": "ws02",
-   "title": {
-    "zh": "路程題：統一時間單位再列式",
-    "en": "Distance problems: use consistent time units"
-   },
-   "goal": {
-    "zh": "用路程等於速率乘時間建立兩條方程。",
-    "en": "Use distance equals speed times time to form two equations."
-   },
-   "body": {
-    "zh": "若設 $x$、$y$ 為兩段所需的分鐘，時速要先換成每分鐘速率。{{math:0}}\n全程 $85$ 分鐘、$104$ 公里，提供兩個不同條件。{{math:1}}\n解出後，按題目的最後一句選擇所求的一段時間，單位仍是分鐘。",
-    "en": "If $x$ and $y$ are the minutes for the two legs, convert hourly speeds to speeds per minute.{{math:0}}\nA total of $85$ minutes and $104$ kilometres gives two different conditions.{{math:1}}\nAfter solving, give the time for the requested leg, in minutes."
-   },
-   "math": [
-    "66/60=1.1\n84/60=1.4",
-    "x+y=85\n1.1x+1.4y=104"
-   ],
-   "warn": {
-    "zh": "分鐘不能直接乘每小時速率來求公里數。也可把時間設為小時，但所有條件都要使用相同單位。",
-    "en": "Minutes cannot directly multiply a speed in kilometres per hour to give kilometres. You may use hours instead, but keep all conditions consistent."
-   },
-   "recall": {
-    "prompt": {
-     "zh": "平均時速 $60$ 公里，行駛 $30$ 分鐘，共走多少公里？",
-     "en": "At $60$ kilometres per hour, how far is travelled in $30$ minutes?"
-    },
-    "options": [
-     {
-      "math": "1800"
-     },
-     {
-      "math": "30"
-     },
-     {
-      "math": "2"
-     }
-    ],
-    "answer": 1,
-    "explanation": {
-     "zh": "$60\\times(30/60)=30$ 公里；先把 $30$ 分鐘寫成半小時。",
-     "en": "$60\\times(30/60)=30$ kilometres. Convert $30$ minutes to half an hour."
-    }
-   },
-   "vocab": [
-    {
-     "en": "average speed",
-     "zh": "平均速率"
-    },
-    {
-     "en": "distance",
-     "zh": "路程"
-    }
-   ]
-  }
- ]
+  ]
 }

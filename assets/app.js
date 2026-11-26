@@ -130,13 +130,13 @@
        \xf{…}  負號分配：逐個抖一下再變色，提醒「拆括號要變號」
      渲染前轉成 KaTeX 的 \htmlClass{…}（需要 trust: true），再交 CSS 做閃動。 */
   /* 用 hlk 而唔係 hl：.step .hl 已經係「提示」區塊，撞名會食埋佢啲款式 */
-  var HL_CLASS = { hl: "hlk", hlw: "hlw", hlg: "hlg", xf: "xf" };
+  var HL_CLASS = { hl: "hlk", hlw: "hlw", hlg: "hlg", xf: "xf", xc: "xc" };
   function markHighlights(src) {
     var s = String(src == null ? "" : src);
-    if (s.indexOf("\\hl") < 0 && s.indexOf("\\xf") < 0) return s;
+    if (s.indexOf("\\hl") < 0 && s.indexOf("\\xf") < 0 && s.indexOf("\\xc") < 0) return s;
     var out = "", i = 0, n = s.length;
     while (i < n) {
-      var m = /^\\(hlw|hlg|hl|xf)\{/.exec(s.substr(i));
+      var m = /^\\(hlw|hlg|hl|xf|xc)\{/.exec(s.substr(i));
       if (!m) { out += s.charAt(i); i++; continue; }
       var j = i + m[0].length, depth = 1, start = j;
       while (j < n) {                       // 配對大括號（\frac{1}{2} 之類都應付到）
@@ -156,55 +156,75 @@
   /* 重點需要「第一次見到先播」：用 IntersectionObserver 等佢入畫面才加 .play */
   function playWhenVisible(node) {
     if (!node) return;
-    function go() { node.classList.add("play"); }
-    if (!("IntersectionObserver" in window)) { go(); return; }
+    function run() {
+      node.classList.remove("play");
+      void node.offsetWidth;
+      node.classList.add("play");
+    }
+    if (!("IntersectionObserver" in window)) { run(); return; }
     try {
       var io = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
-          if (e.isIntersecting) { go(); io.disconnect(); }
+          if (e.isIntersecting) { run(); io.disconnect(); }
         });
-      }, { threshold: 0.35 });
+      }, { threshold: 0.25 });
       io.observe(node);
-    } catch (e) { go(); }
+    } catch (e) { run(); }
   }
-  function replay(node) {
+  function replay(node, forceMotion) {
     if (!node) return;
-    var targets = qsa(".formula-line", node);   // 多行公式：逐行重播
+    /* 清除容器及所有子節點的 .play，確保表格／多行公式都能真正從頭重播 */
+    var stale = qsa(".play", node);
+    stale.forEach(function (t) { t.classList.remove("play"); });
+    node.classList.remove("play", "force-play");
+    var targets = qsa(".formula-line", node);
     if (!targets.length) targets = [node];
-    targets.forEach(function (t) {
-      t.classList.remove("play");
-      void t.offsetWidth;                   // 強制 reflow，動畫才會重播
-      t.classList.add("play");
-    });
+    targets.forEach(function (t) { t.classList.remove("play", "force-play"); });
+    void node.offsetWidth;                   // 強制 reflow，重置 CSS 動畫時間軸
+    var restart = function () {
+      targets.forEach(function (t) {
+        if (forceMotion) t.classList.add("force-play");
+        t.classList.add("play");
+      });
+    };
+    if (typeof window.requestAnimationFrame === "function") {
+      window.requestAnimationFrame(function () { window.requestAnimationFrame(restart); });
+    } else {
+      restart();
+    }
   }
   /* 渲染完之後：排好逐個閃嘅次序（--i），等佢入畫面就播 */
-  function decorateHighlights(host) {
-    var marks = qsa(".hlk, .hlw, .hlg, .xf", host);
+  function decorateHighlights(host, skipAuto) {
+    var marks = qsa(".hlk, .hlw, .hlg, .xf, .xc", host);
     if (!marks.length) return false;
     marks.forEach(function (m, i) { m.style.setProperty("--i", i); });
-    if (!GUIDED_COURSE) playWhenVisible(host);
+    if (!skipAuto) playWhenVisible(host);
     return true;
   }
-  /* 一步一步睇題解時，學生可能想再睇一次重點 → 喺步驟右下角加 ⟲ */
+  /* 一步一步睇題解時，學生可能想再睇一次重點 → 喺右下角加明確「重播動畫」按鈕 */
   function replayButton(target) {
-    var btn = el("button", "replay", "⟲");
+    var btn = el("button", "replay");
     btn.type = "button";
-    btn.title = "重播重點動畫 / Replay";
-    btn.setAttribute("aria-label", "重播重點動畫");
-    btn.onclick = function () { replay(target); };
+    btn.appendChild(el("span", "replay-ic", "⟲"));
+    btn.appendChild(biSpan({ zh: "重播動畫", en: "Replay" }));
+    var label = T({ zh: "重播重點動畫", en: "Replay highlight animation" });
+    btn.title = label;
+    btn.setAttribute("aria-label", label);
+    btn.onclick = function () { replay(target, true); };
     return btn;
   }
-  function tex(node, src, display) {
+  function tex(node, src, display, skipAuto) {
     if (!src) { node.textContent = "—"; return; }
     var out = markHighlights(src);
     node.setAttribute("data-tex", out);
     node.setAttribute("data-display", display ? "1" : "0");
+    if (skipAuto) node.setAttribute("data-no-auto", "1");
     if (window.katex) {
       try {
         katex.render(out, node, {
           displayMode: !!display, throwOnError: false, strict: false, trust: true
         });
-        decorateHighlights(node);
+        decorateHighlights(node, !!skipAuto);
         return;
       } catch (e) { /* 退回純文字 */ }
     }
@@ -243,8 +263,16 @@
           displayMode: n.getAttribute("data-display") === "1",
           throwOnError: false, strict: false, trust: true
         });
-        decorateHighlights(n);            // data-tex 已係 markHighlights 之後嘅版本
+        decorateHighlights(n, n.getAttribute("data-no-auto") === "1");
       } catch (e) {}
+    });
+    qsa(".align-table").forEach(function (tbl) {
+      qsa(".xc", tbl).forEach(function (m, i) { m.style.setProperty("--i", i); });
+      qsa(".hlk, .hlw, .hlg, .xf", tbl).forEach(function (m, i) { m.style.setProperty("--i", i); });
+      playWhenVisible(tbl);
+    });
+    qsa(".translate-list").forEach(function (box) {
+      decorateHighlights(box, false);
     });
     qsa("[data-tex-inline]").forEach(autoRender);
     return true;
@@ -659,7 +687,9 @@
       factorParagraphs(host, { zh: z[i], en: e[i] || "" });
       if (z[i + 1] !== undefined) {
         var f = el("div", "formula factor-formula");
-        formulaBlock(f, card.math[Number(z[i + 1])], true); host.appendChild(f);
+        formulaBlock(f, card.math[Number(z[i + 1])], true);
+        if (qsa(".hlk, .hlw, .hlg, .xf, .xc", f).length) f.appendChild(replayButton(f));
+        host.appendChild(f);
       }
     }
   }
@@ -741,6 +771,8 @@
       if (c.goal) card.appendChild(biNode(c.goal, "p", "factor-goal"));
       var content = el("div", "concept-body factor-concept-body"); renderFactorBody(content, c); card.appendChild(content);
       if (c.crossExample) renderCrossExample(card, c.crossExample);
+      if (c.align) appendAlign(card, c.align);
+      if (c.translate) appendTranslate(card, c.translate);
       if (c.warn) { var warn = el("aside", "callout"); warn.appendChild(biNode({ zh: "留意這一點", en: "Watch this detail" }, "b")); warn.appendChild(biNode(c.warn, "div")); card.appendChild(warn); }
       renderFactorRecall(card, c);
       appendCommandHints(card);
@@ -1208,7 +1240,167 @@
     host.appendChild(box);
   }
 
+  /* 直式對齊運算（消元法／多項式加減）：x、y、=、常數逐欄對齊，並按節奏播放「運算符號 → 抵消劃線 → 結果滑出」 */
+  function appendAlign(host, align) {
+    if (!align || !align.rows || !align.rows.length) return;
+    var box = el("figure", "align-box");
+    if (align.caption) box.appendChild(biNode(align.caption, "figcaption", "align-cap"));
+    var wrap = el("div", "align-scroll");
+    var tbl = el("table", "align-table");
+    var tbody = el("tbody");
+    function addRow(r, isRes) {
+      var tr = el("tr", isRes ? "align-result" : "align-src");
+      var opTd = el("td", "align-op");
+      if (r.op) {
+        var badge = el("span", "align-op-badge", r.op === "-" ? "−" : r.op);
+        opTd.appendChild(badge);
+      }
+      tr.appendChild(opTd);
+      var tagTd = el("td", "align-tag");
+      if (r.tag) tex(tagTd, r.tag, false, true);
+      tr.appendChild(tagTd);
+      (r.cols || []).forEach(function (cell) {
+        var td = el("td", cell === "=" ? "align-eq" : "align-cell");
+        if (cell) tex(td, cell, false, true);
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    }
+    align.rows.forEach(function (r) { addRow(r, false); });
+    if (align.result) addRow(align.result, true);
+    tbl.appendChild(tbody);
+    wrap.appendChild(tbl);
+    box.appendChild(wrap);
+    /* 整張表格統一排好抵消與結果的播放節奏（--i），由 tbl 控制 .play */
+    var xcs = qsa(".xc", tbl);
+    xcs.forEach(function (m, i) { m.style.setProperty("--i", i); });
+    var others = qsa(".hlk, .hlw, .hlg, .xf", tbl);
+    others.forEach(function (m, i) { m.style.setProperty("--i", i); });
+    playWhenVisible(tbl);
+    box.appendChild(replayButton(tbl));
+    host.appendChild(box);
+  }
+
+  /* 應用題「英文關鍵句 ↔ 數學式」逐句對照卡（雙重編碼，降低語言轉換負荷） */
+  function appendTranslate(host, tr) {
+    if (!tr || !tr.rows || !tr.rows.length) return;
+    var box = el("figure", "translate-box");
+    if (tr.caption) box.appendChild(biNode(tr.caption, "figcaption", "translate-cap"));
+    var list = el("div", "translate-list");
+    tr.rows.forEach(function (r, idx) {
+      var item = el("div", "translate-row");
+      item.style.setProperty("--row", idx);
+      var clue = el("div", "translate-clue");
+      if (r.clue && r.clue.en) {
+        var en = el("div", "translate-en");
+        richInto(en, r.clue.en); autoRender(en);
+        clue.appendChild(en);
+      }
+      if (r.clue && r.clue.zh) {
+        var zh = el("div", "translate-zh l-zh");
+        richInto(zh, r.clue.zh); autoRender(zh);
+        clue.appendChild(zh);
+      }
+      var arw = el("span", "translate-arw", "→");
+      arw.setAttribute("aria-hidden", "true");
+      var math = el("div", "translate-math");
+      tex(math, r.math || "", false, true);
+      item.appendChild(clue);
+      item.appendChild(arw);
+      item.appendChild(math);
+      list.appendChild(item);
+    });
+    box.appendChild(list);
+    decorateHighlights(list, false);
+    if (qsa(".hlk, .hlw, .hlg, .xf, .xc", list).length) box.appendChild(replayButton(list));
+    host.appendChild(box);
+  }
+
+  /* 相關概念卡直連：卡住或看完題解時，一鍵返回對應概念卡重溫 */
+  function appendRelatedConcepts(host, cardIds, pages) {
+    if (!cardIds || !cardIds.length || !pages || !pages.length) return;
+    var links = [];
+    cardIds.forEach(function (cid) {
+      for (var pi = 0; pi < pages.length; pi++) {
+        if (pages[pi].kind !== "cards") continue;
+        var found = (pages[pi].lesson.cards || []).filter(function (c) { return c.id === cid; })[0];
+        if (found) {
+          var href = GUIDED_COURSE ? factorDestination(pi, cid) : topicUrl(TOPIC.id, pi);
+          links.push({ href: href, title: found.title });
+          break;
+        }
+      }
+    });
+    if (!links.length) return;
+    var bar = el("div", "related-concepts");
+    bar.appendChild(biNode({ zh: "重溫相關概念卡：", en: "Revisit concept card:" }, "span", "rc-label small muted"));
+    links.forEach(function (lk) {
+      bar.appendChild(linkPair(lk.href, lk.title, "rc-pill"));
+    });
+    host.appendChild(bar);
+  }
+
+  /* 關鍵步驟「先想一步」微思考卡片（Faded Worked Example，不設硬卡） */
+  function renderStepThink(host, st, stepIdx, onReveal) {
+    var th = st.think;
+    var box = el("div", "step-think pending");
+    box.setAttribute("data-think-step", String(stepIdx));
+    box.appendChild(biNode({ zh: "先想一步 · 第 " + (stepIdx + 1) + " 步", en: "Think first · Step " + (stepIdx + 1) }, "div", "think-tag"));
+    box.appendChild(biNode(th.prompt, "p", "think-prompt"));
+    var opts = el("div", "think-opts");
+    var fb = el("div", "think-fb");
+    fb.setAttribute("role", "status");
+    fb.setAttribute("aria-live", "polite");
+    var resolved = false;
+    function done(skipped) {
+      if (resolved) return;
+      resolved = true;
+      box.classList.remove("pending");
+      box.classList.add(skipped ? "think-skipped" : "think-done");
+      qsa("button", opts).forEach(function (b) { b.disabled = true; });
+      skipBtn.classList.add("hidden");
+      onReveal();
+    }
+    (th.options || []).forEach(function (opt, oi) {
+      var b = el("button", "think-opt");
+      b.type = "button";
+      b.appendChild(el("span", "think-letter", String.fromCharCode(65 + oi)));
+      var val = el("span", "think-val");
+      if (opt.math) tex(val, opt.math, false);
+      else val.appendChild(biSpan(opt));
+      b.appendChild(val);
+      b.onclick = function () {
+        if (resolved) return;
+        if (oi === th.answer) {
+          b.classList.add("correct");
+          fb.innerHTML = "";
+          fb.appendChild(biNode(th.confirm || { zh: "✓ 思路對了！看看這一步怎樣寫：", en: "✓ Spot on! See how this step is written:" }, "div", "think-ok"));
+          done(false);
+        } else {
+          b.classList.add("wrong");
+          fb.innerHTML = "";
+          fb.appendChild(biNode(opt.hint || { zh: "再想一想，也可以先按「直接看這一步」。", en: "Have another think, or press \"Show this step\" anytime." }, "div", "think-hint"));
+        }
+      };
+      opts.appendChild(b);
+    });
+    var actions = el("div", "think-actions");
+    var skipBtn = btnPair("btn btn-sm btn-ghost think-skip", { zh: "直接看這一步 →", en: "Show this step →" });
+    skipBtn.onclick = function () { done(true); };
+    actions.appendChild(skipBtn);
+    box.appendChild(opts);
+    box.appendChild(fb);
+    box.appendChild(actions);
+    host.appendChild(box);
+    if (typeof box.scrollIntoView === "function") {
+      try { box.scrollIntoView({ block: "nearest", behavior: window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); } catch (e) {}
+    }
+    return box;
+  }
+
   function appendStepExtras(box, st) {
+    if (st.translate) appendTranslate(box, st.translate);
+    if (st.align) appendAlign(box, st.align);
     if (st.link && st.link.math) {
       var lk = el("div", "step-link");
       var ltag = el("span", "lk-tag");
@@ -1310,6 +1502,8 @@
 
       // 概念卡示意圖（一張卡可以有多幅圖：例如變換多於一次就逐步畫）
       appendFigures(card, c);
+      if (c.align) appendAlign(card, c.align);
+      if (c.translate) appendTranslate(card, c.translate);
 
       /* 正文：中英各渲染一次（{{math:N}} 兩邊一樣，所以兩份都插得對）*/
       var b = el("div", "ccard-body concept-body");
@@ -1755,7 +1949,7 @@
         } else {
           box.appendChild(f);
         }
-        if (!GUIDED_COURSE && qsa(".hlk, .hlw, .hlg, .xf", f).length) box.appendChild(replayButton(f));
+        if (qsa(".hlk, .hlw, .hlg, .xf, .xc", f).length) box.appendChild(replayButton(f));
       }
       var why = biNode({ zh: st.zh || "", en: st.en || st.zh || "" }, "div", "why");
       box.appendChild(why);
@@ -1773,18 +1967,42 @@
       }
     }
 
+    var awaitingThink = null;
+    function clearPendingThink() {
+      if (awaitingThink && awaitingThink.parentNode) awaitingThink.parentNode.removeChild(awaitingThink);
+      awaitingThink = null;
+      moreBtn.disabled = false;
+    }
+    function advanceStep() {
+      if (shown >= steps.length) { finish(); return; }
+      var st = steps[shown];
+      if (st && st.think && (st.think.options || []).length >= 2) {
+        moreBtn.disabled = true;
+        awaitingThink = renderStepThink(stepsHost, st, shown, function () {
+          awaitingThink = null;
+          moreBtn.disabled = false;
+          drawStep(shown); shown++;
+          if (shown >= steps.length) finish();
+        });
+        return;
+      }
+      drawStep(shown); shown++;
+      if (shown >= steps.length) finish();
+    }
+
     startBtn.onclick = function () {
       tryRow.classList.add("hidden");
       moreRow.classList.remove("hidden");
       shown = 0;
-      drawStep(0); shown = 1;
-      if (shown >= steps.length) finish();
+      clearPendingThink();
+      advanceStep();
     };
     moreBtn.onclick = function () {
-      if (shown < steps.length) { drawStep(shown); shown++; }
-      if (shown >= steps.length) finish();
+      if (awaitingThink) return;
+      advanceStep();
     };
     allBtn.onclick = function () {
+      clearPendingThink();
       while (shown < steps.length) { drawStep(shown); shown++; }
       finish();
     };
@@ -1800,6 +2018,7 @@
       // tip 可以含 $...$（例如 $\Delta$、$^{2}$）→ 一定要行內渲染，否則會露出原字元
       if (sol.tip && (sol.tip.zh || sol.tip.en)) boxt.appendChild(biNode(sol.tip, "p"));
       endRow.appendChild(boxt);
+      if (sol.concepts && sol.concepts.length) appendRelatedConcepts(endRow, sol.concepts, pages);
       endRow.classList.remove("hidden");
       if (GUIDED_COURSE) {
         var checkDetails = el("details", "factor-review-details");
@@ -1808,7 +2027,7 @@
         if (sol.reflect) {
           var reflection = el("section", "factor-reflection"); reflection.appendChild(biNode(sol.reflect, "p"));
           var retry = btnPair("btn btn-sm", { zh: "收起步驟，再自己寫一次", en: "Hide the steps and try it myself" });
-          retry.onclick = function () { stepsHost.innerHTML = ""; endRow.innerHTML = ""; endRow.classList.add("hidden"); tryRow.classList.remove("hidden"); shown = 0; finished = false; scrollToTopOf(card); };
+          retry.onclick = function () { clearPendingThink(); stepsHost.innerHTML = ""; endRow.innerHTML = ""; endRow.classList.add("hidden"); tryRow.classList.remove("hidden"); shown = 0; finished = false; scrollToTopOf(card); };
           reflection.appendChild(retry); endRow.appendChild(reflection);
         }
       } else appendLongTraps(endRow, sol);       // 常見錯誤（只有標了 traps 的示範才有）
@@ -2116,7 +2335,7 @@
       }
     }
 
-    function feedback(ok, finalWrong) {
+    function feedback(ok, finalWrong, wrongOpt) {
       fbHost.innerHTML = "";
       var box = el("div", "feedback " + (ok ? "ok" : "bad"));
       box.setAttribute("data-feedback", ok ? "ok" : "bad");
@@ -2131,11 +2350,29 @@
         : (finalWrong ? { zh: "兩次都未答對", en: "Not right after two tries" }
                       : { zh: "唔係這一個", en: "Not this one" })));
       var sub = el("span", "fb-sub");
-      if (GUIDED_COURSE) sub.appendChild(biSpan(ok
-        ? { zh: "再想一想：哪一個因式或恆等式令這個答案成立？", en: "Which common factor or identity makes this answer work?" }
-        : finalWrong ? { zh: "對照下面的差別，再逐步看解法。這題已留作重溫。", en: "Compare the difference below, then follow the worked steps. This question is saved to revisit." }
-        : q.practiceGoal ? { zh: "除了核對是否等值，也要檢查有沒有分解到底。可再試一次，或先看提示。", en: "Check both equivalence and whether factorisation is complete. Try again, or open a hint first." }
-        : { zh: "可先展開你選的式子核對係數，再試一次，或先看提示。", en: "Expand your choice to compare coefficients. Try again, or open a hint first." }));
+      if (GUIDED_COURSE) {
+        var isFactor = COURSE_ID === "factorization";
+        var isLinear = COURSE_ID === "simultaneous-equations";
+        var nudge = null;
+        if (!ok && !finalWrong && wrongOpt) {
+          var matchedTrap = (sol.traps || []).filter(function (tr) { return tr.opt === wrongOpt && tr.nudge; })[0];
+          if (matchedTrap) nudge = matchedTrap.nudge;
+        }
+        sub.appendChild(biSpan(ok
+          ? (isFactor
+            ? { zh: "再想一想：哪一個因式或恆等式令這個答案成立？", en: "Which common factor or identity makes this answer work?" }
+            : isLinear
+              ? { zh: "做得好！這組解同時滿足兩條方程，而且對齊了題目最後所求的量。", en: "Well done! This satisfies both equations and matches the quantity requested." }
+              : { zh: "再想一想：哪一步關鍵推理令這個答案成立？", en: "Which key step makes this answer work?" })
+          : finalWrong ? { zh: "對照下面的差別，再逐步看解法。這題已留作重溫。", en: "Compare the difference below, then follow the worked steps. This question is saved to revisit." }
+          : nudge ? nudge
+          : q.practiceGoal ? { zh: "除了核對是否等值，也要檢查有沒有分解到底。可再試一次，或先看提示。", en: "Check both equivalence and whether factorisation is complete. Try again, or open a hint first." }
+          : isFactor
+            ? { zh: "可先展開你選的式子核對係數，再試一次，或先看提示。", en: "Expand your choice to compare coefficients. Try again, or open a hint first." }
+            : isLinear
+              ? { zh: "把你的數值代回兩條條件核對，或先看看題目問的是哪一個未知數。再試一次，或先看提示。", en: "Check your value against both conditions, or check which unknown the question asks for. Try again, or open a hint first." }
+              : { zh: "對照題目條件檢查每一步符號與係數，再試一次，或先看提示。", en: "Check each sign and coefficient against the question. Try again, or open a hint first." }));
+      }
       else sub.appendChild(biSpan(ok
         ? { zh: "已記錄這一次作答。", en: "This attempt is saved." }
         : (finalWrong
@@ -2221,7 +2458,7 @@
         markPicked();
         markWrong(wrong);
         submitBtn.disabled = true;
-        feedback(false, false);
+        feedback(false, false, wrong);
         toast(T({ zh: "再試一次 —— 還有一次機會", en: "Try again — one more go" }));
         markPage();
         return;
@@ -2275,7 +2512,7 @@
         } else {
           box.appendChild(f);
         }
-        if (!GUIDED_COURSE && qsa(".hlk, .hlw, .hlg, .xf", f).length) box.appendChild(replayButton(f));
+        if (qsa(".hlk, .hlw, .hlg, .xf, .xc", f).length) box.appendChild(replayButton(f));
       }
       box.appendChild(biNode({ zh: st.zh || "", en: st.en || st.zh || "" }, "div", "why"));
       /* 冇算式（純文字步驟）才把評分代號留在下面 */
@@ -2315,7 +2552,9 @@
           // 把「答錯」重新框架成「掉進陷阱」：內部歸因 → 具體策略修正
           var trapHead = el("div", "trap-head");
           trapHead.appendChild(biSpan(GUIDED_COURSE ? (picked
-            ? { zh: "核對這個選項的分解", en: "Check this option’s factorisation" }
+            ? (COURSE_ID === "factorization"
+              ? { zh: "核對這個選項的分解", en: "Check this option’s factorisation" }
+              : { zh: "看看這個選項哪一步出了偏差", en: "See where this option went off" })
             : { zh: "其他選項如何核對", en: "Checking the other options" }) : picked
             ? { zh: "✕ 差一點 —— 你不是不懂，而是掉進了出卷人設計的陷阱。看看偏差出在哪一步：",
                 en: "✕ So close — you are not lost, you stepped into a trap the examiner set. " +
@@ -2335,6 +2574,7 @@
         tail.appendChild(tip);
       }
       appendAlt(tail, sol);          // 進階解法／驗算（MC 與長題共用同一個元件）
+      if (sol.concepts && sol.concepts.length) appendRelatedConcepts(tail, sol.concepts, pages);
       if (aiOn()) {
         var ai = btnPair("btn btn-sm btn-ai",
                          { zh: "問 AI：我唔明白這題的某一步", en: "Ask AI about a step of this question" });
