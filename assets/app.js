@@ -2879,6 +2879,35 @@
     return b;
   }
 
+  /* ── 頁底版本與更新時間（方便老師一眼確認網站是否已載入最新發佈）────── */
+  function formatBuildTime(iso) {
+    if (!iso) return "";
+    var d = new Date(iso);
+    if (isNaN(d.getTime())) return String(iso);
+    /* 固定顯示香港時間（UTC+8），避免不同裝置時區混淆 */
+    var hk = new Date(d.getTime() + 8 * 3600 * 1000);
+    var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+    return hk.getUTCFullYear() + "-" + pad(hk.getUTCMonth() + 1) + "-" + pad(hk.getUTCDate()) +
+      " " + pad(hk.getUTCHours()) + ":" + pad(hk.getUTCMinutes()) + " HKT";
+  }
+  function renderBuildInfo() {
+    var ver = window.__V || "";
+    var ts = formatBuildTime(INDEX && INDEX.generatedAt);
+    if (!ver && !ts) return;
+    var host = qs(".portal-footer") || qs("#main") || document.body;
+    if (!host) return;
+    var node = qs("#build-info");
+    if (!node) {
+      node = el("p", "build-info");
+      node.id = "build-info";
+      host.appendChild(node);
+    }
+    var zhParts = [], enParts = [];
+    if (ver) { zhParts.push("版本 " + ver); enParts.push("Build " + ver); }
+    if (ts) { zhParts.push("更新 " + ts); enParts.push("Updated " + ts); }
+    setPair(node, { zh: zhParts.join(" · "), en: enParts.join(" · ") });
+  }
+
   /* ── 啟動 ───────────────────────────────────────────────────────────── */
   var started = false;
   function renderCurrentPage() {
@@ -2888,6 +2917,7 @@
     else if (PAGE === "revision") renderRevision();
     else if (PAGE === "topic") renderTopic();
     else if (PAGE === "wrong") renderWrong();
+    renderBuildInfo();
   }
   /* 切換語言時由 assets/i18n.js 呼叫：單語文字（T() 出來的那些）要重新繪製 */
   window.__LEARN_RELANG = function () {

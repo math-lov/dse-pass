@@ -90,6 +90,7 @@ ok(!!home.$(".safety-note") && /進度只儲存/.test(home.$(".safety-note").tex
 ok(!!home.$('.safety-note a[href="start.html"]'), "home links to the guide");
 ok(!!home.$('.site-links [aria-current="page"]'), "other-site navigation identifies this site");
 ok(home.$('.site-nav [aria-current="page"]').getAttribute("href") === "index.html", "home is selected in main navigation");
+ok(!!home.$("#build-info") && /版本|Build/.test(home.$("#build-info").textContent), "footer displays build info");
 
 const foundations = boot("foundations.html", "");
 ok(foundations.$$(".course-link").length === navData.courses.length, "one course entry per named topic");
